@@ -1,4 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
+import Globe from "./Globe";
+import Timeline from "./Timeline";
+import SatelliteInfo from "./SatelliteInfo";
 import type { FormEvent } from "react";
 import { getGroundTrack } from "./ground-track-api";
 import type { GroundTrackResult, TrackPoint } from "./ground-track-api";
@@ -125,6 +128,7 @@ export default function GroundTrack({
   source: SnapshotSummary;
   initialTime: string;
 }) {
+  const infoPanel = useRef<HTMLElement | null>(null);
   const sampleControlId = useId();
   const [start, setStart] = useState(initialTime);
   const [duration, setDuration] = useState("90");
@@ -149,7 +153,7 @@ export default function GroundTrack({
       minutes = Number(duration),
       seconds = Number(step);
     if (
-      !/(Z|[+-]\d{2}:\d{2})$/.test(start) ||
+      formatUtc(start) === "Unavailable" ||
       !Number.isFinite(time) ||
       !Number.isInteger(minutes) ||
       minutes < 1 ||
@@ -239,6 +243,17 @@ export default function GroundTrack({
             }}
           />
         </label>
+        <button
+          type="button"
+          onClick={() => {
+            clear();
+            setStart(initialTime);
+            setDuration("90");
+            setStep("60");
+          }}
+        >
+          Reset track window
+        </button>
         <button disabled={loading} type="submit">
           Generate ground track
         </button>
@@ -251,6 +266,24 @@ export default function GroundTrack({
       {loading && <p role="status">Generating backend ground track…</p>}
       {error && <p role="alert">Ground track unavailable: {error}</p>}
       {!track && !loading && !error && <p>No ground track calculated yet.</p>}
+      <div className="explorer-grid">
+        <div className="earth-workspace">
+          <Globe
+            points={track?.points}
+            selected={index}
+            onInspect={() => infoPanel.current?.focus()}
+          />
+          {track && (
+            <Timeline
+              key={track.actual_start + track.actual_end}
+              points={track.points}
+              index={index}
+              onSelect={setIndex}
+            />
+          )}
+        </div>
+        <SatelliteInfo source={source} point={selected} panelRef={infoPanel} />
+      </div>
       {track && selected && (
         <div aria-label="Calculated ground-track result">
           <h4>

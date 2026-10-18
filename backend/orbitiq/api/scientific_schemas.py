@@ -127,6 +127,9 @@ class EarthFixedPosition(BaseModel):
     velocity_km_s: tuple[FiniteFloat, FiniteFloat, FiniteFloat]
     units: TerrestrialUnits
     geodetic: GeodeticPosition
+    ground_position_km: tuple[FiniteFloat, FiniteFloat, FiniteFloat] = Field(
+        description="ITRS WGS84 normal footpoint at zero ellipsoidal height, km"
+    )
     transformation_status: Literal["measured_eop", "predicted_eop"]
     method: str
     astropy_version: str

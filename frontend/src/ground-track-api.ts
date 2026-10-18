@@ -3,6 +3,10 @@ import { formatUtc } from "./time-presentation";
 
 export interface TrackPoint {
   at: string;
+  frame: "ITRS";
+  position_km?: [number, number, number];
+  ground_position_km?: [number, number, number];
+  teme?: { calculated_at?: string };
   sample_index: number;
   segment_id: number;
   geodetic: {
@@ -44,6 +48,9 @@ function record(v: unknown): v is Record<string, unknown> {
 }
 function finite(v: unknown): v is number {
   return typeof v === "number" && Number.isFinite(v);
+}
+function vector(v: unknown): boolean {
+  return Array.isArray(v) && v.length === 3 && v.every(finite);
 }
 function text(v: unknown): v is string {
   return typeof v === "string";
@@ -104,6 +111,8 @@ export function parseTrack(
   const points: TrackPoint[] = data.points.map((p: unknown, i: number) => {
     if (
       !record(p) ||
+      (p.position_km !== undefined && !vector(p.position_km)) ||
+      (p.ground_position_km !== undefined && !vector(p.ground_position_km)) ||
       !record(p.geodetic) ||
       !record(p.earth_orientation) ||
       !record(p.teme) ||
@@ -123,6 +132,8 @@ export function parseTrack(
       p.teme.retrieved_at !== source.retrieved_at ||
       p.teme.at !== p.at ||
       p.teme.frame !== "TEME" ||
+      (p.teme.calculated_at !== undefined &&
+        !timestamp(p.teme.calculated_at)) ||
       !timestamp(p.at) ||
       p.sample_index !== i ||
       !finite(p.segment_id) ||

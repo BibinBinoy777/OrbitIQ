@@ -158,3 +158,17 @@ it("rejects a valid track returned for a different requested interval", async ()
     ),
   ).rejects.toThrow(/do not match/);
 });
+
+it.each(["position_km", "ground_position_km"])(
+  "rejects invalid optional %s before 3D rendering",
+  (key) => {
+    const data = fixture();
+    const points = data.points.map((p) => ({ ...p, [key]: [NaN, 0, 0] }));
+    expect(() => parseTrack({ ...data, points }, source)).toThrow();
+  },
+);
+it("keeps old valid 2D responses usable without inventing missing 3D vectors", () => {
+  const result = parseTrack(fixture(), source);
+  expect(result.points[0].position_km).toBeUndefined();
+  expect(result.points[0].ground_position_km).toBeUndefined();
+});

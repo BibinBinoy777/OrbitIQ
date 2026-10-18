@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import GroundTrack from "./GroundTrack";
+import Globe from "./Globe";
 import type { FormEvent } from "react";
 import { getPosition, getSnapshots } from "./scientific-api";
 import type { PositionResult, SnapshotSummary } from "./scientific-api";
@@ -116,8 +117,9 @@ export default function ScientificExplorer() {
     <section className="science" aria-labelledby="science-title">
       <h2 id="science-title">Stored orbital data</h2>
       <p>
-        Inspect source snapshots and calculate a position on the backend.
-        Loading snapshots does not download new orbital elements.
+        Inspect source snapshots and calculate a position on the backend. Search
+        stored data by NORAD catalog ID. This is not a global catalog search;
+        loading snapshots does not download new orbital elements.
       </p>
       <form onSubmit={load} className="controls">
         <label>
@@ -138,6 +140,7 @@ export default function ScientificExplorer() {
           No stored snapshots for this catalog ID. No current data is available.
         </p>
       )}
+      {!selected && <Globe />}
       {selected && (
         <>
           <label>
@@ -179,144 +182,149 @@ export default function ScientificExplorer() {
             Latest stored does not mean current or accurate. Recent retrieval
             does not refresh an older orbital epoch.
           </p>
-          <dl className="metadata">
-            <dt>Orbital epoch</dt>
-            <dd>{formatUtc(selected.orbital_epoch)}</dd>
-            <dt>First retrieved</dt>
-            <dd>{formatUtc(selected.retrieved_at)}</dd>
-            <dt>Age evaluated</dt>
-            <dd>{formatUtc(selected.freshness_info?.evaluated_at)}</dd>
-            <dt>Snapshot creation time</dt>
-            <dd>Not recorded separately</dd>
-            <dt>Source frame</dt>
-            <dd>
-              {selected.frame === "TEME"
-                ? "TEME · Earth-centered"
-                : "Unknown / unsupported"}
-            </dd>
-            <dt>Source</dt>
-            <dd>
-              {href ? (
-                <a href={href} target="_blank" rel="noreferrer">
-                  CelesTrak GP record
-                </a>
-              ) : (
-                "Unavailable"
-              )}
-            </dd>
-            <dt>Snapshot #{selected.id} SHA-256</dt>
-            <dd className="hash">
-              {/^[a-f0-9]{64}$/.test(selected.response_sha256 ?? "")
-                ? selected.response_sha256
-                : "Unavailable"}
-            </dd>
-            <dt>Input validation</dt>
-            <dd>
-              {selected.validation_status ===
-              "structural_and_epoch_propagation_passed"
-                ? "Format and epoch propagation checks passed; not observational accuracy."
-                : "Unavailable"}
-            </dd>
-          </dl>
-          <form onSubmit={calculate} className="controls">
-            <label>
-              Requested propagation time (UTC or explicit offset)
-              <input
-                value={at}
-                onChange={(e) => {
-                  clearCalculation();
-                  setAt(e.target.value);
-                }}
-                required
-                spellCheck={false}
-              />
-            </label>
-            <button type="submit" disabled={!at || calculating}>
-              Calculate position
-            </button>
-          </form>
-          <p>
-            Time must include a timezone and be within ±7 days of this
-            snapshot’s epoch. This position calculation returns TEME;
-            Earth-fixed tracks are available below.
-          </p>
-          {calculating && <p role="status">Calculating backend SGP4 state…</p>}
-          {calculationError && (
-            <p role="alert">Calculation failed: {calculationError}</p>
-          )}
           <GroundTrack
-            key={`${selected.id}:${at}`}
+            key={selected.id}
             source={selected}
-            initialTime={at}
+            initialTime={selected.orbital_epoch ?? ""}
           />
-          {position && (
-            <div className="result" aria-label="Calculated orbital state">
-              <h3>Calculated position · {position.frame}</h3>
-              <p>
-                Not a direct observation. Uncertainty is not quantified; no
-                collision or safety conclusion is provided.
-              </p>
-              <dl className="metadata">
-                <dt>Requested time</dt>
-                <dd>{formatUtc(position.at)}</dd>
-                <dt>Calculated at</dt>
-                <dd>{formatUtc(position.calculated_at)}</dd>
-                <dt>Result orbital epoch</dt>
-                <dd>{formatUtc(position.orbital_epoch)}</dd>
-                <dt>Result source retrieval</dt>
-                <dd>{formatUtc(position.retrieved_at)}</dd>
-                <dt>Model</dt>
-                <dd>
-                  SGP4 / WGS72 · library{" "}
-                  {position.sgp4_version ?? "Unavailable"}
-                </dd>
-                <dt>Calculation validation scope</dt>
-                <dd>
-                  {position.validation_status ===
-                  "reference_tested_engine_not_observation_validated"
-                    ? "Published reference cases tested; this orbit is not observation-validated."
-                    : "Validation metadata unavailable"}
-                </dd>
-                <dt>Result source SHA-256</dt>
-                <dd className="hash">
-                  {position.response_sha256 ?? "Unavailable"}
-                </dd>
-              </dl>
-              <table>
-                <caption>
-                  TEME Cartesian vectors, Earth center. Not Earth-fixed
-                  coordinates.
-                </caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Axis</th>
-                    <th scope="col">Position (km)</th>
-                    <th scope="col">Velocity (km/s)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {["x", "y", "z"].map((axis, i) => (
-                    <tr key={axis}>
-                      <th scope="row">{axis}</th>
-                      <td>{position.position_km[i].toFixed(3)}</td>
-                      <td>{position.velocity_km_s[i].toFixed(6)}</td>
+          <details className="source-details">
+            <summary>Source provenance and TEME inspection</summary>
+            <dl className="metadata">
+              <dt>Orbital epoch</dt>
+              <dd>{formatUtc(selected.orbital_epoch)}</dd>
+              <dt>First retrieved</dt>
+              <dd>{formatUtc(selected.retrieved_at)}</dd>
+              <dt>Age evaluated</dt>
+              <dd>{formatUtc(selected.freshness_info?.evaluated_at)}</dd>
+              <dt>Snapshot creation time</dt>
+              <dd>Not recorded separately</dd>
+              <dt>Source frame</dt>
+              <dd>
+                {selected.frame === "TEME"
+                  ? "TEME · Earth-centered"
+                  : "Unknown / unsupported"}
+              </dd>
+              <dt>Source</dt>
+              <dd>
+                {href ? (
+                  <a href={href} target="_blank" rel="noreferrer">
+                    CelesTrak GP record
+                  </a>
+                ) : (
+                  "Unavailable"
+                )}
+              </dd>
+              <dt>Snapshot #{selected.id} SHA-256</dt>
+              <dd className="hash">
+                {/^[a-f0-9]{64}$/.test(selected.response_sha256 ?? "")
+                  ? selected.response_sha256
+                  : "Unavailable"}
+              </dd>
+              <dt>Input validation</dt>
+              <dd>
+                {selected.validation_status ===
+                "structural_and_epoch_propagation_passed"
+                  ? "Format and epoch propagation checks passed; not observational accuracy."
+                  : "Unavailable"}
+              </dd>
+            </dl>
+            <form onSubmit={calculate} className="controls">
+              <label>
+                Requested propagation time (UTC or explicit offset)
+                <input
+                  value={at}
+                  onChange={(e) => {
+                    clearCalculation();
+                    setAt(e.target.value);
+                  }}
+                  required
+                  spellCheck={false}
+                />
+              </label>
+              <button type="submit" disabled={!at || calculating}>
+                Calculate position
+              </button>
+            </form>
+            <p>
+              Time must include a timezone and be within ±7 days of this
+              snapshot’s epoch. This position calculation returns TEME;
+              Earth-fixed tracks are available below.
+            </p>
+            {calculating && (
+              <p role="status">Calculating backend SGP4 state…</p>
+            )}
+            {calculationError && (
+              <p role="alert">Calculation failed: {calculationError}</p>
+            )}
+            {position && (
+              <div className="result" aria-label="Calculated orbital state">
+                <h3>Calculated position · {position.frame}</h3>
+                <p>
+                  Not a direct observation. Uncertainty is not quantified; no
+                  collision or safety conclusion is provided.
+                </p>
+                <dl className="metadata">
+                  <dt>Requested time</dt>
+                  <dd>{formatUtc(position.at)}</dd>
+                  <dt>Calculated at</dt>
+                  <dd>{formatUtc(position.calculated_at)}</dd>
+                  <dt>Result orbital epoch</dt>
+                  <dd>{formatUtc(position.orbital_epoch)}</dd>
+                  <dt>Result source retrieval</dt>
+                  <dd>{formatUtc(position.retrieved_at)}</dd>
+                  <dt>Model</dt>
+                  <dd>
+                    SGP4 / WGS72 · library{" "}
+                    {position.sgp4_version ?? "Unavailable"}
+                  </dd>
+                  <dt>Calculation validation scope</dt>
+                  <dd>
+                    {position.validation_status ===
+                    "reference_tested_engine_not_observation_validated"
+                      ? "Published reference cases tested; this orbit is not observation-validated."
+                      : "Validation metadata unavailable"}
+                  </dd>
+                  <dt>Result source SHA-256</dt>
+                  <dd className="hash">
+                    {position.response_sha256 ?? "Unavailable"}
+                  </dd>
+                </dl>
+                <table>
+                  <caption>
+                    TEME Cartesian vectors, Earth center. Not Earth-fixed
+                    coordinates.
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Axis</th>
+                      <th scope="col">Position (km)</th>
+                      <th scope="col">Velocity (km/s)</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p>
-                Values are rounded for display. Displayed precision is not
-                prediction accuracy.
-              </p>
-              {position.warnings.length > 0 && (
-                <ul>
-                  {position.warnings.map((w, i) => (
-                    <li key={i}>{w}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          )}
+                  </thead>
+                  <tbody>
+                    {["x", "y", "z"].map((axis, i) => (
+                      <tr key={axis}>
+                        <th scope="row">{axis}</th>
+                        <td>{position.position_km[i].toFixed(3)}</td>
+                        <td>{position.velocity_km_s[i].toFixed(6)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p>
+                  Values are rounded for display. Displayed precision is not
+                  prediction accuracy.
+                </p>
+                {position.warnings.length > 0 && (
+                  <ul>
+                    {position.warnings.map((w, i) => (
+                      <li key={i}>{w}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+          </details>
         </>
       )}
     </section>

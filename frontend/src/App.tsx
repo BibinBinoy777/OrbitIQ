@@ -17,9 +17,9 @@ export default function App() {
   }, []);
   return (
     <main>
-      <p>PHASE 3 · EARTH-RELATIVE ANALYSIS</p>
-      <h1>OrbitIQ</h1>
-      <p>Satellite exploration and orbital investigation.</p>
+      <p>ORBITIQ / EXPLORER</p>
+      <h1>Explore Earth’s orbital neighborhood.</h1>
+      <p>Satellite exploration grounded in traceable orbital data.</p>
       <p role="status">{status}</p>
       <ScientificExplorer />
     </main>

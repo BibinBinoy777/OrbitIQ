@@ -278,3 +278,50 @@ The original 40 SGP4 references and their tolerances remain unchanged.
 Selected transformation agreement is numerical verification, not universal
 terrestrial accuracy, observation validation or quantified prediction uncertainty.
 The residuals and limited precision claims are explicit in the Phase 3 report.
+
+
+## Phase 4 rendering and timeline conventions
+
+Earth-fixed responses add `ground_position_km`: ITRS Cartesian **km** of the
+WGS84 normal footpoint at zero ellipsoidal height, computed on the backend with
+Astropy `EarthLocation.from_geodetic` using the validated geodetic latitude and
+longitude. This is not a radial projection, observer location or another orbit.
+The new field is additive; original TEME/ITRS vectors, source/EOP/time metadata,
+limits and failure semantics remain unchanged. Analytic WGS84 axes and a
+SOFA gd2gc reference with analytic normal-height removal test this output.
+
+Three.js consumes actual ITRS satellite and footpoint vectors. Presentation maps
+ITRS `(x,y,z)` to Three `(x,z,-y)`, dividing all components by 6378.137 km. This is
+a right-handed display basis and uniform scale, not a new celestial/terrestrial
+conversion. Earth is a tessellated WGS84 ellipsoid (polar/equatorial ratio
+1-1/298.257223563); satellite centres retain the returned distance scale. No TEME
+vector is placed directly on Earth. Missing/malformed required rendering vectors
+or positions beyond the declared display extent (400 equatorial Earth radii)
+disable markers rather than creating substitutes; metadata/2D remain available.
+
+The surface overlay is lifted by a display factor **1.002**, roughly 12.8 km at
+the equator, to avoid surface occlusion; it is clearly labelled illustrative.
+Satellite glyph radius is exaggerated (0.02 display Earth radii), not a physical
+size estimate. Static Earth imagery, tessellation and fixed fill lighting are
+visual context, not precision cartography, terrain, sunlight or illumination at
+the selected epoch. The texture is not a scientifically validated georeference.
+Exact values belong to the numeric data panel. 3D paths connect only same-segment
+samples <=60 s apart; coarser samples remain dots, avoiding long chords through
+Earth. 2D retains its existing antimeridian and >5-minute gap rules. Both views
+share the same backend dataset and selected sample; neither invents edge points.
+
+Timeline playback advances one returned sample each real second with no
+interpolation, orbital calculation or network request. A 60-second sampling step
+therefore advances simulation time by 60 seconds per playback tick; it is not a
+live observation stream. Requested propagation time, source epoch, first retrieval
+and actual calculation time are distinct UTC fields. Reset selects the first
+returned sample; playback stops at end, on interval/source change, fatal track
+failure, hidden document or unmount. Reduced motion disables automatic playback
+and retains keyboard/manual sample navigation. In-memory results are labelled
+calculated from a stored snapshot; no derived history/timeline state is persisted.
+
+Stored discovery uses an explicit NORAD-ID snapshot request. Source element
+inclination (degrees), eccentricity (dimensionless), mean motion (rev/day) and
+international identifier come from the existing validated snapshot-detail API.
+No unsupported orbital parameter is invented to fill the panel. Previous
+uncertainty, leap-crossing, EOP-maintenance and reference-residual limits remain.

@@ -73,6 +73,21 @@ def geodetic(position_km):
     return result
 
 
+def surface_position(ground: dict) -> list[float]:
+    """WGS84 normal footpoint at zero ellipsoidal height, in ITRS km."""
+    latitude, longitude = ground["latitude_deg"], ground["longitude_deg"]
+    if (
+        any(isinstance(x, bool) or not math.isfinite(x) for x in (latitude, longitude))
+        or not -90 <= latitude <= 90
+        or not -180 <= longitude < 180
+    ):
+        raise TransformationError("invalid_coordinates", "Invalid geodetic footpoint")
+    location = EarthLocation.from_geodetic(
+        longitude * u.deg, latitude * u.deg, 0 * u.km, ellipsoid="WGS84"
+    )
+    return finite_vector([float(v.to_value(u.km)) for v in location.to_geocentric()])
+
+
 def earth_fixed(teme: dict) -> dict:
     if not isinstance(teme, dict) or not isinstance(teme.get("units"), dict):
         raise TransformationError(
@@ -125,6 +140,7 @@ def earth_fixed(teme: dict) -> dict:
             finite_vector(xyz)
             finite_vector(velocity)
             ground = geodetic(xyz)
+            ground_xyz = surface_position(ground)
     except TransformationError:
         raise
     except (ValueError, TypeError, ArithmeticError, AstropyWarning, erfa.ErfaWarning):
@@ -141,6 +157,7 @@ def earth_fixed(teme: dict) -> dict:
         "origin": "Earth center",
         "time_system": "UTC",
         "position_km": xyz,
+        "ground_position_km": ground_xyz,
         "velocity_km_s": velocity,
         "units": {
             "position": "km",

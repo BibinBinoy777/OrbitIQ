@@ -1,0 +1,59 @@
+{
+  "checks": [
+    "desktop: genuine WebGL2, camera rotation/zoom/reset, actual ISS source/detail/91-sample track, shared map/globe/timeline, mouse marker inspection, keyboard slider, exact-sample play/pause/no API requests and no horizontal overflow PASS",
+    "Actual WEBGL_lose_context loss and restoration: fallback map/timeline remain usable; renderer recovers PASS",
+    "tablet: genuine WebGL2, camera rotation/zoom/reset, actual ISS source/detail/91-sample track, shared map/globe/timeline, mouse marker inspection, keyboard slider, exact-sample play/pause/no API requests and no horizontal overflow PASS",
+    "mobile: genuine WebGL2, camera rotation/zoom/reset, actual ISS source/detail/91-sample track, shared map/globe/timeline, mouse marker inspection, keyboard slider, exact-sample play/pause/no API requests and no horizontal overflow PASS",
+    "Forced unsupported WebGL capability + actual browser reduced-motion preference: accessible source/map/slider usable, play disabled, manual stepping works PASS"
+  ],
+  "api_requests": {
+    "ground_track_requests": 6,
+    "external_browser_requests": 0
+  },
+  "browser_errors": [],
+  "external_orbital_fetches": 0,
+  "external_eop_fetches": 0,
+  "browser": {
+    "chromium": "154.0.8037.57",
+    "playwright": "1.62.0",
+    "rendering": "WebGL2 using explicitly enabled SwiftShader software renderer; physical GPU performance not measured"
+  },
+  "webgl": {
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "sample": {
+    "catalog_id": 25544,
+    "snapshot_id": 1,
+    "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+    "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+    "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+    "sample_count": 91,
+    "requested_start": "2026-10-18T11:12:47.040768+00:00",
+    "requested_end": "2026-10-18T12:42:47.040768+00:00"
+  },
+  "first_point": {
+    "at": "2026-10-18T11:12:47.040768+00:00",
+    "position_km": [
+      -5577.111009522075,
+      -3887.009070307837,
+      -0.001256334051309583
+    ],
+    "ground_position_km": [
+      -5232.641962479539,
+      -3646.9288015076318,
+      -0.0011782463911832034
+    ],
+    "geodetic": {
+      "latitude_deg": -1.0655700726308598e-05,
+      "longitude_deg": -145.12514392031295,
+      "altitude_km": 419.87791063305133,
+      "height_reference": "WGS84 ellipsoid"
+    },
+    "transformation_status": "predicted_eop"
+  },
+  "database_sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+  "database_integrity": "ok",
+  "checked_at_utc": "2026-10-18T18:44:30.638879+00:00",
+  "scope": "Actual local HTTP/WebGL integration with the preserved genuine ISS snapshot; audit evidence only, not derived application history storage. Forced unsupported WebGL and reduced-motion scenarios are labelled separately."
+}

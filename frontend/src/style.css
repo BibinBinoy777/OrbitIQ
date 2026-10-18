@@ -157,3 +157,194 @@ td {
   margin-top: 0.6rem;
   font-size: 0.9rem;
 }
+/* Explorer composition preserves the existing scientific viewer and palette. */
+main {
+  max-width: 86rem;
+}
+h1 {
+  max-width: 19ch;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 1rem 0;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+}
+h4 {
+  font-size: 1.1rem;
+  margin: 0.7rem 0;
+}
+h5 {
+  font-size: 0.9rem;
+  margin: 1.5rem 0 0.8rem;
+}
+button {
+  min-height: 44px;
+}
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: #9db5d0;
+}
+.explorer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(17rem, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+.earth-workspace,
+.satellite-info {
+  min-width: 0;
+}
+.globe-card {
+  overflow: hidden;
+  background: #0c1424;
+  border: 1px solid #405873;
+  border-radius: 0.6rem;
+  padding: 1rem;
+}
+.globe-topline,
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+}
+.globe-canvas {
+  width: 100%;
+  height: 400px;
+}
+.globe-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  border-radius: 0.3rem;
+}
+.globe-fallback {
+  min-height: 13rem;
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+  line-height: 1.6;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+.toolbar button {
+  font-size: 0.78rem;
+  padding: 0.5rem 0.65rem;
+  color: #dcecff;
+  background: #142039;
+}
+.toolbar button[aria-pressed="true"] {
+  color: #0c1424;
+  background: #b6d8ff;
+}
+.globe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+.legend-satellite {
+  color: #ffd782;
+}
+.legend-ground {
+  color: #63d8c7;
+}
+.visual-note {
+  font-size: 0.78rem;
+  color: #b4c7dd;
+  line-height: 1.6;
+}
+.timeline,
+.satellite-info {
+  padding: 1.2rem;
+  border: 1px solid #405873;
+  background: #101c30;
+  border-radius: 0.6rem;
+}
+.timeline {
+  margin-top: 1rem;
+}
+.timeline input[type="range"] {
+  width: 100%;
+  accent-color: #63d8c7;
+  padding: 0;
+  min-height: 44px;
+}
+.timeline p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.selected-time {
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.satellite-info p {
+  overflow-wrap: anywhere;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.satellite-name {
+  font-size: 1.35rem !important;
+  font-weight: 600;
+}
+.element-values {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+.element-values div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.element-values dd {
+  color: #b6d8ff;
+}
+details {
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+summary {
+  cursor: pointer;
+  color: #b6d8ff;
+  padding: 0.7rem 0;
+}
+.source-details {
+  border-top: 1px solid #405873;
+  margin-top: 2rem;
+}
+@media (max-width: 960px) {
+  .explorer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .satellite-info {
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .globe-canvas {
+    height: 290px;
+  }
+  .globe-card,
+  .timeline,
+  .satellite-info {
+    padding: 0.8rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

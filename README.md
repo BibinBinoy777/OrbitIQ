@@ -4,7 +4,8 @@ Satellite exploration and orbital investigation. Phase 1 adds validated CelesTra
 GP ingestion, persistent retrieval snapshots and reference-tested backend SGP4
 propagation. Phase 2 adds a read-only scientific snapshot/position viewer,
 explicit freshness and provenance checks. Phase 3 adds Astropy ITRS/WGS84
-ground tracks with explicit offline IERS policy. See [Phase 3 verification](docs/phase-3-report.md), [scientific conventions](docs/scientific-conventions.md),
+ground tracks with explicit offline IERS policy. Phase 4 adds an interactive Three.js
+Earth, source-information panel and exact-sample timeline. See [Phase 4 verification](docs/phase-4-report.md), [Phase 3 verification](docs/phase-3-report.md), [scientific conventions](docs/scientific-conventions.md),
 [Phase 2 verification](docs/phase-2-report.md) and the
 [Phase 1 ingestion contract](docs/phase-1.md). Live ingestion requires CelesTrak
 network access; viewing stored snapshots and running offline tests does not. Reference agreement is not a guarantee of predicted satellite accuracy.
@@ -237,3 +238,48 @@ The existing full test/lint/format/build commands include all Phase 3 tests.
 No new dependency or lockfile change was needed. Browser smoke checks use tools
 available in this cloud environment; Playwright/Chromium are not application
 dependencies. No public deployment or remote GitHub CI run is claimed.
+
+
+## Phase 4 interactive explorer
+
+Use the same backend/Vite startup commands and explicit database path. The Earth
+loads without inventing satellite positions. Submit a NORAD catalog ID to search
+**stored snapshots only**, choose a source and generate a track near its epoch.
+There is no global name search, automatic ingestion or full-catalog coverage.
+The existing source provenance and TEME inspector remain available in the
+“Source provenance and TEME inspection” disclosure.
+
+The globe, 2D map, information panel and timeline share one dataset/sample index.
+Use the slider, previous/next controls or Play/Pause. Playback moves **one returned
+sample per second**, stops at the end and makes **zero API requests**. No positions
+are interpolated. Reset timeline selects the first sample; Reset track window
+restores the source time, 90-minute duration and 60-second step, clearing the old
+result. Editing the interval or changing source cancels requests and stops playback.
+Reduced-motion preference disables playback while keeping manual controls usable.
+
+Drag or use the labelled camera buttons to rotate/tilt; scroll/pinch or use zoom
+buttons; Reset camera restores the default Earth view, and Focus satellite centres
+the selected calculated marker. Clicking the marker or Inspect satellite focuses
+its accessible information panel. Arrow keys on the canvas rotate/tilt; + / -
+zoom and 0 resets the camera. Panning is disabled to preserve an Earth-centred
+view. WebGL2 is required for 3D, but not for search, source data, the 2D map,
+coordinate tables or timeline. Graphics errors/context loss show fallback status
+and a retry option; context restoration can recover automatically.
+
+Only backend ITRS vectors are rendered as satellite positions. The backend adds
+`ground_position_km`, an Astropy WGS84 normal footpoint at zero ellipsoidal height,
+to existing Earth-fixed responses. No new endpoint, database migration or orbital
+algorithm is needed. Browser code only chooses a display basis/scale. Marker size,
+a small surface-overlay lift and static image/lighting are illustrative; the Earth
+texture is not current imagery or validated cartography. Scientific timestamps
+remain UTC; requested sample, element epoch, retrieval and execution times remain
+separate. Source/EOP freshness and unquantified uncertainty remain visible.
+
+Dependencies: exactly pinned `three=0.186.1`, `@types/three=0.186.0`, recorded in
+the updated npm lockfile; Python dependencies and lockfile are unchanged. The
+Earth image and upstream license are served from `frontend/public/assets` with
+attribution. No external texture/tile request, API key, state-management library
+or new environment configuration is needed. Run `npm ci` after updating source.
+The lazy renderer chunk is about 556 kB minified / 139 kB gzip; Vite's 500-kB
+warning remains visible. A local build does not prove target-device GPU performance
+or public-deployment readiness. See the Phase 4 report for actual test evidence.

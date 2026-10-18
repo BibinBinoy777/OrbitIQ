@@ -1,0 +1,402 @@
+{
+  "astropy_version": "7.2.3",
+  "pyerfa_version": "2.0.1.5",
+  "fixture_sha256": "b81a426545a50ae322f1be4643e82696fc35744cdb52aeda855ef9dfacd7e9c2",
+  "eop_resource": {
+    "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+    "package_version": "0.2026.10.12.1.3.27",
+    "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+    "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+    "leap_seconds_expires": "2027-06-28",
+    "first_mjd": 41684.0,
+    "last_mjd": 61682.0,
+    "predictive_mjd": 61315.0
+  },
+  "relative_tolerance": 0,
+  "cases": [
+    {
+      "case": "Vallado Appendix C / fixed EOP",
+      "reference": {
+        "source": "Vallado, Crawford, Hujsak & Kelso 2006, AIAA-2006-6753-Rev2, Appendix C, equations C-1/C-2 example (PDF page 32)",
+        "url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+        "at": "2004-04-06T07:51:28.386Z",
+        "input_frame": "TEME",
+        "output_frame": "ITRS (paper ITRF/ECEF)",
+        "position_km": [
+          5094.1801621,
+          6127.6446595,
+          6380.3445327
+        ],
+        "velocity_km_s": [
+          -4.746131487,
+          0.785818041,
+          5.531931288
+        ],
+        "expected_position_km": [
+          -1033.479383,
+          7901.2952754,
+          6380.3565958
+        ],
+        "expected_velocity_km_s": [
+          -3.22563652,
+          -2.87245145,
+          5.531924446
+        ],
+        "published_eop": {
+          "ut1_minus_utc_seconds": -0.439961,
+          "polar_motion_x_arcsec": -0.140682,
+          "polar_motion_y_arcsec": 0.333309,
+          "tai_minus_utc_seconds": 32
+        },
+        "fixed_eop_tolerances": {
+          "position_km": 2e-05,
+          "velocity_km_s": 1e-06
+        },
+        "bundled_eop_tolerances": {
+          "position_km": 0.0003,
+          "velocity_km_s": 1e-05
+        }
+      },
+      "actual_position_km": [
+        -1033.4793961736575,
+        7901.295273670422,
+        6380.356595751121
+      ],
+      "actual_velocity_km_s": [
+        -3.225636449045851,
+        -2.872451446066407,
+        5.5319244463025825
+      ],
+      "actual_eop": {
+        "source": "Vallado published fixed-EOP reference fixture (not runtime)",
+        "package_version": "0.2026.10.12.1.3.27",
+        "sha256": "b81a426545a50ae322f1be4643e82696fc35744cdb52aeda855ef9dfacd7e9c2",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "leap_seconds_expires": "2027-06-28",
+        "first_mjd": 53100.0,
+        "last_mjd": 53103.0,
+        "predictive_mjd": 61315.0,
+        "policy": "measured_or_predicted",
+        "status": "measured",
+        "ut1_source": "IERS_B_final",
+        "polar_motion_source": "IERS_B_final",
+        "ut1_minus_utc_seconds": -0.439961,
+        "polar_motion_x_arcsec": -0.140682,
+        "polar_motion_y_arcsec": 0.333309,
+        "prediction_table_age_days": 16.760889787787164,
+        "max_prediction_table_age_days": 30,
+        "auto_download": false,
+        "degraded_results_allowed": false,
+        "velocity_support_seconds": [
+          -0.5,
+          0.5
+        ]
+      },
+      "eop_override": {
+        "ut1_minus_utc_seconds": -0.439961,
+        "polar_motion_x_arcsec": -0.140682,
+        "polar_motion_y_arcsec": 0.333309,
+        "tai_minus_utc_seconds": 32
+      },
+      "absolute_error": {
+        "position_km": [
+          1.3173657407605788e-05,
+          1.7295778889092617e-06,
+          4.887897375738248e-08
+        ],
+        "velocity_km_s": [
+          7.095414922275722e-08,
+          3.933593006877345e-09,
+          3.0258284766659926e-10
+        ]
+      },
+      "absolute_tolerances": {
+        "position_km": 2e-05,
+        "velocity_km_s": 1e-06
+      },
+      "passed": true
+    },
+    {
+      "case": "Vallado Appendix C / bundled EOP",
+      "reference": {
+        "source": "Vallado, Crawford, Hujsak & Kelso 2006, AIAA-2006-6753-Rev2, Appendix C, equations C-1/C-2 example (PDF page 32)",
+        "url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+        "at": "2004-04-06T07:51:28.386Z",
+        "input_frame": "TEME",
+        "output_frame": "ITRS (paper ITRF/ECEF)",
+        "position_km": [
+          5094.1801621,
+          6127.6446595,
+          6380.3445327
+        ],
+        "velocity_km_s": [
+          -4.746131487,
+          0.785818041,
+          5.531931288
+        ],
+        "expected_position_km": [
+          -1033.479383,
+          7901.2952754,
+          6380.3565958
+        ],
+        "expected_velocity_km_s": [
+          -3.22563652,
+          -2.87245145,
+          5.531924446
+        ],
+        "published_eop": {
+          "ut1_minus_utc_seconds": -0.439961,
+          "polar_motion_x_arcsec": -0.140682,
+          "polar_motion_y_arcsec": 0.333309,
+          "tai_minus_utc_seconds": 32
+        },
+        "fixed_eop_tolerances": {
+          "position_km": 2e-05,
+          "velocity_km_s": 1e-06
+        },
+        "bundled_eop_tolerances": {
+          "position_km": 0.0003,
+          "velocity_km_s": 1e-05
+        }
+      },
+      "actual_position_km": [
+        -1033.4796665762867,
+        7901.295209734639,
+        6380.356631128439
+      ],
+      "actual_velocity_km_s": [
+        -3.225636353568916,
+        -2.8724515851190517,
+        5.5319244378051735
+      ],
+      "actual_eop": {
+        "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+        "package_version": "0.2026.10.12.1.3.27",
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "leap_seconds_expires": "2027-06-28",
+        "first_mjd": 41684.0,
+        "last_mjd": 61682.0,
+        "predictive_mjd": 61315.0,
+        "policy": "measured_or_predicted",
+        "status": "measured",
+        "ut1_source": "IERS_B_final",
+        "polar_motion_source": "IERS_B_final",
+        "ut1_minus_utc_seconds": -0.44043969392562504,
+        "polar_motion_x_arcsec": -0.14050718228125,
+        "polar_motion_y_arcsec": 0.33420967208125,
+        "prediction_table_age_days": 16.76088987726689,
+        "max_prediction_table_age_days": 30,
+        "auto_download": false,
+        "degraded_results_allowed": false,
+        "velocity_support_seconds": [
+          -0.5,
+          0.5
+        ]
+      },
+      "eop_override": null,
+      "absolute_error": {
+        "position_km": [
+          0.00028357628661979106,
+          6.566536103491671e-05,
+          3.532843948050868e-05
+        ],
+        "velocity_km_s": [
+          1.6643108402547568e-07,
+          1.3511905194718565e-07,
+          8.19482615099787e-09
+        ]
+      },
+      "absolute_tolerances": {
+        "position_km": 0.0003,
+        "velocity_km_s": 1e-05
+      },
+      "passed": true
+    },
+    {
+      "case": "Astropy official satellite example",
+      "reference": {
+        "source": "Astropy 7.2.3 official Working with Earth Satellites documentation, Transforming TEME example",
+        "url": "https://raw.githubusercontent.com/astropy/astropy/v7.2.3/docs/coordinates/satellites.rst",
+        "tle": [
+          "1 25544U 98067A   19343.69339541  .00001764  00000-0  38792-4 0  9991",
+          "2 25544  51.6439 211.2001 0007417  17.6667  85.6398 15.50103472202482"
+        ],
+        "utc_jd": 2458827.362605,
+        "at": "2019-12-09T20:42:09.071993Z",
+        "input_frame": "TEME",
+        "output_frame": "ITRS -> WGS84 geodetic",
+        "eop": "Official example default IERS; current test uses locked final IERS values",
+        "expected": {
+          "latitude_deg": -24.6609379,
+          "longitude_deg": 160.34199789,
+          "altitude_km": 420.17927591
+        },
+        "tolerances": {
+          "angles_deg": 1e-05,
+          "altitude_km": 0.0001
+        }
+      },
+      "input_teme": {
+        "at": "2019-12-09T20:42:09.071993Z",
+        "orbital_epoch": "2019-12-09T20:42:09.071993Z",
+        "frame": "TEME",
+        "time_system": "UTC",
+        "units": {
+          "position": "km",
+          "velocity": "km/s"
+        },
+        "position_km": [
+          -6102.443276959021,
+          -986.3320180996194,
+          -2820.3130688617493
+        ],
+        "velocity_km_s": [
+          -1.4552527256221586,
+          -5.527413835199322,
+          5.101042030736553
+        ]
+      },
+      "actual": {
+        "latitude_deg": -24.660937879768422,
+        "longitude_deg": 160.34199790663706,
+        "altitude_km": 420.1792759005811,
+        "height_reference": "WGS84 ellipsoid"
+      },
+      "actual_eop": {
+        "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+        "package_version": "0.2026.10.12.1.3.27",
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "leap_seconds_expires": "2027-06-28",
+        "first_mjd": 41684.0,
+        "last_mjd": 61682.0,
+        "predictive_mjd": 61315.0,
+        "policy": "measured_or_predicted",
+        "status": "measured",
+        "ut1_source": "IERS_B_final",
+        "polar_motion_source": "IERS_B_final",
+        "ut1_minus_utc_seconds": -0.17249230872797786,
+        "polar_motion_x_arcsec": 0.10597363281007113,
+        "polar_motion_y_arcsec": 0.2709943596599925,
+        "prediction_table_age_days": 16.76088996037288,
+        "max_prediction_table_age_days": 30,
+        "auto_download": false,
+        "degraded_results_allowed": false,
+        "velocity_support_seconds": [
+          -0.5,
+          0.5
+        ]
+      },
+      "absolute_error": {
+        "latitude_deg": 2.0231578190532673e-08,
+        "longitude_deg": 1.6637073940728442e-08,
+        "altitude_km": 9.418897661817027e-09
+      },
+      "passed": true
+    },
+    {
+      "case": "SOFA gc2gd WGS84",
+      "reference": {
+        "source": "SOFA/ERFA official t_gc2gd test; pyerfa 2.0.1.5 erfa/tests/test_ufunc.py test_gc2gd",
+        "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+        "input_frame": "ITRS Cartesian, WGS84 ellipsoid",
+        "output_frame": "WGS84 geodetic",
+        "at": null,
+        "eop": "not required for terrestrial geodesy",
+        "position_km": [
+          2000,
+          3000,
+          5244
+        ],
+        "expected_longitude_rad": 0.982793723247329,
+        "expected_latitude_rad": 0.9716018481907546,
+        "expected_altitude_km": 0.331417246142606,
+        "tolerances": {
+          "angles_deg": 1e-10,
+          "altitude_km": 1e-10
+        }
+      },
+      "expected": {
+        "latitude_deg": 55.668685268440754,
+        "longitude_deg": 56.309932474020215,
+        "altitude_km": 0.331417246142606
+      },
+      "actual": {
+        "latitude_deg": 55.668685268440754,
+        "longitude_deg": 56.30993247402023,
+        "altitude_km": 0.3314172461415939,
+        "height_reference": "WGS84 ellipsoid"
+      },
+      "absolute_error": {
+        "latitude_deg": 0.0,
+        "longitude_deg": 1.4210854715202004e-14,
+        "altitude_km": 1.0120793092482927e-12
+      },
+      "passed": true
+    },
+    {
+      "case": "SOFA UTC -> TAI",
+      "reference": {
+        "source": "SOFA/ERFA official t_utctai and t_utcut1 constants; pyerfa test_ufunc.py",
+        "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+        "input_frame": "UTC two-part quasi-Julian date",
+        "output_frame": "TAI / UT1 two-part Julian date",
+        "utc_jd_parts": [
+          2453750.5,
+          0.892100694
+        ],
+        "ut1_minus_utc_seconds": 0.3341,
+        "expected_tai_jd_parts": [
+          2453750.5,
+          0.8924826384444444
+        ],
+        "expected_ut1_jd_parts": [
+          2453750.5,
+          0.8921045608981482
+        ],
+        "tolerance_seconds": 1e-06
+      },
+      "at_utc": "2006-01-15T21:24:37.500",
+      "actual_jd_parts": [
+        2453751.0,
+        0.3924826384444444
+      ],
+      "absolute_error_seconds": 0.0,
+      "passed": true
+    },
+    {
+      "case": "SOFA UTC -> UT1",
+      "reference": {
+        "source": "SOFA/ERFA official t_utctai and t_utcut1 constants; pyerfa test_ufunc.py",
+        "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+        "input_frame": "UTC two-part quasi-Julian date",
+        "output_frame": "TAI / UT1 two-part Julian date",
+        "utc_jd_parts": [
+          2453750.5,
+          0.892100694
+        ],
+        "ut1_minus_utc_seconds": 0.3341,
+        "expected_tai_jd_parts": [
+          2453750.5,
+          0.8924826384444444
+        ],
+        "expected_ut1_jd_parts": [
+          2453750.5,
+          0.8921045608981482
+        ],
+        "tolerance_seconds": 1e-06
+      },
+      "at_utc": "2006-01-15T21:24:37.500",
+      "actual_jd_parts": [
+        2453751.0,
+        0.3921045608981481
+      ],
+      "absolute_error_seconds": 4.796163466380676e-12,
+      "passed": true
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "limitations": "Finite selected numerical cases; not observational accuracy or universal frame accuracy. Fixed EOP is reference-only, never an application fallback."
+}

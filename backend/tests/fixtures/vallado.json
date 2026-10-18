@@ -1,0 +1,286 @@
+[
+  {
+    "catalog_id": 5,
+    "tle": [
+      "1 00005U 58002B   00179.78495062  .00000023  00000-0  28098-4 0  4753",
+      "2 00005  34.2682 348.7242 1859667 331.7664  19.3264 10.82419157413667"
+    ],
+    "omm": {
+      "OBJECT_NAME": "VERIFICATION FIXTURE 5",
+      "OBJECT_ID": "1958-002B",
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPOCH": "2000-06-27T18:50:19.733568",
+      "MEAN_MOTION": 10.82419157,
+      "ECCENTRICITY": 0.1859667,
+      "INCLINATION": 34.2682,
+      "RA_OF_ASC_NODE": 348.7242,
+      "ARG_OF_PERICENTER": 331.7664,
+      "MEAN_ANOMALY": 19.3264,
+      "EPHEMERIS_TYPE": 0,
+      "CLASSIFICATION_TYPE": "U",
+      "NORAD_CAT_ID": 5,
+      "ELEMENT_SET_NO": 475,
+      "REV_AT_EPOCH": 41366,
+      "BSTAR": 2.8098e-05,
+      "MEAN_MOTION_DOT": 2.2999999999999997e-07,
+      "MEAN_MOTION_DDOT": 0.0
+    },
+    "cases": [
+      {
+        "minutes": 0.0,
+        "position_km": [
+          7022.46529266,
+          -1400.08296755,
+          0.03995155
+        ],
+        "velocity_km_s": [
+          1.893841015,
+          6.405893759,
+          4.53480725
+        ]
+      },
+      {
+        "minutes": 360.0,
+        "position_km": [
+          -7154.03120202,
+          -3783.17682504,
+          -3536.19412294
+        ],
+        "velocity_km_s": [
+          4.741887409,
+          -4.151817765,
+          -2.093935425
+        ]
+      },
+      {
+        "minutes": 720.0,
+        "position_km": [
+          -7134.59340119,
+          6531.68641334,
+          3260.27186483
+        ],
+        "velocity_km_s": [
+          -4.113793027,
+          -2.911922039,
+          -2.557327851
+        ]
+      }
+    ]
+  },
+  {
+    "catalog_id": 4632,
+    "tle": [
+      "1 04632U 70093B   04031.91070959 -.00000084  00000-0  10000-3 0  9955",
+      "2 04632  11.4628 273.1101 1450506 207.6000 143.9350  1.20231981 44145"
+    ],
+    "omm": {
+      "OBJECT_NAME": "VERIFICATION FIXTURE 4632",
+      "OBJECT_ID": "1970-093B",
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPOCH": "2004-01-31T21:51:25.308575",
+      "MEAN_MOTION": 1.20231981,
+      "ECCENTRICITY": 0.1450506,
+      "INCLINATION": 11.4628,
+      "RA_OF_ASC_NODE": 273.1101,
+      "ARG_OF_PERICENTER": 207.6,
+      "MEAN_ANOMALY": 143.935,
+      "EPHEMERIS_TYPE": 0,
+      "CLASSIFICATION_TYPE": "U",
+      "NORAD_CAT_ID": 4632,
+      "ELEMENT_SET_NO": 995,
+      "REV_AT_EPOCH": 4414,
+      "BSTAR": 0.0001,
+      "MEAN_MOTION_DOT": -8.4e-07,
+      "MEAN_MOTION_DDOT": 0.0
+    },
+    "cases": [
+      {
+        "minutes": 0.0,
+        "position_km": [
+          2334.11450085,
+          -41920.44035349,
+          -0.03867437
+        ],
+        "velocity_km_s": [
+          2.826321032,
+          -0.065091664,
+          0.570936053
+        ]
+      },
+      {
+        "minutes": -5184.0,
+        "position_km": [
+          -29020.02587128,
+          13819.84419063,
+          -5713.33679183
+        ],
+        "velocity_km_s": [
+          -1.76806839,
+          -3.235371192,
+          -0.395206135
+        ]
+      },
+      {
+        "minutes": -5064.0,
+        "position_km": [
+          -32982.56870101,
+          -11125.54996609,
+          -6803.28472771
+        ],
+        "velocity_km_s": [
+          0.617446996,
+          -3.379240041,
+          0.085954707
+        ]
+      }
+    ]
+  },
+  {
+    "catalog_id": 8195,
+    "tle": [
+      "1 08195U 75081A   06176.33215444  .00000099  00000-0  11873-3 0   813",
+      "2 08195  64.1586 279.0717 6877146 264.7651  20.2257  2.00491383225656"
+    ],
+    "omm": {
+      "OBJECT_NAME": "VERIFICATION FIXTURE 8195",
+      "OBJECT_ID": "1975-081A",
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPOCH": "2006-06-25T07:58:18.143616",
+      "MEAN_MOTION": 2.00491383,
+      "ECCENTRICITY": 0.6877146,
+      "INCLINATION": 64.1586,
+      "RA_OF_ASC_NODE": 279.0717,
+      "ARG_OF_PERICENTER": 264.7651,
+      "MEAN_ANOMALY": 20.2257,
+      "EPHEMERIS_TYPE": 0,
+      "CLASSIFICATION_TYPE": "U",
+      "NORAD_CAT_ID": 8195,
+      "ELEMENT_SET_NO": 81,
+      "REV_AT_EPOCH": 22565,
+      "BSTAR": 0.00011873000000000001,
+      "MEAN_MOTION_DOT": 9.9e-07,
+      "MEAN_MOTION_DDOT": 0.0
+    },
+    "cases": [
+      {
+        "minutes": 0.0,
+        "position_km": [
+          2349.8948335,
+          -14785.93811562,
+          0.02119378
+        ],
+        "velocity_km_s": [
+          2.721488096,
+          -3.256811655,
+          4.498416672
+        ]
+      },
+      {
+        "minutes": 120.0,
+        "position_km": [
+          15223.91713658,
+          -17852.95881713,
+          25280.39558224
+        ],
+        "velocity_km_s": [
+          1.079041732,
+          0.875187372,
+          2.485682813
+        ]
+      },
+      {
+        "minutes": 240.0,
+        "position_km": [
+          19752.78050009,
+          -8600.07130962,
+          37522.7292109
+        ],
+        "velocity_km_s": [
+          0.238105279,
+          1.546110924,
+          0.986410447
+        ]
+      }
+    ]
+  },
+  {
+    "catalog_id": 14128,
+    "tle": [
+      "1 14128U 83058A   06176.02844893 -.00000158  00000-0  10000-3 0  9627",
+      "2 14128  11.4384  35.2134 0011562  26.4582 333.5652  0.98870114 46093"
+    ],
+    "omm": {
+      "OBJECT_NAME": "VERIFICATION FIXTURE 14128",
+      "OBJECT_ID": "1983-058A",
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPOCH": "2006-06-25T00:40:57.987552",
+      "MEAN_MOTION": 0.9887011399999999,
+      "ECCENTRICITY": 0.0011562,
+      "INCLINATION": 11.4384,
+      "RA_OF_ASC_NODE": 35.2134,
+      "ARG_OF_PERICENTER": 26.4582,
+      "MEAN_ANOMALY": 333.5652,
+      "EPHEMERIS_TYPE": 0,
+      "CLASSIFICATION_TYPE": "U",
+      "NORAD_CAT_ID": 14128,
+      "ELEMENT_SET_NO": 962,
+      "REV_AT_EPOCH": 4609,
+      "BSTAR": 0.0001,
+      "MEAN_MOTION_DOT": -1.58e-06,
+      "MEAN_MOTION_DDOT": 0.0
+    },
+    "cases": [
+      {
+        "minutes": 0.0,
+        "position_km": [
+          34747.57932696,
+          24502.37114079,
+          -1.32832986
+        ],
+        "velocity_km_s": [
+          -1.731642662,
+          2.452772615,
+          0.608510081
+        ]
+      },
+      {
+        "minutes": 120.0,
+        "position_km": [
+          18263.33439094,
+          38159.96004751,
+          4186.18304085
+        ],
+        "velocity_km_s": [
+          -2.744396611,
+          1.25558326,
+          0.528558932
+        ]
+      },
+      {
+        "minutes": 240.0,
+        "position_km": [
+          -3023.38840703,
+          41783.13186459,
+          7273.03412906
+        ],
+        "velocity_km_s": [
+          -3.035574793,
+          -0.271656544,
+          0.309645251
+        ]
+      }
+    ]
+  }
+]

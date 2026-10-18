@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  background: #0c1424;
+  color: #e4edf9;
+  font-family: system-ui, sans-serif;
+}
+main {
+  max-width: 64rem;
+  margin: 5vh auto;
+  padding: 2rem;
+}
+h1 {
+  font-size: 3rem;
+}
+[role="status"] {
+  padding: 1rem;
+  border: 1px solid #6e91b8;
+  border-radius: 0.5rem;
+}
+.science {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #6e91b8;
+  border-radius: 0.5rem;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin: 1.5rem 0;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+input,
+select,
+button {
+  font: inherit;
+  padding: 0.7rem;
+  border: 1px solid #6e91b8;
+  border-radius: 0.3rem;
+}
+input,
+select {
+  color: #e4edf9;
+  background: #142039;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+button {
+  cursor: pointer;
+  background: #b6d8ff;
+  color: #0c1424;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+a {
+  color: #b6d8ff;
+}
+:focus-visible {
+  outline: 3px solid #ffd782;
+  outline-offset: 3px;
+}
+.metadata {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) minmax(0, 2fr);
+  gap: 0.6rem 1rem;
+}
+dt {
+  font-weight: 600;
+}
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.hash {
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+}
+.freshness {
+  border-left: 0.3rem solid #6e91b8;
+  padding-left: 0.8rem;
+}
+.stale,
+.aging,
+.unknown,
+.future_epoch,
+.notice,
+[role="alert"] {
+  color: #ffd782;
+}
+.result {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #6e91b8;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+caption {
+  text-align: left;
+  margin: 1rem 0;
+}
+th,
+td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #6e91b8;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+  .science {
+    padding: 1rem;
+  }
+  .metadata {
+    grid-template-columns: 1fr;
+  }
+  dd {
+    margin-bottom: 0.6rem;
+  }
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  th,
+  td {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
+}
+.track-map {
+  margin: 1.5rem 0;
+}
+.track-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.track-map text {
+  font:
+    7px system-ui,
+    sans-serif;
+  fill: #e4edf9;
+}
+.track-map figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "catalog_id": 6251,
+    "tle": [
+      "1 06251U 62025E   06176.82412014  .00008885  00000-0  12808-3 0  3985",
+      "2 06251  58.0579  54.0425 0030035 139.1568 221.1854 15.56387291  6774"
+    ],
+    "omm": {
+      "OBJECT_NAME": "VERIFICATION FIXTURE 6251",
+      "OBJECT_ID": "1962-025E",
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPOCH": "2006-06-25T19:46:43.980096",
+      "MEAN_MOTION": 15.563872910000002,
+      "ECCENTRICITY": 0.0030035,
+      "INCLINATION": 58.05789999999999,
+      "RA_OF_ASC_NODE": 54.0425,
+      "ARG_OF_PERICENTER": 139.1568,
+      "MEAN_ANOMALY": 221.1854,
+      "EPHEMERIS_TYPE": 0,
+      "CLASSIFICATION_TYPE": "U",
+      "NORAD_CAT_ID": 6251,
+      "ELEMENT_SET_NO": 398,
+      "REV_AT_EPOCH": 677,
+      "BSTAR": 0.00012808,
+      "MEAN_MOTION_DOT": 8.885e-05,
+      "MEAN_MOTION_DDOT": 0.0
+    },
+    "cases": [
+      {
+        "minutes": 0.0,
+        "position_km": [
+          3988.31022699,
+          5498.96657235,
+          0.90055879
+        ],
+        "velocity_km_s": [
+          -3.290032738,
+          2.35765282,
+          6.496623475
+        ]
+      },
+      {
+        "minutes": 120.0,
+        "position_km": [
+          -3935.69800083,
+          409.10980837,
+          5471.33577327
+        ],
+        "velocity_km_s": [
+          -3.374784183,
+          -6.635211043,
+          -1.942056221
+        ]
+      },
+      {
+        "minutes": 1440.0,
+        "position_km": [
+          -2777.14682335,
+          -5663.16031708,
+          -2462.54889123
+        ],
+        "velocity_km_s": [
+          4.915493146,
+          0.123328992,
+          -5.896495091
+        ]
+      },
+      {
+        "minutes": 2880.0,
+        "position_km": [
+          1159.27802897,
+          5056.60175495,
+          4353.49418579
+        ],
+        "velocity_km_s": [
+          -5.968060341,
+          -2.314790406,
+          4.230722669
+        ]
+      }
+    ]
+  },
+  {
+    "catalog_id": 28057,
+    "tle": [
+      "1 28057U 03049A   06177.78615833  .00000060  00000-0  35940-4 0  1836",
+      "2 28057  98.4283 247.6961 0000884  88.1964 271.9322 14.35478080140550"
+    ],
+    "omm": {
+      "OBJECT_NAME": "VERIFICATION FIXTURE 28057",
+      "OBJECT_ID": "2003-049A",
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPOCH": "2006-06-26T18:52:04.079711",
+      "MEAN_MOTION": 14.3547808,
+      "ECCENTRICITY": 8.84e-05,
+      "INCLINATION": 98.4283,
+      "RA_OF_ASC_NODE": 247.6961,
+      "ARG_OF_PERICENTER": 88.1964,
+      "MEAN_ANOMALY": 271.9322,
+      "EPHEMERIS_TYPE": 0,
+      "CLASSIFICATION_TYPE": "U",
+      "NORAD_CAT_ID": 28057,
+      "ELEMENT_SET_NO": 183,
+      "REV_AT_EPOCH": 14055,
+      "BSTAR": 3.594e-05,
+      "MEAN_MOTION_DOT": 6e-07,
+      "MEAN_MOTION_DDOT": 0.0
+    },
+    "cases": [
+      {
+        "minutes": 0.0,
+        "position_km": [
+          -2715.28237486,
+          -6619.26436889,
+          -0.01341443
+        ],
+        "velocity_km_s": [
+          -1.008587273,
+          0.422782003,
+          7.385272942
+        ]
+      },
+      {
+        "minutes": 120.0,
+        "position_km": [
+          -1816.87920942,
+          -1835.78762132,
+          6661.07926465
+        ],
+        "velocity_km_s": [
+          2.325140071,
+          6.655669329,
+          2.463394512
+        ]
+      },
+      {
+        "minutes": 1440.0,
+        "position_km": [
+          688.16056594,
+          4124.87618964,
+          5794.55994449
+        ],
+        "velocity_km_s": [
+          2.810973665,
+          5.479585563,
+          -4.224866316
+        ]
+      },
+      {
+        "minutes": 2880.0,
+        "position_km": [
+          1788.4233458,
+          1990.50530957,
+          -6640.59337725
+        ],
+        "velocity_km_s": [
+          -2.074169091,
+          -6.683381288,
+          -2.562777776
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "vallado": {
+    "source": "Vallado, Crawford, Hujsak & Kelso 2006, AIAA-2006-6753-Rev2, Appendix C, equations C-1/C-2 example (PDF page 32)",
+    "url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+    "at": "2004-04-06T07:51:28.386Z",
+    "input_frame": "TEME",
+    "output_frame": "ITRS (paper ITRF/ECEF)",
+    "position_km": [5094.18016210, 6127.64465950, 6380.34453270],
+    "velocity_km_s": [-4.746131487, 0.785818041, 5.531931288],
+    "expected_position_km": [-1033.47938300, 7901.29527540, 6380.35659580],
+    "expected_velocity_km_s": [-3.225636520, -2.872451450, 5.531924446],
+    "published_eop": {"ut1_minus_utc_seconds": -0.439961, "polar_motion_x_arcsec": -0.140682, "polar_motion_y_arcsec": 0.333309, "tai_minus_utc_seconds": 32},
+    "fixed_eop_tolerances": {"position_km": 0.00002, "velocity_km_s": 0.000001},
+    "bundled_eop_tolerances": {"position_km": 0.0003, "velocity_km_s": 0.00001}
+  },
+  "astropy_example": {
+    "source": "Astropy 7.2.3 official Working with Earth Satellites documentation, Transforming TEME example",
+    "url": "https://raw.githubusercontent.com/astropy/astropy/v7.2.3/docs/coordinates/satellites.rst",
+    "tle": ["1 25544U 98067A   19343.69339541  .00001764  00000-0  38792-4 0  9991", "2 25544  51.6439 211.2001 0007417  17.6667  85.6398 15.50103472202482"],
+    "utc_jd": 2458827.362605,
+    "at": "2019-12-09T20:42:09.071993Z",
+    "input_frame": "TEME",
+    "output_frame": "ITRS -> WGS84 geodetic",
+    "eop": "Official example default IERS; current test uses locked final IERS values",
+    "expected": {"latitude_deg": -24.66093790, "longitude_deg": 160.34199789, "altitude_km": 420.17927591},
+    "tolerances": {"angles_deg": 0.00001, "altitude_km": 0.0001}
+  },
+  "sofa_geodesy": {
+    "source": "SOFA/ERFA official t_gc2gd test; pyerfa 2.0.1.5 erfa/tests/test_ufunc.py test_gc2gd",
+    "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+    "input_frame": "ITRS Cartesian, WGS84 ellipsoid",
+    "output_frame": "WGS84 geodetic",
+    "at": null,
+    "eop": "not required for terrestrial geodesy",
+    "position_km": [2000, 3000, 5244],
+    "expected_longitude_rad": 0.9827937232473290680,
+    "expected_latitude_rad": 0.97160184819075459,
+    "expected_altitude_km": 0.3314172461426059892,
+    "tolerances": {"angles_deg": 1e-10, "altitude_km": 1e-10}
+  },
+  "sofa_time": {
+    "source": "SOFA/ERFA official t_utctai and t_utcut1 constants; pyerfa test_ufunc.py",
+    "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+    "input_frame": "UTC two-part quasi-Julian date",
+    "output_frame": "TAI / UT1 two-part Julian date",
+    "utc_jd_parts": [2453750.5, 0.892100694],
+    "ut1_minus_utc_seconds": 0.3341,
+    "expected_tai_jd_parts": [2453750.5, 0.8924826384444444444],
+    "expected_ut1_jd_parts": [2453750.5, 0.8921045608981481481],
+    "tolerance_seconds": 0.000001
+  }
+}

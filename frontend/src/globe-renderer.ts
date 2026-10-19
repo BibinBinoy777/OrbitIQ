@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import type { TrackPoint } from "./ground-track-api";
+import type { ComparisonMarker } from "./globe-geometry";
 import {
   canConnect,
   canRenderPoint,
@@ -11,6 +12,7 @@ export type CameraAction =
   "left" | "right" | "up" | "down" | "in" | "out" | "reset" | "focus";
 export interface GlobeEngine {
   setData: (points: TrackPoint[], selected: number) => void;
+  setComparison?: (points: ComparisonMarker[]) => void;
   camera: (action: CameraAction) => void;
   dispose: () => void;
 }
@@ -58,6 +60,20 @@ export function createGlobe(
   const marker = new THREE.Mesh(markerGeometry, markerMaterial);
   marker.visible = false;
   scene.add(marker);
+  const comparisonGeometry = [
+    new THREE.SphereGeometry(0.025, 12, 8),
+    new THREE.OctahedronGeometry(0.032),
+  ];
+  const comparisonMaterial = [
+    new THREE.MeshBasicMaterial({ color: 0xb6d8ff }),
+    new THREE.MeshBasicMaterial({ color: 0xffd782 }),
+  ];
+  const comparisonMarkers = comparisonGeometry.map((geometry, i) => {
+    const mesh = new THREE.Mesh(geometry, comparisonMaterial[i]);
+    mesh.visible = false;
+    scene.add(mesh);
+    return mesh;
+  });
   let groundGeometry = new THREE.BufferGeometry();
   const groundMaterial = new THREE.PointsMaterial({
     color: 0x63d8c7,
@@ -123,12 +139,16 @@ export function createGlobe(
     if (value === "reset") {
       controls.target.set(0, 0, 0);
       camera.position.set(2.8, 1.5, 2.8);
-    } else if (value === "focus" && marker.visible) {
+    } else if (
+      value === "focus" &&
+      (marker.visible || comparisonMarkers[0].visible)
+    ) {
+      const focus = marker.visible ? marker : comparisonMarkers[0];
       controls.target.set(0, 0, 0);
       camera.position
-        .copy(marker.position)
+        .copy(focus.position)
         .normalize()
-        .multiplyScalar(Math.max(3.2, marker.position.length() * 2.5));
+        .multiplyScalar(Math.max(3.2, focus.position.length() * 2.5));
     } else {
       if (value === "left") spherical.theta -= 0.2;
       if (value === "right") spherical.theta += 0.2;
@@ -217,6 +237,24 @@ export function createGlobe(
   callbacks.ready();
   return {
     camera: action,
+    setComparison(points) {
+      const valid =
+        points.length === 2 &&
+        points.every(canRenderPoint) &&
+        points[0].at === points[1].at;
+      comparisonMarkers.forEach((mesh, i) => {
+        mesh.visible = valid;
+        if (valid) mesh.position.set(...displayVector(points[i].position_km!));
+      });
+      if (valid) {
+        controls.maxDistance = Math.max(
+          8,
+          ...comparisonMarkers.map((m) => m.position.length() * 3),
+        );
+        action("focus");
+      }
+      invalidate();
+    },
     setData(points, selected) {
       const complete =
         points.length > 0 &&
@@ -291,6 +329,7 @@ export function createGlobe(
         groundGeometry,
         lineGeometry,
         selectedGeometry,
+        ...comparisonGeometry,
       ])
         g.dispose();
       for (const m of [
@@ -299,6 +338,7 @@ export function createGlobe(
         groundMaterial,
         lineMaterial,
         selectedMaterial,
+        ...comparisonMaterial,
       ])
         m.dispose();
       texture?.dispose();

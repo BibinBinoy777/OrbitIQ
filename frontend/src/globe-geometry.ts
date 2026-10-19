@@ -14,7 +14,19 @@ export function displayVector(
     -vector[1] / EARTH_RADIUS_KM,
   ];
 }
-export function canRenderPoint(point?: TrackPoint): boolean {
+export interface ComparisonMarker {
+  snapshot_id: number;
+  at: string;
+  frame: "ITRS";
+  position_km?: [number, number, number];
+  ground_position_km?: [number, number, number];
+}
+export function canRenderPoint(
+  point?: Pick<
+    TrackPoint,
+    "at" | "frame" | "position_km" | "ground_position_km"
+  >,
+): boolean {
   return (
     !!point &&
     point.frame === "ITRS" &&

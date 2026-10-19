@@ -216,3 +216,18 @@ it("refuses a calculation whose source hash differs from the selected input", as
     screen.queryByText("Calculated position · TEME"),
   ).not.toBeInTheDocument();
 });
+it("retains an explicitly inspected historical source when browsing the same catalog", async () => {
+  const newer = { ...row, id: 8, object_name: "NEWER TEST FIXTURE ONLY" };
+  snapshots.mockResolvedValue([newer]);
+  render(<ScientificExplorer initialSource={row} />);
+  fireEvent.click(screen.getByRole("button", { name: "Load snapshots" }));
+  await screen.findByText(/retained separately from this bounded history page/);
+  expect(screen.getByLabelText("Saved snapshot")).toHaveValue("7");
+  expect(
+    screen.getByRole("heading", { name: /TEST FIXTURE ONLY · Catalog/ }),
+  ).toHaveTextContent("TEST FIXTURE ONLY · Catalog 25544");
+  fireEvent.change(screen.getByLabelText("Saved snapshot"), {
+    target: { value: "8" },
+  });
+  expect(screen.getByLabelText("Saved snapshot")).toHaveValue("8");
+});

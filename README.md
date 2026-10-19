@@ -10,6 +10,24 @@ Earth, source-information panel and exact-sample timeline. See [Phase 4 verifica
 [Phase 1 ingestion contract](docs/phase-1.md). Live ingestion requires CelesTrak
 network access; viewing stored snapshots and running offline tests does not. Reference agreement is not a guarantee of predicted satellite accuracy.
 
+The pre-Phase 5 foundation adds a read-only **Scientific-data readiness** view and
+`GET /api/readiness`, separate from liveness. It reports bounded database metadata,
+stored epoch/retrieval freshness, local EOP coverage/prediction policy and actual
+leap-expiry metadata. See [readiness semantics](docs/scientific-data-readiness.md),
+[controlled EOP maintenance and rollback](docs/eop-maintenance.md), and the
+[implementation and verification report](docs/pre-phase-5-readiness-report.md).
+Maintenance uses isolated validated package environments and explicit operator
+selection; ordinary API requests never refresh resources.
+
+Phase 5 adds **Discovery & history**: bounded stored-name/NORAD/international-ID
+search, keyset history browsing and direct snapshot access, fixed-source element
+and common-time TEME/ITRS comparisons, and exact-source explorer navigation.
+Snapshot IDs order insertions, not retrieval chronology. Each schema-2 snapshot
+contains one satellite record; no catalog-wide batch is invented. Counts and
+missing metadata remain explicit, and comparisons do not establish maneuvers or
+anomalies. See the [Phase 5 report](docs/phase-5-report.md) and
+[structured verification evidence](docs/phase-5-integration-results.json).
+
 ## Requirements and installation
 
 Use Python 3.12, uv (validated with 0.12.23), Node.js 24 and npm 11.

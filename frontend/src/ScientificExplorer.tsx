@@ -30,14 +30,23 @@ const labels = {
   unknown: "Unknown",
   future_epoch: "Future epoch",
 };
-export default function ScientificExplorer() {
-  const [catalog, setCatalog] = useState("25544");
-  const [snapshots, setSnapshots] = useState<SnapshotSummary[] | null>(null);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [at, setAt] = useState("");
+export default function ScientificExplorer({
+  initialSource,
+}: { initialSource?: SnapshotSummary } = {}) {
+  const [catalog, setCatalog] = useState(
+    initialSource ? String(initialSource.catalog_id) : "25544",
+  );
+  const [snapshots, setSnapshots] = useState<SnapshotSummary[] | null>(
+    initialSource ? [initialSource] : null,
+  );
+  const [selectedId, setSelectedId] = useState<number | null>(
+    initialSource?.id ?? null,
+  );
+  const [at, setAt] = useState(initialSource?.orbital_epoch ?? "");
   const [loading, setLoading] = useState(false);
   const [calculating, setCalculating] = useState(false);
   const [loadError, setLoadError] = useState("");
+  const [historyNotice, setHistoryNotice] = useState("");
   const [calculationError, setCalculationError] = useState("");
   const [position, setPosition] = useState<PositionResult | null>(null);
   const listRequest = useRef<AbortController | null>(null);
@@ -63,6 +72,7 @@ export default function ScientificExplorer() {
     listRequest.current?.abort();
     clearCalculation();
     setLoadError("");
+    setHistoryNotice("");
     setSnapshots(null);
     setSelectedId(null);
     setAt("");
@@ -78,9 +88,16 @@ export default function ScientificExplorer() {
     try {
       const items = await getSnapshots(id, controller.signal);
       if (!controller.signal.aborted) {
-        setSnapshots(items);
-        setSelectedId(items[0]?.id ?? null);
-        setAt(items[0]?.orbital_epoch ?? "");
+        const retained = selected?.catalog_id === id ? selected : undefined;
+        const onPage = retained && items.find((s) => s.id === retained.id);
+        const chosen = onPage || retained || items[0];
+        setSnapshots(retained && !onPage ? [...items, retained] : items);
+        setSelectedId(chosen?.id ?? null);
+        setAt(retained ? at : (chosen?.orbital_epoch ?? ""));
+        if (retained && !onPage)
+          setHistoryNotice(
+            "The selected historical source is retained separately from this bounded history page. Detail and calculation requests recheck its availability.",
+          );
       }
     } catch (error) {
       if (!controller.signal.aborted) setLoadError(message(error));
@@ -135,6 +152,7 @@ export default function ScientificExplorer() {
       </form>
       {loading && <p role="status">Loading saved snapshots…</p>}
       {loadError && <p role="alert">Snapshot load failed: {loadError}</p>}
+      {historyNotice && <p className="notice">{historyNotice}</p>}
       {snapshots?.length === 0 && (
         <p role="status">
           No stored snapshots for this catalog ID. No current data is available.
@@ -150,6 +168,7 @@ export default function ScientificExplorer() {
               onChange={(e) => {
                 const id = Number(e.target.value);
                 clearCalculation();
+                setHistoryNotice("");
                 setSelectedId(id);
                 setAt(snapshots?.find((s) => s.id === id)?.orbital_epoch ?? "");
               }}
@@ -157,7 +176,9 @@ export default function ScientificExplorer() {
               {snapshots?.map((s, index) => (
                 <option key={s.id} value={s.id}>
                   Snapshot #{s.id} ·{" "}
-                  {index === 0 ? "Latest stored dataset" : "Historical dataset"}
+                  {index === 0
+                    ? "Newest insertion on this page"
+                    : "Stored historical record"}
                 </option>
               ))}
             </select>

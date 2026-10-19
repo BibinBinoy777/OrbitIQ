@@ -88,3 +88,25 @@ it("does not invent a marker when valid vectors are unavailable", async () => {
   expect(screen.getByText(/No validated ITRS position/)).toBeInTheDocument();
   expect(screen.getByText("Focus satellite")).toBeDisabled();
 });
+it("passes two disconnected common-time comparison markers and clears them", async () => {
+  const pairEngine = { ...engine, setComparison: vi.fn() };
+  create.mockImplementation((_host, callbacks) => {
+    callbacks.ready();
+    return pairEngine;
+  });
+  const point = explorerTrack().points[0];
+  const pair = [1, 2].map((snapshot_id) => ({ ...point, snapshot_id }));
+  const view = render(<Globe comparison={pair} />);
+  await waitFor(() =>
+    expect(pairEngine.setComparison).toHaveBeenCalledWith(pair),
+  );
+  expect(screen.getByText(/sphere.*diamond/)).toHaveTextContent(
+    "no connecting trajectory",
+  );
+  expect(screen.queryByText(/Surface track/)).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Focus source A" })).toBeEnabled();
+  view.rerender(<Globe comparison={[]} />);
+  expect(pairEngine.setComparison).toHaveBeenLastCalledWith([]);
+  view.unmount();
+  expect(pairEngine.dispose).toHaveBeenCalledOnce();
+});

@@ -1,0 +1,973 @@
+{
+  "executed_at": "2026-10-19T05:26:51.795651+00:00",
+  "kind": "actual_local_http_and_browser_integration",
+  "mocked": false,
+  "http": {
+    "liveness": {
+      "http_status": 200,
+      "cache_control": null,
+      "elapsed_seconds": 0.0501,
+      "response": {
+        "status": "ok",
+        "service": "OrbitIQ"
+      }
+    },
+    "current_readiness": {
+      "http_status": 200,
+      "cache_control": "no-store",
+      "elapsed_seconds": 0.0191,
+      "response": {
+        "status": "degraded",
+        "kind": "calculated_readiness_assessment",
+        "evaluated_at": "2026-10-19T05:26:51.849650+00:00",
+        "requested_at": "2026-10-19T05:26:51.849650+00:00",
+        "time_system": "UTC",
+        "components": {
+          "database": {
+            "status": "healthy",
+            "code": "database_readable",
+            "message": "Database schema and bounded metadata reads are available.",
+            "reachable": true,
+            "schema_available": true,
+            "reads_available": true,
+            "schema_version": 2,
+            "integrity_scope": "metadata_read_not_full_integrity_scan",
+            "latest_stored_snapshot_id": 1,
+            "latest_stored_retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+            "snapshot_insertion_at": null,
+            "insertion_time_status": "not_recorded"
+          },
+          "orbital_data": {
+            "status": "healthy",
+            "code": "orbital_fresh",
+            "message": "Freshness uses orbital epoch, not recent retrieval; historical calculations may remain available. Review ageing or unknown source data before current-time use.",
+            "snapshots_present": true,
+            "inspected_count": 1,
+            "inspection_limit": 100,
+            "history_complete": true,
+            "global_latest_known": true,
+            "latest_retrieval_at": "2026-10-18T17:14:39.983172+00:00",
+            "ingestion_error_status": "not_recorded",
+            "last_ingestion_error": null,
+            "snapshot_id": 1,
+            "catalog_id": 25544,
+            "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+            "retrieval_age_seconds": 43931.866478,
+            "freshness": {
+              "state": "fresh",
+              "evaluated_at": "2026-10-19T05:26:51.849650+00:00",
+              "epoch_age_seconds": 65644.808882,
+              "retrieval_age_seconds": 43931.866478,
+              "fresh_hours": 24.0,
+              "stale_hours": 72.0,
+              "basis": "orbital_epoch",
+              "accuracy_guarantee": false
+            },
+            "policy_basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "eop": {
+            "status": "degraded",
+            "code": "eop_predicted",
+            "message": "Requested epoch uses labelled IERS predictions; monitor prediction age and schedule controlled maintenance.",
+            "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+            "package_version": "0.2026.10.12.1.3.27",
+            "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+            "first_covered_at": "1973-01-02T00:00:00+00:00",
+            "last_covered_at": "2027-10-04T00:00:00+00:00",
+            "prediction_starts_at": "2026-10-02T00:00:00+00:00",
+            "dataset_release_at": null,
+            "dataset_age_seconds": null,
+            "release_time_status": "not_recorded",
+            "prediction_table_age_days": 17.226989000577305,
+            "max_prediction_table_age_days": 30,
+            "prediction_age_state": "within_policy",
+            "policy": "measured_or_predicted",
+            "auto_download": false,
+            "covered": true,
+            "calculation_resources_usable": true,
+            "maintenance": {
+              "record_status": "not_recorded",
+              "acquired_at": null,
+              "verified_at": null,
+              "activated_at": null
+            },
+            "requested_eop_type": "predicted",
+            "ut1_source": "IERS_A_prediction",
+            "polar_motion_source": "IERS_A_prediction"
+          },
+          "leap_seconds": {
+            "status": "healthy",
+            "code": "leap_valid",
+            "message": "Requested time and current assessment are before the recorded leap-file expiry.",
+            "source": "astropy-iers-data bundled Leap_Second.dat",
+            "package_version": "0.2026.10.12.1.3.27",
+            "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+            "expires_at": "2027-06-27T23:59:23+00:00",
+            "expiry_known": true,
+            "source_expiry_label": "2027-06-28",
+            "source_expiry_scale": "tai",
+            "requested_time_covered": true,
+            "current_time_expired": false,
+            "expires_in_days": 251.77258275868056
+          }
+        },
+        "scope": "Resource and metadata readiness, not orbit accuracy, observations, full archive integrity or readiness for every date.",
+        "automatic_updates": false
+      }
+    },
+    "historical_readiness": {
+      "http_status": 200,
+      "cache_control": "no-store",
+      "elapsed_seconds": 0.0161,
+      "response": {
+        "status": "healthy",
+        "kind": "calculated_readiness_assessment",
+        "evaluated_at": "2026-10-19T05:26:51.870615+00:00",
+        "requested_at": "2004-04-06T07:51:28.386000+00:00",
+        "time_system": "UTC",
+        "components": {
+          "database": {
+            "status": "healthy",
+            "code": "database_readable",
+            "message": "Database schema and bounded metadata reads are available.",
+            "reachable": true,
+            "schema_available": true,
+            "reads_available": true,
+            "schema_version": 2,
+            "integrity_scope": "metadata_read_not_full_integrity_scan",
+            "latest_stored_snapshot_id": 1,
+            "latest_stored_retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+            "snapshot_insertion_at": null,
+            "insertion_time_status": "not_recorded"
+          },
+          "orbital_data": {
+            "status": "healthy",
+            "code": "orbital_fresh",
+            "message": "Freshness uses orbital epoch, not recent retrieval; historical calculations may remain available. Review ageing or unknown source data before current-time use.",
+            "snapshots_present": true,
+            "inspected_count": 1,
+            "inspection_limit": 100,
+            "history_complete": true,
+            "global_latest_known": true,
+            "latest_retrieval_at": "2026-10-18T17:14:39.983172+00:00",
+            "ingestion_error_status": "not_recorded",
+            "last_ingestion_error": null,
+            "snapshot_id": 1,
+            "catalog_id": 25544,
+            "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+            "retrieval_age_seconds": 43931.887443,
+            "freshness": {
+              "state": "fresh",
+              "evaluated_at": "2026-10-19T05:26:51.870615+00:00",
+              "epoch_age_seconds": 65644.829847,
+              "retrieval_age_seconds": 43931.887443,
+              "fresh_hours": 24.0,
+              "stale_hours": 72.0,
+              "basis": "orbital_epoch",
+              "accuracy_guarantee": false
+            },
+            "policy_basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "eop": {
+            "status": "healthy",
+            "code": "eop_measured",
+            "message": "Requested epoch uses measured/final EOP; prediction-region age is reported separately.",
+            "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+            "package_version": "0.2026.10.12.1.3.27",
+            "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+            "first_covered_at": "1973-01-02T00:00:00+00:00",
+            "last_covered_at": "2027-10-04T00:00:00+00:00",
+            "prediction_starts_at": "2026-10-02T00:00:00+00:00",
+            "dataset_release_at": null,
+            "dataset_age_seconds": null,
+            "release_time_status": "not_recorded",
+            "prediction_table_age_days": 17.22698924323049,
+            "max_prediction_table_age_days": 30,
+            "prediction_age_state": "within_policy",
+            "policy": "measured_or_predicted",
+            "auto_download": false,
+            "covered": true,
+            "calculation_resources_usable": true,
+            "maintenance": {
+              "record_status": "not_recorded",
+              "acquired_at": null,
+              "verified_at": null,
+              "activated_at": null
+            },
+            "requested_eop_type": "measured",
+            "ut1_source": "IERS_B_final",
+            "polar_motion_source": "IERS_B_final"
+          },
+          "leap_seconds": {
+            "status": "healthy",
+            "code": "leap_valid",
+            "message": "Requested time and current assessment are before the recorded leap-file expiry.",
+            "source": "astropy-iers-data bundled Leap_Second.dat",
+            "package_version": "0.2026.10.12.1.3.27",
+            "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+            "expires_at": "2027-06-27T23:59:23+00:00",
+            "expiry_known": true,
+            "source_expiry_label": "2027-06-28",
+            "source_expiry_scale": "tai",
+            "requested_time_covered": true,
+            "current_time_expired": false,
+            "expires_in_days": 251.77258251603007
+          }
+        },
+        "scope": "Resource and metadata readiness, not orbit accuracy, observations, full archive integrity or readiness for every date.",
+        "automatic_updates": false
+      }
+    },
+    "out_of_range_readiness": {
+      "http_status": 200,
+      "cache_control": "no-store",
+      "elapsed_seconds": 0.0164,
+      "response": {
+        "status": "unavailable",
+        "kind": "calculated_readiness_assessment",
+        "evaluated_at": "2026-10-19T05:26:51.890440+00:00",
+        "requested_at": "2028-01-01T00:00:00+00:00",
+        "time_system": "UTC",
+        "components": {
+          "database": {
+            "status": "healthy",
+            "code": "database_readable",
+            "message": "Database schema and bounded metadata reads are available.",
+            "reachable": true,
+            "schema_available": true,
+            "reads_available": true,
+            "schema_version": 2,
+            "integrity_scope": "metadata_read_not_full_integrity_scan",
+            "latest_stored_snapshot_id": 1,
+            "latest_stored_retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+            "snapshot_insertion_at": null,
+            "insertion_time_status": "not_recorded"
+          },
+          "orbital_data": {
+            "status": "healthy",
+            "code": "orbital_fresh",
+            "message": "Freshness uses orbital epoch, not recent retrieval; historical calculations may remain available. Review ageing or unknown source data before current-time use.",
+            "snapshots_present": true,
+            "inspected_count": 1,
+            "inspection_limit": 100,
+            "history_complete": true,
+            "global_latest_known": true,
+            "latest_retrieval_at": "2026-10-18T17:14:39.983172+00:00",
+            "ingestion_error_status": "not_recorded",
+            "last_ingestion_error": null,
+            "snapshot_id": 1,
+            "catalog_id": 25544,
+            "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+            "retrieval_age_seconds": 43931.907268,
+            "freshness": {
+              "state": "fresh",
+              "evaluated_at": "2026-10-19T05:26:51.890440+00:00",
+              "epoch_age_seconds": 65644.849672,
+              "retrieval_age_seconds": 43931.907268,
+              "fresh_hours": 24.0,
+              "stale_hours": 72.0,
+              "basis": "orbital_epoch",
+              "accuracy_guarantee": false
+            },
+            "policy_basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "eop": {
+            "status": "unavailable",
+            "code": "eop_out_of_range",
+            "message": "Requested epoch is outside local EOP coverage.",
+            "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+            "package_version": "0.2026.10.12.1.3.27",
+            "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+            "first_covered_at": "1973-01-02T00:00:00+00:00",
+            "last_covered_at": "2027-10-04T00:00:00+00:00",
+            "prediction_starts_at": "2026-10-02T00:00:00+00:00",
+            "dataset_release_at": null,
+            "dataset_age_seconds": null,
+            "release_time_status": "not_recorded",
+            "prediction_table_age_days": 17.22698947268509,
+            "max_prediction_table_age_days": 30,
+            "prediction_age_state": "within_policy",
+            "policy": "measured_or_predicted",
+            "auto_download": false,
+            "covered": false,
+            "calculation_resources_usable": false,
+            "maintenance": {
+              "record_status": "not_recorded",
+              "acquired_at": null,
+              "verified_at": null,
+              "activated_at": null
+            }
+          },
+          "leap_seconds": {
+            "status": "unavailable",
+            "code": "leap_expired",
+            "message": "Local leap-second validity is exhausted; perform controlled maintenance.",
+            "source": "astropy-iers-data bundled Leap_Second.dat",
+            "package_version": "0.2026.10.12.1.3.27",
+            "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+            "expires_at": "2027-06-27T23:59:23+00:00",
+            "expiry_known": true,
+            "source_expiry_label": "2027-06-28",
+            "source_expiry_scale": "tai",
+            "requested_time_covered": false,
+            "current_time_expired": false,
+            "expires_in_days": 251.7725822865741
+          }
+        },
+        "scope": "Resource and metadata readiness, not orbit accuracy, observations, full archive integrity or readiness for every date.",
+        "automatic_updates": false
+      }
+    },
+    "preserved_ground_track": {
+      "http_status": 200,
+      "sample_count": 91,
+      "status": "complete",
+      "first_point": {
+        "teme": {
+          "snapshot_id": 1,
+          "catalog_id": 25544,
+          "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+          "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+          "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+          "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+          "at": "2026-10-18T11:12:47.040768+00:00",
+          "calculated_at": "2026-10-19T05:26:51.911969+00:00",
+          "position_km": [
+            4366.970285857113,
+            5209.853860486874,
+            0.0006140614350352405
+          ],
+          "velocity_km_s": [
+            -3.6436158869374666,
+            3.052200266342033,
+            6.008235221394084
+          ],
+          "frame": "TEME",
+          "origin": "Earth center",
+          "time_system": "UTC",
+          "kind": "calculated",
+          "model": "SGP4",
+          "gravity_model": "WGS72",
+          "sgp4_version": "2.27",
+          "epoch_offset_days": 0.0,
+          "validation_status": "reference_tested_engine_not_observation_validated",
+          "validation_scope": "Published numerical cases; not observed orbit accuracy",
+          "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+          "validator_version": "orbitiq-omm-v1",
+          "ingestion_sgp4_version": "2.27",
+          "snapshot_created_at": null,
+          "units": {
+            "position": "km",
+            "velocity": "km/s",
+            "epoch_offset": "days"
+          },
+          "uncertainty": {
+            "status": "not_quantified",
+            "covariance_available": false,
+            "observation_validated": false
+          },
+          "freshness_info": {
+            "state": "fresh",
+            "evaluated_at": "2026-10-19T05:26:51.911969+00:00",
+            "epoch_age_seconds": 65644.871201,
+            "retrieval_age_seconds": 43931.928797,
+            "fresh_hours": 24.0,
+            "stale_hours": 72.0,
+            "basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "warnings": [
+            "Calculated from mean elements, not a direct observation.",
+            "No position uncertainty or collision assessment is provided."
+          ]
+        },
+        "at": "2026-10-18T11:12:47.040768+00:00",
+        "kind": "calculated",
+        "input_frame": "TEME",
+        "frame": "ITRS",
+        "origin": "Earth center",
+        "time_system": "UTC",
+        "position_km": [
+          -5577.111009522075,
+          -3887.009070307837,
+          -0.001256334051309583
+        ],
+        "velocity_km_s": [
+          2.435521182692355,
+          -3.4919234875492293,
+          6.008227961834473
+        ],
+        "units": {
+          "position": "km",
+          "velocity": "km/s",
+          "angles": "deg",
+          "altitude": "km"
+        },
+        "geodetic": {
+          "latitude_deg": -1.0655700726308598e-05,
+          "longitude_deg": -145.12514392031295,
+          "altitude_km": 419.87791063305133,
+          "height_reference": "WGS84 ellipsoid"
+        },
+        "ground_position_km": [
+          -5232.641962479539,
+          -3646.9288015076318,
+          -0.0011782463911832034
+        ],
+        "transformation_status": "predicted_eop",
+        "method": "Astropy TEME -> ITRS at same obstime; Vallado 2006 GMST82 and polar motion; WGS84 geodetic",
+        "astropy_version": "7.2.3",
+        "pyerfa_version": "2.0.1.5",
+        "earth_orientation": {
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "package_version": "0.2026.10.12.1.3.27",
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "leap_seconds_expires": "2027-06-28",
+          "policy": "measured_or_predicted",
+          "status": "predicted",
+          "ut1_minus_utc_seconds": -0.037571894164407996,
+          "polar_motion_x_arcsec": 0.15454951047872,
+          "polar_motion_y_arcsec": 0.32100170502175995,
+          "prediction_table_age_days": 17.226989768190833,
+          "auto_download": false,
+          "degraded_results_allowed": false,
+          "first_mjd": 41684.0,
+          "last_mjd": 61682.0,
+          "predictive_mjd": 61315.0,
+          "ut1_source": "IERS_A_prediction",
+          "polar_motion_source": "IERS_A_prediction",
+          "max_prediction_table_age_days": 30,
+          "velocity_support_seconds": [
+            -0.5,
+            0.5
+          ]
+        },
+        "warnings": [
+          "Calculated from mean elements, not a direct observation.",
+          "No position uncertainty or collision assessment is provided.",
+          "WGS84 ellipsoidal height is not terrain clearance or mean-sea-level height.",
+          "A ground track does not establish observer visibility or orbital safety.",
+          "Transformation reference agreement does not quantify satellite prediction uncertainty.",
+          "Predicted Earth-orientation parameters are used; they are not final measurements."
+        ],
+        "sample_index": 0,
+        "segment_id": 0
+      }
+    }
+  },
+  "browser": [
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "readiness_columns": 2,
+      "checks": {
+        "four_cards": true,
+        "actual_status_and_resource_dates": true,
+        "historical_assessment": true,
+        "out_of_range": true,
+        "invalid_input": true,
+        "manual_refresh": true,
+        "keyboard_tab": true,
+        "no_horizontal_overflow": true,
+        "return_to_stored_explorer": true
+      },
+      "page_errors": [],
+      "external_requests": [],
+      "api_request_count": 10
+    },
+    {
+      "viewport": [
+        820,
+        1180
+      ],
+      "readiness_columns": 2,
+      "checks": {
+        "four_cards": true,
+        "actual_status_and_resource_dates": true,
+        "historical_assessment": true,
+        "out_of_range": true,
+        "invalid_input": true,
+        "manual_refresh": true,
+        "keyboard_tab": true,
+        "no_horizontal_overflow": true,
+        "return_to_stored_explorer": true
+      },
+      "page_errors": [],
+      "external_requests": [],
+      "api_request_count": 10
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "readiness_columns": 1,
+      "checks": {
+        "four_cards": true,
+        "actual_status_and_resource_dates": true,
+        "historical_assessment": true,
+        "out_of_range": true,
+        "invalid_input": true,
+        "manual_refresh": true,
+        "keyboard_tab": true,
+        "no_horizontal_overflow": true,
+        "return_to_stored_explorer": true
+      },
+      "page_errors": [],
+      "external_requests": [],
+      "api_request_count": 10
+    }
+  ],
+  "browser_version": "154.0.8037.57",
+  "generated_at": "2026-10-19T05:33:41.308117+00:00",
+  "baseline": {
+    "git_head": "8bf431cc1990bad13935d681765d86602fc34e75",
+    "branch": "main",
+    "backend_passed": 268,
+    "frontend_passed": 96,
+    "database": {
+      "sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+      "count": 1,
+      "schema": 2,
+      "integrity": "ok"
+    }
+  },
+  "verification": {
+    "backend": {
+      "passed": 337,
+      "failed": 0,
+      "new_tests": 69
+    },
+    "frontend": {
+      "passed": 125,
+      "failed": 0,
+      "new_tests": 29
+    },
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "eslint": "passed",
+    "prettier": "passed",
+    "typescript": "passed",
+    "production_build": "passed",
+    "clean_frontend_npm_ci_and_build": "passed",
+    "fresh_candidate_uv_sync_and_backend_validation": "passed",
+    "sgp4_reference_audit": {
+      "passed": 40,
+      "failed": 0
+    },
+    "earth_fixed_reference_audit": {
+      "passed": 6,
+      "failed": 0
+    },
+    "warnings": [
+      "Starlette TestClient httpx deprecation",
+      "npm whatwg-encoding deprecation",
+      "Existing lazy Three renderer chunk 555.74 kB exceeds Vite 500 kB warning threshold"
+    ],
+    "dependency_manifest_and_lockfiles_unchanged": true,
+    "dependency_file_sha256": {
+      "pyproject.toml": "fa8ebb649044fbe98e7f4cc9c9d6bb3cd42c201b898c2854f1e65f6f727df8a4",
+      "uv.lock": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1",
+      "frontend/package.json": "1c01e4eab01716f78cbed2fe7494bcf3cb857f68683eb08a23b87bb5439e1187",
+      "frontend/package-lock.json": "ad30fad9da6bc567b3fd1f63cb6053f74df1e06b3830b086719c8411fc8e4c9d"
+    },
+    "verification_servers_stopped": true
+  },
+  "maintenance_rehearsal": {
+    "kind": "actual_isolated_same_version_rehearsal",
+    "running_server_switched": false,
+    "active_checkout_or_lock_modified": false,
+    "unsolicited_dependency_upgrade": false,
+    "steps": {
+      "acquire_a": {
+        "status": "acquired",
+        "requested_version": "0.2026.10.12.1.3.27",
+        "started_at": "2026-10-19T05:23:46.820289+00:00",
+        "source_index": "https://pypi.org/simple",
+        "source_package": "astropy-iers-data",
+        "acquired_at": "2026-10-19T05:23:58.571128+00:00",
+        "metadata": {
+          "astropy_version": "7.2.3",
+          "current_time_resources_usable": true,
+          "first_mjd": 41684.0,
+          "last_mjd": 61682.0,
+          "leap_rows": 28,
+          "leap_seconds_expires": "2027-06-28",
+          "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "package_version": "0.2026.10.12.1.3.27",
+          "predictive_mjd": 61315.0,
+          "rows": 19999,
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "strict_out_of_coverage": true,
+          "validation_policy": "measured_or_predicted"
+        },
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939",
+        "lock_sha256": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1"
+      },
+      "validate_a": {
+        "status": "validated",
+        "verified_at": "2026-10-19T05:24:38.968442+00:00",
+        "acquired_at": "2026-10-19T05:23:58.571128+00:00",
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939",
+        "metadata": {
+          "astropy_version": "7.2.3",
+          "current_time_resources_usable": true,
+          "first_mjd": 41684.0,
+          "last_mjd": 61682.0,
+          "leap_rows": 28,
+          "leap_seconds_expires": "2027-06-28",
+          "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "package_version": "0.2026.10.12.1.3.27",
+          "predictive_mjd": 61315.0,
+          "rows": 19999,
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "strict_out_of_coverage": true,
+          "validation_policy": "measured_or_predicted"
+        },
+        "checks": {
+          "backend_suite": "passed",
+          "sgp4_references": 40,
+          "terrestrial_references": 6
+        },
+        "operation_id": "3ff735d876c14cb0b1d2a305801b5af4"
+      },
+      "acquire_b": {
+        "status": "acquired",
+        "requested_version": "0.2026.10.12.1.3.27",
+        "started_at": "2026-10-19T05:24:21.950977+00:00",
+        "source_index": "https://pypi.org/simple",
+        "source_package": "astropy-iers-data",
+        "acquired_at": "2026-10-19T05:24:26.937329+00:00",
+        "metadata": {
+          "astropy_version": "7.2.3",
+          "current_time_resources_usable": true,
+          "first_mjd": 41684.0,
+          "last_mjd": 61682.0,
+          "leap_rows": 28,
+          "leap_seconds_expires": "2027-06-28",
+          "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "package_version": "0.2026.10.12.1.3.27",
+          "predictive_mjd": 61315.0,
+          "rows": 19999,
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "strict_out_of_coverage": true,
+          "validation_policy": "measured_or_predicted"
+        },
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939",
+        "lock_sha256": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1"
+      },
+      "validate_b": {
+        "status": "validated",
+        "verified_at": "2026-10-19T05:25:20.009199+00:00",
+        "acquired_at": "2026-10-19T05:24:26.937329+00:00",
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939",
+        "metadata": {
+          "astropy_version": "7.2.3",
+          "current_time_resources_usable": true,
+          "first_mjd": 41684.0,
+          "last_mjd": 61682.0,
+          "leap_rows": 28,
+          "leap_seconds_expires": "2027-06-28",
+          "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "package_version": "0.2026.10.12.1.3.27",
+          "predictive_mjd": 61315.0,
+          "rows": 19999,
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "strict_out_of_coverage": true,
+          "validation_policy": "measured_or_predicted"
+        },
+        "checks": {
+          "backend_suite": "passed",
+          "sgp4_references": 40,
+          "terrestrial_references": 6
+        },
+        "operation_id": "5b8077df156345ddad40706805648e9b"
+      },
+      "select_a": {
+        "status": "selected",
+        "package_version": "0.2026.10.12.1.3.27",
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "acquired_at": "2026-10-19T05:23:58.571128+00:00",
+        "verified_at": "2026-10-19T05:24:38.968442+00:00",
+        "activated_at": "2026-10-19T05:25:55.445247+00:00",
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939"
+      },
+      "select_b": {
+        "status": "selected",
+        "package_version": "0.2026.10.12.1.3.27",
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "acquired_at": "2026-10-19T05:24:26.937329+00:00",
+        "verified_at": "2026-10-19T05:25:20.009199+00:00",
+        "activated_at": "2026-10-19T05:26:07.021694+00:00",
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939"
+      },
+      "rollback_to_a": {
+        "acquired_at": "2026-10-19T05:23:58.571128+00:00",
+        "activated_at": "2026-10-19T05:25:55.445247+00:00",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "package_version": "0.2026.10.12.1.3.27",
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939",
+        "status": "selected",
+        "verified_at": "2026-10-19T05:24:38.968442+00:00"
+      },
+      "status_after_rollback": {
+        "acquired_at": "2026-10-19T05:23:58.571128+00:00",
+        "activated_at": "2026-10-19T05:25:55.445247+00:00",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "package_version": "0.2026.10.12.1.3.27",
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "source_sha256": "0efc2e820c402c4139803451e2fd3983c58b7d326a575388424ae081081bd939",
+        "status": "selected",
+        "verified_at": "2026-10-19T05:24:38.968442+00:00"
+      }
+    },
+    "selected_environment_api": {
+      "selected_environment_api": "passed",
+      "maintenance": {
+        "record_status": "matching_operator_receipt",
+        "acquired_at": "2026-10-19T05:23:58.571128+00:00",
+        "verified_at": "2026-10-19T05:24:38.968442+00:00",
+        "activated_at": "2026-10-19T05:25:55.445247+00:00"
+      },
+      "resource_version": "0.2026.10.12.1.3.27",
+      "path_exposure": false
+    },
+    "fault_injection": "Separate isolated automated tests, not faults injected into live resources",
+    "notes": [
+      "Candidates retain full local receipts, reference outputs, source and locked virtual environments.",
+      "Local paths omitted from this shareable artifact; no installed active resource was replaced.",
+      "Same-version rehearsal verifies the workflow, not acquisition of a newer scientific dataset."
+    ],
+    "final_source_candidate": {
+      "acquisition": {
+        "status": "acquired",
+        "requested_version": "0.2026.10.12.1.3.27",
+        "started_at": "2026-10-19T05:32:28.705928+00:00",
+        "source_index": "https://pypi.org/simple",
+        "source_package": "astropy-iers-data",
+        "acquired_at": "2026-10-19T05:32:34.965202+00:00",
+        "metadata": {
+          "astropy_version": "7.2.3",
+          "current_time_resources_usable": true,
+          "first_mjd": 41684.0,
+          "last_mjd": 61682.0,
+          "leap_rows": 28,
+          "leap_seconds_expires": "2027-06-28",
+          "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "package_version": "0.2026.10.12.1.3.27",
+          "predictive_mjd": 61315.0,
+          "rows": 19999,
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "strict_out_of_coverage": true,
+          "validation_policy": "measured_or_predicted"
+        },
+        "source_sha256": "93b99548e22baa48d743e12618e645d591498b3bd9f6f6ba0c861864a8d3dae1",
+        "lock_sha256": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1"
+      },
+      "validation": {
+        "status": "validated",
+        "verified_at": "2026-10-19T05:32:56.822792+00:00",
+        "acquired_at": "2026-10-19T05:32:34.965202+00:00",
+        "source_sha256": "93b99548e22baa48d743e12618e645d591498b3bd9f6f6ba0c861864a8d3dae1",
+        "metadata": {
+          "astropy_version": "7.2.3",
+          "current_time_resources_usable": true,
+          "first_mjd": 41684.0,
+          "last_mjd": 61682.0,
+          "leap_rows": 28,
+          "leap_seconds_expires": "2027-06-28",
+          "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "package_version": "0.2026.10.12.1.3.27",
+          "predictive_mjd": 61315.0,
+          "rows": 19999,
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "strict_out_of_coverage": true,
+          "validation_policy": "measured_or_predicted"
+        },
+        "checks": {
+          "backend_suite": "passed",
+          "sgp4_references": 40,
+          "terrestrial_references": 6
+        },
+        "operation_id": "91aeca8bf9f046868bac46929c01a4b0"
+      },
+      "matches_final_backend_and_tests_source": true
+    }
+  },
+  "database_preservation": {
+    "before": {
+      "sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+      "count": 1,
+      "schema": 2,
+      "integrity": "ok"
+    },
+    "after": {
+      "sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+      "count": 1,
+      "schema": 2,
+      "integrity": "ok"
+    },
+    "unchanged": true,
+    "explicit_check": "successful",
+    "explicit_verify_archive": {
+      "status": "successful",
+      "verified_snapshots": 1
+    }
+  },
+  "limitations": [
+    "No full archive scan in readiness; global latest retrieval unknown beyond 100-record complete assessment.",
+    "No stored insertion timestamp or ingestion failure history; no recorded upstream release timestamp.",
+    "No production durability, host-loss recovery, distributed worker switch, physical GPU matrix or remote CI claim.",
+    "Operator receipts require trusted protected storage and are not signed attestations.",
+    "Strict coverage, prediction age and effective TAI/UTC leap cutoff apply to every calculation."
+  ],
+  "not_performed": [
+    "commit",
+    "push",
+    "deployment",
+    "publication",
+    "remote modification",
+    "Phase 5",
+    "new satellite ingestion"
+  ],
+  "visual_review": {
+    "desktop_screenshot_inspected": true,
+    "mobile_screenshot_inspected": true,
+    "screenshots_retained_in_temporary_workspace": true
+  },
+  "initial_test_harness_correction": "First browser run waited for a control inside a collapsed details panel; rerun opened that panel and all three viewports passed. No application behavior or scientific tolerance was weakened.",
+  "acceptance_criteria": [
+    {
+      "number": 1,
+      "status": "PASS"
+    },
+    {
+      "number": 2,
+      "status": "PASS"
+    },
+    {
+      "number": 3,
+      "status": "PASS"
+    },
+    {
+      "number": 4,
+      "status": "PASS"
+    },
+    {
+      "number": 5,
+      "status": "PASS"
+    },
+    {
+      "number": 6,
+      "status": "PASS"
+    },
+    {
+      "number": 7,
+      "status": "PASS"
+    },
+    {
+      "number": 8,
+      "status": "PASS"
+    },
+    {
+      "number": 9,
+      "status": "PASS"
+    },
+    {
+      "number": 10,
+      "status": "PASS"
+    },
+    {
+      "number": 11,
+      "status": "PASS"
+    },
+    {
+      "number": 12,
+      "status": "PASS"
+    },
+    {
+      "number": 13,
+      "status": "PASS"
+    },
+    {
+      "number": 14,
+      "status": "PASS"
+    },
+    {
+      "number": 15,
+      "status": "PASS"
+    },
+    {
+      "number": 16,
+      "status": "PASS"
+    },
+    {
+      "number": 17,
+      "status": "PASS"
+    },
+    {
+      "number": 18,
+      "status": "PASS"
+    },
+    {
+      "number": 19,
+      "status": "PASS"
+    },
+    {
+      "number": 20,
+      "status": "PASS"
+    },
+    {
+      "number": 21,
+      "status": "PASS"
+    },
+    {
+      "number": 22,
+      "status": "PASS"
+    }
+  ],
+  "blocked_criteria": [],
+  "git_final": {
+    "head": "8bf431cc1990bad13935d681765d86602fc34e75",
+    "staged_files": [],
+    "changed_files": [
+      "backend/orbitiq/api/readiness.py",
+      "backend/orbitiq/maintenance/__init__.py",
+      "backend/orbitiq/maintenance/eop.py",
+      "backend/orbitiq/maintenance/probe.py",
+      "backend/orbitiq/services/readiness.py",
+      "backend/tests/test_eop_maintenance.py",
+      "backend/tests/test_readiness.py",
+      "docs/eop-maintenance.md",
+      "docs/pre-phase-5-integration-results.json",
+      "docs/pre-phase-5-plan.md",
+      "docs/pre-phase-5-readiness-report.md",
+      "docs/scientific-data-readiness.md",
+      "frontend/src/ReadinessDashboard.test.tsx",
+      "frontend/src/ReadinessDashboard.tsx",
+      "frontend/src/readiness-api.test.ts",
+      "frontend/src/readiness-api.ts",
+      "frontend/src/test-fixtures/readiness.ts",
+      ".env.example",
+      "README.md",
+      "backend/orbitiq/main.py",
+      "frontend/src/App.tsx",
+      "frontend/src/style.css"
+    ]
+  }
+}

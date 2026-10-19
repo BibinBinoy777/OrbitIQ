@@ -2,23 +2,28 @@ import { useEffect, useRef, useState } from "react";
 import type { TrackPoint } from "./ground-track-api";
 import type { GlobeEngine, CameraAction } from "./globe-renderer";
 import { canRenderPoint } from "./globe-geometry";
+import type { ComparisonMarker } from "./globe-geometry";
 const EMPTY: TrackPoint[] = [];
+const NO_COMPARISON: ComparisonMarker[] = [];
 export default function Globe({
   points = EMPTY,
   selected = 0,
   onInspect = () => {},
+  comparison = NO_COMPARISON,
 }: {
   points?: TrackPoint[];
   selected?: number;
   onInspect?: () => void;
+  comparison?: ComparisonMarker[];
 }) {
   const host = useRef<HTMLDivElement>(null),
     engine = useRef<GlobeEngine | null>(null);
-  const current = useRef({ points, selected, onInspect });
+  const current = useRef({ points, selected, onInspect, comparison });
   useEffect(() => {
-    current.current = { points, selected, onInspect };
+    current.current = { points, selected, onInspect, comparison };
     engine.current?.setData(points, selected);
-  }, [points, selected, onInspect]);
+    engine.current?.setComparison?.(comparison);
+  }, [points, selected, onInspect, comparison]);
   const [status, setStatus] = useState<"loading" | "ready" | "failed" | "lost">(
     "loading",
   );
@@ -43,6 +48,7 @@ export default function Globe({
             current.current.points,
             current.current.selected,
           );
+          engine.current.setComparison?.(current.current.comparison);
         } catch {
           if (!cancelled) setStatus("failed");
         }
@@ -59,6 +65,10 @@ export default function Globe({
   const unavailable = typeof window.WebGL2RenderingContext === "undefined";
   const ready = status === "ready" && !unavailable;
   const compatible = points.length > 0 && points.every(canRenderPoint);
+  const paired =
+    comparison.length === 2 &&
+    comparison.every(canRenderPoint) &&
+    comparison[0].at === comparison[1].at;
   const button = (label: string, action: CameraAction) => (
     <button
       type="button"
@@ -83,9 +93,13 @@ export default function Globe({
       {!ready && (
         <div className="globe-fallback" role="status">
           {unavailable || status === "failed"
-            ? "3D graphics are unavailable. The 2D map, timeline and coordinate information remain usable."
+            ? paired
+              ? "3D graphics are unavailable. The numerical comparison and source metadata remain usable."
+              : "3D graphics are unavailable. The 2D map, timeline and coordinate information remain usable."
             : status === "lost"
-              ? "Graphics context lost. Use the 2D map and information, or retry 3D."
+              ? paired
+                ? "Graphics context lost. Numerical comparison remains available; retry 3D."
+                : "Graphics context lost. Use the 2D map and information, or retry 3D."
               : "Loading the 3D Earth…"}
         </div>
       )}
@@ -113,21 +127,31 @@ export default function Globe({
         {button("Reset camera", "reset")}
         <button
           type="button"
-          disabled={!ready || !compatible}
+          disabled={!ready || (!compatible && !paired)}
           onClick={() => engine.current?.camera("focus")}
         >
-          Focus satellite
+          {paired ? "Focus source A" : "Focus satellite"}
         </button>
         <button type="button" disabled={!compatible} onClick={onInspect}>
           Inspect satellite
         </button>
       </div>
-      <p className="globe-legend">
-        <span className="legend-satellite">●</span> Calculated satellite{" "}
-        <span className="legend-ground">●</span> Surface track{" "}
-        <span>○ Selected surface point</span>
-      </p>
-      {!compatible && (
+      {!paired && (
+        <p className="globe-legend">
+          <span className="legend-satellite">●</span> Calculated satellite{" "}
+          <span className="legend-ground">●</span> Surface track{" "}
+          <span>○ Selected surface point</span>
+        </p>
+      )}
+      {paired && (
+        <p className="comparison-legend">
+          A: snapshot #{comparison[0].snapshot_id} · sphere. B: snapshot #
+          {comparison[1].snapshot_id} · diamond. Two calculated ITRS states at{" "}
+          {comparison[0].at}; no connecting trajectory. Markers may overlap and
+          their sizes are illustrative.
+        </p>
+      )}
+      {!compatible && !paired && (
         <p className="notice">
           No validated ITRS position is available for a marker. Load a track to
           inspect calculated samples.

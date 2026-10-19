@@ -67,7 +67,11 @@ def load_snapshot(path: Path, snapshot_id: int):
 def snapshot_history(path: Path, catalog_id: int, limit: int, before_id: int | None):
     now = datetime.now(UTC)
     thresholds = policy()
-    items = storage_read(list_snapshots, path, catalog_id, limit, before_id, as_of=now)
+    items = storage_read(
+        list_snapshots, path, catalog_id, limit + 1, before_id, as_of=now
+    )
+    has_more = len(items) > limit
+    items = items[:limit]
     for item in items:
         item["freshness_info"] = classify(
             item.get("orbital_epoch"),
@@ -76,7 +80,14 @@ def snapshot_history(path: Path, catalog_id: int, limit: int, before_id: int | N
             policy=thresholds,
         )
         item["snapshot_created_at"] = None
-    return {"snapshots": items}
+    return {
+        "snapshots": items,
+        "has_more": has_more,
+        "next_before_id": items[-1]["id"] if has_more else None,
+        "order": "insertion_id_desc_not_retrieval_chronology",
+        "total_count": None,
+        "total_count_status": "not_computed_use_global_snapshot_browser",
+    }
 
 
 def snapshot_detail(path: Path, snapshot_id: int):

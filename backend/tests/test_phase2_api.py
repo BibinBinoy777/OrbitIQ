@@ -102,7 +102,14 @@ def test_missing_snapshot_and_unknown_catalog_contract(setup_api):
     r = client.get("/api/snapshots/99999")
     assert r.status_code == 404 and r.json()["detail"] == "Snapshot not found"
     assert r.json()["error"]["code"] == "snapshot_not_found"
-    assert client.get("/api/satellites/123/snapshots").json() == {"snapshots": []}
+    assert client.get("/api/satellites/123/snapshots").json() == {
+        "snapshots": [],
+        "has_more": False,
+        "next_before_id": None,
+        "order": "insertion_id_desc_not_retrieval_chronology",
+        "total_count": None,
+        "total_count_status": "not_computed_use_global_snapshot_browser",
+    }
 
 
 @pytest.mark.parametrize(

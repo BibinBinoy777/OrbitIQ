@@ -81,6 +81,11 @@ class SnapshotSummary(BaseModel):
 
 class SnapshotList(BaseModel):
     snapshots: list[SnapshotSummary]
+    has_more: bool
+    next_before_id: int | None
+    order: str
+    total_count: int | None
+    total_count_status: str
 
 
 class EarthOrientation(BaseModel):

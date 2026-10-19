@@ -1,0 +1,1767 @@
+{
+  "executed_at": "2026-10-19T06:17:16.496349+00:00",
+  "real_archive": {
+    "kind": "actual_preexisting_ISS_snapshot_no_new_ingestion",
+    "search": {
+      "http_status": 200,
+      "elapsed_seconds": 0.0757,
+      "body": {
+        "snapshots": [
+          {
+            "id": 1,
+            "catalog_id": 25544,
+            "object_name": "ISS (ZARYA)",
+            "object_id": "1998-067A",
+            "identity_consistent": true,
+            "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+            "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+            "snapshot_created_at": null,
+            "insertion_time_status": "not_recorded",
+            "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+            "provider": "CelesTrak",
+            "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+            "validation_status": "structural_and_epoch_propagation_passed",
+            "validator_version": "orbitiq-omm-v1",
+            "ingestion_sgp4_version": "2.27",
+            "frame": "TEME",
+            "record_count": 1,
+            "record_count_basis": "schema_2_single_satellite_snapshot",
+            "metadata_issues": [],
+            "listing_validation": "metadata_only_not_full_provenance_verification",
+            "freshness_info": {
+              "state": "fresh",
+              "evaluated_at": "2026-10-19T06:17:15.890829+00:00",
+              "epoch_age_seconds": 68668.850061,
+              "retrieval_age_seconds": 46955.907657,
+              "fresh_hours": 24.0,
+              "stale_hours": 72.0,
+              "basis": "orbital_epoch",
+              "accuracy_guarantee": false
+            },
+            "membership": "stored_record"
+          }
+        ],
+        "evaluated_at": "2026-10-19T06:17:15.890829+00:00",
+        "order": "insertion_id_desc_not_retrieval_chronology",
+        "anchor_id": 1,
+        "has_more": false,
+        "next_before_id": null,
+        "page_size": 20,
+        "returned_count": 1,
+        "scanned_count": 1,
+        "scan_limit": 250,
+        "total_count": null,
+        "total_count_status": "not_computed_for_search",
+        "count_bound": 1000,
+        "context_snapshot": null,
+        "storage_model": "one_satellite_record_per_snapshot",
+        "global_latest_retrieval_known": false,
+        "warnings": [
+          "ID ordering is insertion order, not element or retrieval chronology.",
+          "No match means not found in inspected stored records, not absent from orbit.",
+          "Search can return an empty scan window with more history to examine.",
+          "Counts exclude records appended above the fixed history anchor."
+        ]
+      }
+    },
+    "history": {
+      "http_status": 200,
+      "elapsed_seconds": 0.0041,
+      "body": {
+        "snapshots": [
+          {
+            "id": 1,
+            "catalog_id": 25544,
+            "object_name": "ISS (ZARYA)",
+            "object_id": "1998-067A",
+            "identity_consistent": true,
+            "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+            "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+            "snapshot_created_at": null,
+            "insertion_time_status": "not_recorded",
+            "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+            "provider": "CelesTrak",
+            "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+            "validation_status": "structural_and_epoch_propagation_passed",
+            "validator_version": "orbitiq-omm-v1",
+            "ingestion_sgp4_version": "2.27",
+            "frame": "TEME",
+            "record_count": 1,
+            "record_count_basis": "schema_2_single_satellite_snapshot",
+            "metadata_issues": [],
+            "listing_validation": "metadata_only_not_full_provenance_verification",
+            "freshness_info": {
+              "state": "fresh",
+              "evaluated_at": "2026-10-19T06:17:15.895683+00:00",
+              "epoch_age_seconds": 68668.854915,
+              "retrieval_age_seconds": 46955.912511,
+              "fresh_hours": 24.0,
+              "stale_hours": 72.0,
+              "basis": "orbital_epoch",
+              "accuracy_guarantee": false
+            },
+            "membership": "stored_record"
+          }
+        ],
+        "evaluated_at": "2026-10-19T06:17:15.895683+00:00",
+        "order": "insertion_id_desc_not_retrieval_chronology",
+        "anchor_id": 1,
+        "has_more": false,
+        "next_before_id": null,
+        "page_size": 20,
+        "returned_count": 1,
+        "scanned_count": 1,
+        "scan_limit": 250,
+        "total_count": 1,
+        "total_count_status": "exact_within_anchor",
+        "count_bound": 1000,
+        "context_snapshot": null,
+        "storage_model": "one_satellite_record_per_snapshot",
+        "global_latest_retrieval_known": false,
+        "warnings": [
+          "ID ordering is insertion order, not element or retrieval chronology.",
+          "No match means not found in inspected stored records, not absent from orbit.",
+          "Search can return an empty scan window with more history to examine.",
+          "Counts exclude records appended above the fixed history anchor."
+        ]
+      }
+    },
+    "self_check": {
+      "http_status": 200,
+      "elapsed_seconds": 0.2738,
+      "body": {
+        "kind": "stored_snapshot_comparison",
+        "evaluated_at": "2026-10-19T06:17:15.899429+00:00",
+        "first": {
+          "id": 1,
+          "catalog_id": 25544,
+          "object_name": "ISS (ZARYA)",
+          "object_id": "1998-067A",
+          "identity_consistent": true,
+          "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+          "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+          "snapshot_created_at": null,
+          "insertion_time_status": "not_recorded",
+          "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+          "provider": "CelesTrak",
+          "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+          "validation_status": "structural_and_epoch_propagation_passed",
+          "validator_version": "orbitiq-omm-v1",
+          "ingestion_sgp4_version": "2.27",
+          "frame": "TEME",
+          "record_count": 1,
+          "record_count_basis": "schema_2_single_satellite_snapshot",
+          "metadata_issues": [],
+          "listing_validation": "metadata_only_not_full_provenance_verification",
+          "freshness_info": {
+            "state": "fresh",
+            "evaluated_at": "2026-10-19T06:17:15.899817+00:00",
+            "epoch_age_seconds": 68668.859049,
+            "retrieval_age_seconds": 46955.916645,
+            "fresh_hours": 24.0,
+            "stale_hours": 72.0,
+            "basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "membership": "stored_record"
+        },
+        "second": {
+          "id": 1,
+          "catalog_id": 25544,
+          "object_name": "ISS (ZARYA)",
+          "object_id": "1998-067A",
+          "identity_consistent": true,
+          "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+          "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+          "snapshot_created_at": null,
+          "insertion_time_status": "not_recorded",
+          "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+          "provider": "CelesTrak",
+          "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+          "validation_status": "structural_and_epoch_propagation_passed",
+          "validator_version": "orbitiq-omm-v1",
+          "ingestion_sgp4_version": "2.27",
+          "frame": "TEME",
+          "record_count": 1,
+          "record_count_basis": "schema_2_single_satellite_snapshot",
+          "metadata_issues": [],
+          "listing_validation": "metadata_only_not_full_provenance_verification",
+          "freshness_info": {
+            "state": "fresh",
+            "evaluated_at": "2026-10-19T06:17:15.900683+00:00",
+            "epoch_age_seconds": 68668.859915,
+            "retrieval_age_seconds": 46955.917511,
+            "fresh_hours": 24.0,
+            "stale_hours": 72.0,
+            "basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "membership": "stored_record"
+        },
+        "is_self_comparison": true,
+        "chronology": {
+          "status": "ambiguous_equal_retrieval_times",
+          "basis": "stored_retrieval_time",
+          "older_snapshot_id": null,
+          "newer_snapshot_id": null
+        },
+        "counts": {
+          "shared": 1,
+          "added": 0,
+          "removed": 0,
+          "incompatible": 0
+        },
+        "records": [
+          {
+            "category": "shared",
+            "catalog_id": 25544,
+            "first_snapshot_id": 1,
+            "second_snapshot_id": 1
+          }
+        ],
+        "filter": "all",
+        "matching_basis": "validated_NORAD_catalog_id_not_name",
+        "element_differences": [
+          {
+            "field": "REV_AT_EPOCH",
+            "unit": "rev",
+            "first_value": 59086,
+            "second_value": 59086,
+            "difference": 0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION",
+            "unit": "rev/day",
+            "first_value": 15.48923373,
+            "second_value": 15.48923373,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "ECCENTRICITY",
+            "unit": "dimensionless",
+            "first_value": 0.0006784,
+            "second_value": 0.0006784,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "INCLINATION",
+            "unit": "deg",
+            "first_value": 51.6327,
+            "second_value": 51.6327,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "RA_OF_ASC_NODE",
+            "unit": "deg",
+            "first_value": 50.0298,
+            "second_value": 50.0298,
+            "difference": 0.0,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "ARG_OF_PERICENTER",
+            "unit": "deg",
+            "first_value": 279.2532,
+            "second_value": 279.2532,
+            "difference": 0.0,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "MEAN_ANOMALY",
+            "unit": "deg",
+            "first_value": 80.7689,
+            "second_value": 80.7689,
+            "difference": 0.0,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "BSTAR",
+            "unit": "1/Earth-radii",
+            "first_value": 0.00014361,
+            "second_value": 0.00014361,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DOT",
+            "unit": "rev/day^2",
+            "first_value": 7.452e-05,
+            "second_value": 7.452e-05,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DDOT",
+            "unit": "rev/day^3",
+            "first_value": 0.0,
+            "second_value": 0.0,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          }
+        ],
+        "element_comparison_status": "complete",
+        "source_errors": [
+          null,
+          null
+        ],
+        "provenance_differences": [
+          {
+            "field": "source_url",
+            "first_value": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+            "second_value": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+            "status": "same"
+          },
+          {
+            "field": "response_sha256",
+            "first_value": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+            "second_value": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+            "status": "same"
+          },
+          {
+            "field": "orbital_epoch",
+            "first_value": "2026-10-18T11:12:47.040768+00:00",
+            "second_value": "2026-10-18T11:12:47.040768+00:00",
+            "status": "same"
+          },
+          {
+            "field": "retrieved_at",
+            "first_value": "2026-10-18T17:14:39.983172+00:00",
+            "second_value": "2026-10-18T17:14:39.983172+00:00",
+            "status": "same"
+          },
+          {
+            "field": "validation_status",
+            "first_value": "structural_and_epoch_propagation_passed",
+            "second_value": "structural_and_epoch_propagation_passed",
+            "status": "same"
+          },
+          {
+            "field": "validator_version",
+            "first_value": "orbitiq-omm-v1",
+            "second_value": "orbitiq-omm-v1",
+            "status": "same"
+          },
+          {
+            "field": "ingestion_sgp4_version",
+            "first_value": "2.27",
+            "second_value": "2.27",
+            "status": "same"
+          },
+          {
+            "field": "object_id",
+            "first_value": "1998-067A",
+            "second_value": "1998-067A",
+            "status": "same"
+          }
+        ],
+        "state_comparison": {
+          "status": "complete",
+          "evaluation_at": "2026-10-18T11:12:47.040768+00:00",
+          "frame": "ITRS",
+          "units": {
+            "position": "km",
+            "velocity": "km/s"
+          },
+          "first": {
+            "teme": {
+              "position_km": [
+                4366.970285857113,
+                5209.853860486874,
+                0.0006140614350352405
+              ],
+              "velocity_km_s": [
+                -3.6436158869374666,
+                3.052200266342033,
+                6.008235221394084
+              ],
+              "kind": "calculated",
+              "frame": "TEME",
+              "origin": "Earth center",
+              "time_system": "UTC",
+              "at": "2026-10-18T11:12:47.040768+00:00",
+              "calculated_at": "2026-10-19T06:17:15.902197+00:00",
+              "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+              "epoch_offset_days": 0.0,
+              "model": "SGP4",
+              "gravity_model": "WGS72",
+              "units": {
+                "position": "km",
+                "velocity": "km/s",
+                "epoch_offset": "days"
+              },
+              "uncertainty": {
+                "status": "not_quantified",
+                "covariance_available": false,
+                "observation_validated": false
+              },
+              "validation_scope": "Published numerical cases; not observed orbit accuracy",
+              "sgp4_version": "2.27",
+              "validation_status": "reference_tested_engine_not_observation_validated",
+              "warnings": [
+                "Calculated from mean elements, not a direct observation.",
+                "No position uncertainty or collision assessment is provided."
+              ],
+              "snapshot_id": 1,
+              "catalog_id": 25544,
+              "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+              "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+              "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+              "freshness_info": {
+                "state": "fresh",
+                "evaluated_at": "2026-10-19T06:17:15.902197+00:00",
+                "epoch_age_seconds": 68668.861429,
+                "retrieval_age_seconds": 46955.919025,
+                "fresh_hours": 24.0,
+                "stale_hours": 72.0,
+                "basis": "orbital_epoch",
+                "accuracy_guarantee": false
+              },
+              "snapshot_created_at": null,
+              "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+              "validator_version": "orbitiq-omm-v1",
+              "ingestion_sgp4_version": "2.27"
+            },
+            "at": "2026-10-18T11:12:47.040768+00:00",
+            "kind": "calculated",
+            "input_frame": "TEME",
+            "frame": "ITRS",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "position_km": [
+              -5577.111009522075,
+              -3887.009070307837,
+              -0.001256334051309583
+            ],
+            "ground_position_km": [
+              -5232.641962479539,
+              -3646.9288015076318,
+              -0.0011782463911832034
+            ],
+            "velocity_km_s": [
+              2.435521182692355,
+              -3.4919234875492293,
+              6.008227961834473
+            ],
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "angles": "deg",
+              "altitude": "km"
+            },
+            "geodetic": {
+              "latitude_deg": -1.0655700726308598e-05,
+              "longitude_deg": -145.12514392031295,
+              "altitude_km": 419.87791063305133,
+              "height_reference": "WGS84 ellipsoid"
+            },
+            "transformation_status": "predicted_eop",
+            "method": "Astropy TEME -> ITRS at same obstime; Vallado 2006 GMST82 and polar motion; WGS84 geodetic",
+            "astropy_version": "7.2.3",
+            "pyerfa_version": "2.0.1.5",
+            "earth_orientation": {
+              "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+              "package_version": "0.2026.10.12.1.3.27",
+              "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+              "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+              "leap_seconds_expires": "2027-06-28",
+              "first_mjd": 41684.0,
+              "last_mjd": 61682.0,
+              "predictive_mjd": 61315.0,
+              "policy": "measured_or_predicted",
+              "status": "predicted",
+              "ut1_source": "IERS_A_prediction",
+              "polar_motion_source": "IERS_A_prediction",
+              "ut1_minus_utc_seconds": -0.037571894164407996,
+              "polar_motion_x_arcsec": 0.15454951047872,
+              "polar_motion_y_arcsec": 0.32100170502175995,
+              "prediction_table_age_days": 17.26199240257847,
+              "max_prediction_table_age_days": 30,
+              "auto_download": false,
+              "degraded_results_allowed": false,
+              "velocity_support_seconds": [
+                -0.5,
+                0.5
+              ]
+            },
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided.",
+              "WGS84 ellipsoidal height is not terrain clearance or mean-sea-level height.",
+              "A ground track does not establish observer visibility or orbital safety.",
+              "Transformation reference agreement does not quantify satellite prediction uncertainty.",
+              "Predicted Earth-orientation parameters are used; they are not final measurements."
+            ]
+          },
+          "second": {
+            "teme": {
+              "position_km": [
+                4366.970285857113,
+                5209.853860486874,
+                0.0006140614350352405
+              ],
+              "velocity_km_s": [
+                -3.6436158869374666,
+                3.052200266342033,
+                6.008235221394084
+              ],
+              "kind": "calculated",
+              "frame": "TEME",
+              "origin": "Earth center",
+              "time_system": "UTC",
+              "at": "2026-10-18T11:12:47.040768+00:00",
+              "calculated_at": "2026-10-19T06:17:16.155582+00:00",
+              "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+              "epoch_offset_days": 0.0,
+              "model": "SGP4",
+              "gravity_model": "WGS72",
+              "units": {
+                "position": "km",
+                "velocity": "km/s",
+                "epoch_offset": "days"
+              },
+              "uncertainty": {
+                "status": "not_quantified",
+                "covariance_available": false,
+                "observation_validated": false
+              },
+              "validation_scope": "Published numerical cases; not observed orbit accuracy",
+              "sgp4_version": "2.27",
+              "validation_status": "reference_tested_engine_not_observation_validated",
+              "warnings": [
+                "Calculated from mean elements, not a direct observation.",
+                "No position uncertainty or collision assessment is provided."
+              ],
+              "snapshot_id": 1,
+              "catalog_id": 25544,
+              "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+              "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+              "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+              "freshness_info": {
+                "state": "fresh",
+                "evaluated_at": "2026-10-19T06:17:16.155582+00:00",
+                "epoch_age_seconds": 68669.114814,
+                "retrieval_age_seconds": 46956.17241,
+                "fresh_hours": 24.0,
+                "stale_hours": 72.0,
+                "basis": "orbital_epoch",
+                "accuracy_guarantee": false
+              },
+              "snapshot_created_at": null,
+              "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+              "validator_version": "orbitiq-omm-v1",
+              "ingestion_sgp4_version": "2.27"
+            },
+            "at": "2026-10-18T11:12:47.040768+00:00",
+            "kind": "calculated",
+            "input_frame": "TEME",
+            "frame": "ITRS",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "position_km": [
+              -5577.111009522075,
+              -3887.009070307837,
+              -0.001256334051309583
+            ],
+            "ground_position_km": [
+              -5232.641962479539,
+              -3646.9288015076318,
+              -0.0011782463911832034
+            ],
+            "velocity_km_s": [
+              2.435521182692355,
+              -3.4919234875492293,
+              6.008227961834473
+            ],
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "angles": "deg",
+              "altitude": "km"
+            },
+            "geodetic": {
+              "latitude_deg": -1.0655700726308598e-05,
+              "longitude_deg": -145.12514392031295,
+              "altitude_km": 419.87791063305133,
+              "height_reference": "WGS84 ellipsoid"
+            },
+            "transformation_status": "predicted_eop",
+            "method": "Astropy TEME -> ITRS at same obstime; Vallado 2006 GMST82 and polar motion; WGS84 geodetic",
+            "astropy_version": "7.2.3",
+            "pyerfa_version": "2.0.1.5",
+            "earth_orientation": {
+              "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+              "package_version": "0.2026.10.12.1.3.27",
+              "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+              "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+              "leap_seconds_expires": "2027-06-28",
+              "first_mjd": 41684.0,
+              "last_mjd": 61682.0,
+              "predictive_mjd": 61315.0,
+              "policy": "measured_or_predicted",
+              "status": "predicted",
+              "ut1_source": "IERS_A_prediction",
+              "polar_motion_source": "IERS_A_prediction",
+              "ut1_minus_utc_seconds": -0.037571894164407996,
+              "polar_motion_x_arcsec": 0.15454951047872,
+              "polar_motion_y_arcsec": 0.32100170502175995,
+              "prediction_table_age_days": 17.261992563828244,
+              "max_prediction_table_age_days": 30,
+              "auto_download": false,
+              "degraded_results_allowed": false,
+              "velocity_support_seconds": [
+                -0.5,
+                0.5
+              ]
+            },
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided.",
+              "WGS84 ellipsoidal height is not terrain clearance or mean-sea-level height.",
+              "A ground track does not establish observer visibility or orbital safety.",
+              "Transformation reference agreement does not quantify satellite prediction uncertainty.",
+              "Predicted Earth-orientation parameters are used; they are not final measurements."
+            ]
+          },
+          "errors": [
+            null,
+            null
+          ],
+          "difference_position_km": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "difference_velocity_km_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "separation_km": 0.0,
+          "relative_speed_km_s": 0.0,
+          "difference_convention": "second_minus_first"
+        },
+        "assumptions": [
+          "Each schema-2 snapshot stores exactly one satellite record.",
+          "Added means only in second; removed means only in first, regardless of retrieval chronology.",
+          "Element differences may reflect epoch, fitting or source updates; they are not physical change measurements.",
+          "State differences use second minus first at one common time; no covariance or uncertainty is quantified.",
+          "SGP4 WGS72, geocentric TEME; optional Astropy ITRS retains strict local EOP/leap policies.",
+          "A same-snapshot comparison is a self-check, not distinct historical evidence."
+        ],
+        "caution": "Differences between two orbital-data snapshots do not, by themselves, prove that a satellite performed a maneuver or experienced an anomaly. Further evidence and appropriate scientific analysis are required."
+      }
+    },
+    "limitation": "Only one genuine archived snapshot; no distinct real historical pair available."
+  },
+  "isolated_reference_fixture": {
+    "metadata": {
+      "kind": "synthetic_reference_derived_fixture_not_live_observations",
+      "database_separate_from_application": true,
+      "common_time": "2006-06-25T19:46:43.980096+00:00",
+      "snapshots": [
+        1,
+        2,
+        3
+      ]
+    },
+    "common_time_comparison": {
+      "http_status": 200,
+      "elapsed_seconds": 0.3248,
+      "body": {
+        "kind": "stored_snapshot_comparison",
+        "evaluated_at": "2026-10-19T06:17:16.230796+00:00",
+        "first": {
+          "id": 1,
+          "catalog_id": 6251,
+          "object_name": "REFERENCE TEST ONLY",
+          "object_id": "1962-025E",
+          "identity_consistent": true,
+          "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+          "retrieved_at": "2026-10-16T00:00:00+00:00",
+          "snapshot_created_at": null,
+          "insertion_time_status": "not_recorded",
+          "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+          "provider": "CelesTrak",
+          "response_sha256": "cec5ff1789827d7ea77c1c2a251edd0123fd82679a9af16eeeb5147694e1be7e",
+          "validation_status": "structural_and_epoch_propagation_passed",
+          "validator_version": "orbitiq-omm-v1",
+          "ingestion_sgp4_version": "2.27",
+          "frame": "TEME",
+          "record_count": 1,
+          "record_count_basis": "schema_2_single_satellite_snapshot",
+          "metadata_issues": [],
+          "listing_validation": "metadata_only_not_full_provenance_verification",
+          "freshness_info": {
+            "state": "stale",
+            "evaluated_at": "2026-10-19T06:17:16.231620+00:00",
+            "epoch_age_seconds": 641125832.251524,
+            "retrieval_age_seconds": 281836.23162,
+            "fresh_hours": 24.0,
+            "stale_hours": 72.0,
+            "basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "membership": "stored_record"
+        },
+        "second": {
+          "id": 2,
+          "catalog_id": 6251,
+          "object_name": "REFERENCE TEST ONLY",
+          "object_id": "1962-025E",
+          "identity_consistent": true,
+          "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+          "retrieved_at": "2026-10-17T00:00:00+00:00",
+          "snapshot_created_at": null,
+          "insertion_time_status": "not_recorded",
+          "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+          "provider": "CelesTrak",
+          "response_sha256": "99b8eff381db66eecba6f77f6bbc602b9a3de81cf04f409509ccfc065f08fa91",
+          "validation_status": "structural_and_epoch_propagation_passed",
+          "validator_version": "orbitiq-omm-v1",
+          "ingestion_sgp4_version": "2.27",
+          "frame": "TEME",
+          "record_count": 1,
+          "record_count_basis": "schema_2_single_satellite_snapshot",
+          "metadata_issues": [],
+          "listing_validation": "metadata_only_not_full_provenance_verification",
+          "freshness_info": {
+            "state": "stale",
+            "evaluated_at": "2026-10-19T06:17:16.232572+00:00",
+            "epoch_age_seconds": 641125832.252476,
+            "retrieval_age_seconds": 195436.232572,
+            "fresh_hours": 24.0,
+            "stale_hours": 72.0,
+            "basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "membership": "stored_record"
+        },
+        "is_self_comparison": false,
+        "chronology": {
+          "status": "ordered",
+          "basis": "stored_retrieval_time",
+          "older_snapshot_id": 1,
+          "newer_snapshot_id": 2
+        },
+        "counts": {
+          "shared": 1,
+          "added": 0,
+          "removed": 0,
+          "incompatible": 0
+        },
+        "records": [
+          {
+            "category": "shared",
+            "catalog_id": 6251,
+            "first_snapshot_id": 1,
+            "second_snapshot_id": 2
+          }
+        ],
+        "filter": "all",
+        "matching_basis": "validated_NORAD_catalog_id_not_name",
+        "element_differences": [
+          {
+            "field": "REV_AT_EPOCH",
+            "unit": "rev",
+            "first_value": 677,
+            "second_value": 677,
+            "difference": 0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION",
+            "unit": "rev/day",
+            "first_value": 15.563872910000002,
+            "second_value": 15.563872910000002,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "ECCENTRICITY",
+            "unit": "dimensionless",
+            "first_value": 0.0030035,
+            "second_value": 0.0030035,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "INCLINATION",
+            "unit": "deg",
+            "first_value": 58.05789999999999,
+            "second_value": 58.05789999999999,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "RA_OF_ASC_NODE",
+            "unit": "deg",
+            "first_value": 359.0,
+            "second_value": 1.0,
+            "difference": 2.0,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "ARG_OF_PERICENTER",
+            "unit": "deg",
+            "first_value": 139.1568,
+            "second_value": 139.1568,
+            "difference": 0.0,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "MEAN_ANOMALY",
+            "unit": "deg",
+            "first_value": 221.1854,
+            "second_value": 236.1854,
+            "difference": 15.0,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "BSTAR",
+            "unit": "1/Earth-radii",
+            "first_value": 0.00012808,
+            "second_value": 0.00012808,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DOT",
+            "unit": "rev/day^2",
+            "first_value": 8.885e-05,
+            "second_value": 8.885e-05,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DDOT",
+            "unit": "rev/day^3",
+            "first_value": 0.0,
+            "second_value": 0.0,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          }
+        ],
+        "element_comparison_status": "complete",
+        "source_errors": [
+          null,
+          null
+        ],
+        "provenance_differences": [
+          {
+            "field": "source_url",
+            "first_value": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+            "second_value": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+            "status": "same"
+          },
+          {
+            "field": "response_sha256",
+            "first_value": "cec5ff1789827d7ea77c1c2a251edd0123fd82679a9af16eeeb5147694e1be7e",
+            "second_value": "99b8eff381db66eecba6f77f6bbc602b9a3de81cf04f409509ccfc065f08fa91",
+            "status": "different"
+          },
+          {
+            "field": "orbital_epoch",
+            "first_value": "2006-06-25T19:46:43.980096+00:00",
+            "second_value": "2006-06-25T19:46:43.980096+00:00",
+            "status": "same"
+          },
+          {
+            "field": "retrieved_at",
+            "first_value": "2026-10-16T00:00:00+00:00",
+            "second_value": "2026-10-17T00:00:00+00:00",
+            "status": "different"
+          },
+          {
+            "field": "validation_status",
+            "first_value": "structural_and_epoch_propagation_passed",
+            "second_value": "structural_and_epoch_propagation_passed",
+            "status": "same"
+          },
+          {
+            "field": "validator_version",
+            "first_value": "orbitiq-omm-v1",
+            "second_value": "orbitiq-omm-v1",
+            "status": "same"
+          },
+          {
+            "field": "ingestion_sgp4_version",
+            "first_value": "2.27",
+            "second_value": "2.27",
+            "status": "same"
+          },
+          {
+            "field": "object_id",
+            "first_value": "1962-025E",
+            "second_value": "1962-025E",
+            "status": "same"
+          }
+        ],
+        "state_comparison": {
+          "status": "complete",
+          "evaluation_at": "2006-06-25T19:46:43.980096+00:00",
+          "frame": "ITRS",
+          "units": {
+            "position": "km",
+            "velocity": "km/s"
+          },
+          "first": {
+            "teme": {
+              "position_km": [
+                6792.004821798239,
+                -117.99292902525097,
+                0.9005579621277242
+              ],
+              "velocity_km_s": [
+                0.04719303059963878,
+                4.0472972527914655,
+                6.496623474956995
+              ],
+              "kind": "calculated",
+              "frame": "TEME",
+              "origin": "Earth center",
+              "time_system": "UTC",
+              "at": "2006-06-25T19:46:43.980096+00:00",
+              "calculated_at": "2026-10-19T06:17:16.233421+00:00",
+              "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+              "epoch_offset_days": 0.0,
+              "model": "SGP4",
+              "gravity_model": "WGS72",
+              "units": {
+                "position": "km",
+                "velocity": "km/s",
+                "epoch_offset": "days"
+              },
+              "uncertainty": {
+                "status": "not_quantified",
+                "covariance_available": false,
+                "observation_validated": false
+              },
+              "validation_scope": "Published numerical cases; not observed orbit accuracy",
+              "sgp4_version": "2.27",
+              "validation_status": "reference_tested_engine_not_observation_validated",
+              "warnings": [
+                "Calculated from mean elements, not a direct observation.",
+                "No position uncertainty or collision assessment is provided.",
+                "Source element freshness is stale; recent retrieval does not guarantee an accurate orbit."
+              ],
+              "snapshot_id": 1,
+              "catalog_id": 6251,
+              "retrieved_at": "2026-10-16T00:00:00+00:00",
+              "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+              "response_sha256": "cec5ff1789827d7ea77c1c2a251edd0123fd82679a9af16eeeb5147694e1be7e",
+              "freshness_info": {
+                "state": "stale",
+                "evaluated_at": "2026-10-19T06:17:16.233421+00:00",
+                "epoch_age_seconds": 641125832.253325,
+                "retrieval_age_seconds": 281836.233421,
+                "fresh_hours": 24.0,
+                "stale_hours": 72.0,
+                "basis": "orbital_epoch",
+                "accuracy_guarantee": false
+              },
+              "snapshot_created_at": null,
+              "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+              "validator_version": "orbitiq-omm-v1",
+              "ingestion_sgp4_version": "2.27"
+            },
+            "at": "2006-06-25T19:46:43.980096+00:00",
+            "kind": "calculated",
+            "input_frame": "TEME",
+            "frame": "ITRS",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "position_km": [
+              -5792.831459919167,
+              3548.0072564313496,
+              0.9093494374501397
+            ],
+            "ground_position_km": [
+              -5439.027097533533,
+              3331.3083150264815,
+              0.8534584900557163
+            ],
+            "velocity_km_s": [
+              -1.8355774131950966,
+              -3.0412183753715,
+              6.496620080798795
+            ],
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "angles": "deg",
+              "altitude": "km"
+            },
+            "geodetic": {
+              "latitude_deg": 0.007718418106234837,
+              "longitude_deg": 148.51326436808205,
+              "altitude_km": 414.8927104359549,
+              "height_reference": "WGS84 ellipsoid"
+            },
+            "transformation_status": "measured_eop",
+            "method": "Astropy TEME -> ITRS at same obstime; Vallado 2006 GMST82 and polar motion; WGS84 geodetic",
+            "astropy_version": "7.2.3",
+            "pyerfa_version": "2.0.1.5",
+            "earth_orientation": {
+              "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+              "package_version": "0.2026.10.12.1.3.27",
+              "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+              "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+              "leap_seconds_expires": "2027-06-28",
+              "first_mjd": 41684.0,
+              "last_mjd": 61682.0,
+              "predictive_mjd": 61315.0,
+              "policy": "measured_or_predicted",
+              "status": "measured",
+              "ut1_source": "IERS_B_final",
+              "polar_motion_source": "IERS_B_final",
+              "ut1_minus_utc_seconds": 0.1963026532154,
+              "polar_motion_x_arcsec": 0.125610854063,
+              "polar_motion_y_arcsec": 0.306011055832,
+              "prediction_table_age_days": 17.261996190638456,
+              "max_prediction_table_age_days": 30,
+              "auto_download": false,
+              "degraded_results_allowed": false,
+              "velocity_support_seconds": [
+                -0.5,
+                0.5
+              ]
+            },
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided.",
+              "Source element freshness is stale; recent retrieval does not guarantee an accurate orbit.",
+              "WGS84 ellipsoidal height is not terrain clearance or mean-sea-level height.",
+              "A ground track does not establish observer visibility or orbital safety.",
+              "Transformation reference agreement does not quantify satellite prediction uncertainty."
+            ]
+          },
+          "second": {
+            "teme": {
+              "position_km": [
+                6540.168711251101,
+                1041.485820956762,
+                1486.0795360993873
+              ],
+              "velocity_km_s": [
+                -2.0712204100393032,
+                3.874163623094769,
+                6.275477388195559
+              ],
+              "kind": "calculated",
+              "frame": "TEME",
+              "origin": "Earth center",
+              "time_system": "UTC",
+              "at": "2006-06-25T19:46:43.980096+00:00",
+              "calculated_at": "2026-10-19T06:17:16.482466+00:00",
+              "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+              "epoch_offset_days": 0.0,
+              "model": "SGP4",
+              "gravity_model": "WGS72",
+              "units": {
+                "position": "km",
+                "velocity": "km/s",
+                "epoch_offset": "days"
+              },
+              "uncertainty": {
+                "status": "not_quantified",
+                "covariance_available": false,
+                "observation_validated": false
+              },
+              "validation_scope": "Published numerical cases; not observed orbit accuracy",
+              "sgp4_version": "2.27",
+              "validation_status": "reference_tested_engine_not_observation_validated",
+              "warnings": [
+                "Calculated from mean elements, not a direct observation.",
+                "No position uncertainty or collision assessment is provided.",
+                "Source element freshness is stale; recent retrieval does not guarantee an accurate orbit."
+              ],
+              "snapshot_id": 2,
+              "catalog_id": 6251,
+              "retrieved_at": "2026-10-17T00:00:00+00:00",
+              "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+              "response_sha256": "99b8eff381db66eecba6f77f6bbc602b9a3de81cf04f409509ccfc065f08fa91",
+              "freshness_info": {
+                "state": "stale",
+                "evaluated_at": "2026-10-19T06:17:16.482466+00:00",
+                "epoch_age_seconds": 641125832.50237,
+                "retrieval_age_seconds": 195436.482466,
+                "fresh_hours": 24.0,
+                "stale_hours": 72.0,
+                "basis": "orbital_epoch",
+                "accuracy_guarantee": false
+              },
+              "snapshot_created_at": null,
+              "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+              "validator_version": "orbitiq-omm-v1",
+              "ingestion_sgp4_version": "2.27"
+            },
+            "at": "2006-06-25T19:46:43.980096+00:00",
+            "kind": "calculated",
+            "input_frame": "TEME",
+            "frame": "ITRS",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "position_km": [
+              -6164.153491971627,
+              2421.0926007810076,
+              1486.0868818318438
+            ],
+            "ground_position_km": [
+              -5791.766205634151,
+              2274.8301651114784,
+              1395.7415070087409
+            ],
+            "velocity_km_s": [
+              -0.004456794311408885,
+              -3.939855177437039,
+              6.2754715458065675
+            ],
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "angles": "deg",
+              "altitude": "km"
+            },
+            "geodetic": {
+              "latitude_deg": 12.724962294044055,
+              "longitude_deg": 158.556604991438,
+              "altitude_km": 410.15518753966643,
+              "height_reference": "WGS84 ellipsoid"
+            },
+            "transformation_status": "measured_eop",
+            "method": "Astropy TEME -> ITRS at same obstime; Vallado 2006 GMST82 and polar motion; WGS84 geodetic",
+            "astropy_version": "7.2.3",
+            "pyerfa_version": "2.0.1.5",
+            "earth_orientation": {
+              "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+              "package_version": "0.2026.10.12.1.3.27",
+              "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+              "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+              "leap_seconds_expires": "2027-06-28",
+              "first_mjd": 41684.0,
+              "last_mjd": 61682.0,
+              "predictive_mjd": 61315.0,
+              "policy": "measured_or_predicted",
+              "status": "measured",
+              "ut1_source": "IERS_B_final",
+              "polar_motion_source": "IERS_B_final",
+              "ut1_minus_utc_seconds": 0.1963026532154,
+              "polar_motion_x_arcsec": 0.125610854063,
+              "polar_motion_y_arcsec": 0.306011055832,
+              "prediction_table_age_days": 17.26199634144723,
+              "max_prediction_table_age_days": 30,
+              "auto_download": false,
+              "degraded_results_allowed": false,
+              "velocity_support_seconds": [
+                -0.5,
+                0.5
+              ]
+            },
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided.",
+              "Source element freshness is stale; recent retrieval does not guarantee an accurate orbit.",
+              "WGS84 ellipsoidal height is not terrain clearance or mean-sea-level height.",
+              "A ground track does not establish observer visibility or orbital safety.",
+              "Transformation reference agreement does not quantify satellite prediction uncertainty."
+            ]
+          },
+          "errors": [
+            null,
+            null
+          ],
+          "difference_position_km": [
+            -371.3220320524597,
+            -1126.914655650342,
+            1485.1775323943937
+          ],
+          "difference_velocity_km_s": [
+            1.8311206188836877,
+            -0.8986368020655391,
+            -0.22114853499222775
+          ],
+          "separation_km": 1900.9389772783861,
+          "relative_speed_km_s": 2.0516962488284585,
+          "difference_convention": "second_minus_first"
+        },
+        "assumptions": [
+          "Each schema-2 snapshot stores exactly one satellite record.",
+          "Added means only in second; removed means only in first, regardless of retrieval chronology.",
+          "Element differences may reflect epoch, fitting or source updates; they are not physical change measurements.",
+          "State differences use second minus first at one common time; no covariance or uncertainty is quantified.",
+          "SGP4 WGS72, geocentric TEME; optional Astropy ITRS retains strict local EOP/leap policies.",
+          "A same-snapshot comparison is a self-check, not distinct historical evidence."
+        ],
+        "caution": "Differences between two orbital-data snapshots do not, by themselves, prove that a satellite performed a maneuver or experienced an anomaly. Further evidence and appropriate scientific analysis are required."
+      }
+    }
+  },
+  "browser": [
+    {
+      "data_context": "existing-real-archive",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "checks": {
+        "search": true,
+        "source_detail_and_units": true,
+        "keyboard_tab": true,
+        "responsive_no_document_overflow": true,
+        "fixed_pair_common_time_ITRS": true,
+        "actual_webgl": true,
+        "disconnected_marker_legend": true,
+        "exact_source_explorer_without_latest_request": true,
+        "ground_track_and_keyboard_timeline": true,
+        "retained_comparison_on_return": true,
+        "input_edit_clears_old_states": true,
+        "unavailable_state_preserves_elements": true,
+        "unknown_id_safe_error": true
+      },
+      "canvas_png_sha256": "2d1fd02311b25cc7ff9a374e93b081b8d1ce6275e6d34fd258a0c3354f3b4e17",
+      "page_errors": [],
+      "external_requests": []
+    },
+    {
+      "data_context": "existing-real-archive",
+      "viewport": [
+        820,
+        1180
+      ],
+      "checks": {
+        "search": true,
+        "source_detail_and_units": true,
+        "keyboard_tab": true,
+        "responsive_no_document_overflow": true,
+        "fixed_pair_common_time_ITRS": true,
+        "actual_webgl": true,
+        "disconnected_marker_legend": true,
+        "exact_source_explorer_without_latest_request": true,
+        "ground_track_and_keyboard_timeline": true,
+        "retained_comparison_on_return": true,
+        "input_edit_clears_old_states": true,
+        "unavailable_state_preserves_elements": true,
+        "unknown_id_safe_error": true
+      },
+      "canvas_png_sha256": "9e1e88f3c21551083faf5120a22e138d19c39bd319e2bfcbe6cf487bce5654b2",
+      "page_errors": [],
+      "external_requests": []
+    },
+    {
+      "data_context": "existing-real-archive",
+      "viewport": [
+        390,
+        844
+      ],
+      "checks": {
+        "search": true,
+        "source_detail_and_units": true,
+        "keyboard_tab": true,
+        "responsive_no_document_overflow": true,
+        "fixed_pair_common_time_ITRS": true,
+        "actual_webgl": true,
+        "disconnected_marker_legend": true,
+        "exact_source_explorer_without_latest_request": true,
+        "ground_track_and_keyboard_timeline": true,
+        "retained_comparison_on_return": true,
+        "input_edit_clears_old_states": true,
+        "unavailable_state_preserves_elements": true,
+        "unknown_id_safe_error": true
+      },
+      "canvas_png_sha256": "5379523fc6041e022e6401ceac7f751f9c508253135730828db0a79bd6ec21e1",
+      "page_errors": [],
+      "external_requests": []
+    },
+    {
+      "data_context": "isolated-reference-test-data",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "checks": {
+        "search": true,
+        "source_detail_and_units": true,
+        "keyboard_tab": true,
+        "responsive_no_document_overflow": true,
+        "fixed_pair_common_time_ITRS": true,
+        "actual_webgl": true,
+        "disconnected_marker_legend": true,
+        "exact_source_explorer_without_latest_request": true,
+        "ground_track_and_keyboard_timeline": true,
+        "retained_comparison_on_return": true,
+        "input_edit_clears_old_states": true,
+        "unavailable_state_preserves_elements": true,
+        "unknown_id_safe_error": true
+      },
+      "canvas_png_sha256": "f4c2f13956014d66418bb9a00a6449a373c53c56ceaa3f89076d9fde137b1258",
+      "page_errors": [],
+      "external_requests": []
+    },
+    {
+      "data_context": "isolated-reference-test-data",
+      "viewport": [
+        820,
+        1180
+      ],
+      "checks": {
+        "search": true,
+        "source_detail_and_units": true,
+        "keyboard_tab": true,
+        "responsive_no_document_overflow": true,
+        "fixed_pair_common_time_ITRS": true,
+        "actual_webgl": true,
+        "disconnected_marker_legend": true,
+        "exact_source_explorer_without_latest_request": true,
+        "ground_track_and_keyboard_timeline": true,
+        "retained_comparison_on_return": true,
+        "input_edit_clears_old_states": true,
+        "unavailable_state_preserves_elements": true,
+        "unknown_id_safe_error": true
+      },
+      "canvas_png_sha256": "a04781eeb29bdadf68119ed106cf8a03f90b4e2c7f5e727887d12bc1009cf9bb",
+      "page_errors": [],
+      "external_requests": []
+    },
+    {
+      "data_context": "isolated-reference-test-data",
+      "viewport": [
+        390,
+        844
+      ],
+      "checks": {
+        "search": true,
+        "source_detail_and_units": true,
+        "keyboard_tab": true,
+        "responsive_no_document_overflow": true,
+        "fixed_pair_common_time_ITRS": true,
+        "actual_webgl": true,
+        "disconnected_marker_legend": true,
+        "exact_source_explorer_without_latest_request": true,
+        "ground_track_and_keyboard_timeline": true,
+        "retained_comparison_on_return": true,
+        "input_edit_clears_old_states": true,
+        "unavailable_state_preserves_elements": true,
+        "unknown_id_safe_error": true
+      },
+      "canvas_png_sha256": "8ac42f5c6fa8fbf8de4a58248a72fd574aa66d9f0d34bf99f913f80285c80f49",
+      "page_errors": [],
+      "external_requests": []
+    }
+  ],
+  "browser_version": "154.0.8037.57",
+  "no_webgl_fallback": "passed_with_actual_fixture_backend_response",
+  "generated_at": "2026-10-19T06:25:52.295703+00:00",
+  "baseline": {
+    "git_head": "8bf431c",
+    "branch": "main",
+    "backend_passed": 337,
+    "frontend_passed": 125,
+    "preexisting_uncommitted_readiness_changes_preserved": true,
+    "database": {
+      "sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+      "count": 1,
+      "schema": 2,
+      "integrity": "ok"
+    }
+  },
+  "verification": {
+    "backend": {
+      "passed": 398,
+      "failed": 0,
+      "phase5_cases": 61,
+      "command": "UV_CACHE_DIR=/tmp/orbitiq-uv-cache uv run --locked pytest -q"
+    },
+    "frontend": {
+      "passed": 172,
+      "failed": 0,
+      "test_files": 15,
+      "phase5_cases": 47,
+      "command": "npm_config_cache=/tmp/orbitiq-npm-cache npm test"
+    },
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "eslint": "passed",
+    "prettier": "passed",
+    "typescript_no_emit": "passed",
+    "vite_production_build": "passed",
+    "git_diff_check": "passed",
+    "clean_setup": {
+      "kind": "source_only_copy_with_uncommitted_implementation_not_git_clone",
+      "excluded": [
+        "real_database",
+        "backups",
+        "secrets",
+        "Git_metadata",
+        "virtual_environment",
+        "node_modules",
+        "dist",
+        "local_caches"
+      ],
+      "uv_sync_locked": "passed",
+      "fresh_backend_suite_passed": 398,
+      "npm_ci": "passed",
+      "npm_packages_installed": 248,
+      "final_frontend_build": "passed"
+    },
+    "tool_versions": {
+      "python": "3.12.14",
+      "uv": "0.12.23",
+      "node": "24.19.0",
+      "npm": "11.9.0"
+    },
+    "warnings": [
+      "Starlette TestClient HTTPX deprecation",
+      "npm whatwg-encoding deprecation",
+      "Existing lazy Three renderer chunk exceeds Vite 500 kB warning threshold"
+    ],
+    "remote_ci": "not_run",
+    "deployment": "not_performed",
+    "production_recovery": "not_verified",
+    "targeted_historical_selection_tests_passed": 16,
+    "local_verification_servers_stopped": true
+  },
+  "scientific_reference_audits": {
+    "sgp4": {
+      "passed": 40,
+      "failed": 0,
+      "artifact_sha256": "8ed63194c9f555282cdf4894e77b30e84e4309e8d5dc3665858ffb6f6b737670",
+      "command": "PYTHONPATH=backend uv run --locked python scripts/verify_scientific_references.py --output /tmp/orbitiq-phase5-sgp4.json"
+    },
+    "terrestrial": {
+      "passed": 6,
+      "failed": 0,
+      "artifact_sha256": "75775ee2e380cc8d9f06124de733efe057460b75c2056bee36ca046cd606b3ae",
+      "command": "PYTHONPATH=backend uv run --locked python scripts/verify_earth_fixed_references.py --output /tmp/orbitiq-phase5-earth-fixed.json"
+    }
+  },
+  "preservation": {
+    "before": {
+      "sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+      "count": 1,
+      "schema": 2,
+      "integrity": "ok"
+    },
+    "after": {
+      "sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+      "count": 1,
+      "schema": 2,
+      "integrity": "ok"
+    },
+    "unchanged": true,
+    "prior_report_sha256": {
+      "docs/eop-maintenance.md": "fe2e2c89944eee34d7c707e525e0b54184fe58a3973bf9b0cb6bd0b8e656efbf",
+      "docs/phase-0-report.md": "aae12d1cfe3cf3aa73118c3031e510f91a8000968a875aee76690e036267de22",
+      "docs/phase-1-report.md": "d1e872750941d620be63bb645e4d2ef9d662bcc0dca1b3a5e8818f14348acff0",
+      "docs/phase-1.md": "e77468ab18b010e145c7e3db825f8adbd24d689db43545dd10481b4440d22d10",
+      "docs/phase-2-plan.md": "894d643e118cfae4c7ceec0c856554dd9d45e361be1017b5a80cd4c5c6482171",
+      "docs/phase-2-reference-results.json": "8ed63194c9f555282cdf4894e77b30e84e4309e8d5dc3665858ffb6f6b737670",
+      "docs/phase-2-report.md": "812239b5ca78adcffb4dd347e92d1936d3f4a335026d3dc3827083b54e7588e0",
+      "docs/phase-3-integration-results.json": "6a825c550c2fdf0bbe402b67734aa464af8f59e34e017751a52b95ab027e7a1b",
+      "docs/phase-3-plan.md": "7f93c7231c33d929cd058a73a3ff4340a1141120037021a708be12004b777d6e",
+      "docs/phase-3-reference-results.json": "b2509ca05397fb3c8d9d314db2aec327d522852b11300733a4f15897bbb016ff",
+      "docs/phase-3-report.md": "5513711fe845373679d0726d9d3e07288e55b1c4a190c0f5b51073ea99c985e8",
+      "docs/phase-4-integration-results.json": "9f7915d6fe04956109ea46235d257b48656c0226b8103ba9618168553d1691a7",
+      "docs/phase-4-plan.md": "fa48217217a4058c381a9d4a4f92b8ae6c33d964e664956da54cb866f8bde3ae",
+      "docs/phase-4-report.md": "e15c63920fca04b9076cac9a32d37b768ba52a5e3c47eb0e70f89f11b55c9f16",
+      "docs/pre-phase-5-integration-results.json": "d706651560bb912014d993712f6bb9fef13b1605c63567a450a26bc929ada06a",
+      "docs/pre-phase-5-plan.md": "f8b0806c73ad115f0e14ac2fe764e4a73e6b399c29406eabf2e7737cc9653f65",
+      "docs/pre-phase-5-readiness-report.md": "23d623ad578f8673c93b28463485a4e1a0d94504855ab40c780f47e4714aab35",
+      "docs/product-foundation.md": "916c3fde9623da9eed25091b9d49d2c0f5ee7e5046e1a1fe1b5486f54899e0b5",
+      "docs/scientific-conventions.md": "2ea649672388bfff0c6ad34ab85c2a3ead5995dd045ff3f41082b06529c44167",
+      "docs/scientific-data-readiness.md": "3c16787db80ea72bc53aac1cb6de20d19775d93800820084bd83f77570711adf"
+    },
+    "prior_reports_unchanged": true,
+    "explicit_database_check": "successful",
+    "explicit_archive_verification": {
+      "status": "successful",
+      "snapshots_verified": 1
+    }
+  },
+  "historical_selection_browser_check": {
+    "kind": "actual_browser_with_isolated_reference_archive",
+    "historical_selection_retained_after_explicit_catalog_reload": true,
+    "manual_change_to_other_source_still_possible": true,
+    "page_errors": []
+  },
+  "acceptance_criteria": [
+    {
+      "number": 1,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 2,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 3,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 4,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 5,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 6,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 7,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 8,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 9,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 10,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 11,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 12,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 13,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 14,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 15,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 16,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 17,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 18,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 19,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 20,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 21,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 22,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 23,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 24,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 25,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 26,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    },
+    {
+      "number": 27,
+      "status": "PASS",
+      "support": "See acceptance evidence mapping in docs/phase-5-report.md"
+    }
+  ],
+  "blocked_feature_acceptance_criteria": [],
+  "supplemental_blocked_verification": {
+    "distinct_genuine_historical_pair": {
+      "status": "BLOCKED",
+      "reason": "Only one genuine source snapshot exists in the application archive; no additional real historical source was ingested.",
+      "fixture_validation_is_separate": true
+    }
+  },
+  "limits": {
+    "max_list_records": 100,
+    "max_search_candidates": 250,
+    "search_lookahead": 1,
+    "bounded_count_probe_rows": 1001,
+    "count_exact_up_to": 1000,
+    "query_vm_instructions": 50000,
+    "query_budget_seconds": 0.25,
+    "sqlite_busy_timeout_seconds": 0.25,
+    "max_comparison_snapshots": 2,
+    "max_comparison_states": 2,
+    "epoch_window_days": 7,
+    "render_extent_earth_radii": 400,
+    "readiness_global_recency_window_unchanged": 100,
+    "counts_and_ids_are_not_retrieval_chronology": true,
+    "missing_insertion_timestamp": "not_recorded",
+    "storage_model": "one_satellite_record_per_snapshot"
+  },
+  "dependency_files": {
+    "pyproject.toml": {
+      "sha256": "fa8ebb649044fbe98e7f4cc9c9d6bb3cd42c201b898c2854f1e65f6f727df8a4",
+      "unchanged_from_HEAD": true
+    },
+    "uv.lock": {
+      "sha256": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1",
+      "unchanged_from_HEAD": true
+    },
+    "frontend/package.json": {
+      "sha256": "1c01e4eab01716f78cbed2fe7494bcf3cb857f68683eb08a23b87bb5439e1187",
+      "unchanged_from_HEAD": true
+    },
+    "frontend/package-lock.json": {
+      "sha256": "ad30fad9da6bc567b3fd1f63cb6053f74df1e06b3830b086719c8411fc8e4c9d",
+      "unchanged_from_HEAD": true
+    }
+  },
+  "build_artifacts": [
+    {
+      "name": "Investigations-BFG4vMKU.js",
+      "bytes": 26643
+    },
+    {
+      "name": "README.md",
+      "bytes": 605
+    },
+    {
+      "name": "THREE-LICENSE.txt",
+      "bytes": 1081
+    },
+    {
+      "name": "earth-atmosphere.jpg",
+      "bytes": 512606
+    },
+    {
+      "name": "globe-renderer-Bp1jNKen.js",
+      "bytes": 558595
+    },
+    {
+      "name": "index-B8Am2XOP.js",
+      "bytes": 267268
+    },
+    {
+      "name": "index-D9Nkhaiz.css",
+      "bytes": 5975
+    }
+  ],
+  "visual_review": {
+    "desktop_and_mobile_state_comparison_screenshots_inspected": true,
+    "markers_observed": "A sphere and B diamond, disconnected at common ITRS time",
+    "numerical_source_provenance_retained": true
+  },
+  "not_performed": [
+    "commit",
+    "push",
+    "deployment",
+    "publication",
+    "remote_modification",
+    "database_migration",
+    "new_real_satellite_ingestion",
+    "AI_features",
+    "future_phases"
+  ],
+  "git_final": {
+    "head": "8bf431cc1990bad13935d681765d86602fc34e75",
+    "branch": "main",
+    "staged_files": [],
+    "changed_files_including_preserved_readiness_work": [
+      "backend/orbitiq/api/investigations.py",
+      "backend/orbitiq/api/readiness.py",
+      "backend/orbitiq/maintenance/__init__.py",
+      "backend/orbitiq/maintenance/eop.py",
+      "backend/orbitiq/maintenance/probe.py",
+      "backend/orbitiq/services/investigations.py",
+      "backend/orbitiq/services/readiness.py",
+      "backend/tests/test_eop_maintenance.py",
+      "backend/tests/test_phase5.py",
+      "backend/tests/test_readiness.py",
+      "docs/eop-maintenance.md",
+      "docs/phase-5-integration-results.json",
+      "docs/phase-5-plan.md",
+      "docs/phase-5-report.md",
+      "docs/pre-phase-5-integration-results.json",
+      "docs/pre-phase-5-plan.md",
+      "docs/pre-phase-5-readiness-report.md",
+      "docs/scientific-data-readiness.md",
+      "frontend/src/Investigations.test.tsx",
+      "frontend/src/Investigations.tsx",
+      "frontend/src/ReadinessDashboard.test.tsx",
+      "frontend/src/ReadinessDashboard.tsx",
+      "frontend/src/investigation-api.test.ts",
+      "frontend/src/investigation-api.ts",
+      "frontend/src/readiness-api.test.ts",
+      "frontend/src/readiness-api.ts",
+      "frontend/src/test-fixtures/investigations.ts",
+      "frontend/src/test-fixtures/readiness.ts",
+      ".env.example",
+      "README.md",
+      "backend/orbitiq/api/scientific_schemas.py",
+      "backend/orbitiq/main.py",
+      "backend/orbitiq/services/analysis.py",
+      "backend/orbitiq/storage.py",
+      "backend/tests/test_phase2_api.py",
+      "frontend/src/App.tsx",
+      "frontend/src/Globe.test.tsx",
+      "frontend/src/Globe.tsx",
+      "frontend/src/ScientificExplorer.test.tsx",
+      "frontend/src/ScientificExplorer.tsx",
+      "frontend/src/globe-geometry.ts",
+      "frontend/src/globe-renderer.ts",
+      "frontend/src/style.css"
+    ]
+  }
+}

@@ -3,7 +3,8 @@
 import hashlib
 import json
 import sqlite3
-from contextlib import closing
+import time
+from contextlib import closing, contextmanager
 from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
@@ -91,14 +92,19 @@ def list_snapshots(
     *,
     as_of: datetime | None = None,
 ) -> list[dict]:
-    with closing(connect(path)) as connection:
+    conditions, values = ["catalog_id = ?"], [catalog_id]
+    if before_id is not None:
+        conditions.append("id < ?")
+        values.append(before_id)
+    with browsing_connection(path) as connection:
         rows = connection.execute(
             """SELECT id, catalog_id, object_name, orbital_epoch, retrieved_at,
             source_url, response_sha256, validation_status, validator_version,
             sgp4_version, normalized_record, element_units FROM snapshots
-            WHERE catalog_id = ? AND (? IS NULL OR id < ?)
-            ORDER BY id DESC LIMIT ?""",
-            (catalog_id, before_id, before_id, limit),
+            WHERE """
+            + " AND ".join(conditions)
+            + " ORDER BY id DESC LIMIT ?",
+            (*values, limit),
         ).fetchall()
     now = as_of or datetime.now(UTC)
     results = []
@@ -206,3 +212,100 @@ def verify_archive(path: Path) -> int:
             validate_snapshot(dict(row))
             count += 1
     return count
+
+
+@contextmanager
+def browsing_connection(path: Path):
+    """A bounded read transaction; never creates, migrates or writes storage."""
+    with closing(connect(path)) as connection:
+        connection.execute("PRAGMA query_only=ON")
+        connection.execute("PRAGMA busy_timeout=250")
+        deadline = time.monotonic() + 0.25
+        steps = 0
+
+        def budget():
+            nonlocal steps
+            steps += 100
+            return int(steps > 50000 or time.monotonic() > deadline)
+
+        connection.set_progress_handler(budget, 100)
+        connection.execute("BEGIN")
+        yield connection
+
+
+# Only bounded public metadata is read in listings; source bodies remain private
+# to explicit detail/provenance validation. No SQL wildcard/timestamp sort scan.
+BROWSE_COLUMNS = """id, catalog_id, substr(object_name,1,128) AS object_name,
+    substr(orbital_epoch,1,80) AS orbital_epoch,
+    substr(retrieved_at,1,80) AS retrieved_at,
+    substr(source_url,1,1024) AS source_url,
+    substr(response_sha256,1,65) AS response_sha256,
+    substr(validation_status,1,128) AS validation_status,
+    substr(validator_version,1,128) AS validator_version,
+    substr(sgp4_version,1,32) AS sgp4_version,
+    substr(normalized_record,1,8193) AS normalized_record"""
+BROWSE_SCAN = 250
+COUNT_BOUND = 1000
+
+
+def browse_snapshots(
+    path,
+    *,
+    limit=20,
+    before_id=None,
+    anchor_id=None,
+    catalog_id=None,
+    snapshot_id=None,
+    query="",
+    match="partial",
+    context_snapshot_id=None,
+    selected_only=False,
+):
+    """Seek pages through all stored history, with bounded search scan windows."""
+    with browsing_connection(path) as connection:
+        maximum = connection.execute(
+            "SELECT id FROM snapshots ORDER BY id DESC LIMIT 1"
+        ).fetchone()
+        anchor = anchor_id if anchor_id is not None else maximum[0] if maximum else None
+        context = None
+        if context_snapshot_id is not None:
+            context = connection.execute(
+                f"SELECT {BROWSE_COLUMNS} FROM snapshots WHERE id=?",
+                (context_snapshot_id,),
+            ).fetchone()
+            if context is None:
+                return {"context_missing": True}
+        conditions, values = ["id <= ?"], [anchor or 0]
+        if catalog_id is not None:
+            conditions.append("catalog_id = ?")
+            values.append(catalog_id)
+        if snapshot_id is not None or selected_only:
+            conditions.append("id = ?")
+            values.append(
+                snapshot_id if snapshot_id is not None else context_snapshot_id
+            )
+        where = " AND ".join(conditions)
+        # COUNT itself would scan an unbounded index. Read at most 1001 IDs.
+        count_rows = connection.execute(
+            f"SELECT id FROM snapshots WHERE {where} ORDER BY id DESC LIMIT ?",
+            (*values, COUNT_BOUND + 1),
+        ).fetchall()
+        count = len(count_rows) if len(count_rows) <= COUNT_BOUND else None
+        if before_id is not None:
+            conditions.append("id < ?")
+            values.append(before_id)
+        rows = connection.execute(
+            f"SELECT {BROWSE_COLUMNS} FROM snapshots WHERE "
+            + " AND ".join(conditions)
+            + " ORDER BY id DESC LIMIT ?",
+            (*values, (BROWSE_SCAN if query else limit) + 1),
+        ).fetchall()
+    return {
+        "rows": [dict(row) for row in rows],
+        "anchor_id": anchor,
+        "context": dict(context) if context is not None else None,
+        "candidate_count": count,
+        "query": query,
+        "match": match,
+        "limit": limit,
+    }

@@ -11,7 +11,9 @@ from orbitiq.api.errors import (
 )
 from orbitiq.api.ground_tracks import router as ground_tracks_router
 from orbitiq.api.health import router as health_router
+from orbitiq.api.investigations import router as investigations_router
 from orbitiq.api.orbits import router as orbits_router
+from orbitiq.api.readiness import router as readiness_router
 
 
 def create_app() -> FastAPI:
@@ -20,8 +22,10 @@ def create_app() -> FastAPI:
     application.add_exception_handler(RequestValidationError, request_error_handler)
     application.add_exception_handler(ResponseValidationError, response_error_handler)
     application.include_router(health_router, prefix="/api")
+    application.include_router(investigations_router, prefix="/api")
     application.include_router(orbits_router, prefix="/api")
     application.include_router(ground_tracks_router, prefix="/api")
+    application.include_router(readiness_router, prefix="/api")
     return application
 
 

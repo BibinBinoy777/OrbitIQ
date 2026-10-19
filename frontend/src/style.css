@@ -348,3 +348,120 @@ summary {
     transition: none !important;
   }
 }
+.readiness {
+  margin-top: 2rem;
+}
+.readiness-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.readiness-card,
+.readiness-summary {
+  padding: 1.2rem;
+  border: 1px solid #6e91b8;
+  border-radius: 0.5rem;
+  background: #101c30;
+  min-width: 0;
+}
+.readiness-card h3 {
+  margin-top: 0;
+}
+.readiness-facts {
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+.readiness-facts dd {
+  margin-bottom: 0.5rem;
+}
+.readiness-badge {
+  border-left: 0.3rem solid;
+  padding-left: 0.6rem;
+}
+.status-healthy {
+  color: #93e3c2;
+}
+.status-degraded,
+.status-unknown {
+  color: #ffd782;
+}
+.status-unavailable {
+  color: #ffb4b4;
+}
+[aria-current="page"] {
+  outline: 2px solid #b6d8ff;
+}
+@media (max-width: 800px) {
+  .readiness-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.investigations {
+  margin-top: 2rem;
+}
+.source-detail {
+  margin: 2rem 0;
+  padding: 1.2rem;
+  border: 1px solid #6e91b8;
+  border-radius: 0.5rem;
+}
+.investigations .controls label {
+  flex-basis: 14rem;
+}
+.checkbox-label {
+  flex-direction: row;
+  align-items: center;
+}
+.checkbox-label input {
+  width: auto;
+}
+.investigations th,
+.investigations td {
+  overflow-wrap: anywhere;
+  vertical-align: top;
+  min-width: 8rem;
+}
+.investigations td .toolbar {
+  margin-top: 0.7rem;
+}
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.comparison-sources {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+.comparison-sources > section {
+  padding: 1rem;
+  min-width: 0;
+  border: 1px solid #405873;
+  border-radius: 0.5rem;
+}
+.metadata-pair {
+  display: contents;
+}
+.comparison-sources .metadata {
+  grid-template-columns: minmax(0, 1fr);
+}
+.comparison-legend {
+  border-left: 0.3rem solid #ffd782;
+  padding: 0.8rem;
+}
+@media (max-width: 800px) {
+  .comparison-sources,
+  .investigation-metadata {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .investigations .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .investigations .controls label {
+    flex-basis: auto;
+  }
+}

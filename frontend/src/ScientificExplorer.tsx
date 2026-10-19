@@ -1,10 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import GroundTrack from "./GroundTrack";
 import Globe from "./Globe";
 import type { FormEvent } from "react";
 import { getPosition, getSnapshots } from "./scientific-api";
 import type { PositionResult, SnapshotSummary } from "./scientific-api";
 import { formatUtc } from "./time-presentation";
+import InvestigationActions from "./InvestigationActions";
+import {
+  canonicalTime,
+  snapshotInvestigation,
+  sourceReference,
+  verifySource,
+} from "./saved-investigation";
+import type { Investigation } from "./saved-investigation";
 export { formatUtc } from "./time-presentation";
 
 function message(error: unknown): string {
@@ -32,7 +40,16 @@ const labels = {
 };
 export default function ScientificExplorer({
   initialSource,
-}: { initialSource?: SnapshotSummary } = {}) {
+  initialInvestigation,
+  readOnly = false,
+  active = true,
+}: {
+  initialSource?: SnapshotSummary;
+  initialInvestigation?: Investigation;
+  readOnly?: boolean;
+  active?: boolean;
+} = {}) {
+  const headingId = useId();
   const [catalog, setCatalog] = useState(
     initialSource ? String(initialSource.catalog_id) : "25544",
   );
@@ -42,15 +59,45 @@ export default function ScientificExplorer({
   const [selectedId, setSelectedId] = useState<number | null>(
     initialSource?.id ?? null,
   );
-  const [at, setAt] = useState(initialSource?.orbital_epoch ?? "");
+  const [at, setAt] = useState(
+    initialInvestigation?.mode === "position"
+      ? initialInvestigation.at
+      : (initialSource?.orbital_epoch ?? ""),
+  );
   const [loading, setLoading] = useState(false);
-  const [calculating, setCalculating] = useState(false);
+  const [calculating, setCalculating] = useState(
+    initialInvestigation?.mode === "position",
+  );
   const [loadError, setLoadError] = useState("");
   const [historyNotice, setHistoryNotice] = useState("");
   const [calculationError, setCalculationError] = useState("");
   const [position, setPosition] = useState<PositionResult | null>(null);
   const listRequest = useRef<AbortController | null>(null);
   const positionRequest = useRef<AbortController | null>(null);
+  useEffect(() => {
+    if (initialInvestigation?.mode !== "position" || !initialSource) return;
+    const c = new AbortController();
+    positionRequest.current = c;
+    getPosition(initialSource.id, initialInvestigation.at, c.signal)
+      .then((result) => {
+        verifySource(initialInvestigation.source, {
+          ...result,
+          id: result.snapshot_id,
+        });
+        if (canonicalTime(result.at) !== initialInvestigation.at)
+          throw new Error(
+            "Restored calculation time does not match the requested time.",
+          );
+        if (!c.signal.aborted) setPosition(result);
+      })
+      .catch((e) => {
+        if (!c.signal.aborted) setCalculationError(message(e));
+      })
+      .finally(() => {
+        if (!c.signal.aborted) setCalculating(false);
+      });
+    return () => c.abort();
+  }, [initialInvestigation, initialSource]);
   useEffect(
     () => () => {
       listRequest.current?.abort();
@@ -131,24 +178,26 @@ export default function ScientificExplorer({
     }
   }
   return (
-    <section className="science" aria-labelledby="science-title">
-      <h2 id="science-title">Stored orbital data</h2>
+    <section className="science" aria-labelledby={headingId}>
+      <h2 id={headingId}>Stored orbital data</h2>
       <p>
         Inspect source snapshots and calculate a position on the backend. Search
         stored data by NORAD catalog ID. This is not a global catalog search;
         loading snapshots does not download new orbital elements.
       </p>
       <form onSubmit={load} className="controls">
-        <label>
-          Catalog ID
-          <input
-            inputMode="numeric"
-            value={catalog}
-            onChange={(e) => setCatalog(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Load snapshots</button>
+        <fieldset className="controls input-boundary" disabled={readOnly}>
+          <label>
+            Catalog ID
+            <input
+              inputMode="numeric"
+              value={catalog}
+              onChange={(e) => setCatalog(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit">Load snapshots</button>
+        </fieldset>
       </form>
       {loading && <p role="status">Loading saved snapshots…</p>}
       {loadError && <p role="alert">Snapshot load failed: {loadError}</p>}
@@ -164,6 +213,7 @@ export default function ScientificExplorer({
           <label>
             Saved snapshot
             <select
+              disabled={readOnly}
               value={selectedId ?? ""}
               onChange={(e) => {
                 const id = Number(e.target.value);
@@ -203,12 +253,36 @@ export default function ScientificExplorer({
             Latest stored does not mean current or accurate. Recent retrieval
             does not refresh an older orbital epoch.
           </p>
+          <InvestigationActions
+            readOnly={readOnly}
+            build={() =>
+              position
+                ? {
+                    schema_version: 1,
+                    mode: "position",
+                    source: sourceReference(selected),
+                    frame: "TEME",
+                    at: canonicalTime(position.at),
+                  }
+                : snapshotInvestigation(selected)
+            }
+          />
           <GroundTrack
             key={selected.id}
             source={selected}
             initialTime={selected.orbital_epoch ?? ""}
+            initialInvestigation={
+              initialInvestigation?.mode === "ground-track"
+                ? initialInvestigation
+                : undefined
+            }
+            readOnly={readOnly}
+            active={active}
           />
-          <details className="source-details">
+          <details
+            className="source-details"
+            open={initialInvestigation?.mode === "position" ? true : undefined}
+          >
             <summary>Source provenance and TEME inspection</summary>
             <dl className="metadata">
               <dt>Orbital epoch</dt>
@@ -254,21 +328,23 @@ export default function ScientificExplorer({
               </dd>
             </dl>
             <form onSubmit={calculate} className="controls">
-              <label>
-                Requested propagation time (UTC or explicit offset)
-                <input
-                  value={at}
-                  onChange={(e) => {
-                    clearCalculation();
-                    setAt(e.target.value);
-                  }}
-                  required
-                  spellCheck={false}
-                />
-              </label>
-              <button type="submit" disabled={!at || calculating}>
-                Calculate position
-              </button>
+              <fieldset className="controls input-boundary" disabled={readOnly}>
+                <label>
+                  Requested propagation time (UTC or explicit offset)
+                  <input
+                    value={at}
+                    onChange={(e) => {
+                      clearCalculation();
+                      setAt(e.target.value);
+                    }}
+                    required
+                    spellCheck={false}
+                  />
+                </label>
+                <button type="submit" disabled={!at || calculating}>
+                  Calculate position
+                </button>
+              </fieldset>
             </form>
             <p>
               Time must include a timezone and be within ±7 days of this

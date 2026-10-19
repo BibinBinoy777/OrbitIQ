@@ -38,6 +38,14 @@ Phase 6 has not been committed, pushed or deployed.
 
 ## Requirements and installation
 
+Phase 7 adds **Saved investigations**: browser-local saved snapshot, TEME position,
+ground-track/timeline and comparison contexts, plus validated parameter-only share
+links. It reuses the existing archive and calculation APIs; there is no account,
+cloud synchronization or new database migration. Recipients need access to the
+same exact source records. See the [usage and schema guide](docs/saved-investigations.md),
+[Phase 7 report](docs/phase-7-report.md) and
+[verification evidence](docs/phase-7-integration-results.json).
+
 Use Python 3.12, uv (validated with 0.12.23), Node.js 24 and npm 11.
 From the repository root:
 

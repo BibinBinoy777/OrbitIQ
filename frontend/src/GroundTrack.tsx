@@ -7,6 +7,13 @@ import { getGroundTrack } from "./ground-track-api";
 import type { GroundTrackResult, TrackPoint } from "./ground-track-api";
 import type { SnapshotSummary } from "./scientific-api";
 import { formatUtc } from "./time-presentation";
+import InvestigationActions from "./InvestigationActions";
+import {
+  canonicalTime,
+  shiftTime,
+  sourceReference,
+} from "./saved-investigation";
+import type { Investigation } from "./saved-investigation";
 
 export function TrackMap({
   points,
@@ -124,20 +131,67 @@ export function TrackMap({
 export default function GroundTrack({
   source,
   initialTime,
+  initialInvestigation,
+  readOnly = false,
+  active: visible = true,
 }: {
   source: SnapshotSummary;
   initialTime: string;
+  initialInvestigation?: Extract<Investigation, { mode: "ground-track" }>;
+  readOnly?: boolean;
+  active?: boolean;
 }) {
   const infoPanel = useRef<HTMLElement | null>(null);
   const sampleControlId = useId();
-  const [start, setStart] = useState(initialTime);
-  const [duration, setDuration] = useState("90");
-  const [step, setStep] = useState("60");
-  const [loading, setLoading] = useState(false);
+  const headingId = useId();
+  const [start, setStart] = useState(
+    initialInvestigation?.track.start ?? initialTime,
+  );
+  const [duration, setDuration] = useState(
+    String(initialInvestigation?.track.duration_minutes ?? 90),
+  );
+  const [step, setStep] = useState(
+    String(initialInvestigation?.track.step_seconds ?? 60),
+  );
+  const [loading, setLoading] = useState(!!initialInvestigation);
   const [error, setError] = useState("");
   const [track, setTrack] = useState<GroundTrackResult | null>(null);
   const [index, setIndex] = useState(0);
   const active = useRef<AbortController | null>(null);
+  useEffect(() => {
+    if (!initialInvestigation) return;
+    const c = new AbortController(),
+      params = initialInvestigation.track;
+    active.current = c;
+    getGroundTrack(
+      source,
+      params.start,
+      shiftTime(params.start, params.duration_minutes * 60),
+      params.step_seconds,
+      c.signal,
+    )
+      .then((result) => {
+        const selected = result.points[params.selected_index];
+        if (!selected || canonicalTime(selected.at) !== initialInvestigation.at)
+          throw new Error(
+            "The saved sample is unavailable under the current sampling contract. No substitute was selected.",
+          );
+        if (!c.signal.aborted) {
+          setTrack(result);
+          setIndex(params.selected_index);
+        }
+      })
+      .catch((e) => {
+        if (!c.signal.aborted)
+          setError(
+            e instanceof Error ? e.message : "Track reconstruction failed.",
+          );
+      })
+      .finally(() => {
+        if (!c.signal.aborted) setLoading(false);
+      });
+    return () => c.abort();
+  }, [initialInvestigation, source]);
   useEffect(() => () => active.current?.abort(), []);
   function clear() {
     active.current?.abort();
@@ -195,68 +249,70 @@ export default function GroundTrack({
   }
   const selected = track?.points[index];
   return (
-    <section className="result" aria-labelledby="track-heading">
-      <h3 id="track-heading">Earth-relative ground track</h3>
+    <section className="result" aria-labelledby={headingId}>
+      <h3 id={headingId}>Earth-relative ground track</h3>
       <p>
         Calculated from this fixed saved snapshot. Historical intervals are
         supported within ±7 days of its epoch. Source freshness:{" "}
         <strong>{source.freshness_info?.state ?? "unknown"}</strong>.
       </p>
       <form className="controls" onSubmit={generate}>
-        <label>
-          Track start (UTC or explicit offset)
-          <input
-            value={start}
-            required
-            spellCheck={false}
-            onChange={(e) => {
+        <fieldset className="controls input-boundary" disabled={readOnly}>
+          <label>
+            Track start (UTC or explicit offset)
+            <input
+              value={start}
+              required
+              spellCheck={false}
+              onChange={(e) => {
+                clear();
+                setStart(e.target.value);
+              }}
+            />
+          </label>
+          <label>
+            Duration (minutes)
+            <input
+              type="number"
+              min="1"
+              max="1440"
+              value={duration}
+              required
+              onChange={(e) => {
+                clear();
+                setDuration(e.target.value);
+              }}
+            />
+          </label>
+          <label>
+            Sample step (seconds)
+            <input
+              type="number"
+              min="10"
+              max="3600"
+              value={step}
+              required
+              onChange={(e) => {
+                clear();
+                setStep(e.target.value);
+              }}
+            />
+          </label>
+          <button
+            type="button"
+            onClick={() => {
               clear();
-              setStart(e.target.value);
+              setStart(initialTime);
+              setDuration("90");
+              setStep("60");
             }}
-          />
-        </label>
-        <label>
-          Duration (minutes)
-          <input
-            type="number"
-            min="1"
-            max="1440"
-            value={duration}
-            required
-            onChange={(e) => {
-              clear();
-              setDuration(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Sample step (seconds)
-          <input
-            type="number"
-            min="10"
-            max="3600"
-            value={step}
-            required
-            onChange={(e) => {
-              clear();
-              setStep(e.target.value);
-            }}
-          />
-        </label>
-        <button
-          type="button"
-          onClick={() => {
-            clear();
-            setStart(initialTime);
-            setDuration("90");
-            setStep("60");
-          }}
-        >
-          Reset track window
-        </button>
-        <button disabled={loading} type="submit">
-          Generate ground track
-        </button>
+          >
+            Reset track window
+          </button>
+          <button disabled={loading} type="submit">
+            Generate ground track
+          </button>
+        </fieldset>
       </form>
       <p>
         Default limits: 361 samples and 24 hours; step 10–3600 seconds. Any
@@ -273,7 +329,7 @@ export default function GroundTrack({
             selected={index}
             onInspect={() => infoPanel.current?.focus()}
           />
-          {track && (
+          {track && visible && (
             <Timeline
               key={track.actual_start + track.actual_end}
               points={track.points}
@@ -286,6 +342,22 @@ export default function GroundTrack({
       </div>
       {track && selected && (
         <div aria-label="Calculated ground-track result">
+          <InvestigationActions
+            readOnly={readOnly}
+            build={() => ({
+              schema_version: 1,
+              mode: "ground-track",
+              frame: "ITRS",
+              source: sourceReference(source),
+              at: canonicalTime(selected.at),
+              track: {
+                start,
+                duration_minutes: Number(duration),
+                step_seconds: Number(step),
+                selected_index: index,
+              },
+            })}
+          />
           <h4>
             {track.points.length} calculated samples · TEME → ITRS → WGS84
           </h4>

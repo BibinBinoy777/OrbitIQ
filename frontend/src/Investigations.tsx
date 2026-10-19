@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import Globe from "./Globe";
 import {
@@ -17,6 +17,14 @@ import type {
 } from "./investigation-api";
 import type { SnapshotSummary } from "./scientific-api";
 import { formatUtc } from "./time-presentation";
+import InvestigationActions from "./InvestigationActions";
+import {
+  canonicalTime,
+  snapshotInvestigation,
+  sourceReference,
+  verifySource,
+} from "./saved-investigation";
+import type { Investigation } from "./saved-investigation";
 const message = (e: unknown) =>
   e instanceof Error ? e.message : "Stored-data request failed. Retry.";
 const value = (s: unknown) =>
@@ -96,12 +104,19 @@ function Metadata({ source: s }: { source: StoredSnapshot }) {
 export default function Investigations({
   active,
   onExplore,
+  initialInvestigation,
+  readOnly = false,
 }: {
   active: boolean;
   onExplore: (s: SnapshotSummary) => void;
+  initialInvestigation?: Extract<Investigation, { mode: "comparison" }>;
+  readOnly?: boolean;
 }) {
+  const headingId = useId();
+  const detailHeadingId = useId();
+  const comparisonHeadingId = useId();
   const [mode, setMode] = useState<"discovery" | "history" | "comparison">(
-    "discovery",
+    initialInvestigation ? "comparison" : "discovery",
   );
   const [query, setQuery] = useState("");
   const [match, setMatch] = useState("partial");
@@ -121,17 +136,57 @@ export default function Investigations({
   > | null>(null);
   const [detailError, setDetailError] = useState("");
   const [detailLoading, setDetailLoading] = useState(false);
-  const [first, setFirst] = useState("");
-  const [second, setSecond] = useState("");
-  const [at, setAt] = useState("");
-  const [frame, setFrame] = useState("TEME");
-  const [category, setCategory] = useState<Category>("all");
+  const [first, setFirst] = useState(
+    initialInvestigation ? String(initialInvestigation.source.snapshot_id) : "",
+  );
+  const [second, setSecond] = useState(
+    initialInvestigation
+      ? String(initialInvestigation.comparison_source.snapshot_id)
+      : "",
+  );
+  const [at, setAt] = useState(initialInvestigation?.at ?? "");
+  const [frame, setFrame] = useState<string>(
+    initialInvestigation?.frame ?? "TEME",
+  );
+  const [category, setCategory] = useState<Category>(
+    initialInvestigation?.category ?? "all",
+  );
   const [comparison, setComparison] = useState<Comparison | null>(null);
-  const [comparing, setComparing] = useState(false);
+  const [comparing, setComparing] = useState(!!initialInvestigation);
   const [compareError, setCompareError] = useState("");
   const listRequest = useRef<AbortController | null>(null),
     detailRequest = useRef<AbortController | null>(null),
     compareRequest = useRef<AbortController | null>(null);
+  useEffect(() => {
+    if (!initialInvestigation) return;
+    const v = initialInvestigation,
+      c = new AbortController();
+    compareRequest.current = c;
+    getComparison(
+      v.source.snapshot_id,
+      v.comparison_source.snapshot_id,
+      v.at ?? "",
+      v.frame,
+      v.category,
+      c.signal,
+    )
+      .then((result) => {
+        const a = explorerSource(result.first),
+          b = explorerSource(result.second);
+        if (!a || !b)
+          throw new Error("Comparison source provenance is unavailable.");
+        verifySource(v.source, a);
+        verifySource(v.comparison_source, b);
+        if (!c.signal.aborted) setComparison(result);
+      })
+      .catch((e) => {
+        if (!c.signal.aborted) setCompareError(message(e));
+      })
+      .finally(() => {
+        if (!c.signal.aborted) setComparing(false);
+      });
+    return () => c.abort();
+  }, [initialInvestigation]);
   useEffect(() => {
     const abort = () => {
       listRequest.current?.abort();
@@ -278,8 +333,8 @@ export default function Investigations({
   }
   const state = comparison?.state_comparison;
   return (
-    <section className="investigations" aria-labelledby="investigations-title">
-      <h2 id="investigations-title">
+    <section className="investigations" aria-labelledby={headingId}>
+      <h2 id={headingId}>
         Stored satellite discovery & historical investigation
       </h2>
       <p>
@@ -289,6 +344,7 @@ export default function Investigations({
       </p>
       <nav className="toolbar" aria-label="Stored-data tools">
         <button
+          disabled={readOnly}
           type="button"
           aria-current={mode === "discovery" ? "page" : undefined}
           onClick={() => setMode("discovery")}
@@ -296,6 +352,7 @@ export default function Investigations({
           Find satellites
         </button>
         <button
+          disabled={readOnly}
           type="button"
           aria-current={mode === "history" ? "page" : undefined}
           onClick={() => {
@@ -306,6 +363,7 @@ export default function Investigations({
           Browse snapshot history
         </button>
         <button
+          disabled={readOnly}
           type="button"
           aria-current={mode === "comparison" ? "page" : undefined}
           onClick={() => setMode("comparison")}
@@ -565,12 +623,20 @@ export default function Investigations({
           {selected && (
             <section
               className="source-detail"
-              aria-labelledby="source-detail-title"
+              aria-labelledby={detailHeadingId}
             >
-              <h3 id="source-detail-title">
+              <h3 id={detailHeadingId}>
                 Snapshot #{selected.id}: fixed source detail
               </h3>
               <Metadata source={selected} />
+              <InvestigationActions
+                build={() => {
+                  const s = explorerSource(selected);
+                  if (!s) throw new Error("Source metadata incomplete");
+                  return snapshotInvestigation(s);
+                }}
+                readOnly={readOnly}
+              />
               {detailLoading && <p role="status">Validating source details…</p>}
               {detailError && (
                 <p role="alert">
@@ -649,78 +715,80 @@ export default function Investigations({
       {mode === "comparison" && (
         <>
           <form className="controls" onSubmit={compare}>
-            <label>
-              Snapshot A
-              <input
-                value={first}
-                inputMode="numeric"
-                onChange={(e) => {
-                  setFirst(e.target.value);
-                  clearComparison();
-                }}
-              />
-            </label>
-            <label>
-              Snapshot B
-              <input
-                value={second}
-                inputMode="numeric"
-                onChange={(e) => {
-                  setSecond(e.target.value);
-                  clearComparison();
-                }}
-              />
-            </label>
-            <label>
-              Record difference filter
-              <select
-                value={category}
-                onChange={(e) => {
-                  setCategory(e.target.value as Category);
-                  clearComparison();
-                }}
-              >
-                {["all", "shared", "added", "removed", "incompatible"].map(
-                  (c) => (
-                    <option key={c} value={c}>
-                      {c === "added"
-                        ? "Only B / added"
-                        : c === "removed"
-                          ? "Only A / removed"
-                          : c}
-                    </option>
-                  ),
-                )}
-              </select>
-            </label>
-            <label>
-              Common evaluation time (optional, explicit timezone)
-              <input
-                value={at}
-                onChange={(e) => {
-                  setAt(e.target.value);
-                  clearComparison();
-                }}
-                placeholder="Leave blank for element differences"
-              />
-            </label>
-            <label>
-              State frame
-              <select
-                value={frame}
-                onChange={(e) => {
-                  setFrame(e.target.value);
-                  clearComparison();
-                }}
-              >
-                <option value="TEME">TEME · numerical states</option>
-                <option value="ITRS">ITRS · Earth-fixed globe</option>
-              </select>
-            </label>
-            <button type="submit">Compare selected snapshots</button>
-            <button type="button" onClick={clearComparison}>
-              Cancel comparison
-            </button>
+            <fieldset className="controls input-boundary" disabled={readOnly}>
+              <label>
+                Snapshot A
+                <input
+                  value={first}
+                  inputMode="numeric"
+                  onChange={(e) => {
+                    setFirst(e.target.value);
+                    clearComparison();
+                  }}
+                />
+              </label>
+              <label>
+                Snapshot B
+                <input
+                  value={second}
+                  inputMode="numeric"
+                  onChange={(e) => {
+                    setSecond(e.target.value);
+                    clearComparison();
+                  }}
+                />
+              </label>
+              <label>
+                Record difference filter
+                <select
+                  value={category}
+                  onChange={(e) => {
+                    setCategory(e.target.value as Category);
+                    clearComparison();
+                  }}
+                >
+                  {["all", "shared", "added", "removed", "incompatible"].map(
+                    (c) => (
+                      <option key={c} value={c}>
+                        {c === "added"
+                          ? "Only B / added"
+                          : c === "removed"
+                            ? "Only A / removed"
+                            : c}
+                      </option>
+                    ),
+                  )}
+                </select>
+              </label>
+              <label>
+                Common evaluation time (optional, explicit timezone)
+                <input
+                  value={at}
+                  onChange={(e) => {
+                    setAt(e.target.value);
+                    clearComparison();
+                  }}
+                  placeholder="Leave blank for element differences"
+                />
+              </label>
+              <label>
+                State frame
+                <select
+                  value={frame}
+                  onChange={(e) => {
+                    setFrame(e.target.value);
+                    clearComparison();
+                  }}
+                >
+                  <option value="TEME">TEME · numerical states</option>
+                  <option value="ITRS">ITRS · Earth-fixed globe</option>
+                </select>
+              </label>
+              <button type="submit">Compare selected snapshots</button>
+              <button type="button" onClick={clearComparison}>
+                Cancel comparison
+              </button>
+            </fieldset>
           </form>
           <p>
             One explicit common evaluation time; positions in km, velocities in
@@ -732,10 +800,27 @@ export default function Investigations({
             <p role="alert">{compareError} Adjust the request and retry.</p>
           )}
           {comparison && (
-            <section aria-labelledby="comparison-title">
-              <h3 id="comparison-title">
+            <section aria-labelledby={comparisonHeadingId}>
+              <h3 id={comparisonHeadingId}>
                 Comparison A #{comparison.first.id} / B #{comparison.second.id}
               </h3>
+              <InvestigationActions
+                readOnly={readOnly}
+                build={() => {
+                  const a = explorerSource(comparison.first),
+                    b = explorerSource(comparison.second);
+                  if (!a || !b) throw new Error("Source provenance incomplete");
+                  return {
+                    schema_version: 1,
+                    mode: "comparison",
+                    source: sourceReference(a),
+                    comparison_source: sourceReference(b),
+                    at: at ? canonicalTime(at) : null,
+                    frame: frame as "TEME" | "ITRS",
+                    category,
+                  };
+                }}
+              />
               {comparison.is_self_comparison && (
                 <p className="notice">
                   Same snapshot selected twice: a self-check, not distinct
@@ -778,7 +863,7 @@ export default function Investigations({
                     <Metadata source={s} />
                     <button
                       type="button"
-                      disabled={!explorerSource(s)}
+                      disabled={readOnly || !explorerSource(s)}
                       onClick={() => explore(s)}
                     >
                       Explore source {i === 0 ? "A" : "B"} #{s.id}

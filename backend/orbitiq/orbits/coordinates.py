@@ -46,6 +46,51 @@ def wrap_longitude(longitude: float) -> float:
     return (longitude + 180) % 360 - 180
 
 
+def _refine_exterior_latitude(position, latitude_deg, height_km):
+    """One residual-checked Newton correction of ERFA's exterior WGS84 seed.
+
+    Eliminate height from the forward ellipsoid equations to obtain
+    F(phi) = rho*sin(phi) - z*cos(phi) - e2*N*sin(phi)*cos(phi) = 0.
+    ERFA's finite Halley approximation can miss high-altitude angular targets.
+    Refine only above its round-off floor; keep interior branches unchanged.
+    See docs/phase-6.1.1-report.md for derivation and independent comparisons.
+    """
+    if not math.isfinite(height_km) or height_km < 0:
+        return latitude_deg, height_km
+    rho, z = math.hypot(*position[:2]), position[2]
+    radius = math.hypot(rho, z)
+    a_m, flattening = erfa.eform(1)  # Same WGS84 constants as EarthLocation.
+    a = a_m / 1000
+    e2 = flattening * (2 - flattening)
+
+    def equation(phi):
+        s, c = math.sin(phi), math.cos(phi)
+        q = 1 - e2 * s * s
+        n = a / math.sqrt(q)
+        value = rho * s - z * c - e2 * n * s * c
+        derivative = rho * c + z * s - e2 * n * (c * c - s * s + e2 * s * s * c * c / q)
+        return value, derivative
+
+    phi = math.radians(latitude_deg)
+    value, derivative = equation(phi)
+    if abs(value) <= 8 * math.ulp(radius):
+        return latitude_deg, height_km
+    if not math.isfinite(derivative) or derivative <= 0:
+        raise TransformationError(
+            "invalid_coordinates", "WGS84 latitude refinement is ill-conditioned"
+        )
+    phi -= value / derivative
+    residual, _ = equation(phi)
+    if not math.isfinite(residual) or abs(residual) > 16 * math.ulp(radius):
+        raise TransformationError(
+            "invalid_coordinates", "WGS84 latitude refinement did not converge"
+        )
+    s, c = math.sin(phi), math.cos(phi)
+    # Normal projection avoids divisions by sin/cos near equator and poles.
+    height_km = rho * c + z * s - a * math.sqrt(1 - e2 * s * s)
+    return math.degrees(phi), height_km
+
+
 def geodetic(position_km):
     position_km = finite_vector(position_km)
     if math.hypot(*position_km) < 1:
@@ -60,6 +105,9 @@ def geodetic(position_km):
         "altitude_km": float(height.to_value(u.km)),
         "height_reference": "WGS84 ellipsoid",
     }
+    result["latitude_deg"], result["altitude_km"] = _refine_exterior_latitude(
+        position_km, result["latitude_deg"], result["altitude_km"]
+    )
     if (
         not all(
             math.isfinite(result[k])
@@ -171,7 +219,8 @@ def earth_fixed(teme: dict) -> dict:
         else "measured_eop",
         "method": (
             "Astropy TEME -> ITRS at same obstime; "
-            "Vallado 2006 GMST82 and polar motion; WGS84 geodetic"
+            "Vallado 2006 GMST82 and polar motion; WGS84 geodetic "
+            "with residual-checked exterior latitude refinement"
         ),
         "astropy_version": astropy.__version__,
         "pyerfa_version": erfa.__version__,

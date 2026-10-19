@@ -6,7 +6,6 @@ import os
 import sqlite3
 import ssl
 import time
-from contextlib import closing
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -17,7 +16,7 @@ from pydantic import ValidationError
 from orbitiq.database import configured_path
 from orbitiq.orbits.elements import MAX_CATALOG_ID, Elements
 from orbitiq.orbits.engine import propagate_satellite
-from orbitiq.storage import connect, save_snapshot
+from orbitiq.storage import save_snapshot
 
 BASE_URL = "https://celestrak.org/NORAD/elements/gp.php"
 MAX_BYTES = 64 * 1024
@@ -30,10 +29,14 @@ class IngestionError(ValueError):
         *,
         category: str = "validation",
         status_code: int | None = None,
+        retry_after: str | None = None,
+        parsed_count: int | None = None,
     ):
         super().__init__(message)
         self.category = category
         self.status_code = status_code
+        self.retry_after = retry_after
+        self.parsed_count = parsed_count
 
 
 @dataclass(frozen=True)
@@ -87,6 +90,8 @@ def has_tls_cause(error: Exception) -> bool:
 def parse_response(raw: bytes, catalog_id: int) -> tuple[dict, Elements]:
     if len(raw) > MAX_BYTES:
         raise IngestionError("Upstream response exceeds 64 KiB")
+    parsed_count = None
+    category = "parsing"
     try:
 
         def unique_object(pairs):
@@ -105,6 +110,8 @@ def parse_response(raw: bytes, catalog_id: int) -> tuple[dict, Elements]:
         )
         if not isinstance(payload, list) or len(payload) != 1:
             raise ValueError("Expected exactly one GP record")
+        parsed_count = len(payload)
+        category = "validation"
         record = payload[0]
         elements = Elements.model_validate(record)
         if elements.catalog_id != catalog_id:
@@ -119,7 +126,11 @@ def parse_response(raw: bytes, catalog_id: int) -> tuple[dict, Elements]:
         ValidationError,
         RecursionError,
     ) as error:
-        raise IngestionError("Invalid or unsupported CelesTrak GP record") from error
+        raise IngestionError(
+            "Invalid or unsupported CelesTrak GP record",
+            category=category,
+            parsed_count=parsed_count,
+        ) from error
 
 
 def fetch_dataset(catalog_id: int, *, transport=None) -> DownloadedDataset:
@@ -128,6 +139,8 @@ def fetch_dataset(catalog_id: int, *, transport=None) -> DownloadedDataset:
     source = configured_source()
     params = {"CATNR": str(catalog_id), "FORMAT": "JSON"}
     timeout = httpx.Timeout(15, connect=5)
+    received_status = None
+    received_retry_after = None
     try:
         with httpx.Client(
             timeout=timeout, follow_redirects=False, transport=transport
@@ -139,12 +152,15 @@ def fetch_dataset(catalog_id: int, *, transport=None) -> DownloadedDataset:
                 params=params,
                 headers={"User-Agent": "OrbitIQ/0.1", "Accept-Encoding": "identity"},
             ) as response:
+                received_status = response.status_code
+                received_retry_after = response.headers.get("retry-after")
                 response.raise_for_status()
                 if response.status_code != 200:
                     raise IngestionError(
                         f"Expected HTTP 200, received {response.status_code}",
                         category="upstream_http",
                         status_code=response.status_code,
+                        retry_after=response.headers.get("retry-after"),
                     )
                 content_type = response.headers.get("content-type", "").lower()
                 if content_type.split(";", 1)[0].strip() != "application/json":
@@ -163,6 +179,12 @@ def fetch_dataset(catalog_id: int, *, transport=None) -> DownloadedDataset:
                         raise IngestionError("Upstream response exceeds 64 KiB")
                 source_url = str(response.url)
         retrieved_at = datetime.now(UTC)
+    except IngestionError as error:
+        if error.status_code is None:
+            error.status_code = received_status
+        if error.retry_after is None:
+            error.retry_after = received_retry_after
+        raise
     except httpx.ProxyError as error:
         raise IngestionError(
             "Outbound proxy connection failed; no snapshot saved", category="proxy"
@@ -173,22 +195,31 @@ def fetch_dataset(catalog_id: int, *, transport=None) -> DownloadedDataset:
             f"Upstream HTTPS response returned HTTP {status}; no snapshot saved",
             category="upstream_http",
             status_code=status,
+            retry_after=error.response.headers.get("retry-after"),
         ) from error
     except httpx.TimeoutException as error:
         raise IngestionError(
-            "CelesTrak request timed out; no snapshot saved", category="timeout"
+            "CelesTrak request timed out; no snapshot saved",
+            category="timeout",
+            status_code=received_status,
+            retry_after=received_retry_after,
         ) from error
     except httpx.HTTPError as error:
         category = "tls" if has_tls_cause(error) else "network"
         raise IngestionError(
-            f"CelesTrak {category} request failed; no snapshot saved", category=category
+            f"CelesTrak {category} request failed; no snapshot saved",
+            category=category,
+            status_code=received_status,
+            retry_after=received_retry_after,
         ) from error
     return DownloadedDataset(
         bytes(body), source_url, retrieved_at, response.status_code
     )
 
 
-def process_dataset(path: Path, catalog_id: int, dataset: DownloadedDataset) -> int:
+def process_dataset(
+    path: Path, catalog_id: int, dataset: DownloadedDataset, *, connection=None
+) -> int:
     """Validate and persist a downloaded dataset; exact replay is idempotent."""
     validate_catalog_id(catalog_id)
     if dataset.http_status != 200:
@@ -212,26 +243,29 @@ def process_dataset(path: Path, catalog_id: int, dataset: DownloadedDataset) -> 
         raise IngestionError("Retrieval timestamp must include a timezone")
     record, elements = parse_response(dataset.raw, catalog_id)
     return save_snapshot(
-        path, dataset.raw, record, elements, dataset.source_url, dataset.retrieved_at
+        path,
+        dataset.raw,
+        record,
+        elements,
+        dataset.source_url,
+        dataset.retrieved_at,
+        connection=connection,
     )
 
 
 def ingest(
     path: Path, catalog_id: int, *, transport=None, verify_replay: bool = False
 ) -> int:
-    validate_catalog_id(catalog_id)
-    with closing(connect(path)):
-        pass
-    dataset = fetch_dataset(catalog_id, transport=transport)
-    snapshot_id = process_dataset(path, catalog_id, dataset)
-    if verify_replay and process_dataset(path, catalog_id, dataset) != snapshot_id:
-        raise IngestionError(
-            "Dataset replay did not reuse its snapshot", category="storage"
-        )
-    return snapshot_id
+    from orbitiq.ingestion.collection import collect
+
+    return collect(path, catalog_id, transport=transport, verify_replay=verify_replay)[
+        "snapshot_id"
+    ]
 
 
 def main() -> None:
+    from orbitiq.ingestion.collection import collect
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("catalog_id", type=int)
     parser.add_argument(
@@ -241,21 +275,22 @@ def main() -> None:
     )
     args = parser.parse_args()
     try:
-        snapshot_id = ingest(
+        result = collect(
             configured_path(), args.catalog_id, verify_replay=args.verify_replay
         )
     except (ValueError, OSError, RuntimeError, sqlite3.Error) as error:
-        category = f" [{error.category}]" if isinstance(error, IngestionError) else ""
-        parser.exit(1, f"Ingestion failed{category}: {error}\n")
-    print(
-        f"Snapshot {snapshot_id} ready from CelesTrak "
-        "(an exact duplicate reuses the original snapshot)"
-        + (
-            "; replay verified without another HTTP request"
-            if args.verify_replay
-            else ""
+        category = error.category if isinstance(error, IngestionError) else "storage"
+        message = (
+            str(error)
+            if isinstance(error, IngestionError)
+            else "Operator review required"
         )
-    )
+        parser.exit(
+            1,
+            json.dumps({"status": "failed", "category": category, "message": message})
+            + "\n",
+        )
+    print(json.dumps(result))
 
 
 if __name__ == "__main__":

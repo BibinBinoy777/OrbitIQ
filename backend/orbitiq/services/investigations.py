@@ -99,8 +99,12 @@ def public_metadata(row, now, thresholds):
         "identity_consistent": bool(identity),
         "orbital_epoch": epoch.isoformat() if epoch else None,
         "retrieved_at": retrieval.isoformat() if retrieval else None,
-        "snapshot_created_at": None,
-        "insertion_time_status": "not_recorded",
+        "snapshot_created_at": utc(row.get("snapshot_inserted_at")).isoformat()
+        if utc(row.get("snapshot_inserted_at"))
+        else None,
+        "insertion_time_status": "recorded"
+        if utc(row.get("snapshot_inserted_at"))
+        else "not_recorded_legacy",
         "source_url": safe_source,
         "provider": "CelesTrak" if safe_source else None,
         "response_sha256": checksum,

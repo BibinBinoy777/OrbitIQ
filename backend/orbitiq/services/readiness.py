@@ -22,6 +22,7 @@ from orbitiq.orbits.earth_orientation import (
     parameters,
 )
 from orbitiq.orbits.freshness import FreshnessPolicy, classify, utc
+from orbitiq.services.ingestion_status import assess_ingestion
 
 STATUSES = {"healthy", "degraded", "unavailable", "unknown"}
 LIMIT = 100
@@ -66,18 +67,20 @@ def database_status(now):
             versions = db.execute(
                 "SELECT version FROM schema_version LIMIT 2"
             ).fetchall()
-            if versions != [(2,)]:
+            if versions not in ([(2,)], [(3,)]):
                 return section(
                     "unavailable",
                     "schema_unavailable",
                     (
-                        "Required orbital schema 2 is unavailable; "
+                        "Supported orbital schema 2/3 is unavailable; "
                         "operator review is needed."
                     ),
                     reachable=True,
                     schema_available=False,
                     reads_available=False,
                 ), orbital
+            version = versions[0][0]
+            insertion = None
             db.execute(
                 (
                     "SELECT id, catalog_id, orbital_epoch, "
@@ -93,6 +96,12 @@ def database_status(now):
                     "BY id DESC LIMIT 101"
                 )
             ).fetchall()
+            if rows and version >= 3:
+                insertion_row = db.execute(
+                    "SELECT inserted_at FROM snapshot_insertions WHERE snapshot_id=?",
+                    (rows[0][0],),
+                ).fetchone()
+                insertion = utc(insertion_row[0]) if insertion_row else None
         database = section(
             "healthy",
             "database_readable",
@@ -100,7 +109,7 @@ def database_status(now):
             reachable=True,
             schema_available=True,
             reads_available=True,
-            schema_version=2,
+            schema_version=version,
             integrity_scope="metadata_read_not_full_integrity_scan",
         )
         if not rows:
@@ -124,8 +133,8 @@ def database_status(now):
             latest_stored_retrieved_at=utc(latest_stored[3]).isoformat()
             if utc(latest_stored[3])
             else None,
-            snapshot_insertion_at=None,
-            insertion_time_status="not_recorded",
+            snapshot_insertion_at=insertion.isoformat() if insertion else None,
+            insertion_time_status="recorded" if insertion else "not_recorded_legacy",
         )
         valid = [(r, utc(r[3])) for r in rows]
         all_valid = all(t is not None for _, t in valid)
@@ -144,8 +153,7 @@ def database_status(now):
             "latest_retrieval_at": latest[1].isoformat()
             if latest and global_known
             else None,
-            "ingestion_error_status": "not_recorded",
-            "last_ingestion_error": None,
+            "ingestion_error_status": "see_ingestion_component",
         }
         if not global_known or latest is None:
             return database, section(
@@ -476,6 +484,7 @@ def assess(at=None, *, now=None):
     components = {
         "database": database,
         "orbital_data": orbital,
+        "ingestion": assess_ingestion(now, orbital),
         "eop": eop,
         "leap_seconds": leap,
     }

@@ -1,5 +1,10 @@
 # Phase 1: orbital data and scientific engine
 
+Phase 6 extends these ingestion semantics with a mandatory schema-3 ledger and
+provider gate. Follow [current ingestion operations](ingestion-operations.md) for
+current migration, collection, cooldown and retry commands. The Phase 1 report
+remains historical evidence.
+
 ## Acceptance criteria
 
 1. Fetch real, single-object CelesTrak GP JSON through a fixed HTTPS destination,
@@ -79,7 +84,7 @@ export ORBITIQ_DATABASE_PATH=/absolute/path/to/orbitiq.sqlite3
 uv run --locked python -m orbitiq.database init
 ```
 
-A new database gets migrations 001 and 002. For an existing Phase 0/schema-1
+A new database now gets migrations 001, 002 and 003. For an existing Phase 0/schema-1
 database, use a distinct, nonexistent backup path:
 
 ```sh
@@ -90,7 +95,7 @@ uv run --locked python -m orbitiq.database check
 Migration obtains a writer lock, validates the source, backs it up using SQLite's
 online backup API, then applies DDL/version updates in one transaction. A failed
 backup prevents migration; a failed migration rolls back and retains the backup.
-Re-running on schema 2 is a no-op. Unknown versions are refused. Existing user
+Re-running on latest schema 3 is a no-op; existing schema 2 upgrades to 3. Unknown versions are refused. Existing user
 records/tables are retained. No startup hook runs these commands.
 
 ## Ingestion and read-only API

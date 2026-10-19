@@ -76,3 +76,16 @@ it("terminates a stalled request", async () => {
     getReadiness("", new AbortController().signal),
   ).rejects.toMatchObject({ name: "TimeoutError" });
 }, 7000);
+
+it("treats missing collection metadata as unknown while preserving orbital facts", () => {
+  const value = readinessFixture();
+  const result = parseReadiness({
+    ...value,
+    components: { ...value.components, ingestion: undefined },
+  });
+  expect(result.status).toBe("unknown");
+  expect(result.components.ingestion.code).toBe("section_missing");
+  expect(result.components.orbital_data.orbital_epoch).toBe(
+    value.components.orbital_data.orbital_epoch,
+  );
+});

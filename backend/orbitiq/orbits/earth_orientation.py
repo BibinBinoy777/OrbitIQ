@@ -137,12 +137,26 @@ def parameters(data: Resources, at: Time, mode: str, *, now: datetime | None = N
             503,
         )
     labels = {0: "IERS_B_final", 1: "IERS_A_measured", 2: "IERS_A_prediction"}
+    # Preserve wire labels, but do not imply rapid IERS-A estimates are final.
+    # Finite-difference velocity can require predicted support around a final
+    # central epoch, so expose all contributing quality flags as well.
+    quality = {0: "final", 1: "rapid_nonprediction", 2: "prediction"}
     return {
         **data.metadata,
         "policy": mode,
         "status": "predicted" if predicted else "measured",
         "ut1_source": labels[int(ut_status[1])],
         "polar_motion_source": labels[int(pm_status[1])],
+        "source_quality": {
+            "ut1": quality[int(ut_status[1])],
+            "polar_motion": quality[int(pm_status[1])],
+            "velocity_support_ut1": [quality[int(s)] for s in ut_status],
+            "velocity_support_polar_motion": [quality[int(s)] for s in pm_status],
+            "scope": (
+                "IERS resource flags; rapid nonprediction values are not "
+                "asserted final. They are not satellite observations."
+            ),
+        },
         "ut1_minus_utc_seconds": float(dut1[1].to_value(u.s)),
         "polar_motion_x_arcsec": float(xp[1].to_value(u.arcsec)),
         "polar_motion_y_arcsec": float(yp[1].to_value(u.arcsec)),

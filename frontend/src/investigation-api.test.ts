@@ -222,3 +222,17 @@ it("does not expose raw invalid-response exception details", async () => {
     getSnapshotPage(new URLSearchParams(), new AbortController().signal),
   ).rejects.toThrow("Stored-data API returned an unreadable response. Retry.");
 });
+
+it("preserves separate insertion time through exact-source handoff", () => {
+  const raw = investigationFixtures().page.snapshots[0];
+  const source = parseStored({
+    ...raw,
+    snapshot_created_at: "2026-10-19T07:58:23.415+00:00",
+  });
+  expect(explorerSource(source)?.snapshot_created_at).toBe(
+    "2026-10-19T07:58:23.415+00:00",
+  );
+  expect(() =>
+    parseStored({ ...raw, snapshot_created_at: "unknown" }),
+  ).toThrow();
+});

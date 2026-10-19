@@ -28,6 +28,14 @@ missing metadata remain explicit, and comparisons do not establish maneuvers or
 anomalies. See the [Phase 5 report](docs/phase-5-report.md) and
 [structured verification evidence](docs/phase-5-integration-results.json).
 
+Phase 6 adds explicit, provider-responsible collection with a schema-3 audit
+ledger, durable two-hour gate, bounded deferred retries and truthful collection
+monitoring. Two independently acquired genuine ISS snapshots now have actual
+common-time TEME/ITRS comparison evidence. See [Phase 6 verification](docs/phase-6-report.md),
+[ingestion operations](docs/ingestion-operations.md), and the
+[backup/restore runbook](docs/backup-restore-runbook.md). These are local changes;
+Phase 6 has not been committed, pushed or deployed.
+
 ## Requirements and installation
 
 Use Python 3.12, uv (validated with 0.12.23), Node.js 24 and npm 11.
@@ -94,9 +102,9 @@ uv run --locked python -m orbitiq.database backup "$PWD/backups/orbitiq-001.sqli
 
 Run `init` only when deliberately creating a new database. It exclusively creates
 a new file and refuses any existing path. The initial schema contains only a
-schema version (2) and an empty snapshot archive, with no satellite or observation
-records. Existing schema-1 databases require the explicit migration documented
-in `docs/phase-1.md`.
+schema version (3), an empty snapshot archive, ingestion ledger and collection
+gate, with no satellite or observation records. Existing schema 1/2 databases
+require the explicit pre-backed-up migration in `docs/ingestion-operations.md`.
 
 Backups use SQLite's online backup API, rather than copying a live database file.
 The source must exist and pass integrity/schema checks. The destination must not
@@ -114,7 +122,7 @@ uv run --locked python -m orbitiq.database check
 Restore refuses an existing destination and preserves the original database and
 backup. Stop any database writers before switching the configured path. Retain
 the original until the restored data has been verified. These commands support
-OrbitIQ schema versions 1 and 2. No restore procedure overwrites a live database.
+OrbitIQ schema versions 1, 2 and 3. No restore procedure overwrites a live database.
 
 ## Checks
 
@@ -144,7 +152,8 @@ See [product foundation and launch gates](docs/product-foundation.md) for the
 Phase 0 acceptance criteria, module boundaries, scientific provenance contract,
 managed PostgreSQL evaluation criteria, and security/operations gates. The initial
 schema is versioned in `backend/orbitiq/migrations/001_initial.sql`. Phase 1 adds
-migration 002 and an explicit, pre-backed-up upgrade command;
+migration 002; Phase 6 adds additive migration 003 and the same explicit,
+pre-backed-up upgrade command;
 unknown versions are refused. See `docs/phase-1.md`.
 
 The frontend health request times out after five seconds and is cancelled when
@@ -152,9 +161,10 @@ the component unmounts. Modern browsers supporting `AbortSignal.any` and
 `AbortSignal.timeout` are required; broader browser support needs explicit review.
 
 `.github/workflows/ci.yml` defines locked backend and frontend checks for pull
-requests, pushes and manual runs. Its commands are validated locally; GitHub CI
-has not run because these files have not been committed or pushed. There is no
-production deployment workflow in Phase 0.
+requests, pushes and manual runs. The published Phase 5 commit has a verified
+successful backend/frontend run; the Phase 6 report links the exact SHA and jobs.
+Phase 6 locally adds explicit reference-audit and migration/recovery steps; these
+new workflow changes have not run remotely. There is no deployment workflow.
 
 
 ## Phase 1 live ingestion
@@ -166,11 +176,12 @@ not a fresh initialization:
 ```sh
 export PYTHONPATH=backend
 export ORBITIQ_DATABASE_PATH=/workspace/OrbitIQ/data/orbitiq.sqlite3
-uv run --locked python -m orbitiq.ingestion.celestrak 25544 --verify-replay
+uv run --locked python -m orbitiq.ingestion.collection collect 25544 --verify-replay
 uv run --locked python -m orbitiq.database verify-archive
 ```
 
-Run a new live retrieval only when needed, respecting the source's limits.
+Run a new live retrieval only when needed, after the persisted two-hour cooldown
+and any required operator review; see `docs/ingestion-operations.md`.
 `--verify-replay` makes one download and processes it twice; exact duplicate
 content reuses the existing snapshot without overwriting history. The optional
 `ORBITIQ_CELESTRAK_URL` is documented in `.env.example` and the Phase 1 guide.
@@ -301,3 +312,16 @@ or new environment configuration is needed. Run `npm ci` after updating source.
 The lazy renderer chunk is about 556 kB minified / 139 kB gzip; Vite's 500-kB
 warning remains visible. A local build does not prove target-device GPU performance
 or public-deployment readiness. See the Phase 4 report for actual test evidence.
+
+## Phase 6.1 scientific assessment
+
+See the [Phase 6.1 report](docs/phase-6.1-report.md) and
+[machine-readable evidence](docs/phase-6.1-scientific-evidence.json) for the
+reference audit, residual investigation and time/EOP boundary checks. Original
+Phase 6 artifacts are preserved. That historical assessment recorded one
+high-altitude geodetic precision failure. The separate
+[Phase 6.1.1 remediation](docs/phase-6.1.1-report.md) resolves it against the
+unchanged threshold, with independent GeographicLib comparisons. The expected
+failure marker was removed; both earlier reports and evidence remain unchanged.
+Observation-based prediction validation remains **BLOCKED**, and uncertainty
+remains unquantified. These results are not a public-launch accuracy certificate.

@@ -1,0 +1,336 @@
+{
+  "provenance": {
+    "normative_equations": "Vallado et al. 2006 Appendix C, C-1/C-2; WGS84 ellipsoid constants also specified in ERFA 2.0.1 eform.c",
+    "publication_url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+    "paper_sha256": "538a5c0ea174eb569bbc258011717142a26d72871ab07cc64ee5fa3773164b16",
+    "component_constants_url": "https://raw.githubusercontent.com/liberfa/erfa/v2.0.1/src/t_erfa_c.c",
+    "component_source_sha256": "8a92d0099c48df31ca566bea881c19497dc295dba58dba7136cc2f8443c31f15",
+    "component_test_revision": "SOFA/ERFA test revisions 2013-08-07 / 2013-10-03, ERFA v2.0.1",
+    "license": "ERFA BSD-derived notice in phase61-source-notices.txt; mathematical control inputs are OrbitIQ test specifications, not observations.",
+    "generator": "Standalone pure Decimal/math reference equations in scripts/verify_phase61_science.py; frozen numbers generated once without any OrbitIQ/Astropy/ERFA coordinate routine.",
+    "generation_precision": "50 decimal digits for GMST time/polynomial; binary64 trigonometric functions; JSON binary64 states.",
+    "independence_scope": "Different mathematical implementation for transforms/ellipsoid controls; published component constants test the same underlying ERFA dependency. Neither is observational validation.",
+    "tolerance_rationale": "New controlled transform 0.1 mm position / 0.1 mm/s velocity components allow binary64 rotations and 1-second finite-difference velocity truncation/cancellation; WGS84 anchors use 1e-9 degrees / 0.1 mm height. New SOFA time tolerance 100 ns corresponds to upstream 1e-12-day tolerance rounded upward. Existing paper and other tolerances unchanged."
+  },
+  "transforms": [
+    {
+      "id": "published_input_independent_math",
+      "at": "2004-04-06T07:51:28.386Z",
+      "position_km": [
+        5094.1801621,
+        6127.6446595,
+        6380.3445327
+      ],
+      "velocity_km_s": [
+        -4.746131487,
+        0.785818041,
+        5.531931288
+      ],
+      "eop": {
+        "ut1_minus_utc_seconds": -0.439961,
+        "polar_motion_x_arcsec": -0.140682,
+        "polar_motion_y_arcsec": 0.333309,
+        "tai_minus_utc_seconds": 32
+      },
+      "kind": "independent_mathematical_control_not_historical_observation",
+      "expected": {
+        "position_km": [
+          -1033.4793961736932,
+          7901.2952736704165,
+          6380.356595751121
+        ],
+        "velocity_km_s": [
+          -3.2256364489039986,
+          -2.872451446049477,
+          5.531924446303752
+        ]
+      },
+      "tolerances": {
+        "position_km": 1e-07,
+        "velocity_km_s": 1e-07
+      },
+      "assumptions": "Fixed controlled DUT1/xp/yp, sp=0; GMST82 C-1 evaluated in 50-digit Decimal; explicit polar rotation; analytic derivative of that fixed-EOP transformation. No real EOP measurement is claimed."
+    },
+    {
+      "id": "equatorial_control",
+      "at": "2006-06-25T12:00:00Z",
+      "position_km": [
+        7000,
+        0,
+        0
+      ],
+      "velocity_km_s": [
+        0,
+        7.5,
+        1
+      ],
+      "eop": {
+        "ut1_minus_utc_seconds": 0.2,
+        "polar_motion_x_arcsec": 0.1,
+        "polar_motion_y_arcsec": -0.2
+      },
+      "kind": "independent_mathematical_control_not_historical_observation",
+      "expected": {
+        "position_km": [
+          -425.9705216971564,
+          -6987.027201506827,
+          0.006981329091820353
+        ],
+        "velocity_km_s": [
+          6.976598939481762,
+          -0.42533375395670614,
+          0.99999703006522
+        ]
+      },
+      "tolerances": {
+        "position_km": 1e-07,
+        "velocity_km_s": 1e-07
+      },
+      "assumptions": "Fixed controlled DUT1/xp/yp, sp=0; GMST82 C-1 evaluated in 50-digit Decimal; explicit polar rotation; analytic derivative of that fixed-EOP transformation. No real EOP measurement is claimed."
+    },
+    {
+      "id": "polar_adjacent_control",
+      "at": "2010-01-01T00:00:00.123456Z",
+      "position_km": [
+        1,
+        -1,
+        7000
+      ],
+      "velocity_km_s": [
+        0,
+        7,
+        0
+      ],
+      "eop": {
+        "ut1_minus_utc_seconds": -0.1,
+        "polar_motion_x_arcsec": -0.3,
+        "polar_motion_y_arcsec": 0.15
+      },
+      "kind": "independent_mathematical_control_not_historical_observation",
+      "expected": {
+        "position_km": [
+          -1.1761986878458572,
+          -0.8053423510346585,
+          6999.999997712882
+        ],
+        "velocity_km_s": [
+          6.881884572452678,
+          -1.2800952487102872,
+          9.07838384308757e-06
+        ]
+      },
+      "tolerances": {
+        "position_km": 1e-07,
+        "velocity_km_s": 1e-07
+      },
+      "assumptions": "Fixed controlled DUT1/xp/yp, sp=0; GMST82 C-1 evaluated in 50-digit Decimal; explicit polar rotation; analytic derivative of that fixed-EOP transformation. No real EOP measurement is claimed."
+    },
+    {
+      "id": "leap_year_distant_control",
+      "at": "2024-02-29T23:59:59.123456Z",
+      "position_km": [
+        -20000,
+        30000,
+        -10000
+      ],
+      "velocity_km_s": [
+        1,
+        -2,
+        0.5
+      ],
+      "eop": {
+        "ut1_minus_utc_seconds": 0.25,
+        "polar_motion_x_arcsec": 0.3,
+        "polar_motion_y_arcsec": 0.4
+      },
+      "kind": "independent_mathematical_control_not_historical_observation",
+      "expected": {
+        "position_km": [
+          29317.194691919358,
+          -20988.102071421687,
+          -10000.083341436715
+        ],
+        "velocity_km_s": [
+          -3.1731662706333768,
+          -0.6207521331152347,
+          0.5000034113882235
+        ]
+      },
+      "tolerances": {
+        "position_km": 1e-07,
+        "velocity_km_s": 1e-07
+      },
+      "assumptions": "Fixed controlled DUT1/xp/yp, sp=0; GMST82 C-1 evaluated in 50-digit Decimal; explicit polar rotation; analytic derivative of that fixed-EOP transformation. No real EOP measurement is claimed."
+    }
+  ],
+  "geodesy": [
+    {
+      "id": "north_polar_adjacent",
+      "kind": "mathematical_WGS84_ellipsoid_anchor_not_observation",
+      "position_km": [
+        0.008391610696567393,
+        0.008391610696567393,
+        6756.752314234823
+      ],
+      "expected": {
+        "latitude_deg": 89.9999,
+        "longitude_deg": 45,
+        "altitude_km": 400
+      },
+      "ellipsoid": {
+        "semi_major_axis_km": 6378.137,
+        "inverse_flattening": 298.257223563
+      },
+      "tolerances": {
+        "latitude_deg": 1e-09,
+        "longitude_deg": 1e-09,
+        "altitude_km": 1e-07
+      },
+      "generation": "Independent standard forward ellipsoid equations in verify_phase61_science.reference_cartesian, not Astropy/ERFA inverse results."
+    },
+    {
+      "id": "south_polar_adjacent",
+      "kind": "mathematical_WGS84_ellipsoid_anchor_not_observation",
+      "position_km": [
+        -0.008391610696567393,
+        -0.008391610696567393,
+        -6756.752314234823
+      ],
+      "expected": {
+        "latitude_deg": -89.9999,
+        "longitude_deg": -135,
+        "altitude_km": 400
+      },
+      "ellipsoid": {
+        "semi_major_axis_km": 6378.137,
+        "inverse_flattening": 298.257223563
+      },
+      "tolerances": {
+        "latitude_deg": 1e-09,
+        "longitude_deg": 1e-09,
+        "altitude_km": 1e-07
+      },
+      "generation": "Independent standard forward ellipsoid equations in verify_phase61_science.reference_cartesian, not Astropy/ERFA inverse results."
+    },
+    {
+      "id": "south_antimeridian_east",
+      "kind": "mathematical_WGS84_ellipsoid_anchor_not_observation",
+      "position_km": [
+        -3697.1045869183167,
+        0.006452664782934618,
+        -6366.502537723077
+      ],
+      "expected": {
+        "latitude_deg": -60,
+        "longitude_deg": 179.9999,
+        "altitude_km": 1000
+      },
+      "ellipsoid": {
+        "semi_major_axis_km": 6378.137,
+        "inverse_flattening": 298.257223563
+      },
+      "tolerances": {
+        "latitude_deg": 1e-09,
+        "longitude_deg": 1e-09,
+        "altitude_km": 1e-07
+      },
+      "generation": "Independent standard forward ellipsoid equations in verify_phase61_science.reference_cartesian, not Astropy/ERFA inverse results."
+    },
+    {
+      "id": "north_antimeridian_west_below_ellipsoid",
+      "kind": "mathematical_WGS84_ellipsoid_anchor_not_observation",
+      "position_km": [
+        -5230.22205218132,
+        -0.009128459541678654,
+        3637.723515269007
+      ],
+      "expected": {
+        "latitude_deg": 35,
+        "longitude_deg": -179.9999,
+        "altitude_km": -0.25
+      },
+      "ellipsoid": {
+        "semi_major_axis_km": 6378.137,
+        "inverse_flattening": 298.257223563
+      },
+      "tolerances": {
+        "latitude_deg": 1e-09,
+        "longitude_deg": 1e-09,
+        "altitude_km": 1e-07
+      },
+      "generation": "Independent standard forward ellipsoid equations in verify_phase61_science.reference_cartesian, not Astropy/ERFA inverse results."
+    },
+    {
+      "id": "non_equatorial_high_altitude",
+      "kind": "mathematical_WGS84_ellipsoid_anchor_not_observation",
+      "position_km": [
+        -14911.057075195353,
+        -25826.708448797748,
+        29791.87168040771
+      ],
+      "expected": {
+        "latitude_deg": 45,
+        "longitude_deg": -120,
+        "altitude_km": 35786
+      },
+      "ellipsoid": {
+        "semi_major_axis_km": 6378.137,
+        "inverse_flattening": 298.257223563
+      },
+      "tolerances": {
+        "latitude_deg": 1e-09,
+        "longitude_deg": 1e-09,
+        "altitude_km": 1e-07
+      },
+      "generation": "Independent standard forward ellipsoid equations in verify_phase61_science.reference_cartesian, not Astropy/ERFA inverse results."
+    }
+  ],
+  "time_components": [
+    {
+      "id": "SOFA_GMST82",
+      "input_jd_parts": [
+        2400000.5,
+        53736.0
+      ],
+      "input_scale": "ut1",
+      "expected_rad": 1.754174981860675,
+      "tolerance_rad": 1e-12,
+      "source_function": "t_gmst82",
+      "reference_type": "published_expected_constant_same_ERFA_dependency_not_independent_implementation"
+    },
+    {
+      "id": "SOFA_TAI_TT",
+      "input_jd_parts": [
+        2453750.5,
+        0.892482639
+      ],
+      "input_scale": "tai",
+      "output_scale": "tt",
+      "expected_jd_parts": [
+        2453750.5,
+        0.892855139
+      ],
+      "tolerance_seconds": 1e-07,
+      "source_function": "t_taitt",
+      "reference_type": "published_expected_constant_Astropy_wrapper_of_ERFA"
+    },
+    {
+      "id": "SOFA_UT1_TT",
+      "input_jd_parts": [
+        2453750.5,
+        0.892104561
+      ],
+      "input_scale": "ut1",
+      "output_scale": "tt",
+      "dut1_seconds": 0.3341,
+      "expected_jd_parts": [
+        2453750.5,
+        0.8928551385462963
+      ],
+      "tolerance_seconds": 1e-07,
+      "source_function": "t_ut1tt",
+      "source_delta_T_seconds": 64.8499,
+      "reference_type": "published_expected_constant_Astropy_wrapper_of_ERFA"
+    }
+  ]
+}

@@ -18,7 +18,13 @@ from orbitiq.database import (
     migrate,
     schema_version,
 )
-from orbitiq.ingestion.celestrak import IngestionError, ingest, parse_response
+from orbitiq.ingestion.celestrak import (
+    DownloadedDataset,
+    IngestionError,
+    ingest,
+    parse_response,
+    process_dataset,
+)
 from orbitiq.main import create_app
 from orbitiq.orbits.elements import Elements
 from orbitiq.orbits.engine import PropagationError, propagate, propagate_satellite
@@ -133,7 +139,18 @@ def test_ingestion_persists_exact_bytes_and_history(database, record):
     raw = ("  " + json.dumps([record]) + "\n").encode()
     first = ingest(database, 5, transport=transport_for(raw))
     record["ELEMENT_SET_NO"] += 1
-    second = ingest(database, 5, transport=transport_for(json.dumps([record]).encode()))
+    # Storage history uses an independently supplied test-only payload; repeated
+    # provider acquisition is now deliberately blocked by the Phase 6 gate.
+    second = process_dataset(
+        database,
+        5,
+        DownloadedDataset(
+            json.dumps([record]).encode(),
+            "https://celestrak.org/NORAD/elements/gp.php?CATNR=5&FORMAT=JSON",
+            datetime.now(UTC),
+            200,
+        ),
+    )
     assert second > first
     original = get_snapshot(database, first)
     assert original["raw_response"] == raw
@@ -204,7 +221,7 @@ def test_migrate_v1_preserves_data_and_creates_restorable_backup(tmp_path):
         db.commit()
     assert migrate(path, backup)
     with closing(sqlite3.connect(path)) as db:
-        assert schema_version(db) == 2
+        assert schema_version(db) == 3
         assert db.execute("SELECT value FROM user_data").fetchone() == ("preserve me",)
     with closing(sqlite3.connect(backup)) as db:
         assert schema_version(db) == 1
@@ -316,7 +333,7 @@ def test_missing_database_is_refused_before_network_call(tmp_path):
         pytest.fail("Storage must be checked before an upstream request")
 
     path = tmp_path / "missing.sqlite3"
-    with pytest.raises(sqlite3.Error):
+    with pytest.raises(IngestionError, match="storage unavailable"):
         ingest(path, 5, transport=httpx.MockTransport(unexpected_network))
     assert not path.exists()
 

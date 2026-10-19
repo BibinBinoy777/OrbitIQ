@@ -6,6 +6,7 @@ import { formatUtc } from "./time-presentation";
 const titles = {
   database: "Database availability",
   orbital_data: "Orbital snapshot freshness",
+  ingestion: "Collection reliability",
   eop: "Earth orientation",
   leap_seconds: "Leap seconds",
 };
@@ -47,7 +48,7 @@ function Details({
         <dt>Latest stored snapshot retrieval</dt>
         <dd>{moment(data.latest_stored_retrieved_at)}</dd>
         <dt>Separate insertion timestamp</dt>
-        <dd>Not recorded</dd>
+        <dd>{moment(data.snapshot_insertion_at)}</dd>
       </dl>
     );
   if (type === "orbital_data") {
@@ -83,11 +84,67 @@ function Details({
         <dd>
           {numeric(f.fresh_hours, "hours")} / {numeric(f.stale_hours, "hours")}
         </dd>
-        <dt>Ingestion failure history</dt>
-        <dd>Not recorded; absence is not evidence of successful ingestion</dd>
+        <dt>Collection history</dt>
+        <dd>
+          See Collection reliability; collector execution does not change the
+          element epoch.
+        </dd>
       </dl>
     );
   }
+  if (type === "ingestion")
+    return (
+      <dl className="readiness-facts">
+        <dt>Last attempt start / completion</dt>
+        <dd>
+          {moment(data.last_attempt_at)} /{" "}
+          {moment(data.last_attempt_completed_at)}
+        </dd>
+        <dt>Last successful acquisition</dt>
+        <dd>{moment(data.last_successful_acquisition_at)}</dd>
+        <dt>Last successful validation</dt>
+        <dd>{moment(data.last_successful_validation_at)}</dd>
+        <dt>Last snapshot insertion</dt>
+        <dd>{moment(data.last_snapshot_insertion_at)}</dd>
+        <dt>Latest attempt outcome</dt>
+        <dd>{text(data.latest_attempt_outcome) ?? "Unknown"}</dd>
+        <dt>Latest payload outcome</dt>
+        <dd>
+          {text(data.latest_payload_outcome) ??
+            "No successful payload recorded"}
+        </dd>
+        <dt>Consecutive failures</dt>
+        <dd>
+          {typeof data.consecutive_failures === "number" &&
+          Number.isSafeInteger(data.consecutive_failures) &&
+          data.consecutive_failures >= 0
+            ? data.consecutive_failures
+            : "Unknown"}
+        </dd>
+        <dt>Last error category</dt>
+        <dd>{text(data.last_error_category) ?? "None recorded"}</dd>
+        <dt>Next permitted provider request</dt>
+        <dd>{moment(data.next_allowed_at)}</dd>
+        <dt>Retry budget</dt>
+        <dd>
+          {data.retry_budget_exhausted === true
+            ? "Stopped — operator review required"
+            : data.retry_budget_exhausted === false
+              ? "Within bounded policy; explicit collection only"
+              : "Unknown"}
+        </dd>
+        <dt>Orbital freshness</dt>
+        <dd>
+          {text(data.orbital_freshness_state) ?? "Unknown"}; based on source
+          epoch, not collector execution
+        </dd>
+        <dt>Policy</dt>
+        <dd>
+          At least two hours between provider requests. No collection starts
+          from this page. Legacy ingestion history is not backfilled.
+        </dd>
+      </dl>
+    );
   if (type === "eop") {
     const m =
       typeof data.maintenance === "object" && data.maintenance !== null

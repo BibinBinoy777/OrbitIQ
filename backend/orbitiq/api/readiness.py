@@ -22,6 +22,7 @@ class Component(BaseModel):
 class Components(BaseModel):
     database: Component
     orbital_data: Component
+    ingestion: Component
     eop: Component
     leap_seconds: Component
 

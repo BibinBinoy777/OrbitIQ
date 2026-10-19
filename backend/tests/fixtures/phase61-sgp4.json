@@ -1,0 +1,406 @@
+{
+  "kind": "published_numerical_reference_not_observations",
+  "provenance": {
+    "publication": "Vallado et al., AIAA-2006-6753-Rev2, Appendix D and associated SGP4 verification distribution",
+    "official_paper_url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+    "paper_sha256": "538a5c0ea174eb569bbc258011717142a26d72871ab07cc64ee5fa3773164b16",
+    "official_code_url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753.zip",
+    "official_code_sha256": "3642043b706c76be87cf012db3f22e04da6b80498d00f515e51879e0ffadc115",
+    "expected_values_source_url": "https://raw.githubusercontent.com/brandon-rhodes/python-sgp4/2.27/sgp4/tcppver.out",
+    "expected_source_sha256": "687bf28dbe52df86e8e60ab5cb4a08d1aa3dbcaf4e63b1f7ab95f044fbe3833b",
+    "tle_url": "https://raw.githubusercontent.com/brandon-rhodes/python-sgp4/2.27/sgp4/SGP4-VER.TLE",
+    "tle_sha256": "d246d1d9d768ace445a38a965713fa9ba52d80fd8a41a0502ff83d7acffe2881",
+    "tle_matches_official_zip_member": true,
+    "acquired_utc": "2026-10-19",
+    "license": "python-sgp4 2.27 MIT distribution; attribution/license in phase61-source-notices.txt",
+    "generation": "Literal source-file row extraction; no expected position/velocity generated with OrbitIQ or Python SGP4. Source line numbers are 1-based."
+  },
+  "conventions": {
+    "frame": "TEME of date",
+    "position": "km",
+    "velocity": "km/s",
+    "time": "UTC nominal 86400-second days, minutes since input TLE epoch",
+    "gravity_model": "WGS72",
+    "opsmode": "improved i",
+    "relative_tolerance": 0
+  },
+  "printed_precision": {
+    "position_km_decimal_places": 8,
+    "velocity_km_s_decimal_places": 9
+  },
+  "tolerances": {
+    "position_km": 1e-05,
+    "velocity_km_s": 1e-08
+  },
+  "tolerance_rationale": "Unchanged existing 1 cm / 0.01 mm/s component tolerances, allowing printed precision and microsecond datetime epoch conversion; not real-orbit error bounds.",
+  "inputs": [
+    {
+      "catalog_id": 8195,
+      "coverage_reason": "Previously only early offsets: exercise two-day 12-hour resonance integration.",
+      "tle": [
+        "1 08195U 75081A   06176.33215444  .00000099  00000-0  11873-3 0   813",
+        "2 08195  64.1586 279.0717 6877146 264.7651  20.2257  2.00491383225656"
+      ],
+      "tle_source_lines": [
+        13,
+        14
+      ],
+      "omm": {
+        "OBJECT_NAME": "NUMERICAL VERIFICATION FIXTURE 8195",
+        "OBJECT_ID": "1975-081A",
+        "CENTER_NAME": "EARTH",
+        "REF_FRAME": "TEME",
+        "TIME_SYSTEM": "UTC",
+        "MEAN_ELEMENT_THEORY": "SGP4",
+        "EPOCH": "2006-06-25T07:58:18.143616",
+        "MEAN_MOTION": 2.00491383,
+        "ECCENTRICITY": 0.6877146,
+        "INCLINATION": 64.1586,
+        "RA_OF_ASC_NODE": 279.0717,
+        "ARG_OF_PERICENTER": 264.7651,
+        "MEAN_ANOMALY": 20.2257,
+        "EPHEMERIS_TYPE": 0,
+        "CLASSIFICATION_TYPE": "U",
+        "NORAD_CAT_ID": 8195,
+        "ELEMENT_SET_NO": 81,
+        "REV_AT_EPOCH": 22565,
+        "BSTAR": 0.00011873000000000001,
+        "MEAN_MOTION_DOT": 9.9e-07,
+        "MEAN_MOTION_DDOT": 0.0
+      },
+      "omm_provenance": "One-time export of published TLE by python-sgp4 2.27; does not generate reference state vectors.",
+      "cases": [
+        {
+          "source_line": 72,
+          "minutes": 2880.0,
+          "position_km": [
+            3417.20931586,
+            -16038.79510665,
+            1894.74934058
+          ],
+          "velocity_km_s": [
+            2.585515864,
+            -2.596818146,
+            4.456882556
+          ]
+        }
+      ]
+    },
+    {
+      "catalog_id": 14128,
+      "coverage_reason": "Previously only early offsets: exercise two-day low-inclination deep-space evolution.",
+      "tle": [
+        "1 14128U 83058A   06176.02844893 -.00000158  00000-0  10000-3 0  9627",
+        "2 14128  11.4384  35.2134 0011562  26.4582 333.5652  0.98870114 46093"
+      ],
+      "tle_source_lines": [
+        25,
+        26
+      ],
+      "omm": {
+        "OBJECT_NAME": "NUMERICAL VERIFICATION FIXTURE 14128",
+        "OBJECT_ID": "1983-058A",
+        "CENTER_NAME": "EARTH",
+        "REF_FRAME": "TEME",
+        "TIME_SYSTEM": "UTC",
+        "MEAN_ELEMENT_THEORY": "SGP4",
+        "EPOCH": "2006-06-25T00:40:57.987552",
+        "MEAN_MOTION": 0.9887011399999999,
+        "ECCENTRICITY": 0.0011562,
+        "INCLINATION": 11.4384,
+        "RA_OF_ASC_NODE": 35.2134,
+        "ARG_OF_PERICENTER": 26.4582,
+        "MEAN_ANOMALY": 333.5652,
+        "EPHEMERIS_TYPE": 0,
+        "CLASSIFICATION_TYPE": "U",
+        "NORAD_CAT_ID": 14128,
+        "ELEMENT_SET_NO": 962,
+        "REV_AT_EPOCH": 4609,
+        "BSTAR": 0.0001,
+        "MEAN_MOTION_DOT": -1.58e-06,
+        "MEAN_MOTION_DDOT": 0.0
+      },
+      "omm_provenance": "One-time export of published TLE by python-sgp4 2.27; does not generate reference state vectors.",
+      "cases": [
+        {
+          "source_line": 145,
+          "minutes": 2880.0,
+          "position_km": [
+            37802.25393045,
+            19433.57330019,
+            -1198.66634226
+          ],
+          "velocity_km_s": [
+            -1.35993058,
+            2.677830903,
+            0.602507466
+          ]
+        }
+      ]
+    },
+    {
+      "catalog_id": 26900,
+      "coverage_reason": "Published near-zero/negative-inclination Lyddane branch near 6.5 days, inside product epoch window.",
+      "tle": [
+        "1 26900U 01039A   06106.74503247  .00000045  00000-0  10000-3 0  8290",
+        "2 26900   0.0164 266.5378 0003319  86.1794 182.2590  1.00273847 16981"
+      ],
+      "tle_source_lines": [
+        62,
+        63
+      ],
+      "omm": {
+        "OBJECT_NAME": "NUMERICAL VERIFICATION FIXTURE 26900",
+        "OBJECT_ID": "2001-039A",
+        "CENTER_NAME": "EARTH",
+        "REF_FRAME": "TEME",
+        "TIME_SYSTEM": "UTC",
+        "MEAN_ELEMENT_THEORY": "SGP4",
+        "EPOCH": "2006-04-16T17:52:50.805407",
+        "MEAN_MOTION": 1.00273847,
+        "ECCENTRICITY": 0.0003319,
+        "INCLINATION": 0.0164,
+        "RA_OF_ASC_NODE": 266.5378,
+        "ARG_OF_PERICENTER": 86.1794,
+        "MEAN_ANOMALY": 182.259,
+        "EPHEMERIS_TYPE": 0,
+        "CLASSIFICATION_TYPE": "U",
+        "NORAD_CAT_ID": 26900,
+        "ELEMENT_SET_NO": 829,
+        "REV_AT_EPOCH": 1698,
+        "BSTAR": 0.0001,
+        "MEAN_MOTION_DOT": 4.5e-07,
+        "MEAN_MOTION_DDOT": 0.0
+      },
+      "omm_provenance": "One-time export of published TLE by python-sgp4 2.27; does not generate reference state vectors.",
+      "cases": [
+        {
+          "source_line": 374,
+          "minutes": 9300.0,
+          "position_km": [
+            40968.68133298,
+            -9905.99156086,
+            11.84946837
+          ],
+          "velocity_km_s": [
+            0.722756848,
+            2.989645389,
+            -0.000161261
+          ]
+        },
+        {
+          "source_line": 376,
+          "minutes": 9400.0,
+          "position_km": [
+            41304.75156132,
+            8398.27742944,
+            9.74006214
+          ],
+          "velocity_km_s": [
+            -0.612515135,
+            3.014117469,
+            -0.000511575
+          ]
+        }
+      ]
+    },
+    {
+      "catalog_id": 28129,
+      "coverage_reason": "Published non-resonant GPS medium Earth orbit, eccentricity below 0.5.",
+      "tle": [
+        "1 28129U 03058A   06175.57071136 -.00000104  00000-0  10000-3 0   459",
+        "2 28129  54.7298 324.8098 0048506 266.2640  93.1663  2.00562768 18443"
+      ],
+      "tle_source_lines": [
+        72,
+        73
+      ],
+      "omm": {
+        "OBJECT_NAME": "NUMERICAL VERIFICATION FIXTURE 28129",
+        "OBJECT_ID": "2003-058A",
+        "CENTER_NAME": "EARTH",
+        "REF_FRAME": "TEME",
+        "TIME_SYSTEM": "UTC",
+        "MEAN_ELEMENT_THEORY": "SGP4",
+        "EPOCH": "2006-06-24T13:41:49.461503",
+        "MEAN_MOTION": 2.00562768,
+        "ECCENTRICITY": 0.0048506,
+        "INCLINATION": 54.7298,
+        "RA_OF_ASC_NODE": 324.8098,
+        "ARG_OF_PERICENTER": 266.264,
+        "MEAN_ANOMALY": 93.1663,
+        "EPHEMERIS_TYPE": 0,
+        "CLASSIFICATION_TYPE": "U",
+        "NORAD_CAT_ID": 28129,
+        "ELEMENT_SET_NO": 45,
+        "REV_AT_EPOCH": 1844,
+        "BSTAR": 0.0001,
+        "MEAN_MOTION_DOT": -1.04e-06,
+        "MEAN_MOTION_DDOT": 0.0
+      },
+      "omm_provenance": "One-time export of published TLE by python-sgp4 2.27; does not generate reference state vectors.",
+      "cases": [
+        {
+          "source_line": 430,
+          "minutes": 0.0,
+          "position_km": [
+            21707.46412351,
+            -15318.6175239,
+            0.13551152
+          ],
+          "velocity_km_s": [
+            1.304029214,
+            1.816904974,
+            3.161919976
+          ]
+        },
+        {
+          "source_line": 442,
+          "minutes": 1440.0,
+          "position_km": [
+            22002.20074562,
+            -14879.72595593,
+            774.32827099
+          ],
+          "velocity_km_s": [
+            1.191573619,
+            1.894561165,
+            3.159953047
+          ]
+        }
+      ]
+    },
+    {
+      "catalog_id": 28350,
+      "coverage_reason": "Published low-perigee 127.2 km atmospheric s4 modification/strong-drag branch.",
+      "tle": [
+        "1 28350U 04020A   06167.21788666  .16154492  76267-5  18678-3 0  8894",
+        "2 28350  64.9977 345.6130 0024870 260.7578  99.9590 16.47856722116490"
+      ],
+      "tle_source_lines": [
+        75,
+        76
+      ],
+      "omm": {
+        "OBJECT_NAME": "NUMERICAL VERIFICATION FIXTURE 28350",
+        "OBJECT_ID": "2004-020A",
+        "CENTER_NAME": "EARTH",
+        "REF_FRAME": "TEME",
+        "TIME_SYSTEM": "UTC",
+        "MEAN_ELEMENT_THEORY": "SGP4",
+        "EPOCH": "2006-06-16T05:13:45.407423",
+        "MEAN_MOTION": 16.47856722,
+        "ECCENTRICITY": 0.002487,
+        "INCLINATION": 64.9977,
+        "RA_OF_ASC_NODE": 345.613,
+        "ARG_OF_PERICENTER": 260.7578,
+        "MEAN_ANOMALY": 99.959,
+        "EPHEMERIS_TYPE": 0,
+        "CLASSIFICATION_TYPE": "U",
+        "NORAD_CAT_ID": 28350,
+        "ELEMENT_SET_NO": 889,
+        "REV_AT_EPOCH": 11649,
+        "BSTAR": 0.00018678,
+        "MEAN_MOTION_DOT": 0.16154492,
+        "MEAN_MOTION_DDOT": 7.626700000000001e-06
+      },
+      "omm_provenance": "One-time export of published TLE by python-sgp4 2.27; does not generate reference state vectors.",
+      "cases": [
+        {
+          "source_line": 444,
+          "minutes": 0.0,
+          "position_km": [
+            6333.08123128,
+            -1580.82852326,
+            90.6935572
+          ],
+          "velocity_km_s": [
+            0.714634423,
+            3.22424655,
+            7.083128132
+          ]
+        },
+        {
+          "source_line": 456,
+          "minutes": 1440.0,
+          "position_km": [
+            -4527.90871828,
+            -723.29199041,
+            -4527.44608319
+          ],
+          "velocity_km_s": [
+            5.121674217,
+            -3.909895427,
+            -4.500218556
+          ]
+        }
+      ]
+    },
+    {
+      "catalog_id": 28626,
+      "coverage_reason": "Published very-low-inclination GEO sign-change branch after about 1130 minutes.",
+      "tle": [
+        "1 28626U 05008A   06176.46683397 -.00000205  00000-0  10000-3 0  2190",
+        "2 28626   0.0019 286.9433 0000335  13.7918  55.6504  1.00270176  4891"
+      ],
+      "tle_source_lines": [
+        82,
+        83
+      ],
+      "omm": {
+        "OBJECT_NAME": "NUMERICAL VERIFICATION FIXTURE 28626",
+        "OBJECT_ID": "2005-008A",
+        "CENTER_NAME": "EARTH",
+        "REF_FRAME": "TEME",
+        "TIME_SYSTEM": "UTC",
+        "MEAN_ELEMENT_THEORY": "SGP4",
+        "EPOCH": "2006-06-25T11:12:14.455007",
+        "MEAN_MOTION": 1.00270176,
+        "ECCENTRICITY": 3.35e-05,
+        "INCLINATION": 0.0019,
+        "RA_OF_ASC_NODE": 286.9433,
+        "ARG_OF_PERICENTER": 13.7918,
+        "MEAN_ANOMALY": 55.6504,
+        "EPHEMERIS_TYPE": 0,
+        "CLASSIFICATION_TYPE": "U",
+        "NORAD_CAT_ID": 28626,
+        "ELEMENT_SET_NO": 219,
+        "REV_AT_EPOCH": 489,
+        "BSTAR": 0.0001,
+        "MEAN_MOTION_DOT": -2.05e-06,
+        "MEAN_MOTION_DDOT": 0.0
+      },
+      "omm_provenance": "One-time export of published TLE by python-sgp4 2.27; does not generate reference state vectors.",
+      "cases": [
+        {
+          "source_line": 472,
+          "minutes": 0.0,
+          "position_km": [
+            42080.71852213,
+            -2646.86387436,
+            0.81851294
+          ],
+          "velocity_km_s": [
+            0.193105177,
+            3.068688251,
+            0.000438449
+          ]
+        },
+        {
+          "source_line": 484,
+          "minutes": 1440.0,
+          "position_km": [
+            42119.96263499,
+            -1925.77567263,
+            -0.19827433
+          ],
+          "velocity_km_s": [
+            0.140521206,
+            3.071541613,
+            0.000179561
+          ]
+        }
+      ]
+    }
+  ]
+}

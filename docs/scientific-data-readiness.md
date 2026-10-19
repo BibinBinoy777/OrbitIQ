@@ -24,7 +24,7 @@ The response contains:
   `automatic_updates: false`, `time_system: UTC`.
 - `evaluated_at`: actual assessment time, including timezone.
 - `requested_at`: calculation epoch being assessed, normalized to UTC.
-- `components.database`, `orbital_data`, `eop`, `leap_seconds`: each has `status`,
+- `components.database`, `orbital_data`, `ingestion`, `eop`, `leap_seconds`: each has `status`,
   stable `code`, safe actionable `message`, and supported facts.
 
 All reported times are timezone-aware ISO strings with UTC offset `+00:00`;
@@ -51,7 +51,7 @@ overall status is deliberately conservative.
 ## Database and stored orbital metadata
 
 The service opens only the explicitly configured `ORBITIQ_DATABASE_PATH` in
-SQLite `mode=ro`, sets query-only mode and checks schema version 2 plus the
+SQLite `mode=ro`, sets query-only mode and checks supported schema 2/3 plus the
 columns needed for metadata reads. It does not initialize, migrate or write a DB.
 A missing file remains missing. The normal endpoint does not run `COUNT`, full
 archive verification, integrity scans, raw-payload reads or a timestamp sort.
@@ -62,20 +62,22 @@ assessment limit. SQLite has a 250 ms busy timeout and a progress handler budget
 of 5,000 VM instructions / 100 ms (checked every 100 instructions). These are DB
 work budgets, not an end-to-end latency guarantee. Initial local Astropy parsing
 and concurrent scientific locks can add latency; production concurrency/load
-limits remain an operational task.
+limits remain an operational task. The ingestion component uses its own indexed
+single-row reads with 250 ms busy, 50,000 VM instructions / 250 ms progress limits;
+no full ledger scan or count is performed.
 
 For a complete archive of at most 100 records with valid retrieval metadata,
 `latest_retrieval_at` is the actual maximum parsed retrieval timestamp; insertion
 ID is **not** treated as retrieval order. Database facts separately identify the
 latest inserted snapshot ID and that record's stored retrieval timestamp. A
-separate insertion timestamp was never recorded and is reported as such.
+separate insertion timestamp is reported from schema-3 `snapshot_insertions`
+when actually recorded; legacy rows remain unknown and are never backfilled.
 
 For larger archives, or invalid retrieval timestamps, `global_latest_known` is
 false, global latest/freshness are unknown, and the bounded-history explanation
 is shown. The service does not substitute the newest insertion or a sampled
-maximum for a globally known latest retrieval. A future explicit migration could
-add maintained retrieval metadata or an appropriate time index. That migration
-and any historical backfill require separate work; this task changes no schema.
+maximum for a globally known latest retrieval. Phase 6 adds separate collection
+metadata but does not change this conservative orbital-history assessment.
 
 Freshness reuses the existing `FreshnessPolicy`: orbital **epoch** age is fresh
 through 24 hours, aging through 72 hours, then stale, by default. Configure
@@ -85,10 +87,14 @@ not refresh old elements. Future/invalid timestamps are unknown. These threshold
 are presentation policy, not measured prediction error. Stale data can still
 support historical calculations under the existing propagation guards.
 
-No ingestion-attempt/error history or source availability probe is stored by the
-current schema. `ingestion_error_status: not_recorded` and null error do not
-assert that ingestion succeeded. Readiness neither fetches CelesTrak nor validates
-every snapshot's full provenance; existing archive verification remains separate.
+Schema 3 adds actual ingestion-attempt history and collection monitoring through
+`components.ingestion`; legacy attempts are not reconstructed. Indexed bounded
+lookups expose safe status facts, not raw audit records or internal errors.
+Schema 2 reports that ledger migration is required. See [ingestion operations](ingestion-operations.md)
+for timestamp/outcome/cooldown and retry semantics. This is not a provider
+availability probe. Readiness never fetches CelesTrak or validates every stored
+payload; explicit archive verification remains separate. Collector success and
+scientific freshness are assessed independently.
 
 ## EOP and leap-second resources
 
@@ -141,7 +147,7 @@ See [controlled maintenance](eop-maintenance.md).
 
 ## Dashboard
 
-Use the **Scientific-data readiness** navigation button. Four labelled sections
+Use the **Scientific-data readiness** navigation button. Five labelled sections
 and overall status provide text indicators, UTC refresh/target times, factual
 coverage/freshness details and actionable messages. Optional requested time,
 manual refresh, API failure/retry and partial-section handling use the existing

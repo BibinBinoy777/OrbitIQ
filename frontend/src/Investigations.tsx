@@ -45,7 +45,12 @@ function Metadata({ source: s }: { source: StoredSnapshot }) {
     ],
     ["Element epoch", formatUtc(s.orbital_epoch ?? undefined)],
     ["Retrieval time", formatUtc(s.retrieved_at ?? undefined)],
-    ["Separate insertion time", "Not recorded"],
+    [
+      "Separate insertion time",
+      s.snapshot_created_at
+        ? formatUtc(s.snapshot_created_at)
+        : "Not recorded for this legacy source",
+    ],
     [
       "Freshness / assessed at",
       `${s.freshness_info.state} / ${formatUtc(s.freshness_info.evaluated_at)}`,

@@ -91,9 +91,10 @@ Tolerances, relative tolerance always zero:
 | SOFA WGS84 geodesy | 1e-10 km height (1e-7 m) | 1e-10 deg | Double precision comparison of a mathematical ellipsoid; not geophysical accuracy |
 | SOFA UTC->TAI/UT1 | Not spatial | 1e-6 s | Two-part dates avoid single-JD cancellation; numerical time conversion only |
 
-Actual fixed-EOP Vallado residual is about **1.32 cm**, not zero; its exact source
-has not been isolated to one rounding/convention term. No sub-centimetre claim is
-made. The 2-cm criterion was not relaxed. Full actual vectors, EOP, errors and
+Actual fixed-EOP Vallado residual is about **1.32 cm**, not zero. Phase 6.1
+reproduces its dominant position term by single-JD evaluation order; see the
+separate report below for the controlled experiment and its limits. No universal
+sub-centimetre claim is made. The 2-cm criterion was not relaxed. Vectors, EOP, errors and
 limits are recorded by `scripts/verify_earth_fixed_references.py` in
 `docs/phase-3-reference-results.json`. The bundled-EOP maximum position residual
 is about 28.36 cm. These limited examples do not establish universal ITRS,
@@ -103,3 +104,89 @@ Analytic WGS84 axes/poles use independently specified semi-major radius,
 flattening and a 400-km ellipsoidal height. Wrapping/antimeridian, failures,
 configuration, sampling and concurrency tests are boundary/contract checks,
 not additional published orbit references. No test downloads external resources.
+
+## Phase 6.1 additions and failed precision probe
+
+`phase61-sgp4.json` adds **10 distinct published TEME vectors**, each checked via
+TLE and OMM (20 comparisons). The original 40 comparisons represent 20 distinct
+vectors, so the combined coverage is **30 distinct vectors / 60 comparisons**
+across 10 satellite inputs, not 60 independent observations. New offsets include
+8195/14128 at 2880 minutes; 26900 at 9300/9400 minutes (GEO Lyddane branch);
+28129 at 0/1440 (GPS); 28350 at 0/1440 (low-perigee modified drag); and 28626 at
+0/1440 (near-zero GEO inclination). Literal source rows, hashes, source epoch,
+units, precision and assumptions are embedded in the fixture. Expected numbers
+come from the pinned python-sgp4 **2.27** distribution of Vallado's C++ outputs;
+the official CelesTrak ZIP independently confirms the input TLE bytes. The
+expected vectors are not OrbitIQ outputs. TLE-to-OMM conversion is input setup
+using the same SGP4 dependency, not independent verification of that conversion.
+The original `1e-5 km` / `1e-8 km/s` absolute tolerances and WGS72 remain unchanged.
+
+`phase61-terrestrial.json` contains four independently implemented mathematical
+rotation cases, five WGS84 forward-equation anchors, and three published SOFA
+component constants (GMST82, TAI->TT, UT1->TT). Independent generation is explicit
+in `scripts/verify_phase61_science.py`: 50-digit Decimal UTC/UT1/GMST82, explicit
+R3/polar rotations and analytic velocity derivative; no Astropy/ERFA transform
+output generates expectations. DUT1 and polar motion are constant mathematical
+controls, **not historical EOP measurements**. They are never a runtime fallback.
+The component constants exercise the same underlying ERFA library and do not
+constitute a second independent transformation implementation. New transform
+tolerances are `1e-7 km` and `1e-7 km/s`; these allow binary64 arithmetic and
+Astropy's one-second velocity finite difference under fixed EOP. Geodesy targets
+are `1e-9 deg` and `1e-7 km` height, chosen as numerical probes, not accuracy promises.
+
+**Historical Phase 6.1 failure:** at latitude 45 degrees, longitude -120 degrees,
+ellipsoidal height 35786 km, the ERFA inverse yields latitude
+45.000000001010655 degrees. The error `1.0106546710630937e-9 deg` exceeds the
+unchanged `1e-9 deg` target. The independent forward and iterative-inverse
+calculations and ERFA's finite Halley method explain the approximation limit.
+The Phase 6.1 audit then exited **1** (31 comparisons PASS, one FAIL); pytest recorded a strict
+XFAIL for that latitude assertion, not a passed precision check. Longitude and
+height remain checked normally. No established library algorithm, original
+reference tolerance, or scientific convention was changed to hide this result.
+
+License texts for transcribed python-sgp4 and ERFA data are preserved in
+`phase61-source-notices.txt`. Research URLs, acquisition dates, checksums and
+limitations are recorded in the [Phase 6.1 report](../../../docs/phase-6.1-report.md)
+and its JSON evidence. Ordinary tests and the audit are offline. Reproduce without
+overwriting earlier reports:
+
+```sh
+PYTHONPATH=backend uv run --locked python scripts/verify_phase61_science.py --output /tmp/orbitiq-phase61-audit.json
+uv run --locked pytest backend/tests/test_phase61_science.py -q -rx
+```
+
+The preserved report/JSON record that original failure. Phase 6.1.1 now meets
+the unchanged target with a checked exterior correction of the ERFA seed; the
+current audit exits zero with 32 passing comparison cases. The old reports were
+not rewritten and the expected-failure marker is removed. This is not complete
+scientific validation or observation-based prediction accuracy.
+
+## Phase 6.1.1 independent geodetic verification
+
+`phase611-geodesy.json` freezes **28 independent implementation comparisons**
+against GeographicLib C++ **2.5**, tag `r2.5`. Its Karney-modified Vermeille
+closed-form inverse is separate from ERFA's Fukushima method and OrbitIQ's
+one-step exterior correction. It covers the original exact Cartesian input,
+surface, negative heights, LEO through 1,000,000 km, equatorial/mid/high latitudes,
+both poles and antimeridian sides. The fixture is mathematical verification,
+not satellite observations. Forward-generated reference inputs are rounded to
+binary64 km, then independently reversed; both operations use GeographicLib,
+never OrbitIQ expectations. Source/hash/version, WGS84 constants, unit conversion,
+long-double decimal outputs, binary64 cross-checks, conventions and limitations
+are embedded in the fixture. The independent library was compiled only as a
+temporary verification tool; no runtime/development dependency or lockfile changes.
+
+The original `1e-9 deg` component and `1e-7 km` height targets remain unchanged.
+An additional `1e-7 km` Cartesian norm target checks forward reconstruction using
+explicit ellipsoid equations; this is **separate algebraic consistency**, not a
+replacement for independent component comparisons. Full GeographicLib MIT/X11
+notice is in `phase611-source-notices.txt`. Reproduce offline:
+
+```sh
+PYTHONPATH=backend uv run --locked python scripts/verify_phase611_geodesy.py --output /tmp/orbitiq-geodesy.json
+uv run --locked pytest backend/tests/test_phase611_geodesy.py -q
+```
+
+For source acquisition/build commands, independent-reference rerun instructions,
+the 528-case sensitivity grid and before/after residuals, see the
+[Phase 6.1.1 report](../../../docs/phase-6.1.1-report.md) and its structured evidence.

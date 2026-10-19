@@ -1,3 +1,4 @@
+import { formatUtc } from "./time-presentation";
 export type FreshnessState =
   "fresh" | "aging" | "stale" | "unknown" | "future_epoch";
 export interface SnapshotSummary {
@@ -6,6 +7,7 @@ export interface SnapshotSummary {
   object_name?: string;
   orbital_epoch?: string;
   retrieved_at?: string;
+  snapshot_created_at?: string;
   source_url?: string;
   response_sha256?: string;
   frame?: string;
@@ -101,6 +103,11 @@ export async function getSnapshots(
       object_name: string(item.object_name),
       orbital_epoch: string(item.orbital_epoch),
       retrieved_at: string(item.retrieved_at),
+      snapshot_created_at:
+        typeof item.snapshot_created_at === "string" &&
+        formatUtc(item.snapshot_created_at) !== "Unavailable"
+          ? item.snapshot_created_at
+          : undefined,
       source_url: string(item.source_url),
       response_sha256: string(item.response_sha256),
       frame: string(item.frame),

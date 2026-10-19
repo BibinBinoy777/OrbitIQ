@@ -8,24 +8,30 @@ from pathlib import Path
 
 INITIAL_MIGRATION = Path(__file__).parent / "migrations" / "001_initial.sql"
 SNAPSHOT_MIGRATION = INITIAL_MIGRATION.with_name("002_snapshots.sql")
+INGESTION_MIGRATION = INITIAL_MIGRATION.with_name("003_ingestion.sql")
+LATEST_SCHEMA = 3
 
 
 def schema_version(connection: sqlite3.Connection) -> int:
     rows = connection.execute("SELECT version FROM schema_version").fetchall()
-    if len(rows) != 1 or rows[0][0] not in (1, 2):
+    if len(rows) != 1 or rows[0][0] not in (1, 2, 3):
         raise ValueError("Unsupported OrbitIQ database schema")
     return rows[0][0]
 
 
-def apply_snapshot_migration(connection: sqlite3.Connection) -> None:
+def apply_sql(connection: sqlite3.Connection, path: Path) -> None:
     statement = ""
-    for line in SNAPSHOT_MIGRATION.read_text().splitlines(keepends=True):
+    for line in path.read_text().splitlines(keepends=True):
         statement += line
         if sqlite3.complete_statement(statement):
             connection.execute(statement)
             statement = ""
     if statement.strip():
         raise ValueError("Incomplete migration SQL")
+
+
+def apply_snapshot_migration(connection: sqlite3.Connection) -> None:
+    apply_sql(connection, SNAPSHOT_MIGRATION)
 
 
 def configured_path() -> Path:
@@ -44,8 +50,14 @@ def validate(connection: sqlite3.Connection) -> None:
     if connection.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
         raise ValueError("SQLite integrity check failed")
     version = schema_version(connection)
-    if version == 2:
+    if version >= 2:
         connection.execute("SELECT id, raw_response FROM snapshots LIMIT 0")
+    if version >= 3:
+        connection.execute("SELECT id, outcome FROM ingestion_attempts LIMIT 0")
+        connection.execute("SELECT snapshot_id FROM snapshot_insertions LIMIT 0")
+        connection.execute("SELECT next_allowed_at FROM collection_gate LIMIT 0")
+        if connection.execute("PRAGMA foreign_key_check").fetchone() is not None:
+            raise ValueError("SQLite foreign key check failed")
 
 
 def reserve(path: Path) -> None:
@@ -60,6 +72,7 @@ def initialize(path: Path) -> None:
         with closing(sqlite3.connect(path)) as connection, connection:
             connection.executescript(INITIAL_MIGRATION.read_text())
             apply_snapshot_migration(connection)
+            apply_sql(connection, INGESTION_MIGRATION)
             validate(connection)
     except Exception:
         path.unlink()
@@ -82,16 +95,18 @@ def copy_database(source: Path, destination: Path) -> None:
 
 
 def migrate(path: Path, backup: Path) -> bool:
-    """Lock writers, back up v1, then transact schema and version together."""
+    """Lock writers, back up the old schema, then atomically apply forward SQL."""
     with closing(sqlite3.connect(path.resolve().as_uri() + "?mode=rw", uri=True)) as db:
         try:
             db.execute("BEGIN IMMEDIATE")
             validate(db)
-            if schema_version(db) == 2:
+            if schema_version(db) == LATEST_SCHEMA:
                 db.rollback()
                 return False
             copy_database(path, backup)
-            apply_snapshot_migration(db)
+            if schema_version(db) == 1:
+                apply_snapshot_migration(db)
+            apply_sql(db, INGESTION_MIGRATION)
             validate(db)
             db.commit()
         except Exception:
@@ -124,7 +139,7 @@ def main() -> None:
         elif args.command == "migrate":
             changed = migrate(path, args.backup)
             if not changed:
-                print("Already at schema version 2; no changes made")
+                print(f"Already at schema version {LATEST_SCHEMA}; no changes made")
                 return
         elif args.command == "backup":
             copy_database(path, args.destination)

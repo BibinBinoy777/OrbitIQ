@@ -1,0 +1,4688 @@
+{
+  "phase": 6,
+  "status": "implemented_and_locally_verified",
+  "recorded_at": "2026-10-19T08:15:20.371225+00:00",
+  "user_timezone": "Asia/Kolkata",
+  "scientific_audit_time_system": "UTC",
+  "baseline": {
+    "at": "2026-10-19T07:46:55.709818+00:00",
+    "head": "6c60655402b70306f654c3f9b30f79ff6c7c3e45",
+    "branch": "main",
+    "git_status": "",
+    "database_path": "/workspace/OrbitIQ/data/orbitiq.sqlite3",
+    "database_sha256": "c389d0f1d663957be70a32f846f8e968e70a4f46c37343a5b80ceca5954e5f59",
+    "schema": 2,
+    "snapshot_count": 1,
+    "snapshots": [
+      {
+        "id": 1,
+        "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+        "catalog_id": 25544,
+        "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+        "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+        "row_sha256": "84da784e9e46989fa0a2deb6c10eb0b70c3e968ec5433b4133d9944e53fb84fc"
+      }
+    ],
+    "integrity": "ok",
+    "schema_objects": [
+      [
+        "index",
+        "snapshots_catalog_id"
+      ],
+      [
+        "table",
+        "schema_version"
+      ],
+      [
+        "table",
+        "snapshots"
+      ],
+      [
+        "trigger",
+        "snapshots_no_delete"
+      ],
+      [
+        "trigger",
+        "snapshots_no_update"
+      ]
+    ],
+    "locks": {
+      "pyproject.toml": "fa8ebb649044fbe98e7f4cc9c9d6bb3cd42c201b898c2854f1e65f6f727df8a4",
+      "uv.lock": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1",
+      "frontend/package.json": "1c01e4eab01716f78cbed2fe7494bcf3cb857f68683eb08a23b87bb5439e1187",
+      "frontend/package-lock.json": "ad30fad9da6bc567b3fd1f63cb6053f74df1e06b3830b086719c8411fc8e4c9d"
+    },
+    "baseline_checks": {
+      "backend": {
+        "command": "uv run --locked pytest -q",
+        "passed": 398,
+        "failed": 0,
+        "exit_code": 0
+      },
+      "frontend": {
+        "command": "npm test",
+        "cwd": "frontend",
+        "passed": 172,
+        "failed": 0,
+        "exit_code": 0
+      }
+    }
+  },
+  "source_policy": {
+    "source": "CelesTrak",
+    "query": "CATNR=25544&FORMAT=JSON",
+    "format": "existing OMM-compatible GP JSON",
+    "documentation": [
+      {
+        "url": "https://celestrak.org/usage-policy.php",
+        "http_status": 200,
+        "sha256": "e73d793c0fd219647e2d3da1ffe4bc757210218164dd15b7a6ff3339236b1231"
+      },
+      {
+        "url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+        "http_status": 200,
+        "sha256": "bb5f417772a5eaed364f2e58cee66160d42a2cecada840763d40d3c22669d08f"
+      }
+    ],
+    "minimum_interval_seconds": 7200,
+    "http_requests_per_invocation_max": 1,
+    "network_deferred_failure_budget": 3,
+    "network_backoff_seconds": [
+      7200,
+      14400,
+      28800
+    ],
+    "jitter_seconds": [
+      0,
+      300
+    ],
+    "retry_after": "extends_gate_delta_seconds_or_HTTP_date",
+    "every_non_200_http_requires_operator_review": true,
+    "authorization_blocking_status_cooldown_minimum_seconds": 86400,
+    "scheduled_collection_enabled": false,
+    "gate_scope": "one_authoritative_SQLite_database_not_distributed"
+  },
+  "migration": {
+    "applied_at": "2026-10-19T07:58:05.835720+00:00",
+    "from_schema": 2,
+    "to_schema": 3,
+    "backup_path": "/workspace/OrbitIQ/backups/phase-6-pre-migration-20261019T075805Z.sqlite3",
+    "backup_sha256": "3b3d25e49fbfff35165c5cadb7c9c694f8f4e47c095462c553877731fc446550",
+    "backup_bytes": 16384,
+    "original_snapshot_count": 1,
+    "snapshots_after_migration": 1,
+    "ingestion_attempt_count": 0,
+    "preserved_rows": [
+      {
+        "id": 1,
+        "row_sha256": "84da784e9e46989fa0a2deb6c10eb0b70c3e968ec5433b4133d9944e53fb84fc",
+        "unchanged": true
+      }
+    ],
+    "integrity": "ok",
+    "foreign_key_violations": 0,
+    "archive_verified_snapshots": 1,
+    "database_file_sha_after": "8ba41321994b43eaf4215c757f182883c62c801b9e0034e9fed5791bb94d2a60",
+    "backup_creation_window_utc": {
+      "start": "2026-10-19T07:58:05+00:00",
+      "end": "2026-10-19T07:58:05.835720+00:00",
+      "basis": "operation start UTC recorded to seconds in exclusively created backup filename; end recorded after committed migration"
+    }
+  },
+  "collection": {
+    "command": "PYTHONPATH=backend uv run --locked python -m orbitiq.ingestion.collection collect 25544 --verify-replay",
+    "started_at": "2026-10-19T07:58:22.167057+00:00",
+    "completed_at": "2026-10-19T07:58:23.476271+00:00",
+    "exit_code": 0,
+    "stdout": "{\"status\": \"success\", \"attempt_id\": 1, \"snapshot_id\": 2, \"outcome\": \"inserted\", \"provider_response_received\": true, \"parsed\": true, \"validated\": true, \"persisted\": true, \"newly_inserted\": true, \"deduplicated\": false, \"payload_sha256\": \"8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd\", \"retrieved_at\": \"2026-10-19T07:58:23.407349+00:00\", \"completed_at\": \"2026-10-19T07:58:23.416100+00:00\", \"next_allowed_at\": \"2026-10-19T09:58:23.407349+00:00\", \"request_count\": 1, \"replay_verified\": true}",
+    "stderr": "",
+    "actual_network_collection_invocations": 1,
+    "result": {
+      "status": "success",
+      "attempt_id": 1,
+      "snapshot_id": 2,
+      "outcome": "inserted",
+      "provider_response_received": true,
+      "parsed": true,
+      "validated": true,
+      "persisted": true,
+      "newly_inserted": true,
+      "deduplicated": false,
+      "payload_sha256": "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd",
+      "retrieved_at": "2026-10-19T07:58:23.407349+00:00",
+      "completed_at": "2026-10-19T07:58:23.416100+00:00",
+      "next_allowed_at": "2026-10-19T09:58:23.407349+00:00",
+      "request_count": 1,
+      "replay_verified": true
+    }
+  },
+  "actual_attempt_history": {
+    "attempts": [
+      {
+        "id": 1,
+        "catalog_id": 25544,
+        "query_sha256": "2a0244651196760748babea2a7a5cb846d6f873eac5696d2e50a6e6226ba6f0a",
+        "started_at": "2026-10-19T07:58:22.439562+00:00",
+        "completed_at": "2026-10-19T07:58:23.416100+00:00",
+        "inserted_at": "2026-10-19T07:58:22.440+00:00",
+        "outcome": "inserted",
+        "http_status": 200,
+        "request_count": 1,
+        "acquired_at": "2026-10-19T07:58:23.407349+00:00",
+        "validated_at": "2026-10-19T07:58:23.413162+00:00",
+        "payload_sha256": "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd",
+        "parsed_record_count": 1,
+        "validation_status": "passed",
+        "snapshot_id": 2,
+        "newly_inserted": 1,
+        "error_category": null
+      }
+    ],
+    "has_more": false,
+    "next_before_id": null,
+    "order": "attempt_id_desc"
+  },
+  "genuine_pair": {
+    "observed_at": "2026-10-19T08:08:08.441260+00:00",
+    "evidence_kind": "genuine_provider_archive_not_fixtures",
+    "health": {
+      "status": "ok",
+      "service": "OrbitIQ"
+    },
+    "history_http_status": 200,
+    "history_ids": [
+      2,
+      1
+    ],
+    "snapshots": [
+      {
+        "id": 1,
+        "catalog_id": 25544,
+        "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+        "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+        "snapshot_created_at": null,
+        "snapshot_creation_time_status": "not_recorded_legacy",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+        "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+        "validation_status": "structural_and_epoch_propagation_passed",
+        "validator_version": "orbitiq-omm-v1",
+        "sgp4_version": "2.27",
+        "element_units": {
+          "EPOCH": "ISO8601 UTC",
+          "REV_AT_EPOCH": "rev",
+          "MEAN_MOTION": "rev/day",
+          "ECCENTRICITY": "dimensionless",
+          "INCLINATION": "deg",
+          "RA_OF_ASC_NODE": "deg",
+          "ARG_OF_PERICENTER": "deg",
+          "MEAN_ANOMALY": "deg",
+          "BSTAR": "1/Earth-radii",
+          "MEAN_MOTION_DOT": "rev/day^2",
+          "MEAN_MOTION_DDOT": "rev/day^3"
+        }
+      },
+      {
+        "id": 2,
+        "catalog_id": 25544,
+        "orbital_epoch": "2026-10-18T18:57:18.892800+00:00",
+        "retrieved_at": "2026-10-19T07:58:23.407349+00:00",
+        "snapshot_created_at": "2026-10-19T07:58:23.415+00:00",
+        "snapshot_creation_time_status": "recorded",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+        "response_sha256": "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd",
+        "validation_status": "structural_and_epoch_propagation_passed",
+        "validator_version": "orbitiq-omm-v1",
+        "sgp4_version": "2.27",
+        "element_units": {
+          "EPOCH": "ISO8601 UTC",
+          "REV_AT_EPOCH": "rev",
+          "MEAN_MOTION": "rev/day",
+          "ECCENTRICITY": "dimensionless",
+          "INCLINATION": "deg",
+          "RA_OF_ASC_NODE": "deg",
+          "ARG_OF_PERICENTER": "deg",
+          "MEAN_ANOMALY": "deg",
+          "BSTAR": "1/Earth-radii",
+          "MEAN_MOTION_DOT": "rev/day^2",
+          "MEAN_MOTION_DDOT": "rev/day^3"
+        }
+      }
+    ],
+    "common_evaluation_at": "2026-10-18T18:57:18.892800+00:00",
+    "comparisons": {
+      "TEME": {
+        "http_status": 200,
+        "counts": {
+          "shared": 1,
+          "added": 0,
+          "removed": 0,
+          "incompatible": 0
+        },
+        "chronology": {
+          "status": "ordered",
+          "basis": "stored_retrieval_time",
+          "older_snapshot_id": 1,
+          "newer_snapshot_id": 2
+        },
+        "source_snapshot_ids": [
+          1,
+          2
+        ],
+        "element_differences": [
+          {
+            "field": "REV_AT_EPOCH",
+            "unit": "rev",
+            "first_value": 59086,
+            "second_value": 59091,
+            "difference": 5,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION",
+            "unit": "rev/day",
+            "first_value": 15.48923373,
+            "second_value": 15.48929442,
+            "difference": 6.068999999975233e-05,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "ECCENTRICITY",
+            "unit": "dimensionless",
+            "first_value": 0.0006784,
+            "second_value": 0.00067643,
+            "difference": -1.97000000000001e-06,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "INCLINATION",
+            "unit": "deg",
+            "first_value": 51.6327,
+            "second_value": 51.6325,
+            "difference": -0.00019999999999953388,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "RA_OF_ASC_NODE",
+            "unit": "deg",
+            "first_value": 50.0298,
+            "second_value": 48.4339,
+            "difference": -1.5959000000000003,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "ARG_OF_PERICENTER",
+            "unit": "deg",
+            "first_value": 279.2532,
+            "second_value": 280.4294,
+            "difference": 1.1761999999999944,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "MEAN_ANOMALY",
+            "unit": "deg",
+            "first_value": 80.7689,
+            "second_value": 79.5932,
+            "difference": -1.1757000000000062,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "BSTAR",
+            "unit": "1/Earth-radii",
+            "first_value": 0.00014361,
+            "second_value": 0.00014938341,
+            "difference": 5.773410000000002e-06,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DOT",
+            "unit": "rev/day^2",
+            "first_value": 7.452e-05,
+            "second_value": 7.771e-05,
+            "difference": 3.1900000000000016e-06,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DDOT",
+            "unit": "rev/day^3",
+            "first_value": 0.0,
+            "second_value": 0.0,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          }
+        ],
+        "state_comparison": {
+          "status": "complete",
+          "evaluation_at": "2026-10-18T18:57:18.892800+00:00",
+          "frame": "TEME",
+          "units": {
+            "position": "km",
+            "velocity": "km/s"
+          },
+          "first": {
+            "position_km": [
+              4510.456659535141,
+              5085.9911175576435,
+              -0.17068307676563482
+            ],
+            "velocity_km_s": [
+              -3.557065951330225,
+              3.152747873717111,
+              6.008324964793311
+            ],
+            "kind": "calculated",
+            "frame": "TEME",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "at": "2026-10-18T18:57:18.892800+00:00",
+            "calculated_at": "2026-10-19T08:08:08.081066+00:00",
+            "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+            "epoch_offset_days": 0.32259087999999997,
+            "model": "SGP4",
+            "gravity_model": "WGS72",
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "epoch_offset": "days"
+            },
+            "uncertainty": {
+              "status": "not_quantified",
+              "covariance_available": false,
+              "observation_validated": false
+            },
+            "validation_scope": "Published numerical cases; not observed orbit accuracy",
+            "sgp4_version": "2.27",
+            "validation_status": "reference_tested_engine_not_observation_validated",
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided."
+            ],
+            "snapshot_id": 1,
+            "catalog_id": 25544,
+            "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+            "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+            "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+            "freshness_info": {
+              "state": "fresh",
+              "evaluated_at": "2026-10-19T08:08:08.081066+00:00",
+              "epoch_age_seconds": 75321.040298,
+              "retrieval_age_seconds": 53608.097894,
+              "fresh_hours": 24.0,
+              "stale_hours": 72.0,
+              "basis": "orbital_epoch",
+              "accuracy_guarantee": false
+            },
+            "snapshot_created_at": null,
+            "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+            "validator_version": "orbitiq-omm-v1",
+            "ingestion_sgp4_version": "2.27"
+          },
+          "second": {
+            "position_km": [
+              4510.298925552084,
+              5086.1314671896425,
+              0.0012420441687969563
+            ],
+            "velocity_km_s": [
+              -3.557288851219373,
+              3.152526207341503,
+              6.008306791200484
+            ],
+            "kind": "calculated",
+            "frame": "TEME",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "at": "2026-10-18T18:57:18.892800+00:00",
+            "calculated_at": "2026-10-19T08:08:08.081375+00:00",
+            "orbital_epoch": "2026-10-18T18:57:18.892800+00:00",
+            "epoch_offset_days": 0.0,
+            "model": "SGP4",
+            "gravity_model": "WGS72",
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "epoch_offset": "days"
+            },
+            "uncertainty": {
+              "status": "not_quantified",
+              "covariance_available": false,
+              "observation_validated": false
+            },
+            "validation_scope": "Published numerical cases; not observed orbit accuracy",
+            "sgp4_version": "2.27",
+            "validation_status": "reference_tested_engine_not_observation_validated",
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided."
+            ],
+            "snapshot_id": 2,
+            "catalog_id": 25544,
+            "retrieved_at": "2026-10-19T07:58:23.407349+00:00",
+            "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+            "response_sha256": "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd",
+            "freshness_info": {
+              "state": "fresh",
+              "evaluated_at": "2026-10-19T08:08:08.081375+00:00",
+              "epoch_age_seconds": 47449.188575,
+              "retrieval_age_seconds": 584.674026,
+              "fresh_hours": 24.0,
+              "stale_hours": 72.0,
+              "basis": "orbital_epoch",
+              "accuracy_guarantee": false
+            },
+            "snapshot_created_at": "2026-10-19T07:58:23.415+00:00",
+            "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+            "validator_version": "orbitiq-omm-v1",
+            "ingestion_sgp4_version": "2.27"
+          },
+          "errors": [
+            null,
+            null
+          ],
+          "difference_position_km": [
+            -0.1577339830564597,
+            0.1403496319990154,
+            0.17192512093443177
+          ],
+          "difference_velocity_km_s": [
+            -0.0002228998891480316,
+            -0.00022166637560783187,
+            -1.8173592827075424e-05
+          ],
+          "separation_km": 0.27227977490337685,
+          "relative_speed_km_s": 0.0003148819177621375,
+          "difference_convention": "second_minus_first"
+        },
+        "assumptions": [
+          "Each schema-2 snapshot stores exactly one satellite record.",
+          "Added means only in second; removed means only in first, regardless of retrieval chronology.",
+          "Element differences may reflect epoch, fitting or source updates; they are not physical change measurements.",
+          "State differences use second minus first at one common time; no covariance or uncertainty is quantified.",
+          "SGP4 WGS72, geocentric TEME; optional Astropy ITRS retains strict local EOP/leap policies.",
+          "A same-snapshot comparison is a self-check, not distinct historical evidence."
+        ],
+        "reproducible_numerical_result": true
+      },
+      "ITRS": {
+        "http_status": 200,
+        "counts": {
+          "shared": 1,
+          "added": 0,
+          "removed": 0,
+          "incompatible": 0
+        },
+        "chronology": {
+          "status": "ordered",
+          "basis": "stored_retrieval_time",
+          "older_snapshot_id": 1,
+          "newer_snapshot_id": 2
+        },
+        "source_snapshot_ids": [
+          1,
+          2
+        ],
+        "element_differences": [
+          {
+            "field": "REV_AT_EPOCH",
+            "unit": "rev",
+            "first_value": 59086,
+            "second_value": 59091,
+            "difference": 5,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION",
+            "unit": "rev/day",
+            "first_value": 15.48923373,
+            "second_value": 15.48929442,
+            "difference": 6.068999999975233e-05,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "ECCENTRICITY",
+            "unit": "dimensionless",
+            "first_value": 0.0006784,
+            "second_value": 0.00067643,
+            "difference": -1.97000000000001e-06,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "INCLINATION",
+            "unit": "deg",
+            "first_value": 51.6327,
+            "second_value": 51.6325,
+            "difference": -0.00019999999999953388,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "RA_OF_ASC_NODE",
+            "unit": "deg",
+            "first_value": 50.0298,
+            "second_value": 48.4339,
+            "difference": -1.5959000000000003,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "ARG_OF_PERICENTER",
+            "unit": "deg",
+            "first_value": 279.2532,
+            "second_value": 280.4294,
+            "difference": 1.1761999999999944,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "MEAN_ANOMALY",
+            "unit": "deg",
+            "first_value": 80.7689,
+            "second_value": 79.5932,
+            "difference": -1.1757000000000062,
+            "convention": "wrapped_second_minus_first_[-180,180)"
+          },
+          {
+            "field": "BSTAR",
+            "unit": "1/Earth-radii",
+            "first_value": 0.00014361,
+            "second_value": 0.00014938341,
+            "difference": 5.773410000000002e-06,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DOT",
+            "unit": "rev/day^2",
+            "first_value": 7.452e-05,
+            "second_value": 7.771e-05,
+            "difference": 3.1900000000000016e-06,
+            "convention": "second_minus_first"
+          },
+          {
+            "field": "MEAN_MOTION_DDOT",
+            "unit": "rev/day^3",
+            "first_value": 0.0,
+            "second_value": 0.0,
+            "difference": 0.0,
+            "convention": "second_minus_first"
+          }
+        ],
+        "state_comparison": {
+          "status": "complete",
+          "evaluation_at": "2026-10-18T18:57:18.892800+00:00",
+          "frame": "ITRS",
+          "units": {
+            "position": "km",
+            "velocity": "km/s"
+          },
+          "first": {
+            "teme": {
+              "position_km": [
+                4510.456659535141,
+                5085.9911175576435,
+                -0.17068307676563482
+              ],
+              "velocity_km_s": [
+                -3.557065951330225,
+                3.152747873717111,
+                6.008324964793311
+              ],
+              "kind": "calculated",
+              "frame": "TEME",
+              "origin": "Earth center",
+              "time_system": "UTC",
+              "at": "2026-10-18T18:57:18.892800+00:00",
+              "calculated_at": "2026-10-19T08:08:08.092171+00:00",
+              "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+              "epoch_offset_days": 0.32259087999999997,
+              "model": "SGP4",
+              "gravity_model": "WGS72",
+              "units": {
+                "position": "km",
+                "velocity": "km/s",
+                "epoch_offset": "days"
+              },
+              "uncertainty": {
+                "status": "not_quantified",
+                "covariance_available": false,
+                "observation_validated": false
+              },
+              "validation_scope": "Published numerical cases; not observed orbit accuracy",
+              "sgp4_version": "2.27",
+              "validation_status": "reference_tested_engine_not_observation_validated",
+              "warnings": [
+                "Calculated from mean elements, not a direct observation.",
+                "No position uncertainty or collision assessment is provided."
+              ],
+              "snapshot_id": 1,
+              "catalog_id": 25544,
+              "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+              "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+              "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+              "freshness_info": {
+                "state": "fresh",
+                "evaluated_at": "2026-10-19T08:08:08.092171+00:00",
+                "epoch_age_seconds": 75321.051403,
+                "retrieval_age_seconds": 53608.108999,
+                "fresh_hours": 24.0,
+                "stale_hours": 72.0,
+                "basis": "orbital_epoch",
+                "accuracy_guarantee": false
+              },
+              "snapshot_created_at": null,
+              "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+              "validator_version": "orbitiq-omm-v1",
+              "ingestion_sgp4_version": "2.27"
+            },
+            "at": "2026-10-18T18:57:18.892800+00:00",
+            "kind": "calculated",
+            "input_frame": "TEME",
+            "frame": "ITRS",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "position_km": [
+              -808.0214501228694,
+              6749.713050584441,
+              -0.15957532969609223
+            ],
+            "ground_position_km": [
+              -758.1263355604398,
+              6332.920023776539,
+              -0.1496593120122087
+            ],
+            "velocity_km_s": [
+              -4.227102398890111,
+              -0.5073993886908283,
+              6.0083273348347985
+            ],
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "angles": "deg",
+              "altitude": "km"
+            },
+            "geodetic": {
+              "latitude_deg": -0.001353473137525362,
+              "longitude_deg": 96.82650425636064,
+              "altitude_km": 419.7689242323896,
+              "height_reference": "WGS84 ellipsoid"
+            },
+            "transformation_status": "predicted_eop",
+            "method": "Astropy TEME -> ITRS at same obstime; Vallado 2006 GMST82 and polar motion; WGS84 geodetic",
+            "astropy_version": "7.2.3",
+            "pyerfa_version": "2.0.1.5",
+            "earth_orientation": {
+              "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+              "package_version": "0.2026.10.12.1.3.27",
+              "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+              "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+              "leap_seconds_expires": "2027-06-28",
+              "first_mjd": 41684.0,
+              "last_mjd": 61682.0,
+              "predictive_mjd": 61315.0,
+              "policy": "measured_or_predicted",
+              "status": "predicted",
+              "ut1_source": "IERS_A_prediction",
+              "polar_motion_source": "IERS_A_prediction",
+              "ut1_minus_utc_seconds": -0.037852838561799995,
+              "polar_motion_x_arcsec": 0.154180466512,
+              "polar_motion_y_arcsec": 0.320984930296,
+              "prediction_table_age_days": 17.338985768183193,
+              "max_prediction_table_age_days": 30,
+              "auto_download": false,
+              "degraded_results_allowed": false,
+              "velocity_support_seconds": [
+                -0.5,
+                0.5
+              ]
+            },
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided.",
+              "WGS84 ellipsoidal height is not terrain clearance or mean-sea-level height.",
+              "A ground track does not establish observer visibility or orbital safety.",
+              "Transformation reference agreement does not quantify satellite prediction uncertainty.",
+              "Predicted Earth-orientation parameters are used; they are not final measurements."
+            ]
+          },
+          "second": {
+            "teme": {
+              "position_km": [
+                4510.298925552084,
+                5086.1314671896425,
+                0.0012420441687969563
+              ],
+              "velocity_km_s": [
+                -3.557288851219373,
+                3.152526207341503,
+                6.008306791200484
+              ],
+              "kind": "calculated",
+              "frame": "TEME",
+              "origin": "Earth center",
+              "time_system": "UTC",
+              "at": "2026-10-18T18:57:18.892800+00:00",
+              "calculated_at": "2026-10-19T08:08:08.381683+00:00",
+              "orbital_epoch": "2026-10-18T18:57:18.892800+00:00",
+              "epoch_offset_days": 0.0,
+              "model": "SGP4",
+              "gravity_model": "WGS72",
+              "units": {
+                "position": "km",
+                "velocity": "km/s",
+                "epoch_offset": "days"
+              },
+              "uncertainty": {
+                "status": "not_quantified",
+                "covariance_available": false,
+                "observation_validated": false
+              },
+              "validation_scope": "Published numerical cases; not observed orbit accuracy",
+              "sgp4_version": "2.27",
+              "validation_status": "reference_tested_engine_not_observation_validated",
+              "warnings": [
+                "Calculated from mean elements, not a direct observation.",
+                "No position uncertainty or collision assessment is provided."
+              ],
+              "snapshot_id": 2,
+              "catalog_id": 25544,
+              "retrieved_at": "2026-10-19T07:58:23.407349+00:00",
+              "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+              "response_sha256": "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd",
+              "freshness_info": {
+                "state": "fresh",
+                "evaluated_at": "2026-10-19T08:08:08.381683+00:00",
+                "epoch_age_seconds": 47449.488883,
+                "retrieval_age_seconds": 584.974334,
+                "fresh_hours": 24.0,
+                "stale_hours": 72.0,
+                "basis": "orbital_epoch",
+                "accuracy_guarantee": false
+              },
+              "snapshot_created_at": "2026-10-19T07:58:23.415+00:00",
+              "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+              "validator_version": "orbitiq-omm-v1",
+              "ingestion_sgp4_version": "2.27"
+            },
+            "at": "2026-10-18T18:57:18.892800+00:00",
+            "kind": "calculated",
+            "input_frame": "TEME",
+            "frame": "ITRS",
+            "origin": "Earth center",
+            "time_system": "UTC",
+            "position_km": [
+              -808.2311293378427,
+              6749.6882995284495,
+              0.012349909454221786
+            ],
+            "ground_position_km": [
+              -758.323028208762,
+              6332.8964759833425,
+              0.011582484964111208
+            ],
+            "velocity_km_s": [
+              -4.227086461955764,
+              -0.507697954575633,
+              6.008309160765424
+            ],
+            "units": {
+              "position": "km",
+              "velocity": "km/s",
+              "angles": "deg",
+              "altitude": "km"
+            },
+            "geodetic": {
+              "latitude_deg": 0.00010474845869942884,
+              "longitude_deg": 96.82828379369113,
+              "altitude_km": 419.76927321203,
+              "height_reference": "WGS84 ellipsoid"
+            },
+            "transformation_status": "predicted_eop",
+            "method": "Astropy TEME -> ITRS at same obstime; Vallado 2006 GMST82 and polar motion; WGS84 geodetic",
+            "astropy_version": "7.2.3",
+            "pyerfa_version": "2.0.1.5",
+            "earth_orientation": {
+              "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+              "package_version": "0.2026.10.12.1.3.27",
+              "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+              "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+              "leap_seconds_expires": "2027-06-28",
+              "first_mjd": 41684.0,
+              "last_mjd": 61682.0,
+              "predictive_mjd": 61315.0,
+              "policy": "measured_or_predicted",
+              "status": "predicted",
+              "ut1_source": "IERS_A_prediction",
+              "polar_motion_source": "IERS_A_prediction",
+              "ut1_minus_utc_seconds": -0.037852838561799995,
+              "polar_motion_x_arcsec": 0.154180466512,
+              "polar_motion_y_arcsec": 0.320984930296,
+              "prediction_table_age_days": 17.3389859213421,
+              "max_prediction_table_age_days": 30,
+              "auto_download": false,
+              "degraded_results_allowed": false,
+              "velocity_support_seconds": [
+                -0.5,
+                0.5
+              ]
+            },
+            "warnings": [
+              "Calculated from mean elements, not a direct observation.",
+              "No position uncertainty or collision assessment is provided.",
+              "WGS84 ellipsoidal height is not terrain clearance or mean-sea-level height.",
+              "A ground track does not establish observer visibility or orbital safety.",
+              "Transformation reference agreement does not quantify satellite prediction uncertainty.",
+              "Predicted Earth-orientation parameters are used; they are not final measurements."
+            ]
+          },
+          "errors": [
+            null,
+            null
+          ],
+          "difference_position_km": [
+            -0.20967921497333464,
+            -0.02475105599114613,
+            0.17192523915031402
+          ],
+          "difference_velocity_km_s": [
+            1.5936934346427734e-05,
+            -0.00029856588480470236,
+            -1.8174069374765622e-05
+          ],
+          "separation_km": 0.27227977490332145,
+          "relative_speed_km_s": 0.000299542768637829,
+          "difference_convention": "second_minus_first"
+        },
+        "assumptions": [
+          "Each schema-2 snapshot stores exactly one satellite record.",
+          "Added means only in second; removed means only in first, regardless of retrieval chronology.",
+          "Element differences may reflect epoch, fitting or source updates; they are not physical change measurements.",
+          "State differences use second minus first at one common time; no covariance or uncertainty is quantified.",
+          "SGP4 WGS72, geocentric TEME; optional Astropy ITRS retains strict local EOP/leap policies.",
+          "A same-snapshot comparison is a self-check, not distinct historical evidence."
+        ],
+        "reproducible_numerical_result": true
+      }
+    },
+    "readiness": {
+      "status": "degraded",
+      "kind": "calculated_readiness_assessment",
+      "evaluated_at": "2026-10-19T08:08:08.433740+00:00",
+      "requested_at": "2026-10-19T08:08:08.433740+00:00",
+      "time_system": "UTC",
+      "components": {
+        "database": {
+          "status": "healthy",
+          "code": "database_readable",
+          "message": "Database schema and bounded metadata reads are available.",
+          "reachable": true,
+          "schema_available": true,
+          "reads_available": true,
+          "schema_version": 3,
+          "integrity_scope": "metadata_read_not_full_integrity_scan",
+          "latest_stored_snapshot_id": 2,
+          "latest_stored_retrieved_at": "2026-10-19T07:58:23.407349+00:00",
+          "snapshot_insertion_at": "2026-10-19T07:58:23.415000+00:00",
+          "insertion_time_status": "recorded"
+        },
+        "orbital_data": {
+          "status": "healthy",
+          "code": "orbital_fresh",
+          "message": "Freshness uses orbital epoch, not recent retrieval; historical calculations may remain available. Review ageing or unknown source data before current-time use.",
+          "snapshots_present": true,
+          "inspected_count": 2,
+          "inspection_limit": 100,
+          "history_complete": true,
+          "global_latest_known": true,
+          "latest_retrieval_at": "2026-10-19T07:58:23.407349+00:00",
+          "ingestion_error_status": "see_ingestion_component",
+          "snapshot_id": 2,
+          "catalog_id": 25544,
+          "orbital_epoch": "2026-10-18T18:57:18.892800+00:00",
+          "retrieval_age_seconds": 585.026391,
+          "freshness": {
+            "state": "fresh",
+            "evaluated_at": "2026-10-19T08:08:08.433740+00:00",
+            "epoch_age_seconds": 47449.54094,
+            "retrieval_age_seconds": 585.026391,
+            "fresh_hours": 24.0,
+            "stale_hours": 72.0,
+            "basis": "orbital_epoch",
+            "accuracy_guarantee": false
+          },
+          "policy_basis": "orbital_epoch",
+          "accuracy_guarantee": false
+        },
+        "ingestion": {
+          "status": "healthy",
+          "code": "recent_success",
+          "message": "Collection succeeded. Orbital freshness uses the stored element epoch; deduplicated downloads do not refresh the dataset epoch.",
+          "last_attempt_at": "2026-10-19T07:58:22.439562+00:00",
+          "last_attempt_completed_at": "2026-10-19T07:58:23.416100+00:00",
+          "last_successful_acquisition_at": "2026-10-19T07:58:23.407349+00:00",
+          "last_successful_validation_at": "2026-10-19T07:58:23.413162+00:00",
+          "last_snapshot_insertion_at": "2026-10-19T07:58:23.415000+00:00",
+          "next_allowed_at": "2026-10-19T09:58:23.407349+00:00",
+          "latest_attempt_failed": false,
+          "consecutive_failures": 0,
+          "last_error_category": null,
+          "latest_payload_outcome": "inserted",
+          "minimum_request_interval_seconds": 7200,
+          "request_retry_mode": "deferred_operator_only",
+          "orbital_freshness_basis": "orbital_epoch_not_collector_execution",
+          "orbital_freshness_state": "fresh",
+          "most_recent_stored_retrieval_age_seconds": 585.026391,
+          "stored_orbital_epoch_age_seconds": 47449.54094,
+          "history_scope": "schema_3_attempts_only_legacy_history_not_backfilled",
+          "automatic_collection": false,
+          "last_attempt_id": 1,
+          "latest_attempt_outcome": "inserted",
+          "retry_budget_exhausted": false
+        },
+        "eop": {
+          "status": "degraded",
+          "code": "eop_predicted",
+          "message": "Requested epoch uses labelled IERS predictions; monitor prediction age and schedule controlled maintenance.",
+          "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+          "package_version": "0.2026.10.12.1.3.27",
+          "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+          "first_covered_at": "1973-01-02T00:00:00+00:00",
+          "last_covered_at": "2027-10-04T00:00:00+00:00",
+          "prediction_starts_at": "2026-10-02T00:00:00+00:00",
+          "dataset_release_at": null,
+          "dataset_age_seconds": null,
+          "release_time_status": "not_recorded",
+          "prediction_table_age_days": 17.338986501621548,
+          "max_prediction_table_age_days": 30,
+          "prediction_age_state": "within_policy",
+          "policy": "measured_or_predicted",
+          "auto_download": false,
+          "covered": true,
+          "calculation_resources_usable": true,
+          "maintenance": {
+            "record_status": "not_recorded",
+            "acquired_at": null,
+            "verified_at": null,
+            "activated_at": null
+          },
+          "requested_eop_type": "predicted",
+          "ut1_source": "IERS_A_prediction",
+          "polar_motion_source": "IERS_A_prediction"
+        },
+        "leap_seconds": {
+          "status": "healthy",
+          "code": "leap_valid",
+          "message": "Requested time and current assessment are before the recorded leap-file expiry.",
+          "source": "astropy-iers-data bundled Leap_Second.dat",
+          "package_version": "0.2026.10.12.1.3.27",
+          "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+          "expires_at": "2027-06-27T23:59:23+00:00",
+          "expiry_known": true,
+          "source_expiry_label": "2027-06-28",
+          "source_expiry_scale": "tai",
+          "requested_time_covered": true,
+          "current_time_expired": false,
+          "expires_in_days": 251.66058525763887
+        }
+      },
+      "scope": "Resource and metadata readiness, not orbit accuracy, observations, full archive integrity or readiness for every date.",
+      "automatic_updates": false
+    },
+    "provider_requests_for_comparison": 0,
+    "reproducibility_excludes_wall_clock_metadata": [
+      "calculated_at",
+      "evaluated_at",
+      "freshness_info",
+      "prediction_table_age_days"
+    ]
+  },
+  "backup_recovery": {
+    "status": "passed",
+    "created_at": "2026-10-19T07:59:05.454518+00:00",
+    "completed_at": "2026-10-19T07:59:05.647940+00:00",
+    "method": "SQLite Connection.backup; exclusive new files; no source writes",
+    "backup_name": "backup.sqlite3",
+    "backup_bytes": 53248,
+    "backup_sha256": "644585974d4192d47797b17ff2fc20e660d723f779d2d9362780230d50989c0c",
+    "source_at_backup": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "restored": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "source_unchanged_during_rehearsal": true,
+    "verified_snapshots": 2,
+    "api_checks": [
+      {
+        "route": "/api/snapshots",
+        "http_status": 200
+      },
+      {
+        "route": "/api/snapshots/1",
+        "http_status": 200
+      },
+      {
+        "route": "/api/snapshots/2",
+        "http_status": 200
+      },
+      {
+        "route": "/api/comparisons",
+        "http_status": 200,
+        "counts": {
+          "shared": 1,
+          "added": 0,
+          "removed": 0,
+          "incompatible": 0
+        },
+        "self_comparison": false
+      }
+    ],
+    "restored_target_separate": true,
+    "restored_retained": false
+  },
+  "safe_refusals": {
+    "restore_refusal": {
+      "status": "passed",
+      "attempted_restore_to_existing_original": "refused_FileExistsError",
+      "source_unchanged": true
+    },
+    "early_collection_refusal": {
+      "category": "cooldown",
+      "message": "Provider cooldown; next permitted collection 2026-10-19T09:58:23.407349+00:00",
+      "no_new_audit_rows": true
+    }
+  },
+  "final_preservation": {
+    "verified_at": "2026-10-19T08:09:15.256599+00:00",
+    "original_snapshot_id": 1,
+    "original_row_sha256_before": "84da784e9e46989fa0a2deb6c10eb0b70c3e968ec5433b4133d9944e53fb84fc",
+    "original_row_sha256_after": "84da784e9e46989fa0a2deb6c10eb0b70c3e968ec5433b4133d9944e53fb84fc",
+    "original_row_and_payload_unchanged": true,
+    "final_database_fingerprint": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "ledger": {
+      "attempts": [
+        {
+          "id": 1,
+          "catalog_id": 25544,
+          "query_sha256": "2a0244651196760748babea2a7a5cb846d6f873eac5696d2e50a6e6226ba6f0a",
+          "started_at": "2026-10-19T07:58:22.439562+00:00",
+          "completed_at": "2026-10-19T07:58:23.416100+00:00",
+          "inserted_at": "2026-10-19T07:58:22.440+00:00",
+          "outcome": "inserted",
+          "http_status": 200,
+          "request_count": 1,
+          "acquired_at": "2026-10-19T07:58:23.407349+00:00",
+          "validated_at": "2026-10-19T07:58:23.413162+00:00",
+          "payload_sha256": "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd",
+          "parsed_record_count": 1,
+          "validation_status": "passed",
+          "snapshot_id": 2,
+          "newly_inserted": 1,
+          "error_category": null
+        }
+      ],
+      "has_more": false,
+      "next_before_id": null,
+      "order": "attempt_id_desc"
+    },
+    "prior_reports_plans_evidence_unchanged": {
+      "docs/phase-0-report.md": true,
+      "docs/phase-1-report.md": true,
+      "docs/phase-2-plan.md": true,
+      "docs/phase-2-reference-results.json": true,
+      "docs/phase-2-report.md": true,
+      "docs/phase-3-integration-results.json": true,
+      "docs/phase-3-plan.md": true,
+      "docs/phase-3-reference-results.json": true,
+      "docs/phase-3-report.md": true,
+      "docs/phase-4-integration-results.json": true,
+      "docs/phase-4-plan.md": true,
+      "docs/phase-4-report.md": true,
+      "docs/phase-5-integration-results.json": true,
+      "docs/phase-5-plan.md": true,
+      "docs/phase-5-report.md": true,
+      "docs/pre-phase-5-integration-results.json": true,
+      "docs/pre-phase-5-plan.md": true,
+      "docs/pre-phase-5-readiness-report.md": true
+    },
+    "dependencies_and_locks_unchanged": {
+      "pyproject.toml": true,
+      "uv.lock": true,
+      "frontend/package.json": true,
+      "frontend/package-lock.json": true
+    },
+    "head": "6c60655402b70306f654c3f9b30f79ff6c7c3e45",
+    "remotes": [
+      "origin\thttps://github.com/BibinBinoy777/OrbitIQ.git (fetch)",
+      "origin\thttps://github.com/BibinBinoy777/OrbitIQ.git (push)"
+    ],
+    "staged_diff": ""
+  },
+  "phase5_ci": {
+    "observed_at": "2026-10-19T07:48:57.615444+00:00",
+    "run": {
+      "id": 39211182705,
+      "name": "OrbitIQ checks",
+      "event": "push",
+      "head_branch": "main",
+      "head_sha": "6c60655402b70306f654c3f9b30f79ff6c7c3e45",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39211182705",
+      "created_at": "2026-10-19T06:39:34Z",
+      "updated_at": "2026-10-19T06:40:35Z",
+      "run_attempt": 1
+    },
+    "jobs": [
+      {
+        "id": 117924700864,
+        "name": "frontend",
+        "head_sha": "6c60655402b70306f654c3f9b30f79ff6c7c3e45",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39211182705/job/117924700864",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-19T06:39:39Z",
+            "completed_at": "2026-10-19T06:39:40Z"
+          },
+          {
+            "name": "Run actions/checkout@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-19T06:39:40Z",
+            "completed_at": "2026-10-19T06:39:41Z"
+          },
+          {
+            "name": "Run actions/setup-node@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-19T06:39:41Z",
+            "completed_at": "2026-10-19T06:39:44Z"
+          },
+          {
+            "name": "Run npm ci",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-19T06:39:44Z",
+            "completed_at": "2026-10-19T06:39:49Z"
+          },
+          {
+            "name": "Run npm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-19T06:39:49Z",
+            "completed_at": "2026-10-19T06:40:16Z"
+          },
+          {
+            "name": "Run npm run lint",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-19T06:40:16Z",
+            "completed_at": "2026-10-19T06:40:21Z"
+          },
+          {
+            "name": "Run npm run format:check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-19T06:40:21Z",
+            "completed_at": "2026-10-19T06:40:23Z"
+          },
+          {
+            "name": "Run npm run build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-10-19T06:40:23Z",
+            "completed_at": "2026-10-19T06:40:31Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-19T06:40:31Z",
+            "completed_at": "2026-10-19T06:40:31Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-10-19T06:40:31Z",
+            "completed_at": "2026-10-19T06:40:31Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-10-19T06:40:31Z",
+            "completed_at": "2026-10-19T06:40:31Z"
+          }
+        ]
+      },
+      {
+        "id": 117924701294,
+        "name": "backend",
+        "head_sha": "6c60655402b70306f654c3f9b30f79ff6c7c3e45",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39211182705/job/117924701294",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-19T06:39:39Z",
+            "completed_at": "2026-10-19T06:39:41Z"
+          },
+          {
+            "name": "Run actions/checkout@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-19T06:39:41Z",
+            "completed_at": "2026-10-19T06:39:42Z"
+          },
+          {
+            "name": "Run astral-sh/setup-uv@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-19T06:39:42Z",
+            "completed_at": "2026-10-19T06:39:44Z"
+          },
+          {
+            "name": "Run uv python install 3.12",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-19T06:39:44Z",
+            "completed_at": "2026-10-19T06:39:45Z"
+          },
+          {
+            "name": "Run uv sync --locked",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-19T06:39:45Z",
+            "completed_at": "2026-10-19T06:39:46Z"
+          },
+          {
+            "name": "Run uv run --locked pytest",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-19T06:39:46Z",
+            "completed_at": "2026-10-19T06:39:59Z"
+          },
+          {
+            "name": "Run uv run --locked ruff check .",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-19T06:39:59Z",
+            "completed_at": "2026-10-19T06:39:59Z"
+          },
+          {
+            "name": "Run uv run --locked ruff format --check .",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-10-19T06:39:59Z",
+            "completed_at": "2026-10-19T06:39:59Z"
+          },
+          {
+            "name": "Post Run astral-sh/setup-uv@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-19T06:39:59Z",
+            "completed_at": "2026-10-19T06:39:59Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-10-19T06:39:59Z",
+            "completed_at": "2026-10-19T06:40:00Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-10-19T06:40:00Z",
+            "completed_at": "2026-10-19T06:40:00Z"
+          }
+        ]
+      }
+    ],
+    "actual_log_results": {
+      "backend": {
+        "status": 200,
+        "job_id": 117924701294,
+        "matching_result_lines": [
+          "2026-10-19T06:39:59.1176525Z ======================= 398 passed, 1 warning in 10.94s ========================",
+          "2026-10-19T06:39:59.6186498Z 62 files already formatted"
+        ],
+        "sha256": "e7a307e75e46255095d53acb2d6570ad6505606f1bdbcc99afa25c79377f1a13"
+      },
+      "frontend": {
+        "status": 200,
+        "job_id": 117924700864,
+        "matching_result_lines": [
+          "2026-10-19T06:40:16.2277426Z  Test Files  15 passed (15)",
+          "2026-10-19T06:40:16.2295538Z       Tests  172 passed (172)",
+          "2026-10-19T06:40:31.0237882Z \u2713 built in 2.87s"
+        ],
+        "sha256": "6386a7c873503ca7c687fe7fa2d0e14909fd939f0810d45c33d1095133189489"
+      }
+    },
+    "branch_protection": {
+      "required_status_checks_api_status": 403,
+      "branch_protection_required_checks": "not_established",
+      "phase5_remote_main_sha": "6c60655402b70306f654c3f9b30f79ff6c7c3e45",
+      "safe_api_message": "Resource not accessible by integration",
+      "status": "BLOCKED",
+      "reason": "GitHub integration returned 403 for required-status-check configuration; actual workflow run/job/log access succeeded"
+    },
+    "published_standalone_audit_steps_present": false,
+    "published_migration_step_separately_named": false,
+    "published_scientific_reference_tests_in_full_pytest_suite": true
+  },
+  "phase6_ci": {
+    "remote_status": "NOT_RUN",
+    "reason": "uncommitted local workflow changes; no commit/push/dispatch/rerun authorized",
+    "new_steps": [
+      "Published SGP4 reference audit",
+      "Terrestrial transformation reference audit",
+      "Explicit schema migration and separate restore checks"
+    ],
+    "local_migration_selection": {
+      "passed": 5,
+      "deselected": 57,
+      "failed": 0
+    }
+  },
+  "verification": {
+    "backend": [
+      {
+        "command": "uv sync --locked",
+        "cwd": ".",
+        "started_at": "2026-10-19T08:07:34.543202+00:00",
+        "duration_seconds": 0.021,
+        "exit_code": 0,
+        "output": "Resolved 31 packages in 1ms\nChecked 29 packages in 0.49ms\n"
+      },
+      {
+        "command": "uv run --locked pytest -q",
+        "cwd": ".",
+        "started_at": "2026-10-19T08:07:34.564733+00:00",
+        "duration_seconds": 9.079,
+        "exit_code": 0,
+        "output": "........................................................................ [ 15%]\n........................................................................ [ 31%]\n........................................................................ [ 46%]\n........................................................................ [ 62%]\n........................................................................ [ 78%]\n........................................................................ [ 93%]\n............................                                             [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n460 passed, 1 warning in 8.46s\n"
+      },
+      {
+        "command": "uv run --locked ruff check .",
+        "cwd": ".",
+        "started_at": "2026-10-19T08:07:43.643601+00:00",
+        "duration_seconds": 0.043,
+        "exit_code": 0,
+        "output": "All checks passed!\n"
+      },
+      {
+        "command": "uv run --locked ruff format --check .",
+        "cwd": ".",
+        "started_at": "2026-10-19T08:07:43.686572+00:00",
+        "duration_seconds": 0.038,
+        "exit_code": 0,
+        "output": "68 files already formatted\n"
+      },
+      {
+        "command": "uv run --locked pytest -q backend/tests/test_phase6_collection.py -k migration or restore or backup",
+        "cwd": ".",
+        "started_at": "2026-10-19T08:07:43.724575+00:00",
+        "duration_seconds": 2.129,
+        "exit_code": 0,
+        "output": ".....                                                                    [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n5 passed, 57 deselected, 1 warning in 1.48s\n"
+      },
+      {
+        "command": "uv run --locked python scripts/verify_scientific_references.py --output /tmp/orbitiq-phase6/sgp4.json",
+        "cwd": ".",
+        "started_at": "2026-10-19T08:07:45.853515+00:00",
+        "duration_seconds": 0.274,
+        "exit_code": 0,
+        "output": "Reference audit: 40 passed, 0 failed\n"
+      },
+      {
+        "command": "uv run --locked python scripts/verify_earth_fixed_references.py --output /tmp/orbitiq-phase6/earth-fixed.json",
+        "cwd": ".",
+        "started_at": "2026-10-19T08:07:46.127737+00:00",
+        "duration_seconds": 1.235,
+        "exit_code": 0,
+        "output": "6 reference cases passed; 0 failed\n"
+      }
+    ],
+    "frontend": {
+      "tests": {
+        "command": "npm test",
+        "cwd": "frontend",
+        "exit_code": 0,
+        "passed": 180,
+        "failed": 0,
+        "test_files_passed": 15,
+        "started_at_utc": "2026-10-19T08:03:53+00:00",
+        "duration_seconds": 20.59,
+        "evidence_source": "actual Vitest execution output observed during this task",
+        "output_excerpt": "Test Files 15 passed (15)\nTests 180 passed (180)\nDuration 20.59s"
+      },
+      "lint": {
+        "command": "npm run lint",
+        "cwd": "frontend",
+        "exit_code": 0,
+        "evidence_source": "actual ESLint command completed before subsequent formatting check"
+      },
+      "format": {
+        "command": "npm run format:check",
+        "cwd": "frontend",
+        "exit_code": 0,
+        "output_excerpt": "All matched files use Prettier code style!",
+        "earlier_failed_check_corrected": "new scientific-api.test.ts formatted; final check and build passed"
+      },
+      "build": {
+        "command": "npm run build",
+        "cwd": "frontend",
+        "exit_code": 0,
+        "typecheck": "tsc --noEmit",
+        "bundler": "Vite 7.3.7",
+        "output_excerpt": "50 modules transformed; built in 3.06s",
+        "warnings": [
+          "lazy globe renderer 558.60 kB exceeds 500 kB chunk warning threshold"
+        ]
+      }
+    },
+    "scientific_references": {
+      "sgp4.json": {
+        "artifact_sha256": "8ed63194c9f555282cdf4894e77b30e84e4309e8d5dc3665858ffb6f6b737670",
+        "results": {
+          "reference": "Vallado AIAA 2006-6753; SGP4-VER.TLE/tcppver.out",
+          "source_url": "https://celestrak.org/publications/AIAA/2006-6753/",
+          "sgp4_version": "2.27",
+          "frame": "TEME",
+          "origin": "Earth center",
+          "position_unit": "km",
+          "velocity_unit": "km/s",
+          "time_system": "UTC",
+          "absolute_tolerances": {
+            "position_km": 1e-05,
+            "velocity_km_s": 1e-08
+          },
+          "relative_tolerance": 0,
+          "inputs": {
+            "vallado.json:5": {
+              "fixture": "backend/tests/fixtures/vallado.json",
+              "fixture_sha256": "2af169d40c5f55a1780137ab974374a402f6906b0cacd9eeb9d708358dd3b5d5",
+              "tle": [
+                "1 00005U 58002B   00179.78495062  .00000023  00000-0  28098-4 0  4753",
+                "2 00005  34.2682 348.7242 1859667 331.7664  19.3264 10.82419157413667"
+              ],
+              "omm": {
+                "OBJECT_NAME": "VERIFICATION FIXTURE 5",
+                "OBJECT_ID": "1958-002B",
+                "CENTER_NAME": "EARTH",
+                "REF_FRAME": "TEME",
+                "TIME_SYSTEM": "UTC",
+                "MEAN_ELEMENT_THEORY": "SGP4",
+                "EPOCH": "2000-06-27T18:50:19.733568",
+                "MEAN_MOTION": 10.82419157,
+                "ECCENTRICITY": 0.1859667,
+                "INCLINATION": 34.2682,
+                "RA_OF_ASC_NODE": 348.7242,
+                "ARG_OF_PERICENTER": 331.7664,
+                "MEAN_ANOMALY": 19.3264,
+                "EPHEMERIS_TYPE": 0,
+                "CLASSIFICATION_TYPE": "U",
+                "NORAD_CAT_ID": 5,
+                "ELEMENT_SET_NO": 475,
+                "REV_AT_EPOCH": 41366,
+                "BSTAR": 2.8098e-05,
+                "MEAN_MOTION_DOT": 2.2999999999999997e-07,
+                "MEAN_MOTION_DDOT": 0.0
+              },
+              "reference_epoch_utc": "2000-06-27T18:50:19.733568+00:00"
+            },
+            "vallado.json:4632": {
+              "fixture": "backend/tests/fixtures/vallado.json",
+              "fixture_sha256": "2af169d40c5f55a1780137ab974374a402f6906b0cacd9eeb9d708358dd3b5d5",
+              "tle": [
+                "1 04632U 70093B   04031.91070959 -.00000084  00000-0  10000-3 0  9955",
+                "2 04632  11.4628 273.1101 1450506 207.6000 143.9350  1.20231981 44145"
+              ],
+              "omm": {
+                "OBJECT_NAME": "VERIFICATION FIXTURE 4632",
+                "OBJECT_ID": "1970-093B",
+                "CENTER_NAME": "EARTH",
+                "REF_FRAME": "TEME",
+                "TIME_SYSTEM": "UTC",
+                "MEAN_ELEMENT_THEORY": "SGP4",
+                "EPOCH": "2004-01-31T21:51:25.308575",
+                "MEAN_MOTION": 1.20231981,
+                "ECCENTRICITY": 0.1450506,
+                "INCLINATION": 11.4628,
+                "RA_OF_ASC_NODE": 273.1101,
+                "ARG_OF_PERICENTER": 207.6,
+                "MEAN_ANOMALY": 143.935,
+                "EPHEMERIS_TYPE": 0,
+                "CLASSIFICATION_TYPE": "U",
+                "NORAD_CAT_ID": 4632,
+                "ELEMENT_SET_NO": 995,
+                "REV_AT_EPOCH": 4414,
+                "BSTAR": 0.0001,
+                "MEAN_MOTION_DOT": -8.4e-07,
+                "MEAN_MOTION_DDOT": 0.0
+              },
+              "reference_epoch_utc": "2004-01-31T21:51:25.308575+00:00"
+            },
+            "vallado.json:8195": {
+              "fixture": "backend/tests/fixtures/vallado.json",
+              "fixture_sha256": "2af169d40c5f55a1780137ab974374a402f6906b0cacd9eeb9d708358dd3b5d5",
+              "tle": [
+                "1 08195U 75081A   06176.33215444  .00000099  00000-0  11873-3 0   813",
+                "2 08195  64.1586 279.0717 6877146 264.7651  20.2257  2.00491383225656"
+              ],
+              "omm": {
+                "OBJECT_NAME": "VERIFICATION FIXTURE 8195",
+                "OBJECT_ID": "1975-081A",
+                "CENTER_NAME": "EARTH",
+                "REF_FRAME": "TEME",
+                "TIME_SYSTEM": "UTC",
+                "MEAN_ELEMENT_THEORY": "SGP4",
+                "EPOCH": "2006-06-25T07:58:18.143616",
+                "MEAN_MOTION": 2.00491383,
+                "ECCENTRICITY": 0.6877146,
+                "INCLINATION": 64.1586,
+                "RA_OF_ASC_NODE": 279.0717,
+                "ARG_OF_PERICENTER": 264.7651,
+                "MEAN_ANOMALY": 20.2257,
+                "EPHEMERIS_TYPE": 0,
+                "CLASSIFICATION_TYPE": "U",
+                "NORAD_CAT_ID": 8195,
+                "ELEMENT_SET_NO": 81,
+                "REV_AT_EPOCH": 22565,
+                "BSTAR": 0.00011873000000000001,
+                "MEAN_MOTION_DOT": 9.9e-07,
+                "MEAN_MOTION_DDOT": 0.0
+              },
+              "reference_epoch_utc": "2006-06-25T07:58:18.143616+00:00"
+            },
+            "vallado.json:14128": {
+              "fixture": "backend/tests/fixtures/vallado.json",
+              "fixture_sha256": "2af169d40c5f55a1780137ab974374a402f6906b0cacd9eeb9d708358dd3b5d5",
+              "tle": [
+                "1 14128U 83058A   06176.02844893 -.00000158  00000-0  10000-3 0  9627",
+                "2 14128  11.4384  35.2134 0011562  26.4582 333.5652  0.98870114 46093"
+              ],
+              "omm": {
+                "OBJECT_NAME": "VERIFICATION FIXTURE 14128",
+                "OBJECT_ID": "1983-058A",
+                "CENTER_NAME": "EARTH",
+                "REF_FRAME": "TEME",
+                "TIME_SYSTEM": "UTC",
+                "MEAN_ELEMENT_THEORY": "SGP4",
+                "EPOCH": "2006-06-25T00:40:57.987552",
+                "MEAN_MOTION": 0.9887011399999999,
+                "ECCENTRICITY": 0.0011562,
+                "INCLINATION": 11.4384,
+                "RA_OF_ASC_NODE": 35.2134,
+                "ARG_OF_PERICENTER": 26.4582,
+                "MEAN_ANOMALY": 333.5652,
+                "EPHEMERIS_TYPE": 0,
+                "CLASSIFICATION_TYPE": "U",
+                "NORAD_CAT_ID": 14128,
+                "ELEMENT_SET_NO": 962,
+                "REV_AT_EPOCH": 4609,
+                "BSTAR": 0.0001,
+                "MEAN_MOTION_DOT": -1.58e-06,
+                "MEAN_MOTION_DDOT": 0.0
+              },
+              "reference_epoch_utc": "2006-06-25T00:40:57.987552+00:00"
+            },
+            "vallado-leo.json:6251": {
+              "fixture": "backend/tests/fixtures/vallado-leo.json",
+              "fixture_sha256": "b55844b5720d329eb958264afa1d5a54deb55e42e031188078d5a300a31b6242",
+              "tle": [
+                "1 06251U 62025E   06176.82412014  .00008885  00000-0  12808-3 0  3985",
+                "2 06251  58.0579  54.0425 0030035 139.1568 221.1854 15.56387291  6774"
+              ],
+              "omm": {
+                "OBJECT_NAME": "VERIFICATION FIXTURE 6251",
+                "OBJECT_ID": "1962-025E",
+                "CENTER_NAME": "EARTH",
+                "REF_FRAME": "TEME",
+                "TIME_SYSTEM": "UTC",
+                "MEAN_ELEMENT_THEORY": "SGP4",
+                "EPOCH": "2006-06-25T19:46:43.980096",
+                "MEAN_MOTION": 15.563872910000002,
+                "ECCENTRICITY": 0.0030035,
+                "INCLINATION": 58.05789999999999,
+                "RA_OF_ASC_NODE": 54.0425,
+                "ARG_OF_PERICENTER": 139.1568,
+                "MEAN_ANOMALY": 221.1854,
+                "EPHEMERIS_TYPE": 0,
+                "CLASSIFICATION_TYPE": "U",
+                "NORAD_CAT_ID": 6251,
+                "ELEMENT_SET_NO": 398,
+                "REV_AT_EPOCH": 677,
+                "BSTAR": 0.00012808,
+                "MEAN_MOTION_DOT": 8.885e-05,
+                "MEAN_MOTION_DDOT": 0.0
+              },
+              "reference_epoch_utc": "2006-06-25T19:46:43.980096+00:00"
+            },
+            "vallado-leo.json:28057": {
+              "fixture": "backend/tests/fixtures/vallado-leo.json",
+              "fixture_sha256": "b55844b5720d329eb958264afa1d5a54deb55e42e031188078d5a300a31b6242",
+              "tle": [
+                "1 28057U 03049A   06177.78615833  .00000060  00000-0  35940-4 0  1836",
+                "2 28057  98.4283 247.6961 0000884  88.1964 271.9322 14.35478080140550"
+              ],
+              "omm": {
+                "OBJECT_NAME": "VERIFICATION FIXTURE 28057",
+                "OBJECT_ID": "2003-049A",
+                "CENTER_NAME": "EARTH",
+                "REF_FRAME": "TEME",
+                "TIME_SYSTEM": "UTC",
+                "MEAN_ELEMENT_THEORY": "SGP4",
+                "EPOCH": "2006-06-26T18:52:04.079711",
+                "MEAN_MOTION": 14.3547808,
+                "ECCENTRICITY": 8.84e-05,
+                "INCLINATION": 98.4283,
+                "RA_OF_ASC_NODE": 247.6961,
+                "ARG_OF_PERICENTER": 88.1964,
+                "MEAN_ANOMALY": 271.9322,
+                "EPHEMERIS_TYPE": 0,
+                "CLASSIFICATION_TYPE": "U",
+                "NORAD_CAT_ID": 28057,
+                "ELEMENT_SET_NO": 183,
+                "REV_AT_EPOCH": 14055,
+                "BSTAR": 3.594e-05,
+                "MEAN_MOTION_DOT": 6e-07,
+                "MEAN_MOTION_DDOT": 0.0
+              },
+              "reference_epoch_utc": "2006-06-26T18:52:04.079711+00:00"
+            }
+          },
+          "comparisons": [
+            {
+              "input_ref": "vallado.json:5",
+              "input_format": "tle",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2000-06-27T18:50:19.733568+00:00",
+              "expected": {
+                "position_km": [
+                  7022.46529266,
+                  -1400.08296755,
+                  0.03995155
+                ],
+                "velocity_km_s": [
+                  1.893841015,
+                  6.405893759,
+                  4.53480725
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  7022.465292664048,
+                  -1400.082967553613,
+                  0.0399515541243295
+                ],
+                "velocity_km_s": [
+                  1.8938410145130202,
+                  6.40589375920983,
+                  4.5348072503547385
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.048160917591304e-09,
+                  3.6129677027929574e-09,
+                  4.1243294959802945e-09
+                ],
+                "velocity_km_s": [
+                  4.869797898265915e-10,
+                  2.0983037529731519e-10,
+                  3.5473846082823e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:5",
+              "input_format": "omm",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2000-06-27T18:50:19.733568+00:00",
+              "expected": {
+                "position_km": [
+                  7022.46529266,
+                  -1400.08296755,
+                  0.03995155
+                ],
+                "velocity_km_s": [
+                  1.893841015,
+                  6.405893759,
+                  4.53480725
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  7022.465292664048,
+                  -1400.082967553613,
+                  0.0399515541243295
+                ],
+                "velocity_km_s": [
+                  1.8938410145130202,
+                  6.40589375920983,
+                  4.5348072503547385
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.048160917591304e-09,
+                  3.6129677027929574e-09,
+                  4.1243294959802945e-09
+                ],
+                "velocity_km_s": [
+                  4.869797898265915e-10,
+                  2.0983037529731519e-10,
+                  3.5473846082823e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:5",
+              "input_format": "tle",
+              "offset_minutes": 360.0,
+              "requested_time_utc": "2000-06-28T00:50:19.733568+00:00",
+              "expected": {
+                "position_km": [
+                  -7154.03120202,
+                  -3783.17682504,
+                  -3536.19412294
+                ],
+                "velocity_km_s": [
+                  4.741887409,
+                  -4.151817765,
+                  -2.093935425
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -7154.031202015707,
+                  -3783.176825036568,
+                  -3536.1941229422155
+                ],
+                "velocity_km_s": [
+                  4.741887408996156,
+                  -4.151817765373694,
+                  -2.0939354249073663
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.292814992368221e-09,
+                  3.4319782571401447e-09,
+                  2.215529093518853e-09
+                ],
+                "velocity_km_s": [
+                  3.844036200462142e-12,
+                  3.736939646614701e-10,
+                  9.263390055025411e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:5",
+              "input_format": "omm",
+              "offset_minutes": 360.0,
+              "requested_time_utc": "2000-06-28T00:50:19.733568+00:00",
+              "expected": {
+                "position_km": [
+                  -7154.03120202,
+                  -3783.17682504,
+                  -3536.19412294
+                ],
+                "velocity_km_s": [
+                  4.741887409,
+                  -4.151817765,
+                  -2.093935425
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -7154.031202015707,
+                  -3783.176825036568,
+                  -3536.1941229422155
+                ],
+                "velocity_km_s": [
+                  4.741887408996156,
+                  -4.151817765373694,
+                  -2.0939354249073663
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.292814992368221e-09,
+                  3.4319782571401447e-09,
+                  2.215529093518853e-09
+                ],
+                "velocity_km_s": [
+                  3.844036200462142e-12,
+                  3.736939646614701e-10,
+                  9.263390055025411e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:5",
+              "input_format": "tle",
+              "offset_minutes": 720.0,
+              "requested_time_utc": "2000-06-28T06:50:19.733568+00:00",
+              "expected": {
+                "position_km": [
+                  -7134.59340119,
+                  6531.68641334,
+                  3260.27186483
+                ],
+                "velocity_km_s": [
+                  -4.113793027,
+                  -2.911922039,
+                  -2.557327851
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -7134.593401193215,
+                  6531.686413336448,
+                  3260.271864825572
+                ],
+                "velocity_km_s": [
+                  -4.113793027161286,
+                  -2.9119220386229627,
+                  -2.5573278509305486
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  3.2150637707673013e-09,
+                  3.5524863051250577e-09,
+                  4.428329702932388e-09
+                ],
+                "velocity_km_s": [
+                  1.6128609559018514e-10,
+                  3.7703706823322136e-10,
+                  6.945155561766114e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:5",
+              "input_format": "omm",
+              "offset_minutes": 720.0,
+              "requested_time_utc": "2000-06-28T06:50:19.733568+00:00",
+              "expected": {
+                "position_km": [
+                  -7134.59340119,
+                  6531.68641334,
+                  3260.27186483
+                ],
+                "velocity_km_s": [
+                  -4.113793027,
+                  -2.911922039,
+                  -2.557327851
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -7134.593401193215,
+                  6531.686413336448,
+                  3260.271864825572
+                ],
+                "velocity_km_s": [
+                  -4.113793027161286,
+                  -2.9119220386229627,
+                  -2.5573278509305486
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  3.2150637707673013e-09,
+                  3.5524863051250577e-09,
+                  4.428329702932388e-09
+                ],
+                "velocity_km_s": [
+                  1.6128609559018514e-10,
+                  3.7703706823322136e-10,
+                  6.945155561766114e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:4632",
+              "input_format": "tle",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2004-01-31T21:51:25.308575+00:00",
+              "expected": {
+                "position_km": [
+                  2334.11450085,
+                  -41920.44035349,
+                  -0.03867437
+                ],
+                "velocity_km_s": [
+                  2.826321032,
+                  -0.065091664,
+                  0.570936053
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  2334.114498021925,
+                  -41920.44035342538,
+                  -0.038674944556442055
+                ],
+                "velocity_km_s": [
+                  2.826321032022264,
+                  -0.06509166422251011,
+                  0.5709360530548587
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.828074684657622e-06,
+                  6.4617779571563e-08,
+                  5.745564420553406e-07
+                ],
+                "velocity_km_s": [
+                  2.226396844662304e-11,
+                  2.2251012143925664e-10,
+                  5.485867315968562e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:4632",
+              "input_format": "omm",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2004-01-31T21:51:25.308575+00:00",
+              "expected": {
+                "position_km": [
+                  2334.11450085,
+                  -41920.44035349,
+                  -0.03867437
+                ],
+                "velocity_km_s": [
+                  2.826321032,
+                  -0.065091664,
+                  0.570936053
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  2334.1145007118485,
+                  -41920.44035348723,
+                  -0.0386744010063076
+                ],
+                "velocity_km_s": [
+                  2.826321032010307,
+                  -0.06509166400760423,
+                  0.5709360530548692
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.3815133570460603e-07,
+                  2.764863893389702e-09,
+                  3.100630759783618e-08
+                ],
+                "velocity_km_s": [
+                  1.0306866471410103e-11,
+                  7.604236684777277e-12,
+                  5.48691092561171e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:4632",
+              "input_format": "tle",
+              "offset_minutes": -5184.0,
+              "requested_time_utc": "2004-01-28T07:27:25.308575+00:00",
+              "expected": {
+                "position_km": [
+                  -29020.02587128,
+                  13819.84419063,
+                  -5713.33679183
+                ],
+                "velocity_km_s": [
+                  -1.76806839,
+                  -3.235371192,
+                  -0.395206135
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -29020.02586950816,
+                  13819.84419386849,
+                  -5713.336791431634
+                ],
+                "velocity_km_s": [
+                  -1.7680683903222856,
+                  -3.235371191854886,
+                  -0.39520613556271905
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.7718375602271408e-06,
+                  3.2384905352955684e-06,
+                  3.9836595533415675e-07
+                ],
+                "velocity_km_s": [
+                  3.2228553159541207e-10,
+                  1.4511414292428526e-10,
+                  5.62719038033066e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:4632",
+              "input_format": "omm",
+              "offset_minutes": -5184.0,
+              "requested_time_utc": "2004-01-28T07:27:25.308575+00:00",
+              "expected": {
+                "position_km": [
+                  -29020.02587128,
+                  13819.84419063,
+                  -5713.33679183
+                ],
+                "velocity_km_s": [
+                  -1.76806839,
+                  -3.235371192,
+                  -0.395206135
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -29020.025871191174,
+                  13819.844190788603,
+                  -5713.336791807731
+                ],
+                "velocity_km_s": [
+                  -1.7680683900058063,
+                  -3.235371192005612,
+                  -0.3952061355003977
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  8.882489055395126e-08,
+                  1.5860314306337386e-07,
+                  2.2268977772910148e-08
+                ],
+                "velocity_km_s": [
+                  5.806244374184644e-12,
+                  5.611955344875241e-12,
+                  5.00397667746455e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:4632",
+              "input_format": "tle",
+              "offset_minutes": -5064.0,
+              "requested_time_utc": "2004-01-28T09:27:25.308575+00:00",
+              "expected": {
+                "position_km": [
+                  -32982.56870101,
+                  -11125.54996609,
+                  -6803.28472771
+                ],
+                "velocity_km_s": [
+                  0.617446996,
+                  -3.379240041,
+                  0.085954707
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -32982.568701630116,
+                  -11125.549962709127,
+                  -6803.284727800957
+                ],
+                "velocity_km_s": [
+                  0.6174469953184134,
+                  -3.3792400407006413,
+                  0.08595470659797665
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  6.20115315541625e-07,
+                  3.380873749847524e-06,
+                  9.095674613490701e-08
+                ],
+                "velocity_km_s": [
+                  6.815865649656416e-10,
+                  2.993587600030878e-10,
+                  4.020233590473765e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:4632",
+              "input_format": "omm",
+              "offset_minutes": -5064.0,
+              "requested_time_utc": "2004-01-28T09:27:25.308575+00:00",
+              "expected": {
+                "position_km": [
+                  -32982.56870101,
+                  -11125.54996609,
+                  -6803.28472771
+                ],
+                "velocity_km_s": [
+                  0.617446996,
+                  -3.379240041,
+                  0.085954707
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -32982.56870104224,
+                  -11125.549965925982,
+                  -6803.284727718987
+                ],
+                "velocity_km_s": [
+                  0.6174469955989454,
+                  -3.379240040606027,
+                  0.08595470665584823
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  3.223976818844676e-08,
+                  1.6401827451772988e-07,
+                  8.986717148218304e-09
+                ],
+                "velocity_km_s": [
+                  4.0105452292493737e-10,
+                  3.939732984292732e-10,
+                  3.4415177652125095e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:8195",
+              "input_format": "tle",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-25T07:58:18.143616+00:00",
+              "expected": {
+                "position_km": [
+                  2349.8948335,
+                  -14785.93811562,
+                  0.02119378
+                ],
+                "velocity_km_s": [
+                  2.721488096,
+                  -3.256811655,
+                  4.498416672
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  2349.8948335005193,
+                  -14785.938115615325,
+                  0.021193784148377418
+                ],
+                "velocity_km_s": [
+                  2.7214880955588243,
+                  -3.256811654658782,
+                  4.498416672371417
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  5.19321474712342e-10,
+                  4.674802767112851e-09,
+                  4.148377419355143e-09
+                ],
+                "velocity_km_s": [
+                  4.4117554054423636e-10,
+                  3.41217720745135e-10,
+                  3.7141667519335897e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:8195",
+              "input_format": "omm",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-25T07:58:18.143616+00:00",
+              "expected": {
+                "position_km": [
+                  2349.8948335,
+                  -14785.93811562,
+                  0.02119378
+                ],
+                "velocity_km_s": [
+                  2.721488096,
+                  -3.256811655,
+                  4.498416672
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  2349.8948338055875,
+                  -14785.938115980283,
+                  0.02119428910178139
+                ],
+                "velocity_km_s": [
+                  2.721488095527509,
+                  -3.25681165446178,
+                  4.498416672371542
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  3.0558749131159857e-07,
+                  3.602835931815207e-07,
+                  5.091017813915744e-07
+                ],
+                "velocity_km_s": [
+                  4.724909352660234e-10,
+                  5.382201351267213e-10,
+                  3.715419083505367e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:8195",
+              "input_format": "tle",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-25T09:58:18.143616+00:00",
+              "expected": {
+                "position_km": [
+                  15223.91713658,
+                  -17852.95881713,
+                  25280.39558224
+                ],
+                "velocity_km_s": [
+                  1.079041732,
+                  0.875187372,
+                  2.485682813
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  15223.917136582066,
+                  -17852.958817127143,
+                  25280.395582242345
+                ],
+                "velocity_km_s": [
+                  1.0790417322899617,
+                  0.8751873723850004,
+                  2.485682812742267
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.066371962428093e-09,
+                  2.8558133635669947e-09,
+                  2.346496330574155e-09
+                ],
+                "velocity_km_s": [
+                  2.8996161027805556e-10,
+                  3.850004759442527e-10,
+                  2.577329460962119e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:8195",
+              "input_format": "omm",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-25T09:58:18.143616+00:00",
+              "expected": {
+                "position_km": [
+                  15223.91713658,
+                  -17852.95881713,
+                  25280.39558224
+                ],
+                "velocity_km_s": [
+                  1.079041732,
+                  0.875187372,
+                  2.485682813
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  15223.917136702836,
+                  -17852.958817028553,
+                  25280.39558252171
+                ],
+                "velocity_km_s": [
+                  1.0790417322733923,
+                  0.8751873724044524,
+                  2.485682812714702
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.228363544214517e-07,
+                  1.0144503903575242e-07,
+                  2.817105269059539e-07
+                ],
+                "velocity_km_s": [
+                  2.7339219776933987e-10,
+                  4.0445247151410513e-10,
+                  2.8529800744081513e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:8195",
+              "input_format": "tle",
+              "offset_minutes": 240.0,
+              "requested_time_utc": "2006-06-25T11:58:18.143616+00:00",
+              "expected": {
+                "position_km": [
+                  19752.78050009,
+                  -8600.07130962,
+                  37522.7292109
+                ],
+                "velocity_km_s": [
+                  0.238105279,
+                  1.546110924,
+                  0.986410447
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  19752.78050009239,
+                  -8600.07130961824,
+                  37522.72921089797
+                ],
+                "velocity_km_s": [
+                  0.23810527852474422,
+                  1.5461109241453743,
+                  0.9864104468113838
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.3901520762592554e-09,
+                  1.7589627532288432e-09,
+                  2.029992174357176e-09
+                ],
+                "velocity_km_s": [
+                  4.752557791753986e-10,
+                  1.453743792012574e-10,
+                  1.886162337427777e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:8195",
+              "input_format": "omm",
+              "offset_minutes": 240.0,
+              "requested_time_utc": "2006-06-25T11:58:18.143616+00:00",
+              "expected": {
+                "position_km": [
+                  19752.78050009,
+                  -8600.07130962,
+                  37522.7292109
+                ],
+                "velocity_km_s": [
+                  0.238105279,
+                  1.546110924,
+                  0.986410447
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  19752.780500119003,
+                  -8600.071309444489,
+                  37522.72921100898
+                ],
+                "velocity_km_s": [
+                  0.23810527851388025,
+                  1.5461109241500968,
+                  0.986410446790654
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.9001967050135136e-08,
+                  1.755106495693326e-07,
+                  1.0897929314523935e-07
+                ],
+                "velocity_km_s": [
+                  4.861197555605656e-10,
+                  1.5009682385880296e-10,
+                  2.0934598499167123e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:14128",
+              "input_format": "tle",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-25T00:40:57.987552+00:00",
+              "expected": {
+                "position_km": [
+                  34747.57932696,
+                  24502.37114079,
+                  -1.32832986
+                ],
+                "velocity_km_s": [
+                  -1.731642662,
+                  2.452772615,
+                  0.608510081
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  34747.57932696245,
+                  24502.371140788688,
+                  -1.3283298584398513
+                ],
+                "velocity_km_s": [
+                  -1.7316426619069176,
+                  2.452772615436074,
+                  0.6085100806921905
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.444721758365631e-09,
+                  1.3133103493601084e-09,
+                  1.5601486769156736e-09
+                ],
+                "velocity_km_s": [
+                  9.308243065220267e-11,
+                  4.3607384370147884e-10,
+                  3.078095556219296e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:14128",
+              "input_format": "omm",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-25T00:40:57.987552+00:00",
+              "expected": {
+                "position_km": [
+                  34747.57932696,
+                  24502.37114079,
+                  -1.32832986
+                ],
+                "velocity_km_s": [
+                  -1.731642662,
+                  2.452772615,
+                  0.608510081
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  34747.579326962456,
+                  24502.371140788688,
+                  -1.3283298584239018
+                ],
+                "velocity_km_s": [
+                  -1.7316426619069178,
+                  2.452772615436074,
+                  0.6085100806921903
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.4519977159798145e-09,
+                  1.3133103493601084e-09,
+                  1.5760981408874386e-09
+                ],
+                "velocity_km_s": [
+                  9.308220860759775e-11,
+                  4.3607384370147884e-10,
+                  3.078097776665345e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:14128",
+              "input_format": "tle",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-25T02:40:57.987552+00:00",
+              "expected": {
+                "position_km": [
+                  18263.33439094,
+                  38159.96004751,
+                  4186.18304085
+                ],
+                "velocity_km_s": [
+                  -2.744396611,
+                  1.25558326,
+                  0.528558932
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  18263.334390938286,
+                  38159.96004751461,
+                  4186.1830408539145
+                ],
+                "velocity_km_s": [
+                  -2.7443966112441536,
+                  1.2555832603978636,
+                  0.5285589317647994
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.7134880181401968e-09,
+                  4.605681169778109e-09,
+                  3.914465196430683e-09
+                ],
+                "velocity_km_s": [
+                  2.441535862374167e-10,
+                  3.9786351990755975e-10,
+                  2.3520063674453695e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:14128",
+              "input_format": "omm",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-25T02:40:57.987552+00:00",
+              "expected": {
+                "position_km": [
+                  18263.33439094,
+                  38159.96004751,
+                  4186.18304085
+                ],
+                "velocity_km_s": [
+                  -2.744396611,
+                  1.25558326,
+                  0.528558932
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  18263.334390938297,
+                  38159.96004751461,
+                  4186.1830408539245
+                ],
+                "velocity_km_s": [
+                  -2.744396611244154,
+                  1.2555832603978647,
+                  0.5285589317647988
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.7025740817189217e-09,
+                  4.605681169778109e-09,
+                  3.924469638150185e-09
+                ],
+                "velocity_km_s": [
+                  2.441540303266265e-10,
+                  3.9786463013058437e-10,
+                  2.3520119185604926e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:14128",
+              "input_format": "tle",
+              "offset_minutes": 240.0,
+              "requested_time_utc": "2006-06-25T04:40:57.987552+00:00",
+              "expected": {
+                "position_km": [
+                  -3023.38840703,
+                  41783.13186459,
+                  7273.03412906
+                ],
+                "velocity_km_s": [
+                  -3.035574793,
+                  -0.271656544,
+                  0.309645251
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -3023.388407034285,
+                  41783.1318645949,
+                  7273.034129057532
+                ],
+                "velocity_km_s": [
+                  -3.0355747927351477,
+                  -0.27165654384893717,
+                  0.3096452507184417
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.285084287403151e-09,
+                  4.896719474345446e-09,
+                  2.4683686206117272e-09
+                ],
+                "velocity_km_s": [
+                  2.6485214021931824e-10,
+                  1.510628289125293e-10,
+                  2.8155833220466775e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado.json:14128",
+              "input_format": "omm",
+              "offset_minutes": 240.0,
+              "requested_time_utc": "2006-06-25T04:40:57.987552+00:00",
+              "expected": {
+                "position_km": [
+                  -3023.38840703,
+                  41783.13186459,
+                  7273.03412906
+                ],
+                "velocity_km_s": [
+                  -3.035574793,
+                  -0.271656544,
+                  0.309645251
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -3023.3884070342665,
+                  41783.1318645949,
+                  7273.034129057534
+                ],
+                "velocity_km_s": [
+                  -3.0355747927351486,
+                  -0.27165654384893545,
+                  0.3096452507184408
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.266439646016806e-09,
+                  4.896719474345446e-09,
+                  2.4656401365064085e-09
+                ],
+                "velocity_km_s": [
+                  2.6485125204089854e-10,
+                  1.5106454975821748e-10,
+                  2.8155922038308745e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "tle",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-25T19:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  3988.31022699,
+                  5498.96657235,
+                  0.90055879
+                ],
+                "velocity_km_s": [
+                  -3.290032738,
+                  2.35765282,
+                  6.496623475
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  3988.3102269938663,
+                  5498.966572352187,
+                  0.9005587865923731
+                ],
+                "velocity_km_s": [
+                  -3.290032737938881,
+                  2.3576528196347417,
+                  6.496623474956849
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  3.866261977236718e-09,
+                  2.1864252630621195e-09,
+                  3.407626958384924e-09
+                ],
+                "velocity_km_s": [
+                  6.111866568403457e-11,
+                  3.6525849012036815e-10,
+                  4.3150372164291184e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "omm",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-25T19:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  3988.31022699,
+                  5498.96657235,
+                  0.90055879
+                ],
+                "velocity_km_s": [
+                  -3.290032738,
+                  2.35765282,
+                  6.496623475
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  3988.3102274113908,
+                  5498.966572052988,
+                  0.9005579621277242
+                ],
+                "velocity_km_s": [
+                  -3.2900327372943483,
+                  2.3576528205234055,
+                  6.496623474956995
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.213907232042402e-07,
+                  2.9701186576858163e-07,
+                  8.278722758436885e-07
+                ],
+                "velocity_km_s": [
+                  7.056515372028116e-10,
+                  5.234053190861232e-10,
+                  4.3004710903460364e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "tle",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-25T21:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  -3935.69800083,
+                  409.10980837,
+                  5471.33577327
+                ],
+                "velocity_km_s": [
+                  -3.374784183,
+                  -6.635211043,
+                  -1.942056221
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -3935.6980008338264,
+                  409.10980836546344,
+                  5471.335773274214
+                ],
+                "velocity_km_s": [
+                  -3.3747841826433125,
+                  -6.635211043490348,
+                  -1.9420562212599697
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  3.826244210358709e-09,
+                  4.536559572443366e-09,
+                  4.2145984480157495e-09
+                ],
+                "velocity_km_s": [
+                  3.5668756837026194e-10,
+                  4.903482064833042e-10,
+                  2.5996960140162173e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "omm",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-25T21:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  -3935.69800083,
+                  409.10980837,
+                  5471.33577327
+                ],
+                "velocity_km_s": [
+                  -3.374784183,
+                  -6.635211043,
+                  -1.942056221
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -3935.6980004055436,
+                  409.1098092075201,
+                  5471.335773520672
+                ],
+                "velocity_km_s": [
+                  -3.3747841832878906,
+                  -6.635211043423342,
+                  -1.942056220361304
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.2445662984391674e-07,
+                  8.375200764021429e-07,
+                  2.5067220121854916e-07
+                ],
+                "velocity_km_s": [
+                  2.878906002479198e-10,
+                  4.233422501442874e-10,
+                  6.386959849891127e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "tle",
+              "offset_minutes": 1440.0,
+              "requested_time_utc": "2006-06-26T19:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  -2777.14682335,
+                  -5663.16031708,
+                  -2462.54889123
+                ],
+                "velocity_km_s": [
+                  4.915493146,
+                  0.123328992,
+                  -5.896495091
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -2777.146823354639,
+                  -5663.16031707687,
+                  -2462.5488912323144
+                ],
+                "velocity_km_s": [
+                  4.915493146038544,
+                  0.12332899209052428,
+                  -5.8964950907015
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  4.6388777263928205e-09,
+                  3.129571268800646e-09,
+                  2.314209268661216e-09
+                ],
+                "velocity_km_s": [
+                  3.8543390701306635e-11,
+                  9.0524282514437e-11,
+                  2.984998914712378e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "omm",
+              "offset_minutes": 1440.0,
+              "requested_time_utc": "2006-06-26T19:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  -2777.14682335,
+                  -5663.16031708,
+                  -2462.54889123
+                ],
+                "velocity_km_s": [
+                  4.915493146,
+                  0.123328992,
+                  -5.896495091
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -2777.146823978395,
+                  -5663.160317092521,
+                  -2462.548890484076
+                ],
+                "velocity_km_s": [
+                  4.915493145585839,
+                  0.1233289911673714,
+                  -5.896495091104075
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  6.283949005592149e-07,
+                  1.2521013559307903e-08,
+                  7.459243533958215e-07
+                ],
+                "velocity_km_s": [
+                  4.141611498198472e-10,
+                  8.326286049520348e-10,
+                  1.0407497086362127e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "tle",
+              "offset_minutes": 2880.0,
+              "requested_time_utc": "2006-06-27T19:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  1159.27802897,
+                  5056.60175495,
+                  4353.49418579
+                ],
+                "velocity_km_s": [
+                  -5.968060341,
+                  -2.314790406,
+                  4.230722669
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  1159.2780289715447,
+                  5056.601754953892,
+                  4353.494185788894
+                ],
+                "velocity_km_s": [
+                  -5.968060340911224,
+                  -2.3147904058676363,
+                  4.230722669089957
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.5447767509613186e-09,
+                  3.89172782888636e-09,
+                  1.1059455573558807e-09
+                ],
+                "velocity_km_s": [
+                  8.877609758428662e-11,
+                  1.3236389762028011e-10,
+                  8.995648670406808e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:6251",
+              "input_format": "omm",
+              "offset_minutes": 2880.0,
+              "requested_time_utc": "2006-06-27T19:46:43.980096+00:00",
+              "expected": {
+                "position_km": [
+                  1159.27802897,
+                  5056.60175495,
+                  4353.49418579
+                ],
+                "velocity_km_s": [
+                  -5.968060341,
+                  -2.314790406,
+                  4.230722669
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  1159.2780297291524,
+                  5056.60175524774,
+                  4353.4941852518305
+                ],
+                "velocity_km_s": [
+                  -5.968060340722671,
+                  -2.3147904050451964,
+                  4.2307226698000795
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  7.591524990857579e-07,
+                  2.9773946152999997e-07,
+                  5.381698429118842e-07
+                ],
+                "velocity_km_s": [
+                  2.773292706592656e-10,
+                  9.548037915863006e-10,
+                  8.000791140716501e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "tle",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-26T18:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  -2715.28237486,
+                  -6619.26436889,
+                  -0.01341443
+                ],
+                "velocity_km_s": [
+                  -1.008587273,
+                  0.422782003,
+                  7.385272942
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -2715.2823738478555,
+                  -6619.2643693135915,
+                  -0.013421815458644312
+                ],
+                "velocity_km_s": [
+                  -1.0085872762340324,
+                  0.422781995569177,
+                  7.385272941601991
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.012144366541179e-06,
+                  4.235917003825307e-07,
+                  7.385458644312143e-06
+                ],
+                "velocity_km_s": [
+                  3.234032375232232e-09,
+                  7.430823012466448e-09,
+                  3.980096252576004e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "omm",
+              "offset_minutes": 0.0,
+              "requested_time_utc": "2006-06-26T18:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  -2715.28237486,
+                  -6619.26436889,
+                  -0.01341443
+                ],
+                "velocity_km_s": [
+                  -1.008587273,
+                  0.422782003,
+                  7.385272942
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -2715.282374795897,
+                  -6619.264368916192,
+                  -0.013414873581862767
+                ],
+                "velocity_km_s": [
+                  -1.0085872734525274,
+                  0.42278200234987723,
+                  7.385272941602004
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  6.410300557035953e-08,
+                  2.619253791635856e-08,
+                  4.4358186276731437e-07
+                ],
+                "velocity_km_s": [
+                  4.5252734892642366e-10,
+                  6.501227889366135e-10,
+                  3.979963025813049e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "tle",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-26T20:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  -1816.87920942,
+                  -1835.78762132,
+                  6661.07926465
+                ],
+                "velocity_km_s": [
+                  2.325140071,
+                  6.655669329,
+                  2.463394512
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -1816.8792117445687,
+                  -1835.7876279774125,
+                  6661.079262184057
+                ],
+                "velocity_km_s": [
+                  2.3251400686561734,
+                  6.6556693266659686,
+                  2.463394518844589
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.324568640688085e-06,
+                  6.657412541244412e-06,
+                  2.465942998242099e-06
+                ],
+                "velocity_km_s": [
+                  2.3438264662445363e-09,
+                  2.3340316346320833e-09,
+                  6.844589339749518e-09
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "omm",
+              "offset_minutes": 120.0,
+              "requested_time_utc": "2006-06-26T20:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  -1816.87920942,
+                  -1835.78762132,
+                  6661.07926465
+                ],
+                "velocity_km_s": [
+                  2.325140071,
+                  6.655669329,
+                  2.463394512
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  -1816.8792095590195,
+                  -1835.7876217213118,
+                  6661.0792644995645
+                ],
+                "velocity_km_s": [
+                  2.325140070514901,
+                  6.655669328544026,
+                  2.463394512012434
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.3901944839744829e-07,
+                  4.0131180867319927e-07,
+                  1.5043588064145297e-07
+                ],
+                "velocity_km_s": [
+                  4.850990720228765e-10,
+                  4.5597392528407e-10,
+                  1.2434053786591903e-11
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "tle",
+              "offset_minutes": 1440.0,
+              "requested_time_utc": "2006-06-27T18:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  688.16056594,
+                  4124.87618964,
+                  5794.55994449
+                ],
+                "velocity_km_s": [
+                  2.810973665,
+                  5.479585563,
+                  -4.224866316
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  688.1605631256741,
+                  4124.8761841561745,
+                  5794.559948715302
+                ],
+                "velocity_km_s": [
+                  2.8109736654771647,
+                  5.479585567374406,
+                  -4.224866309594955
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.8143258532509208e-06,
+                  5.483825589180924e-06,
+                  4.225302291160915e-06
+                ],
+                "velocity_km_s": [
+                  4.771645301104854e-10,
+                  4.374406614715554e-09,
+                  6.405045382962271e-09
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "omm",
+              "offset_minutes": 1440.0,
+              "requested_time_utc": "2006-06-27T18:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  688.16056594,
+                  4124.87618964,
+                  5794.55994449
+                ],
+                "velocity_km_s": [
+                  2.810973665,
+                  5.479585563,
+                  -4.224866316
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  688.1605657678674,
+                  4124.876189306743,
+                  5794.559944744115
+                ],
+                "velocity_km_s": [
+                  2.810973664772698,
+                  5.479585563151761,
+                  -4.224866315542237
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.721325588732725e-07,
+                  3.3325704862363636e-07,
+                  2.541146386647597e-07
+                ],
+                "velocity_km_s": [
+                  2.273021770804462e-10,
+                  1.51761270217321e-10,
+                  4.5776271662134604e-10
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "tle",
+              "offset_minutes": 2880.0,
+              "requested_time_utc": "2006-06-28T18:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  1788.4233458,
+                  1990.50530957,
+                  -6640.59337725
+                ],
+                "velocity_km_s": [
+                  -2.074169091,
+                  -6.683381288,
+                  -2.562777776
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  1788.4233478779652,
+                  1990.5053162530223,
+                  -6640.593374689316
+                ],
+                "velocity_km_s": [
+                  -2.07416908870514,
+                  -6.683381285881324,
+                  -2.562777782802604
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  2.077965064017917e-06,
+                  6.683022320430609e-06,
+                  2.560684151831083e-06
+                ],
+                "velocity_km_s": [
+                  2.294859857698839e-09,
+                  2.1186759013858136e-09,
+                  6.802604257671874e-09
+                ]
+              },
+              "passed": true
+            },
+            {
+              "input_ref": "vallado-leo.json:28057",
+              "input_format": "omm",
+              "offset_minutes": 2880.0,
+              "requested_time_utc": "2006-06-28T18:52:04.079711+00:00",
+              "expected": {
+                "position_km": [
+                  1788.4233458,
+                  1990.50530957,
+                  -6640.59337725
+                ],
+                "velocity_km_s": [
+                  -2.074169091,
+                  -6.683381288,
+                  -2.562777776
+                ]
+              },
+              "actual": {
+                "position_km": [
+                  1788.423345928196,
+                  1990.5053099704742,
+                  -6640.593377098397
+                ],
+                "velocity_km_s": [
+                  -2.074169090523377,
+                  -6.683381287904994,
+                  -2.5627777760338297
+                ]
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.2819600669899955e-07,
+                  4.004741640528664e-07,
+                  1.516036718385294e-07
+                ],
+                "velocity_km_s": [
+                  4.766227412744684e-10,
+                  9.50057810200633e-11,
+                  3.382982782795807e-11
+                ]
+              },
+              "passed": true
+            }
+          ],
+          "passed": 40,
+          "failed": 0
+        }
+      },
+      "earth-fixed.json": {
+        "artifact_sha256": "6f9d9a8a53cbb5e9bff69abc2a6de51270ead2b53e57c53ebaef0b930970ab99",
+        "results": {
+          "astropy_version": "7.2.3",
+          "pyerfa_version": "2.0.1.5",
+          "fixture_sha256": "b81a426545a50ae322f1be4643e82696fc35744cdb52aeda855ef9dfacd7e9c2",
+          "eop_resource": {
+            "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+            "package_version": "0.2026.10.12.1.3.27",
+            "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+            "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+            "leap_seconds_expires": "2027-06-28",
+            "first_mjd": 41684.0,
+            "last_mjd": 61682.0,
+            "predictive_mjd": 61315.0
+          },
+          "relative_tolerance": 0,
+          "cases": [
+            {
+              "case": "Vallado Appendix C / fixed EOP",
+              "reference": {
+                "source": "Vallado, Crawford, Hujsak & Kelso 2006, AIAA-2006-6753-Rev2, Appendix C, equations C-1/C-2 example (PDF page 32)",
+                "url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+                "at": "2004-04-06T07:51:28.386Z",
+                "input_frame": "TEME",
+                "output_frame": "ITRS (paper ITRF/ECEF)",
+                "position_km": [
+                  5094.1801621,
+                  6127.6446595,
+                  6380.3445327
+                ],
+                "velocity_km_s": [
+                  -4.746131487,
+                  0.785818041,
+                  5.531931288
+                ],
+                "expected_position_km": [
+                  -1033.479383,
+                  7901.2952754,
+                  6380.3565958
+                ],
+                "expected_velocity_km_s": [
+                  -3.22563652,
+                  -2.87245145,
+                  5.531924446
+                ],
+                "published_eop": {
+                  "ut1_minus_utc_seconds": -0.439961,
+                  "polar_motion_x_arcsec": -0.140682,
+                  "polar_motion_y_arcsec": 0.333309,
+                  "tai_minus_utc_seconds": 32
+                },
+                "fixed_eop_tolerances": {
+                  "position_km": 2e-05,
+                  "velocity_km_s": 1e-06
+                },
+                "bundled_eop_tolerances": {
+                  "position_km": 0.0003,
+                  "velocity_km_s": 1e-05
+                }
+              },
+              "actual_position_km": [
+                -1033.4793961736575,
+                7901.295273670422,
+                6380.356595751121
+              ],
+              "actual_velocity_km_s": [
+                -3.225636449045851,
+                -2.872451446066407,
+                5.5319244463025825
+              ],
+              "actual_eop": {
+                "source": "Vallado published fixed-EOP reference fixture (not runtime)",
+                "package_version": "0.2026.10.12.1.3.27",
+                "sha256": "b81a426545a50ae322f1be4643e82696fc35744cdb52aeda855ef9dfacd7e9c2",
+                "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+                "leap_seconds_expires": "2027-06-28",
+                "first_mjd": 53100.0,
+                "last_mjd": 53103.0,
+                "predictive_mjd": 61315.0,
+                "policy": "measured_or_predicted",
+                "status": "measured",
+                "ut1_source": "IERS_B_final",
+                "polar_motion_source": "IERS_B_final",
+                "ut1_minus_utc_seconds": -0.439961,
+                "polar_motion_x_arcsec": -0.140682,
+                "polar_motion_y_arcsec": 0.333309,
+                "prediction_table_age_days": 17.33874019868381,
+                "max_prediction_table_age_days": 30,
+                "auto_download": false,
+                "degraded_results_allowed": false,
+                "velocity_support_seconds": [
+                  -0.5,
+                  0.5
+                ]
+              },
+              "eop_override": {
+                "ut1_minus_utc_seconds": -0.439961,
+                "polar_motion_x_arcsec": -0.140682,
+                "polar_motion_y_arcsec": 0.333309,
+                "tai_minus_utc_seconds": 32
+              },
+              "absolute_error": {
+                "position_km": [
+                  1.3173657407605788e-05,
+                  1.7295778889092617e-06,
+                  4.887897375738248e-08
+                ],
+                "velocity_km_s": [
+                  7.095414922275722e-08,
+                  3.933593006877345e-09,
+                  3.0258284766659926e-10
+                ]
+              },
+              "absolute_tolerances": {
+                "position_km": 2e-05,
+                "velocity_km_s": 1e-06
+              },
+              "passed": true
+            },
+            {
+              "case": "Vallado Appendix C / bundled EOP",
+              "reference": {
+                "source": "Vallado, Crawford, Hujsak & Kelso 2006, AIAA-2006-6753-Rev2, Appendix C, equations C-1/C-2 example (PDF page 32)",
+                "url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+                "at": "2004-04-06T07:51:28.386Z",
+                "input_frame": "TEME",
+                "output_frame": "ITRS (paper ITRF/ECEF)",
+                "position_km": [
+                  5094.1801621,
+                  6127.6446595,
+                  6380.3445327
+                ],
+                "velocity_km_s": [
+                  -4.746131487,
+                  0.785818041,
+                  5.531931288
+                ],
+                "expected_position_km": [
+                  -1033.479383,
+                  7901.2952754,
+                  6380.3565958
+                ],
+                "expected_velocity_km_s": [
+                  -3.22563652,
+                  -2.87245145,
+                  5.531924446
+                ],
+                "published_eop": {
+                  "ut1_minus_utc_seconds": -0.439961,
+                  "polar_motion_x_arcsec": -0.140682,
+                  "polar_motion_y_arcsec": 0.333309,
+                  "tai_minus_utc_seconds": 32
+                },
+                "fixed_eop_tolerances": {
+                  "position_km": 2e-05,
+                  "velocity_km_s": 1e-06
+                },
+                "bundled_eop_tolerances": {
+                  "position_km": 0.0003,
+                  "velocity_km_s": 1e-05
+                }
+              },
+              "actual_position_km": [
+                -1033.4796665762867,
+                7901.295209734639,
+                6380.356631128439
+              ],
+              "actual_velocity_km_s": [
+                -3.225636353568916,
+                -2.8724515851190517,
+                5.5319244378051735
+              ],
+              "actual_eop": {
+                "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+                "package_version": "0.2026.10.12.1.3.27",
+                "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+                "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+                "leap_seconds_expires": "2027-06-28",
+                "first_mjd": 41684.0,
+                "last_mjd": 61682.0,
+                "predictive_mjd": 61315.0,
+                "policy": "measured_or_predicted",
+                "status": "measured",
+                "ut1_source": "IERS_B_final",
+                "polar_motion_source": "IERS_B_final",
+                "ut1_minus_utc_seconds": -0.44043969392562504,
+                "polar_motion_x_arcsec": -0.14050718228125,
+                "polar_motion_y_arcsec": 0.33420967208125,
+                "prediction_table_age_days": 17.338740334314934,
+                "max_prediction_table_age_days": 30,
+                "auto_download": false,
+                "degraded_results_allowed": false,
+                "velocity_support_seconds": [
+                  -0.5,
+                  0.5
+                ]
+              },
+              "eop_override": null,
+              "absolute_error": {
+                "position_km": [
+                  0.00028357628661979106,
+                  6.566536103491671e-05,
+                  3.532843948050868e-05
+                ],
+                "velocity_km_s": [
+                  1.6643108402547568e-07,
+                  1.3511905194718565e-07,
+                  8.19482615099787e-09
+                ]
+              },
+              "absolute_tolerances": {
+                "position_km": 0.0003,
+                "velocity_km_s": 1e-05
+              },
+              "passed": true
+            },
+            {
+              "case": "Astropy official satellite example",
+              "reference": {
+                "source": "Astropy 7.2.3 official Working with Earth Satellites documentation, Transforming TEME example",
+                "url": "https://raw.githubusercontent.com/astropy/astropy/v7.2.3/docs/coordinates/satellites.rst",
+                "tle": [
+                  "1 25544U 98067A   19343.69339541  .00001764  00000-0  38792-4 0  9991",
+                  "2 25544  51.6439 211.2001 0007417  17.6667  85.6398 15.50103472202482"
+                ],
+                "utc_jd": 2458827.362605,
+                "at": "2019-12-09T20:42:09.071993Z",
+                "input_frame": "TEME",
+                "output_frame": "ITRS -> WGS84 geodetic",
+                "eop": "Official example default IERS; current test uses locked final IERS values",
+                "expected": {
+                  "latitude_deg": -24.6609379,
+                  "longitude_deg": 160.34199789,
+                  "altitude_km": 420.17927591
+                },
+                "tolerances": {
+                  "angles_deg": 1e-05,
+                  "altitude_km": 0.0001
+                }
+              },
+              "input_teme": {
+                "at": "2019-12-09T20:42:09.071993Z",
+                "orbital_epoch": "2019-12-09T20:42:09.071993Z",
+                "frame": "TEME",
+                "time_system": "UTC",
+                "units": {
+                  "position": "km",
+                  "velocity": "km/s"
+                },
+                "position_km": [
+                  -6102.443276959021,
+                  -986.3320180996194,
+                  -2820.3130688617493
+                ],
+                "velocity_km_s": [
+                  -1.4552527256221586,
+                  -5.527413835199322,
+                  5.101042030736553
+                ]
+              },
+              "actual": {
+                "latitude_deg": -24.660937879768422,
+                "longitude_deg": 160.34199790663706,
+                "altitude_km": 420.1792759005811,
+                "height_reference": "WGS84 ellipsoid"
+              },
+              "actual_eop": {
+                "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+                "package_version": "0.2026.10.12.1.3.27",
+                "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+                "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+                "leap_seconds_expires": "2027-06-28",
+                "first_mjd": 41684.0,
+                "last_mjd": 61682.0,
+                "predictive_mjd": 61315.0,
+                "policy": "measured_or_predicted",
+                "status": "measured",
+                "ut1_source": "IERS_B_final",
+                "polar_motion_source": "IERS_B_final",
+                "ut1_minus_utc_seconds": -0.17249230872797786,
+                "polar_motion_x_arcsec": 0.10597363281007113,
+                "polar_motion_y_arcsec": 0.2709943596599925,
+                "prediction_table_age_days": 17.338740478990076,
+                "max_prediction_table_age_days": 30,
+                "auto_download": false,
+                "degraded_results_allowed": false,
+                "velocity_support_seconds": [
+                  -0.5,
+                  0.5
+                ]
+              },
+              "absolute_error": {
+                "latitude_deg": 2.0231578190532673e-08,
+                "longitude_deg": 1.6637073940728442e-08,
+                "altitude_km": 9.418897661817027e-09
+              },
+              "passed": true
+            },
+            {
+              "case": "SOFA gc2gd WGS84",
+              "reference": {
+                "source": "SOFA/ERFA official t_gc2gd test; pyerfa 2.0.1.5 erfa/tests/test_ufunc.py test_gc2gd",
+                "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+                "input_frame": "ITRS Cartesian, WGS84 ellipsoid",
+                "output_frame": "WGS84 geodetic",
+                "at": null,
+                "eop": "not required for terrestrial geodesy",
+                "position_km": [
+                  2000,
+                  3000,
+                  5244
+                ],
+                "expected_longitude_rad": 0.982793723247329,
+                "expected_latitude_rad": 0.9716018481907546,
+                "expected_altitude_km": 0.331417246142606,
+                "tolerances": {
+                  "angles_deg": 1e-10,
+                  "altitude_km": 1e-10
+                }
+              },
+              "expected": {
+                "latitude_deg": 55.668685268440754,
+                "longitude_deg": 56.309932474020215,
+                "altitude_km": 0.331417246142606
+              },
+              "actual": {
+                "latitude_deg": 55.668685268440754,
+                "longitude_deg": 56.30993247402023,
+                "altitude_km": 0.3314172461415939,
+                "height_reference": "WGS84 ellipsoid"
+              },
+              "absolute_error": {
+                "latitude_deg": 0.0,
+                "longitude_deg": 1.4210854715202004e-14,
+                "altitude_km": 1.0120793092482927e-12
+              },
+              "passed": true
+            },
+            {
+              "case": "SOFA UTC -> TAI",
+              "reference": {
+                "source": "SOFA/ERFA official t_utctai and t_utcut1 constants; pyerfa test_ufunc.py",
+                "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+                "input_frame": "UTC two-part quasi-Julian date",
+                "output_frame": "TAI / UT1 two-part Julian date",
+                "utc_jd_parts": [
+                  2453750.5,
+                  0.892100694
+                ],
+                "ut1_minus_utc_seconds": 0.3341,
+                "expected_tai_jd_parts": [
+                  2453750.5,
+                  0.8924826384444444
+                ],
+                "expected_ut1_jd_parts": [
+                  2453750.5,
+                  0.8921045608981482
+                ],
+                "tolerance_seconds": 1e-06
+              },
+              "at_utc": "2006-01-15T21:24:37.500",
+              "actual_jd_parts": [
+                2453751.0,
+                0.3924826384444444
+              ],
+              "absolute_error_seconds": 0.0,
+              "passed": true
+            },
+            {
+              "case": "SOFA UTC -> UT1",
+              "reference": {
+                "source": "SOFA/ERFA official t_utctai and t_utcut1 constants; pyerfa test_ufunc.py",
+                "url": "https://github.com/liberfa/erfa/blob/v2.0.1/src/t_erfa_c.c",
+                "input_frame": "UTC two-part quasi-Julian date",
+                "output_frame": "TAI / UT1 two-part Julian date",
+                "utc_jd_parts": [
+                  2453750.5,
+                  0.892100694
+                ],
+                "ut1_minus_utc_seconds": 0.3341,
+                "expected_tai_jd_parts": [
+                  2453750.5,
+                  0.8924826384444444
+                ],
+                "expected_ut1_jd_parts": [
+                  2453750.5,
+                  0.8921045608981482
+                ],
+                "tolerance_seconds": 1e-06
+              },
+              "at_utc": "2006-01-15T21:24:37.500",
+              "actual_jd_parts": [
+                2453751.0,
+                0.3921045608981481
+              ],
+              "absolute_error_seconds": 4.796163466380676e-12,
+              "passed": true
+            }
+          ],
+          "passed": 6,
+          "failed": 0,
+          "limitations": "Finite selected numerical cases; not observational accuracy or universal frame accuracy. Fixed EOP is reference-only, never an application fallback."
+        }
+      }
+    },
+    "source_only_reproduction": {
+      "source_only": true,
+      "normal_database_excluded": true,
+      "results": [
+        {
+          "cwd": ".",
+          "command": "uv sync --locked",
+          "started_at": "2026-10-19T08:10:06.267411+00:00",
+          "exit_code": 0,
+          "duration_seconds": 2.48,
+          "output": "Using CPython 3.12.14 interpreter at: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12\nCreating virtual environment at: .venv\nResolved 31 packages in 4ms\nDownloading numpy (16.0MiB)\nDownloading ruff (9.9MiB)\nDownloading astropy (9.4MiB)\nDownloading pydantic-core (2.1MiB)\nDownloading astropy-iers-data (1.9MiB)\nDownloading pygments (1.2MiB)\n Downloaded pygments\n Downloaded astropy-iers-data\n Downloaded pydantic-core\n Downloaded astropy\n Downloaded ruff\n Downloaded numpy\nPrepared 29 packages in 2.27s\nInstalled 29 packages in 84ms\n + annotated-doc==0.0.5\n + annotated-types==0.8.0\n + anyio==4.15.1\n + astropy==7.2.3\n + astropy-iers-data==0.2026.10.12.1.3.27\n + certifi==2026.7.22\n + click==8.5.0\n + fastapi==0.143.3\n + h11==0.16.0\n + httpcore==1.0.9\n + httpx==0.28.1\n + idna==3.20\n + iniconfig==2.3.1\n + numpy==2.5.4\n + opentelemetry-api==1.45.1\n + packaging==26.3\n + pluggy==1.7.0\n + pydantic==2.14.1\n + pydantic-core==2.50.1\n + pyerfa==2.0.1.5\n + pygments==2.21.0\n + pytest==9.1.1\n + pyyaml==6.0.3\n + ruff==0.17.1\n + sgp4==2.27\n + starlette==1.8.0\n + typing-extensions==4.16.0\n + typing-inspection==0.4.4\n + uvicorn==0.54.0\n"
+        },
+        {
+          "cwd": ".",
+          "command": "uv run --locked pytest -q",
+          "started_at": "2026-10-19T08:10:08.747780+00:00",
+          "exit_code": 0,
+          "duration_seconds": 14.926,
+          "output": "........................................................................ [ 15%]\n........................................................................ [ 31%]\n........................................................................ [ 46%]\n........................................................................ [ 62%]\n........................................................................ [ 78%]\n........................................................................ [ 93%]\n............................                                             [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /tmp/orbitiq-phase6/clean-source/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n460 passed, 1 warning in 13.78s\n"
+        },
+        {
+          "cwd": "frontend",
+          "command": "npm ci",
+          "started_at": "2026-10-19T08:10:23.674176+00:00",
+          "exit_code": 0,
+          "duration_seconds": 8.973,
+          "output": "\nadded 248 packages in 9s\nnpm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+        },
+        {
+          "cwd": "frontend",
+          "command": "npm run build",
+          "started_at": "2026-10-19T08:10:32.648145+00:00",
+          "exit_code": 0,
+          "duration_seconds": 7.589,
+          "output": "\n> orbitiq-frontend@0.1.0 build\n> tsc --noEmit && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n\u2713 50 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                           0.39 kB \u2502 gzip:   0.27 kB\ndist/assets/index-D9Nkhaiz.css            5.98 kB \u2502 gzip:   1.89 kB\ndist/assets/Investigations-BvjpesUT.js   26.82 kB \u2502 gzip:   8.15 kB\ndist/assets/index-CE65lJFP.js           269.34 kB \u2502 gzip:  83.38 kB\ndist/assets/globe-renderer-CGBoghVB.js  558.60 kB \u2502 gzip: 140.28 kB\n\u2713 built in 2.78s\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n"
+        }
+      ]
+    },
+    "browser": {
+      "status": "passed",
+      "at": "2026-10-19T08:08:24.530938+00:00",
+      "browser_version": "154.0.8037.57",
+      "uses_mocked_api_responses": false,
+      "uses_mocked_canvas": false,
+      "evidence_kind": "existing_genuine_provider_archive",
+      "flows": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "readiness_five_sections": true,
+          "actual_acquisition_and_next_allowed_times_displayed": true,
+          "readiness_refresh_read_only": true,
+          "genuine_search_ids": [
+            1,
+            2
+          ],
+          "genuine_ITRS_comparison": true,
+          "exact_source_A_handoff_and_TEME_position": true,
+          "comparison_retained_on_return": true,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "page_errors": [],
+          "external_requests": [],
+          "horizontal_overflow": false,
+          "request_count": 44,
+          "screenshots": [
+            "readiness-1440.png",
+            "genuine-comparison-1440.png"
+          ]
+        },
+        {
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "readiness_five_sections": true,
+          "actual_acquisition_and_next_allowed_times_displayed": true,
+          "readiness_refresh_read_only": true,
+          "genuine_search_ids": [
+            1,
+            2
+          ],
+          "genuine_ITRS_comparison": true,
+          "exact_source_A_handoff_and_TEME_position": true,
+          "comparison_retained_on_return": true,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "page_errors": [],
+          "external_requests": [],
+          "horizontal_overflow": false,
+          "request_count": 44,
+          "screenshots": [
+            "readiness-820.png",
+            "genuine-comparison-820.png"
+          ]
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "readiness_five_sections": true,
+          "actual_acquisition_and_next_allowed_times_displayed": true,
+          "readiness_refresh_read_only": true,
+          "genuine_search_ids": [
+            1,
+            2
+          ],
+          "genuine_ITRS_comparison": true,
+          "exact_source_A_handoff_and_TEME_position": true,
+          "comparison_retained_on_return": true,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "page_errors": [],
+          "external_requests": [],
+          "horizontal_overflow": false,
+          "request_count": 44,
+          "screenshots": [
+            "readiness-390.png",
+            "genuine-comparison-390.png"
+          ]
+        }
+      ]
+    },
+    "database_commands": [
+      {
+        "command": "PYTHONPATH=backend uv run --locked python -m orbitiq.database check",
+        "exit_code": 0
+      },
+      {
+        "command": "PYTHONPATH=backend uv run --locked python -m orbitiq.database verify-archive",
+        "exit_code": 0,
+        "verified_snapshots": 2
+      }
+    ],
+    "diff_check": {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    "backend_environment": {
+      "PYTHONPATH": "backend",
+      "UV_CACHE_DIR": "/tmp/orbitiq-phase6-uv-cache"
+    }
+  },
+  "acceptance_criteria": [
+    {
+      "id": 1,
+      "criterion": "Existing ingestion/dedup inspected",
+      "status": "PASS",
+      "evidence": "baseline source and replay contract"
+    },
+    {
+      "id": 2,
+      "criterion": "Established ingestion pipeline reused",
+      "status": "PASS",
+      "evidence": "existing fetch/parser/process/storage, old CLI delegates"
+    },
+    {
+      "id": 3,
+      "criterion": "Bounded timeouts/retries",
+      "status": "PASS",
+      "evidence": "one call, finite HTTP budgets, three deferred failures; tests"
+    },
+    {
+      "id": 4,
+      "criterion": "Provider restrictions respected",
+      "status": "PASS",
+      "evidence": "official policy retrieved, two-hour gate, every HTTP error stops for review"
+    },
+    {
+      "id": 5,
+      "criterion": "Invalid/incomplete payload rejected",
+      "status": "PASS",
+      "evidence": "malformed/empty/invalid/content/size/status tests"
+    },
+    {
+      "id": 6,
+      "criterion": "Duplicate payload remains deduplicated",
+      "status": "PASS",
+      "evidence": "actual exact-byte replay and isolated repeated acquisition tests"
+    },
+    {
+      "id": 7,
+      "criterion": "Clear collection outcomes",
+      "status": "PASS",
+      "evidence": "actual success JSON/exit 0, safe nonzero failures/refusals"
+    },
+    {
+      "id": 8,
+      "criterion": "Distinct genuine payload persisted",
+      "status": "PASS",
+      "evidence": "genuine snapshot 2, distinct hash/epoch/elements"
+    },
+    {
+      "id": 9,
+      "criterion": "Non-destructive ledger migration",
+      "status": "PASS",
+      "evidence": "real 2\u21923 upgrade, pre-backup, preserved row digest"
+    },
+    {
+      "id": 10,
+      "criterion": "Separate start/completion/insertion times",
+      "status": "PASS",
+      "evidence": "actual attempt 1 and snapshot 2 timestamps"
+    },
+    {
+      "id": 11,
+      "criterion": "Correct success/failure/validation/dedup audit",
+      "status": "PASS",
+      "evidence": "actual success, isolated failure/dedup/rollback tests"
+    },
+    {
+      "id": 12,
+      "criterion": "Safe failure records",
+      "status": "PASS",
+      "evidence": "body/header/internal-error redaction tests; fixed categories"
+    },
+    {
+      "id": 13,
+      "criterion": "Actual ingestion freshness metadata",
+      "status": "PASS",
+      "evidence": "actual readiness HTTP/UI and persisted audit"
+    },
+    {
+      "id": 14,
+      "criterion": "Identical download cannot refresh old epoch",
+      "status": "PASS",
+      "evidence": "preserved first retrieval/epoch and dedup freshness tests"
+    },
+    {
+      "id": 15,
+      "criterion": "Bounded history/status queries",
+      "status": "PASS",
+      "evidence": "ID cursor/max 100, indexed single-row monitoring, VM/time budgets"
+    },
+    {
+      "id": 16,
+      "criterion": "Two independent genuine snapshots",
+      "status": "PASS",
+      "evidence": "preserved Phase 1 acquisition + one new permitted acquisition"
+    },
+    {
+      "id": 17,
+      "criterion": "Both retrieved through application interfaces",
+      "status": "PASS",
+      "evidence": "actual history/detail HTTP 200 and restored routes"
+    },
+    {
+      "id": 18,
+      "criterion": "Real persisted-source comparison",
+      "status": "PASS",
+      "evidence": "actual non-self A1/B2 comparison in TEME and ITRS"
+    },
+    {
+      "id": 19,
+      "criterion": "Verifiable provenance/times/assumptions",
+      "status": "PASS",
+      "evidence": "payload hashes, source URLs, epochs, same-time frames/units"
+    },
+    {
+      "id": 20,
+      "criterion": "Fixtures not counted as genuine",
+      "status": "PASS",
+      "evidence": "separate temporary reference tests; only genuine ISS data in real archive"
+    },
+    {
+      "id": 21,
+      "criterion": "Dedup/EOP policies preserved",
+      "status": "PASS",
+      "evidence": "replay idempotence, existing strict science regressions, labelled predicted EOP"
+    },
+    {
+      "id": 22,
+      "criterion": "Consistent original backup",
+      "status": "PASS",
+      "evidence": "pre-migration SQLite backup, size/hash recorded"
+    },
+    {
+      "id": 23,
+      "criterion": "Separate restoration",
+      "status": "PASS",
+      "evidence": "new isolated restore path, original never target of successful restore"
+    },
+    {
+      "id": 24,
+      "criterion": "Backup-point identities/payloads match",
+      "status": "PASS",
+      "evidence": "complete table/row/BLOB and schema digests"
+    },
+    {
+      "id": 25,
+      "criterion": "Integrity/restored application verified",
+      "status": "PASS",
+      "evidence": "full archive 2, FK/integrity ok, restored history/detail/comparison 200"
+    },
+    {
+      "id": 26,
+      "criterion": "Failed restore cannot overwrite original",
+      "status": "PASS",
+      "evidence": "actual existing-original refusal and unchanged fingerprint"
+    },
+    {
+      "id": 27,
+      "criterion": "Exact Phase 5 SHA identified",
+      "status": "PASS",
+      "evidence": "local and remote main `6c606554\u2026`"
+    },
+    {
+      "id": 28,
+      "criterion": "Actual CI run inspected",
+      "status": "PASS",
+      "evidence": "run 39211182705, metadata and actual logs"
+    },
+    {
+      "id": 29,
+      "criterion": "Jobs classified by actual conclusions",
+      "status": "PASS",
+      "evidence": "backend/frontend success for exact SHA"
+    },
+    {
+      "id": 30,
+      "criterion": "Missing CI evidence not assumed successful",
+      "status": "PASS",
+      "evidence": "branch protection BLOCKED by 403; Phase 6 remote CI explicitly not run"
+    },
+    {
+      "id": 31,
+      "criterion": "Applicable local regressions executed",
+      "status": "PASS",
+      "evidence": "460 backend/180 frontend, 40/6 audits, quality/build/browser checks"
+    },
+    {
+      "id": 32,
+      "criterion": "No hidden unresolved regression",
+      "status": "PASS",
+      "evidence": "resolved failures and remaining warnings disclosed"
+    },
+    {
+      "id": 33,
+      "criterion": "Evidence-backed report",
+      "status": "PASS",
+      "evidence": "this report"
+    },
+    {
+      "id": 34,
+      "criterion": "Structured verification artifact",
+      "status": "PASS",
+      "evidence": "phase-6-integration-results.json with actual results"
+    },
+    {
+      "id": 35,
+      "criterion": "Limitations/follow-up documented",
+      "status": "PASS",
+      "evidence": "operational and recovery runbooks, scope below"
+    }
+  ],
+  "supplemental_blocked_checks": [
+    {
+      "name": "branch_protection_required_checks_configuration",
+      "status": "BLOCKED",
+      "http_status": 403,
+      "reason": "Resource not accessible by integration"
+    }
+  ],
+  "files_changed": [
+    {
+      "status": " M",
+      "path": ".github/workflows/ci.yml"
+    },
+    {
+      "status": " M",
+      "path": "README.md"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/api/readiness.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/api/scientific_schemas.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/database.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/ingestion/celestrak.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/services/analysis.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/services/investigations.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/services/readiness.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/orbitiq/storage.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/tests/test_phase1.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/tests/test_phase2_api.py"
+    },
+    {
+      "status": " M",
+      "path": "backend/tests/test_phase5.py"
+    },
+    {
+      "status": " M",
+      "path": "docs/phase-1.md"
+    },
+    {
+      "status": " M",
+      "path": "docs/scientific-data-readiness.md"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/Investigations.tsx"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/ReadinessDashboard.test.tsx"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/ReadinessDashboard.tsx"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/ScientificExplorer.test.tsx"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/ScientificExplorer.tsx"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/investigation-api.test.ts"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/investigation-api.ts"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/readiness-api.test.ts"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/readiness-api.ts"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/scientific-api.test.ts"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/scientific-api.ts"
+    },
+    {
+      "status": " M",
+      "path": "frontend/src/test-fixtures/readiness.ts"
+    },
+    {
+      "status": "??",
+      "path": "backend/orbitiq/ingestion/collection.py"
+    },
+    {
+      "status": "??",
+      "path": "backend/orbitiq/maintenance/recovery.py"
+    },
+    {
+      "status": "??",
+      "path": "backend/orbitiq/migrations/003_ingestion.sql"
+    },
+    {
+      "status": "??",
+      "path": "backend/orbitiq/services/ingestion_status.py"
+    },
+    {
+      "status": "??",
+      "path": "backend/tests/test_phase6_collection.py"
+    },
+    {
+      "status": "??",
+      "path": "docs/backup-restore-runbook.md"
+    },
+    {
+      "status": "??",
+      "path": "docs/ingestion-operations.md"
+    },
+    {
+      "status": "??",
+      "path": "docs/phase-6-integration-results.json"
+    },
+    {
+      "status": "??",
+      "path": "docs/phase-6-report.md"
+    }
+  ],
+  "dependency_changes": false,
+  "warnings": [
+    "existing Starlette TestClient/HTTPX deprecation",
+    "existing whatwg-encoding npm deprecation",
+    "existing lazy Three renderer chunk size warning"
+  ],
+  "execution_boundaries": {
+    "commit_created": false,
+    "pushed": false,
+    "application_deployed": false,
+    "published": false,
+    "remotes_modified": false,
+    "remote_workflows_triggered": false,
+    "remote_workflows_rerun": false,
+    "production_schedule_enabled": false,
+    "only_loopback_verification_servers_started": true,
+    "verification_servers_stop_signals": [
+      {
+        "pid": 9256,
+        "service": "frontend",
+        "signal": "SIGTERM"
+      },
+      {
+        "pid": 10724,
+        "service": "backend",
+        "signal": "SIGTERM"
+      }
+    ],
+    "existing_database_reinitialized": false,
+    "existing_snapshot_rows_modified": false,
+    "normal_database_contains_reference_fixtures": false,
+    "original_database_restore_overwritten": false,
+    "verification_server_ports_closed": [
+      8066,
+      5196
+    ]
+  },
+  "remaining_limits": [
+    "Phase 6 remote CI requires a separately authorized commit/push and exact-SHA inspection",
+    "GitHub branch protection metadata inaccessible (403)",
+    "only two genuine snapshots of one satellite; one new independently acquired payload this phase",
+    "single-authoritative-archive cooldown needs coordination across independent archives and shared IP consumers",
+    "legacy insertion and ingestion-attempt history not backfilled",
+    "bounded orbital readiness retains conservative latest-100 limit",
+    "local backup is not off-machine durable production recovery",
+    "scientific state differences are model disagreement, not observed accuracy, maneuver, anomaly or collision evidence",
+    "production persistence/security/load/monitoring/deployment gates remain separate work"
+  ]
+}

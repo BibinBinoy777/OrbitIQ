@@ -25,14 +25,24 @@ def connect(path: Path, *, write: bool = False) -> sqlite3.Connection:
     connection = sqlite3.connect(path.resolve().as_uri() + f"?mode={mode}", uri=True)
     connection.row_factory = sqlite3.Row
     try:
-        if schema_version(connection) != 2:
+        if schema_version(connection) not in (2, 3):
             raise StorageError("Explicit migration to schema version 2 is required")
         connection.execute("SELECT id FROM snapshots LIMIT 0")
         connection.execute("PRAGMA busy_timeout=5000")
+        connection.execute("PRAGMA foreign_keys=ON")
     except Exception:
         connection.close()
         raise
     return connection
+
+
+def insertion_column(connection):
+    if schema_version(connection) >= 3:
+        return (
+            "(SELECT inserted_at FROM snapshot_insertions "
+            "WHERE snapshot_id=snapshots.id) AS snapshot_inserted_at"
+        )
+    return "NULL AS snapshot_inserted_at"
 
 
 def save_snapshot(
@@ -42,46 +52,59 @@ def save_snapshot(
     elements: Elements,
     source_url: str,
     retrieved_at: datetime,
+    *,
+    connection=None,
 ) -> int:
-    response_hash = hashlib.sha256(raw).hexdigest()
     if retrieved_at.tzinfo is None or retrieved_at.utcoffset() is None:
         raise StorageError("Retrieval timestamp must include a timezone")
-    with closing(connect(path, write=True)) as connection, connection:
-        # Serialize lookup + insert across processes; no destructive deduplication
-        # or schema rewrite is needed for existing archives.
-        connection.execute("BEGIN IMMEDIATE")
-        existing = connection.execute(
-            """SELECT id FROM snapshots WHERE catalog_id=? AND source_url=?
-            AND response_sha256=? ORDER BY id LIMIT 1""",
-            (elements.catalog_id, source_url, response_hash),
-        ).fetchone()
-        if existing is not None:
-            return existing["id"]
-        cursor = connection.execute(
-            """INSERT INTO snapshots
-            (catalog_id, object_name, orbital_epoch, retrieved_at, source_url,
-             raw_response, response_sha256, raw_record, normalized_record,
-             element_units,
-             validation_status,
-             validator_version, sgp4_version)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-            (
-                elements.catalog_id,
-                elements.name,
-                elements.epoch.isoformat(),
-                retrieved_at.astimezone(UTC).isoformat(),
-                source_url,
-                raw,
-                response_hash,
-                json.dumps(record, allow_nan=False),
-                json.dumps(elements.model_dump(mode="json", by_alias=True)),
-                json.dumps(ELEMENT_UNITS),
-                "structural_and_epoch_propagation_passed",
-                "orbitiq-omm-v1",
-                sgp4.__version__,
-            ),
+    if connection is not None:
+        return insert_snapshot(
+            connection, raw, record, elements, source_url, retrieved_at
         )
-        return cursor.lastrowid
+    with closing(connect(path, write=True)) as db, db:
+        db.execute("BEGIN IMMEDIATE")
+        return insert_snapshot(db, raw, record, elements, source_url, retrieved_at)
+
+
+def insert_snapshot(connection, raw, record, elements, source_url, retrieved_at):
+    response_hash = hashlib.sha256(raw).hexdigest()
+    existing = connection.execute(
+        """SELECT id FROM snapshots WHERE catalog_id=? AND source_url=?
+        AND response_sha256=? ORDER BY id LIMIT 1""",
+        (elements.catalog_id, source_url, response_hash),
+    ).fetchone()
+    if existing is not None:
+        return existing["id"]
+    cursor = connection.execute(
+        """INSERT INTO snapshots
+        (catalog_id, object_name, orbital_epoch, retrieved_at, source_url,
+         raw_response, response_sha256, raw_record, normalized_record,
+         element_units,
+         validation_status,
+         validator_version, sgp4_version)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        (
+            elements.catalog_id,
+            elements.name,
+            elements.epoch.isoformat(),
+            retrieved_at.astimezone(UTC).isoformat(),
+            source_url,
+            raw,
+            response_hash,
+            json.dumps(record, allow_nan=False),
+            json.dumps(elements.model_dump(mode="json", by_alias=True)),
+            json.dumps(ELEMENT_UNITS),
+            "structural_and_epoch_propagation_passed",
+            "orbitiq-omm-v1",
+            sgp4.__version__,
+        ),
+    )
+    if schema_version(connection) >= 3:
+        connection.execute(
+            "INSERT INTO snapshot_insertions(snapshot_id) VALUES (?)",
+            (cursor.lastrowid,),
+        )
+    return cursor.lastrowid
 
 
 def list_snapshots(
@@ -98,12 +121,11 @@ def list_snapshots(
         values.append(before_id)
     with browsing_connection(path) as connection:
         rows = connection.execute(
-            """SELECT id, catalog_id, object_name, orbital_epoch, retrieved_at,
+            "SELECT " + insertion_column(connection) + ", "
+            """id, catalog_id, object_name, orbital_epoch, retrieved_at,
             source_url, response_sha256, validation_status, validator_version,
             sgp4_version, normalized_record, element_units FROM snapshots
-            WHERE """
-            + " AND ".join(conditions)
-            + " ORDER BY id DESC LIMIT ?",
+            WHERE """ + " AND ".join(conditions) + " ORDER BY id DESC LIMIT ?",
             (*values, limit),
         ).fetchall()
     now = as_of or datetime.now(UTC)
@@ -140,7 +162,8 @@ def list_snapshots(
 def get_snapshot(path: Path, snapshot_id: int) -> dict | None:
     with closing(connect(path)) as connection:
         row = connection.execute(
-            "SELECT * FROM snapshots WHERE id=?", (snapshot_id,)
+            "SELECT *, " + insertion_column(connection) + " FROM snapshots WHERE id=?",
+            (snapshot_id,),
         ).fetchone()
     if row is None:
         return None
@@ -263,6 +286,7 @@ def browse_snapshots(
 ):
     """Seek pages through all stored history, with bounded search scan windows."""
     with browsing_connection(path) as connection:
+        columns = BROWSE_COLUMNS + ", " + insertion_column(connection)
         maximum = connection.execute(
             "SELECT id FROM snapshots ORDER BY id DESC LIMIT 1"
         ).fetchone()
@@ -270,7 +294,7 @@ def browse_snapshots(
         context = None
         if context_snapshot_id is not None:
             context = connection.execute(
-                f"SELECT {BROWSE_COLUMNS} FROM snapshots WHERE id=?",
+                f"SELECT {columns} FROM snapshots WHERE id=?",
                 (context_snapshot_id,),
             ).fetchone()
             if context is None:
@@ -295,7 +319,7 @@ def browse_snapshots(
             conditions.append("id < ?")
             values.append(before_id)
         rows = connection.execute(
-            f"SELECT {BROWSE_COLUMNS} FROM snapshots WHERE "
+            f"SELECT {columns} FROM snapshots WHERE "
             + " AND ".join(conditions)
             + " ORDER BY id DESC LIMIT ?",
             (*values, (BROWSE_SCAN if query else limit) + 1),

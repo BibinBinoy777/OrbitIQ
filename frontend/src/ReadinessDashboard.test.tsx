@@ -24,7 +24,7 @@ it("shows loading while the assessment is outstanding", () => {
   expect(screen.getByRole("status")).toHaveTextContent(/Assessing/);
 });
 it.each(["healthy", "degraded", "unavailable", "unknown"] as const)(
-  "communicates %s with text and four labelled sections",
+  "communicates %s with text and five labelled sections",
   async (status) => {
     responds(readinessFixture(status));
     render(<ReadinessDashboard onExplore={vi.fn()} />);
@@ -34,6 +34,7 @@ it.each(["healthy", "degraded", "unavailable", "unknown"] as const)(
     for (const name of [
       "Database availability",
       "Orbital snapshot freshness",
+      "Collection reliability",
       "Earth orientation",
       "Leap seconds",
     ]) {
@@ -150,4 +151,60 @@ it("provides labelled native keyboard controls and a return action", async () =>
   expect(back).toHaveFocus();
   fireEvent.click(back);
   expect(explore).toHaveBeenCalledOnce();
+});
+
+it("distinguishes deduplicated collection from snapshot insertion and source epoch", async () => {
+  responds();
+  render(<ReadinessDashboard onExplore={vi.fn()} />);
+  const section = await screen.findByRole("region", {
+    name: "Collection reliability",
+  });
+  expect(within(section).getAllByText("deduplicated")).toHaveLength(2);
+  expect(
+    within(section).getByText(/based on source epoch/),
+  ).toBeInTheDocument();
+  expect(
+    within(section).getByText(/No collection starts from this page/),
+  ).toBeInTheDocument();
+  expect(within(section).getByText("0")).toBeInTheDocument();
+});
+it("shows failure and stopped retry budget without removing stored-data access", async () => {
+  const value = readinessFixture("degraded");
+  Object.assign(value.components.ingestion, {
+    latest_attempt_outcome: "acquisition_failed",
+    latest_payload_outcome: null,
+    last_error_category: "upstream_http",
+    consecutive_failures: 1,
+    retry_budget_exhausted: true,
+  });
+  responds(value);
+  const onExplore = vi.fn();
+  render(<ReadinessDashboard onExplore={onExplore} />);
+  const section = await screen.findByRole("region", {
+    name: "Collection reliability",
+  });
+  expect(within(section).getByText("acquisition_failed")).toBeInTheDocument();
+  expect(within(section).getByText("upstream_http")).toBeInTheDocument();
+  expect(
+    within(section).getByText(/Stopped — operator review/),
+  ).toBeInTheDocument();
+  fireEvent.click(
+    screen.getByRole("button", { name: "Return to satellite explorer" }),
+  );
+  expect(onExplore).toHaveBeenCalledOnce();
+});
+it("labels absent pre-ledger collection metadata unknown", async () => {
+  const value = readinessFixture();
+  responds({
+    ...value,
+    components: { ...value.components, ingestion: undefined },
+  });
+  render(<ReadinessDashboard onExplore={vi.fn()} />);
+  const section = await screen.findByRole("region", {
+    name: "Collection reliability",
+  });
+  expect(within(section).getByText("unknown")).toBeInTheDocument();
+  expect(
+    await screen.findByText("Overall readiness: unknown"),
+  ).toBeInTheDocument();
 });

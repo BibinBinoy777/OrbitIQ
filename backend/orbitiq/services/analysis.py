@@ -79,7 +79,7 @@ def snapshot_history(path: Path, catalog_id: int, limit: int, before_id: int | N
             as_of=now,
             policy=thresholds,
         )
-        item["snapshot_created_at"] = None
+        item["snapshot_created_at"] = item.get("snapshot_inserted_at")
     return {
         "snapshots": items,
         "has_more": has_more,
@@ -99,8 +99,10 @@ def snapshot_detail(path: Path, snapshot_id: int):
         as_of=datetime.now(UTC),
         policy=policy(),
     )
-    item["snapshot_created_at"] = None
-    item["snapshot_creation_time_status"] = "not_recorded_separately"
+    item["snapshot_created_at"] = item.get("snapshot_inserted_at")
+    item["snapshot_creation_time_status"] = (
+        "recorded" if item["snapshot_created_at"] else "not_recorded_legacy"
+    )
     return item
 
 
@@ -134,7 +136,7 @@ def position_from_snapshot(item, elements, at: datetime):
         "source_url": item["source_url"],
         "response_sha256": item["response_sha256"],
         "freshness_info": freshness,
-        "snapshot_created_at": None,
+        "snapshot_created_at": item.get("snapshot_inserted_at"),
         "snapshot_validation_status": item["validation_status"],
         "validator_version": item["validator_version"],
         "ingestion_sgp4_version": item["sgp4_version"],

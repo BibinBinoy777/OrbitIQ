@@ -89,3 +89,22 @@ it("accepts a valid TEME state without inventing missing timestamps", async () =
   expect(result.at).toBeUndefined();
   expect(result.calculated_at).toBeUndefined();
 });
+
+it.each(["2026-10-19T07:58:23.415+00:00", "invalid"])(
+  "keeps only valid separate insertion metadata: %s",
+  async (stamp) => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          snapshots: [{ id: 1, catalog_id: 5, snapshot_created_at: stamp }],
+        }),
+      }),
+    );
+    const [item] = await getSnapshots(5, signal());
+    expect(item.snapshot_created_at).toBe(
+      stamp === "invalid" ? undefined : stamp,
+    );
+  },
+);

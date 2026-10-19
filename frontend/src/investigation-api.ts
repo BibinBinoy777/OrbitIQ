@@ -10,6 +10,7 @@ export interface StoredSnapshot {
   identity_consistent: boolean;
   orbital_epoch: string | null;
   retrieved_at: string | null;
+  snapshot_created_at?: string | null;
   source_url: string | null;
   provider: string | null;
   response_sha256: string | null;
@@ -177,6 +178,8 @@ export function parseStored(value: unknown): StoredSnapshot {
       !/^[a-f0-9]{64}$/.test(String(value.response_sha256)))
   )
     return invalid();
+  if (value.snapshot_created_at != null && !time(value.snapshot_created_at))
+    return invalid();
   if (value.source_url !== null) {
     try {
       const u = new URL(String(value.source_url));
@@ -216,6 +219,7 @@ export function explorerSource(value: StoredSnapshot): SnapshotSummary | null {
     object_name: value.object_name ?? undefined,
     orbital_epoch: value.orbital_epoch,
     retrieved_at: value.retrieved_at ?? undefined,
+    snapshot_created_at: value.snapshot_created_at ?? undefined,
     source_url: value.source_url ?? undefined,
     response_sha256: value.response_sha256,
     frame: value.frame ?? undefined,

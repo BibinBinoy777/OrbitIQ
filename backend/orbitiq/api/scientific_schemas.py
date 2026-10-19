@@ -57,9 +57,11 @@ class ScientificPosition(BaseModel):
     snapshot_validation_status: str
     validator_version: str
     ingestion_sgp4_version: str
-    snapshot_created_at: None = Field(
+    snapshot_created_at: str | None = Field(
         default=None,
-        description="Insertion time was not recorded separately; never inferred",
+        description=(
+            "Separate insertion time where recorded; legacy rows remain unknown"
+        ),
     )
     units: VectorUnits
     uncertainty: Uncertainty

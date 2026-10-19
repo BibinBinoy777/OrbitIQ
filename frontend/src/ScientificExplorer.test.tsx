@@ -231,3 +231,16 @@ it("retains an explicitly inspected historical source when browsing the same cat
   });
   expect(screen.getByLabelText("Saved snapshot")).toHaveValue("8");
 });
+
+it("shows recorded insertion time separately from retrieval and source epoch", async () => {
+  snapshots.mockResolvedValue([
+    { ...row, snapshot_created_at: "2026-10-19T07:58:23.415+00:00" },
+  ]);
+  await load();
+  expect(
+    screen.getByText("2026-10-19T07:58:23.415Z (UTC)"),
+  ).toBeInTheDocument();
+  expect(
+    screen.queryByText("Not recorded separately for this legacy source"),
+  ).not.toBeInTheDocument();
+});

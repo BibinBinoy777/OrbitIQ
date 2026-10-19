@@ -218,7 +218,11 @@ export default function ScientificExplorer({
               <dt>Age evaluated</dt>
               <dd>{formatUtc(selected.freshness_info?.evaluated_at)}</dd>
               <dt>Snapshot creation time</dt>
-              <dd>Not recorded separately</dd>
+              <dd>
+                {selected.snapshot_created_at
+                  ? formatUtc(selected.snapshot_created_at)
+                  : "Not recorded separately for this legacy source"}
+              </dd>
               <dt>Source frame</dt>
               <dd>
                 {selected.frame === "TEME"

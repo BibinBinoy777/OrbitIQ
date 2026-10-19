@@ -126,7 +126,9 @@ change results when valid local resources exist; otherwise calculations fail.
 
 ### Geodetic and sampling contract
 
-ITRS Cartesian -> `EarthLocation.to_geodetic(ellipsoid="WGS84")`. Latitude is
+ITRS Cartesian -> `EarthLocation.to_geodetic(ellipsoid="WGS84")`, followed by a
+residual-checked exterior latitude correction as documented in
+[Phase 6.1.1](phase-6.1.1-report.md). Latitude is
 **geodetic**, degrees north in [-90,90]. Longitude is degrees east normalized to
 **[-180,180)** (+180 maps to -180). Altitude is ellipsoidal height in **km** above
 WGS84 (a=6378.137 km, f=1/298.257223563), not geocentric radius, mean sea level,
@@ -325,3 +327,40 @@ inclination (degrees), eccentricity (dimensionless), mean motion (rev/day) and
 international identifier come from the existing validated snapshot-detail API.
 No unsupported orbital parameter is invented to fill the panel. Previous
 uncertainty, leap-crossing, EOP-maintenance and reference-residual limits remain.
+
+## Phase 6.1 evidence and resource quality
+
+The separate [Phase 6.1 assessment](phase-6.1-report.md) and
+[structured evidence](phase-6.1-scientific-evidence.json) distinguish numerical
+agreement, independent mathematical implementation checks, actual observations
+and uncertainty quantification. That historical assessment recorded an unmet
+high-altitude geodetic latitude precision target. The separate
+[Phase 6.1.1 remediation](phase-6.1.1-report.md) now meets the original target
+without a tolerance change, retaining the historical reports. Neither is an
+accuracy certification. No independent satellite measurements were compared. Existing
+`uncertainty.status=not_quantified` and `observation_validated=false` remain.
+
+`earth_orientation.source_quality` is additive metadata for each central UT1 and
+polar-motion sample, plus each velocity-support sample at -0.5, 0, +0.5 seconds:
+`final` (IERS-B), `rapid_nonprediction` (IERS-A nonprediction), or `prediction`.
+Legacy wire strings `IERS_A_measured` and aggregate `status=measured` mean
+nonpredicted resource values; they do not certify IERS-A rapid estimates as final
+or imply any satellite observation. Aggregate prediction policy still considers
+**every** support sample, including a predicted side with a final central sample.
+All coverage, expiry, maximum prediction-table age, and no-download rules remain.
+
+The fixed-EOP Appendix C position residual is reproduced as 1.31736574 cm maximum
+Cartesian component (1.32868009 cm vector norm). A controlled single rounded UTC
+JD plus DUT1 evaluation of the published polynomial matches the paper to about
+0.049 mm; the independent 50-digit evaluation agrees with the existing two-part
+Astropy/ERFA result. This supports a dominant reference precision/order mismatch,
+not a demonstrated runtime position defect. It does not certify the authors'
+exact historical execution, remove remaining velocity/convention uncertainty, or
+justify replacing the more precise two-part calculation. Original tolerances stay.
+
+UTC, element epoch, first retrieval, insertion (where recorded), requested
+calculation, execution, resource validity and any future observation time remain
+distinct. SGP4 uses nominal UTC 86400-second days; TAI elapsed time across a leap
+can differ. The terrestrial path continues to reject that unsupported interval
+in either direction and the API rejects second-60 strings. Neither silently
+changes to TT/TAI propagation nor extrapolates missing EOP.

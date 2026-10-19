@@ -4,6 +4,7 @@ export type ReadinessStatus =
 export const readinessKeys = [
   "database",
   "orbital_data",
+  "ingestion",
   "eop",
   "leap_seconds",
 ] as const;

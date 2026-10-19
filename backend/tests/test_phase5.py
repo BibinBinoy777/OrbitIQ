@@ -189,7 +189,9 @@ def test_history_beyond_100_and_bounded_unknown_count(archive):
         params = {"limit": 100}
         if cursor is not None:
             params.update(before_id=cursor, anchor_id=anchor)
-        data = c.get("/api/snapshots", params=params).json()
+        response = c.get("/api/snapshots", params=params)
+        assert response.status_code == 200, response.text
+        data = response.json()
         assert data["scanned_count"] <= 250 and data["total_count"] is None
         seen += [s["id"] for s in data["snapshots"]]
         anchor = data["anchor_id"]
@@ -275,9 +277,17 @@ def test_invalid_browse_inputs(archive, params):
 )
 def test_missing_historical_metadata_is_inspectable_and_safe(archive, field, value):
     c, path, a, b, *_ = archive
+    with sqlite3.connect(path) as db:
+        inserted = db.execute(
+            "SELECT inserted_at FROM snapshot_insertions WHERE snapshot_id=?", (a,)
+        ).fetchone()[0]
     corrupt(path, a, field, value)
     listing = c.get("/api/snapshots", params={"snapshot_id": a}).json()["snapshots"][0]
-    assert listing["metadata_issues"] and listing["snapshot_created_at"] is None
+    assert listing["metadata_issues"]
+    # Bad source metadata must not hide a separately recorded insertion time.
+    assert datetime.fromisoformat(
+        listing["snapshot_created_at"]
+    ) == datetime.fromisoformat(inserted)
     response = c.get("/api/comparisons", params={"first_id": a, "second_id": b})
     assert response.status_code == 200
     if field == "object_name":

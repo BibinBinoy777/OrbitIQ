@@ -60,7 +60,8 @@ def test_scientific_schema_and_immutable_traceability(setup_api):
         "observation_validated": False,
     }
     assert data["freshness_info"]["state"] == "stale"
-    assert data["snapshot_created_at"] is None
+    assert data["snapshot_created_at"] == original["snapshot_inserted_at"]
+    assert data["snapshot_created_at"] is not None
     assert (
         data["at"] != data["calculated_at"]
         and data["calculated_at"] != data["retrieved_at"]

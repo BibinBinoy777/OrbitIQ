@@ -1,7 +1,11 @@
 # Phase 9 publication gate review
 
-20 October 2026 UTC. **Ready for authorized feature-branch publication and remote
-CI verification. No commit or push has been performed.**
+20 October 2026 UTC. **Pre-publication snapshot retained for audit.** At this
+checkpoint the reviewed work was ready for authorized feature-branch publication;
+no commit or push had been performed. The later authorization, publication and
+exact-commit CI results are recorded in the [publication status](phase-9-publication-status.md).
+The original allowlist/hash evidence applies to implementation commit
+`9e57de16eb83a7b394d934641a29c7f97d458af8`; subsequent tracking updates are separate.
 
 ## Branch, scope and preservation
 

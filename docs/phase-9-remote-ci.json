@@ -1,0 +1,279 @@
+{
+  "recorded_at_utc": "2026-10-20T07:29:56.673982+00:00",
+  "scope": "Implementation commit; later documentation branch tips require separate exact-SHA CI verification",
+  "repository": "BibinBinoy777/OrbitIQ",
+  "repository_visibility": "private",
+  "branch": "phase-9-investigation-reports",
+  "implementation_commit": "9e57de16eb83a7b394d934641a29c7f97d458af8",
+  "workflow_run": {
+    "conclusion": "success",
+    "databaseId": 39386483145,
+    "event": "push",
+    "headBranch": "phase-9-investigation-reports",
+    "headSha": "9e57de16eb83a7b394d934641a29c7f97d458af8",
+    "jobs": [
+      {
+        "completedAt": "2026-10-20T07:27:00Z",
+        "conclusion": "success",
+        "databaseId": 118507432830,
+        "name": "release-images",
+        "startedAt": "2026-10-20T07:26:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Build locked release targets (local only; no registry publication)",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Validate static gateway configuration",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start release images against a separate empty fixture and verify APIs",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39386483145/job/118507432830"
+      },
+      {
+        "completedAt": "2026-10-20T07:27:17Z",
+        "conclusion": "success",
+        "databaseId": 118507433133,
+        "name": "frontend",
+        "startedAt": "2026-10-20T07:26:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v6",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm ci",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm test",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run lint",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run format:check",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run build",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v6",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39386483145/job/118507433133"
+      },
+      {
+        "completedAt": "2026-10-20T07:26:44Z",
+        "conclusion": "success",
+        "databaseId": 118507433242,
+        "name": "backend",
+        "startedAt": "2026-10-20T07:26:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@v7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv python install 3.12",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv sync --locked",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv run --locked pytest",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Published SGP4 reference audit",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Terrestrial transformation reference audit",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Expanded scientific and geodetic regressions",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit schema migration and separate restore checks",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv run --locked ruff check .",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv run --locked ruff format --check .",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@v7",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39386483145/job/118507433242"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39386483145"
+  },
+  "remote_test_counts": {
+    "backend": 675,
+    "frontend": 307
+  },
+  "remote_logs_sha256": "7a9c902efb452c5f6cf14cdbe7f4d7c25f3b7674665dcd2f5fec32c1dbe0d7a0",
+  "local_browser_pdf_evidence": "See phase-9-integration-results.json; these workflows are not executed by GitHub Actions",
+  "milestones": {
+    "implementation_published": true,
+    "implementation_remote_ci_verified": true,
+    "merged_to_main": false,
+    "production_deployed_by_this_work": false,
+    "production_infrastructure_verified": false
+  },
+  "branch_protection": {
+    "main_summary_protected": false,
+    "detail_api_status": 403,
+    "detail_message": "Resource not accessible by integration",
+    "rules_api_status": 403,
+    "rules_message": "Upgrade to GitHub Pro or make this repository public to enable this feature.",
+    "required_checks_verified": false,
+    "settings_changed": false
+  },
+  "archive_preserved": true
+}

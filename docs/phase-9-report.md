@@ -1,8 +1,11 @@
 # Phase 9 — Investigation Reports & Evidence Export
 
 **20 October 2026 UTC: complete and verified locally. Public launch remains gated.**
-Changes are uncommitted and unpublished. No push, deployment, infrastructure
-change or remote workflow action was performed for Phase 9.
+The implementation was subsequently published with authorization on
+`phase-9-investigation-reports` and its exact-commit CI passed. See the
+[publication status](phase-9-publication-status.md) for commit/run evidence and
+separate production milestones. The results below retain the local implementation
+and pre-publication review history. No production deployment was performed.
 
 ## Delivered behavior and architecture
 
@@ -166,8 +169,9 @@ assistive technologies and every browser/version remain unverified.
 
 ## CI, acceptance and Phase 8 boundaries
 
-Phase 9 remote CI is **NOT RUN**: these changes have not been committed or published.
-The existing workflow will pick up new tests after authorized publication. The
+At the local implementation checkpoint, Phase 9 remote CI had **NOT RUN**. The
+later authorized publication and successful exact-commit run are recorded in the
+[publication status](phase-9-publication-status.md). The
 previously verified [published CI run](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39377033436)
 passed backend/frontend/release jobs for the baseline commit; it is not Phase 9 CI.
 
@@ -187,8 +191,9 @@ passed backend/frontend/release jobs for the baseline commit; it is not Phase 9 
 
 Phase 8 still needs actual hosting/domain/public HTTPS, independent off-machine
 backup and host-loss recovery evidence, production monitoring/real alert delivery,
-authorized exact-commit publication/CI, and branch protection/required checks.
-No new evidence closes those gates. The last available read-only repository summary
+and branch protection/required checks. Phase 9 publication and exact-commit CI are
+now verified as linked above; they do not close the remaining infrastructure gates.
+The last available read-only repository summary
 showed protection/check requirements disabled. No settings were changed. Local
 container/recovery success does not verify public HTTPS or independent disaster
 recovery. Refer to the existing Phase 8 closure documents for those separate gates.
@@ -200,8 +205,8 @@ invent observations or turn numerical reference agreement into prediction certai
 
 ## Publication gate review
 
-See the [pre-publication review](phase-9-publication-review.md) and its linked
+See the [pre-publication review snapshot](phase-9-publication-review.md) and its linked
 evidence for fresh checks, the isolated test correction, CI/protection findings
-and the exact proposed branch publication actions. Phase 9 remains uncommitted
-and unpublished pending explicit authorization; the earlier implementation
-evidence is retained without rewriting its original results.
+and the exact proposed branch publication actions. Those actions were subsequently
+authorized and executed; see the [publication status](phase-9-publication-status.md).
+The earlier implementation evidence is retained without rewriting its original results.

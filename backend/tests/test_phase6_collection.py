@@ -41,6 +41,33 @@ def archive(tmp_path, monkeypatch):
 
 
 @pytest.fixture
+def monitoring_clock(archive):
+    """Keep SQLite fixture insertion times before the fixed assessment clock.
+
+    Production SQLite still uses its real clock. Apply only to this temporary
+    archive; an independent patch context survives a test's monkeypatch.undo().
+    """
+    original = sqlite3.connect
+    inserted_at = (NOW - timedelta(seconds=1)).isoformat(timespec="milliseconds")
+
+    def connect(*args, **kwargs):
+        db = original(*args, **kwargs)
+        target = str(args[0] if args else kwargs["database"])
+        if target == str(archive) or target.startswith(archive.as_uri() + "?"):
+
+            def strftime(format_, instant):
+                assert format_ == "%Y-%m-%dT%H:%M:%f+00:00" and instant == "now"
+                return inserted_at
+
+            db.create_function("strftime", 2, strftime)
+        return db
+
+    with pytest.MonkeyPatch.context() as clock_patch:
+        clock_patch.setattr(sqlite3, "connect", connect)
+        yield
+
+
+@pytest.fixture
 def dataset():
     return DownloadedDataset(
         json.dumps([FIXTURE["omm"]]).encode(),
@@ -593,7 +620,9 @@ def test_new_status_has_no_ingestion_history_and_no_hidden_collection(
     assert rows(archive) == []
 
 
-def test_monitoring_dedup_does_not_refresh_orbital_epoch(archive, dataset, monkeypatch):
+def test_monitoring_dedup_does_not_refresh_orbital_epoch(
+    archive, dataset, monkeypatch, monitoring_clock
+):
     capture(monkeypatch, dataset)
     collect(archive)
     later = NOW + timedelta(hours=2)
@@ -614,7 +643,7 @@ def test_monitoring_dedup_does_not_refresh_orbital_epoch(archive, dataset, monke
 
 
 def test_monitoring_failure_preserves_older_records_and_safe_error_category(
-    archive, dataset, monkeypatch
+    archive, dataset, monkeypatch, monitoring_clock
 ):
     capture(monkeypatch, dataset)
     collect(archive)
@@ -696,7 +725,7 @@ def test_recovery_runbook_command_verifies_real_tables_and_cleans_only_owned_tar
 
 
 def test_monitoring_recent_success_from_synthetic_current_epoch(
-    archive, dataset, monkeypatch
+    archive, dataset, monkeypatch, monitoring_clock
 ):
     record = json.loads(dataset.raw)[0]
     record["OBJECT_NAME"] = "SYNTHETIC CURRENT EPOCH TEST ONLY"
@@ -707,6 +736,9 @@ def test_monitoring_recent_success_from_synthetic_current_epoch(
     assert status["status"] == "healthy" and status["code"] == "recent_success"
     assert status["latest_payload_outcome"] == "inserted"
     assert status["stored_orbital_epoch_age_seconds"] == 0
+    assert datetime.fromisoformat(status["last_snapshot_insertion_at"]) == (
+        NOW - timedelta(seconds=1)
+    )
 
 
 def test_provider_http_error_requires_review_even_after_cooldown(archive):

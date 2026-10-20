@@ -3,6 +3,7 @@
 import hashlib
 import os
 from contextlib import contextmanager
+from contextvars import ContextVar
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from functools import lru_cache
@@ -10,6 +11,7 @@ from pathlib import Path
 from threading import RLock
 
 import astropy_iers_data
+import erfa
 import numpy as np
 from astropy import units as u
 from astropy.time import Time, TimeDelta
@@ -30,13 +32,21 @@ class Resources:
 
 
 LOCK = RLock()  # Astropy ScienceState and configuration contexts are process-global.
+_REPLAY = ContextVar("orbitiq_replay_orientation", default=None)
 
 
 @lru_cache(maxsize=1)
 def resources() -> Resources:
+    return load_resources(
+        Path(astropy_iers_data.IERS_A_FILE),
+        Path(astropy_iers_data.IERS_LEAP_SECOND_FILE),
+        astropy_iers_data.__version__,
+    )
+
+
+def load_resources(eop: Path, leap: Path, package_version: str) -> Resources:
+    """Load explicit local files; callers must establish their trusted identity."""
     try:
-        eop = Path(astropy_iers_data.IERS_A_FILE)
-        leap = Path(astropy_iers_data.IERS_LEAP_SECOND_FILE)
         table = iers.IERS_A.open(str(eop))
         leaps = iers.LeapSeconds.open(str(leap))
         return Resources(
@@ -44,7 +54,7 @@ def resources() -> Resources:
             leaps,
             {
                 "source": "astropy-iers-data bundled IERS-A finals2000A.all",
-                "package_version": astropy_iers_data.__version__,
+                "package_version": package_version,
                 "sha256": hashlib.sha256(eop.read_bytes()).hexdigest(),
                 "leap_seconds_sha256": hashlib.sha256(leap.read_bytes()).hexdigest(),
                 "leap_seconds_expires": leaps.expires.isot,
@@ -62,8 +72,33 @@ def resources() -> Resources:
 
 
 @contextmanager
+def replay_orientation(data: Resources, mode: str, evaluated_at: datetime):
+    """Operator-only historical replay scope; never enabled by an API input."""
+    if (
+        mode not in {"measured_only", "measured_or_predicted"}
+        or not isinstance(evaluated_at, datetime)
+        or evaluated_at.tzinfo is None
+    ):
+        raise TransformationError("replay_policy_invalid", "Invalid replay policy")
+    with LOCK:
+        saved = iers.LeapSeconds(erfa.leap_seconds.get().copy())
+        saved.meta["expires"] = Time(erfa.leap_seconds.expires)
+        token = _REPLAY.set((data, mode, evaluated_at.astimezone(UTC)))
+        try:
+            yield
+        finally:
+            _REPLAY.reset(token)
+            erfa.leap_seconds.set(saved)
+
+
+@contextmanager
 def orientation():
-    mode = os.environ.get("ORBITIQ_EOP_POLICY", "measured_or_predicted")
+    replay = _REPLAY.get()
+    mode = (
+        replay[1]
+        if replay
+        else os.environ.get("ORBITIQ_EOP_POLICY", "measured_or_predicted")
+    )
     if mode not in {"measured_only", "measured_or_predicted"}:
         raise TransformationError(
             "eop_configuration", "Earth-orientation policy is invalid", 503
@@ -78,7 +113,7 @@ def orientation():
             "system_leap_second_file", astropy_iers_data.IERS_LEAP_SECOND_FILE
         ),
     ):
-        data = resources()
+        data = replay[0] if replay else resources()
         try:
             data.leaps.update_erfa_leap_seconds(initialize_erfa=True)
         except (ValueError, OSError):
@@ -123,7 +158,8 @@ def parameters(data: Resources, at: Time, mode: str, *, now: datetime | None = N
             "eop_unavailable", "Earth-orientation parameters are not finite", 503
         )
     predicted = np.any(statuses == iers.FROM_IERS_A_PREDICTION)
-    now = now or datetime.now(UTC)
+    replay = _REPLAY.get()
+    now = now or (replay[2] if replay else datetime.now(UTC))
     age = float(Time(now, scale="utc").mjd - data.metadata["predictive_mjd"])
     if predicted and mode == "measured_only":
         raise TransformationError(

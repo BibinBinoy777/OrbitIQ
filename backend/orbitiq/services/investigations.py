@@ -300,13 +300,13 @@ def element_differences(first, second):
     return differences
 
 
-def common_state(sources, at, frame):
+def common_state(sources, at, frame, *, positioner=None):
     results, errors = [], []
     for _, item, elements, invalid in sources:
         try:
             if invalid:
                 raise analysis.AnalysisError(422, invalid["code"], invalid["message"])
-            result = analysis.position_from_snapshot(item, elements, at)
+            result = (positioner or analysis.position_from_snapshot)(item, elements, at)
             if frame == "ITRS":
                 result = earth_fixed(result)
             results.append(result)

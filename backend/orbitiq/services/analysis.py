@@ -111,7 +111,7 @@ def position(path: Path, snapshot_id: int, at: datetime):
     return position_from_snapshot(item, elements, at)
 
 
-def position_from_snapshot(item, elements, at: datetime):
+def position_from_snapshot(item, elements, at: datetime, *, freshness_policy=None):
     """Reuse validated, fixed source within one bounded multi-sample request."""
     try:
         result = propagate(elements, at)
@@ -121,7 +121,7 @@ def position_from_snapshot(item, elements, at: datetime):
         item["orbital_epoch"],
         item["retrieved_at"],
         as_of=utc(result["calculated_at"]),
-        policy=policy(),
+        policy=freshness_policy or policy(),
     )
     if freshness["state"] != "fresh":
         result["warnings"].append(

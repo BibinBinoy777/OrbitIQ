@@ -52,7 +52,7 @@ def checked_source(path, ref):
     return item, elements
 
 
-def source_evidence(ref, item, role, now):
+def source_evidence(ref, item, role, now, *, freshness_policy=None):
     return {
         "role": role,
         "reference": ref.model_dump(mode="json"),
@@ -95,7 +95,7 @@ def source_evidence(ref, item, role, now):
             item["orbital_epoch"],
             item["retrieved_at"],
             as_of=now,
-            policy=analysis.policy(),
+            policy=freshness_policy or analysis.policy(),
         ),
         "elements": {k: item["normalized_record"][k] for k in ELEMENT_UNITS},
         "element_units": dict(ELEMENT_UNITS),

@@ -58,6 +58,20 @@ local titles/notes remain excluded. See the [report/export guide](docs/investiga
 and [Phase 9 verification](docs/phase-9-report.md). No migration or new dependency
 is required. Public launch and Phase 8 infrastructure gates remain separate.
 
+Phase 10 adds an operator-only **evidence capture and offline replay** CLI. Bundles
+retain exact source bytes, applicable EOP/leap resources, software/code identities
+and policy settings, then recalculate with explicit numerical tolerances. Replay
+does not establish observed orbit accuracy or current EOP readiness. See the
+[CLI and bundle guide](docs/evidence-replay.md), [plan](docs/phase-10-plan.md)
+and [verification report](docs/phase-10-report.md). Phase 10 is local, unpublished
+work; Phase 9 has separately passed CI on `main`.
+
+Phase 10.1 hardens that same bundle format with bounded import, explicit scientific
+preflight, scoped offline enforcement and separate exact/tolerance replay outcomes.
+See the [integrity contract](docs/replay-integrity-contract.md) and
+[local verification report](docs/phase-10.1-report.md). Independent observation
+validation remains blocked and prediction uncertainty unquantified.
+
 Use Python 3.12, uv (validated with 0.12.23), Node.js 24 and npm 11.
 From the repository root:
 

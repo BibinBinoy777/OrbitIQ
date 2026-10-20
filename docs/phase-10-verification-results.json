@@ -1,0 +1,451 @@
+{
+  "base_commit": "d9f85d5d6e28cea90f25965c761422f16705eea8",
+  "branch": "phase-10-evidence-replay",
+  "branch_protection": {
+    "main_protected": false,
+    "settings_modified": false,
+    "source": "GitHub branches/main API read during this task"
+  },
+  "environment": {
+    "backend_sha256": {
+      "backend/orbitiq/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/api/__init__.py": "5e07dd0d73d377eb2a5c8a66cfcee482618cb27c26de72903bb8fa1bd0d98399",
+      "backend/orbitiq/api/boundary.py": "6610a66d5d6c519bbb3ed5da4c1b91762efb5c93dc122726aac86805c5753c40",
+      "backend/orbitiq/api/errors.py": "28265e6cf3514d0f7a9c2c135a79c211f3eb95c2e8c652a16f024894a9806ad6",
+      "backend/orbitiq/api/ground_tracks.py": "07d7a652913ae0aaf2584354e52e7762c056b8f94d251b520972bdcade63440a",
+      "backend/orbitiq/api/health.py": "9a1e90c4ca376a52669d6684fb9ef8438a6cf50d6f41e2aab3d6d7c923e903b6",
+      "backend/orbitiq/api/investigations.py": "fe501934859e32e739e4d403325dce751ab99f6148f12d5b0904d08d4f554b73",
+      "backend/orbitiq/api/operational.py": "969b7c319056460d5c587aa23ef7cedaf3b0656289f5cf19c926df96ef056d59",
+      "backend/orbitiq/api/orbits.py": "aedb0ee9c56a1d714694b0726f29a1bf9a486a68c1b7ca58671eec2632fb1871",
+      "backend/orbitiq/api/readiness.py": "24db2cdd74d793abf6969ea1a179761a846f228539070b99fe2ef9f5dc35c0cf",
+      "backend/orbitiq/api/reports.py": "835828e758c7a66d1a65f52bd3f2e651fae7880049610dfd0f96b20880d5c750",
+      "backend/orbitiq/api/scientific_schemas.py": "044e42dd1a06f264e20b7c9ea5213857cbe895f3819e3e31e2247a1243ec5079",
+      "backend/orbitiq/database.py": "bec62754a897227af1a5b5a3a360b4fa0c1999a25d845798714e7417d1314e28",
+      "backend/orbitiq/ingestion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/ingestion/celestrak.py": "2f2b5471482b6f185231f180f72f87d9bf73634009a2b6d046cae87940afe2af",
+      "backend/orbitiq/ingestion/collection.py": "a95c7aaa8d9db84bc83f4d99adf7d1cdf83a3b29f5606fe6e4f7081b68961b93",
+      "backend/orbitiq/main.py": "f663ab0c18e6fd49f2a3d204245a3da9b6104b6a4dea1cb2d4909f754e52baf0",
+      "backend/orbitiq/maintenance/__init__.py": "6b529e4c828464104859982376e974d7be0bde4b3f65b70f16bcf3d45202fa37",
+      "backend/orbitiq/maintenance/backup_export.py": "6e827eff4101cefa289c25fb180c4887027fa27885014b1cc28d4f4c42e8339f",
+      "backend/orbitiq/maintenance/eop.py": "840063bacc01e55d0cd87cdbacc3f4e7a53695b7ab064b8b4595086a21c1acec",
+      "backend/orbitiq/maintenance/monitor.py": "e514a47c0bda9c8421f7bec00bb21209c7bfcfb144451993c10653a5cc990f66",
+      "backend/orbitiq/maintenance/probe.py": "b0964bb7b90b2c1c0ce24ab68803fd0444ce7d21debfc007c803cd4eaf2e07ca",
+      "backend/orbitiq/maintenance/recovery.py": "483feac2a7ebb38ee22488d3a695dd2ee66241d4868dceeccb36ec678cfce848",
+      "backend/orbitiq/maintenance/replay.py": "8518ace2a23c11eda126a7daa7a8673ca3f03478f7edffbb75b31ea49653fcd7",
+      "backend/orbitiq/orbits/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/orbits/coordinates.py": "6ebc8491fc96118eac0fd40afc2d1eb8459d87ea7b5008819d8c17ea89e3e19b",
+      "backend/orbitiq/orbits/earth_orientation.py": "fb26e1a75294f1515f48faa301463d750ad89caf1b48f136068a6ab8f7fdf6ec",
+      "backend/orbitiq/orbits/elements.py": "514cf3bdedc54d2b5f3af0155dfb5e10d24608ce924a6419c622413ac7f206dc",
+      "backend/orbitiq/orbits/engine.py": "509c00730325ca2d24cca4d13260473a598ebfd9666f62b9ea40855f0804ae26",
+      "backend/orbitiq/orbits/freshness.py": "3776c31476b01f56accaf5f1de50fe73c821d168fe7da65e58f1eef061b440e7",
+      "backend/orbitiq/orbits/sampling.py": "825ebb40becb7acf0da59d2c91ebf122b165d45d195d19aa9e9089360a74238d",
+      "backend/orbitiq/replay.py": "751786c9453320be02f68a2bfcde6b7a2f3b3dc89a32b304c2b766b322a4b119",
+      "backend/orbitiq/replay_contract.py": "7370b7d7d84c19b161701e4ff300c883904749e629f5849c115813ab814d1137",
+      "backend/orbitiq/reporting.py": "bf441bcd6d18c458314511fdee499face45f91557cbf5213c9bc046162efa129",
+      "backend/orbitiq/runtime.py": "7b5f65625b35a512f17de309efdaa456d0baa77e3662decde9741abe18b3bcea",
+      "backend/orbitiq/services/__init__.py": "0cd24ec0d86900bfb8b922249feb031cdf22888d987a325b5a3d15ed7918b7c1",
+      "backend/orbitiq/services/analysis.py": "6dcd9904f4c72a79b728f21f519b52eacb281889bbd761859465feed0bc81904",
+      "backend/orbitiq/services/ground_tracks.py": "cf43222d95b3b77dcb2646805568571de8ee16b2bcda6f235cc7bd4b5f77dd4d",
+      "backend/orbitiq/services/ingestion_status.py": "321f28b6bee9a89ff18fb85c7e5ea17d93d9110cb4c383d12e563aadc395a439",
+      "backend/orbitiq/services/investigations.py": "af26ea869794e7bbb805470b2171141880bc9f5859d655ee38b99bbb83ed9617",
+      "backend/orbitiq/services/readiness.py": "1083508fd54c3ac6359804eb153942624850bc5547fa075b8907c597c7525135",
+      "backend/orbitiq/services/replay.py": "fff62cc69d6c701e1346726868814b799ed0aa7c62c1aeb3a35adad5b8afdd06",
+      "backend/orbitiq/services/reports.py": "84e8ee382c9f7baea7fa63217cda934f8c9698e643dc3f8450b6deab18865754",
+      "backend/orbitiq/storage.py": "ffc76c2f5e28694b3f9222ffd85aa83c8c487b98d06d8d2dad4a36ec8f0e70eb"
+    },
+    "implementation": "CPython",
+    "packages": {
+      "astropy": "7.2.3",
+      "astropy-iers-data": "0.2026.10.12.1.3.27",
+      "numpy": "2.5.4",
+      "pyerfa": "2.0.1.5",
+      "sgp4": "2.27"
+    },
+    "python": "3.12.14",
+    "uv_lock_sha256": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1"
+  },
+  "genuine_replay_rehearsal": {
+    "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_unchanged": true,
+    "results": [
+      {
+        "bundle_bytes": 63395,
+        "capture_id": "ebaed943-e1b4-4df1-a37f-8038da9f7623",
+        "files": 4,
+        "manifest_sha256": "92b63cf7f43f9e4082cf47bd1090057f2b0621e69aa4ef37a737938422bf2050",
+        "name": "snapshot",
+        "offline_result": {
+          "capture_id": "ebaed943-e1b4-4df1-a37f-8038da9f7623",
+          "current_eop_readiness_checked": false,
+          "differences": [],
+          "independent_observation_validation": "blocked",
+          "integrity_scope": "trusted_manifest_sha256",
+          "manifest_sha256": "92b63cf7f43f9e4082cf47bd1090057f2b0621e69aa4ef37a737938422bf2050",
+          "mismatch_count": 0,
+          "numeric_values_checked": 0,
+          "offline_audit": {
+            "attempts": {
+              "database": 0,
+              "network": 0
+            },
+            "database_configuration_present": false
+          },
+          "policy_evaluated_at": "2026-10-20T08:09:54.878353+00:00",
+          "prediction_uncertainty": "unquantified",
+          "provider_authenticity": "not_independently_verified",
+          "report_id": "97a50489-73aa-4510-b91f-b0582e571bba",
+          "runtime_code_lock_match": true,
+          "schema_version": 1,
+          "status": "verified_source_only",
+          "tolerances": {
+            "altitude_km": 1e-08,
+            "geodetic_angle_deg": 1e-09,
+            "other_numeric": 0,
+            "position_km": 1e-08,
+            "relative": 0,
+            "velocity_km_s": 1e-10
+          },
+          "verified_at": "2026-10-20T08:09:55.382842+00:00"
+        },
+        "report_id": "97a50489-73aa-4510-b91f-b0582e571bba",
+        "report_status": "complete",
+        "status": "captured"
+      },
+      {
+        "bundle_bytes": 65813,
+        "capture_id": "2e189511-d094-46e3-84fd-f7a3638a6398",
+        "files": 4,
+        "manifest_sha256": "c36f7a7c26a2c09704cfb8fce064a683dad4b60b43a8a88cd5b45e98fda302e7",
+        "name": "position",
+        "offline_result": {
+          "capture_id": "2e189511-d094-46e3-84fd-f7a3638a6398",
+          "current_eop_readiness_checked": false,
+          "differences": [],
+          "independent_observation_validation": "blocked",
+          "integrity_scope": "trusted_manifest_sha256",
+          "manifest_sha256": "c36f7a7c26a2c09704cfb8fce064a683dad4b60b43a8a88cd5b45e98fda302e7",
+          "mismatch_count": 0,
+          "numeric_values_checked": 9,
+          "offline_audit": {
+            "attempts": {
+              "database": 0,
+              "network": 0
+            },
+            "database_configuration_present": false
+          },
+          "policy_evaluated_at": "2026-10-20T08:09:55.965632+00:00",
+          "prediction_uncertainty": "unquantified",
+          "provider_authenticity": "not_independently_verified",
+          "report_id": "be157d28-ea69-4c50-a503-ca09ca4dc90b",
+          "runtime_code_lock_match": true,
+          "schema_version": 1,
+          "status": "matched",
+          "tolerances": {
+            "altitude_km": 1e-08,
+            "geodetic_angle_deg": 1e-09,
+            "other_numeric": 0,
+            "position_km": 1e-08,
+            "relative": 0,
+            "velocity_km_s": 1e-10
+          },
+          "verified_at": "2026-10-20T08:09:56.430555+00:00"
+        },
+        "report_id": "be157d28-ea69-4c50-a503-ca09ca4dc90b",
+        "report_status": "complete",
+        "status": "captured"
+      },
+      {
+        "bundle_bytes": 3855450,
+        "capture_id": "2acf9464-88c6-4f08-8652-9c8e4a4dc7c7",
+        "files": 6,
+        "manifest_sha256": "425a640ea30be04c0d6b2e314d926b456810f8fd8f696ed2b2e4af09c244fdbd",
+        "name": "ground-track",
+        "offline_result": {
+          "capture_id": "2acf9464-88c6-4f08-8652-9c8e4a4dc7c7",
+          "current_eop_readiness_checked": false,
+          "differences": [],
+          "independent_observation_validation": "blocked",
+          "integrity_scope": "trusted_manifest_sha256",
+          "manifest_sha256": "425a640ea30be04c0d6b2e314d926b456810f8fd8f696ed2b2e4af09c244fdbd",
+          "mismatch_count": 0,
+          "numeric_values_checked": 93,
+          "offline_audit": {
+            "attempts": {
+              "database": 0,
+              "network": 0
+            },
+            "database_configuration_present": false
+          },
+          "policy_evaluated_at": "2026-10-20T08:09:56.878834+00:00",
+          "prediction_uncertainty": "unquantified",
+          "provider_authenticity": "not_independently_verified",
+          "report_id": "3db64864-b426-441b-9b72-00c43abe8198",
+          "runtime_code_lock_match": true,
+          "schema_version": 1,
+          "status": "matched",
+          "tolerances": {
+            "altitude_km": 1e-08,
+            "geodetic_angle_deg": 1e-09,
+            "other_numeric": 0,
+            "position_km": 1e-08,
+            "relative": 0,
+            "velocity_km_s": 1e-10
+          },
+          "verified_at": "2026-10-20T08:09:57.600392+00:00"
+        },
+        "report_id": "3db64864-b426-441b-9b72-00c43abe8198",
+        "report_status": "complete",
+        "status": "captured"
+      },
+      {
+        "bundle_bytes": 3863255,
+        "capture_id": "99981d88-b305-4d05-b359-72be5307877c",
+        "files": 8,
+        "manifest_sha256": "1e560cf76e9c5dae0c6ff0df29342133a46ebb7dfac34048faa07484bcde44ab",
+        "name": "comparison",
+        "offline_result": {
+          "capture_id": "99981d88-b305-4d05-b359-72be5307877c",
+          "current_eop_readiness_checked": false,
+          "differences": [],
+          "independent_observation_validation": "blocked",
+          "integrity_scope": "trusted_manifest_sha256",
+          "manifest_sha256": "1e560cf76e9c5dae0c6ff0df29342133a46ebb7dfac34048faa07484bcde44ab",
+          "mismatch_count": 0,
+          "numeric_values_checked": 100,
+          "offline_audit": {
+            "attempts": {
+              "database": 0,
+              "network": 0
+            },
+            "database_configuration_present": false
+          },
+          "policy_evaluated_at": "2026-10-20T08:09:58.317682+00:00",
+          "prediction_uncertainty": "unquantified",
+          "provider_authenticity": "not_independently_verified",
+          "report_id": "13718ee3-d7b4-426e-b099-369701180f04",
+          "runtime_code_lock_match": true,
+          "schema_version": 1,
+          "status": "matched",
+          "tolerances": {
+            "altitude_km": 1e-08,
+            "geodetic_angle_deg": 1e-09,
+            "other_numeric": 0,
+            "position_km": 1e-08,
+            "relative": 0,
+            "velocity_km_s": 1e-10
+          },
+          "verified_at": "2026-10-20T08:09:59.016579+00:00"
+        },
+        "report_id": "13718ee3-d7b4-426e-b099-369701180f04",
+        "report_status": "complete",
+        "status": "captured"
+      },
+      {
+        "bundle_bytes": 6115612,
+        "capture_id": "34b6b95c-d6b7-47f1-b886-aa89e5763568",
+        "files": 6,
+        "manifest_sha256": "1fb5d2b3cfb8e10db1c3ff3111e7e544a7fe7fdb0909f9e38a8743eccb8990d5",
+        "name": "max-track",
+        "offline_result": {
+          "capture_id": "34b6b95c-d6b7-47f1-b886-aa89e5763568",
+          "current_eop_readiness_checked": false,
+          "differences": [],
+          "independent_observation_validation": "blocked",
+          "integrity_scope": "trusted_manifest_sha256",
+          "manifest_sha256": "1fb5d2b3cfb8e10db1c3ff3111e7e544a7fe7fdb0909f9e38a8743eccb8990d5",
+          "mismatch_count": 0,
+          "numeric_values_checked": 11191,
+          "offline_audit": {
+            "attempts": {
+              "database": 0,
+              "network": 0
+            },
+            "database_configuration_present": false
+          },
+          "policy_evaluated_at": "2026-10-20T08:09:59.713039+00:00",
+          "prediction_uncertainty": "unquantified",
+          "provider_authenticity": "not_independently_verified",
+          "report_id": "5573f388-dd92-428a-ba45-b2cf58259de2",
+          "runtime_code_lock_match": true,
+          "schema_version": 1,
+          "status": "matched",
+          "tolerances": {
+            "altitude_km": 1e-08,
+            "geodetic_angle_deg": 1e-09,
+            "other_numeric": 0,
+            "position_km": 1e-08,
+            "relative": 0,
+            "velocity_km_s": 1e-10
+          },
+          "verified_at": "2026-10-20T08:10:02.205686+00:00"
+        },
+        "report_id": "5573f388-dd92-428a-ba45-b2cf58259de2",
+        "report_status": "complete",
+        "status": "captured"
+      }
+    ]
+  },
+  "kind": "orbitiq_phase_10_local_verification",
+  "limitations": [
+    "Checksums do not authenticate CelesTrak or resist a fully forged bundle without a separately trusted manifest checksum.",
+    "Matching versions/code/lock are required; library binaries are not embedded.",
+    "Historical policy evaluation does not establish current EOP readiness.",
+    "Observation-based prediction validation remains blocked and uncertainty unquantified.",
+    "Task-local bundles/logs under /tmp require separate retention; they are not durable off-machine backups."
+  ],
+  "local_checks": [
+    {
+      "command": "uv sync --locked",
+      "exit_code": 0
+    },
+    {
+      "command": "uv run --locked pytest -q",
+      "exit_code": 0,
+      "new_replay_tests": 55,
+      "passed": 730,
+      "warnings": [
+        "Existing Starlette/httpx TestClient deprecation"
+      ]
+    },
+    {
+      "command": "uv run --locked ruff check .",
+      "exit_code": 0
+    },
+    {
+      "command": "uv run --locked ruff format --check .",
+      "exit_code": 0
+    },
+    {
+      "command": "npm test (frontend)",
+      "exit_code": 0,
+      "passed": 307
+    },
+    {
+      "command": "npm run lint (frontend)",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run format:check (frontend)",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run build (frontend)",
+      "exit_code": 0,
+      "typescript_checked": true,
+      "warnings": [
+        "Existing globe chunk exceeds 500 kB"
+      ]
+    },
+    {
+      "command": "PYTHONPATH=backend python scripts/verify_scientific_references.py --output /tmp/orbitiq-phase10/sgp4-results.json",
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 40
+    },
+    {
+      "command": "PYTHONPATH=backend python scripts/verify_earth_fixed_references.py --output /tmp/orbitiq-phase10/earth-fixed-results.json",
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 6
+    },
+    {
+      "command": "PYTHONPATH=backend python scripts/verify_phase61_science.py --output /tmp/orbitiq-phase10/phase61-results.json",
+      "exit_code": 0,
+      "failed": 0,
+      "observation_validation": "blocked",
+      "passed": 32
+    },
+    {
+      "command": "PYTHONPATH=backend python scripts/verify_phase611_geodesy.py --output /tmp/orbitiq-phase10/geodesy-results.json",
+      "exit_code": 0,
+      "independent_cases_passed": 28,
+      "roundtrips_passed": 28
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "local_log_sha256": {
+    "backend-tests-final.log": "b2139b6283b7f41d550114d2b6a357c9d66b9716ba7bc6ba7bf25936c04b2586",
+    "frontend-build.log": "a332b779ac0272415e5b55fe08eb4fa23cb6a3810a4baaf1d3323993beb77536",
+    "frontend-tests.log": "9dbcf9e8bf619e0ae3a9b5e9e1c14c817e79ddff8592a19589cc8d8b37584532"
+  },
+  "not_rerun_for_phase_10": [
+    "Interactive browser engines/PDF export checks",
+    "Docker release image builds/runtime rehearsal",
+    "Public production infrastructure checks"
+  ],
+  "phase_10_committed": false,
+  "phase_10_published": false,
+  "phase_10_remote_ci_verified": false,
+  "phase_9_main": {
+    "ci_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39389781990",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "completedAt": "2026-10-20T07:56:40Z",
+        "conclusion": "success",
+        "name": "release-images",
+        "startedAt": "2026-10-20T07:55:39Z",
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39389781990/job/118518221238"
+      },
+      {
+        "completedAt": "2026-10-20T07:56:27Z",
+        "conclusion": "success",
+        "name": "frontend",
+        "startedAt": "2026-10-20T07:55:39Z",
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39389781990/job/118518221501"
+      },
+      {
+        "completedAt": "2026-10-20T07:56:09Z",
+        "conclusion": "success",
+        "name": "backend",
+        "startedAt": "2026-10-20T07:55:39Z",
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39389781990/job/118518221698"
+      }
+    ],
+    "sha": "d9f85d5d6e28cea90f25965c761422f16705eea8"
+  },
+  "preservation": {
+    "database_bytes_unchanged": true,
+    "database_fingerprint_unchanged": true,
+    "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "existing_tests_unchanged": true,
+    "historical_phase_document_files_checked": 44,
+    "historical_phase_documents_unchanged": true,
+    "lockfiles_unchanged": true,
+    "migrations_unchanged": true,
+    "missing_tracked_files": [],
+    "tracked_changed_files": [
+      ".gitignore",
+      "README.md",
+      "backend/orbitiq/orbits/earth_orientation.py",
+      "backend/orbitiq/services/analysis.py",
+      "backend/orbitiq/services/investigations.py",
+      "backend/orbitiq/services/reports.py"
+    ]
+  },
+  "production": {
+    "deployment_performed": false,
+    "monitoring_alert_delivery_verified": false,
+    "off_machine_recovery_verified": false,
+    "phase_8_closed": false,
+    "public_https_verified": false
+  },
+  "recorded_at": "2026-10-20T08:12:04.990658+00:00",
+  "schema_version": 1,
+  "settings": {
+    "eop_policy": "measured_or_predicted",
+    "fresh_hours": 24.0,
+    "max_duration_seconds": 86400,
+    "max_samples": 361,
+    "stale_hours": 72.0
+  },
+  "source_revision": {
+    "dirty": true,
+    "head": "d9f85d5d6e28cea90f25965c761422f16705eea8",
+    "machine": "x86_64",
+    "platform": "Linux"
+  }
+}

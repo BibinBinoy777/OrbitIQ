@@ -1,0 +1,2178 @@
+{
+  "phase": "8.1",
+  "title": "Production launch blocker closure",
+  "recorded_at_utc": "2026-10-19T18:20:17.465978+00:00",
+  "recommendation": "NO-GO",
+  "scope": "Local improvements verified; externally dependent capabilities remain BLOCKED",
+  "baseline": {
+    "head": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+    "branch": "main",
+    "git_status": [
+      "M .env.example",
+      " M .github/workflows/ci.yml",
+      " M README.md",
+      " M backend/orbitiq/main.py",
+      "?? .dockerignore",
+      "?? Dockerfile",
+      "?? backend/orbitiq/api/boundary.py",
+      "?? backend/orbitiq/api/operational.py",
+      "?? backend/orbitiq/runtime.py",
+      "?? backend/tests/test_production.py",
+      "?? deploy/",
+      "?? docs/phase-8-integration-results.json",
+      "?? docs/phase-8-readiness-report.md",
+      "?? docs/production-deployment-runbook.md",
+      "?? docs/production-security-review.md",
+      "?? scripts/verify_release_containers.py"
+    ],
+    "existing_blocked_phase8_criterion": {
+      "id": 20,
+      "criterion": "Deployment and rollback instructions are complete"
+    },
+    "initial_launch_gate_count": 7,
+    "commands": [
+      {
+        "name": "backend",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:54:07.968054+00:00",
+        "elapsed_seconds": 9.192,
+        "exit_status": 0,
+        "output": "........................................................................ [ 11%]\n........................................................................ [ 23%]\n........................................................................ [ 35%]\n........................................................................ [ 47%]\n........................................................................ [ 59%]\n........................................................................ [ 70%]\n........................................................................ [ 82%]\n........................................................................ [ 94%]\n.................................                                        [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n609 passed, 1 warning in 8.36s\n"
+      },
+      {
+        "name": "frontend",
+        "command": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:54:17.161128+00:00",
+        "elapsed_seconds": 10.251,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 test\n> vitest run\n\n\n RUN  v5.0.5 /workspace/OrbitIQ/frontend\n\n\n Test Files  20 passed (20)\n      Tests  275 passed (275)\n   Start at  17:54:17\n   Duration  9.71s (tests 63%, environment 29%, setup 4%, import 3%, transform 1%)\n\nEnvironment  jsdom was created 20 times · 7.64s total, 29% of tracked time\n             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)\n             learn more: https://vitest.dev/guide/improving-performance#test-environments\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "production-build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:54:27.412101+00:00",
+        "elapsed_seconds": 5.867,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 build\n> tsc --noEmit && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 56 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                  0.39 kB │ gzip:   0.27 kB\ndist/assets/index-D3h8fOB5.css                   6.84 kB │ gzip:   2.06 kB\ndist/assets/RestoredInvestigation-OjNSLZsT.js    3.63 kB │ gzip:   1.63 kB\ndist/assets/SavedInvestigations-B8ciZshu.js      7.11 kB │ gzip:   2.44 kB\ndist/assets/investigation-api--sC16ihO.js        8.00 kB │ gzip:   3.00 kB\ndist/assets/Investigations-D14PLFuI.js          20.00 kB │ gzip:   6.08 kB\ndist/assets/index-C1By00ak.js                  287.16 kB │ gzip:  88.99 kB\ndist/assets/globe-renderer-DosfVNAk.js         558.60 kB │ gzip: 140.28 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n✓ built in 2.19s\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      }
+    ],
+    "backend": 609,
+    "frontend": 275
+  },
+  "release_candidate": {
+    "published_head": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+    "published_phase": "7",
+    "phase8_and_phase81_committed": false,
+    "worktree_manifest_excludes_own_outputs": true,
+    "worktree_manifest": {
+      ".dockerignore": "767f768b0fddd32b53c56867bbf286dc90ddee0ecb1d69bc031c3401eefadcd6",
+      ".env.example": "c5f6620153b380632634d3ad9c761f1fe538b73226e1395c3fe0f5d41008a7ec",
+      ".github/workflows/ci.yml": "a7b489350c0668613923da31558654aa5f3a6fb2e06a33911252c89f5b3deecd",
+      ".gitignore": "a9de07469acc5518ad7c352f81f12e21b95a2e9e841970c172c0fd044624f11b",
+      ".nvmrc": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53",
+      ".python-version": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
+      "Dockerfile": "ff3c9e4084a5098c75b959600007b7bb019db8c9a780c3f2de06cee0966c309e",
+      "README.md": "d32ede0748d20246bffdeb40875684ad92500c6b1b8ae73504f372e76a90b815",
+      "backend/orbitiq/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/api/__init__.py": "5e07dd0d73d377eb2a5c8a66cfcee482618cb27c26de72903bb8fa1bd0d98399",
+      "backend/orbitiq/api/boundary.py": "87ba93c85ab311e582ef5c301d9df16afe8c2adc97df313985b05d1d78c1e072",
+      "backend/orbitiq/api/errors.py": "28265e6cf3514d0f7a9c2c135a79c211f3eb95c2e8c652a16f024894a9806ad6",
+      "backend/orbitiq/api/ground_tracks.py": "07d7a652913ae0aaf2584354e52e7762c056b8f94d251b520972bdcade63440a",
+      "backend/orbitiq/api/health.py": "9a1e90c4ca376a52669d6684fb9ef8438a6cf50d6f41e2aab3d6d7c923e903b6",
+      "backend/orbitiq/api/investigations.py": "fe501934859e32e739e4d403325dce751ab99f6148f12d5b0904d08d4f554b73",
+      "backend/orbitiq/api/operational.py": "969b7c319056460d5c587aa23ef7cedaf3b0656289f5cf19c926df96ef056d59",
+      "backend/orbitiq/api/orbits.py": "aedb0ee9c56a1d714694b0726f29a1bf9a486a68c1b7ca58671eec2632fb1871",
+      "backend/orbitiq/api/readiness.py": "24db2cdd74d793abf6969ea1a179761a846f228539070b99fe2ef9f5dc35c0cf",
+      "backend/orbitiq/api/scientific_schemas.py": "044e42dd1a06f264e20b7c9ea5213857cbe895f3819e3e31e2247a1243ec5079",
+      "backend/orbitiq/database.py": "bec62754a897227af1a5b5a3a360b4fa0c1999a25d845798714e7417d1314e28",
+      "backend/orbitiq/ingestion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/ingestion/celestrak.py": "2f2b5471482b6f185231f180f72f87d9bf73634009a2b6d046cae87940afe2af",
+      "backend/orbitiq/ingestion/collection.py": "a95c7aaa8d9db84bc83f4d99adf7d1cdf83a3b29f5606fe6e4f7081b68961b93",
+      "backend/orbitiq/main.py": "5648cac3305d676b70066d46c4d19a2f5757607e0b8bb091de4375aed956b3cd",
+      "backend/orbitiq/maintenance/__init__.py": "6b529e4c828464104859982376e974d7be0bde4b3f65b70f16bcf3d45202fa37",
+      "backend/orbitiq/maintenance/backup_export.py": "6e827eff4101cefa289c25fb180c4887027fa27885014b1cc28d4f4c42e8339f",
+      "backend/orbitiq/maintenance/eop.py": "840063bacc01e55d0cd87cdbacc3f4e7a53695b7ab064b8b4595086a21c1acec",
+      "backend/orbitiq/maintenance/monitor.py": "e514a47c0bda9c8421f7bec00bb21209c7bfcfb144451993c10653a5cc990f66",
+      "backend/orbitiq/maintenance/probe.py": "b0964bb7b90b2c1c0ce24ab68803fd0444ce7d21debfc007c803cd4eaf2e07ca",
+      "backend/orbitiq/maintenance/recovery.py": "483feac2a7ebb38ee22488d3a695dd2ee66241d4868dceeccb36ec678cfce848",
+      "backend/orbitiq/migrations/001_initial.sql": "ae21b6483ea6487b7ba8b5d43387b7fc349aa51bcb621a363878179e1a9d38e5",
+      "backend/orbitiq/migrations/002_snapshots.sql": "f183eaa21aefe25969768120af211b8947e1a53e36f33d3a37674fa18677a507",
+      "backend/orbitiq/migrations/003_ingestion.sql": "84a027478abe3a18aa6a0f171a3298699687219172694f57610073091b250d49",
+      "backend/orbitiq/orbits/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/orbits/coordinates.py": "6ebc8491fc96118eac0fd40afc2d1eb8459d87ea7b5008819d8c17ea89e3e19b",
+      "backend/orbitiq/orbits/earth_orientation.py": "f2f3240818b23f9c6b39c3b4d0d1a248d87b446590d9c838fa7f6ceb64d9c6bf",
+      "backend/orbitiq/orbits/elements.py": "514cf3bdedc54d2b5f3af0155dfb5e10d24608ce924a6419c622413ac7f206dc",
+      "backend/orbitiq/orbits/engine.py": "509c00730325ca2d24cca4d13260473a598ebfd9666f62b9ea40855f0804ae26",
+      "backend/orbitiq/orbits/freshness.py": "3776c31476b01f56accaf5f1de50fe73c821d168fe7da65e58f1eef061b440e7",
+      "backend/orbitiq/orbits/sampling.py": "825ebb40becb7acf0da59d2c91ebf122b165d45d195d19aa9e9089360a74238d",
+      "backend/orbitiq/runtime.py": "7b5f65625b35a512f17de309efdaa456d0baa77e3662decde9741abe18b3bcea",
+      "backend/orbitiq/services/__init__.py": "0cd24ec0d86900bfb8b922249feb031cdf22888d987a325b5a3d15ed7918b7c1",
+      "backend/orbitiq/services/analysis.py": "9e80594add34646ad6f3cd0a00341d68472c711cb2858410ded9d33d4a3ec42e",
+      "backend/orbitiq/services/ground_tracks.py": "cf43222d95b3b77dcb2646805568571de8ee16b2bcda6f235cc7bd4b5f77dd4d",
+      "backend/orbitiq/services/ingestion_status.py": "321f28b6bee9a89ff18fb85c7e5ea17d93d9110cb4c383d12e563aadc395a439",
+      "backend/orbitiq/services/investigations.py": "3f449b41eebe283183db4b8ec543bdc9b5b92b6403f75fd49e6cc1eecc0473f5",
+      "backend/orbitiq/services/readiness.py": "1083508fd54c3ac6359804eb153942624850bc5547fa075b8907c597c7525135",
+      "backend/orbitiq/storage.py": "ffc76c2f5e28694b3f9222ffd85aa83c8c487b98d06d8d2dad4a36ec8f0e70eb",
+      "backend/tests/fixtures/README.md": "f0e875bcbcd80f611bf012ab985df9e9e3bf8217ac103098a8074b78566db6fa",
+      "backend/tests/fixtures/earth-fixed.json": "b81a426545a50ae322f1be4643e82696fc35744cdb52aeda855ef9dfacd7e9c2",
+      "backend/tests/fixtures/phase61-sgp4.json": "1c80919455bb34136c064fffe664bc5414f11b4308fe2b895f1756173c69f73d",
+      "backend/tests/fixtures/phase61-source-notices.txt": "76e37019b371a206396c99e59b591d56996df47e4bd1a6685fe133d247b23031",
+      "backend/tests/fixtures/phase61-terrestrial.json": "c0d5e16c8387c508886ca796f941db45eb4188b9a83ccef686005d85fbfbf4f1",
+      "backend/tests/fixtures/phase611-geodesy.json": "a64a35a29c5617b5d3ddb444a77f80a6a3fb033dd13fe2481f4254a939b68ca2",
+      "backend/tests/fixtures/phase611-source-notices.txt": "cbd04a7354ab6772741693fec62bc43fb6cbe1d54eea86d3d8e857c78cf9fc6d",
+      "backend/tests/fixtures/vallado-leo.json": "b55844b5720d329eb958264afa1d5a54deb55e42e031188078d5a300a31b6242",
+      "backend/tests/fixtures/vallado.json": "2af169d40c5f55a1780137ab974374a402f6906b0cacd9eeb9d708358dd3b5d5",
+      "backend/tests/test_eop_maintenance.py": "dd657084ff453ece27c5ae88395c25ec5832d2619667694d294b208ee302715a",
+      "backend/tests/test_foundation.py": "b6dedd26f6b17c24b267a1af01b26663ba23c6aef11cdf522aec60765600de95",
+      "backend/tests/test_ingestion_reliability.py": "1cfb5e2df596e782a95e2e79accc61c6c5bb4f4114f8235355e6bb3dc57e20e3",
+      "backend/tests/test_phase1.py": "6c01226dffc75a8f7d10814a2db59d463133dca7d8eb133071c8f714114881f9",
+      "backend/tests/test_phase2_api.py": "99d4b577b3da7387aa69779cc34064337df620e9b328504b685051742f354e0a",
+      "backend/tests/test_phase2_science.py": "85eed96c2717b7f9d4f1aee2f8d47b63a78f8c94843fe562171c7daa4b8c4b74",
+      "backend/tests/test_phase3_api.py": "1510ef6785b9eaa362e3bab63f94c9cea8ff4bfabb1990e52691e3d5f2d4347a",
+      "backend/tests/test_phase3_science.py": "91f096f73fdba354824ace80910a263106aef69e357df90d99e509aca855e388",
+      "backend/tests/test_phase4_rendering.py": "77087d21ddca1ee887dd8d8c9703f6b4987bc0be339a8475c586eefd12cc52e7",
+      "backend/tests/test_phase5.py": "6dc918112b0c97ea0f590190519105f2d8b3e5b1c34599994644f4d041a48d5f",
+      "backend/tests/test_phase611_geodesy.py": "5b93ae852e87f833bab1e98793b4563f623836258981fbc8e696244ccaf66adb",
+      "backend/tests/test_phase61_science.py": "4c38a41f00df46b3312f0241b9547c5a37e883320a39f05155f5ec13785bbbfa",
+      "backend/tests/test_phase6_collection.py": "93611883e08173f37b16bc7dec047b431b721c1b2914982b6d02a2e137b7aa38",
+      "backend/tests/test_phase7_restoration.py": "7ed24956ca5649f93b07802d7bd08d6115ae06e4586d402e6660adf917b65df7",
+      "backend/tests/test_phase81_operations.py": "903363298aa78099f2ef627f1614fcb9fa2d54d5e982c9ea573dd9aa239c21aa",
+      "backend/tests/test_production.py": "1cfa35ee57df013dc3dd9a9ae44657e19ddaa7ed30ad0ac0bc4ea8ffda03814d",
+      "backend/tests/test_readiness.py": "f05c520fd390c36584f2152c19e95c5cf7eca323f9a92e025a9b3fb19bc1b759",
+      "deploy/Dockerfile.browser": "633bb10d95f064574902c2872c27af8744ec3ceaa747c248ffe75cceadc7920b",
+      "deploy/api-proxy.conf": "3a6110c6334a11b6b8e4a5fd1a26de07189c5885a563a34f8aa9de91494193cc",
+      "deploy/compose.tls.yaml": "4cc87aba9834d796ec6bcc913e4bae125587dfa48257c792bf56ce1c2bd9e792",
+      "deploy/compose.yaml": "ca453eb9de7a13e31eb71c25bffb2ae2e72977e766caa5f13b936bfd5495fa61",
+      "deploy/logging.json": "56a495cdf80300613e68ac06efa24a393848544b7b3f13cf8c2808260a9fcab5",
+      "deploy/nginx-tls.conf": "98cc41240ccdeb6e90d218963330f71f39279f8a072468e80a421b8782e5447b",
+      "deploy/nginx.conf": "28e02958c7d3862ca34673628be01f186fd6b13a9e0cad3488b4f79a2b4975b7",
+      "deploy/production.env.example": "28ab98a830654349ae11d65f7f249a88004fcef0f710b0806ffb9f167f916c0d",
+      "deploy/security-headers.conf": "404b5a0241b218d1a85f0667b93bb154b86ed7fd686d362419ac75d576c46f70",
+      "deploy/server-routes.conf": "93ed88bc1979f81dfda8cc177ca7026bd112521217a543bd3919d3337e6972c5",
+      "docs/backup-restore-runbook.md": "74e4ca0fa4f5251b0fc2a6c07d719f63c40e672dc62cd5143c236f91c90a8253",
+      "docs/eop-maintenance.md": "fe2e2c89944eee34d7c707e525e0b54184fe58a3973bf9b0cb6bd0b8e656efbf",
+      "docs/ingestion-operations.md": "819fdcdedc790a70de2be85c0fd34210ad2175f98cd4a5d20118dbf04fb28eae",
+      "docs/intended-use.md": "0a7e87f3ba1eca729da1930ec00f2fd135714b883a1e52139b1402cc26a15bcc",
+      "docs/monitoring-and-alerting.md": "42578e19075f5ef4c5d61efe959febf3e1e8c9d7e77204c2d4b878afe6681278",
+      "docs/phase-0-report.md": "aae12d1cfe3cf3aa73118c3031e510f91a8000968a875aee76690e036267de22",
+      "docs/phase-1-report.md": "d1e872750941d620be63bb645e4d2ef9d662bcc0dca1b3a5e8818f14348acff0",
+      "docs/phase-1.md": "e263fde30a14f0d3bcd7651d75098b147a79136cbad948f635a0f73668d1eab0",
+      "docs/phase-2-plan.md": "894d643e118cfae4c7ceec0c856554dd9d45e361be1017b5a80cd4c5c6482171",
+      "docs/phase-2-reference-results.json": "8ed63194c9f555282cdf4894e77b30e84e4309e8d5dc3665858ffb6f6b737670",
+      "docs/phase-2-report.md": "812239b5ca78adcffb4dd347e92d1936d3f4a335026d3dc3827083b54e7588e0",
+      "docs/phase-3-integration-results.json": "6a825c550c2fdf0bbe402b67734aa464af8f59e34e017751a52b95ab027e7a1b",
+      "docs/phase-3-plan.md": "7f93c7231c33d929cd058a73a3ff4340a1141120037021a708be12004b777d6e",
+      "docs/phase-3-reference-results.json": "b2509ca05397fb3c8d9d314db2aec327d522852b11300733a4f15897bbb016ff",
+      "docs/phase-3-report.md": "5513711fe845373679d0726d9d3e07288e55b1c4a190c0f5b51073ea99c985e8",
+      "docs/phase-4-integration-results.json": "9f7915d6fe04956109ea46235d257b48656c0226b8103ba9618168553d1691a7",
+      "docs/phase-4-plan.md": "fa48217217a4058c381a9d4a4f92b8ae6c33d964e664956da54cb866f8bde3ae",
+      "docs/phase-4-report.md": "e15c63920fca04b9076cac9a32d37b768ba52a5e3c47eb0e70f89f11b55c9f16",
+      "docs/phase-5-integration-results.json": "c79106284d43de01e99c75be1c991bc53cc7dc6edc3e1ffc71ce6f0cf66a144b",
+      "docs/phase-5-plan.md": "a804c4b31734b1ec66acc35deb64055a4e139531ce3ecb9babc1629fbebc64db",
+      "docs/phase-5-report.md": "153b7148835df8e837c47fe3bda025f20b17107d49d6c945932ae4d5b2be8997",
+      "docs/phase-6-integration-results.json": "a125a28ff59525645f2077e83f087d1fbbaf09370474464c0a11f8041cb935a1",
+      "docs/phase-6-report.md": "85efd7f30cfefcc0ddb42aa534b71358b9ba48180d6458c46a9d037f37ab72ee",
+      "docs/phase-6.1-report.md": "02baed0b03be113e08e4f96862b2e98c9eb6f920fd75444370d16593a225dcf6",
+      "docs/phase-6.1-scientific-evidence.json": "8bed5d92ec83b23c2f40dfb6877a6b94d9d64de52f45e5dffe0bb03dfafce277",
+      "docs/phase-6.1.1-report.md": "f5bd212064e1bf40ffcb648b797d55552988725442ff13565df8ccb6521d9d58",
+      "docs/phase-6.1.1-scientific-evidence.json": "a8db66047b90afe54494ed4f3e58a7978035deed0ab04ba1d7d81a11e56a9ee5",
+      "docs/phase-7-integration-results.json": "3248d16e3f269e059cf36b3169b8afc87edc0ad5e767a64ff336686d1970cc9c",
+      "docs/phase-7-report.md": "a4621cb1d34000a4e1857c45f85e3e291d3f8ae1e24d1db95aba2e3a4a696b4a",
+      "docs/phase-8-integration-results.json": "e5f6f320bd456da73835b9617dc0a28d0b209bbdfcceaf58e44d3cfd3c9913b7",
+      "docs/phase-8-readiness-report.md": "8f8f071fc22a5c205ec69fe77a64913bc27993d8e411d1641c94ea59c1227636",
+      "docs/pre-phase-5-integration-results.json": "d706651560bb912014d993712f6bb9fef13b1605c63567a450a26bc929ada06a",
+      "docs/pre-phase-5-plan.md": "f8b0806c73ad115f0e14ac2fe764e4a73e6b399c29406eabf2e7737cc9653f65",
+      "docs/pre-phase-5-readiness-report.md": "23d623ad578f8673c93b28463485a4e1a0d94504855ab40c780f47e4714aab35",
+      "docs/product-foundation.md": "916c3fde9623da9eed25091b9d49d2c0f5ee7e5046e1a1fe1b5486f54899e0b5",
+      "docs/production-deployment-runbook.md": "b236b53571ac026bfae652f790f19a00188339dace280929206690cd36927453",
+      "docs/production-security-review.md": "21e2f04ae0b45536cb1aec6810897692e0127cd714a6b3a259677c3fda0fea34",
+      "docs/saved-investigations.md": "717475255654382609b60d2fa2735462b598447abb7f562b67ea5bc7410732fa",
+      "docs/scientific-conventions.md": "19061be5dc25579111f1bc69727c2f66aa4651f44d5d1f2f7908a0c047cc9800",
+      "docs/scientific-data-readiness.md": "3930dc9353ad168032f8f17d9d6f491a6db56cf5f0446bf981d02f90863bb385",
+      "frontend/.prettierignore": "b0bca94a80846df59808ebc09892f4b1f3aa03df79dea6081038cca5bfd47564",
+      "frontend/eslint.config.js": "02b5aaa124348b8f5dc1be3109c3702bc8f54c8e577c0d5df5983cad25b7eaee",
+      "frontend/index.html": "c7e9bdbfac4e3dfee949f90498a924fc27309b387001e2c7c0b6c82d71281277",
+      "frontend/package-lock.json": "ad30fad9da6bc567b3fd1f63cb6053f74df1e06b3830b086719c8411fc8e4c9d",
+      "frontend/package.json": "1c01e4eab01716f78cbed2fe7494bcf3cb857f68683eb08a23b87bb5439e1187",
+      "frontend/public/assets/README.md": "854ddb44b0f60932419b25cb1e9220595d17e450127dadba3942679e7c201e55",
+      "frontend/public/assets/THREE-LICENSE.txt": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+      "frontend/public/assets/earth-atmosphere.jpg": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d",
+      "frontend/src/App.test.tsx": "18cb9ec5f45289a5e93bcb219d7ae45f0f9509388ec648067df8333227fa71a0",
+      "frontend/src/App.tsx": "db53ce735844cfc8f44f7c56ea07ff04d6d565933cc9c7b3a721b45383f15d08",
+      "frontend/src/Explorer.integration.test.tsx": "de8b5e0d374312d2910c460890fe0510b15667cea9f317ccb07bf927a9c1b84f",
+      "frontend/src/Globe.test.tsx": "879e5ecdc0eb57fccdf415c6a86461b6a4e167c3b27738bd2d25a3c7f28a1cea",
+      "frontend/src/Globe.tsx": "b37a56a38dbd2bed9d0b476095e4b465ce6ceba56340675196c3caa6d2730f0d",
+      "frontend/src/GroundTrack.test.tsx": "5208bded5896117d84b3197b63010ee9e32ff77da93dc351b10124aef7c4c944",
+      "frontend/src/GroundTrack.tsx": "ba4e4eca3a57906695150b8b62ad72a4382215b06737e9ba0af5323696986f75",
+      "frontend/src/InvestigationActions.tsx": "b50c75ec4074ac7d43ff26836f106e85a3c11e5e5c37f89bbd3c6341bd49d7f4",
+      "frontend/src/InvestigationRestoration.test.tsx": "9b54835cb732232e93da284386ff56cbea9995c486f65a9d01be565c8fd0be98",
+      "frontend/src/Investigations.test.tsx": "3160afa4e1d60c23499e45b0c687fc76500e78f8057b9569b4695fbe395e32a1",
+      "frontend/src/Investigations.tsx": "7ce8bb89206e14008dcb47756254f61569b6e341d7026f0e8a01122660b6cdbd",
+      "frontend/src/ReadinessDashboard.test.tsx": "1b37ea7d408d484d291da912b5792db1e8c9b9a8b2f0fb92ccef3ceef164a18e",
+      "frontend/src/ReadinessDashboard.tsx": "7b4af4f3906ee5aca61b2ece799b7407949de69911d4aa02741e86bbbe5e166c",
+      "frontend/src/RestoredInvestigation.tsx": "a55769f0be49e79fcf7c6336d6ee6546e8707c0bb47a8d0fa26c82a904595f77",
+      "frontend/src/SatelliteInfo.tsx": "9ad254e93306e18b7f945e2fe0b6e17666faa899769f5f0563653018919fed3d",
+      "frontend/src/SavedInvestigations.test.tsx": "6597628b1b865e04d8bac94a28a68e27b091b9dad690199d93927c770701833e",
+      "frontend/src/SavedInvestigations.tsx": "aaf093f97b542a18ee9c754da91b5218fd8b536e984367c2884d8b79cb97998d",
+      "frontend/src/ScientificExplorer.test.tsx": "60d595e1029cd5c5f2992754969e5d059973bf2573caa1ffcf4f8bd81d3362ef",
+      "frontend/src/ScientificExplorer.tsx": "918d9d0298dd41083a247b82ed8ea9ae7635b16aa804678f92f3bde70bf4d066",
+      "frontend/src/Timeline.test.tsx": "8370b34f0df0710edcc5bd22d354451c347957d73cde81080d95ec483d923130",
+      "frontend/src/Timeline.tsx": "e2c5288e179454ec43b62fe7a5b4fd1da177b16dce466fdc7d0355a5075301d1",
+      "frontend/src/api.ts": "f0bdafb0d4cb3dca783e7b269edd7e6775e50296370372e87eabe529cb80d55a",
+      "frontend/src/globe-geometry.test.ts": "5ab2139c143ef47b3e9405fdd853b71b6dfd56c6907da62b5d15ae782262d1b8",
+      "frontend/src/globe-geometry.ts": "f61f2a4f7418584204cc21dff89e87b53c5e3e8b1bd7954e51a2ef2321543e37",
+      "frontend/src/globe-renderer.ts": "9b2d771db27e31d9c95ab6fdd37487c006f2f4adb9e9e2ea108240ca57cd0525",
+      "frontend/src/ground-track-api.test.ts": "4eafa010a86a0e27ad33aa046293e59fb9740264854638abfdf7e324a6d25d3f",
+      "frontend/src/ground-track-api.ts": "86e420017250627bac925634ca80de06f403caaba77349cec7d06692eed86ed4",
+      "frontend/src/investigation-api.test.ts": "e5b7fdf3facc052a98c8a0353443f898873ee3f0c45a19b8395369e9a4bf463d",
+      "frontend/src/investigation-api.ts": "48421ee23cf59dee09ca334b48e9abdf297dd9d164437deda13fed769402ac5a",
+      "frontend/src/investigation-storage.test.ts": "9775fec17af837da9fa3930f10aea880b67855a4a68d429d36e376145ce3d77c",
+      "frontend/src/investigation-storage.ts": "b80871baa8cb650d890d3e1dfcb2c30967d2609a163264c46515b2c130eb2ff4",
+      "frontend/src/main.tsx": "0149f7a69d4d5aeb746722160f8fbcd57defdf78e80e1fe3d9038dc76f84361e",
+      "frontend/src/readiness-api.test.ts": "289745b5ec9bc97febcddc9972d3bfd12bb4557358eff6a346c88a85d9f4ecfe",
+      "frontend/src/readiness-api.ts": "bea4b3801581ce2f3d2d257887d1fdfc3afd1f4c50d57cd6a6fb3348c953869d",
+      "frontend/src/restore-investigation.test.ts": "7b51d93e2eeb69b0ab8549e51caa6345c36d905d7a0f363c8bb36ec156ed12ab",
+      "frontend/src/restore-investigation.ts": "7c630abccce50a6f2f0e21e0e58dc15a43baf96a4ee613eca1ac7ad33c58d3cb",
+      "frontend/src/saved-investigation.test.ts": "f23409739f3de784bb9ec89cc8877b9cc4c8f794cc7a43da9cf0e598fdc6e9ae",
+      "frontend/src/saved-investigation.ts": "6c6940418ee27e8e0a77bc1dc2a04bb018b45c8e0110fdafccd4d8bae0e74dc4",
+      "frontend/src/scientific-api.test.ts": "f47385b5c09b255b134404ff50a47c286229855eb01dd0fe0e690ebc2d33cfc1",
+      "frontend/src/scientific-api.ts": "6074ea566a38cf7d04687111dfdb15e1aeb47dc2960058c6fa933b62578c0ced",
+      "frontend/src/snapshot-api.test.ts": "9408248ab702be31fef78f12b15d38e6d5a3c506ed5b1279f04d7ba57da01fe2",
+      "frontend/src/snapshot-api.ts": "24df0978f3407b6eebdeadf07a3b8d8b2e169607ff1db2d3c77e6999dc00fd40",
+      "frontend/src/style.css": "5ab408215d2bd7ea3cbd8f2dc36314d84c8d1524a5adfe1218dfdd5e42b4eb75",
+      "frontend/src/test-fixtures/explorer.ts": "733d3e58b30d5a12ed5843b31f7b632f6c913ccdeb20b93e25498ce93d500229",
+      "frontend/src/test-fixtures/ground-track.ts": "01902a6d496472d6a0206b09c4ee71ff30af56270189d582ae13aa5cee25a035",
+      "frontend/src/test-fixtures/investigations.ts": "8cc204f8a354d8f1e8351ce5b36716de7494b3824856c512d29faa2d4608b115",
+      "frontend/src/test-fixtures/readiness.ts": "700efe9deb2c1fdb21b027675137700ec74bf0c6da0bfe528d11410f25b334b5",
+      "frontend/src/test-fixtures/saved-investigations.ts": "a548ca34f3373acf1186571cc0bf3f5b7eee2abb77290a4ddcfdef2611cc078d",
+      "frontend/src/test-setup.ts": "9b328c4843431fa76d8de00008fc159e95f99a840211085ff3b8f25e53d14409",
+      "frontend/src/time-presentation.test.ts": "dbe8309e5d9c3795a76dae4288a04d270a902d9b30ce99ed814a1e257e17e875",
+      "frontend/src/time-presentation.ts": "0d563358f21141a6ff38474c55e4a2ecaf7cdbbb781f56790bd6d4e810c5092c",
+      "frontend/src/use-reduced-motion.ts": "5a2cff05432f859508b0cf7a3c508ae099bbac148213cfdeb4a77139439fe885",
+      "frontend/tsconfig.json": "7fe57729982de35d545412c7d688c760ee8a555a8a27c438af03a90ce3da8b7c",
+      "frontend/vite.config.ts": "b5c590f14df3e7d4537378d2b7c59bfe6af1bf4118cf25d6c9fbe8fbd703ecaf",
+      "pyproject.toml": "fa8ebb649044fbe98e7f4cc9c9d6bb3cd42c201b898c2854f1e65f6f727df8a4",
+      "scripts/verify_browser_critical.py": "5c0387c2b72289bb06df3e6518434bbeccb65d54a97bde9732e7cb074ea75afa",
+      "scripts/verify_earth_fixed_references.py": "03082a2bb1ad29c91eb32954dce55b9106d40b5202818d5483b97564d28b47af",
+      "scripts/verify_phase611_geodesy.py": "2e3d5c915ab6a59bcc65ca1dbc8e41f689bd80ee8271cedac9b6e3d7f201ef92",
+      "scripts/verify_phase61_science.py": "c007bff050760a0fcfde4bdafbbe2e9df4af04ba32069fe530a4825d73020c27",
+      "scripts/verify_release_containers.py": "6982850f058ee06a7480c73f64a1fad937336a2d04039c52bd0296550800f2ff",
+      "scripts/verify_scientific_references.py": "be3daf841291555ee747f83581e4060e52f8980e093bf28346a9990f8dfcbf6a",
+      "uv.lock": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1"
+    },
+    "worktree_content_sha256": "5ed5fd6b870fa1165c2515626d539485d1d124e3dacf37fcf19bd08bf1a819e1",
+    "digest_is_not_a_git_commit": true
+  },
+  "implemented": [
+    "Optional verified local TLS overlay sharing original static/API routes",
+    "Established restic encrypted archive export and exact-point verified retrieval; failure/status reporting and retention preview",
+    "Operator readiness/backup/log checks, explicit redacted webhook payloads, durable global cooldown including failed delivery",
+    "Pinned supported browser runtime and reusable critical actual-API test runner",
+    "Public intended-use disclosure and operator runbooks"
+  ],
+  "verification": {
+    "commands": [
+      {
+        "name": "backend",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T18:08:32.916695+00:00",
+        "elapsed_seconds": 7.948,
+        "exit_status": 0,
+        "output": "........................................................................ [ 11%]\n........................................................................ [ 22%]\n........................................................................ [ 34%]\n........................................................................ [ 45%]\n........................................................................ [ 56%]\n........................................................................ [ 68%]\n........................................................................ [ 79%]\n........................................................................ [ 90%]\n..........................................................               [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n634 passed, 1 warning in 7.16s\n"
+      },
+      {
+        "name": "frontend",
+        "command": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T18:08:40.864544+00:00",
+        "elapsed_seconds": 10.047,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 test\n> vitest run\n\n\n RUN  v5.0.5 /workspace/OrbitIQ/frontend\n\n\n Test Files  20 passed (20)\n      Tests  275 passed (275)\n   Start at  18:08:41\n   Duration  9.52s (tests 62%, environment 30%, setup 4%, import 3%, transform 1%)\n\nEnvironment  jsdom was created 20 times · 7.60s total, 30% of tracked time\n             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)\n             learn more: https://vitest.dev/guide/improving-performance#test-environments\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "production-build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T18:08:50.912136+00:00",
+        "elapsed_seconds": 6.664,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 build\n> tsc --noEmit && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 56 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                  0.39 kB │ gzip:   0.27 kB\ndist/assets/index-D3h8fOB5.css                   6.84 kB │ gzip:   2.06 kB\ndist/assets/RestoredInvestigation-B_TcVPvN.js    3.63 kB │ gzip:   1.63 kB\ndist/assets/SavedInvestigations-CuRqEb29.js      7.11 kB │ gzip:   2.44 kB\ndist/assets/investigation-api-Dt1r_LMe.js        8.00 kB │ gzip:   3.01 kB\ndist/assets/Investigations-77dSK7_l.js          20.00 kB │ gzip:   6.08 kB\ndist/assets/index-DuYXKiAu.js                  287.41 kB │ gzip:  89.06 kB\ndist/assets/globe-renderer-C_Oht-fC.js         558.60 kB │ gzip: 140.28 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n✓ built in 2.42s\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "verify_scientific_references",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_scientific_references.py",
+          "--output",
+          "/tmp/orbitiq-phase81/verify_scientific_references.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T18:08:57.576579+00:00",
+        "elapsed_seconds": 0.147,
+        "exit_status": 0,
+        "output": "Reference audit: 40 passed, 0 failed\n"
+      },
+      {
+        "name": "verify_earth_fixed_references",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_earth_fixed_references.py",
+          "--output",
+          "/tmp/orbitiq-phase81/verify_earth_fixed_references.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T18:08:57.724152+00:00",
+        "elapsed_seconds": 0.895,
+        "exit_status": 0,
+        "output": "6 reference cases passed; 0 failed\n"
+      },
+      {
+        "name": "verify_phase61_science",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase61_science.py",
+          "--output",
+          "/tmp/orbitiq-phase81/verify_phase61_science.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T18:08:58.618913+00:00",
+        "elapsed_seconds": 0.882,
+        "exit_status": 0,
+        "output": "Phase 6.1 audit: 32 comparisons passed, 0 failed; observation validation BLOCKED\n"
+      },
+      {
+        "name": "verify_phase611_geodesy",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase611_geodesy.py",
+          "--output",
+          "/tmp/orbitiq-phase81/verify_phase611_geodesy.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T18:08:59.501051+00:00",
+        "elapsed_seconds": 0.556,
+        "exit_status": 0,
+        "output": "Geodesy: 28/28 independent cases; 28 separate round-trips\n"
+      },
+      {
+        "name": "ruff-lint",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T18:09:00.056979+00:00",
+        "elapsed_seconds": 0.032,
+        "exit_status": 0,
+        "output": "All checks passed!\n"
+      },
+      {
+        "name": "ruff-format",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T18:09:00.088884+00:00",
+        "elapsed_seconds": 0.026,
+        "exit_status": 0,
+        "output": "91 files already formatted\n"
+      },
+      {
+        "name": "frontend-lint",
+        "command": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T18:09:00.115192+00:00",
+        "elapsed_seconds": 3.439,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 lint\n> eslint .\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "frontend-format",
+        "command": [
+          "npm",
+          "run",
+          "format:check"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T18:09:03.554465+00:00",
+        "elapsed_seconds": 1.457,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 format:check\n> prettier --check .\n\nChecking formatting...\nAll matched files use Prettier code style!\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "typescript",
+        "command": [
+          "npx",
+          "--no-install",
+          "tsc",
+          "--noEmit"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T18:09:05.012125+00:00",
+        "elapsed_seconds": 3.501,
+        "exit_status": 0,
+        "output": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      }
+    ],
+    "latest_static_checks": [
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "exit_status": 0,
+        "output": "All checks passed!\n"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "exit_status": 0,
+        "output": "92 files already formatted\n"
+      }
+    ],
+    "counts": {
+      "baseline_backend": 609,
+      "backend": 634,
+      "added_backend": 25,
+      "frontend": 275,
+      "frontend_files": 20,
+      "skips_or_expected_failures_counted_as_pass": false
+    },
+    "scientific": {
+      "verify_scientific_references": {
+        "artifact_sha256": "8ed63194c9f555282cdf4894e77b30e84e4309e8d5dc3665858ffb6f6b737670",
+        "passed": 40,
+        "failed": 0
+      },
+      "verify_earth_fixed_references": {
+        "artifact_sha256": "bcbfae9a11817847bd4d7d499dc8f63d8f3d480abcbb691de23910fe429b824d",
+        "passed": 6,
+        "failed": 0
+      },
+      "verify_phase61_science": {
+        "artifact_sha256": "d9cec171b999977496b0258354a3acab61991d46c374c81e3e4a36ee23c2c063",
+        "passed": 32,
+        "failed": 0,
+        "observation_validation": {
+          "status": "BLOCKED",
+          "observations_used": 0,
+          "reason": "No suitable identified, contemporaneous independent measurements with verified frame/time/uncertainty and paired orbital inputs available in the archive."
+        }
+      },
+      "verify_phase611_geodesy": {
+        "artifact_sha256": "63be91952fee794d4cec3342e587503fcf5df6284cca3d59b96e92a2348ad00f",
+        "independent_component_cases_passed": 28,
+        "separate_roundtrip_cases_passed": 28,
+        "reference_executable_rerun": false
+      }
+    },
+    "backup_export": {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "orbitiq.maintenance.backup_export",
+        "--directory",
+        "/tmp/orbitiq-phase81/encrypted-job-v2",
+        "--restic",
+        "/tmp/orbitiq-phase81/restic",
+        "--repository-file",
+        "/tmp/orbitiq-phase81/repository-file",
+        "--password-file",
+        "/tmp/orbitiq-phase81/password-file",
+        "--status-file",
+        "/tmp/orbitiq-phase81/ops-state/latest-backup.json",
+        "--allow-local-test"
+      ],
+      "exit_status": 0,
+      "result": {
+        "schema_version": 1,
+        "status": "passed",
+        "completed_at": "2026-10-19T18:03:12.698896+00:00",
+        "repository_kind": "local_test",
+        "encrypted_repository": true,
+        "restic_snapshot_id": "1718476a061951a8657465faf6390ba242a7ad961e2e88959c4f5bbbc108bd68",
+        "backup_sha256": "644585974d4192d47797b17ff2fc20e660d723f779d2d9362780230d50989c0c",
+        "backup_bytes": 53248,
+        "source_at_backup": {
+          "schema_version": 3,
+          "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+          "schema_objects": [
+            {
+              "type": "index",
+              "name": "ingestion_acquired"
+            },
+            {
+              "type": "index",
+              "name": "ingestion_inserted"
+            },
+            {
+              "type": "index",
+              "name": "ingestion_validated"
+            },
+            {
+              "type": "index",
+              "name": "snapshots_catalog_id"
+            },
+            {
+              "type": "index",
+              "name": "snapshots_payload_identity"
+            },
+            {
+              "type": "table",
+              "name": "collection_gate"
+            },
+            {
+              "type": "table",
+              "name": "ingestion_attempts"
+            },
+            {
+              "type": "table",
+              "name": "schema_version"
+            },
+            {
+              "type": "table",
+              "name": "snapshot_insertions"
+            },
+            {
+              "type": "table",
+              "name": "snapshots"
+            },
+            {
+              "type": "trigger",
+              "name": "ingestion_completed_no_update"
+            },
+            {
+              "type": "trigger",
+              "name": "ingestion_no_delete"
+            },
+            {
+              "type": "trigger",
+              "name": "insertions_no_delete"
+            },
+            {
+              "type": "trigger",
+              "name": "insertions_no_update"
+            },
+            {
+              "type": "trigger",
+              "name": "snapshots_no_delete"
+            },
+            {
+              "type": "trigger",
+              "name": "snapshots_no_update"
+            }
+          ],
+          "tables": {
+            "collection_gate": {
+              "rows": 1,
+              "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+            },
+            "ingestion_attempts": {
+              "rows": 1,
+              "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+            },
+            "schema_version": {
+              "rows": 1,
+              "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+            },
+            "snapshot_insertions": {
+              "rows": 1,
+              "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+            },
+            "snapshots": {
+              "rows": 2,
+              "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+            }
+          },
+          "integrity": "ok",
+          "foreign_keys": "ok"
+        },
+        "verified_snapshots": 2,
+        "api_checks": [
+          {
+            "route": "/api/snapshots",
+            "status": 200
+          },
+          {
+            "route": "/api/snapshots/2",
+            "status": 200
+          },
+          {
+            "route": "/api/snapshots/1",
+            "status": 200
+          },
+          {
+            "route": "/api/comparisons",
+            "status": 200
+          }
+        ],
+        "retrieved_into_separate_target": true,
+        "source_unchanged": true,
+        "remote_roundtrip_verified": false,
+        "independent_destination_approved": false,
+        "off_machine_recovery_verified": false,
+        "independence_basis": "explicit operator approval; not inferred from a URL"
+      },
+      "restic_acquisition": {
+        "version": "0.19.1",
+        "asset": "restic_0.19.1_linux_amd64.bz2",
+        "source": "https://github.com/restic/restic/releases/tag/v0.19.1",
+        "published_sha256": "f415415624dcc452f2a02b8c33641791a8c6d6d3b65bbb3543fcf9a25151585c",
+        "download_sha256": "f415415624dcc452f2a02b8c33641791a8c6d6d3b65bbb3543fcf9a25151585c",
+        "checksum_matches": true,
+        "tls_verified": true,
+        "release_signature_verified": false
+      },
+      "additional_checks": {
+        "checked_at_utc": "2026-10-19T18:15:03.636184+00:00",
+        "cases": [
+          {
+            "case": "encrypted repository full read",
+            "command": [
+              "/tmp/orbitiq-phase81/restic",
+              "--repository-file",
+              "/tmp/orbitiq-phase81/repository-file",
+              "--password-file",
+              "/tmp/orbitiq-phase81/password-file",
+              "--no-cache",
+              "check",
+              "--read-data"
+            ],
+            "exit_status": 0,
+            "expected_exit_status": 0,
+            "stdout": "create exclusive lock for repository\nload indexes\ncheck all packs\ncheck snapshots, trees and blobs\n[0:00] 100.00%  2 / 2 snapshots\nread all data\n[0:00] 100.00%  4 / 4 packs\nno errors were found\n",
+            "stderr": ""
+          },
+          {
+            "case": "retention preview, no deletion",
+            "command": [
+              "/tmp/orbitiq-phase81/restic",
+              "--repository-file",
+              "/tmp/orbitiq-phase81/repository-file",
+              "--password-file",
+              "/tmp/orbitiq-phase81/password-file",
+              "--no-cache",
+              "forget",
+              "--dry-run",
+              "--keep-last",
+              "2",
+              "--keep-daily",
+              "7",
+              "--keep-weekly",
+              "4",
+              "--keep-monthly",
+              "12",
+              "--tag",
+              "orbitiq-archive-v1",
+              "--group-by",
+              "tags",
+              "--json"
+            ],
+            "exit_status": 0,
+            "expected_exit_status": 0,
+            "stdout": "[{\"tags\":[\"orbitiq-archive-v1\"],\"host\":\"\",\"paths\":null,\"keep\":[{\"time\":\"2026-10-19T18:03:11.200078471Z\",\"tree\":\"760790bb907a49353cda2d87e5613fe7cbe65e20367d87a6776a98d498dede67\",\"paths\":[\"/tmp/orbitiq-phase81/encrypted-job-v2/point\"],\"hostname\":\"7c22cb488776\",\"username\":\"agent\",\"uid\":1000,\"gid\":1000,\"tags\":[\"orbitiq-archive-v1\"],\"program_version\":\"restic 0.19.1\",\"summary\":{\"backup_start\":\"2026-10-19T18:03:11.200078471Z\",\"backup_end\":\"2026-10-19T18:03:11.966648622Z\",\"files_new\":2,\"files_changed\":0,\"files_unmodified\":0,\"dirs_new\":4,\"dirs_changed\":0,\"dirs_unmodified\":0,\"data_blobs\":1,\"tree_blobs\":5,\"data_added\":7591,\"data_added_packed\":2662,\"total_files_processed\":2,\"total_bytes_processed\":58661},\"id\":\"1718476a061951a8657465faf6390ba242a7ad961e2e88959c4f5bbbc108bd68\",\"short_id\":\"1718476a\"},{\"time\":\"2026-10-19T18:00:47.888767947Z\",\"tree\":\"73c99e256dc915e56a251a86460e605b1d4615d05d382a86960f57fa0c7fdc26\",\"paths\":[\"/tmp/orbitiq-phase81/encrypted-job/point\"],\"hostname\":\"7c22cb488776\",\"username\":\"agent\",\"uid\":1000,\"gid\":1000,\"tags\":[\"orbitiq-archive-v1\"],\"program_version\":\"restic 0.19.1\",\"summary\":{\"backup_start\":\"2026-10-19T18:00:47.888767947Z\",\"backup_end\":\"2026-10-19T18:00:48.745199423Z\",\"files_new\":2,\"files_changed\":0,\"files_unmodified\":0,\"dirs_new\":4,\"dirs_changed\":0,\"dirs_unmodified\":0,\"data_blobs\":2,\"tree_blobs\":5,\"data_added\":60836,\"data_added_packed\":5626,\"total_files_processed\":2,\"total_bytes_processed\":58661},\"id\":\"8868484b9679953ffa7511c06f9a3f7c8ed0d6e046e60f99f1b2affb7f9d24d5\",\"short_id\":\"8868484b\"}],\"remove\":null,\"reasons\":[{\"snapshot\":{\"time\":\"2026-10-19T18:03:11.200078471Z\",\"tree\":\"760790bb907a49353cda2d87e5613fe7cbe65e20367d87a6776a98d498dede67\",\"paths\":[\"/tmp/orbitiq-phase81/encrypted-job-v2/point\"],\"hostname\":\"7c22cb488776\",\"username\":\"agent\",\"uid\":1000,\"gid\":1000,\"tags\":[\"orbitiq-archive-v1\"],\"program_version\":\"restic 0.19.1\",\"summary\":{\"backup_start\":\"2026-10-19T18:03:11.200078471Z\",\"backup_end\":\"2026-10-19T18:03:11.966648622Z\",\"files_new\":2,\"files_changed\":0,\"files_unmodified\":0,\"dirs_new\":4,\"dirs_changed\":0,\"dirs_unmodified\":0,\"data_blobs\":1,\"tree_blobs\":5,\"data_added\":7591,\"data_added_packed\":2662,\"total_files_processed\":2,\"total_bytes_processed\":58661},\"id\":\"1718476a061951a8657465faf6390ba242a7ad961e2e88959c4f5bbbc108bd68\",\"short_id\":\"1718476a\"},\"matches\":[\"last snapshot\",\"daily snapshot\",\"weekly snapshot\",\"monthly snapshot\"]},{\"snapshot\":{\"time\":\"2026-10-19T18:00:47.888767947Z\",\"tree\":\"73c99e256dc915e56a251a86460e605b1d4615d05d382a86960f57fa0c7fdc26\",\"paths\":[\"/tmp/orbitiq-phase81/encrypted-job/point\"],\"hostname\":\"7c22cb488776\",\"username\":\"agent\",\"uid\":1000,\"gid\":1000,\"tags\":[\"orbitiq-archive-v1\"],\"program_version\":\"restic 0.19.1\",\"summary\":{\"backup_start\":\"2026-10-19T18:00:47.888767947Z\",\"backup_end\":\"2026-10-19T18:00:48.745199423Z\",\"files_new\":2,\"files_changed\":0,\"files_unmodified\":0,\"dirs_new\":4,\"dirs_changed\":0,\"dirs_unmodified\":0,\"data_blobs\":2,\"tree_blobs\":5,\"data_added\":60836,\"data_added_packed\":5626,\"total_files_processed\":2,\"total_bytes_processed\":58661},\"id\":\"8868484b9679953ffa7511c06f9a3f7c8ed0d6e046e60f99f1b2affb7f9d24d5\",\"short_id\":\"8868484b\"},\"matches\":[\"last snapshot\",\"oldest daily snapshot\",\"oldest weekly snapshot\",\"oldest monthly snapshot\"]}]}]\n",
+            "stderr": ""
+          },
+          {
+            "case": "wrong password safely rejected",
+            "command": [
+              "uv",
+              "run",
+              "--locked",
+              "python",
+              "-m",
+              "orbitiq.maintenance.backup_export",
+              "--directory",
+              "/tmp/orbitiq-phase81/negative-job-final",
+              "--restic",
+              "/tmp/orbitiq-phase81/restic",
+              "--repository-file",
+              "/tmp/orbitiq-phase81/repository-file",
+              "--password-file",
+              "/tmp/orbitiq-phase81/wrong-password",
+              "--status-file",
+              "/tmp/orbitiq-phase81/ops-state/failed-backup.json",
+              "--allow-local-test"
+            ],
+            "exit_status": 1,
+            "expected_exit_status": 1,
+            "stdout": "",
+            "stderr": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\nBackup/export verification failed; inspect private job artifacts.\n"
+          }
+        ]
+      }
+    },
+    "tls": {
+      "status": "PASS",
+      "at_utc": "2026-10-19T18:12:37.076791+00:00",
+      "scope": "loopback, ephemeral test CA and certificates only; public-domain HTTPS NOT VERIFIED",
+      "cases": [
+        {
+          "case": "trusted local certificate",
+          "command": [
+            "curl",
+            "--noproxy",
+            "localhost",
+            "--connect-timeout",
+            "3",
+            "--max-time",
+            "10",
+            "--silent",
+            "--show-error",
+            "--dump-header",
+            "-",
+            "--cacert",
+            "/tmp/orbitiq-phase81/ca/ca.pem",
+            "https://localhost:18443/api/ready"
+          ],
+          "exit_status": 0,
+          "expected_exit_status": 0,
+          "output": "HTTP/1.1 200 OK\nServer: nginx\nDate: Mon, 19 Oct 2026 18:12:36 GMT\nContent-Type: application/json\nContent-Length: 18\nConnection: keep-alive\ncache-control: no-store\nx-request-id: 2bc34f524e424b14a764695bd0bbfee4\nX-Content-Type-Options: nosniff\nX-Frame-Options: DENY\nReferrer-Policy: no-referrer\nStrict-Transport-Security: max-age=3600\nPermissions-Policy: camera=(), microphone=(), geolocation=()\nContent-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'\n\n{\"status\":\"ready\"}",
+          "stderr": ""
+        },
+        {
+          "case": "TLS1.2",
+          "command": [
+            "curl",
+            "--noproxy",
+            "localhost",
+            "--connect-timeout",
+            "3",
+            "--max-time",
+            "10",
+            "--silent",
+            "--show-error",
+            "--dump-header",
+            "-",
+            "--cacert",
+            "/tmp/orbitiq-phase81/ca/ca.pem",
+            "--tlsv1.2",
+            "--tls-max",
+            "1.2",
+            "https://localhost:18443/api/ready"
+          ],
+          "exit_status": 0,
+          "expected_exit_status": 0,
+          "output": "HTTP/1.1 200 OK\nServer: nginx\nDate: Mon, 19 Oct 2026 18:12:36 GMT\nContent-Type: application/json\nContent-Length: 18\nConnection: keep-alive\ncache-control: no-store\nx-request-id: e9df7961343344d6beeb625789127b79\nX-Content-Type-Options: nosniff\nX-Frame-Options: DENY\nReferrer-Policy: no-referrer\nStrict-Transport-Security: max-age=3600\nPermissions-Policy: camera=(), microphone=(), geolocation=()\nContent-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'\n\n{\"status\":\"ready\"}",
+          "stderr": ""
+        },
+        {
+          "case": "TLS1.3",
+          "command": [
+            "curl",
+            "--noproxy",
+            "localhost",
+            "--connect-timeout",
+            "3",
+            "--max-time",
+            "10",
+            "--silent",
+            "--show-error",
+            "--dump-header",
+            "-",
+            "--cacert",
+            "/tmp/orbitiq-phase81/ca/ca.pem",
+            "--tlsv1.3",
+            "--tls-max",
+            "1.3",
+            "https://localhost:18443/api/ready"
+          ],
+          "exit_status": 0,
+          "expected_exit_status": 0,
+          "output": "HTTP/1.1 200 OK\nServer: nginx\nDate: Mon, 19 Oct 2026 18:12:36 GMT\nContent-Type: application/json\nContent-Length: 18\nConnection: keep-alive\ncache-control: no-store\nx-request-id: 4880c19e0c944605b1a5afce4b86324a\nX-Content-Type-Options: nosniff\nX-Frame-Options: DENY\nReferrer-Policy: no-referrer\nStrict-Transport-Security: max-age=3600\nPermissions-Policy: camera=(), microphone=(), geolocation=()\nContent-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'\n\n{\"status\":\"ready\"}",
+          "stderr": ""
+        },
+        {
+          "case": "untrusted test CA rejected",
+          "command": [
+            "curl",
+            "--noproxy",
+            "localhost",
+            "--connect-timeout",
+            "3",
+            "--max-time",
+            "10",
+            "--silent",
+            "--show-error",
+            "--dump-header",
+            "-",
+            "https://localhost:18443/api/ready"
+          ],
+          "exit_status": 60,
+          "expected_exit_status": 60,
+          "output": "",
+          "stderr": "curl: (60) SSL certificate problem: unable to get local issuer certificate\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+        },
+        {
+          "case": "wrong hostname rejected",
+          "command": [
+            "curl",
+            "--noproxy",
+            "wrong.invalid",
+            "--connect-timeout",
+            "3",
+            "--max-time",
+            "10",
+            "--silent",
+            "--show-error",
+            "--dump-header",
+            "-",
+            "--cacert",
+            "/tmp/orbitiq-phase81/ca/ca.pem",
+            "--resolve",
+            "wrong.invalid:18443:127.0.0.1",
+            "https://wrong.invalid:18443/api/ready"
+          ],
+          "exit_status": 60,
+          "expected_exit_status": 60,
+          "output": "",
+          "stderr": "curl: (60) SSL: no alternative certificate subject name matches target hostname 'wrong.invalid'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+        },
+        {
+          "case": "HSTS absent over HTTP",
+          "status": "PASS"
+        }
+      ]
+    },
+    "monitor": {
+      "status": "PASS",
+      "destination_kind": "controlled loopback test receiver; not a real production destination",
+      "production_delivery_verified": false,
+      "received_test_payloads": [
+        {
+          "schema_version": 1,
+          "event": "orbitiq_monitor_test",
+          "test": true,
+          "monitor_id": "orbitiq",
+          "at_utc": "2026-10-19T18:06:49.777834+00:00",
+          "incident_id": "8ced8fb28a6cb5e481a4e1fc9e6b542fe276ca0a88745228347949558b2255a5",
+          "active": true,
+          "components": [
+            {
+              "component": "backup_recovery",
+              "status": "unknown"
+            },
+            {
+              "component": "eop",
+              "status": "degraded"
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "event": "orbitiq_monitor_test",
+          "test": true,
+          "monitor_id": "orbitiq",
+          "at_utc": "2026-10-19T18:06:50.121060+00:00",
+          "incident_id": "8ced8fb28a6cb5e481a4e1fc9e6b542fe276ca0a88745228347949558b2255a5",
+          "active": true,
+          "components": [
+            {
+              "component": "backup_recovery",
+              "status": "unknown"
+            },
+            {
+              "component": "eop",
+              "status": "degraded"
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "event": "orbitiq_monitor_test",
+          "test": true,
+          "monitor_id": "orbitiq",
+          "at_utc": "2026-10-19T18:06:50.542271+00:00",
+          "incident_id": "347c2496bf5f9ab8de8716a1e65ea91e6ccf2e25333a1bee1e118d94b42bc6aa",
+          "active": true,
+          "components": [
+            {
+              "component": "api",
+              "status": "unavailable"
+            },
+            {
+              "component": "backup_recovery",
+              "status": "unavailable"
+            },
+            {
+              "component": "scientific_assessment",
+              "status": "unavailable"
+            },
+            {
+              "component": "storage_probe",
+              "status": "unavailable"
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "case": "delivery not requested",
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "-m",
+            "orbitiq.maintenance.monitor",
+            "--base-url",
+            "http://127.0.0.1:18089",
+            "--state-file",
+            "/tmp/orbitiq-phase81/ops-state/observed.json",
+            "--backup-manifest",
+            "/tmp/orbitiq-phase81/ops-state/latest-backup.json",
+            "--webhook-url-file",
+            "/tmp/orbitiq-phase81/webhook-url-file",
+            "--test-alert",
+            "--allow-local-test"
+          ],
+          "exit_status": 0,
+          "result": {
+            "schema_version": 1,
+            "at_utc": "2026-10-19T18:06:49.606435+00:00",
+            "findings": [
+              {
+                "component": "backup_recovery",
+                "status": "unknown"
+              },
+              {
+                "component": "eop",
+                "status": "degraded"
+              }
+            ],
+            "facts": {
+              "latest_successful_acquisition_at": "2026-10-19T07:58:23.407349+00:00"
+            },
+            "delivery": "delivery_not_requested",
+            "production_delivery_verified": false
+          }
+        },
+        {
+          "case": "actual TCP test delivery against live archive readiness",
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "-m",
+            "orbitiq.maintenance.monitor",
+            "--base-url",
+            "http://127.0.0.1:18089",
+            "--state-file",
+            "/tmp/orbitiq-phase81/ops-state/delivered.json",
+            "--backup-manifest",
+            "/tmp/orbitiq-phase81/ops-state/latest-backup.json",
+            "--webhook-url-file",
+            "/tmp/orbitiq-phase81/webhook-url-file",
+            "--test-alert",
+            "--allow-local-test",
+            "--deliver"
+          ],
+          "exit_status": 0,
+          "result": {
+            "schema_version": 1,
+            "at_utc": "2026-10-19T18:06:49.777834+00:00",
+            "findings": [
+              {
+                "component": "backup_recovery",
+                "status": "unknown"
+              },
+              {
+                "component": "eop",
+                "status": "degraded"
+              }
+            ],
+            "facts": {
+              "latest_successful_acquisition_at": "2026-10-19T07:58:23.407349+00:00"
+            },
+            "delivery": "test_delivered",
+            "production_delivery_verified": false
+          }
+        },
+        {
+          "case": "repeat suppressed",
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "-m",
+            "orbitiq.maintenance.monitor",
+            "--base-url",
+            "http://127.0.0.1:18089",
+            "--state-file",
+            "/tmp/orbitiq-phase81/ops-state/delivered.json",
+            "--backup-manifest",
+            "/tmp/orbitiq-phase81/ops-state/latest-backup.json",
+            "--webhook-url-file",
+            "/tmp/orbitiq-phase81/webhook-url-file",
+            "--test-alert",
+            "--allow-local-test",
+            "--deliver"
+          ],
+          "exit_status": 0,
+          "result": {
+            "schema_version": 1,
+            "at_utc": "2026-10-19T18:06:49.968432+00:00",
+            "findings": [
+              {
+                "component": "backup_recovery",
+                "status": "unknown"
+              },
+              {
+                "component": "eop",
+                "status": "degraded"
+              }
+            ],
+            "facts": {
+              "latest_successful_acquisition_at": "2026-10-19T07:58:23.407349+00:00"
+            },
+            "delivery": "suppressed_cooldown",
+            "production_delivery_verified": false
+          }
+        },
+        {
+          "case": "controlled receiver failure",
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "-m",
+            "orbitiq.maintenance.monitor",
+            "--base-url",
+            "http://127.0.0.1:18089",
+            "--state-file",
+            "/tmp/orbitiq-phase81/ops-state/failure.json",
+            "--backup-manifest",
+            "/tmp/orbitiq-phase81/ops-state/latest-backup.json",
+            "--webhook-url-file",
+            "/tmp/orbitiq-phase81/webhook-url-file",
+            "--test-alert",
+            "--allow-local-test",
+            "--deliver"
+          ],
+          "exit_status": 2,
+          "result": {
+            "schema_version": 1,
+            "at_utc": "2026-10-19T18:06:50.121060+00:00",
+            "findings": [
+              {
+                "component": "backup_recovery",
+                "status": "unknown"
+              },
+              {
+                "component": "eop",
+                "status": "degraded"
+              }
+            ],
+            "facts": {
+              "latest_successful_acquisition_at": "2026-10-19T07:58:23.407349+00:00"
+            },
+            "delivery": "delivery_failed",
+            "production_delivery_verified": false
+          }
+        },
+        {
+          "case": "failed delivery also suppressed",
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "-m",
+            "orbitiq.maintenance.monitor",
+            "--base-url",
+            "http://127.0.0.1:18089",
+            "--state-file",
+            "/tmp/orbitiq-phase81/ops-state/failure.json",
+            "--backup-manifest",
+            "/tmp/orbitiq-phase81/ops-state/latest-backup.json",
+            "--webhook-url-file",
+            "/tmp/orbitiq-phase81/webhook-url-file",
+            "--test-alert",
+            "--allow-local-test",
+            "--deliver"
+          ],
+          "exit_status": 0,
+          "result": {
+            "schema_version": 1,
+            "at_utc": "2026-10-19T18:06:50.339627+00:00",
+            "findings": [
+              {
+                "component": "backup_recovery",
+                "status": "unknown"
+              },
+              {
+                "component": "eop",
+                "status": "degraded"
+              }
+            ],
+            "facts": {
+              "latest_successful_acquisition_at": "2026-10-19T07:58:23.407349+00:00"
+            },
+            "delivery": "suppressed_cooldown",
+            "production_delivery_verified": false
+          }
+        },
+        {
+          "case": "API outage and actual failed-backup receipt detected",
+          "command": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "-m",
+            "orbitiq.maintenance.monitor",
+            "--base-url",
+            "http://127.0.0.1:9",
+            "--state-file",
+            "/tmp/orbitiq-phase81/ops-state/outage.json",
+            "--backup-manifest",
+            "/tmp/orbitiq-phase81/ops-state/failed-backup.json",
+            "--webhook-url-file",
+            "/tmp/orbitiq-phase81/webhook-url-file",
+            "--test-alert",
+            "--allow-local-test",
+            "--deliver"
+          ],
+          "exit_status": 0,
+          "result": {
+            "schema_version": 1,
+            "at_utc": "2026-10-19T18:06:50.542271+00:00",
+            "findings": [
+              {
+                "component": "api",
+                "status": "unavailable"
+              },
+              {
+                "component": "backup_recovery",
+                "status": "unavailable"
+              },
+              {
+                "component": "scientific_assessment",
+                "status": "unavailable"
+              },
+              {
+                "component": "storage_probe",
+                "status": "unavailable"
+              }
+            ],
+            "facts": {
+              "latest_successful_acquisition_at": null
+            },
+            "delivery": "test_delivered",
+            "production_delivery_verified": false
+          }
+        }
+      ]
+    },
+    "browsers": {
+      "firefox": {
+        "status": "PASS",
+        "engine": "firefox",
+        "browser_version": "153.0",
+        "checked_at_utc": "2026-10-19T18:17:43.238906+00:00",
+        "cases": [
+          {
+            "case": "discovery, keyboard save, exact reopen and sharing",
+            "status": "PASS"
+          },
+          {
+            "case": "actual backend track and selected sample saved",
+            "status": "PASS"
+          },
+          {
+            "case": "exact A/B historical common-time ITRS comparison",
+            "status": "PASS",
+            "source_ids": [
+              1,
+              2
+            ],
+            "at": "2026-10-18T18:57:18.892800+00:00"
+          },
+          {
+            "case": "actual readiness dashboard",
+            "status": "PASS"
+          },
+          {
+            "case": "mobile recipient, reduced motion, keyboard, graphics",
+            "status": "PASS",
+            "webgl2_rendered": false,
+            "physical_device": false
+          },
+          {
+            "case": "shared comparison restores read-only definition",
+            "status": "PASS"
+          },
+          {
+            "case": "missing source disclosed without replacement",
+            "status": "PASS"
+          }
+        ],
+        "requests": 49,
+        "page_errors": [],
+        "csp_violations": [],
+        "source_hashes": [
+          "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+          "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd"
+        ],
+        "api_mocked": false,
+        "canvas_mocked": false
+      },
+      "webkit": {
+        "status": "PASS",
+        "engine": "webkit",
+        "browser_version": "26.5",
+        "checked_at_utc": "2026-10-19T18:18:00.418771+00:00",
+        "cases": [
+          {
+            "case": "discovery, keyboard save, exact reopen and sharing",
+            "status": "PASS"
+          },
+          {
+            "case": "actual backend track and selected sample saved",
+            "status": "PASS"
+          },
+          {
+            "case": "exact A/B historical common-time ITRS comparison",
+            "status": "PASS",
+            "source_ids": [
+              1,
+              2
+            ],
+            "at": "2026-10-18T18:57:18.892800+00:00"
+          },
+          {
+            "case": "actual readiness dashboard",
+            "status": "PASS"
+          },
+          {
+            "case": "mobile recipient, reduced motion, keyboard, graphics",
+            "status": "PASS",
+            "webgl2_rendered": true,
+            "physical_device": false
+          },
+          {
+            "case": "shared comparison restores read-only definition",
+            "status": "PASS"
+          },
+          {
+            "case": "missing source disclosed without replacement",
+            "status": "PASS"
+          }
+        ],
+        "requests": 53,
+        "page_errors": [],
+        "csp_violations": [],
+        "source_hashes": [
+          "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+          "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd"
+        ],
+        "api_mocked": false,
+        "canvas_mocked": false
+      },
+      "chromium": {
+        "status": "PASS",
+        "engine": "chromium",
+        "browser_version": "151.0.7922.34",
+        "checked_at_utc": "2026-10-19T18:18:19.404850+00:00",
+        "cases": [
+          {
+            "case": "discovery, keyboard save, exact reopen and sharing",
+            "status": "PASS"
+          },
+          {
+            "case": "actual backend track and selected sample saved",
+            "status": "PASS"
+          },
+          {
+            "case": "exact A/B historical common-time ITRS comparison",
+            "status": "PASS",
+            "source_ids": [
+              1,
+              2
+            ],
+            "at": "2026-10-18T18:57:18.892800+00:00"
+          },
+          {
+            "case": "actual readiness dashboard",
+            "status": "PASS"
+          },
+          {
+            "case": "mobile recipient, reduced motion, keyboard, graphics",
+            "status": "PASS",
+            "webgl2_rendered": true,
+            "physical_device": false
+          },
+          {
+            "case": "shared comparison restores read-only definition",
+            "status": "PASS"
+          },
+          {
+            "case": "missing source disclosed without replacement",
+            "status": "PASS"
+          }
+        ],
+        "requests": 53,
+        "page_errors": [],
+        "csp_violations": [],
+        "source_hashes": [
+          "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+          "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd"
+        ],
+        "api_mocked": false,
+        "canvas_mocked": false
+      }
+    },
+    "browser_commands": [
+      {
+        "engine": "firefox",
+        "command": [
+          "docker",
+          "--host=unix:///var/run/docker.sock",
+          "run",
+          "--rm",
+          "--name",
+          "orbitiq-phase81-browser-firefox",
+          "--network",
+          "container:orbitiq-phase81-check-web-1",
+          "--mount",
+          "type=bind,src=/workspace/OrbitIQ/scripts/verify_browser_critical.py,dst=/tests/run.py,readonly",
+          "--mount",
+          "type=bind,src=/tmp/orbitiq-phase81/browser-results,dst=/results",
+          "orbitiq-browser:phase81",
+          "python",
+          "/tests/run.py",
+          "--base-url",
+          "http://127.0.0.1:8080",
+          "--engine",
+          "firefox",
+          "--catalog",
+          "25544",
+          "--first",
+          "1",
+          "--second",
+          "2",
+          "--output",
+          "/results/firefox.json"
+        ],
+        "exit_status": 0,
+        "elapsed_seconds": 14.621,
+        "output": "{\"status\": \"PASS\", \"engine\": \"firefox\", \"cases\": 7}\n"
+      },
+      {
+        "engine": "webkit",
+        "command": [
+          "docker",
+          "--host=unix:///var/run/docker.sock",
+          "run",
+          "--rm",
+          "--name",
+          "orbitiq-phase81-browser-webkit",
+          "--network",
+          "container:orbitiq-phase81-check-web-1",
+          "--mount",
+          "type=bind,src=/workspace/OrbitIQ/scripts/verify_browser_critical.py,dst=/tests/run.py,readonly",
+          "--mount",
+          "type=bind,src=/tmp/orbitiq-phase81/browser-results,dst=/results",
+          "orbitiq-browser:phase81",
+          "python",
+          "/tests/run.py",
+          "--base-url",
+          "http://127.0.0.1:8080",
+          "--engine",
+          "webkit",
+          "--catalog",
+          "25544",
+          "--first",
+          "1",
+          "--second",
+          "2",
+          "--output",
+          "/results/webkit.json"
+        ],
+        "exit_status": 0,
+        "elapsed_seconds": 16.979,
+        "output": "{\"status\": \"PASS\", \"engine\": \"webkit\", \"cases\": 7}\n"
+      },
+      {
+        "engine": "chromium",
+        "command": [
+          "docker",
+          "--host=unix:///var/run/docker.sock",
+          "run",
+          "--rm",
+          "--name",
+          "orbitiq-phase81-browser-chromium",
+          "--network",
+          "container:orbitiq-phase81-check-web-1",
+          "--mount",
+          "type=bind,src=/workspace/OrbitIQ/scripts/verify_browser_critical.py,dst=/tests/run.py,readonly",
+          "--mount",
+          "type=bind,src=/tmp/orbitiq-phase81/browser-results,dst=/results",
+          "orbitiq-browser:phase81",
+          "python",
+          "/tests/run.py",
+          "--base-url",
+          "http://127.0.0.1:8080",
+          "--engine",
+          "chromium",
+          "--catalog",
+          "25544",
+          "--first",
+          "1",
+          "--second",
+          "2",
+          "--output",
+          "/results/chromium.json"
+        ],
+        "exit_status": 0,
+        "elapsed_seconds": 18.853,
+        "output": "{\"status\": \"PASS\", \"engine\": \"chromium\", \"cases\": 7}\n"
+      }
+    ],
+    "release_image_builds": [
+      {
+        "target": "api",
+        "command": [
+          "docker",
+          "--host=unix:///var/run/docker.sock",
+          "build",
+          "--secret",
+          "id=proxy_ca,src=/etc/ssl/certs/ca-certificates.crt",
+          "--target",
+          "api",
+          "-t",
+          "orbitiq-api:phase81-local",
+          "."
+        ],
+        "exit_status": 0,
+        "at_utc": "2026-10-19T18:09:51.153536+00:00",
+        "elapsed_seconds": 7.258,
+        "output": "#0 building with \"default\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 2.12kB done\n#1 DONE 0.0s\n\n#2 resolve image config for docker-image://docker.io/docker/dockerfile:1\n#2 DONE 0.6s\n\n#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e\n#3 CACHED\n\n#4 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258\n#4 DONE 0.0s\n\n#5 [internal] load metadata for ghcr.io/astral-sh/uv:0.12.23@sha256:61d393e44e249f2e4b526b6c7ddcecce245946826e608e11c93ad4f5bba55b21\n#5 DONE 0.0s\n\n#6 [internal] load .dockerignore\n#6 transferring context: 534B done\n#6 DONE 0.0s\n\n#7 [uv 1/1] FROM ghcr.io/astral-sh/uv:0.12.23@sha256:61d393e44e249f2e4b526b6c7ddcecce245946826e608e11c93ad4f5bba55b21\n#7 DONE 0.0s\n\n#8 [api 1/8] FROM docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258\n#8 DONE 0.0s\n\n#9 [internal] load build context\n#9 transferring context: 259.09kB 0.2s done\n#9 DONE 0.3s\n\n#10 [api 2/8] COPY --from=uv /uv /usr/local/bin/uv\n#10 CACHED\n\n#11 [api 3/8] WORKDIR /app\n#11 CACHED\n\n#12 [api 4/8] COPY pyproject.toml uv.lock ./\n#12 CACHED\n\n#13 [api 5/8] RUN --mount=type=secret,id=proxy_ca     if [ -f /run/secrets/proxy_ca ]; then export SSL_CERT_FILE=/run/secrets/proxy_ca; fi;     uv sync --locked --no-dev --no-managed-python && rm -rf /root/.cache/uv\n#13 CACHED\n\n#14 [api 6/8] COPY backend/orbitiq ./backend/orbitiq\n#14 DONE 2.8s\n\n#15 [api 7/8] COPY --chmod=644 deploy/logging.json ./deploy/logging.json\n#15 DONE 1.5s\n\n#16 [api 8/8] RUN chmod -R a+rX /app/backend /app/deploy\n#16 DONE 1.6s\n\n#17 exporting to image\n#17 exporting layers\n#17 exporting layers 0.2s done\n#17 writing image sha256:4eedbb851d0d843370feb0af98f1d4b51cb49111bd0490adee5d1526142e649e done\n#17 naming to docker.io/library/orbitiq-api:phase81-local done\n#17 DONE 0.2s\n"
+      },
+      {
+        "target": "web",
+        "command": [
+          "docker",
+          "--host=unix:///var/run/docker.sock",
+          "build",
+          "--secret",
+          "id=proxy_ca,src=/etc/ssl/certs/ca-certificates.crt",
+          "--target",
+          "web",
+          "-t",
+          "orbitiq-web:phase81-local",
+          "."
+        ],
+        "exit_status": 0,
+        "at_utc": "2026-10-19T18:10:05.045983+00:00",
+        "elapsed_seconds": 13.892,
+        "output": "#0 building with \"default\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 2.12kB done\n#1 DONE 0.0s\n\n#2 resolve image config for docker-image://docker.io/docker/dockerfile:1\n#2 DONE 0.4s\n\n#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e\n#3 CACHED\n\n#4 [internal] load metadata for docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5\n#4 DONE 0.0s\n\n#5 [internal] load metadata for docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8\n#5 DONE 0.0s\n\n#6 [internal] load .dockerignore\n#6 transferring context: 534B done\n#6 DONE 0.0s\n\n#7 [frontend-build 1/6] FROM docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5\n#7 DONE 0.0s\n\n#8 [web 1/6] FROM docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8\n#8 DONE 0.0s\n\n#9 [internal] load build context\n#9 transferring context: 177.23MB 1.7s done\n#9 DONE 1.7s\n\n#10 [frontend-build 3/6] COPY frontend/package.json frontend/package-lock.json ./\n#10 CACHED\n\n#11 [frontend-build 2/6] WORKDIR /app\n#11 CACHED\n\n#12 [frontend-build 4/6] RUN --mount=type=secret,id=proxy_ca     if [ -f /run/secrets/proxy_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/proxy_ca; fi;     npm ci --strict-ssl=true\n#12 CACHED\n\n#13 [frontend-build 5/6] COPY frontend/ ./\n#13 DONE 2.8s\n\n#14 [frontend-build 6/6] RUN npm run build\n#14 1.860 \n#14 1.860 > orbitiq-frontend@0.1.0 build\n#14 1.860 > tsc --noEmit && vite build\n#14 1.860 \n#14 5.123 vite v7.3.7 building client environment for production...\n#14 5.172 transforming...\n#14 6.828 ✓ 56 modules transformed.\n#14 6.989 rendering chunks...\n#14 7.201 computing gzip size...\n#14 7.222 dist/index.html                                  0.39 kB │ gzip:   0.27 kB\n#14 7.222 dist/assets/index-D3h8fOB5.css                   6.84 kB │ gzip:   2.06 kB\n#14 7.222 dist/assets/RestoredInvestigation-B_TcVPvN.js    3.63 kB │ gzip:   1.63 kB\n#14 7.222 dist/assets/SavedInvestigations-CuRqEb29.js      7.11 kB │ gzip:   2.44 kB\n#14 7.223 dist/assets/investigation-api-Dt1r_LMe.js        8.00 kB │ gzip:   3.01 kB\n#14 7.223 dist/assets/Investigations-77dSK7_l.js          20.00 kB │ gzip:   6.08 kB\n#14 7.223 dist/assets/index-DuYXKiAu.js                  287.41 kB │ gzip:  89.06 kB\n#14 7.223 dist/assets/globe-renderer-C_Oht-fC.js         558.60 kB │ gzip: 140.28 kB\n#14 7.223 \n#14 7.223 (!) Some chunks are larger than 500 kB after minification. Consider:\n#14 7.223 - Using dynamic import() to code-split the application\n#14 7.223 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n#14 7.223 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n#14 7.223 ✓ built in 2.08s\n#14 DONE 7.3s\n\n#15 [web 3/6] COPY --chmod=644 deploy/api-proxy.conf /etc/nginx/api-proxy.conf\n#15 CACHED\n\n#16 [web 4/6] COPY --chmod=644 deploy/security-headers.conf /etc/nginx/security-headers.conf\n#16 CACHED\n\n#17 [web 2/6] COPY --chmod=644 deploy/nginx.conf /etc/nginx/nginx.conf\n#17 CACHED\n\n#18 [web 5/6] COPY --chmod=644 deploy/server-routes.conf /etc/nginx/server-routes.conf\n#18 CACHED\n\n#19 [web 6/6] COPY --from=frontend-build --chown=101:101 /app/dist /usr/share/nginx/html\n#19 DONE 0.3s\n\n#20 exporting to image\n#20 exporting layers\n#20 exporting layers 1.0s done\n#20 writing image sha256:8b500944c138c45b584d4a6ae7c13a1b1e58fad0e38b2ee99ae96fefd8880bb3\n#20 writing image sha256:8b500944c138c45b584d4a6ae7c13a1b1e58fad0e38b2ee99ae96fefd8880bb3 done\n#20 naming to docker.io/library/orbitiq-web:phase81-local done\n#20 DONE 1.0s\n"
+      }
+    ],
+    "release_smoke": {
+      "command": [
+        "python",
+        "scripts/verify_release_containers.py",
+        "--release",
+        "phase81-local"
+      ],
+      "exit_status": 0,
+      "result": {
+        "status": "PASS",
+        "fixture": "explicit empty isolated schema-3",
+        "checks": [
+          {
+            "route": "/",
+            "http_status": 200
+          },
+          {
+            "route": "/api/health",
+            "http_status": 200
+          },
+          {
+            "route": "/api/ready",
+            "http_status": 200
+          },
+          {
+            "route": "/api/snapshots",
+            "http_status": 200
+          }
+        ],
+        "archive_unchanged": true
+      }
+    },
+    "browser_runtime_build": {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "build",
+        "--secret",
+        "id=proxy_ca,src=/etc/ssl/certs/ca-certificates.crt",
+        "-f",
+        "deploy/Dockerfile.browser",
+        "-t",
+        "orbitiq-browser:phase81",
+        "."
+      ],
+      "exit_status": 0,
+      "output": "#0 building with \"default\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile.browser\n#1 transferring dockerfile: 472B done\n#1 DONE 0.0s\n\n#2 resolve image config for docker-image://docker.io/docker/dockerfile:1\n#2 DONE 0.4s\n\n#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e\n#3 CACHED\n\n#4 [internal] load metadata for mcr.microsoft.com/playwright/python:v1.62.0-noble@sha256:aa81288e738725378becba5b3e06cb0f3a7f012a610e87e8d767a090ea3f740d\n#4 DONE 0.0s\n\n#5 [internal] load .dockerignore\n#5 transferring context: 534B done\n#5 DONE 0.0s\n\n#6 [stage-0 1/2] FROM mcr.microsoft.com/playwright/python:v1.62.0-noble@sha256:aa81288e738725378becba5b3e06cb0f3a7f012a610e87e8d767a090ea3f740d\n#6 DONE 0.0s\n\n#7 [stage-0 2/2] RUN --mount=type=secret,id=proxy_ca     if [ -f /run/secrets/proxy_ca ]; then export PIP_CERT=/run/secrets/proxy_ca; fi;     pip install --no-cache-dir playwright==1.62.0 greenlet==3.5.5 pyee==13.0.1\n#7 CACHED\n\n#8 exporting to image\n#8 exporting layers done\n#8 writing image sha256:f6b7a44357e4f2e9b8bd147158d108702427a0980027981eca513927f392e5c5 done\n#8 naming to docker.io/library/orbitiq-browser:phase81 done\n#8 DONE 0.0s\n",
+      "images": [
+        {
+          "tag": "orbitiq-api:phase81-local",
+          "id": "sha256:4eedbb851d0d843370feb0af98f1d4b51cb49111bd0490adee5d1526142e649e",
+          "architecture": "amd64"
+        },
+        {
+          "tag": "orbitiq-web:phase81-local",
+          "id": "sha256:8b500944c138c45b584d4a6ae7c13a1b1e58fad0e38b2ee99ae96fefd8880bb3",
+          "architecture": "amd64"
+        },
+        {
+          "tag": "orbitiq-browser:phase81",
+          "id": "sha256:f6b7a44357e4f2e9b8bd147158d108702427a0980027981eca513927f392e5c5",
+          "architecture": "amd64"
+        }
+      ],
+      "at_utc": "2026-10-19T18:20:16.540373+00:00"
+    }
+  },
+  "evidence_distinctions": {
+    "unit_tests": "Isolated fixtures and mock transports; not satellite observations or real external services.",
+    "genuine_data": "Encrypted recovery and browser checks use existing genuine ISS records #1/#2 (NORAD 25544) or separate restored copies; no acquisition/fixture insertion into normal archive.",
+    "tls": "Ephemeral loopback CA/certificates with verification enabled; not public-domain HTTPS.",
+    "backup": "Real restic encryption and retrieval on this same machine; off-machine capability NOT VERIFIED.",
+    "alerts": "Real TCP to a controlled loopback test receiver, explicit test payloads; real production alert destination NOT CONFIGURED/VERIFIED.",
+    "browsers": "Linux container headless/software rendering/fallback, not physical devices, GPU, Apple Safari or screen-reader certification."
+  },
+  "github": {
+    "inspection_read_only": true,
+    "phase7_runs": [
+      {
+        "id": 39293109185,
+        "head_sha": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39293109185"
+      }
+    ],
+    "phase7_jobs": [
+      {
+        "id": 118198573807,
+        "name": "frontend",
+        "head_sha": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39293109185/job/118198573807"
+      },
+      {
+        "id": 118198574335,
+        "name": "backend",
+        "head_sha": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39293109185/job/118198574335"
+      }
+    ],
+    "protection_checks": [
+      {
+        "name": "branch-protection",
+        "command": [
+          "gh",
+          "api",
+          "repos/BibinBinoy777/OrbitIQ/branches/main/protection"
+        ],
+        "exit_status": 1,
+        "response": {
+          "message": "Resource not accessible by integration",
+          "documentation_url": "https://docs.github.com/rest/branches/branch-protection#get-branch-protection",
+          "status": "403"
+        }
+      },
+      {
+        "name": "rulesets",
+        "command": [
+          "gh",
+          "api",
+          "repos/BibinBinoy777/OrbitIQ/rulesets"
+        ],
+        "exit_status": 1,
+        "response": {
+          "message": "Upgrade to GitHub Pro or make this repository public to enable this feature.",
+          "documentation_url": "https://docs.github.com/rest/repos/rules#get-all-repository-rulesets",
+          "status": "403"
+        }
+      }
+    ],
+    "current_candidate_remote_ci": "BLOCKED: candidate uncommitted/unpublished; no exact release SHA",
+    "future_steps": "See production-deployment-runbook.md Phase 8.1; no publication or remote workflow action authorized/performed"
+  },
+  "preservation": {
+    "at_utc": "2026-10-19T18:20:17.255937+00:00",
+    "head_before": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+    "head_after": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+    "branch_before": "main",
+    "branch_after": "main",
+    "remotes_unchanged": true,
+    "staged_files": [],
+    "database_sha256_before": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_sha256_after": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_bytes_unchanged": true,
+    "database_fingerprint_before": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "database_fingerprint_after": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "database_fingerprint_unchanged": true,
+    "completed_reports_unchanged": {
+      "docs/phase-0-report.md": true,
+      "docs/phase-1-report.md": true,
+      "docs/phase-2-reference-results.json": true,
+      "docs/phase-2-report.md": true,
+      "docs/phase-3-integration-results.json": true,
+      "docs/phase-3-reference-results.json": true,
+      "docs/phase-3-report.md": true,
+      "docs/phase-4-integration-results.json": true,
+      "docs/phase-4-report.md": true,
+      "docs/phase-5-integration-results.json": true,
+      "docs/phase-5-report.md": true,
+      "docs/phase-6-integration-results.json": true,
+      "docs/phase-6-report.md": true,
+      "docs/phase-6.1-report.md": true,
+      "docs/phase-6.1-scientific-evidence.json": true,
+      "docs/phase-6.1.1-report.md": true,
+      "docs/phase-6.1.1-scientific-evidence.json": true,
+      "docs/phase-7-integration-results.json": true,
+      "docs/phase-7-report.md": true,
+      "docs/pre-phase-5-integration-results.json": true,
+      "docs/pre-phase-5-readiness-report.md": true,
+      "docs/phase-8-integration-results.json": true,
+      "docs/phase-8-readiness-report.md": true
+    },
+    "scientific_ingestion_storage_sources_unchanged": true,
+    "lockfiles_unchanged": true,
+    "changed_existing_phase8_files": [
+      "README.md",
+      "docs/backup-restore-runbook.md",
+      "frontend/src/App.tsx",
+      ".dockerignore",
+      "Dockerfile",
+      "deploy/compose.yaml",
+      "deploy/nginx.conf",
+      "deploy/production.env.example",
+      "deploy/security-headers.conf",
+      "docs/production-deployment-runbook.md",
+      "docs/production-security-review.md"
+    ]
+  },
+  "resolved_findings": [
+    {
+      "issue": "Official browser image omitted Python Playwright package",
+      "resolution": "Built isolated runtime with matching pinned Playwright/pyee/greenlet and verified Firefox/WebKit/Chromium actual workflows; no host library installation or app dependency change."
+    },
+    {
+      "issue": "Full-tree restic restore encountered unmapped /tmp ancestor ownership and exited nonzero",
+      "resolution": "Preserved failed receipt/artifacts; restore only the exact backed-up point subtree. Subsequent actual retrieval/integrity/payload/API checks pass without ignoring restore errors."
+    },
+    {
+      "issue": "Inherited proxy could redirect a loopback health probe",
+      "resolution": "The dependency health probe explicitly selects a no-proxy opener only for its own loopback URL."
+    },
+    {
+      "issue": "Initial new-file lint layout",
+      "resolution": "Applied formatter and fixed long test-runner literals; latest full Ruff checks pass."
+    }
+  ],
+  "acceptance": [
+    {
+      "id": 1,
+      "criterion": "The existing Phase 8 report and exact blocked criterion were inspected",
+      "status": "PASS",
+      "evidence": "Criterion 20 was BLOCKED, with seven distinct additional launch-gate groups; all reassessed below."
+    },
+    {
+      "id": 2,
+      "criterion": "The current release candidate and Git state were identified",
+      "status": "PASS",
+      "evidence": "main HEAD ec1f9f8 remains published Phase 7; all Phase 8/8.1 changes are local/uncommitted; baseline includes tracked and untracked work."
+    },
+    {
+      "id": 3,
+      "criterion": "Hosting and HTTPS requirements were resolved or the exact external blocker was documented",
+      "status": "BLOCKED",
+      "evidence": "Linux/Docker target and local verified TLS overlay prepared; no approved provider/account/domain/DNS/public certificate/renewal/ingress/durable host exists."
+    },
+    {
+      "id": 4,
+      "criterion": "Off-machine backup architecture was implemented or its missing prerequisites were precisely documented",
+      "status": "BLOCKED",
+      "evidence": "Restic encrypted export/retrieval is implemented and locally verified, but no approved independent external destination, credentials/key recovery or replacement-host test exists."
+    },
+    {
+      "id": 5,
+      "criterion": "Backup integrity verification is implemented",
+      "status": "PASS",
+      "evidence": "Real encrypted repository full-data check, exact retrieved file SHA, complete schema/table digests, payload validation and API reads succeeded."
+    },
+    {
+      "id": 6,
+      "criterion": "Recovery into a separate database is verified where the environment permits it",
+      "status": "PASS",
+      "evidence": "Existing genuine two-record archive restored through restic into a separate private target; schema 3, ledger, source identities and APIs verified. Scope is local."
+    },
+    {
+      "id": 7,
+      "criterion": "Monitoring and alert requirements are implemented or their production prerequisites are documented",
+      "status": "BLOCKED",
+      "evidence": "Operator CLI, private receipts/log signals, safe opt-in payloads and persistent cooldown implemented; production receiver, state/log delivery, owner/schedule/escalation remain absent."
+    },
+    {
+      "id": 8,
+      "criterion": "Actual alert delivery is tested where a real destination is available",
+      "status": "BLOCKED",
+      "evidence": "Controlled loopback TCP test receiver exercised acceptance/failure/suppression; no real production destination or human delivery confirmation available."
+    },
+    {
+      "id": 9,
+      "criterion": "CI evidence matches the exact tested commit",
+      "status": "BLOCKED",
+      "evidence": "Remote success covers only published Phase 7 ec1f9f8; no commit contains the current Phase 8/8.1 candidate. Exact-release CI requires authorized publication; protection APIs return 403."
+    },
+    {
+      "id": 10,
+      "criterion": "Current local changes are not misrepresented as remotely verified",
+      "status": "PASS",
+      "evidence": "Local command/image/browser evidence is separate from the Phase 7 remote run; future publication/verification steps documented."
+    },
+    {
+      "id": 11,
+      "criterion": "Firefox and WebKit tests run successfully or their precise blockers are documented",
+      "status": "PASS",
+      "evidence": "Seven actual-API workflows per Firefox 153.0, WebKit 26.5 and Chromium 151.0.7922.34 pass in pinned supported runtime. Firefox used tested 2D fallback; physical devices/Safari not certified."
+    },
+    {
+      "id": 12,
+      "criterion": "Relevant security issues are addressed",
+      "status": "PASS",
+      "evidence": "TLS hostname/trust tests, exact-point restore, protected operator files/state, no raw secret/error forwarding, body/URL bounds and delivery failure cooldown verified; no public admin API added."
+    },
+    {
+      "id": 13,
+      "criterion": "Existing scientific policies and limitations are preserved",
+      "status": "PASS",
+      "evidence": "Scientific code/tolerances/collection logic unchanged, all audits pass; app and intended-use document disclose calculated positions, blocked observation validation and unquantified uncertainty."
+    },
+    {
+      "id": 14,
+      "criterion": "Existing database contents and prior reports remain intact",
+      "status": "PASS",
+      "evidence": "Normal archive file/table fingerprints and all completed phase reports, including Phase 8, match baseline; runbooks append new evidence."
+    },
+    {
+      "id": 15,
+      "criterion": "All applicable local regression suites pass or deviations are explained",
+      "status": "PASS",
+      "evidence": "634 backend, 275 frontend, all original/expanded/geodesy audits, lint/format/TypeScript/build, release-container smoke, encrypted recovery, TLS and browser checks passed within recorded scope."
+    },
+    {
+      "id": 16,
+      "criterion": "Deployment, monitoring, backup, and recovery runbooks are updated",
+      "status": "PASS",
+      "evidence": "Conditional TLS/hosting steps, protected restic workflow/retention preview, monitoring/delivery/cooldown and exact-release CI follow-up documented without claiming external verification."
+    },
+    {
+      "id": 17,
+      "criterion": "The final GO/NO-GO decision is based on evidence rather than an arbitrary score",
+      "status": "PASS",
+      "evidence": "NO-GO because public hosting, independent recovery, production monitoring/delivery and exact-release CI/protection lack evidence; passing local checks cannot close these gates."
+    }
+  ],
+  "acceptance_summary": {
+    "PASS": 12,
+    "FAIL": 0,
+    "BLOCKED": 5
+  },
+  "launch_gates": [
+    {
+      "gate": "HOSTING",
+      "status": "BLOCKED",
+      "local_progress": "Optional same-origin TLS overlay, explicit target/configuration and six verified loopback trust/protocol cases.",
+      "required_external_evidence": "Approved provider/account/region/billing/owner, domain/DNS, trusted public TLS issuance/renewal/redirect, ingress client addressing/firewall, durable host provisioning."
+    },
+    {
+      "gate": "DURABILITY",
+      "status": "BLOCKED",
+      "local_progress": "Real encrypted restic export/retrieval and full repository-data check; exact separate-target recovery and safe failed-credential receipt.",
+      "required_external_evidence": "Approved independent repository, secure transport credentials, separately recoverable keys, off-machine upload/download and replacement-host recovery, retention/RPO/RTO/ownership approval."
+    },
+    {
+      "gate": "OPERATIONS",
+      "status": "BLOCKED",
+      "local_progress": "Existing endpoint/log/receipt monitor and labelled loopback TCP delivery/failure/cooldown tests.",
+      "required_external_evidence": "Approved production receiver/token, on-call/escalation, durable monitor state/log forwarding, scheduled checks/jobs and real signal plus human-delivery verification."
+    },
+    {
+      "gate": "RELEASE_GATES",
+      "status": "BLOCKED",
+      "local_progress": "Current dirty candidate identified; Phase 7 exact-SHA CI inspected; local checks and image/browser runs recorded.",
+      "required_external_evidence": "Explicit publication authorization, reviewed release SHA containing Phase 8+8.1, all required remote jobs/steps successful, administrator confirmation of required status/review protections."
+    },
+    {
+      "gate": "TRAFFIC",
+      "status": "BLOCKED",
+      "local_progress": "Existing request/connection/admission limits retained; browser tests use bounded three-point tracks.",
+      "required_external_evidence": "Selected trusted ingress CIDRs and shared-NAT/capacity budgets, representative target-host traffic, resource/availability objectives."
+    },
+    {
+      "gate": "COMPATIBILITY",
+      "status": "LOCAL_CRITICAL_WORKFLOWS_VERIFIED",
+      "local_progress": "All seven actual-API flows pass in Firefox/WebKit/Chromium; previous missing-runtime blocker resolved for this scope.",
+      "required_external_evidence": "Physical GPU/device, actual Safari and assistive-technology verification still not performed; Firefox headless used graphics fallback."
+    },
+    {
+      "gate": "SCIENTIFIC_ACCURACY",
+      "status": "BLOCKED_FOR_STRONGER_CLAIMS",
+      "local_progress": "Numerical regressions retained and public intended-use limits explicit.",
+      "required_external_evidence": "Independent matched observations/reference program and quantified prediction uncertainty before any stronger accuracy or operational-safety claim."
+    }
+  ],
+  "phase81_changed_files": [
+    ".dockerignore",
+    "Dockerfile",
+    "README.md",
+    "backend/orbitiq/maintenance/backup_export.py",
+    "backend/orbitiq/maintenance/monitor.py",
+    "backend/tests/test_phase81_operations.py",
+    "deploy/Dockerfile.browser",
+    "deploy/compose.tls.yaml",
+    "deploy/compose.yaml",
+    "deploy/nginx-tls.conf",
+    "deploy/nginx.conf",
+    "deploy/production.env.example",
+    "deploy/security-headers.conf",
+    "deploy/server-routes.conf",
+    "docs/backup-restore-runbook.md",
+    "docs/intended-use.md",
+    "docs/monitoring-and-alerting.md",
+    "docs/phase-8.1-integration-results.json",
+    "docs/phase-8.1-launch-readiness-report.md",
+    "docs/production-deployment-runbook.md",
+    "docs/production-security-review.md",
+    "frontend/src/App.tsx",
+    "scripts/verify_browser_critical.py"
+  ],
+  "combined_uncommitted_files": [
+    ".dockerignore",
+    ".env.example",
+    ".github/workflows/ci.yml",
+    "Dockerfile",
+    "README.md",
+    "backend/orbitiq/api/boundary.py",
+    "backend/orbitiq/api/operational.py",
+    "backend/orbitiq/main.py",
+    "backend/orbitiq/maintenance/backup_export.py",
+    "backend/orbitiq/maintenance/monitor.py",
+    "backend/orbitiq/runtime.py",
+    "backend/tests/test_phase81_operations.py",
+    "backend/tests/test_production.py",
+    "deploy/Dockerfile.browser",
+    "deploy/api-proxy.conf",
+    "deploy/compose.tls.yaml",
+    "deploy/compose.yaml",
+    "deploy/logging.json",
+    "deploy/nginx-tls.conf",
+    "deploy/nginx.conf",
+    "deploy/production.env.example",
+    "deploy/security-headers.conf",
+    "deploy/server-routes.conf",
+    "docs/backup-restore-runbook.md",
+    "docs/intended-use.md",
+    "docs/monitoring-and-alerting.md",
+    "docs/phase-8-integration-results.json",
+    "docs/phase-8-readiness-report.md",
+    "docs/phase-8.1-integration-results.json",
+    "docs/phase-8.1-launch-readiness-report.md",
+    "docs/production-deployment-runbook.md",
+    "docs/production-security-review.md",
+    "frontend/src/App.tsx",
+    "scripts/verify_browser_critical.py",
+    "scripts/verify_release_containers.py"
+  ],
+  "remaining_warnings": [
+    "Existing Starlette/httpx test-client deprecation",
+    "Existing >500-kB renderer build warning",
+    "No production TLS/DNS/renewal, independent destination/replacement-host recovery, production alert delivery or exact-release CI/protection proof",
+    "Restic publisher release signature not separately verified; checksum/TLS evidence recorded",
+    "No physical-device/GPU/Safari/screen-reader or target-host capacity certification"
+  ],
+  "execution_boundaries": {
+    "commit": false,
+    "push": false,
+    "deploy": false,
+    "publish": false,
+    "remote_workflow_action": false,
+    "remotes_changed": false,
+    "normal_database_reset_or_initialization": false,
+    "live_ingestion": false,
+    "paid_resources": false,
+    "real_external_alert_or_storage_destination_contacted": false,
+    "unapproved_credentials_used": false,
+    "owned_test_containers_removed": true
+  },
+  "private_artifacts": "/tmp/orbitiq-phase81; encrypted repository, passwords, private TLS keys, raw database copies and test profiles are not in Git"
+}

@@ -1,0 +1,73 @@
+# Local validation / single-host release template. No service is deployed by saving it.
+services:
+  api:
+    image: orbitiq-api:${ORBITIQ_RELEASE:?Set an immutable release identifier}
+    build:
+      context: ..
+      target: api
+      secrets: [proxy_ca]
+    environment:
+      ORBITIQ_ENVIRONMENT: production
+      ORBITIQ_DATABASE_PATH: /data/orbitiq.sqlite3
+      ORBITIQ_ALLOWED_HOSTS: ${ORBITIQ_ALLOWED_HOSTS:?Set explicit public and probe hosts}
+      ORBITIQ_EOP_POLICY: ${ORBITIQ_EOP_POLICY:?Select the scientific EOP policy}
+      ORBITIQ_FRESH_HOURS: "24"
+      ORBITIQ_STALE_HOURS: "72"
+      ORBITIQ_TRACK_MAX_SAMPLES: "361"
+      ORBITIQ_TRACK_MAX_DURATION_SECONDS: "86400"
+    volumes:
+      - type: bind
+        source: ${ORBITIQ_DATA_DIRECTORY:?Provision the durable archive directory first}
+        target: /data
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs: ["/tmp:size=67108864,noexec,nosuid"]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 768m
+    cpus: 1.0
+    networks: [private]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.build_opener(urllib.request.ProxyHandler({})).open('http://127.0.0.1:8000/api/ready', timeout=2).read()"]
+      interval: 30s
+      timeout: 3s
+      start_period: 30s
+      retries: 3
+    restart: unless-stopped
+  web:
+    image: orbitiq-web:${ORBITIQ_RELEASE:?Set an immutable release identifier}
+    build:
+      context: ..
+      target: web
+      secrets: [proxy_ca]
+    ports: ["${ORBITIQ_HTTP_BIND:-127.0.0.1:8080}:8080"]
+    read_only: true
+    tmpfs: ["/tmp:size=67108864,noexec,nosuid"]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 128m
+    cpus: 1.0
+    depends_on:
+      api:
+        condition: service_healthy
+    networks: [private, edge]
+    healthcheck:
+      # Probe the actual same-origin gateway and its private API dependency.
+      # Disable proxying only for this explicit loopback request.
+      test: [CMD, wget, -q, -T, "2", -Y, "off", -O, /dev/null, "http://127.0.0.1:8080/api/ready"]
+      interval: 30s
+      timeout: 3s
+      start_period: 30s
+      retries: 3
+    restart: unless-stopped
+networks:
+  private:
+    internal: true
+  edge: {}
+secrets:
+  proxy_ca:
+    file: ${ORBITIQ_BUILD_CA_BUNDLE:-/etc/ssl/certs/ca-certificates.crt}

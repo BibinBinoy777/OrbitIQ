@@ -1,0 +1,1980 @@
+{
+  "phase": "8",
+  "title": "Production readiness and deployment preparation",
+  "recorded_at_utc": "2026-10-19T17:46:57.927495+00:00",
+  "preparation_status": "IMPLEMENTED_AND_LOCALLY_VERIFIED_WITH_BLOCKERS",
+  "public_release_recommendation": "NO-GO",
+  "scope": "Local preparation only; no production infrastructure or deployment certified",
+  "baseline": {
+    "head": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+    "branch": "main",
+    "status": [],
+    "remotes": [
+      "origin\thttps://github.com/BibinBinoy777/OrbitIQ.git (fetch)",
+      "origin\thttps://github.com/BibinBinoy777/OrbitIQ.git (push)"
+    ],
+    "commands": [
+      {
+        "name": "backend",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:22:56.535948+00:00",
+        "elapsed_seconds": 6.614,
+        "exit_status": 0,
+        "output": "........................................................................ [ 12%]\n........................................................................ [ 24%]\n........................................................................ [ 36%]\n........................................................................ [ 48%]\n........................................................................ [ 61%]\n........................................................................ [ 73%]\n........................................................................ [ 85%]\n........................................................................ [ 97%]\n.............                                                            [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n589 passed, 1 warning in 5.93s\n"
+      },
+      {
+        "name": "frontend",
+        "command": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:23:03.149829+00:00",
+        "elapsed_seconds": 9.81,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 test\n> vitest run\n\n\n RUN  v5.0.5 /workspace/OrbitIQ/frontend\n\n\n Test Files  20 passed (20)\n      Tests  275 passed (275)\n   Start at  17:23:03\n   Duration  9.07s (tests 64%, environment 28%, setup 4%, import 3%, transform 1%)\n\nEnvironment  jsdom was created 20 times · 6.69s total, 28% of tracked time\n             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)\n             learn more: https://vitest.dev/guide/improving-performance#test-environments\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "production-build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:23:12.959774+00:00",
+        "elapsed_seconds": 5.541,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 build\n> tsc --noEmit && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 56 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                  0.39 kB │ gzip:   0.27 kB\ndist/assets/index-D3h8fOB5.css                   6.84 kB │ gzip:   2.06 kB\ndist/assets/RestoredInvestigation-OjNSLZsT.js    3.63 kB │ gzip:   1.63 kB\ndist/assets/SavedInvestigations-B8ciZshu.js      7.11 kB │ gzip:   2.44 kB\ndist/assets/investigation-api--sC16ihO.js        8.00 kB │ gzip:   3.00 kB\ndist/assets/Investigations-D14PLFuI.js          20.00 kB │ gzip:   6.08 kB\ndist/assets/index-C1By00ak.js                  287.16 kB │ gzip:  88.99 kB\ndist/assets/globe-renderer-DosfVNAk.js         558.60 kB │ gzip: 140.28 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n✓ built in 2.02s\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      }
+    ],
+    "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9"
+  },
+  "architecture": {
+    "frontend": "Vite production static files in unprivileged Nginx; same-origin API",
+    "api": "one non-root FastAPI worker, internal-only, no proxy-header trust",
+    "storage": "explicit existing schema-3 SQLite archive on operator-provisioned durable bind mount, read-only for API",
+    "collector": "existing explicit CLI, one authoritative archive, no schedule enabled",
+    "scientific_resources": "unchanged locked offline EOP/leap policy",
+    "authentication": "none; browser-local saves retained",
+    "provider": "not selected",
+    "new_dependencies": [],
+    "migrations_added": []
+  },
+  "verification": {
+    "current_commands": [
+      {
+        "name": "backend",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_status": 0,
+        "output": "........................................................................ [ 11%]\n........................................................................ [ 23%]\n........................................................................ [ 35%]\n........................................................................ [ 47%]\n........................................................................ [ 59%]\n........................................................................ [ 70%]\n........................................................................ [ 82%]\n........................................................................ [ 94%]\n.................................                                        [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n609 passed, 1 warning in 6.49s\n",
+        "output_completed_at_utc": "2026-10-19T17:34:58.542393+00:00"
+      },
+      {
+        "name": "frontend",
+        "command": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:13.344445+00:00",
+        "elapsed_seconds": 9.809,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 test\n> vitest run\n\n\n RUN  v5.0.5 /workspace/OrbitIQ/frontend\n\n\n Test Files  20 passed (20)\n      Tests  275 passed (275)\n   Start at  17:28:13\n   Duration  9.35s (tests 63%, environment 28%, setup 4%, import 3%, transform 1%)\n\nEnvironment  jsdom was created 20 times · 7.08s total, 28% of tracked time\n             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)\n             learn more: https://vitest.dev/guide/improving-performance#test-environments\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "production-build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:23.154038+00:00",
+        "elapsed_seconds": 5.84,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 build\n> tsc --noEmit && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 56 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                  0.39 kB │ gzip:   0.27 kB\ndist/assets/index-D3h8fOB5.css                   6.84 kB │ gzip:   2.06 kB\ndist/assets/RestoredInvestigation-OjNSLZsT.js    3.63 kB │ gzip:   1.63 kB\ndist/assets/SavedInvestigations-B8ciZshu.js      7.11 kB │ gzip:   2.44 kB\ndist/assets/investigation-api--sC16ihO.js        8.00 kB │ gzip:   3.00 kB\ndist/assets/Investigations-D14PLFuI.js          20.00 kB │ gzip:   6.08 kB\ndist/assets/index-C1By00ak.js                  287.16 kB │ gzip:  88.99 kB\ndist/assets/globe-renderer-DosfVNAk.js         558.60 kB │ gzip: 140.28 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n✓ built in 2.14s\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "verify_scientific_references",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_scientific_references.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_scientific_references.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:28.994303+00:00",
+        "elapsed_seconds": 0.133,
+        "exit_status": 0,
+        "output": "Reference audit: 40 passed, 0 failed\n"
+      },
+      {
+        "name": "verify_earth_fixed_references",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_earth_fixed_references.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_earth_fixed_references.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:29.127710+00:00",
+        "elapsed_seconds": 0.954,
+        "exit_status": 0,
+        "output": "6 reference cases passed; 0 failed\n"
+      },
+      {
+        "name": "verify_phase61_science",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase61_science.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_phase61_science.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:30.081818+00:00",
+        "elapsed_seconds": 0.88,
+        "exit_status": 0,
+        "output": "Phase 6.1 audit: 32 comparisons passed, 0 failed; observation validation BLOCKED\n"
+      },
+      {
+        "name": "verify_phase611_geodesy",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase611_geodesy.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_phase611_geodesy.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:30.961759+00:00",
+        "elapsed_seconds": 0.802,
+        "exit_status": 0,
+        "output": "Geodesy: 28/28 independent cases; 28 separate round-trips\n"
+      },
+      {
+        "name": "ruff-lint",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_status": 0,
+        "output": "All checks passed!\n",
+        "output_completed_at_utc": "2026-10-19T17:42:52.574384+00:00"
+      },
+      {
+        "name": "ruff-format",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_status": 0,
+        "output": "85 files already formatted\n",
+        "output_completed_at_utc": "2026-10-19T17:42:52.594384+00:00"
+      },
+      {
+        "name": "frontend-lint",
+        "command": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:31.816267+00:00",
+        "elapsed_seconds": 3.793,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 lint\n> eslint .\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "frontend-format",
+        "command": [
+          "npm",
+          "run",
+          "format:check"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:35.609294+00:00",
+        "elapsed_seconds": 1.56,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 format:check\n> prettier --check .\n\nChecking formatting...\nAll matched files use Prettier code style!\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "typescript",
+        "command": [
+          "npx",
+          "--no-install",
+          "tsc",
+          "--noEmit"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:37.169568+00:00",
+        "elapsed_seconds": 3.413,
+        "exit_status": 0,
+        "output": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      }
+    ],
+    "previous_final_command_run": [
+      {
+        "name": "backend",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:04.624280+00:00",
+        "elapsed_seconds": 8.72,
+        "exit_status": 0,
+        "output": "........................................................................ [ 11%]\n........................................................................ [ 23%]\n........................................................................ [ 35%]\n........................................................................ [ 47%]\n........................................................................ [ 59%]\n........................................................................ [ 70%]\n........................................................................ [ 82%]\n........................................................................ [ 94%]\n.................................                                        [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/fastapi/testclient.py:1\n  /workspace/OrbitIQ/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n609 passed, 1 warning in 7.78s\n"
+      },
+      {
+        "name": "frontend",
+        "command": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:13.344445+00:00",
+        "elapsed_seconds": 9.809,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 test\n> vitest run\n\n\n RUN  v5.0.5 /workspace/OrbitIQ/frontend\n\n\n Test Files  20 passed (20)\n      Tests  275 passed (275)\n   Start at  17:28:13\n   Duration  9.35s (tests 63%, environment 28%, setup 4%, import 3%, transform 1%)\n\nEnvironment  jsdom was created 20 times · 7.08s total, 28% of tracked time\n             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)\n             learn more: https://vitest.dev/guide/improving-performance#test-environments\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "production-build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:23.154038+00:00",
+        "elapsed_seconds": 5.84,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 build\n> tsc --noEmit && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 56 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                  0.39 kB │ gzip:   0.27 kB\ndist/assets/index-D3h8fOB5.css                   6.84 kB │ gzip:   2.06 kB\ndist/assets/RestoredInvestigation-OjNSLZsT.js    3.63 kB │ gzip:   1.63 kB\ndist/assets/SavedInvestigations-B8ciZshu.js      7.11 kB │ gzip:   2.44 kB\ndist/assets/investigation-api--sC16ihO.js        8.00 kB │ gzip:   3.00 kB\ndist/assets/Investigations-D14PLFuI.js          20.00 kB │ gzip:   6.08 kB\ndist/assets/index-C1By00ak.js                  287.16 kB │ gzip:  88.99 kB\ndist/assets/globe-renderer-DosfVNAk.js         558.60 kB │ gzip: 140.28 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n✓ built in 2.14s\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "verify_scientific_references",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_scientific_references.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_scientific_references.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:28.994303+00:00",
+        "elapsed_seconds": 0.133,
+        "exit_status": 0,
+        "output": "Reference audit: 40 passed, 0 failed\n"
+      },
+      {
+        "name": "verify_earth_fixed_references",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_earth_fixed_references.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_earth_fixed_references.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:29.127710+00:00",
+        "elapsed_seconds": 0.954,
+        "exit_status": 0,
+        "output": "6 reference cases passed; 0 failed\n"
+      },
+      {
+        "name": "verify_phase61_science",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase61_science.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_phase61_science.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:30.081818+00:00",
+        "elapsed_seconds": 0.88,
+        "exit_status": 0,
+        "output": "Phase 6.1 audit: 32 comparisons passed, 0 failed; observation validation BLOCKED\n"
+      },
+      {
+        "name": "verify_phase611_geodesy",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase611_geodesy.py",
+          "--output",
+          "/tmp/orbitiq-phase8/verify_phase611_geodesy.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:30.961759+00:00",
+        "elapsed_seconds": 0.802,
+        "exit_status": 0,
+        "output": "Geodesy: 28/28 independent cases; 28 separate round-trips\n"
+      },
+      {
+        "name": "ruff-lint",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:31.764105+00:00",
+        "elapsed_seconds": 0.025,
+        "exit_status": 0,
+        "output": "All checks passed!\n"
+      },
+      {
+        "name": "ruff-format",
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "at_utc": "2026-10-19T17:28:31.788913+00:00",
+        "elapsed_seconds": 0.027,
+        "exit_status": 0,
+        "output": "82 files already formatted\n"
+      },
+      {
+        "name": "frontend-lint",
+        "command": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:31.816267+00:00",
+        "elapsed_seconds": 3.793,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 lint\n> eslint .\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "frontend-format",
+        "command": [
+          "npm",
+          "run",
+          "format:check"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:35.609294+00:00",
+        "elapsed_seconds": 1.56,
+        "exit_status": 0,
+        "output": "\n> orbitiq-frontend@0.1.0 format:check\n> prettier --check .\n\nChecking formatting...\nAll matched files use Prettier code style!\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      },
+      {
+        "name": "typescript",
+        "command": [
+          "npx",
+          "--no-install",
+          "tsc",
+          "--noEmit"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "at_utc": "2026-10-19T17:28:37.169568+00:00",
+        "elapsed_seconds": 3.413,
+        "exit_status": 0,
+        "output": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+      }
+    ],
+    "counts": {
+      "baseline_backend": 589,
+      "backend": 609,
+      "backend_added": 20,
+      "baseline_frontend": 275,
+      "frontend": 275,
+      "frontend_files": 20,
+      "skips_or_expected_failures_counted_as_pass": false
+    },
+    "scientific": {
+      "verify_scientific_references": {
+        "artifact_sha256": "8ed63194c9f555282cdf4894e77b30e84e4309e8d5dc3665858ffb6f6b737670",
+        "passed": 40,
+        "failed": 0
+      },
+      "verify_earth_fixed_references": {
+        "artifact_sha256": "82b75e1b4e258da3dfe19703f8c441fbcb4ef50f1e02a30d65a9097d15d5d38e",
+        "passed": 6,
+        "failed": 0
+      },
+      "verify_phase61_science": {
+        "artifact_sha256": "d9cec171b999977496b0258354a3acab61991d46c374c81e3e4a36ee23c2c063",
+        "passed": 32,
+        "failed": 0,
+        "observation_validation": {
+          "status": "BLOCKED",
+          "observations_used": 0,
+          "reason": "No suitable identified, contemporaneous independent measurements with verified frame/time/uncertainty and paired orbital inputs available in the archive."
+        }
+      },
+      "verify_phase611_geodesy": {
+        "artifact_sha256": "63be91952fee794d4cec3342e587503fcf5df6284cca3d59b96e92a2348ad00f",
+        "independent_component_cases_passed": 28,
+        "roundtrip_cases_passed": 28,
+        "case_count": 28,
+        "reference_executable_rerun": false
+      }
+    },
+    "genuine_backup_restore": {
+      "status": "passed",
+      "created_at": "2026-10-19T17:27:48.886884+00:00",
+      "completed_at": "2026-10-19T17:27:48.967408+00:00",
+      "method": "SQLite Connection.backup; exclusive new files; no source writes",
+      "backup_name": "backup.sqlite3",
+      "backup_bytes": 53248,
+      "backup_sha256": "644585974d4192d47797b17ff2fc20e660d723f779d2d9362780230d50989c0c",
+      "source_at_backup": {
+        "schema_version": 3,
+        "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+        "schema_objects": [
+          {
+            "type": "index",
+            "name": "ingestion_acquired"
+          },
+          {
+            "type": "index",
+            "name": "ingestion_inserted"
+          },
+          {
+            "type": "index",
+            "name": "ingestion_validated"
+          },
+          {
+            "type": "index",
+            "name": "snapshots_catalog_id"
+          },
+          {
+            "type": "index",
+            "name": "snapshots_payload_identity"
+          },
+          {
+            "type": "table",
+            "name": "collection_gate"
+          },
+          {
+            "type": "table",
+            "name": "ingestion_attempts"
+          },
+          {
+            "type": "table",
+            "name": "schema_version"
+          },
+          {
+            "type": "table",
+            "name": "snapshot_insertions"
+          },
+          {
+            "type": "table",
+            "name": "snapshots"
+          },
+          {
+            "type": "trigger",
+            "name": "ingestion_completed_no_update"
+          },
+          {
+            "type": "trigger",
+            "name": "ingestion_no_delete"
+          },
+          {
+            "type": "trigger",
+            "name": "insertions_no_delete"
+          },
+          {
+            "type": "trigger",
+            "name": "insertions_no_update"
+          },
+          {
+            "type": "trigger",
+            "name": "snapshots_no_delete"
+          },
+          {
+            "type": "trigger",
+            "name": "snapshots_no_update"
+          }
+        ],
+        "tables": {
+          "collection_gate": {
+            "rows": 1,
+            "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+          },
+          "ingestion_attempts": {
+            "rows": 1,
+            "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+          },
+          "schema_version": {
+            "rows": 1,
+            "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+          },
+          "snapshot_insertions": {
+            "rows": 1,
+            "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+          },
+          "snapshots": {
+            "rows": 2,
+            "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+          }
+        },
+        "integrity": "ok",
+        "foreign_keys": "ok"
+      },
+      "restored": {
+        "schema_version": 3,
+        "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+        "schema_objects": [
+          {
+            "type": "index",
+            "name": "ingestion_acquired"
+          },
+          {
+            "type": "index",
+            "name": "ingestion_inserted"
+          },
+          {
+            "type": "index",
+            "name": "ingestion_validated"
+          },
+          {
+            "type": "index",
+            "name": "snapshots_catalog_id"
+          },
+          {
+            "type": "index",
+            "name": "snapshots_payload_identity"
+          },
+          {
+            "type": "table",
+            "name": "collection_gate"
+          },
+          {
+            "type": "table",
+            "name": "ingestion_attempts"
+          },
+          {
+            "type": "table",
+            "name": "schema_version"
+          },
+          {
+            "type": "table",
+            "name": "snapshot_insertions"
+          },
+          {
+            "type": "table",
+            "name": "snapshots"
+          },
+          {
+            "type": "trigger",
+            "name": "ingestion_completed_no_update"
+          },
+          {
+            "type": "trigger",
+            "name": "ingestion_no_delete"
+          },
+          {
+            "type": "trigger",
+            "name": "insertions_no_delete"
+          },
+          {
+            "type": "trigger",
+            "name": "insertions_no_update"
+          },
+          {
+            "type": "trigger",
+            "name": "snapshots_no_delete"
+          },
+          {
+            "type": "trigger",
+            "name": "snapshots_no_update"
+          }
+        ],
+        "tables": {
+          "collection_gate": {
+            "rows": 1,
+            "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+          },
+          "ingestion_attempts": {
+            "rows": 1,
+            "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+          },
+          "schema_version": {
+            "rows": 1,
+            "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+          },
+          "snapshot_insertions": {
+            "rows": 1,
+            "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+          },
+          "snapshots": {
+            "rows": 2,
+            "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+          }
+        },
+        "integrity": "ok",
+        "foreign_keys": "ok"
+      },
+      "source_unchanged_during_rehearsal": true,
+      "verified_snapshots": 2,
+      "api_checks": [
+        {
+          "route": "/api/snapshots",
+          "http_status": 200
+        },
+        {
+          "route": "/api/snapshots/1",
+          "http_status": 200
+        },
+        {
+          "route": "/api/snapshots/2",
+          "http_status": 200
+        },
+        {
+          "route": "/api/comparisons",
+          "http_status": 200,
+          "counts": {
+            "shared": 1,
+            "added": 0,
+            "removed": 0,
+            "incompatible": 0
+          },
+          "self_comparison": false
+        }
+      ],
+      "restored_target_separate": true,
+      "restored_retained": true
+    },
+    "strict_eop_real_archive_container": {
+      "status": "PASS",
+      "data_kind": "genuine restored snapshot 1",
+      "http_status": 422,
+      "response": {
+        "detail": "Policy requires measured Earth-orientation data",
+        "error": {
+          "code": "eop_prediction_disallowed",
+          "message": "Policy requires measured Earth-orientation data"
+        }
+      },
+      "fallback_coordinates": false
+    },
+    "image_builds": [
+      {
+        "target": "api",
+        "command": [
+          "docker",
+          "--host=unix:///var/run/docker.sock",
+          "build",
+          "--secret",
+          "id=proxy_ca,src=/etc/ssl/certs/ca-certificates.crt",
+          "--target",
+          "api",
+          "-t",
+          "orbitiq-api:phase8-local",
+          "."
+        ],
+        "exit_status": 0,
+        "at_utc": "2026-10-19T17:34:51.154186+00:00",
+        "elapsed_seconds": 1.09,
+        "output": "#0 building with \"default\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 2.05kB done\n#1 DONE 0.0s\n\n#2 resolve image config for docker-image://docker.io/docker/dockerfile:1\n#2 DONE 0.7s\n\n#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e\n#3 CACHED\n\n#4 [internal] load metadata for ghcr.io/astral-sh/uv:0.12.23@sha256:61d393e44e249f2e4b526b6c7ddcecce245946826e608e11c93ad4f5bba55b21\n#4 DONE 0.0s\n\n#5 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258\n#5 DONE 0.0s\n\n#6 [internal] load .dockerignore\n#6 transferring context: 33B\n#6 transferring context: 507B done\n#6 DONE 0.0s\n\n#7 [uv 1/1] FROM ghcr.io/astral-sh/uv:0.12.23@sha256:61d393e44e249f2e4b526b6c7ddcecce245946826e608e11c93ad4f5bba55b21\n#7 DONE 0.0s\n\n#8 [api 1/8] FROM docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258\n#8 DONE 0.0s\n\n#9 [internal] load build context\n#9 transferring context: 235.38kB 0.2s done\n#9 DONE 0.2s\n\n#10 [api 2/8] COPY --from=uv /uv /usr/local/bin/uv\n#10 CACHED\n\n#11 [api 4/8] COPY pyproject.toml uv.lock ./\n#11 CACHED\n\n#12 [api 6/8] COPY backend/orbitiq ./backend/orbitiq\n#12 CACHED\n\n#13 [api 3/8] WORKDIR /app\n#13 CACHED\n\n#14 [api 5/8] RUN --mount=type=secret,id=proxy_ca     if [ -f /run/secrets/proxy_ca ]; then export SSL_CERT_FILE=/run/secrets/proxy_ca; fi;     uv sync --locked --no-dev --no-managed-python && rm -rf /root/.cache/uv\n#14 CACHED\n\n#15 [api 7/8] COPY --chmod=644 deploy/logging.json ./deploy/logging.json\n#15 CACHED\n\n#16 [api 8/8] RUN chmod -R a+rX /app/backend /app/deploy\n#16 CACHED\n\n#17 exporting to image\n#17 exporting layers done\n#17 writing image sha256:8b58fa9832dac84df04ba7190f873fcb2b319af4aafcc08406ca88599df1f189 done\n#17 naming to docker.io/library/orbitiq-api:phase8-local done\n#17 DONE 0.0s\n"
+      },
+      {
+        "target": "web",
+        "command": [
+          "docker",
+          "--host=unix:///var/run/docker.sock",
+          "build",
+          "--secret",
+          "id=proxy_ca,src=/etc/ssl/certs/ca-certificates.crt",
+          "--target",
+          "web",
+          "-t",
+          "orbitiq-web:phase8-local",
+          "."
+        ],
+        "exit_status": 0,
+        "at_utc": "2026-10-19T17:34:56.059264+00:00",
+        "elapsed_seconds": 4.905,
+        "output": "#0 building with \"default\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 2.05kB done\n#1 DONE 0.0s\n\n#2 resolve image config for docker-image://docker.io/docker/dockerfile:1\n#2 DONE 0.5s\n\n#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e\n#3 CACHED\n\n#4 [internal] load metadata for docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5\n#4 DONE 0.0s\n\n#5 [internal] load metadata for docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8\n#5 DONE 0.0s\n\n#6 [internal] load .dockerignore\n#6 transferring context: 507B done\n#6 DONE 0.0s\n\n#7 [frontend-build 1/6] FROM docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5\n#7 DONE 0.0s\n\n#8 [web 1/5] FROM docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8\n#8 DONE 0.0s\n\n#9 [internal] load build context\n#9 transferring context: 177.20MB 2.5s done\n#9 DONE 2.5s\n\n#8 [web 1/5] FROM docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8\n#8 CACHED\n\n#10 [frontend-build 2/6] WORKDIR /app\n#10 CACHED\n\n#11 [frontend-build 3/6] COPY frontend/package.json frontend/package-lock.json ./\n#11 CACHED\n\n#12 [frontend-build 4/6] RUN --mount=type=secret,id=proxy_ca     if [ -f /run/secrets/proxy_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/proxy_ca; fi;     npm ci --strict-ssl=true\n#12 CACHED\n\n#13 [frontend-build 5/6] COPY frontend/ ./\n#13 CACHED\n\n#14 [frontend-build 6/6] RUN npm run build\n#14 CACHED\n\n#15 [web 2/5] COPY --chmod=644 deploy/nginx.conf /etc/nginx/nginx.conf\n#15 DONE 0.3s\n\n#16 [web 3/5] COPY --chmod=644 deploy/api-proxy.conf /etc/nginx/api-proxy.conf\n#16 DONE 0.1s\n\n#17 [web 4/5] COPY --chmod=644 deploy/security-headers.conf /etc/nginx/security-headers.conf\n#17 DONE 0.2s\n\n#18 [web 5/5] COPY --from=frontend-build --chown=101:101 /app/dist /usr/share/nginx/html\n#18 DONE 0.2s\n\n#19 exporting to image\n#19 exporting layers\n#19 exporting layers 0.9s done\n#19 writing image sha256:3a1e8f35c016bc37c70b31b2630f5577e232c8436955b48ffc25f832cabe4b73 done\n#19 naming to docker.io/library/orbitiq-web:phase8-local done\n#19 DONE 0.9s\n"
+      }
+    ],
+    "base_image_digests": [
+      {
+        "image": "python:3.12-slim-bookworm",
+        "exit_status": 0,
+        "repo_digests": [
+          "python@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258"
+        ]
+      },
+      {
+        "image": "node:24-bookworm-slim",
+        "exit_status": 0,
+        "repo_digests": [
+          "node@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5"
+        ]
+      },
+      {
+        "image": "ghcr.io/astral-sh/uv:0.12.23",
+        "exit_status": 0,
+        "repo_digests": [
+          "ghcr.io/astral-sh/uv@sha256:61d393e44e249f2e4b526b6c7ddcecce245946826e608e11c93ad4f5bba55b21"
+        ]
+      },
+      {
+        "image": "nginxinc/nginx-unprivileged:1.28-alpine",
+        "exit_status": 0,
+        "repo_digests": [
+          "nginxinc/nginx-unprivileged@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8"
+        ]
+      }
+    ],
+    "ci_fixture_container_smoke": {
+      "command": [
+        "python",
+        "scripts/verify_release_containers.py",
+        "--release",
+        "phase8-local"
+      ],
+      "exit_status": 0,
+      "result": {
+        "status": "PASS",
+        "fixture": "explicit empty isolated schema-3",
+        "checks": [
+          {
+            "route": "/",
+            "http_status": 200
+          },
+          {
+            "route": "/api/health",
+            "http_status": 200
+          },
+          {
+            "route": "/api/ready",
+            "http_status": 200
+          },
+          {
+            "route": "/api/snapshots",
+            "http_status": 200
+          }
+        ],
+        "archive_unchanged": true
+      },
+      "verified_images": [
+        {
+          "image_tag": "orbitiq-api:phase8-local",
+          "id": "sha256:8b58fa9832dac84df04ba7190f873fcb2b319af4aafcc08406ca88599df1f189",
+          "size": 303824778,
+          "architecture": "amd64"
+        },
+        {
+          "image_tag": "orbitiq-web:phase8-local",
+          "id": "sha256:3a1e8f35c016bc37c70b31b2630f5577e232c8436955b48ffc25f832cabe4b73",
+          "size": 55313825,
+          "architecture": "amd64"
+        }
+      ],
+      "output_completed_at_utc": "2026-10-19T17:46:04.220724+00:00"
+    },
+    "runtime": {
+      "status": "PASS",
+      "at_utc": "2026-10-19T17:36:50.490137+00:00",
+      "rows": [
+        {
+          "case": "release GET",
+          "route": "/api/health",
+          "status": 200,
+          "response_bytes": 35,
+          "request_id": "fa7887e011f24fd4abc976a8abf7dc20"
+        },
+        {
+          "case": "release GET",
+          "route": "/api/ready",
+          "status": 200,
+          "response_bytes": 18,
+          "request_id": "56ba697023954f0287965e07fef9e3b6"
+        },
+        {
+          "case": "release GET",
+          "route": "/api/readiness",
+          "status": 200,
+          "response_bytes": 4406,
+          "request_id": "86957ae53ed34f069e28e301f731bf1f"
+        },
+        {
+          "case": "release GET",
+          "route": "/api/snapshots?limit=2",
+          "status": 200,
+          "response_bytes": 2865,
+          "request_id": "1521ce1dcdb1443ea25cb154eff53ddc"
+        },
+        {
+          "case": "release GET",
+          "route": "/api/snapshots/1",
+          "status": 200,
+          "response_bytes": 2050,
+          "request_id": "4af5d1af42a94f43b18349138b6fbee6"
+        },
+        {
+          "case": "release GET",
+          "route": "/api/snapshots/2",
+          "status": 200,
+          "response_bytes": 2099,
+          "request_id": "73aa27584981464b9760593ddaddf151"
+        },
+        {
+          "case": "boundary error",
+          "method": "POST",
+          "route": "/api/ingestion",
+          "http_status": 405
+        },
+        {
+          "case": "boundary error",
+          "method": "GET",
+          "route": "/api/health",
+          "http_status": 400
+        },
+        {
+          "case": "boundary error",
+          "method": "GET",
+          "route": "/api/health",
+          "http_status": 413
+        },
+        {
+          "case": "boundary error",
+          "method": "GET",
+          "route": "/api/snapshots?q=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "http_status": 414
+        },
+        {
+          "case": "boundary error",
+          "method": "GET",
+          "route": "/api/snapshots/99999",
+          "http_status": 404
+        },
+        {
+          "case": "boundary error",
+          "method": "GET",
+          "route": "/api/snapshots?limit=101",
+          "http_status": 422
+        },
+        {
+          "case": "boundary error",
+          "method": "GET",
+          "route": "/.env",
+          "http_status": 404
+        },
+        {
+          "case": "redacted correlated logs",
+          "status": "PASS",
+          "request_id": "349fd1081f3f4884b73f74e523957e5d"
+        },
+        {
+          "case": "production bundle gzip",
+          "status": "PASS",
+          "decoded_bytes": 287164,
+          "wire_bytes": null,
+          "script": "/assets/index-C1By00ak.js"
+        },
+        {
+          "case": "bounded two-record archive listing benchmark",
+          "requests": 20,
+          "median_ms": 2.471,
+          "max_ms": 3.81,
+          "p95_ms": 2.987,
+          "max_decoded_bytes": 2867,
+          "scope": "local one-CPU API, two stored records; not a capacity or production load guarantee"
+        },
+        {
+          "command": [
+            "python",
+            "/tmp/orbitiq-phase8/compose.py",
+            "exec",
+            "-T",
+            "api",
+            "python",
+            "-c",
+            "from pathlib import Path; import os; print('uid',os.getuid()); p=Path('/data/orbitiq.sqlite3');\ntry: p.open('r+b'); raise SystemExit('unexpected writable archive')\nexcept PermissionError: print('archive read-only: PASS')\nexcept OSError as e:\n assert e.errno==30; print('archive read-only: PASS')"
+          ],
+          "exit_status": 0,
+          "output": "uid 10001\narchive read-only: PASS\n"
+        },
+        {
+          "command": [
+            "python",
+            "/tmp/orbitiq-phase8/compose.py",
+            "ps",
+            "-q",
+            "api"
+          ],
+          "exit_status": 0,
+          "output": "8b723a37af0beb6234d82fe705076f50f99e1e2385c55522e820a7280a483906\n"
+        },
+        {
+          "command": [
+            "python",
+            "/tmp/orbitiq-phase8/compose.py",
+            "restart",
+            "api"
+          ],
+          "exit_status": 0,
+          "output": " Container orbitiq-phase8-check-api-1  Restarting\n Container orbitiq-phase8-check-api-1  Started\n"
+        },
+        {
+          "case": "process/container restart persistence",
+          "status": "PASS",
+          "probes": [
+            502,
+            502,
+            502,
+            502,
+            502,
+            502,
+            502,
+            502,
+            502,
+            502,
+            200
+          ],
+          "identities_unchanged": true
+        },
+        {
+          "command": [
+            "python",
+            "/tmp/orbitiq-phase8/compose.py",
+            "up",
+            "-d",
+            "--no-build",
+            "--force-recreate",
+            "--pull",
+            "never",
+            "--wait",
+            "--wait-timeout",
+            "90",
+            "api"
+          ],
+          "exit_status": 0,
+          "output": " Container orbitiq-phase8-check-api-1  Recreate\n Container orbitiq-phase8-check-api-1  Recreated\n Container orbitiq-phase8-check-api-1  Starting\n Container orbitiq-phase8-check-api-1  Started\n Container orbitiq-phase8-check-api-1  Waiting\n Container orbitiq-phase8-check-api-1  Healthy\n"
+        },
+        {
+          "command": [
+            "python",
+            "/tmp/orbitiq-phase8/compose.py",
+            "ps",
+            "-q",
+            "api"
+          ],
+          "exit_status": 0,
+          "output": "661effea2de548843ce7254b03658f9377a75ef5aa5f90254f86269b7233033d\n"
+        },
+        {
+          "case": "API container replacement persistence",
+          "status": "PASS",
+          "old_container_id": "8b723a37af0beb6234d82fe705076f50f99e1e2385c55522e820a7280a483906",
+          "new_container_id": "661effea2de548843ce7254b03658f9377a75ef5aa5f90254f86269b7233033d",
+          "probes": [
+            200
+          ],
+          "identities_unchanged": true
+        },
+        {
+          "case": "gateway expensive request rate limit",
+          "status": "PASS",
+          "requests": 24,
+          "http_status_counts": {
+            "429": 17,
+            "422": 7
+          },
+          "retry_after_seconds": 1
+        },
+        {
+          "command": [
+            "python",
+            "/tmp/orbitiq-phase8/compose.py",
+            "ps"
+          ],
+          "exit_status": 0,
+          "output": "NAME                         IMAGE                      COMMAND                  SERVICE   CREATED              STATUS                   PORTS\norbitiq-phase8-check-api-1   orbitiq-api:phase8-local   \"uvicorn orbitiq.mai…\"   api       7 seconds ago        Up 5 seconds (healthy)   \norbitiq-phase8-check-web-1   orbitiq-web:phase8-local   \"/docker-entrypoint.…\"   web       About a minute ago   Up About a minute        127.0.0.1:18088->8080/tcp\n"
+        }
+      ],
+      "archive_identity": [
+        [
+          1,
+          25544,
+          "2026-10-18T11:12:47.040768+00:00",
+          "2026-10-18T17:14:39.983172+00:00",
+          "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b"
+        ],
+        [
+          2,
+          25544,
+          "2026-10-18T18:57:18.892800+00:00",
+          "2026-10-19T07:58:23.407349+00:00",
+          "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd"
+        ]
+      ]
+    },
+    "artifact_isolation": {
+      "status": "PASS",
+      "at_utc": "2026-10-19T17:40:42.799101+00:00",
+      "checks": [
+        {
+          "service": "api",
+          "image": "sha256:8b58fa9832dac84df04ba7190f873fcb2b319af4aafcc08406ca88599df1f189",
+          "user": "10001:10001",
+          "readonly_root": true,
+          "memory_bytes": 805306368,
+          "nano_cpus": 1000000000,
+          "cap_drop": [
+            "ALL"
+          ],
+          "mounts": [
+            {
+              "Destination": "/data",
+              "Mode": "",
+              "Propagation": "rprivate",
+              "RW": false,
+              "Source": "/tmp/orbitiq-phase8/runtime-data",
+              "Type": "bind"
+            }
+          ]
+        },
+        {
+          "service": "web",
+          "image": "sha256:3a1e8f35c016bc37c70b31b2630f5577e232c8436955b48ffc25f832cabe4b73",
+          "user": "101",
+          "readonly_root": true,
+          "memory_bytes": 134217728,
+          "nano_cpus": 1000000000,
+          "cap_drop": [
+            "ALL"
+          ],
+          "mounts": []
+        },
+        {
+          "case": "API image context exclusions",
+          "exit_status": 0,
+          "output": "No repository Git/data/backup/environment payloads in API image\n"
+        },
+        {
+          "case": "initial JS actual transfer",
+          "encoded_bytes": 104450,
+          "decoded_bytes": 287164,
+          "encoding": "gzip"
+        },
+        {
+          "image_tag": "orbitiq-api:phase8-local",
+          "id": "sha256:8b58fa9832dac84df04ba7190f873fcb2b319af4aafcc08406ca88599df1f189",
+          "size": 303824778,
+          "architecture": "amd64"
+        },
+        {
+          "image_tag": "orbitiq-web:phase8-local",
+          "id": "sha256:3a1e8f35c016bc37c70b31b2630f5577e232c8436955b48ffc25f832cabe4b73",
+          "size": 55313825,
+          "architecture": "amd64"
+        },
+        {
+          "case": "single local idle sample after checks, not peak/capacity",
+          "stats": "orbitiq-phase8-check-api-1 70.71MiB / 768MiB 0.17%\norbitiq-phase8-check-web-1 3.051MiB / 128MiB 0.00%\n"
+        }
+      ]
+    },
+    "browser": {
+      "status": "PASS",
+      "at": "2026-10-19T17:34:19.718684+00:00",
+      "browser": "154.0.8037.57",
+      "real_browser_api_and_webgl": true,
+      "mocked_api": false,
+      "mocked_canvas": false,
+      "data_kind": "existing genuine GP snapshots, not observations",
+      "page_errors": [],
+      "external_requests": [],
+      "flows": [
+        {
+          "flow": "desktop save/reopen/update/share/delete",
+          "status": "PASS",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "keyboard_enter_save": true,
+          "clipboard_real_readback": true,
+          "discovery_context_retained": true,
+          "exact_snapshot": 1,
+          "track_selected_sample": 1,
+          "refresh_reconstructs_read_only_link": true,
+          "editable_copy_requires_explicit_action": true,
+          "comparison_sources": [
+            1,
+            2
+          ],
+          "comparison_frame_edit_restored": "TEME",
+          "local_deletion_confirmed": true,
+          "horizontal_overflow": false
+        },
+        {
+          "flow": "browser-process restart",
+          "status": "PASS",
+          "same_local_records_after_restart": true,
+          "record_count": 2
+        },
+        {
+          "flow": "fresh recipient",
+          "mode": "ground-track",
+          "status": "PASS",
+          "viewport": [
+            820,
+            1180
+          ],
+          "no_local_saves_imported": true,
+          "read_only_inputs": true,
+          "horizontal_overflow": false
+        },
+        {
+          "flow": "fresh recipient",
+          "mode": "comparison",
+          "status": "PASS",
+          "viewport": [
+            390,
+            844
+          ],
+          "no_local_saves_imported": true,
+          "read_only_inputs": true,
+          "horizontal_overflow": false
+        },
+        {
+          "flow": "fresh recipient",
+          "mode": "snapshot",
+          "status": "PASS",
+          "viewport": [
+            390,
+            844
+          ],
+          "no_local_saves_imported": true,
+          "read_only_inputs": true,
+          "horizontal_overflow": false
+        },
+        {
+          "flow": "missing-snapshot",
+          "status": "PASS",
+          "message_checked": "missing from this archive"
+        },
+        {
+          "flow": "wrong-satellite",
+          "status": "PASS",
+          "message_checked": "does not match the saved satellite"
+        },
+        {
+          "flow": "unsupported-version",
+          "status": "PASS",
+          "message_checked": "Unsupported investigation link version"
+        },
+        {
+          "flow": "oversized",
+          "status": "PASS",
+          "message_checked": "too long"
+        }
+      ],
+      "network_summary": {
+        "request_count": 108,
+        "methods": [
+          "GET"
+        ],
+        "external_request_count": 0
+      }
+    },
+    "browser_extended": {
+      "status": "PASS",
+      "checked_at_utc": "2026-10-19T17:35:39.563857+00:00",
+      "browser": "154.0.8037.57",
+      "cases": [
+        {
+          "case": "mobile reduced motion and keyboard timeline/camera",
+          "status": "PASS",
+          "viewport": [
+            390,
+            844
+          ],
+          "webgl2": true,
+          "playback_disabled": true,
+          "keyboard_sample": 2
+        },
+        {
+          "case": "actual WebGL context loss and restoration",
+          "status": "PASS",
+          "numerical_track_retained": true
+        },
+        {
+          "case": "WebGL unavailable feature simulation",
+          "status": "PASS",
+          "simulation": true,
+          "actual_api_track": true
+        },
+        {
+          "case": "slow-network fresh mobile reconstruction",
+          "status": "PASS",
+          "latency_ms": 150,
+          "download_bytes_per_second": 200000,
+          "elapsed_seconds": 2.935,
+          "resources": [
+            {
+              "name": "http://127.0.0.1:18088/assets/index-C1By00ak.js",
+              "encoded": 104450,
+              "decoded": 287164,
+              "duration_ms": 709.5999999998603
+            },
+            {
+              "name": "http://127.0.0.1:18088/assets/index-D3h8fOB5.css",
+              "encoded": 2367,
+              "decoded": 6842,
+              "duration_ms": 199
+            },
+            {
+              "name": "http://127.0.0.1:18088/assets/RestoredInvestigation-OjNSLZsT.js",
+              "encoded": 1700,
+              "decoded": 3627,
+              "duration_ms": 172.60000000009313
+            },
+            {
+              "name": "http://127.0.0.1:18088/assets/investigation-api--sC16ihO.js",
+              "encoded": 3243,
+              "decoded": 7997,
+              "duration_ms": 201.70000000018626
+            },
+            {
+              "name": "http://127.0.0.1:18088/api/health",
+              "encoded": 35,
+              "decoded": 35,
+              "duration_ms": 173
+            },
+            {
+              "name": "http://127.0.0.1:18088/favicon.ico",
+              "encoded": 392,
+              "decoded": 392,
+              "duration_ms": 163.70000000018626
+            },
+            {
+              "name": "http://127.0.0.1:18088/api/snapshots?snapshot_id=1&limit=1",
+              "encoded": 1015,
+              "decoded": 1789,
+              "duration_ms": 163.30000000004657
+            },
+            {
+              "name": "http://127.0.0.1:18088/api/snapshots/1",
+              "encoded": 962,
+              "decoded": 2050,
+              "duration_ms": 161.89999999990687
+            },
+            {
+              "name": "http://127.0.0.1:18088/api/snapshots/1",
+              "encoded": 963,
+              "decoded": 2050,
+              "duration_ms": 185.5
+            },
+            {
+              "name": "http://127.0.0.1:18088/api/satellites/25544/ground-track?snapshot_id=1&start=2026-10-18T11%3A12%3A47.040768Z&end=2026-10-18T11%3A14%3A47.040768Z&step_seconds=60&frame=ITRS",
+              "encoded": 3204,
+              "decoded": 13734,
+              "duration_ms": 206.5
+            },
+            {
+              "name": "http://127.0.0.1:18088/assets/globe-renderer-DosfVNAk.js",
+              "encoded": 168195,
+              "decoded": 558595,
+              "duration_ms": 1030.5
+            }
+          ]
+        }
+      ],
+      "page_errors": [],
+      "csp_violations": [],
+      "physical_gpu_tested": false
+    },
+    "other_browsers": [
+      {
+        "engine": "firefox",
+        "status": "BLOCKED",
+        "reason": "Downloaded engine, but headless Playwright runner did not complete browser context/page setup in this environment; explicitly terminated after more than 150 seconds. No compatibility result claimed."
+      },
+      {
+        "engine": "webkit",
+        "status": "BLOCKED",
+        "reason": "BrowserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libmanette-0.2.so.0                              ║\n║     libhyphen.so.0                                   ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝"
+      }
+    ],
+    "dependency_advisories": {
+      "npm": {
+        "command": "npm audit --json",
+        "cwd": "frontend",
+        "exit_status": 0,
+        "summary": {
+          "info": 0,
+          "low": 0,
+          "moderate": 0,
+          "high": 0,
+          "critical": 0,
+          "total": 0
+        }
+      },
+      "python": {
+        "command": "UV_CACHE_DIR=/tmp/orbitiq-uv-cache UV_TOOL_DIR=/tmp/orbitiq-phase8/uv-tools UV_TOOL_BIN_DIR=/tmp/orbitiq-phase8/uv-bin uv tool run --from pip-audit==2.9.0 pip-audit --path .venv/lib/python3.12/site-packages --cache-dir /tmp/orbitiq-phase8/audit-cache --format json --output /tmp/orbitiq-phase8/python-audit.json",
+        "exit_status": 0,
+        "packages_checked": 29,
+        "known_advisory_matches": 0
+      },
+      "os_image_scan": "NOT_RUN",
+      "guarantee": "Dated advisory matches only; not vulnerability-free certification"
+    },
+    "runner_sources": {
+      "browser-production.py": {
+        "command": "python /tmp/orbitiq-phase8/browser-production.py",
+        "exit_status": 0,
+        "sha256": "5c82d7850c9642115f74c44dcb6b4238410f989cf2626b85d98cb139234068e4",
+        "source": "from pathlib import Path\nfrom datetime import datetime,UTC\nimport json,shutil\nfrom urllib.parse import urlsplit,parse_qs,urlencode,urlunsplit\nfrom playwright.sync_api import sync_playwright,expect\nout=Path('/tmp/orbitiq-phase8');base='http://127.0.0.1:18088';archive=json.loads((out/'archive-context.json').read_text());results=[];profile=out/'browser-profile-v2'\n# Only this test-owned profile is created; no user browser or orbital data is touched.\nif profile.exists():raise RuntimeError('Use a fresh browser-profile directory for this evidence run')\nerrors=[];requests=[];violations=[]\ndef watch(page):\n page.on('pageerror',lambda e:errors.append(str(e)))\n page.on('console',lambda m:violations.append(m.text) if 'Content Security Policy' in m.text else None)\n page.on('request',lambda r:requests.append({'method':r.method,'url':r.url}))\ndef no_overflow(page):\n assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')\n assert page.evaluate('(()=>{const ids=[...document.querySelectorAll(\"[id]\")].map(e=>e.id);return new Set(ids).size===ids.length})()')\ndef visible_region(page,name):return page.get_by_role('region',name=name,exact=True)\ndef save(region,title,note=''):\n region.get_by_label('Investigation title',exact=True).fill(title)\n if note:region.get_by_label('Private local notes (optional)',exact=True).fill(note)\n region.get_by_label('Investigation title',exact=True).press('Enter')\n expect(region.get_by_text(f'Saved “{title}” in this browser. Open Saved investigations to reopen it.',exact=True)).to_be_visible()\ndef copy(region,page):\n region.get_by_role('button',name='Copy share link',exact=True).click()\n expect(region.get_by_text('Share link copied. Title and private notes were not included.',exact=True)).to_be_visible()\n value=region.get_by_label('Shareable investigation link',exact=True).input_value()\n assert page.evaluate('navigator.clipboard.readText()')==value\n assert len(value)<=2048\n return value\ndef alter(link,field,value):\n parts=urlsplit(link);params=parse_qs(parts.fragment.split('?',1)[1]);params[field]=[value]\n return urlunsplit((parts.scheme,parts.netloc,parts.path,parts.query,'/investigation?'+urlencode({k:v[0] for k,v in params.items()})))\nwith sync_playwright() as p:\n context=p.chromium.launch_persistent_context(str(profile),executable_path='/usr/bin/chromium',headless=True,viewport={'width':1440,'height':1000},permissions=['clipboard-read','clipboard-write'],args=['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader'])\n version=context.browser.version;page=context.pages[0];watch(page)\n try:\n  page.goto(base,wait_until='networkidle');expect(page.get_by_text('Backend connected',exact=True)).to_be_visible()\n  page.get_by_role('button',name='Discovery & history',exact=True).click()\n  page.get_by_label('Name, NORAD ID or international identifier').fill('25544')\n  page.get_by_role('button',name='Search stored records',exact=True).click()\n  page.get_by_role('button',name='Inspect snapshot #1',exact=True).click()\n  detail=visible_region(page,'Snapshot #1: fixed source detail');expect(detail).to_be_visible()\n  actions=detail.get_by_role('region',name='Save or share snapshot investigation',exact=True)\n  save(actions,'ISS source','Snapshot note stays local')\n  source_link=copy(actions,page);assert 'Snapshot+note' not in source_link and 'ISS+source' not in source_link\n  page.get_by_role('button',name='Saved investigations',exact=True).click()\n  expect(page.get_by_role('heading',name='ISS source',exact=True)).to_be_visible();assert page.url.endswith('#/saved')\n  page.get_by_role('button',name='Discovery & history',exact=True).click()\n  expect(detail).to_be_visible();detail.get_by_role('button',name='Open exact source in 3D explorer',exact=True).click()\n  track=visible_region(page,'Earth-relative ground track')\n  track.get_by_label('Duration (minutes)',exact=True).fill('2');track.get_by_label('Sample step (seconds)',exact=True).fill('60')\n  track.get_by_role('button',name='Generate ground track',exact=True).click()\n  expect(track.get_by_text('3 calculated samples · TEME → ITRS → WGS84',exact=True)).to_be_visible()\n  track.get_by_role('button',name='Next sample',exact=True).click();expect(track.get_by_label('Selected track sample',exact=True)).to_have_value('1')\n  actions=track.get_by_role('region',name='Save or share ground-track investigation',exact=True)\n  save(actions,'ISS track','Track note stays local');track_link=copy(actions,page)\n  assert parse_qs(urlsplit(track_link).fragment.split('?',1)[1])['selected_index']==['1']\n  assert 'Track+note' not in track_link\n  page.screenshot(path=str(out/'desktop-track-save.png'),full_page=True);no_overflow(page)\n  page.get_by_role('button',name='Saved investigations',exact=True).click()\n  page.get_by_role('button',name='Open ISS track',exact=True).click()\n  restored=visible_region(page,'Reopened investigation');expect(restored.get_by_label('Selected track sample',exact=True)).to_have_value('1')\n  expect(restored.get_by_label('Duration (minutes)',exact=True)).to_have_value('2')\n  page.reload(wait_until='networkidle');shared=visible_region(page,'Shared investigation · read-only inputs')\n  expect(shared.get_by_label('Selected track sample',exact=True)).to_have_value('1')\n  expect(shared.get_by_label('Duration (minutes)',exact=True)).to_be_disabled()\n  expect(shared.get_by_role('button',name='Save in this browser',exact=True)).to_have_count(0)\n  page.get_by_role('button',name='Explore an editable copy',exact=True).click();restored=visible_region(page,'Reopened investigation')\n  expect(restored.get_by_label('Duration (minutes)',exact=True)).to_be_enabled()\n  assert len(page.evaluate('JSON.parse(localStorage.getItem(\"orbitiq.saved-investigations.v1\")).records'))==2\n  page.get_by_role('button',name='Discovery & history',exact=True).click()\n  page.get_by_label('Name, NORAD ID or international identifier').fill('25544');page.get_by_role('button',name='Search stored records',exact=True).click()\n  page.get_by_role('button',name='Use #1 as A',exact=True).click();page.get_by_role('button',name='Use #2 as B',exact=True).click();page.get_by_role('button',name='Compare snapshots',exact=True).click()\n  page.get_by_label('Common evaluation time (optional, explicit timezone)',exact=True).fill(archive['common_at']);page.get_by_label('State frame').select_option('ITRS');page.get_by_role('button',name='Compare selected snapshots',exact=True).click()\n  expect(page.get_by_role('heading',name='Common-time calculated states · ITRS',exact=True)).to_be_visible()\n  actions=visible_region(page,'Save or share comparison investigation');save(actions,'ISS comparison');comparison_link=copy(actions,page)\n  page.get_by_role('button',name='Saved investigations',exact=True).click();page.get_by_role('button',name='Edit ISS comparison',exact=True).click()\n  page.get_by_label('Saved title',exact=True).fill('ISS comparison renamed');page.get_by_label('Saved coordinate frame').select_option('TEME');page.get_by_role('button',name='Save changes',exact=True).click()\n  expect(page.get_by_role('heading',name='ISS comparison renamed',exact=True)).to_be_visible()\n  page.get_by_role('button',name='Open ISS comparison renamed',exact=True).click();restored=visible_region(page,'Reopened investigation')\n  expect(restored.get_by_role('heading',name='Common-time calculated states · TEME',exact=True)).to_be_visible()\n  expect(restored.get_by_label('Snapshot A',exact=True)).to_have_value('1');expect(restored.get_by_label('Snapshot B',exact=True)).to_have_value('2')\n  page.get_by_role('button',name='Saved investigations',exact=True).click();page.get_by_role('button',name='Delete ISS source',exact=True).click();page.get_by_role('button',name='Keep investigation',exact=True).click()\n  expect(page.get_by_role('heading',name='ISS source',exact=True)).to_be_visible()\n  page.get_by_role('button',name='Delete ISS source',exact=True).click();page.get_by_role('button',name='Confirm local deletion',exact=True).click();expect(page.get_by_role('heading',name='ISS source',exact=True)).to_have_count(0)\n  records_before=page.evaluate('JSON.parse(localStorage.getItem(\"orbitiq.saved-investigations.v1\")).records');assert len(records_before)==2\n  page.screenshot(path=str(out/'desktop-saved-list.png'),full_page=True);no_overflow(page)\n  results.append({'flow':'desktop save/reopen/update/share/delete','status':'PASS','viewport':[1440,1000],'keyboard_enter_save':True,'clipboard_real_readback':True,'discovery_context_retained':True,'exact_snapshot':1,'track_selected_sample':1,'refresh_reconstructs_read_only_link':True,'editable_copy_requires_explicit_action':True,'comparison_sources':[1,2],'comparison_frame_edit_restored':'TEME','local_deletion_confirmed':True,'horizontal_overflow':False})\n  (out/'links.json').write_text(json.dumps({'snapshot':source_link,'track':track_link,'comparison':comparison_link},indent=2)+'\\n')\n finally:context.close()\n # Real browser-process restart, using the test-owned persistent profile.\n restarted=p.chromium.launch_persistent_context(str(profile),executable_path='/usr/bin/chromium',headless=True,viewport={'width':1440,'height':1000},args=['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader'])\n page=restarted.pages[0];watch(page);page.goto(base+'/#/saved',wait_until='networkidle')\n expect(page.get_by_role('heading',name='ISS track',exact=True)).to_be_visible();expect(page.get_by_role('heading',name='ISS comparison renamed',exact=True)).to_be_visible()\n records_after=page.evaluate('JSON.parse(localStorage.getItem(\"orbitiq.saved-investigations.v1\")).records');assert records_before==records_after\n results.append({'flow':'browser-process restart','status':'PASS','same_local_records_after_restart':True,'record_count':2});restarted.close()\n browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader'])\n for width,height,link,mode in [(820,1180,track_link,'ground-track'),(390,844,comparison_link,'comparison'),(390,844,source_link,'snapshot')]:\n  c=browser.new_context(viewport={'width':width,'height':height});page=c.new_page();watch(page);page.goto(link,wait_until='networkidle');shared=visible_region(page,'Shared investigation · read-only inputs')\n  expect(shared.get_by_text('Investigation inputs restored:',exact=False)).to_be_visible()\n  if mode=='ground-track':expect(shared.get_by_label('Selected track sample',exact=True)).to_have_value('1');expect(shared.get_by_label('Duration (minutes)',exact=True)).to_be_disabled()\n  if mode=='comparison':expect(shared.get_by_role('heading',name='Common-time calculated states · ITRS',exact=True)).to_be_visible();expect(shared.get_by_label('State frame')).to_be_disabled()\n  if mode=='snapshot':expect(shared.get_by_label('Saved snapshot')).to_be_disabled()\n  assert page.evaluate('localStorage.getItem(\"orbitiq.saved-investigations.v1\")') is None\n  assert not page.get_by_role('button',name='Save in this browser',exact=True).count();no_overflow(page)\n  page.screenshot(path=str(out/f'shared-{mode}-{width}.png'),full_page=True)\n  results.append({'flow':'fresh recipient','mode':mode,'status':'PASS','viewport':[width,height],'no_local_saves_imported':True,'read_only_inputs':True,'horizontal_overflow':False});c.close()\n for kind,link,expected in [('missing-snapshot',alter(source_link,'snapshot','99999'),'missing from this archive'),('wrong-satellite',alter(source_link,'catalog','12345'),'does not match the saved satellite'),('unsupported-version',alter(source_link,'v','2'),'Unsupported investigation link version'),('oversized',source_link+'x'*2048,'too long')]:\n  c=browser.new_context();page=c.new_page();watch(page);start=len(requests);page.goto(link,wait_until='networkidle');expect(page.get_by_role('alert')).to_contain_text(expected)\n  own=requests[start:];assert all(r['method']=='GET' for r in own)\n  if kind in ['unsupported-version','oversized']:assert all('/api/snapshots' not in r['url'] for r in own)\n  results.append({'flow':kind,'status':'PASS','message_checked':expected,'requests':own});c.close()\n browser.close()\n assert not errors,errors\n assert not violations,violations\n assert all(r['method']=='GET' for r in requests)\n external=[r for r in requests if not r['url'].startswith(base)];assert not external,external\n report={'status':'PASS','at':datetime.now(UTC).isoformat(),'browser':version,'real_browser_api_and_webgl':True,'mocked_api':False,'mocked_canvas':False,'data_kind':'existing genuine GP snapshots, not observations','flows':results,'page_errors':errors,'external_requests':external,'requests':requests,'local_records':records_after,'share_links':{'snapshot':source_link,'track':track_link,'comparison':comparison_link}}\n (out/'browser-results-v2.json').write_text(json.dumps(report,indent=2)+'\\n');print(json.dumps({'status':'PASS','flows':len(results),'page_errors':errors,'requests':len(requests)},indent=2))\n"
+      },
+      "browser_extended.py": {
+        "command": "python /tmp/orbitiq-phase8/browser_extended.py",
+        "exit_status": 0,
+        "sha256": "712b1e6395a82237543f4b6bca7b296edc8f24e4b8f70a5923e691bea73318d6",
+        "source": "from pathlib import Path\nfrom datetime import datetime,UTC\nimport json,time\nfrom playwright.sync_api import sync_playwright,expect\nout=Path('/tmp/orbitiq-phase8');links=json.loads((out/'links.json').read_text());rows=[];errors=[];csp=[]\nwith sync_playwright() as p:\n b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader'])\n def watch(page):\n  page.on('pageerror',lambda e:errors.append(str(e)))\n  page.on('console',lambda m:csp.append(m.text) if 'Content Security Policy' in m.text else None)\n c=b.new_context(viewport={'width':390,'height':844},reduced_motion='reduce');page=c.new_page();watch(page);page.goto(links['track'],wait_until='networkidle');expect(page.get_by_label('Selected track sample',exact=True)).to_have_value('1');expect(page.get_by_role('button',name='Play',exact=True)).to_be_disabled()\n canvas=page.locator('canvas');expect(canvas).to_be_visible();canvas.scroll_into_view_if_needed();assert canvas.evaluate('(c)=>!!c.getContext(\"webgl2\")');canvas.focus();page.keyboard.press('ArrowRight');assert page.evaluate('document.activeElement.tagName')=='CANVAS'\n slider=page.get_by_label('Calculated sample',exact=True);slider.focus();page.keyboard.press('ArrowRight');expect(slider).to_have_value('2');assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')\n rows.append({'case':'mobile reduced motion and keyboard timeline/camera','status':'PASS','viewport':[390,844],'webgl2':True,'playback_disabled':True,'keyboard_sample':2});c.close()\n c=b.new_context(viewport={'width':820,'height':1180});page=c.new_page();watch(page);page.goto(links['track'],wait_until='networkidle');canvas=page.locator('canvas');expect(canvas).to_be_visible();page.evaluate('window.phase8gl=document.querySelector(\"canvas\").getContext(\"webgl2\");window.phase8ext=window.phase8gl.getExtension(\"WEBGL_lose_context\");window.phase8ext.loseContext()');expect(page.get_by_text('Graphics context lost. Use the 2D map and information, or retry 3D.',exact=True)).to_be_visible();expect(page.get_by_label('Selected track sample',exact=True)).to_have_value('1');page.evaluate('window.phase8ext.restoreContext()');expect(page.get_by_role('button',name='Rotate left',exact=True)).to_be_enabled();assert not page.evaluate('window.phase8gl.isContextLost()');rows.append({'case':'actual WebGL context loss and restoration','status':'PASS','numerical_track_retained':True});c.close()\n c=b.new_context(viewport={'width':390,'height':844});c.add_init_script('Object.defineProperty(window,\"WebGL2RenderingContext\",{value:undefined,configurable:true})');page=c.new_page();watch(page);page.goto(links['track'],wait_until='networkidle');expect(page.get_by_text('3D graphics are unavailable. The 2D map, timeline and coordinate information remain usable.',exact=True)).to_be_visible();expect(page.get_by_label('Selected track sample',exact=True)).to_have_value('1');expect(page.get_by_role('img',name='Calculated satellite ground track on a longitude and latitude map',exact=True)).to_be_visible();rows.append({'case':'WebGL unavailable feature simulation','status':'PASS','simulation':True,'actual_api_track':True});c.close()\n c=b.new_context(viewport={'width':390,'height':844});page=c.new_page();watch(page);session=c.new_cdp_session(page);session.send('Network.enable');session.send('Network.emulateNetworkConditions',{'offline':False,'latency':150,'downloadThroughput':200000,'uploadThroughput':100000});start=time.monotonic();page.goto(links['track'],wait_until='domcontentloaded');expect(page.get_by_text('Checking exact historical source references…',exact=True)).to_be_visible();expect(page.get_by_label('Selected track sample',exact=True)).to_have_value('1',timeout=30000);expect(page.locator('canvas')).to_be_visible(timeout=30000);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');timing=page.evaluate('performance.getEntriesByType(\"resource\").map(r=>({name:r.name,encoded:r.encodedBodySize,decoded:r.decodedBodySize,duration_ms:r.duration}))');page.screenshot(path=str(out/'slow-mobile.png'));rows.append({'case':'slow-network fresh mobile reconstruction','status':'PASS','latency_ms':150,'download_bytes_per_second':200000,'elapsed_seconds':round(time.monotonic()-start,3),'resources':timing});c.close()\n assert not errors,errors\n assert not csp,csp\n result={'status':'PASS','checked_at_utc':datetime.now(UTC).isoformat(),'browser':b.version,'cases':rows,'page_errors':errors,'csp_violations':csp,'physical_gpu_tested':False};(out/'browser-extended.json').write_text(json.dumps(result,indent=2)+'\\n');print('PASS:',len(rows),'extended browser cases');b.close()\n"
+      },
+      "runtime_checks.py": {
+        "command": "PYTHONPATH=backend uv run --locked python /tmp/orbitiq-phase8/runtime_checks.py",
+        "exit_status": 0,
+        "sha256": "bc0c52209da55d4a862177e7e12142addba1593f8880bd13f469dd98f0883172",
+        "source": "from pathlib import Path\nfrom datetime import datetime,UTC\nimport json,subprocess,os,time,statistics,gzip,re,hashlib\nimport httpx\nout=Path('/tmp/orbitiq-phase8');base='http://127.0.0.1:18088';rows=[];env=os.environ.copy()\nfor k in ['DOCKER_HOST','DOCKER_CONTEXT','DOCKER_TLS','DOCKER_TLS_VERIFY','DOCKER_CERT_PATH']:env.pop(k,None)\ndef compose(*args):\n p=subprocess.run(['python',str(out/'compose.py'),*args],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);rows.append({'command':['python',str(out/'compose.py'),*args],'exit_status':p.returncode,'output':p.stdout});assert p.returncode==0,p.stdout;return p.stdout\nwith httpx.Client(base_url=base,trust_env=False,timeout=15) as client:\n for route in ['/api/health','/api/ready','/api/readiness','/api/snapshots?limit=2','/api/snapshots/1','/api/snapshots/2']:\n  r=client.get(route);assert r.status_code==200;rows.append({'case':'release GET','route':route,'status':r.status_code,'response_bytes':len(r.content),'request_id':r.headers.get('x-request-id')})\n expected=client.get('/api/snapshots?limit=2').json()['snapshots'];identity=lambda items:sorted((s['id'],s['catalog_id'],s['orbital_epoch'],s['retrieved_at'],s['response_sha256']) for s in items)\n before=identity(expected)\n security=[('POST','/api/ingestion',{},405),('GET','/api/health',{'headers':{'Host':'evil.example'}},400),('GET','/api/health',{'content':'body'},413),('GET','/api/snapshots?q='+'x'*4500,{},414),('GET','/api/snapshots/99999',{},404),('GET','/api/snapshots?limit=101',{},422),('GET','/.env',{},404)]\n for method,route,kw,status in security:\n  r=client.request(method,route,**kw);assert r.status_code==status,(route[:80],r.status_code);assert '/data/' not in r.text;assert r.headers['x-content-type-options']=='nosniff';rows.append({'case':'boundary error','method':method,'route':route[:80],'http_status':r.status_code})\n r=client.get('/api/health?token=phase8-private-query',headers={'Authorization':'Bearer phase8-private-auth','Cookie':'phase8-private-cookie','X-Request-ID':'phase8-private-id','X-Forwarded-For':'phase8-private-forwarded'})\n assert r.status_code==200 and re.fullmatch('[a-f0-9]{32}',r.headers['x-request-id']);request_id=r.headers['x-request-id']\n log=compose('logs','--no-log-prefix','api','web');assert all(canary not in log for canary in ['phase8-private-query','phase8-private-auth','phase8-private-cookie','phase8-private-id','phase8-private-forwarded'])\n assert request_id in log;rows.append({'case':'redacted correlated logs','status':'PASS','request_id':request_id})\n html=client.get('/').text;js=re.search(r'src=\"([^\"]+\\.js)\"',html)[1]\n r=client.get(js,headers={'Accept-Encoding':'gzip'});assert r.headers['content-encoding']=='gzip';rows.append({'case':'production bundle gzip','status':'PASS','decoded_bytes':len(r.content),'wire_bytes':int(r.headers['content-length']) if 'content-length' in r.headers else None,'script':js})\n elapsed=[];sizes=[]\n for i in range(20):\n  t=time.monotonic();r=client.get('/api/snapshots?limit=100');elapsed.append((time.monotonic()-t)*1000);assert r.status_code==200;sizes.append(len(r.content))\n rows.append({'case':'bounded two-record archive listing benchmark','requests':20,'median_ms':round(statistics.median(elapsed),3),'max_ms':round(max(elapsed),3),'p95_ms':round(sorted(elapsed)[18],3),'max_decoded_bytes':max(sizes),'scope':'local one-CPU API, two stored records; not a capacity or production load guarantee'})\n probe=\"from pathlib import Path; import os; print('uid',os.getuid()); p=Path('/data/orbitiq.sqlite3');\\ntry: p.open('r+b'); raise SystemExit('unexpected writable archive')\\nexcept PermissionError: print('archive read-only: PASS')\\nexcept OSError as e:\\n assert e.errno==30; print('archive read-only: PASS')\"\n text=compose('exec','-T','api','python','-c',probe);assert 'uid 10001' in text and 'PASS' in text\n old_id=compose('ps','-q','api').strip();compose('restart','api')\n def await_ready():\n  outcomes=[]\n  for i in range(60):\n   try:\n    r=client.get('/api/ready');outcomes.append(r.status_code)\n    if r.status_code==200:return outcomes\n   except httpx.HTTPError:outcomes.append('connection_unavailable')\n   time.sleep(.25)\n  raise AssertionError('API did not recover')\n outcomes=await_ready();assert identity(client.get('/api/snapshots?limit=2').json()['snapshots'])==before;rows.append({'case':'process/container restart persistence','status':'PASS','probes':outcomes,'identities_unchanged':True})\n compose('up','-d','--no-build','--force-recreate','--pull','never','--wait','--wait-timeout','90','api');new_id=compose('ps','-q','api').strip();assert new_id!=old_id;outcomes=await_ready();assert identity(client.get('/api/snapshots?limit=2').json()['snapshots'])==before;rows.append({'case':'API container replacement persistence','status':'PASS','old_container_id':old_id,'new_container_id':new_id,'probes':outcomes,'identities_unchanged':True})\n # Invalid IDs keep this rate-limit exercise cheap; normal validation still runs on admitted requests.\n from concurrent.futures import ThreadPoolExecutor\n def burst(i):return client.get('/api/comparisons?first_id=0&second_id=0')\n with ThreadPoolExecutor(max_workers=16) as pool:responses=list(pool.map(burst,range(24)))\n statuses={str(s):sum(r.status_code==s for r in responses) for s in set(r.status_code for r in responses)};assert statuses.get('429',0)>0 and set(statuses)<= {'429','422'}\n for r in responses:\n  if r.status_code==429:assert r.headers['retry-after']=='1' and 'content-security-policy' in r.headers\n rows.append({'case':'gateway expensive request rate limit','status':'PASS','requests':24,'http_status_counts':statuses,'retry_after_seconds':1})\ncompose('ps')\nresult={'status':'PASS','at_utc':datetime.now(UTC).isoformat(),'rows':rows,'archive_identity':before};(out/'runtime-results.json').write_text(json.dumps(result,indent=2)+'\\n');print('PASS:',len(rows),'runtime/recovery/security checks')\n"
+      },
+      "artifact_checks.py": {
+        "command": "python /tmp/orbitiq-phase8/artifact_checks.py",
+        "exit_status": 0,
+        "sha256": "c731e628e945c48dc2fd6fb848ec90eefd527ca91c8af3a768cc8e5d815ab33b",
+        "source": "from pathlib import Path\nfrom datetime import datetime,UTC\nimport os,subprocess,json,hashlib,gzip,re\nfrom urllib.request import build_opener,ProxyHandler,Request\nout=Path('/tmp/orbitiq-phase8');rows=[];env=os.environ.copy()\nfor k in ['DOCKER_HOST','DOCKER_CONTEXT','DOCKER_TLS','DOCKER_TLS_VERIFY','DOCKER_CERT_PATH']:env.pop(k,None)\ndocker=['docker','--host=unix:///var/run/docker.sock']\nfor service in ['api','web']:\n p=subprocess.check_output(['python',str(out/'compose.py'),'ps','-q',service],text=True).strip()\n template='{\"image\":\"{{.Image}}\",\"user\":\"{{.Config.User}}\",\"readonly_root\":{{.HostConfig.ReadonlyRootfs}},\"memory_bytes\":{{.HostConfig.Memory}},\"nano_cpus\":{{.HostConfig.NanoCpus}},\"cap_drop\":{{json .HostConfig.CapDrop}},\"mounts\":{{json .Mounts}}}'\n info=json.loads(subprocess.check_output([*docker,'inspect','--format',template,p],env=env,text=True));assert info['readonly_root'] and info['cap_drop']==['ALL'];assert info['user']not in ['','0','root'];rows.append({'service':service,**info})\ncode=\"from pathlib import Path; assert not Path('/app/.git').exists(); assert not Path('/app/data').exists(); assert not Path('/app/backups').exists(); assert not list(Path('/app/backend').rglob('*.sqlite*')); assert not list(Path('/app').glob('*.env')); print('No repository Git/data/backup/environment payloads in API image')\"\np=subprocess.run([*docker,'run','--rm','--network','none','orbitiq-api:phase8-local','python','-c',code],env=env,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);assert p.returncode==0;rows.append({'case':'API image context exclusions','exit_status':p.returncode,'output':p.stdout})\nopener=build_opener(ProxyHandler({}));base='http://127.0.0.1:18088';html=opener.open(base,timeout=10).read().decode();js=re.search('src=\"([^\"]+\\\\.js)\"',html)[1]\nreq=Request(base+js,headers={'Accept-Encoding':'gzip'})\nwith opener.open(req,timeout=10) as response:\n wire=response.read();decoded=gzip.decompress(wire);assert len(decoded)>len(wire);rows.append({'case':'initial JS actual transfer','encoded_bytes':len(wire),'decoded_bytes':len(decoded),'encoding':response.headers['Content-Encoding']})\nfor name in ['orbitiq-api:phase8-local','orbitiq-web:phase8-local']:\n item=json.loads(subprocess.check_output([*docker,'image','inspect','--format','{\"id\":\"{{.Id}}\",\"size\":{{.Size}},\"architecture\":\"{{.Architecture}}\"}',name],env=env,text=True));rows.append({'image_tag':name,**item})\nstats=subprocess.check_output([*docker,'stats','--no-stream','--format','{{.Name}} {{.MemUsage}} {{.CPUPerc}}','orbitiq-phase8-check-api-1','orbitiq-phase8-check-web-1'],env=env,text=True);rows.append({'case':'single local idle sample after checks, not peak/capacity','stats':stats})\nresult={'status':'PASS','at_utc':datetime.now(UTC).isoformat(),'checks':rows};(out/'artifact-checks.json').write_text(json.dumps(result,indent=2)+'\\n');print('PASS:',len(rows),'artifact/isolation checks')\n"
+      }
+    }
+  },
+  "fixture_distinction": "Unit/integration/CI empty/archive fixtures are isolated synthetic/reference-only data. Real browser, backup and restart/replacement tests use restored copies of the existing genuine ISS snapshots #1/#2. No fixture was inserted into normal archive. No new source acquisition/observation occurred.",
+  "github": {
+    "read_only_inspection": true,
+    "phase7_run": [
+      {
+        "id": 39293109185,
+        "head_sha": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39293109185"
+      }
+    ],
+    "phase7_jobs": [
+      {
+        "id": 118198573807,
+        "name": "frontend",
+        "head_sha": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39293109185/job/118198573807"
+      },
+      {
+        "id": 118198574335,
+        "name": "backend",
+        "head_sha": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39293109185/job/118198574335"
+      }
+    ],
+    "protection_evidence": [
+      {
+        "name": "branch-protection",
+        "command": [
+          "gh",
+          "api",
+          "repos/BibinBinoy777/OrbitIQ/branches/main/protection"
+        ],
+        "exit_status": 1,
+        "response": {
+          "message": "Resource not accessible by integration",
+          "documentation_url": "https://docs.github.com/rest/branches/branch-protection#get-branch-protection",
+          "status": "403"
+        },
+        "stderr": "gh: Resource not accessible by integration (HTTP 403)\n"
+      },
+      {
+        "name": "rulesets",
+        "command": [
+          "gh",
+          "api",
+          "repos/BibinBinoy777/OrbitIQ/rulesets"
+        ],
+        "exit_status": 1,
+        "response": {
+          "message": "Upgrade to GitHub Pro or make this repository public to enable this feature.",
+          "documentation_url": "https://docs.github.com/rest/repos/rules#get-all-repository-rulesets",
+          "status": "403"
+        },
+        "stderr": "gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)\n"
+      }
+    ],
+    "phase8_remote_ci": "NOT_RUN; unpublished local changes",
+    "workflow_local_changes": [
+      "expanded scientific/geodetic audit commands",
+      "frontend build artifact",
+      "digest-pinned release image builds, nginx validation and isolated startup smoke"
+    ],
+    "remote_actions_triggered": false
+  },
+  "preservation": {
+    "at_utc": "2026-10-19T17:46:57.694683+00:00",
+    "head_before": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+    "head_after": "ec1f9f832e5f2a488169d43083d83e24e1eac25e",
+    "branch_before": "main",
+    "branch_after": "main",
+    "remotes_unchanged": true,
+    "staged_changes": [],
+    "database_sha256_before": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_sha256_after": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_bytes_unchanged": true,
+    "database_fingerprint_before": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "database_fingerprint_after": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "database_fingerprint_unchanged": true,
+    "runtime_restored_fingerprint_matches_source": true,
+    "prior_documents_unchanged": {
+      "docs/backup-restore-runbook.md": true,
+      "docs/eop-maintenance.md": true,
+      "docs/ingestion-operations.md": true,
+      "docs/phase-0-report.md": true,
+      "docs/phase-1-report.md": true,
+      "docs/phase-1.md": true,
+      "docs/phase-2-plan.md": true,
+      "docs/phase-2-reference-results.json": true,
+      "docs/phase-2-report.md": true,
+      "docs/phase-3-integration-results.json": true,
+      "docs/phase-3-plan.md": true,
+      "docs/phase-3-reference-results.json": true,
+      "docs/phase-3-report.md": true,
+      "docs/phase-4-integration-results.json": true,
+      "docs/phase-4-plan.md": true,
+      "docs/phase-4-report.md": true,
+      "docs/phase-5-integration-results.json": true,
+      "docs/phase-5-plan.md": true,
+      "docs/phase-5-report.md": true,
+      "docs/phase-6-integration-results.json": true,
+      "docs/phase-6-report.md": true,
+      "docs/phase-6.1-report.md": true,
+      "docs/phase-6.1-scientific-evidence.json": true,
+      "docs/phase-6.1.1-report.md": true,
+      "docs/phase-6.1.1-scientific-evidence.json": true,
+      "docs/phase-7-integration-results.json": true,
+      "docs/phase-7-report.md": true,
+      "docs/pre-phase-5-integration-results.json": true,
+      "docs/pre-phase-5-plan.md": true,
+      "docs/pre-phase-5-readiness-report.md": true,
+      "docs/product-foundation.md": true,
+      "docs/saved-investigations.md": true,
+      "docs/scientific-conventions.md": true,
+      "docs/scientific-data-readiness.md": true
+    },
+    "changed_preexisting_files": [
+      ".env.example",
+      ".github/workflows/ci.yml",
+      "README.md",
+      "backend/orbitiq/main.py"
+    ],
+    "scientific_and_ingestion_source_unchanged": true,
+    "lockfiles_unchanged": true
+  },
+  "resolved_failures_and_limits": [
+    {
+      "issue": "Docker build cache under read-only home",
+      "resolution": "Set BUILDX_CONFIG to test-owned /tmp path; preserved registry configuration and CA verification."
+    },
+    {
+      "issue": "Compose flow-list split tmpfs options into mount paths",
+      "resolution": "Quote each full tmpfs option string; actual Compose startup then exercised."
+    },
+    {
+      "issue": "Non-root API could not traverse/read copied logging/code directories",
+      "resolution": "Ensure readable files and searchable backend/deploy directories in image; fixture and real-archive startup passed."
+    },
+    {
+      "issue": "Restored test directory initially lacked traversal permission for UID 10001",
+      "resolution": "Adjusted only the newly created test directory; production permission requirements documented. Recreated prior unhealthy test container and retested."
+    },
+    {
+      "issue": "Ruff reported long layout before first formatter pass",
+      "resolution": "Formatted new Python files; all 83 files pass final Ruff format and lint."
+    },
+    {
+      "issue": "pip-audit attempted tool/cache storage under read-only home",
+      "resolution": "Explicit isolated tool and audit caches under /tmp; final advisory lookup exited 0."
+    },
+    {
+      "issue": "Firefox attempts hung and WebKit reported missing host libraries",
+      "resolution": "Terminated owned Firefox processes; classified both compatibility outcomes BLOCKED instead of claiming pass."
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": 1,
+      "criterion": "Existing architecture and current project state inspected",
+      "status": "PASS",
+      "evidence": "Clean main at published Phase 7 ec1f9f8; architecture, prior documentation and reproducible baseline inspected."
+    },
+    {
+      "id": 2,
+      "criterion": "Production deployment architecture documented",
+      "status": "PASS",
+      "evidence": "Single-host static gateway/private API/read-only durable archive candidate, collector/resource/backup responsibilities and provider blockers documented."
+    },
+    {
+      "id": 3,
+      "criterion": "Persistent-storage behaviour and limitations documented",
+      "status": "PASS",
+      "evidence": "Host bind mount decouples archive from images; local restart/replacement proven; host replacement/off-machine durability explicitly unverified."
+    },
+    {
+      "id": 4,
+      "criterion": "Existing database, snapshots, and ingestion audit records preserved",
+      "status": "PASS",
+      "evidence": "Original file byte hash and full schema/table/row digests unchanged; runtime restored copy matches original content."
+    },
+    {
+      "id": 5,
+      "criterion": "Migrations have a safe, tested execution strategy",
+      "status": "PASS",
+      "evidence": "Existing explicit writer-locked pre-backed-up transactional schema 1/2 upgrades and failure rollback tests pass; no new migration introduced."
+    },
+    {
+      "id": 6,
+      "criterion": "Backup and restoration procedures are verified",
+      "status": "PASS",
+      "evidence": "Actual genuine two-record archive backed up/restored separately, full fingerprints/payload validation and restored APIs passed; off-machine recovery remains blocked."
+    },
+    {
+      "id": 7,
+      "criterion": "Saved-investigation persistence guarantees are stated accurately",
+      "status": "PASS",
+      "evidence": "Local browser/origin storage, parameter links, no numerical-output retention or cloud synchronization; full tests and real production-route browser checks pass."
+    },
+    {
+      "id": 8,
+      "criterion": "Authentication and authorization requirements are evaluated",
+      "status": "PASS",
+      "evidence": "No auth exists; anonymous public read-only browsing can retain local saves; operator host access and future managed identity/cloud persistence scoped separately."
+    },
+    {
+      "id": 9,
+      "criterion": "Public API validation and resource limits are assessed and strengthened where necessary",
+      "status": "PASS",
+      "evidence": "Startup/host/URI/header/body controls, per-worker calculation admission, edge rate/connection limits and existing scientific bounds tested."
+    },
+    {
+      "id": 10,
+      "criterion": "Secrets management and production configuration are documented",
+      "status": "PASS",
+      "evidence": "Placeholder-only config, private external environment file, allowlisted image context and safe required-setting checks; no cloud secrets fabricated."
+    },
+    {
+      "id": 11,
+      "criterion": "CORS and other relevant security controls are reviewed",
+      "status": "PASS",
+      "evidence": "Same-origin architecture, absent permissive CORS, trusted hosts, CSP/headers, redacted logs/errors and read-only mounts tested."
+    },
+    {
+      "id": 12,
+      "criterion": "Ingestion policies and deduplication remain intact",
+      "status": "PASS",
+      "evidence": "Existing mocked-ingestion/dedup/cooldown/retry/transaction regressions pass; ingestion source and ledger unchanged; no live provider call."
+    },
+    {
+      "id": 13,
+      "criterion": "Scientific readiness and EOP restrictions are preserved",
+      "status": "PASS",
+      "evidence": "Existing science/readiness code unchanged; all reference audits pass and actual genuine-source strict EOP container call returns 422 with no coordinates."
+    },
+    {
+      "id": 14,
+      "criterion": "Operational monitoring and incident procedures are documented",
+      "status": "PASS",
+      "evidence": "Minimal dependency probe, structured request logs and runbooks implemented; alert routes, delivery and on-call ownership explicitly remain unconfigured."
+    },
+    {
+      "id": 15,
+      "criterion": "GitHub Actions checks are inspected for the exact relevant commit where access permits",
+      "status": "PASS",
+      "evidence": "Remote Phase 7 run 39293109185 and both successful jobs cover exact ec1f9f832e5f2a488169d43083d83e24e1eac25e; local Phase 8 has no remote run."
+    },
+    {
+      "id": 16,
+      "criterion": "Missing CI or branch-protection evidence is explicitly documented",
+      "status": "PASS",
+      "evidence": "403 protection/ruleset responses preserved; new local workflow unexecuted remotely; admin verification steps documented."
+    },
+    {
+      "id": 17,
+      "criterion": "Production build and applicable regression suites pass",
+      "status": "PASS",
+      "evidence": "609 backend, 275 frontend, 40/6/32 numerical audits and 28+28 geodesy, lint/format/tsc/build, both local image builds and CI fixture smoke pass."
+    },
+    {
+      "id": 18,
+      "criterion": "Performance and accessibility checks are performed where possible",
+      "status": "PASS",
+      "evidence": "Actual Chromium production UI at three widths, keyboard, reduced motion, WebGL loss/recovery/unavailable simulation, CSP and throttled-mobile loading checked; representative local listing timings only."
+    },
+    {
+      "id": 19,
+      "criterion": "Environment-dependent and physical-device tests are accurately classified",
+      "status": "PASS",
+      "evidence": "Firefox runner could not complete; WebKit missing runtime libraries; physical GPU/device/Safari/screen reader and target-host tests not claimed."
+    },
+    {
+      "id": 20,
+      "criterion": "Deployment and rollback instructions are complete",
+      "status": "BLOCKED",
+      "evidence": "Provider-neutral tested artifact/runbook exists, but provider-specific TLS/DNS/ingress trust, durable attachment/off-machine restore and rollout/recovery instructions cannot be finalized or verified without selected infrastructure and owners."
+    },
+    {
+      "id": 21,
+      "criterion": "Scientific limitations are accurately disclosed",
+      "status": "PASS",
+      "evidence": "Observation validation BLOCKED, uncertainty unquantified; no universal accuracy/maneuver claim; approximately 1.317 cm residual explanation and geodetic correction preserved."
+    },
+    {
+      "id": 22,
+      "criterion": "No existing user data are lost or silently rewritten",
+      "status": "PASS",
+      "evidence": "Normal archive bytes/all tables and every pre-existing docs file match baseline; browser-local storage implementation unchanged; tests use owned separate profiles/archives."
+    },
+    {
+      "id": 23,
+      "criterion": "No unverified deployment or production capability is claimed",
+      "status": "PASS",
+      "evidence": "Only local containers and restored copies tested; no provider, durable production, TLS, alert delivery or public deployment claim."
+    },
+    {
+      "id": 24,
+      "criterion": "A complete readiness report and structured evidence artifact are produced",
+      "status": "PASS",
+      "evidence": "This report, JSON, deployment runbook and focused security review contain actual outcomes and explicit NO-GO decision."
+    }
+  ],
+  "acceptance_summary": {
+    "PASS": 23,
+    "FAIL": 0,
+    "BLOCKED": 1
+  },
+  "launch_blockers": [
+    {
+      "id": "HOSTING",
+      "status": "BLOCKED",
+      "detail": "No provider/account/region/billing authority, approved production domain, HTTPS/renewal/HSTS ingress or firewall has been selected/provisioned/validated."
+    },
+    {
+      "id": "DURABILITY",
+      "status": "BLOCKED",
+      "detail": "Local SQLite recovery and same-host restart/replacement passed; provider disk reattachment, host loss, encrypted off-machine backup retrieval, retention and RPO/RTO have not been established."
+    },
+    {
+      "id": "OPERATIONS",
+      "status": "BLOCKED",
+      "detail": "No monitoring/log delivery service, alert recipients/on-call owner, backup schedule or approved collector scheduler is configured and tested."
+    },
+    {
+      "id": "RELEASE_GATES",
+      "status": "BLOCKED",
+      "detail": "Local Phase 8 changes have no published exact SHA or remote CI result. Branch protection/rulesets cannot be verified with available integration permissions. No publication was authorized."
+    },
+    {
+      "id": "TRAFFIC",
+      "status": "BLOCKED",
+      "detail": "Trusted real-IP CIDRs and representative traffic/shared-NAT/capacity budgets depend on selected ingress and hosting; local two-record timings cannot establish production throughput."
+    },
+    {
+      "id": "COMPATIBILITY",
+      "status": "BLOCKED",
+      "detail": "Firefox context setup did not complete; WebKit cannot launch without listed libraries; real Safari/devices/GPU and screen-reader validation are not complete."
+    },
+    {
+      "id": "SCIENTIFIC_ACCURACY",
+      "status": "BLOCKED",
+      "detail": "Independent observation validation remains blocked; uncertainty is unquantified. Numerical regression success supports only its stated reference scope; stronger accuracy claims remain prohibited."
+    }
+  ],
+  "changed_files": [
+    ".dockerignore",
+    ".env.example",
+    ".github/workflows/ci.yml",
+    "Dockerfile",
+    "README.md",
+    "backend/orbitiq/api/boundary.py",
+    "backend/orbitiq/api/operational.py",
+    "backend/orbitiq/main.py",
+    "backend/orbitiq/runtime.py",
+    "backend/tests/test_production.py",
+    "deploy/api-proxy.conf",
+    "deploy/compose.yaml",
+    "deploy/logging.json",
+    "deploy/nginx.conf",
+    "deploy/production.env.example",
+    "deploy/security-headers.conf",
+    "docs/phase-8-integration-results.json",
+    "docs/phase-8-readiness-report.md",
+    "docs/production-deployment-runbook.md",
+    "docs/production-security-review.md",
+    "scripts/verify_release_containers.py"
+  ],
+  "warnings": [
+    "Existing Starlette/httpx test-client deprecation",
+    "Existing renderer chunk over 500 kB; current build 558.60 kB minified",
+    "No comprehensive OS image scan, real-device, screen-reader, Safari, host replacement, off-machine recovery or alert-delivery proof"
+  ],
+  "execution_boundaries": {
+    "commit": false,
+    "push": false,
+    "deployment": false,
+    "publication": false,
+    "remote_workflow_action": false,
+    "remotes_changed": false,
+    "normal_database_initialized_or_reset": false,
+    "live_ingestion": false,
+    "test_containers_and_networks_removed": true
+  },
+  "artifact_directory": "/tmp/orbitiq-phase8; temporary, private local recovery artifacts not added to Git"
+}

@@ -10,6 +10,10 @@ Earth, source-information panel and exact-sample timeline. See [Phase 4 verifica
 [Phase 1 ingestion contract](docs/phase-1.md). Live ingestion requires CelesTrak
 network access; viewing stored snapshots and running offline tests does not. Reference agreement is not a guarantee of predicted satellite accuracy.
 
+Read the [intended-use statement](docs/intended-use.md): OrbitIQ supports exploration
+and historical analysis. Independent observation-based prediction validation remains
+blocked and orbital prediction uncertainty remains unquantified.
+
 The pre-Phase 5 foundation adds a read-only **Scientific-data readiness** view and
 `GET /api/readiness`, separate from liveness. It reports bounded database metadata,
 stored epoch/retrieval freshness, local EOP coverage/prediction policy and actual
@@ -89,7 +93,9 @@ variables (anything prefixed `VITE_` is public). No API keys are required.
 
 ## Database operations
 
-The API never creates or opens a database at startup. Set an **absolute** path
+Development startup never creates or opens a database. Production startup validates
+an existing schema-3 archive read-only and refuses invalid storage; it never creates
+or migrates one. Set an **absolute** path
 explicitly. Parent directories must already exist. No default database path,
 automatic migrations, or destructive reset command is provided.
 
@@ -333,3 +339,29 @@ unchanged threshold, with independent GeographicLib comparisons. The expected
 failure marker was removed; both earlier reports and evidence remain unchanged.
 Observation-based prediction validation remains **BLOCKED**, and uncertainty
 remains unquantified. These results are not a public-launch accuracy certificate.
+
+## Phase 8 release preparation
+
+The [deployment runbook](docs/production-deployment-runbook.md) describes a
+provider-neutral, single-host candidate with built static assets, a same-origin
+Nginx gateway and a private, non-root FastAPI container reading a separately
+provisioned archive. Production configuration, request limits, safe structured
+logs, minimal `/api/ready` dependency probing and container smoke checks are
+implemented. `/api/health` remains liveness; `/api/readiness` retains the detailed
+scientific assessment and its existing restrictions.
+
+See the [security review](docs/production-security-review.md),
+[readiness decision](docs/phase-8-readiness-report.md) and
+[actual verification evidence](docs/phase-8-integration-results.json).
+Local container verification is not a public deployment. Hosting, HTTPS, durable
+off-machine recovery, alert delivery and exact-release remote checks remain
+unverified launch gates. No account system or cloud-synchronized saves were added.
+
+Phase 8.1 adds locally verified optional TLS, restic-based encrypted backup
+export/retrieval, an opt-in operator monitoring CLI with delivery cooldowns, and
+critical Firefox/WebKit/Chromium tests in a supported isolated runtime. See the
+[launch-readiness report](docs/phase-8.1-launch-readiness-report.md),
+[actual evidence](docs/phase-8.1-integration-results.json) and
+[monitoring/alert runbook](docs/monitoring-and-alerting.md). Local encrypted storage
+and loopback alert tests do not establish off-machine recovery or production alert
+delivery. Public launch remains NO-GO pending the documented external gates.

@@ -21,6 +21,10 @@ jobs:
         run: PYTHONPATH=backend uv run --locked python scripts/verify_scientific_references.py --output /tmp/sgp4-results.json
       - name: Terrestrial transformation reference audit
         run: PYTHONPATH=backend uv run --locked python scripts/verify_earth_fixed_references.py --output /tmp/earth-fixed-results.json
+      - name: Expanded scientific and geodetic regressions
+        run: |
+          PYTHONPATH=backend uv run --locked python scripts/verify_phase61_science.py --output /tmp/phase61-results.json
+          PYTHONPATH=backend uv run --locked python scripts/verify_phase611_geodesy.py --output /tmp/geodesy-results.json
       - name: Explicit schema migration and separate restore checks
         run: uv run --locked pytest -q backend/tests/test_phase6_collection.py -k "migration or restore or backup"
       - run: uv run --locked ruff check .
@@ -43,3 +47,20 @@ jobs:
       - run: npm run lint
       - run: npm run format:check
       - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+  release-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build locked release targets (local only; no registry publication)
+        run: |
+          docker build --target api -t orbitiq-api:ci .
+          docker build --target web -t orbitiq-web:ci .
+      - name: Validate static gateway configuration
+        run: docker run --rm --network none orbitiq-web:ci nginx -t
+      - name: Start release images against a separate empty fixture and verify APIs
+        run: python3 scripts/verify_release_containers.py --release ci

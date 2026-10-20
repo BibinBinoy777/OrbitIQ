@@ -121,6 +121,11 @@ export default function App() {
       <p>ORBITIQ / EXPLORER</p>
       <h1>Explore Earth’s orbital neighborhood.</h1>
       <p>Satellite exploration grounded in traceable orbital data.</p>
+      <p className="notice">
+        For exploration and historical analysis. Calculated positions are not
+        observations; prediction uncertainty is unquantified. Independent
+        observation-based prediction validation is not yet available.
+      </p>
       <p role="status">{status}</p>
       <nav className="toolbar" aria-label="OrbitIQ sections">
         <button

@@ -1,0 +1,17 @@
+# Add to compose.yaml only after provisioning a readable key/certificate pair.
+services:
+  web:
+    ports: ["${ORBITIQ_HTTPS_BIND:-127.0.0.1:8443}:8443"]
+    volumes:
+      - type: bind
+        source: ./nginx-tls.conf
+        target: /etc/nginx/tls-enabled/https.conf
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${ORBITIQ_TLS_DIRECTORY:?Provision certificates separately}
+        target: /run/orbitiq-tls
+        read_only: true
+        bind:
+          create_host_path: false

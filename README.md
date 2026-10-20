@@ -37,8 +37,8 @@ ledger, durable two-hour gate, bounded deferred retries and truthful collection
 monitoring. Two independently acquired genuine ISS snapshots now have actual
 common-time TEME/ITRS comparison evidence. See [Phase 6 verification](docs/phase-6-report.md),
 [ingestion operations](docs/ingestion-operations.md), and the
-[backup/restore runbook](docs/backup-restore-runbook.md). These are local changes;
-Phase 6 has not been committed, pushed or deployed.
+[backup/restore runbook](docs/backup-restore-runbook.md). Public deployment remains
+subject to the separate [Phase 8 launch gates](docs/phase-8-closure-checklist.md).
 
 ## Requirements and installation
 
@@ -49,6 +49,14 @@ cloud synchronization or new database migration. Recipients need access to the
 same exact source records. See the [usage and schema guide](docs/saved-investigations.md),
 [Phase 7 report](docs/phase-7-report.md) and
 [verification evidence](docs/phase-7-integration-results.json).
+
+Phase 9 adds **Investigation report & evidence** actions: one backend capture for
+JSON evidence, standalone printable HTML and browser Print / Save as PDF. Reports
+preserve exact source references, scientific metadata, validation and limitations;
+local titles/notes remain excluded. See the [report/export guide](docs/investigation-reports.md),
+[schema](docs/investigation-report-schema.json), [actual example](docs/phase-9-export-example.json)
+and [Phase 9 verification](docs/phase-9-report.md). No migration or new dependency
+is required. Public launch and Phase 8 infrastructure gates remain separate.
 
 Use Python 3.12, uv (validated with 0.12.23), Node.js 24 and npm 11.
 From the repository root:

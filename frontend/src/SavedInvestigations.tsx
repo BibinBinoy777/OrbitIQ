@@ -9,7 +9,7 @@ import {
 import type { SavedInvestigation } from "./investigation-storage";
 import type { Investigation } from "./saved-investigation";
 import { LIMITS, parseInvestigation, shiftTime } from "./saved-investigation";
-import { ShareAction } from "./InvestigationActions";
+import { ReportAction, ShareAction } from "./InvestigationActions";
 import { formatUtc } from "./time-presentation";
 
 function state() {
@@ -369,6 +369,7 @@ export default function SavedInvestigations({
             />
           )}
           <ShareAction investigation={record.investigation} />
+          <ReportAction investigation={record.investigation} />
         </article>
       ))}
     </section>

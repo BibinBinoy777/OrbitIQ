@@ -145,10 +145,20 @@ it("provides an actionable manual link when clipboard access is denied", async (
   );
   expect(screen.getByLabelText("Shareable investigation link")).toHaveFocus();
 });
-it("does not show mutation or sharing controls inside read-only shared views", () => {
+it("does not show mutation or sharing controls inside read-only shared views", async () => {
   const spy = vi.spyOn(Storage.prototype, "setItem");
   render(<InvestigationActions readOnly build={() => savedContext()} />);
-  expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  expect(
+    screen.queryByRole("button", { name: "Save in this browser" }),
+  ).not.toBeInTheDocument();
+  expect(
+    screen.queryByRole("button", { name: /Copy share link/ }),
+  ).not.toBeInTheDocument();
+  expect(
+    await screen.findByRole("heading", {
+      name: "Investigation report & evidence",
+    }),
+  ).toBeInTheDocument();
   expect(spy).not.toHaveBeenCalled();
 });
 it("refreshes a mounted local list when another tab changes storage", async () => {

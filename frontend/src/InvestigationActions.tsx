@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import type { Investigation } from "./saved-investigation";
 import {
   LIMITS,
@@ -7,6 +7,22 @@ import {
   titleFor,
 } from "./saved-investigation";
 import { saveInvestigation } from "./investigation-storage";
+const InvestigationReport = lazy(() => import("./InvestigationReport"));
+
+export function ReportAction({
+  investigation,
+}: {
+  investigation: Investigation;
+}) {
+  return (
+    <Suspense fallback={<p role="status">Loading report tools…</p>}>
+      <InvestigationReport
+        key={JSON.stringify(investigation)}
+        investigation={investigation}
+      />
+    </Suspense>
+  );
+}
 
 export function ShareAction({
   investigation,
@@ -121,7 +137,7 @@ export default function InvestigationActions({
       </p>
     );
   }
-  if (readOnly) return null;
+  if (readOnly) return <ReportAction investigation={context} />;
   const key = JSON.stringify(context);
   async function save() {
     setBusy(true);
@@ -190,6 +206,7 @@ export default function InvestigationActions({
         <p role={feedback.error ? "alert" : "status"}>{feedback.message}</p>
       )}
       <ShareAction investigation={context} />
+      <ReportAction investigation={context} />
     </section>
   );
 }

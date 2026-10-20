@@ -19,6 +19,7 @@ from orbitiq.api.investigations import router as investigations_router
 from orbitiq.api.operational import router as operational_router
 from orbitiq.api.orbits import router as orbits_router
 from orbitiq.api.readiness import router as readiness_router
+from orbitiq.api.reports import router as reports_router
 from orbitiq.runtime import Settings, check_production_database
 
 
@@ -48,6 +49,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     application.include_router(orbits_router, prefix="/api")
     application.include_router(ground_tracks_router, prefix="/api")
     application.include_router(readiness_router, prefix="/api")
+    application.include_router(reports_router, prefix="/api")
     if settings.production:
         application.add_middleware(
             TrustedHostMiddleware, allowed_hosts=list(settings.allowed_hosts)

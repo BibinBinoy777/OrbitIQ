@@ -175,11 +175,15 @@ def test_calculation_admission_recovers_after_completion(production):
             await asyncio.wait_for(entered.wait(), 2)
             busy = await client.get("/api/snapshots/1/position?at=2026-01-01T00:00:00Z")
             assert busy.status_code == 503 and busy.headers["retry-after"] == "1"
+            export_busy = await client.get("/api/investigation-reports")
+            assert export_busy.status_code == 503
+            assert export_busy.headers["retry-after"] == "1"
             assert (await client.get("/api/health")).status_code == 200
             release.set()
             assert (await first).status_code == 200
             assert (
                 await client.get("/api/satellites/5/ground-track/")
             ).status_code == 200
+            assert (await client.get("/api/investigation-reports")).status_code == 422
 
     asyncio.run(scenario())

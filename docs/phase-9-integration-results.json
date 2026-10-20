@@ -1,0 +1,1167 @@
+{
+  "phase": "9 Investigation Reports & Evidence Export",
+  "verified_at_utc": "2026-10-20T07:05:56.750226+00:00",
+  "status": "complete_locally_verified",
+  "base_head": "341812ae66409691e9cf07b15e50dba3ab894e26",
+  "branch": "main",
+  "committed": false,
+  "pushed": false,
+  "deployed_or_published": false,
+  "dependencies_added": [],
+  "environment_variables_added": [],
+  "migrations_added": [],
+  "automated_checks": {
+    "backend": {
+      "passed": 675,
+      "new_phase9_tests": 41,
+      "warnings": [
+        "Existing Starlette httpx TestClient deprecation"
+      ]
+    },
+    "frontend": {
+      "passed": 307,
+      "new_phase9_tests": 32
+    },
+    "ruff_check": "PASS",
+    "ruff_format": "PASS",
+    "eslint": "PASS",
+    "prettier": "PASS",
+    "typescript": "PASS",
+    "vite_build": "PASS",
+    "diff_whitespace": "PASS"
+  },
+  "scientific_regressions": {
+    "sgp4_reference_cases_passed": 40,
+    "terrestrial_reference_cases_passed": 6,
+    "expanded_comparisons_passed": 32,
+    "geodetic_independent_cases_passed": 28,
+    "geodetic_roundtrips_passed": 28,
+    "independent_observation_validation": "BLOCKED",
+    "prediction_uncertainty": "unquantified"
+  },
+  "browser_reports": [
+    {
+      "status": "PASS",
+      "engine": "chromium",
+      "browser_version": "151.0.7922.34",
+      "checked_at_utc": "2026-10-20T07:01:33.588698+00:00",
+      "cases": [
+        {
+          "mode": "snapshot",
+          "case": "snapshot",
+          "status": "PASS",
+          "report_id": "6991907c-7492-48a1-b86f-b748e7e4ffae",
+          "json_bytes": 7206,
+          "html_bytes": 15359,
+          "generation_seconds": 0.083
+        },
+        {
+          "mode": "position",
+          "case": "position",
+          "status": "PASS",
+          "report_id": "4a54e9d7-08db-4417-a40b-e00853ad8eff",
+          "json_bytes": 9616,
+          "html_bytes": 18432,
+          "generation_seconds": 0.235
+        },
+        {
+          "mode": "ground-track",
+          "case": "ground-track",
+          "status": "PASS",
+          "report_id": "40e83272-c64a-43fb-b2db-064cdab373ca",
+          "json_bytes": 28398,
+          "html_bytes": 26878,
+          "generation_seconds": 0.22
+        },
+        {
+          "mode": "comparison",
+          "case": "comparison",
+          "status": "PASS",
+          "report_id": "5db4ec70-8c8b-4b4a-9aef-89002ef1d57d",
+          "json_bytes": 33356,
+          "html_bytes": 37354,
+          "generation_seconds": 0.199
+        },
+        {
+          "mode": "ground-track",
+          "case": "maximum-track",
+          "status": "PASS",
+          "report_id": "a20520c0-fd04-45f8-945b-acc79ac9ccf6",
+          "json_bytes": 2284657,
+          "html_bytes": 137009,
+          "generation_seconds": 6.846
+        },
+        {
+          "case": "saved-card",
+          "mode": "snapshot",
+          "status": "PASS",
+          "report_id": "3580e62f-1515-47bc-9b10-ac9a322f3f74",
+          "local_notes_excluded": true
+        }
+      ],
+      "page_errors": [],
+      "csp_violations": [],
+      "api_mocked": false,
+      "same_capture_downloads_verified": true,
+      "native_pdf_verified": true,
+      "screenshots_captured": true,
+      "standalone_html_offline_checked": true
+    },
+    {
+      "status": "PASS",
+      "engine": "firefox",
+      "browser_version": "153.0",
+      "checked_at_utc": "2026-10-20T06:59:24.567558+00:00",
+      "cases": [
+        {
+          "mode": "snapshot",
+          "case": "snapshot",
+          "status": "PASS",
+          "report_id": "1b9aee92-a813-4188-aefb-de83f95b9335",
+          "json_bytes": 7206,
+          "html_bytes": 15359,
+          "generation_seconds": 0.152
+        },
+        {
+          "mode": "position",
+          "case": "position",
+          "status": "PASS",
+          "report_id": "d503a1b2-a7e3-4e32-9c24-393a354ea917",
+          "json_bytes": 9618,
+          "html_bytes": 18434,
+          "generation_seconds": 0.205
+        },
+        {
+          "mode": "ground-track",
+          "case": "ground-track",
+          "status": "PASS",
+          "report_id": "c5edd3cb-49bd-4428-91ca-6013502fccf4",
+          "json_bytes": 28398,
+          "html_bytes": 26877,
+          "generation_seconds": 0.171
+        },
+        {
+          "mode": "comparison",
+          "case": "comparison",
+          "status": "PASS",
+          "report_id": "c311a338-bba7-4f93-816b-e0a8e34685a0",
+          "json_bytes": 33356,
+          "html_bytes": 37355,
+          "generation_seconds": 0.115
+        }
+      ],
+      "page_errors": [],
+      "csp_violations": [],
+      "api_mocked": false,
+      "same_capture_downloads_verified": true,
+      "native_pdf_verified": false,
+      "screenshots_captured": true,
+      "standalone_html_offline_checked": true
+    },
+    {
+      "status": "PASS",
+      "engine": "webkit",
+      "browser_version": "26.5",
+      "checked_at_utc": "2026-10-20T06:59:44.871082+00:00",
+      "cases": [
+        {
+          "mode": "snapshot",
+          "case": "snapshot",
+          "status": "PASS",
+          "report_id": "fe1d9d88-86e2-4c5f-acce-7da858c09ef5",
+          "json_bytes": 7206,
+          "html_bytes": 15359,
+          "generation_seconds": 0.193
+        },
+        {
+          "mode": "position",
+          "case": "position",
+          "status": "PASS",
+          "report_id": "4e74274e-2448-4c37-b6e0-f65b05a25096",
+          "json_bytes": 9618,
+          "html_bytes": 18434,
+          "generation_seconds": 0.221
+        },
+        {
+          "mode": "ground-track",
+          "case": "ground-track",
+          "status": "PASS",
+          "report_id": "8949c9c5-97b4-4723-bf36-de771ff9b79d",
+          "json_bytes": 28396,
+          "html_bytes": 26877,
+          "generation_seconds": 0.357
+        },
+        {
+          "mode": "comparison",
+          "case": "comparison",
+          "status": "PASS",
+          "report_id": "338850b6-2f4c-4eac-813c-80eaac1869bd",
+          "json_bytes": 33356,
+          "html_bytes": 37355,
+          "generation_seconds": 0.199
+        }
+      ],
+      "page_errors": [],
+      "csp_violations": [],
+      "api_mocked": false,
+      "same_capture_downloads_verified": true,
+      "native_pdf_verified": false,
+      "screenshots_captured": false,
+      "standalone_html_offline_checked": true
+    }
+  ],
+  "browser_critical_regressions": [
+    {
+      "status": "PASS",
+      "engine": "chromium",
+      "browser_version": "151.0.7922.34",
+      "checked_at_utc": "2026-10-20T06:59:14.648337+00:00",
+      "cases": [
+        {
+          "case": "discovery, keyboard save, exact reopen and sharing",
+          "status": "PASS"
+        },
+        {
+          "case": "actual backend track and selected sample saved",
+          "status": "PASS"
+        },
+        {
+          "case": "exact A/B historical common-time ITRS comparison",
+          "status": "PASS",
+          "source_ids": [
+            1,
+            2
+          ],
+          "at": "2026-10-18T18:57:18.892800+00:00"
+        },
+        {
+          "case": "actual readiness dashboard",
+          "status": "PASS"
+        },
+        {
+          "case": "mobile recipient, reduced motion, keyboard, graphics",
+          "status": "PASS",
+          "webgl2_rendered": true,
+          "physical_device": false
+        },
+        {
+          "case": "shared comparison restores read-only definition",
+          "status": "PASS"
+        },
+        {
+          "case": "missing source disclosed without replacement",
+          "status": "PASS"
+        }
+      ],
+      "requests": 59,
+      "page_errors": [],
+      "csp_violations": [],
+      "source_hashes": [
+        "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+        "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd"
+      ],
+      "api_mocked": false,
+      "canvas_mocked": false
+    },
+    {
+      "status": "PASS",
+      "engine": "firefox",
+      "browser_version": "153.0",
+      "checked_at_utc": "2026-10-20T06:59:34.945118+00:00",
+      "cases": [
+        {
+          "case": "discovery, keyboard save, exact reopen and sharing",
+          "status": "PASS"
+        },
+        {
+          "case": "actual backend track and selected sample saved",
+          "status": "PASS"
+        },
+        {
+          "case": "exact A/B historical common-time ITRS comparison",
+          "status": "PASS",
+          "source_ids": [
+            1,
+            2
+          ],
+          "at": "2026-10-18T18:57:18.892800+00:00"
+        },
+        {
+          "case": "actual readiness dashboard",
+          "status": "PASS"
+        },
+        {
+          "case": "mobile recipient, reduced motion, keyboard, graphics",
+          "status": "PASS",
+          "webgl2_rendered": false,
+          "physical_device": false
+        },
+        {
+          "case": "shared comparison restores read-only definition",
+          "status": "PASS"
+        },
+        {
+          "case": "missing source disclosed without replacement",
+          "status": "PASS"
+        }
+      ],
+      "requests": 54,
+      "page_errors": [],
+      "csp_violations": [],
+      "source_hashes": [
+        "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+        "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd"
+      ],
+      "api_mocked": false,
+      "canvas_mocked": false
+    },
+    {
+      "status": "PASS",
+      "engine": "webkit",
+      "browser_version": "26.5",
+      "checked_at_utc": "2026-10-20T06:59:55.136842+00:00",
+      "cases": [
+        {
+          "case": "discovery, keyboard save, exact reopen and sharing",
+          "status": "PASS"
+        },
+        {
+          "case": "actual backend track and selected sample saved",
+          "status": "PASS"
+        },
+        {
+          "case": "exact A/B historical common-time ITRS comparison",
+          "status": "PASS",
+          "source_ids": [
+            1,
+            2
+          ],
+          "at": "2026-10-18T18:57:18.892800+00:00"
+        },
+        {
+          "case": "actual readiness dashboard",
+          "status": "PASS"
+        },
+        {
+          "case": "mobile recipient, reduced motion, keyboard, graphics",
+          "status": "PASS",
+          "webgl2_rendered": true,
+          "physical_device": false
+        },
+        {
+          "case": "shared comparison restores read-only definition",
+          "status": "PASS"
+        },
+        {
+          "case": "missing source disclosed without replacement",
+          "status": "PASS"
+        }
+      ],
+      "requests": 59,
+      "page_errors": [],
+      "csp_violations": [],
+      "source_hashes": [
+        "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+        "8105d7f3aa846b3c0452a3dd9cbee4a6fe5348ea6d081afbdfc98b86e49fd7cd"
+      ],
+      "api_mocked": false,
+      "canvas_mocked": false
+    }
+  ],
+  "chromium_pdf_verification": [
+    {
+      "file": "chromium-comparison.pdf",
+      "pages": 17,
+      "bytes": 73444,
+      "status": "PASS",
+      "page_counters": true,
+      "all_sections": true,
+      "source_identity_and_warnings": true,
+      "track_rows_checked": 0,
+      "application_excluded": true
+    },
+    {
+      "file": "chromium-ground-track.pdf",
+      "pages": 13,
+      "bytes": 57964,
+      "status": "PASS",
+      "page_counters": true,
+      "all_sections": true,
+      "source_identity_and_warnings": true,
+      "track_rows_checked": 3,
+      "application_excluded": true
+    },
+    {
+      "file": "chromium-maximum-track.pdf",
+      "pages": 72,
+      "bytes": 239654,
+      "status": "PASS",
+      "page_counters": true,
+      "all_sections": true,
+      "source_identity_and_warnings": true,
+      "track_rows_checked": 361,
+      "application_excluded": true
+    },
+    {
+      "file": "chromium-position-offline.pdf",
+      "pages": 8,
+      "bytes": 44897,
+      "status": "PASS",
+      "page_counters": true,
+      "all_sections": true,
+      "source_identity_and_warnings": true,
+      "track_rows_checked": 0,
+      "application_excluded": true
+    },
+    {
+      "file": "chromium-position.pdf",
+      "pages": 8,
+      "bytes": 45083,
+      "status": "PASS",
+      "page_counters": true,
+      "all_sections": true,
+      "source_identity_and_warnings": true,
+      "track_rows_checked": 0,
+      "application_excluded": true
+    },
+    {
+      "file": "chromium-saved.pdf",
+      "pages": 7,
+      "bytes": 41074,
+      "status": "PASS",
+      "page_counters": true,
+      "all_sections": true,
+      "source_identity_and_warnings": true,
+      "track_rows_checked": 0,
+      "application_excluded": true
+    },
+    {
+      "file": "chromium-snapshot.pdf",
+      "pages": 7,
+      "bytes": 41213,
+      "status": "PASS",
+      "page_counters": true,
+      "all_sections": true,
+      "source_identity_and_warnings": true,
+      "track_rows_checked": 0,
+      "application_excluded": true
+    }
+  ],
+  "release_images": [
+    {
+      "tag": "orbitiq-api:phase9-local",
+      "image_id": "sha256:839cd9998f0b696a9f77a050fd6d846c166e7156b2e31f7953eee796a75bd3d3",
+      "runtime_user": "10001:10001"
+    },
+    {
+      "tag": "orbitiq-web:phase9-local",
+      "image_id": "sha256:4a6e3b2de6ef8f4f39071bb9d9733e8aafcb48200ef16617a60b0fd89efd1a56",
+      "runtime_user": "101"
+    },
+    {
+      "tag": "orbitiq-browser:phase81",
+      "image_id": "sha256:f6b7a44357e4f2e9b8bd147158d108702427a0980027981eca513927f392e5c5",
+      "runtime_user": ""
+    }
+  ],
+  "release_smoke": {
+    "status": "PASS",
+    "fixture": "explicit empty isolated schema-3",
+    "checks": [
+      {
+        "route": "/",
+        "http_status": 200
+      },
+      {
+        "route": "/api/health",
+        "http_status": 200
+      },
+      {
+        "route": "/api/ready",
+        "http_status": 200
+      },
+      {
+        "route": "/api/snapshots",
+        "http_status": 200
+      }
+    ],
+    "archive_unchanged": true
+  },
+  "actual_example": {
+    "file": "docs/phase-9-export-example.json",
+    "sha256": "fabb761aa607894677a00bf87e56d880bd7115d04aaa4b8ceda65853c441ae8b",
+    "report_id": "4a54e9d7-08db-4417-a40b-e00853ad8eff",
+    "source": "Existing genuine CelesTrak ISS archive; no acquisition or synthetic production insertion"
+  },
+  "preservation": {
+    "normal_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "normal_database_bytes_unchanged": true,
+    "normal_schema_and_all_tables_unchanged": true,
+    "runtime_restored_archive_bytes_unchanged": true,
+    "archive_fingerprint": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "protected_baseline_files_verified": 47,
+    "science_storage_ingestion_locks_prior_phase_reports_unchanged": true
+  },
+  "local_recovery": {
+    "status": "passed",
+    "created_at": "2026-10-20T06:39:40.694801+00:00",
+    "completed_at": "2026-10-20T06:39:40.801071+00:00",
+    "method": "SQLite Connection.backup; exclusive new files; no source writes",
+    "backup_name": "backup.sqlite3",
+    "backup_bytes": 53248,
+    "backup_sha256": "644585974d4192d47797b17ff2fc20e660d723f779d2d9362780230d50989c0c",
+    "source_at_backup": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "restored": {
+      "schema_version": 3,
+      "schema_sha256": "cd2fe32d59faa73dc7f377de923aedfefcb25c780c0bad070760a5b7782495dc",
+      "schema_objects": [
+        {
+          "type": "index",
+          "name": "ingestion_acquired"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_inserted"
+        },
+        {
+          "type": "index",
+          "name": "ingestion_validated"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_catalog_id"
+        },
+        {
+          "type": "index",
+          "name": "snapshots_payload_identity"
+        },
+        {
+          "type": "table",
+          "name": "collection_gate"
+        },
+        {
+          "type": "table",
+          "name": "ingestion_attempts"
+        },
+        {
+          "type": "table",
+          "name": "schema_version"
+        },
+        {
+          "type": "table",
+          "name": "snapshot_insertions"
+        },
+        {
+          "type": "table",
+          "name": "snapshots"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_completed_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "ingestion_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "insertions_no_update"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_delete"
+        },
+        {
+          "type": "trigger",
+          "name": "snapshots_no_update"
+        }
+      ],
+      "tables": {
+        "collection_gate": {
+          "rows": 1,
+          "sha256": "f4de9246ee51bd70966490ee927ad29c613063142d95532f63903c1ab7ba384e"
+        },
+        "ingestion_attempts": {
+          "rows": 1,
+          "sha256": "3d58dbb7d491e7391126f670b130ab0ee3363015f7877cf6d56cceefffcb4a37"
+        },
+        "schema_version": {
+          "rows": 1,
+          "sha256": "bff94fb1bf2848d88203d9f8290f4892eba718c0fd02f7f86b2a04efa0877aee"
+        },
+        "snapshot_insertions": {
+          "rows": 1,
+          "sha256": "3d145b1d8e2b36a87009a29adde2bed28b9253e10384821882335e2fadd95815"
+        },
+        "snapshots": {
+          "rows": 2,
+          "sha256": "96c6a3aa2ca4e9cd6074e2002938e74c3f7ee3b896c1bffb56311602e26fd5cf"
+        }
+      },
+      "integrity": "ok",
+      "foreign_keys": "ok"
+    },
+    "source_unchanged_during_rehearsal": true,
+    "verified_snapshots": 2,
+    "api_checks": [
+      {
+        "route": "/api/snapshots",
+        "http_status": 200
+      },
+      {
+        "route": "/api/snapshots/1",
+        "http_status": 200
+      },
+      {
+        "route": "/api/snapshots/2",
+        "http_status": 200
+      },
+      {
+        "route": "/api/comparisons",
+        "http_status": 200,
+        "counts": {
+          "shared": 1,
+          "added": 0,
+          "removed": 0,
+          "incompatible": 0
+        },
+        "self_comparison": false
+      }
+    ],
+    "restored_target_separate": true,
+    "restored_retained": true
+  },
+  "phase9_remote_ci": {
+    "status": "NOT RUN",
+    "reason": "Changes uncommitted; no publication/workflow action authorized"
+  },
+  "last_verified_published_ci": {
+    "commit": "341812ae66409691e9cf07b15e50dba3ab894e26",
+    "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39377033436",
+    "jobs": {
+      "backend": "success",
+      "frontend": "success",
+      "release-images": "success"
+    },
+    "applies_to_phase9": false
+  },
+  "phase8_launch_gates": {
+    "hosting_domain_public_https": "NOT VERIFIED",
+    "independent_off_machine_recovery": "NOT VERIFIED",
+    "production_monitoring_real_alert_delivery": "NOT VERIFIED",
+    "exact_phase9_commit_publication_and_ci": "NOT STARTED",
+    "branch_protection_required_checks": "NOT CONFIGURED in last available read-only summary"
+  },
+  "limitations": [
+    "Public read-only archive only; no server-owned investigation accounts or private ownership records",
+    "Local titles, notes, saved UUID and creation timestamps deliberately excluded",
+    "Current recomputation, not byte-identical historical replay; source bodies and EOP/leap binaries are not embedded",
+    "Native Firefox/WebKit PDF dialogs and physical printers unverified",
+    "WebKit automation screenshots skipped because Playwright injects inline CSS blocked by retained application CSP; actual export/layout/offline flows verified without CSP violations",
+    "361-sample detailed report is 72 A4 pages at tested defaults; no general throughput guarantee",
+    "Existing Three.js chunk exceeds Vite 500 kB advisory; reports are separately lazy loaded"
+  ],
+  "acceptance": {
+    "AC-01": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-02": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-03": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-04": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-05": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-06": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-07": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-08": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-09": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-10": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    },
+    "AC-11": {
+      "status": "PASS",
+      "scope": "Existing public archive and locally verified functionality; Phase 8 gates separate"
+    }
+  },
+  "changed_files_at_verification": [
+    "README.md",
+    "backend/orbitiq/api/boundary.py",
+    "backend/orbitiq/api/reports.py",
+    "backend/orbitiq/main.py",
+    "backend/orbitiq/reporting.py",
+    "backend/orbitiq/services/reports.py",
+    "backend/tests/test_phase9_reports.py",
+    "backend/tests/test_production.py",
+    "deploy/server-routes.conf",
+    "docs/investigation-report-schema.json",
+    "docs/investigation-reports.md",
+    "docs/phase-9-export-example.json",
+    "docs/phase-9-integration-results.json",
+    "docs/phase-9-plan.md",
+    "docs/phase-9-report.md",
+    "docs/saved-investigations.md",
+    "frontend/src/InvestigationActions.tsx",
+    "frontend/src/InvestigationReport.test.tsx",
+    "frontend/src/InvestigationReport.tsx",
+    "frontend/src/SavedInvestigations.test.tsx",
+    "frontend/src/SavedInvestigations.tsx",
+    "frontend/src/report-api.test.ts",
+    "frontend/src/report-api.ts",
+    "frontend/src/report-presentation.test.ts",
+    "frontend/src/report-presentation.ts",
+    "frontend/src/report-print.css",
+    "frontend/src/style.css",
+    "frontend/src/test-fixtures/reports.ts",
+    "frontend/vite.config.ts",
+    "scripts/verify_report_browser.py",
+    "scripts/verify_report_pdf.py"
+  ],
+  "manifest_scope": "All current tracked/new nonignored inputs except this evidence file and the final report; SHA-256 over file bytes",
+  "input_file_sha256": {
+    ".dockerignore": "767f768b0fddd32b53c56867bbf286dc90ddee0ecb1d69bc031c3401eefadcd6",
+    ".env.example": "c5f6620153b380632634d3ad9c761f1fe538b73226e1395c3fe0f5d41008a7ec",
+    ".github/workflows/ci.yml": "a7b489350c0668613923da31558654aa5f3a6fb2e06a33911252c89f5b3deecd",
+    ".gitignore": "a9de07469acc5518ad7c352f81f12e21b95a2e9e841970c172c0fd044624f11b",
+    ".nvmrc": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53",
+    ".python-version": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
+    "Dockerfile": "ff3c9e4084a5098c75b959600007b7bb019db8c9a780c3f2de06cee0966c309e",
+    "README.md": "e7ddb1734192d3571f7cb13ea2e481c3c4769eb421c9387353b701efec2ecaea",
+    "backend/orbitiq/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/orbitiq/api/__init__.py": "5e07dd0d73d377eb2a5c8a66cfcee482618cb27c26de72903bb8fa1bd0d98399",
+    "backend/orbitiq/api/boundary.py": "6610a66d5d6c519bbb3ed5da4c1b91762efb5c93dc122726aac86805c5753c40",
+    "backend/orbitiq/api/errors.py": "28265e6cf3514d0f7a9c2c135a79c211f3eb95c2e8c652a16f024894a9806ad6",
+    "backend/orbitiq/api/ground_tracks.py": "07d7a652913ae0aaf2584354e52e7762c056b8f94d251b520972bdcade63440a",
+    "backend/orbitiq/api/health.py": "9a1e90c4ca376a52669d6684fb9ef8438a6cf50d6f41e2aab3d6d7c923e903b6",
+    "backend/orbitiq/api/investigations.py": "fe501934859e32e739e4d403325dce751ab99f6148f12d5b0904d08d4f554b73",
+    "backend/orbitiq/api/operational.py": "969b7c319056460d5c587aa23ef7cedaf3b0656289f5cf19c926df96ef056d59",
+    "backend/orbitiq/api/orbits.py": "aedb0ee9c56a1d714694b0726f29a1bf9a486a68c1b7ca58671eec2632fb1871",
+    "backend/orbitiq/api/readiness.py": "24db2cdd74d793abf6969ea1a179761a846f228539070b99fe2ef9f5dc35c0cf",
+    "backend/orbitiq/api/reports.py": "835828e758c7a66d1a65f52bd3f2e651fae7880049610dfd0f96b20880d5c750",
+    "backend/orbitiq/api/scientific_schemas.py": "044e42dd1a06f264e20b7c9ea5213857cbe895f3819e3e31e2247a1243ec5079",
+    "backend/orbitiq/database.py": "bec62754a897227af1a5b5a3a360b4fa0c1999a25d845798714e7417d1314e28",
+    "backend/orbitiq/ingestion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/orbitiq/ingestion/celestrak.py": "2f2b5471482b6f185231f180f72f87d9bf73634009a2b6d046cae87940afe2af",
+    "backend/orbitiq/ingestion/collection.py": "a95c7aaa8d9db84bc83f4d99adf7d1cdf83a3b29f5606fe6e4f7081b68961b93",
+    "backend/orbitiq/main.py": "f663ab0c18e6fd49f2a3d204245a3da9b6104b6a4dea1cb2d4909f754e52baf0",
+    "backend/orbitiq/maintenance/__init__.py": "6b529e4c828464104859982376e974d7be0bde4b3f65b70f16bcf3d45202fa37",
+    "backend/orbitiq/maintenance/backup_export.py": "6e827eff4101cefa289c25fb180c4887027fa27885014b1cc28d4f4c42e8339f",
+    "backend/orbitiq/maintenance/eop.py": "840063bacc01e55d0cd87cdbacc3f4e7a53695b7ab064b8b4595086a21c1acec",
+    "backend/orbitiq/maintenance/monitor.py": "e514a47c0bda9c8421f7bec00bb21209c7bfcfb144451993c10653a5cc990f66",
+    "backend/orbitiq/maintenance/probe.py": "b0964bb7b90b2c1c0ce24ab68803fd0444ce7d21debfc007c803cd4eaf2e07ca",
+    "backend/orbitiq/maintenance/recovery.py": "483feac2a7ebb38ee22488d3a695dd2ee66241d4868dceeccb36ec678cfce848",
+    "backend/orbitiq/migrations/001_initial.sql": "ae21b6483ea6487b7ba8b5d43387b7fc349aa51bcb621a363878179e1a9d38e5",
+    "backend/orbitiq/migrations/002_snapshots.sql": "f183eaa21aefe25969768120af211b8947e1a53e36f33d3a37674fa18677a507",
+    "backend/orbitiq/migrations/003_ingestion.sql": "84a027478abe3a18aa6a0f171a3298699687219172694f57610073091b250d49",
+    "backend/orbitiq/orbits/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/orbitiq/orbits/coordinates.py": "6ebc8491fc96118eac0fd40afc2d1eb8459d87ea7b5008819d8c17ea89e3e19b",
+    "backend/orbitiq/orbits/earth_orientation.py": "f2f3240818b23f9c6b39c3b4d0d1a248d87b446590d9c838fa7f6ceb64d9c6bf",
+    "backend/orbitiq/orbits/elements.py": "514cf3bdedc54d2b5f3af0155dfb5e10d24608ce924a6419c622413ac7f206dc",
+    "backend/orbitiq/orbits/engine.py": "509c00730325ca2d24cca4d13260473a598ebfd9666f62b9ea40855f0804ae26",
+    "backend/orbitiq/orbits/freshness.py": "3776c31476b01f56accaf5f1de50fe73c821d168fe7da65e58f1eef061b440e7",
+    "backend/orbitiq/orbits/sampling.py": "825ebb40becb7acf0da59d2c91ebf122b165d45d195d19aa9e9089360a74238d",
+    "backend/orbitiq/reporting.py": "bf441bcd6d18c458314511fdee499face45f91557cbf5213c9bc046162efa129",
+    "backend/orbitiq/runtime.py": "7b5f65625b35a512f17de309efdaa456d0baa77e3662decde9741abe18b3bcea",
+    "backend/orbitiq/services/__init__.py": "0cd24ec0d86900bfb8b922249feb031cdf22888d987a325b5a3d15ed7918b7c1",
+    "backend/orbitiq/services/analysis.py": "9e80594add34646ad6f3cd0a00341d68472c711cb2858410ded9d33d4a3ec42e",
+    "backend/orbitiq/services/ground_tracks.py": "cf43222d95b3b77dcb2646805568571de8ee16b2bcda6f235cc7bd4b5f77dd4d",
+    "backend/orbitiq/services/ingestion_status.py": "321f28b6bee9a89ff18fb85c7e5ea17d93d9110cb4c383d12e563aadc395a439",
+    "backend/orbitiq/services/investigations.py": "3f449b41eebe283183db4b8ec543bdc9b5b92b6403f75fd49e6cc1eecc0473f5",
+    "backend/orbitiq/services/readiness.py": "1083508fd54c3ac6359804eb153942624850bc5547fa075b8907c597c7525135",
+    "backend/orbitiq/services/reports.py": "a95c02f1a82cc1fdee76c418d57a2a702ef121fde724ef96033619fe48ce755e",
+    "backend/orbitiq/storage.py": "ffc76c2f5e28694b3f9222ffd85aa83c8c487b98d06d8d2dad4a36ec8f0e70eb",
+    "backend/tests/fixtures/README.md": "f0e875bcbcd80f611bf012ab985df9e9e3bf8217ac103098a8074b78566db6fa",
+    "backend/tests/fixtures/earth-fixed.json": "b81a426545a50ae322f1be4643e82696fc35744cdb52aeda855ef9dfacd7e9c2",
+    "backend/tests/fixtures/phase61-sgp4.json": "1c80919455bb34136c064fffe664bc5414f11b4308fe2b895f1756173c69f73d",
+    "backend/tests/fixtures/phase61-source-notices.txt": "76e37019b371a206396c99e59b591d56996df47e4bd1a6685fe133d247b23031",
+    "backend/tests/fixtures/phase61-terrestrial.json": "c0d5e16c8387c508886ca796f941db45eb4188b9a83ccef686005d85fbfbf4f1",
+    "backend/tests/fixtures/phase611-geodesy.json": "a64a35a29c5617b5d3ddb444a77f80a6a3fb033dd13fe2481f4254a939b68ca2",
+    "backend/tests/fixtures/phase611-source-notices.txt": "cbd04a7354ab6772741693fec62bc43fb6cbe1d54eea86d3d8e857c78cf9fc6d",
+    "backend/tests/fixtures/vallado-leo.json": "b55844b5720d329eb958264afa1d5a54deb55e42e031188078d5a300a31b6242",
+    "backend/tests/fixtures/vallado.json": "2af169d40c5f55a1780137ab974374a402f6906b0cacd9eeb9d708358dd3b5d5",
+    "backend/tests/test_eop_maintenance.py": "dd657084ff453ece27c5ae88395c25ec5832d2619667694d294b208ee302715a",
+    "backend/tests/test_foundation.py": "b6dedd26f6b17c24b267a1af01b26663ba23c6aef11cdf522aec60765600de95",
+    "backend/tests/test_ingestion_reliability.py": "1cfb5e2df596e782a95e2e79accc61c6c5bb4f4114f8235355e6bb3dc57e20e3",
+    "backend/tests/test_phase1.py": "6c01226dffc75a8f7d10814a2db59d463133dca7d8eb133071c8f714114881f9",
+    "backend/tests/test_phase2_api.py": "99d4b577b3da7387aa69779cc34064337df620e9b328504b685051742f354e0a",
+    "backend/tests/test_phase2_science.py": "85eed96c2717b7f9d4f1aee2f8d47b63a78f8c94843fe562171c7daa4b8c4b74",
+    "backend/tests/test_phase3_api.py": "1510ef6785b9eaa362e3bab63f94c9cea8ff4bfabb1990e52691e3d5f2d4347a",
+    "backend/tests/test_phase3_science.py": "91f096f73fdba354824ace80910a263106aef69e357df90d99e509aca855e388",
+    "backend/tests/test_phase4_rendering.py": "77087d21ddca1ee887dd8d8c9703f6b4987bc0be339a8475c586eefd12cc52e7",
+    "backend/tests/test_phase5.py": "6dc918112b0c97ea0f590190519105f2d8b3e5b1c34599994644f4d041a48d5f",
+    "backend/tests/test_phase611_geodesy.py": "5b93ae852e87f833bab1e98793b4563f623836258981fbc8e696244ccaf66adb",
+    "backend/tests/test_phase61_science.py": "4c38a41f00df46b3312f0241b9547c5a37e883320a39f05155f5ec13785bbbfa",
+    "backend/tests/test_phase6_collection.py": "93611883e08173f37b16bc7dec047b431b721c1b2914982b6d02a2e137b7aa38",
+    "backend/tests/test_phase7_restoration.py": "7ed24956ca5649f93b07802d7bd08d6115ae06e4586d402e6660adf917b65df7",
+    "backend/tests/test_phase81_operations.py": "903363298aa78099f2ef627f1614fcb9fa2d54d5e982c9ea573dd9aa239c21aa",
+    "backend/tests/test_phase9_reports.py": "3e3ff5a802c7ab83d42f49ce2b2004cbafb4707ce945a4417946c135defc60ac",
+    "backend/tests/test_production.py": "f1bfd84cef529fe04ae775f3ceb6f7c7adf4ba2a368836fb6a216ec6b9b4b58f",
+    "backend/tests/test_readiness.py": "f05c520fd390c36584f2152c19e95c5cf7eca323f9a92e025a9b3fb19bc1b759",
+    "deploy/Dockerfile.browser": "633bb10d95f064574902c2872c27af8744ec3ceaa747c248ffe75cceadc7920b",
+    "deploy/api-proxy.conf": "3a6110c6334a11b6b8e4a5fd1a26de07189c5885a563a34f8aa9de91494193cc",
+    "deploy/compose.tls.yaml": "4cc87aba9834d796ec6bcc913e4bae125587dfa48257c792bf56ce1c2bd9e792",
+    "deploy/compose.yaml": "8ac1d6efc1e9b92f595561bb001641b3fbfd5cdf1236e70ed2f6312a184c2288",
+    "deploy/logging.json": "56a495cdf80300613e68ac06efa24a393848544b7b3f13cf8c2808260a9fcab5",
+    "deploy/nginx-tls.conf": "98cc41240ccdeb6e90d218963330f71f39279f8a072468e80a421b8782e5447b",
+    "deploy/nginx.conf": "28e02958c7d3862ca34673628be01f186fd6b13a9e0cad3488b4f79a2b4975b7",
+    "deploy/production.env.example": "28ab98a830654349ae11d65f7f249a88004fcef0f710b0806ffb9f167f916c0d",
+    "deploy/security-headers.conf": "404b5a0241b218d1a85f0667b93bb154b86ed7fd686d362419ac75d576c46f70",
+    "deploy/server-routes.conf": "10bb2ff00c61571de5a14ab930aa3bc7d9d48f97f3f59847b6aa7a175fc4f9ca",
+    "docs/backup-restore-runbook.md": "74e4ca0fa4f5251b0fc2a6c07d719f63c40e672dc62cd5143c236f91c90a8253",
+    "docs/eop-maintenance.md": "fe2e2c89944eee34d7c707e525e0b54184fe58a3973bf9b0cb6bd0b8e656efbf",
+    "docs/ingestion-operations.md": "819fdcdedc790a70de2be85c0fd34210ad2175f98cd4a5d20118dbf04fb28eae",
+    "docs/intended-use.md": "0a7e87f3ba1eca729da1930ec00f2fd135714b883a1e52139b1402cc26a15bcc",
+    "docs/investigation-report-schema.json": "47edec66042227695df2f4b92e2b05b0458abddcc9f1edcaa556a2407c963e02",
+    "docs/investigation-reports.md": "841aeb402c37becb0515677060ae5b81632e5e2a0b66066478934ce5ce849bfb",
+    "docs/monitoring-and-alerting.md": "42578e19075f5ef4c5d61efe959febf3e1e8c9d7e77204c2d4b878afe6681278",
+    "docs/phase-0-report.md": "aae12d1cfe3cf3aa73118c3031e510f91a8000968a875aee76690e036267de22",
+    "docs/phase-1-report.md": "d1e872750941d620be63bb645e4d2ef9d662bcc0dca1b3a5e8818f14348acff0",
+    "docs/phase-1.md": "e263fde30a14f0d3bcd7651d75098b147a79136cbad948f635a0f73668d1eab0",
+    "docs/phase-2-plan.md": "894d643e118cfae4c7ceec0c856554dd9d45e361be1017b5a80cd4c5c6482171",
+    "docs/phase-2-reference-results.json": "8ed63194c9f555282cdf4894e77b30e84e4309e8d5dc3665858ffb6f6b737670",
+    "docs/phase-2-report.md": "812239b5ca78adcffb4dd347e92d1936d3f4a335026d3dc3827083b54e7588e0",
+    "docs/phase-3-integration-results.json": "6a825c550c2fdf0bbe402b67734aa464af8f59e34e017751a52b95ab027e7a1b",
+    "docs/phase-3-plan.md": "7f93c7231c33d929cd058a73a3ff4340a1141120037021a708be12004b777d6e",
+    "docs/phase-3-reference-results.json": "b2509ca05397fb3c8d9d314db2aec327d522852b11300733a4f15897bbb016ff",
+    "docs/phase-3-report.md": "5513711fe845373679d0726d9d3e07288e55b1c4a190c0f5b51073ea99c985e8",
+    "docs/phase-4-integration-results.json": "9f7915d6fe04956109ea46235d257b48656c0226b8103ba9618168553d1691a7",
+    "docs/phase-4-plan.md": "fa48217217a4058c381a9d4a4f92b8ae6c33d964e664956da54cb866f8bde3ae",
+    "docs/phase-4-report.md": "e15c63920fca04b9076cac9a32d37b768ba52a5e3c47eb0e70f89f11b55c9f16",
+    "docs/phase-5-integration-results.json": "c79106284d43de01e99c75be1c991bc53cc7dc6edc3e1ffc71ce6f0cf66a144b",
+    "docs/phase-5-plan.md": "a804c4b31734b1ec66acc35deb64055a4e139531ce3ecb9babc1629fbebc64db",
+    "docs/phase-5-report.md": "153b7148835df8e837c47fe3bda025f20b17107d49d6c945932ae4d5b2be8997",
+    "docs/phase-6-integration-results.json": "a125a28ff59525645f2077e83f087d1fbbaf09370474464c0a11f8041cb935a1",
+    "docs/phase-6-report.md": "85efd7f30cfefcc0ddb42aa534b71358b9ba48180d6458c46a9d037f37ab72ee",
+    "docs/phase-6.1-report.md": "02baed0b03be113e08e4f96862b2e98c9eb6f920fd75444370d16593a225dcf6",
+    "docs/phase-6.1-scientific-evidence.json": "8bed5d92ec83b23c2f40dfb6877a6b94d9d64de52f45e5dffe0bb03dfafce277",
+    "docs/phase-6.1.1-report.md": "f5bd212064e1bf40ffcb648b797d55552988725442ff13565df8ccb6521d9d58",
+    "docs/phase-6.1.1-scientific-evidence.json": "a8db66047b90afe54494ed4f3e58a7978035deed0ab04ba1d7d81a11e56a9ee5",
+    "docs/phase-7-integration-results.json": "3248d16e3f269e059cf36b3169b8afc87edc0ad5e767a64ff336686d1970cc9c",
+    "docs/phase-7-report.md": "a4621cb1d34000a4e1857c45f85e3e291d3f8ae1e24d1db95aba2e3a4a696b4a",
+    "docs/phase-8-closure-checklist.md": "dabdf0f2ff8f70b8aa26d91b81bb99d7c096bd514b0545f9b717a7a16144afc3",
+    "docs/phase-8-closure-evidence.json": "f3a32aa16f749e3cd1cd5244c8fe8adde0a9f183eb968a466ca674c2d2e6c0ba",
+    "docs/phase-8-closure-report.md": "10def8a99649e447efa01ec145571cd78a4fa53a34351473b2fc2781eb507201",
+    "docs/phase-8-integration-results.json": "e5f6f320bd456da73835b9617dc0a28d0b209bbdfcceaf58e44d3cfd3c9913b7",
+    "docs/phase-8-readiness-report.md": "8f8f071fc22a5c205ec69fe77a64913bc27993d8e411d1641c94ea59c1227636",
+    "docs/phase-8.1-integration-results.json": "3c9e125629b0875c8f38a5635cefe09e594cb3e40ace5249947cd5233c74a911",
+    "docs/phase-8.1-launch-readiness-report.md": "111cebec181e59b5b76eb2294f3d97b94dedc564971a956f3d1925fae6977f93",
+    "docs/phase-8.2-integration-results.json": "38115886222a1cbc219b7e57d92f276ab41c6fd6c6a9964cdab2a855dd55feee",
+    "docs/phase-8.2-release-readiness-report.md": "b69a069ba3841a8bb6cc1d65a8980c96746325b475bf60a95dfd45193855bbe5",
+    "docs/phase-9-export-example.json": "fabb761aa607894677a00bf87e56d880bd7115d04aaa4b8ceda65853c441ae8b",
+    "docs/phase-9-plan.md": "4fc4b9cef0b430d03ec08a38781636d757f1f13e92ea0fd32c38a6e5de6d6ddb",
+    "docs/pre-phase-5-integration-results.json": "d706651560bb912014d993712f6bb9fef13b1605c63567a450a26bc929ada06a",
+    "docs/pre-phase-5-plan.md": "f8b0806c73ad115f0e14ac2fe764e4a73e6b399c29406eabf2e7737cc9653f65",
+    "docs/pre-phase-5-readiness-report.md": "23d623ad578f8673c93b28463485a4e1a0d94504855ab40c780f47e4714aab35",
+    "docs/product-foundation.md": "916c3fde9623da9eed25091b9d49d2c0f5ee7e5046e1a1fe1b5486f54899e0b5",
+    "docs/production-deployment-runbook.md": "a1eee62e361537633247b0ef00afa6995c35c06e12475ba3592739d62dac2978",
+    "docs/production-infrastructure-decisions.md": "a61308e40611211ec206b6bfb16dcec01f9fbb983c162ab219950faaa4d85868",
+    "docs/production-release-rehearsal.md": "dfbb1145e90da2ced3f24300827a033dd5e42003b88786e60aac75b694370bf5",
+    "docs/production-security-review.md": "21e2f04ae0b45536cb1aec6810897692e0127cd714a6b3a259677c3fda0fea34",
+    "docs/saved-investigations.md": "5fab85409f8068e07b363e882f9a949f68f2e5491d075578b08352535edb4d9d",
+    "docs/scientific-conventions.md": "19061be5dc25579111f1bc69727c2f66aa4651f44d5d1f2f7908a0c047cc9800",
+    "docs/scientific-data-readiness.md": "3930dc9353ad168032f8f17d9d6f491a6db56cf5f0446bf981d02f90863bb385",
+    "frontend/.prettierignore": "b0bca94a80846df59808ebc09892f4b1f3aa03df79dea6081038cca5bfd47564",
+    "frontend/eslint.config.js": "02b5aaa124348b8f5dc1be3109c3702bc8f54c8e577c0d5df5983cad25b7eaee",
+    "frontend/index.html": "c7e9bdbfac4e3dfee949f90498a924fc27309b387001e2c7c0b6c82d71281277",
+    "frontend/package-lock.json": "ad30fad9da6bc567b3fd1f63cb6053f74df1e06b3830b086719c8411fc8e4c9d",
+    "frontend/package.json": "1c01e4eab01716f78cbed2fe7494bcf3cb857f68683eb08a23b87bb5439e1187",
+    "frontend/public/assets/README.md": "854ddb44b0f60932419b25cb1e9220595d17e450127dadba3942679e7c201e55",
+    "frontend/public/assets/THREE-LICENSE.txt": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+    "frontend/public/assets/earth-atmosphere.jpg": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d",
+    "frontend/src/App.test.tsx": "18cb9ec5f45289a5e93bcb219d7ae45f0f9509388ec648067df8333227fa71a0",
+    "frontend/src/App.tsx": "db53ce735844cfc8f44f7c56ea07ff04d6d565933cc9c7b3a721b45383f15d08",
+    "frontend/src/Explorer.integration.test.tsx": "de8b5e0d374312d2910c460890fe0510b15667cea9f317ccb07bf927a9c1b84f",
+    "frontend/src/Globe.test.tsx": "879e5ecdc0eb57fccdf415c6a86461b6a4e167c3b27738bd2d25a3c7f28a1cea",
+    "frontend/src/Globe.tsx": "b37a56a38dbd2bed9d0b476095e4b465ce6ceba56340675196c3caa6d2730f0d",
+    "frontend/src/GroundTrack.test.tsx": "5208bded5896117d84b3197b63010ee9e32ff77da93dc351b10124aef7c4c944",
+    "frontend/src/GroundTrack.tsx": "ba4e4eca3a57906695150b8b62ad72a4382215b06737e9ba0af5323696986f75",
+    "frontend/src/InvestigationActions.tsx": "598d85ec5b0d11ba9a14397132f9971e0e70ccf9795bd1d154f8a0a4d16dd3ac",
+    "frontend/src/InvestigationReport.test.tsx": "79c83fb6db66b68ac4ff056ec56158df0c049719470feebc177a4867b233a8f1",
+    "frontend/src/InvestigationReport.tsx": "99cc6d1da83c59231a3a609e23a54d329dc6422057fcc750cc5e5e7441184756",
+    "frontend/src/InvestigationRestoration.test.tsx": "9b54835cb732232e93da284386ff56cbea9995c486f65a9d01be565c8fd0be98",
+    "frontend/src/Investigations.test.tsx": "3160afa4e1d60c23499e45b0c687fc76500e78f8057b9569b4695fbe395e32a1",
+    "frontend/src/Investigations.tsx": "7ce8bb89206e14008dcb47756254f61569b6e341d7026f0e8a01122660b6cdbd",
+    "frontend/src/ReadinessDashboard.test.tsx": "1b37ea7d408d484d291da912b5792db1e8c9b9a8b2f0fb92ccef3ceef164a18e",
+    "frontend/src/ReadinessDashboard.tsx": "7b4af4f3906ee5aca61b2ece799b7407949de69911d4aa02741e86bbbe5e166c",
+    "frontend/src/RestoredInvestigation.tsx": "a55769f0be49e79fcf7c6336d6ee6546e8707c0bb47a8d0fa26c82a904595f77",
+    "frontend/src/SatelliteInfo.tsx": "9ad254e93306e18b7f945e2fe0b6e17666faa899769f5f0563653018919fed3d",
+    "frontend/src/SavedInvestigations.test.tsx": "bec54a9b0eaf74b9f6c98b8213d5637709f7ee131a39c880f24da3b517dc97b2",
+    "frontend/src/SavedInvestigations.tsx": "23a069386df9d2b93af74512bccbd0acb12077b423861f76d335b8fc509d16ee",
+    "frontend/src/ScientificExplorer.test.tsx": "60d595e1029cd5c5f2992754969e5d059973bf2573caa1ffcf4f8bd81d3362ef",
+    "frontend/src/ScientificExplorer.tsx": "918d9d0298dd41083a247b82ed8ea9ae7635b16aa804678f92f3bde70bf4d066",
+    "frontend/src/Timeline.test.tsx": "8370b34f0df0710edcc5bd22d354451c347957d73cde81080d95ec483d923130",
+    "frontend/src/Timeline.tsx": "e2c5288e179454ec43b62fe7a5b4fd1da177b16dce466fdc7d0355a5075301d1",
+    "frontend/src/api.ts": "f0bdafb0d4cb3dca783e7b269edd7e6775e50296370372e87eabe529cb80d55a",
+    "frontend/src/globe-geometry.test.ts": "5ab2139c143ef47b3e9405fdd853b71b6dfd56c6907da62b5d15ae782262d1b8",
+    "frontend/src/globe-geometry.ts": "f61f2a4f7418584204cc21dff89e87b53c5e3e8b1bd7954e51a2ef2321543e37",
+    "frontend/src/globe-renderer.ts": "9b2d771db27e31d9c95ab6fdd37487c006f2f4adb9e9e2ea108240ca57cd0525",
+    "frontend/src/ground-track-api.test.ts": "4eafa010a86a0e27ad33aa046293e59fb9740264854638abfdf7e324a6d25d3f",
+    "frontend/src/ground-track-api.ts": "86e420017250627bac925634ca80de06f403caaba77349cec7d06692eed86ed4",
+    "frontend/src/investigation-api.test.ts": "e5b7fdf3facc052a98c8a0353443f898873ee3f0c45a19b8395369e9a4bf463d",
+    "frontend/src/investigation-api.ts": "48421ee23cf59dee09ca334b48e9abdf297dd9d164437deda13fed769402ac5a",
+    "frontend/src/investigation-storage.test.ts": "9775fec17af837da9fa3930f10aea880b67855a4a68d429d36e376145ce3d77c",
+    "frontend/src/investigation-storage.ts": "b80871baa8cb650d890d3e1dfcb2c30967d2609a163264c46515b2c130eb2ff4",
+    "frontend/src/main.tsx": "0149f7a69d4d5aeb746722160f8fbcd57defdf78e80e1fe3d9038dc76f84361e",
+    "frontend/src/readiness-api.test.ts": "289745b5ec9bc97febcddc9972d3bfd12bb4557358eff6a346c88a85d9f4ecfe",
+    "frontend/src/readiness-api.ts": "bea4b3801581ce2f3d2d257887d1fdfc3afd1f4c50d57cd6a6fb3348c953869d",
+    "frontend/src/report-api.test.ts": "a9b289e772c6c3c1b0cf9fcaf2033ffcdb9617870303c3489bb7e62c4d212f11",
+    "frontend/src/report-api.ts": "e90743c15b1f2754aa024d96784a596255dec657b7dac2f76a691e7e01823811",
+    "frontend/src/report-presentation.test.ts": "7884a23abe3886789fcd129e91f7104d1af71e788a83ba8e4a4063d0779d572f",
+    "frontend/src/report-presentation.ts": "5da9ea4db16c959b17b26f45eb8c08080615f67d49c8b3d645ab88ac65c08ee3",
+    "frontend/src/report-print.css": "e784ad98c93e4494aaeeb340dc146b99a67f9bfb29f6e6e517c06f02bb79d8b8",
+    "frontend/src/restore-investigation.test.ts": "7b51d93e2eeb69b0ab8549e51caa6345c36d905d7a0f363c8bb36ec156ed12ab",
+    "frontend/src/restore-investigation.ts": "7c630abccce50a6f2f0e21e0e58dc15a43baf96a4ee613eca1ac7ad33c58d3cb",
+    "frontend/src/saved-investigation.test.ts": "f23409739f3de784bb9ec89cc8877b9cc4c8f794cc7a43da9cf0e598fdc6e9ae",
+    "frontend/src/saved-investigation.ts": "6c6940418ee27e8e0a77bc1dc2a04bb018b45c8e0110fdafccd4d8bae0e74dc4",
+    "frontend/src/scientific-api.test.ts": "f47385b5c09b255b134404ff50a47c286229855eb01dd0fe0e690ebc2d33cfc1",
+    "frontend/src/scientific-api.ts": "6074ea566a38cf7d04687111dfdb15e1aeb47dc2960058c6fa933b62578c0ced",
+    "frontend/src/snapshot-api.test.ts": "9408248ab702be31fef78f12b15d38e6d5a3c506ed5b1279f04d7ba57da01fe2",
+    "frontend/src/snapshot-api.ts": "24df0978f3407b6eebdeadf07a3b8d8b2e169607ff1db2d3c77e6999dc00fd40",
+    "frontend/src/style.css": "13014395c4626944683a2d0c36307e8859f99474204f245c96b19317e1c39524",
+    "frontend/src/test-fixtures/explorer.ts": "733d3e58b30d5a12ed5843b31f7b632f6c913ccdeb20b93e25498ce93d500229",
+    "frontend/src/test-fixtures/ground-track.ts": "01902a6d496472d6a0206b09c4ee71ff30af56270189d582ae13aa5cee25a035",
+    "frontend/src/test-fixtures/investigations.ts": "8cc204f8a354d8f1e8351ce5b36716de7494b3824856c512d29faa2d4608b115",
+    "frontend/src/test-fixtures/readiness.ts": "700efe9deb2c1fdb21b027675137700ec74bf0c6da0bfe528d11410f25b334b5",
+    "frontend/src/test-fixtures/reports.ts": "3541b9a35bcd50aa16129e16f20894a8b12957e42556373f6e84e60785de6a6e",
+    "frontend/src/test-fixtures/saved-investigations.ts": "a548ca34f3373acf1186571cc0bf3f5b7eee2abb77290a4ddcfdef2611cc078d",
+    "frontend/src/test-setup.ts": "9b328c4843431fa76d8de00008fc159e95f99a840211085ff3b8f25e53d14409",
+    "frontend/src/time-presentation.test.ts": "dbe8309e5d9c3795a76dae4288a04d270a902d9b30ce99ed814a1e257e17e875",
+    "frontend/src/time-presentation.ts": "0d563358f21141a6ff38474c55e4a2ecaf7cdbbb781f56790bd6d4e810c5092c",
+    "frontend/src/use-reduced-motion.ts": "5a2cff05432f859508b0cf7a3c508ae099bbac148213cfdeb4a77139439fe885",
+    "frontend/tsconfig.json": "7fe57729982de35d545412c7d688c760ee8a555a8a27c438af03a90ce3da8b7c",
+    "frontend/vite.config.ts": "32f8d35800af74da2599a12d39fa99a64c3f90a3e056a35b07b63b789f4ab315",
+    "pyproject.toml": "fa8ebb649044fbe98e7f4cc9c9d6bb3cd42c201b898c2854f1e65f6f727df8a4",
+    "scripts/verify_browser_critical.py": "5c0387c2b72289bb06df3e6518434bbeccb65d54a97bde9732e7cb074ea75afa",
+    "scripts/verify_earth_fixed_references.py": "03082a2bb1ad29c91eb32954dce55b9106d40b5202818d5483b97564d28b47af",
+    "scripts/verify_phase611_geodesy.py": "2e3d5c915ab6a59bcc65ca1dbc8e41f689bd80ee8271cedac9b6e3d7f201ef92",
+    "scripts/verify_phase61_science.py": "c007bff050760a0fcfde4bdafbbe2e9df4af04ba32069fe530a4825d73020c27",
+    "scripts/verify_release_containers.py": "6982850f058ee06a7480c73f64a1fad937336a2d04039c52bd0296550800f2ff",
+    "scripts/verify_report_browser.py": "0a0fa99ef7724b2ffe0a106ec9a20a6856cbc1630318bc80a1df13fb3df8df34",
+    "scripts/verify_report_pdf.py": "c44d72260fed477287272be9552d12baf09b08ad93d6849190b72fef902d420a",
+    "scripts/verify_scientific_references.py": "be3daf841291555ee747f83581e4060e52f8980e093bf28346a9990f8dfcbf6a",
+    "uv.lock": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1"
+  },
+  "raw_artifacts_directory": "/tmp/orbitiq-phase9",
+  "verification_services": "REMOVED: owned browser container, local API/web containers and networks; loopback port 18099 closed. Local images/artifacts retained; no registry publication.",
+  "change_review": {
+    "files": 31,
+    "existing_modified": 11,
+    "secret_signature_scan": "no matches",
+    "database_or_private_key_files": false,
+    "head_unchanged": true,
+    "input_manifest_verified": true
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "phase": "9 publication gate review",
+  "reviewed_at_utc": "2026-10-20T07:22:49.236881+00:00",
+  "result": "ready_for_authorized_feature_branch_publication",
+  "branch": "main",
+  "base_head": "341812ae66409691e9cf07b15e50dba3ab894e26",
+  "milestones": {
+    "locally_verified": true,
+    "phase9_committed": false,
+    "phase9_published": false,
+    "phase9_remote_ci_verified": false,
+    "production_deployed_by_this_task": false,
+    "production_infrastructure_verified": false
+  },
+  "initial_review": {
+    "implementation_paths": 31,
+    "tracked_modified": 11,
+    "new_files": 20,
+    "manifest_inputs": 221,
+    "all_initial_manifest_hashes_matched_at_review_start": true,
+    "implementation_evidence_sha256": "0014b79ff8b8499c7b4446d3c50514765daf87c44b870f9e5f2e643988185e95",
+    "recorded_manifest_sha256": "19f0902eee186ef083a1190b5d9841a937efac01fa20768de1c43d6a88697fd9"
+  },
+  "review_corrections": [
+    {
+      "file": "frontend/src/SavedInvestigations.test.tsx",
+      "finding": "Read-only-view test failed when run alone because a synchronous heading lookup raced lazy module loading.",
+      "change": "Async test awaits findByRole; no-save, no-share and no-write assertions retained.",
+      "production_behavior_changed": false,
+      "initially_failed": 1,
+      "focused_after_fix": {
+        "passed": 1,
+        "excluded_by_name_filter": 8
+      },
+      "full_frontend_suite_after_fix": 307,
+      "original_sha256": "bec54a9b0eaf74b9f6c98b8213d5637709f7ee131a39c880f24da3b517dc97b2",
+      "final_sha256": "e9d5ace3431d24aa42dda2a278e5de169c3501f4cf41cad13ad6a67c9b2ec98e"
+    }
+  ],
+  "final_implementation_manifest": {
+    "unchanged_inputs": 220,
+    "changed_inputs": [
+      "frontend/src/SavedInvestigations.test.tsx"
+    ],
+    "application_source_changed_during_review": false,
+    "original_evidence_preserved": true
+  },
+  "local_checks": {
+    "workspace_backend_passed": 675,
+    "clean_locked_python_backend_passed": 675,
+    "workspace_frontend_after_fix_passed": 307,
+    "clean_installed_frontend_after_fix_passed": 307,
+    "ruff_check": "PASS",
+    "ruff_format": "PASS",
+    "eslint": "PASS",
+    "prettier": "PASS",
+    "typescript_vite_build_after_fix": "PASS",
+    "clean_python_install": "PASS",
+    "clean_npm_ci_strict_tls": "PASS",
+    "isolated_test_after_fix": "PASS",
+    "sgp4_reference_cases": 40,
+    "terrestrial_reference_cases": 6,
+    "expanded_scientific_comparisons": 32,
+    "geodetic_reference_cases": 28,
+    "geodetic_roundtrips": 28,
+    "isolated_migration_backup_selection": {
+      "passed": 5,
+      "deselected": 57
+    },
+    "pdf_revalidation": [
+      {
+        "file": "chromium-comparison.pdf",
+        "pages": 17,
+        "bytes": 73444,
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-ground-track.pdf",
+        "pages": 13,
+        "bytes": 57964,
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 3,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-maximum-track.pdf",
+        "pages": 72,
+        "bytes": 239654,
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 361,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-position-offline.pdf",
+        "pages": 8,
+        "bytes": 44897,
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-position.pdf",
+        "pages": 8,
+        "bytes": 45083,
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-saved.pdf",
+        "pages": 7,
+        "bytes": 41074,
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-snapshot.pdf",
+        "pages": 7,
+        "bytes": 41213,
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      }
+    ],
+    "browser_evidence": "Retained three-engine 14 report and 21 critical cases match the original evidence; browser flows not rerun this review",
+    "retained_release_image_ids_match": true,
+    "schema_matches_model": true,
+    "actual_example_validates": true,
+    "frontend_fixtures_match_actual_captures": true,
+    "diff_whitespace": "PASS"
+  },
+  "preservation": {
+    "normal_database_bytes_unchanged": true,
+    "normal_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "normal_archive_full_fingerprint_matches": true,
+    "prior_phase0_through8_reports_unchanged": true,
+    "science_storage_ingestion_migrations_unchanged": true,
+    "dependencies_lockfiles_workflow_container_definitions_ignores_unchanged": true,
+    "no_skipped_disabled_or_exclusive_markers_in_changed_tests": true
+  },
+  "ci_review": {
+    "workflow": ".github/workflows/ci.yml",
+    "unchanged": true,
+    "active": true,
+    "triggers": [
+      "push",
+      "pull_request",
+      "workflow_dispatch"
+    ],
+    "expected_jobs": [
+      "backend",
+      "frontend",
+      "release-images"
+    ],
+    "required_status_check_configuration": "NOT VERIFIED",
+    "workflow_token_permissions": {
+      "contents": "read"
+    },
+    "production_secrets_required": false,
+    "production_database_required": false,
+    "production_migrations_or_deployment": false,
+    "browser_pdf_workflows_in_ci": false,
+    "redundant_workflow_added": false
+  },
+  "remote_read_only_review": {
+    "checked_at_utc": "2026-10-20T07:16:06.621171+00:00",
+    "operations": "Read-only GitHub GET requests only",
+    "results": {
+      "repository": {
+        "full_name": "BibinBinoy777/OrbitIQ",
+        "private": true,
+        "default_branch": "main",
+        "archived": false,
+        "permissions": {
+          "admin": true,
+          "maintain": true,
+          "push": true,
+          "triage": true,
+          "pull": true
+        }
+      },
+      "main_branch": {
+        "name": "main",
+        "protected": false,
+        "sha": "341812ae66409691e9cf07b15e50dba3ab894e26"
+      },
+      "workflows": [
+        {
+          "name": "OrbitIQ checks",
+          "path": ".github/workflows/ci.yml",
+          "state": "active"
+        }
+      ],
+      "protection": {
+        "cli_exit": 1,
+        "status": "403",
+        "message": "Resource not accessible by integration"
+      },
+      "branch_rules": {
+        "cli_exit": 1,
+        "status": "403",
+        "message": "Upgrade to GitHub Pro or make this repository public to enable this feature."
+      },
+      "baseline_check_runs": [
+        {
+          "name": "frontend",
+          "head_sha": "341812ae66409691e9cf07b15e50dba3ab894e26",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39377033436/job/118477379356"
+        },
+        {
+          "name": "release-images",
+          "head_sha": "341812ae66409691e9cf07b15e50dba3ab894e26",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39377033436/job/118477379200"
+        },
+        {
+          "name": "backend",
+          "head_sha": "341812ae66409691e9cf07b15e50dba3ab894e26",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39377033436/job/118477378988"
+        }
+      ],
+      "proposed_branch": {
+        "cli_exit": 1,
+        "status": "404",
+        "message": "Not Found"
+      }
+    }
+  },
+  "phase8_boundaries": {
+    "hosting_public_https": "NOT VERIFIED",
+    "independent_off_machine_recovery": "NOT VERIFIED",
+    "production_monitoring_actual_alerts": "NOT VERIFIED",
+    "baseline_publication_ci": {
+      "verified_sha": "341812ae66409691e9cf07b15e50dba3ab894e26",
+      "phase9_verification": false
+    },
+    "branch_protection_required_checks": "main summary protected=false; detail/rules APIs HTTP 403; no settings changed"
+  },
+  "publication_plan": {
+    "authorization": "PENDING explicit user approval",
+    "proposed_branch": "phase-9-investigation-reports",
+    "commit_title": "Add Phase 9 investigation reports and evidence export",
+    "push": "git push --set-upstream origin phase-9-investigation-reports",
+    "main_push_merge_force_push_deployment_dns_settings_changes": false,
+    "post_publication": "Record exact new local/remote SHA; verify all three jobs and workflow completion against that SHA, investigate Phase 9 failures; recheck protection evidence"
+  },
+  "publication_allowlist": [
+    "README.md",
+    "backend/orbitiq/api/boundary.py",
+    "backend/orbitiq/api/reports.py",
+    "backend/orbitiq/main.py",
+    "backend/orbitiq/reporting.py",
+    "backend/orbitiq/services/reports.py",
+    "backend/tests/test_phase9_reports.py",
+    "backend/tests/test_production.py",
+    "deploy/server-routes.conf",
+    "docs/investigation-report-schema.json",
+    "docs/investigation-reports.md",
+    "docs/phase-9-export-example.json",
+    "docs/phase-9-integration-results.json",
+    "docs/phase-9-plan.md",
+    "docs/phase-9-publication-evidence.json",
+    "docs/phase-9-publication-review.md",
+    "docs/phase-9-report.md",
+    "docs/saved-investigations.md",
+    "frontend/src/InvestigationActions.tsx",
+    "frontend/src/InvestigationReport.test.tsx",
+    "frontend/src/InvestigationReport.tsx",
+    "frontend/src/SavedInvestigations.test.tsx",
+    "frontend/src/SavedInvestigations.tsx",
+    "frontend/src/report-api.test.ts",
+    "frontend/src/report-api.ts",
+    "frontend/src/report-presentation.test.ts",
+    "frontend/src/report-presentation.ts",
+    "frontend/src/report-print.css",
+    "frontend/src/style.css",
+    "frontend/src/test-fixtures/reports.ts",
+    "frontend/vite.config.ts",
+    "scripts/verify_report_browser.py",
+    "scripts/verify_report_pdf.py"
+  ],
+  "publication_content_sha256": {
+    "README.md": "e7ddb1734192d3571f7cb13ea2e481c3c4769eb421c9387353b701efec2ecaea",
+    "backend/orbitiq/api/boundary.py": "6610a66d5d6c519bbb3ed5da4c1b91762efb5c93dc122726aac86805c5753c40",
+    "backend/orbitiq/api/reports.py": "835828e758c7a66d1a65f52bd3f2e651fae7880049610dfd0f96b20880d5c750",
+    "backend/orbitiq/main.py": "f663ab0c18e6fd49f2a3d204245a3da9b6104b6a4dea1cb2d4909f754e52baf0",
+    "backend/orbitiq/reporting.py": "bf441bcd6d18c458314511fdee499face45f91557cbf5213c9bc046162efa129",
+    "backend/orbitiq/services/reports.py": "a95c02f1a82cc1fdee76c418d57a2a702ef121fde724ef96033619fe48ce755e",
+    "backend/tests/test_phase9_reports.py": "3e3ff5a802c7ab83d42f49ce2b2004cbafb4707ce945a4417946c135defc60ac",
+    "backend/tests/test_production.py": "f1bfd84cef529fe04ae775f3ceb6f7c7adf4ba2a368836fb6a216ec6b9b4b58f",
+    "deploy/server-routes.conf": "10bb2ff00c61571de5a14ab930aa3bc7d9d48f97f3f59847b6aa7a175fc4f9ca",
+    "docs/investigation-report-schema.json": "47edec66042227695df2f4b92e2b05b0458abddcc9f1edcaa556a2407c963e02",
+    "docs/investigation-reports.md": "841aeb402c37becb0515677060ae5b81632e5e2a0b66066478934ce5ce849bfb",
+    "docs/phase-9-export-example.json": "fabb761aa607894677a00bf87e56d880bd7115d04aaa4b8ceda65853c441ae8b",
+    "docs/phase-9-integration-results.json": "0014b79ff8b8499c7b4446d3c50514765daf87c44b870f9e5f2e643988185e95",
+    "docs/phase-9-plan.md": "4fc4b9cef0b430d03ec08a38781636d757f1f13e92ea0fd32c38a6e5de6d6ddb",
+    "docs/phase-9-publication-review.md": "e273a9b4b673747933ea0a2591eb6ed2045580e45850b7e3431a9137c1b93559",
+    "docs/phase-9-report.md": "0b74f50bb4f4790f6ef4d197adfd3c9a4fcb0aafc1faeb9509c7c286180038fc",
+    "docs/saved-investigations.md": "5fab85409f8068e07b363e882f9a949f68f2e5491d075578b08352535edb4d9d",
+    "frontend/src/InvestigationActions.tsx": "598d85ec5b0d11ba9a14397132f9971e0e70ccf9795bd1d154f8a0a4d16dd3ac",
+    "frontend/src/InvestigationReport.test.tsx": "79c83fb6db66b68ac4ff056ec56158df0c049719470feebc177a4867b233a8f1",
+    "frontend/src/InvestigationReport.tsx": "99cc6d1da83c59231a3a609e23a54d329dc6422057fcc750cc5e5e7441184756",
+    "frontend/src/SavedInvestigations.test.tsx": "e9d5ace3431d24aa42dda2a278e5de169c3501f4cf41cad13ad6a67c9b2ec98e",
+    "frontend/src/SavedInvestigations.tsx": "23a069386df9d2b93af74512bccbd0acb12077b423861f76d335b8fc509d16ee",
+    "frontend/src/report-api.test.ts": "a9b289e772c6c3c1b0cf9fcaf2033ffcdb9617870303c3489bb7e62c4d212f11",
+    "frontend/src/report-api.ts": "e90743c15b1f2754aa024d96784a596255dec657b7dac2f76a691e7e01823811",
+    "frontend/src/report-presentation.test.ts": "7884a23abe3886789fcd129e91f7104d1af71e788a83ba8e4a4063d0779d572f",
+    "frontend/src/report-presentation.ts": "5da9ea4db16c959b17b26f45eb8c08080615f67d49c8b3d645ab88ac65c08ee3",
+    "frontend/src/report-print.css": "e784ad98c93e4494aaeeb340dc146b99a67f9bfb29f6e6e517c06f02bb79d8b8",
+    "frontend/src/style.css": "13014395c4626944683a2d0c36307e8859f99474204f245c96b19317e1c39524",
+    "frontend/src/test-fixtures/reports.ts": "3541b9a35bcd50aa16129e16f20894a8b12957e42556373f6e84e60785de6a6e",
+    "frontend/vite.config.ts": "32f8d35800af74da2599a12d39fa99a64c3f90a3e056a35b07b63b789f4ab315",
+    "scripts/verify_report_browser.py": "0a0fa99ef7724b2ffe0a106ec9a20a6856cbc1630318bc80a1df13fb3df8df34",
+    "scripts/verify_report_pdf.py": "c44d72260fed477287272be9552d12baf09b08ad93d6849190b72fef902d420a"
+  },
+  "content_hash_scope": "Final reviewed publication files except this evidence JSON itself to avoid self-reference; exact eventual commit SHA must be recorded after authorization.",
+  "log_sha256": {
+    "clean-final-frontend-build.log": "e5b1c11bde49d4967939c4038fe940905a38cd73b06cda64041d8df870b204b2",
+    "clean-final-frontend-tests.log": "3fc15e44972b7c30d204476386c374b85551c75337b7f21ee3746204aa1f1c09",
+    "final-frontend-build.log": "95504a59c8e3c596ce9f03ddb9b9d249fb657d6c8fed94e44823073f3e6b80c9",
+    "final-frontend-format.log": "9827f794d4c8b67225589f4c1abc0309d8130ddbdec720a74632164279907e1c",
+    "final-frontend-lint.log": "42474febc0e7934f19b1a1a8ff9a121aac870c70c89e586d740d821fc745b28e",
+    "final-frontend-tests.log": "4d7a39ed148b0843908f318ea00671b785bca8362d0752c183e1f01b3aae4fca",
+    "readonly-isolated-test-fixed.log": "8c47d74625c2d2b5eff433a4b451560ec961937f61c0df8cb98aa506c524f47c",
+    "readonly-isolated-test.log": "3af30d697793cacca696d36c4b525c0bad8ddb6c10715b1f8d848b0dae56ac63",
+    "clean-frontend-build.log": "e703d03502ad0290edb811b1c35ae69cdda9bad5c19ffc13798ccc10d237b009",
+    "clean-frontend-tests.log": "3ef6829cd564085e39baa5cf0e1661ab61f2dfbabd96c9b6233642a181787169",
+    "clean-backend-tests.log": "e165f6f48bb40b5755b786f07423434ea43be3e0ce60038569a8f6ce991a3dd5",
+    "clean-frontend-install.log": "0b12985cc0fe7281dabf2635f8422f201bd3d8170766b174b6bf3e99eb48267b",
+    "clean-python-install.log": "3835727bc536146be06ccf77e147afa347559ba28576cac036664c530a70ae04",
+    "frontend-build.log": "61f64a72b0e14db841a1f16e426eda99c229e2fd36bcaee1f3fd5cb87b219504",
+    "frontend-format.log": "9827f794d4c8b67225589f4c1abc0309d8130ddbdec720a74632164279907e1c",
+    "ruff-format.log": "e540c8427c224fd685bda71cb704448f5f98f01496a5ad22e5c656a56a0955ae",
+    "ruff-check.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "frontend-lint.log": "42474febc0e7934f19b1a1a8ff9a121aac870c70c89e586d740d821fc745b28e",
+    "backend-tests.log": "632d958faecc6c0dfbd9d7dee3ca51270f551512be168cf7770f7964699fd33f",
+    "frontend-tests.log": "072d317455b0b968bf02be48c2dc104b628be7261a88aa07bb5863ab5cc19da7"
+  },
+  "raw_local_evidence_directory": "/tmp/orbitiq-phase9-publication",
+  "known_limits": [
+    "Remote Phase 9 CI not run; baseline run is not Phase 9 evidence",
+    "Protection and rules APIs returned HTTP 403; never infer configured required checks",
+    "Full browser/PDF flows are local evidence, not automated in current CI",
+    "Independent observation validation blocked and prediction uncertainty unquantified",
+    "Existing Starlette/httpx and transitive npm deprecations, Three.js size advisory; 72-page detailed maximum track report",
+    "Native Firefox/WebKit PDF dialogs and physical printers unverified"
+  ]
+}

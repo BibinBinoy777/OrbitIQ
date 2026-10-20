@@ -37,7 +37,10 @@ Reload and normal browser restart retain saves when browser storage is retained.
 Private browsing, profile deletion, clearing site data, storage eviction or quota
 failure can remove or prevent saves. These are plaintext local data accessible to
 scripts on this origin; do not put credentials or sensitive information in notes.
-There is no cloud backup, cross-device synchronization or automatic export feature.
+There is no cloud backup, cross-device synchronization or browser-save import/backup
+feature. Phase 9 adds explicit [investigation reports and evidence export](investigation-reports.md)
+for current configurations and backend results. These exports exclude local titles,
+notes, UUIDs and creation times and do not restore the browser's saved list.
 
 Keep a browser/profile backup if these local records matter. Advanced users may
 copy the exact value of the key through browser developer tools into a private

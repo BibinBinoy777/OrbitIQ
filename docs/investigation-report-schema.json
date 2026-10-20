@@ -1,0 +1,695 @@
+{
+  "$defs": {
+    "ComparisonDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceReference"
+        },
+        "mode": {
+          "const": "comparison",
+          "title": "Mode",
+          "type": "string"
+        },
+        "frame": {
+          "enum": [
+            "TEME",
+            "ITRS"
+          ],
+          "title": "Frame",
+          "type": "string"
+        },
+        "at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "At"
+        },
+        "comparison_source": {
+          "$ref": "#/$defs/SourceReference"
+        },
+        "category": {
+          "enum": [
+            "all",
+            "shared",
+            "added",
+            "removed",
+            "incompatible"
+          ],
+          "title": "Category",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "mode",
+        "frame",
+        "at",
+        "comparison_source",
+        "category"
+      ],
+      "title": "ComparisonDefinition",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "PayloadHash": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "SHA-256",
+          "title": "Algorithm",
+          "type": "string"
+        },
+        "value": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Value",
+          "type": "string"
+        },
+        "scope": {
+          "title": "Scope",
+          "type": "string"
+        },
+        "integrity_status": {
+          "const": "verified_against_stored_bytes",
+          "title": "Integrity Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "algorithm",
+        "value",
+        "scope",
+        "integrity_status"
+      ],
+      "title": "PayloadHash",
+      "type": "object"
+    },
+    "PositionDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceReference"
+        },
+        "mode": {
+          "const": "position",
+          "title": "Mode",
+          "type": "string"
+        },
+        "frame": {
+          "const": "TEME",
+          "title": "Frame",
+          "type": "string"
+        },
+        "at": {
+          "format": "date-time",
+          "title": "At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "mode",
+        "frame",
+        "at"
+      ],
+      "title": "PositionDefinition",
+      "type": "object"
+    },
+    "ReportCalculation": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "unavailable",
+            "not_requested"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "data": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Data"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/$defs/ReportIssue"
+          },
+          "title": "Errors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "data",
+        "errors"
+      ],
+      "title": "ReportCalculation",
+      "type": "object"
+    },
+    "ReportInvestigation": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "id_kind": {
+          "const": "configuration_sha256",
+          "title": "Id Kind",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "title_origin": {
+          "const": "generated_from_verified_sources",
+          "title": "Title Origin",
+          "type": "string"
+        },
+        "definition": {
+          "discriminator": {
+            "mapping": {
+              "comparison": "#/$defs/ComparisonDefinition",
+              "ground-track": "#/$defs/TrackDefinition",
+              "position": "#/$defs/PositionDefinition",
+              "snapshot": "#/$defs/SnapshotDefinition"
+            },
+            "propertyName": "mode"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/SnapshotDefinition"
+            },
+            {
+              "$ref": "#/$defs/PositionDefinition"
+            },
+            {
+              "$ref": "#/$defs/TrackDefinition"
+            },
+            {
+              "$ref": "#/$defs/ComparisonDefinition"
+            }
+          ],
+          "title": "Definition"
+        },
+        "saved_record_id": {
+          "default": null,
+          "title": "Saved Record Id",
+          "type": "null"
+        },
+        "saved_title": {
+          "default": null,
+          "title": "Saved Title",
+          "type": "null"
+        },
+        "description": {
+          "default": null,
+          "title": "Description",
+          "type": "null"
+        },
+        "created_at": {
+          "default": null,
+          "title": "Created At",
+          "type": "null"
+        },
+        "saved_metadata_status": {
+          "const": "browser_only_excluded",
+          "default": "browser_only_excluded",
+          "title": "Saved Metadata Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "id_kind",
+        "title",
+        "title_origin",
+        "definition"
+      ],
+      "title": "ReportInvestigation",
+      "type": "object"
+    },
+    "ReportIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "ReportIssue",
+      "type": "object"
+    },
+    "ReportSource": {
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "enum": [
+            "primary",
+            "comparison"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "reference": {
+          "$ref": "#/$defs/SourceReference"
+        },
+        "source_type": {
+          "const": "celestrak_gp_omm_mean_elements",
+          "title": "Source Type",
+          "type": "string"
+        },
+        "provider": {
+          "const": "CelesTrak",
+          "title": "Provider",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "object_name": {
+          "title": "Object Name",
+          "type": "string"
+        },
+        "object_id": {
+          "title": "Object Id",
+          "type": "string"
+        },
+        "source_frame": {
+          "const": "TEME",
+          "title": "Source Frame",
+          "type": "string"
+        },
+        "epoch_time_system": {
+          "const": "UTC",
+          "title": "Epoch Time System",
+          "type": "string"
+        },
+        "snapshot_created_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Snapshot Created At"
+        },
+        "snapshot_creation_status": {
+          "enum": [
+            "recorded",
+            "unknown_legacy"
+          ],
+          "title": "Snapshot Creation Status",
+          "type": "string"
+        },
+        "observation_at": {
+          "title": "Observation At",
+          "type": "null"
+        },
+        "observation_time_status": {
+          "const": "not_applicable_mean_elements_not_observations",
+          "title": "Observation Time Status",
+          "type": "string"
+        },
+        "publication_at": {
+          "title": "Publication At",
+          "type": "null"
+        },
+        "publication_time_status": {
+          "const": "not_recorded",
+          "title": "Publication Time Status",
+          "type": "string"
+        },
+        "payload_hash": {
+          "$ref": "#/$defs/PayloadHash"
+        },
+        "provider_published_hash": {
+          "title": "Provider Published Hash",
+          "type": "null"
+        },
+        "provider_hash_status": {
+          "const": "not_recorded",
+          "title": "Provider Hash Status",
+          "type": "string"
+        },
+        "source_authenticity": {
+          "const": "not_independently_verified",
+          "title": "Source Authenticity",
+          "type": "string"
+        },
+        "validation_status": {
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "validator_version": {
+          "title": "Validator Version",
+          "type": "string"
+        },
+        "ingestion_sgp4_version": {
+          "title": "Ingestion Sgp4 Version",
+          "type": "string"
+        },
+        "checks_performed_for_report": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Checks Performed For Report",
+          "type": "array"
+        },
+        "freshness_info": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Freshness Info",
+          "type": "object"
+        },
+        "elements": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Elements",
+          "type": "object"
+        },
+        "element_units": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Element Units",
+          "type": "object"
+        }
+      },
+      "required": [
+        "role",
+        "reference",
+        "source_type",
+        "provider",
+        "source_url",
+        "object_name",
+        "object_id",
+        "source_frame",
+        "epoch_time_system",
+        "snapshot_created_at",
+        "snapshot_creation_status",
+        "observation_at",
+        "observation_time_status",
+        "publication_at",
+        "publication_time_status",
+        "payload_hash",
+        "provider_published_hash",
+        "provider_hash_status",
+        "source_authenticity",
+        "validation_status",
+        "validator_version",
+        "ingestion_sgp4_version",
+        "checks_performed_for_report",
+        "freshness_info",
+        "elements",
+        "element_units"
+      ],
+      "title": "ReportSource",
+      "type": "object"
+    },
+    "SnapshotDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceReference"
+        },
+        "mode": {
+          "const": "snapshot",
+          "title": "Mode",
+          "type": "string"
+        },
+        "frame": {
+          "const": "TEME",
+          "title": "Frame",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "mode",
+        "frame"
+      ],
+      "title": "SnapshotDefinition",
+      "type": "object"
+    },
+    "SourceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "maximum": 9007199254740991,
+          "minimum": 1,
+          "title": "Snapshot Id",
+          "type": "integer"
+        },
+        "catalog_id": {
+          "maximum": 339999,
+          "minimum": 1,
+          "title": "Catalog Id",
+          "type": "integer"
+        },
+        "orbital_epoch": {
+          "format": "date-time",
+          "title": "Orbital Epoch",
+          "type": "string"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "response_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Response Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "catalog_id",
+        "orbital_epoch",
+        "retrieved_at",
+        "response_sha256"
+      ],
+      "title": "SourceReference",
+      "type": "object"
+    },
+    "TrackDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceReference"
+        },
+        "mode": {
+          "const": "ground-track",
+          "title": "Mode",
+          "type": "string"
+        },
+        "frame": {
+          "const": "ITRS",
+          "title": "Frame",
+          "type": "string"
+        },
+        "at": {
+          "format": "date-time",
+          "title": "At",
+          "type": "string"
+        },
+        "track": {
+          "$ref": "#/$defs/TrackParameters"
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "mode",
+        "frame",
+        "at",
+        "track"
+      ],
+      "title": "TrackDefinition",
+      "type": "object"
+    },
+    "TrackParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "format": "date-time",
+          "title": "Start",
+          "type": "string"
+        },
+        "duration_minutes": {
+          "maximum": 1440,
+          "minimum": 1,
+          "title": "Duration Minutes",
+          "type": "integer"
+        },
+        "step_seconds": {
+          "maximum": 3600,
+          "minimum": 10,
+          "title": "Step Seconds",
+          "type": "integer"
+        },
+        "selected_index": {
+          "maximum": 360,
+          "minimum": 0,
+          "title": "Selected Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "duration_minutes",
+        "step_seconds",
+        "selected_index"
+      ],
+      "title": "TrackParameters",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "template_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Template Version",
+      "type": "integer"
+    },
+    "kind": {
+      "const": "orbitiq_investigation_report",
+      "default": "orbitiq_investigation_report",
+      "title": "Kind",
+      "type": "string"
+    },
+    "report_id": {
+      "title": "Report Id",
+      "type": "string"
+    },
+    "generated_at": {
+      "title": "Generated At",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "partial"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "investigation": {
+      "$ref": "#/$defs/ReportInvestigation"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/ReportSource"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "calculation": {
+      "$ref": "#/$defs/ReportCalculation"
+    },
+    "validation": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Validation",
+      "type": "object"
+    },
+    "methodology": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Methodology",
+      "type": "object"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "report_id",
+    "generated_at",
+    "status",
+    "investigation",
+    "sources",
+    "calculation",
+    "validation",
+    "methodology",
+    "limitations",
+    "warnings"
+  ],
+  "title": "InvestigationReport",
+  "type": "object"
+}

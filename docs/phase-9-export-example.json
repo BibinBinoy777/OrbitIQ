@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "template_version": 1,
+  "kind": "orbitiq_investigation_report",
+  "report_id": "4a54e9d7-08db-4417-a40b-e00853ad8eff",
+  "generated_at": "2026-10-20T07:01:09.196598+00:00",
+  "status": "complete",
+  "investigation": {
+    "id": "configuration-sha256:0eb2890bf44722a932515ff0ccaab79e14d6aedd0d548676250cc4bd63d35d4a",
+    "id_kind": "configuration_sha256",
+    "title": "NORAD 25544 · position · snapshot #1",
+    "title_origin": "generated_from_verified_sources",
+    "definition": {
+      "schema_version": 1,
+      "source": {
+        "snapshot_id": 1,
+        "catalog_id": 25544,
+        "orbital_epoch": "2026-10-18T11:12:47.040768Z",
+        "retrieved_at": "2026-10-18T17:14:39.983172Z",
+        "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b"
+      },
+      "mode": "position",
+      "frame": "TEME",
+      "at": "2026-10-18T11:12:47.040768Z"
+    },
+    "saved_record_id": null,
+    "saved_title": null,
+    "description": null,
+    "created_at": null,
+    "saved_metadata_status": "browser_only_excluded"
+  },
+  "sources": [
+    {
+      "role": "primary",
+      "reference": {
+        "snapshot_id": 1,
+        "catalog_id": 25544,
+        "orbital_epoch": "2026-10-18T11:12:47.040768Z",
+        "retrieved_at": "2026-10-18T17:14:39.983172Z",
+        "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b"
+      },
+      "source_type": "celestrak_gp_omm_mean_elements",
+      "provider": "CelesTrak",
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+      "object_name": "ISS (ZARYA)",
+      "object_id": "1998-067A",
+      "source_frame": "TEME",
+      "epoch_time_system": "UTC",
+      "snapshot_created_at": null,
+      "snapshot_creation_status": "unknown_legacy",
+      "observation_at": null,
+      "observation_time_status": "not_applicable_mean_elements_not_observations",
+      "publication_at": null,
+      "publication_time_status": "not_recorded",
+      "payload_hash": {
+        "algorithm": "SHA-256",
+        "value": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+        "scope": "Exact stored uncompressed CelesTrak GP JSON HTTP response body bytes, not normalized fields, headers or provider signatures.",
+        "integrity_status": "verified_against_stored_bytes"
+      },
+      "provider_published_hash": null,
+      "provider_hash_status": "not_recorded",
+      "source_authenticity": "not_independently_verified",
+      "validation_status": "structural_and_epoch_propagation_passed",
+      "validator_version": "orbitiq-omm-v1",
+      "ingestion_sgp4_version": "2.27",
+      "checks_performed_for_report": [
+        "stored_payload_sha256_matches_bytes",
+        "single_raw_record_matches_response",
+        "normalized_elements_and_units_match_validated_source",
+        "catalog_epoch_retrieval_source_url_and_recorded_provenance_checked",
+        "requested_exact_reference_matches_archive"
+      ],
+      "freshness_info": {
+        "state": "aging",
+        "evaluated_at": "2026-10-20T07:01:09.196598+00:00",
+        "epoch_age_seconds": 157702.15583,
+        "retrieval_age_seconds": 135989.213426,
+        "fresh_hours": 24,
+        "stale_hours": 72,
+        "basis": "orbital_epoch",
+        "accuracy_guarantee": false
+      },
+      "elements": {
+        "EPOCH": "2026-10-18T11:12:47.040768Z",
+        "REV_AT_EPOCH": 59086,
+        "MEAN_MOTION": 15.48923373,
+        "ECCENTRICITY": 0.0006784,
+        "INCLINATION": 51.6327,
+        "RA_OF_ASC_NODE": 50.0298,
+        "ARG_OF_PERICENTER": 279.2532,
+        "MEAN_ANOMALY": 80.7689,
+        "BSTAR": 0.00014361,
+        "MEAN_MOTION_DOT": 0.00007452,
+        "MEAN_MOTION_DDOT": 0
+      },
+      "element_units": {
+        "EPOCH": "ISO8601 UTC",
+        "REV_AT_EPOCH": "rev",
+        "MEAN_MOTION": "rev/day",
+        "ECCENTRICITY": "dimensionless",
+        "INCLINATION": "deg",
+        "RA_OF_ASC_NODE": "deg",
+        "ARG_OF_PERICENTER": "deg",
+        "MEAN_ANOMALY": "deg",
+        "BSTAR": "1/Earth-radii",
+        "MEAN_MOTION_DOT": "rev/day^2",
+        "MEAN_MOTION_DDOT": "rev/day^3"
+      }
+    }
+  ],
+  "calculation": {
+    "status": "complete",
+    "data": {
+      "position_km": [
+        4366.970285857113,
+        5209.853860486874,
+        0.0006140614350352405
+      ],
+      "velocity_km_s": [
+        -3.6436158869374666,
+        3.052200266342033,
+        6.008235221394084
+      ],
+      "kind": "calculated",
+      "frame": "TEME",
+      "origin": "Earth center",
+      "time_system": "UTC",
+      "at": "2026-10-18T11:12:47.040768+00:00",
+      "calculated_at": "2026-10-20T07:01:09.197908+00:00",
+      "orbital_epoch": "2026-10-18T11:12:47.040768+00:00",
+      "epoch_offset_days": 0,
+      "model": "SGP4",
+      "gravity_model": "WGS72",
+      "units": {
+        "position": "km",
+        "velocity": "km/s",
+        "epoch_offset": "days"
+      },
+      "uncertainty": {
+        "status": "not_quantified",
+        "covariance_available": false,
+        "observation_validated": false
+      },
+      "validation_scope": "Published numerical cases; not observed orbit accuracy",
+      "sgp4_version": "2.27",
+      "validation_status": "reference_tested_engine_not_observation_validated",
+      "warnings": [
+        "Calculated from mean elements, not a direct observation.",
+        "No position uncertainty or collision assessment is provided.",
+        "Source element freshness is aging; recent retrieval does not guarantee an accurate orbit."
+      ],
+      "snapshot_id": 1,
+      "catalog_id": 25544,
+      "retrieved_at": "2026-10-18T17:14:39.983172+00:00",
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=JSON",
+      "response_sha256": "556827b7dc6cbccd0cbc3e40a9e0a0ed2205ad2d2006a8649e16ee8c0c143d4b",
+      "freshness_info": {
+        "state": "aging",
+        "evaluated_at": "2026-10-20T07:01:09.197908+00:00",
+        "epoch_age_seconds": 157702.15714,
+        "retrieval_age_seconds": 135989.214736,
+        "fresh_hours": 24,
+        "stale_hours": 72,
+        "basis": "orbital_epoch",
+        "accuracy_guarantee": false
+      },
+      "snapshot_created_at": null,
+      "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+      "validator_version": "orbitiq-omm-v1",
+      "ingestion_sgp4_version": "2.27"
+    },
+    "errors": []
+  },
+  "validation": {
+    "status": "validated_with_warnings",
+    "scope": "Exact stored source integrity/provenance checks and available backend calculations; not observation-based accuracy or source authentication.",
+    "independent_observation_validation": "blocked",
+    "prediction_uncertainty": "unquantified",
+    "missing_data": [
+      "provider_publication_time",
+      "provider_published_hash",
+      "browser_saved_metadata"
+    ],
+    "report_generation_is_scientific_certification": false
+  },
+  "methodology": {
+    "representation": "Current backend recomputation from exact immutable references.",
+    "application": "OrbitIQ",
+    "application_version": "0.1.0",
+    "software_versions": {
+      "sgp4": "2.27",
+      "astropy": "7.2.3",
+      "pyerfa": "2.0.1.5"
+    },
+    "calculation_method": "SGP4 / WGS72; Astropy TEME to ITRS / WGS84 where requested",
+    "source_frame": "TEME",
+    "time_system": "UTC",
+    "units": {
+      "position": "km",
+      "velocity": "km/s",
+      "angles": "deg",
+      "altitude": "km"
+    },
+    "eop_applicability": "not_applicable",
+    "configured_eop_policy": null,
+    "eop_configuration_status": "not_applicable",
+    "resource_provenance": "Per-result earth_orientation contains actual EOP/leap hashes, policy, flags and versions when a transformation succeeds.",
+    "configuration_id_hash_scope": "Version-1 validated definition, times normalized to UTC, JSON sorted keys, compact separators, ensure_ascii=true, UTF-8; array order retained. Not a source or export-package integrity hash/signature.",
+    "print_scope": "Overview, evidence, selected state/sample, all returned track ITRS/geodetic rows and comparison values. Full per-sample derivation metadata remain in the JSON package."
+  },
+  "limitations": [
+    "Calculated orbital positions are not direct satellite observations.",
+    "Independent observation-based prediction validation remains blocked; orbital prediction uncertainty is unquantified.",
+    "Published numerical reference agreement does not establish universal real-world prediction accuracy or certify this investigation.",
+    "Differences between element sets or calculated states do not independently establish a maneuver, anomaly, collision risk or operational safety.",
+    "A stored payload checksum verifies its bytes, not provider authenticity or scientific correctness; no independent provider signature is recorded.",
+    "This is a current recomputation from exact archived references, not a preserved original calculation. Exact replay additionally needs the same software and EOP/leap resources; those binaries/resources are not embedded.",
+    "Browser-only saved UUID, title, private notes and creation time are excluded. The configuration identifier is not a server-owned or browser-saved record ID."
+  ],
+  "warnings": [
+    "Snapshot #1 element freshness is aging; retrieval is not prediction accuracy.",
+    "A legacy snapshot insertion timestamp is not recorded.",
+    "Calculated from mean elements, not a direct observation.",
+    "No position uncertainty or collision assessment is provided.",
+    "Source element freshness is aging; recent retrieval does not guarantee an accurate orbit."
+  ]
+}

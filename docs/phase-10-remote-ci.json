@@ -1,0 +1,630 @@
+{
+  "backend_source_and_runtime_unchanged": true,
+  "base_main_commit": "d9f85d5d6e28cea90f25965c761422f16705eea8",
+  "branch": "phase-10-evidence-replay",
+  "ci_counts_read_from_remote_logs": {
+    "backend": 785,
+    "expanded_science": 32,
+    "frontend": 307,
+    "geodetic_roundtrips": 28,
+    "independent_geodetic": 28,
+    "migration_backup_selection": 5,
+    "sgp4": 40,
+    "terrestrial": 6
+  },
+  "corrective_commit": "ce695232506b3aedf641076b88bfdfec4133bf77",
+  "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+  "dependencies_and_migrations_unchanged": true,
+  "deployed": false,
+  "failure_investigation": {
+    "assertions_removed_or_weakened": false,
+    "cause": "Existing monitoring tests assessed fixed 2026-10-20 noon UTC while SQLite insertion defaults used real wall time. After noon the inserted timestamp was correctly rejected as future.",
+    "correction": "Scoped SQLite clock fixture on only the isolated monitoring-test archive, selected by three tests; independent patch context survives monkeypatch.undo(). Production clocks and readiness checks unchanged.",
+    "initial_backend_result": "782 passed, 3 failed",
+    "new_clock_assertion_added": true,
+    "reproduced_locally": "3 failed before correction",
+    "test_file": "backend/tests/test_phase6_collection.py"
+  },
+  "implementation_commit": "f3f52894494731de5253b68a9301d85a345241c6",
+  "initial_failed_run": {
+    "conclusion": "failure",
+    "headBranch": "phase-10-evidence-replay",
+    "headSha": "f3f52894494731de5253b68a9301d85a345241c6",
+    "jobs": [
+      {
+        "completedAt": "2026-10-20T16:55:52Z",
+        "conclusion": "success",
+        "databaseId": 118762165353,
+        "name": "frontend",
+        "startedAt": "2026-10-20T16:55:00Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v6",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm ci",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm test",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run lint",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run format:check",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run build",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v6",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39461594700/job/118762165353"
+      },
+      {
+        "completedAt": "2026-10-20T16:55:58Z",
+        "conclusion": "failure",
+        "databaseId": 118762165919,
+        "name": "backend",
+        "startedAt": "2026-10-20T16:55:00Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@v7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv python install 3.12",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv sync --locked",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Run uv run --locked pytest",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Published SGP4 reference audit",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Terrestrial transformation reference audit",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Expanded scientific and geodetic regressions",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Explicit schema migration and separate restore checks",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run uv run --locked ruff check .",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run uv run --locked ruff format --check .",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run astral-sh/setup-uv@v7",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39461594700/job/118762165919"
+      },
+      {
+        "completedAt": "2026-10-20T16:55:54Z",
+        "conclusion": "success",
+        "databaseId": 118762166043,
+        "name": "release-images",
+        "startedAt": "2026-10-20T16:55:00Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Build locked release targets (local only; no registry publication)",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Validate static gateway configuration",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start release images against a separate empty fixture and verify APIs",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39461594700/job/118762166043"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39461594700"
+  },
+  "kind": "orbitiq_phase_10_publication_receipt",
+  "main_merged": false,
+  "off_machine_recovery_verified": false,
+  "ordinary_database_unchanged": true,
+  "original_local_verification_evidence": "docs/phase-10.1-integration-results.json",
+  "phase_8_infrastructure_verified": false,
+  "post_correction_local_checks": {
+    "collection_tests": {
+      "exit_code": 0,
+      "passed": 62
+    },
+    "full_backend": {
+      "exit_code": 0,
+      "passed": 785
+    },
+    "ruff_check": {
+      "exit_code": 0
+    },
+    "ruff_format": {
+      "exit_code": 0
+    }
+  },
+  "prior_phase_reports_preserved": true,
+  "production_monitoring_alert_delivery_verified": false,
+  "protection": {
+    "detailed_protection_api": {
+      "documentation_url": "https://docs.github.com/rest/branches/branch-protection#get-branch-protection",
+      "message": "Resource not accessible by integration",
+      "status": "403"
+    },
+    "main_protected": false,
+    "settings_changed": false
+  },
+  "public_hosting_https_verified": false,
+  "receipt_scope": "Successful exact corrective implementation commit; this later tracking-only commit cannot embed its own SHA/result. Verify the final documentation tip separately.",
+  "recorded_at": "2026-10-20T22:33:16.761414+05:30",
+  "remote_log_sha256": {
+    "backend": "de1bd49fcaeed81ad50aa8172141e52ed94cb12c4c8b0e7501fa1655db3793b2",
+    "frontend": "dbdb5f3d001a7e81dfb08284113c65a5dbcae7ef2193a0c6c197ff08452fb0d3"
+  },
+  "remote_test_summaries": {
+    "backend": [
+      "backend\tRun uv run --locked pytest\t2026-10-20T17:00:37.0085722Z ======================= 785 passed, 1 warning in 30.16s ========================",
+      "backend\tPublished SGP4 reference audit\t2026-10-20T17:00:37.3970872Z Reference audit: 40 passed, 0 failed",
+      "backend\tTerrestrial transformation reference audit\t2026-10-20T17:00:37.9072961Z 6 reference cases passed; 0 failed",
+      "backend\tExpanded scientific and geodetic regressions\t2026-10-20T17:00:38.6285291Z Phase 6.1 audit: 32 comparisons passed, 0 failed; observation validation BLOCKED",
+      "backend\tExpanded scientific and geodetic regressions\t2026-10-20T17:00:38.9921346Z Geodesy: 28/28 independent cases; 28 separate round-trips",
+      "backend\tExplicit schema migration and separate restore checks\t2026-10-20T17:00:40.1351247Z 5 passed, 57 deselected, 1 warning in 0.81s"
+    ],
+    "frontend": [
+      "frontend\tRun npm test\t2026-10-20T17:00:43.0543125Z       Tests  307 passed (307)"
+    ]
+  },
+  "repository": "BibinBinoy777/OrbitIQ",
+  "repository_private": true,
+  "review": {
+    "all_recorded_source_hashes_match": true,
+    "branch": "phase-10-evidence-replay",
+    "credential_pattern_scan": "clear",
+    "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_unchanged": true,
+    "head": "d9f85d5d6e28cea90f25965c761422f16705eea8",
+    "origin": {
+      "host": "github.com",
+      "path": "/BibinBinoy777/OrbitIQ.git"
+    },
+    "paths_sha256": {
+      ".gitignore": "b1488ad8cc321ad12d55a2d31b6c83669a0775c0e73d8c764622f534df2cffd7",
+      "README.md": "4b85550ce5c68b7b497ac86f74246ec902d6302d1149d4ea2c12690545035f2b",
+      "backend/orbitiq/maintenance/replay.py": "05978f74f7c61ccd060ba21f4c8477a6a9215dc24dd061bb09c86726f1a98603",
+      "backend/orbitiq/orbits/earth_orientation.py": "fb26e1a75294f1515f48faa301463d750ad89caf1b48f136068a6ab8f7fdf6ec",
+      "backend/orbitiq/replay.py": "100f4bd1b430cac164e710daaa9ef987795a54231f33324a9484bc891abd17c1",
+      "backend/orbitiq/replay_contract.py": "72e9d3543b8d02d11aeef0388cb7e1d4f4e791428b9c83656278fc2265bbbace",
+      "backend/orbitiq/replay_isolation.py": "213738e5f32f66fbe075677df8edc0332e3e575a4502445370ee454a645e7149",
+      "backend/orbitiq/replay_json.py": "c6635d2f870e922491dd99c738c423477c9bf3a720b3aa595d2bd7d1805c0e5e",
+      "backend/orbitiq/replay_validation.py": "8cfe72e09d82991ca9fe0bfd95c7995b3cb684ec8e14fa6ca5be522110061c40",
+      "backend/orbitiq/services/analysis.py": "6dcd9904f4c72a79b728f21f519b52eacb281889bbd761859465feed0bc81904",
+      "backend/orbitiq/services/investigations.py": "af26ea869794e7bbb805470b2171141880bc9f5859d655ee38b99bbb83ed9617",
+      "backend/orbitiq/services/replay.py": "6fd8a9eb924f069cdfaf36a930421624b50923e2e82cf61298f9006bb6b1c439",
+      "backend/orbitiq/services/reports.py": "84e8ee382c9f7baea7fa63217cda934f8c9698e643dc3f8450b6deab18865754",
+      "backend/tests/test_phase101_integrity.py": "b7ca80d84f9935f470e0c2f96591f0ab1f8cb61816834f71fc0360b2b1d2ec15",
+      "backend/tests/test_phase10_replay.py": "5046f7b2ea83ff883f482aa4cb9f6fc7baa8d824e3e079872c072e68a17700eb",
+      "docs/evidence-replay.md": "6801c4997a29b4410e5bbc33fa7f103f0b917bfd13a6274f4a4c6ed32572a674",
+      "docs/phase-10-plan.md": "7c8449556f2494295e837feb20e399595f82388ad07c42fc742f9e8e609e6e1d",
+      "docs/phase-10-report.md": "38bd227ef96148aa5b78a906a9518c0faab83bcae211a537b97b5898903b81cf",
+      "docs/phase-10-verification-results.json": "40da97fa027fdb2342741979b4cced5ec595f13d1b2d134a7e5337d30f5f0eb8",
+      "docs/phase-10.1-integration-results.json": "e33c8932b67edc87476c48f9007ea058fccd46fb992a526d6f39f3381ad0bbfe",
+      "docs/phase-10.1-report.md": "fd7a9622f9a98c83178dc0178453f5824f4bdb1ae59405ecc0cd1fa57f61470b",
+      "docs/replay-integrity-contract.md": "ed7fbb99e55aa009b4e8fe1107acf27a4d0d7e27d9bffc3160bfd30226efb83f",
+      "scripts/verify_phase101_golden.py": "1eff891864d0d2f078d3090abb19efb21dd7df8088bfa3b9e8e0c95613b327aa",
+      "scripts/verify_replay_offline.py": "f0014abd553cb8fe27bb372af8d6326d4089187eb05676f40738660b53d93f25"
+    },
+    "runtime_matches": true
+  },
+  "schema_version": 1,
+  "scientific_limits": {
+    "independent_observation_validation": "blocked",
+    "prediction_uncertainty": "unquantified"
+  },
+  "source_manifest_differences_from_local_checkpoint": [
+    "README.md",
+    "backend/tests/test_phase6_collection.py"
+  ],
+  "source_manifest_matching_entries": 242,
+  "successful_corrected_run": {
+    "conclusion": "success",
+    "headBranch": "phase-10-evidence-replay",
+    "headSha": "ce695232506b3aedf641076b88bfdfec4133bf77",
+    "jobs": [
+      {
+        "completedAt": "2026-10-20T17:01:00Z",
+        "conclusion": "success",
+        "databaseId": 118764614739,
+        "name": "release-images",
+        "startedAt": "2026-10-20T16:59:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Build locked release targets (local only; no registry publication)",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Validate static gateway configuration",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start release images against a separate empty fixture and verify APIs",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39462297299/job/118764614739"
+      },
+      {
+        "completedAt": "2026-10-20T17:01:04Z",
+        "conclusion": "success",
+        "databaseId": 118764614839,
+        "name": "frontend",
+        "startedAt": "2026-10-20T16:59:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v6",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm ci",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm test",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run lint",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run format:check",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run build",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v6",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39462297299/job/118764614839"
+      },
+      {
+        "completedAt": "2026-10-20T17:00:43Z",
+        "conclusion": "success",
+        "databaseId": 118764614921,
+        "name": "backend",
+        "startedAt": "2026-10-20T16:59:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v5",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@v7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv python install 3.12",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv sync --locked",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv run --locked pytest",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Published SGP4 reference audit",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Terrestrial transformation reference audit",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Expanded scientific and geodetic regressions",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit schema migration and separate restore checks",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv run --locked ruff check .",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run uv run --locked ruff format --check .",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@v7",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v5",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39462297299/job/118764614921"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39462297299"
+  },
+  "user_authorized_commit_and_push": true,
+  "watch_transport_diagnostic": {
+    "exit_code": 1,
+    "reason": "gh run watch could not fetch annotations (HTTP 503) after job success; authoritative run/jobs JSON and logs separately retrieved and verified."
+  }
+}

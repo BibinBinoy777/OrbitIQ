@@ -63,8 +63,9 @@ retain exact source bytes, applicable EOP/leap resources, software/code identiti
 and policy settings, then recalculate with explicit numerical tolerances. Replay
 does not establish observed orbit accuracy or current EOP readiness. See the
 [CLI and bundle guide](docs/evidence-replay.md), [plan](docs/phase-10-plan.md)
-and [verification report](docs/phase-10-report.md). Phase 10 is local, unpublished
-work; Phase 9 has separately passed CI on `main`.
+and [verification report](docs/phase-10-report.md). See the
+[Phase 10/10.1 publication status](docs/phase-10-publication-status.md) for
+exact-commit CI and the separate production gates.
 
 Phase 10.1 hardens that same bundle format with bounded import, explicit scientific
 preflight, scoped offline enforcement and separate exact/tolerance replay outcomes.

@@ -321,7 +321,9 @@ def read_input(path, limit):
         return replay.read_file(fd, path.name, limit)
 
 
-def capture(path, archive_root, provenance=None, expected_sha256=None):
+def capture(
+    path, archive_root, provenance=None, expected_sha256=None, *, inspector=None
+):
     """Append a new private capture. Manifest is the completion marker, written last.
 
     A failed write/inspection leaves the private incomplete capture for review;
@@ -359,7 +361,7 @@ def capture(path, archive_root, provenance=None, expected_sha256=None):
             replay.write_file(fd, "receipt.json", replay.encoded(receipt))
             # Source bytes and source claims are durably stored BEFORE parsing.
             os.fsync(fd)
-            report = inspect_attachment(raw, provenance)
+            report = (inspector or inspect_attachment)(raw, provenance)
             report["tool_sha256"] = replay.digest(Path(__file__).read_bytes())
             replay.write_file(fd, "inspection.json", replay.encoded(report))
             files = {

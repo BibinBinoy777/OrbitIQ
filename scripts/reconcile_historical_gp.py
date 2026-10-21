@@ -130,6 +130,50 @@ def representation(value):
     return (type(value).__name__, value)
 
 
+def flat_source_tokens(raw):
+    """Lexemes of an already pinned/checked flat original, for CSV comparison only.
+
+    This does not accept input for ingestion. The nine-edit ledger and strict
+    comparison view must have passed before this function is called.
+    """
+    text, decoder = raw.decode("ascii"), json.JSONDecoder()
+    records, record, offset = [], None, 0
+    number = re.compile(r"-?(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?")
+    while offset < len(text):
+        char = text[offset]
+        if char == "{":
+            if record is not None:
+                raise ValueError("nested_original_requires_separate_review")
+            record = {}
+        elif char == "}":
+            if record is None:
+                raise ValueError("invalid_flat_record")
+            records.append(record)
+            record = None
+        elif char == '"':
+            value, stop = decoder.raw_decode(text, offset)
+            cursor = stop
+            while cursor < len(text) and text[cursor].isspace():
+                cursor += 1
+            if cursor < len(text) and text[cursor] == ":":
+                cursor += 1
+                while cursor < len(text) and text[cursor].isspace():
+                    cursor += 1
+                if record is None:
+                    raise ValueError("flat_record_required")
+                if text[cursor] == '"':
+                    record[value], stop = decoder.raw_decode(text, cursor)
+                elif match := number.match(text, cursor):
+                    record[value] = match[0]
+                    stop = match.end()
+                else:
+                    raise ValueError("flat_scalar_gp_fields_required")
+            offset = stop
+            continue
+        offset += 1
+    return records
+
+
 def reconcile(
     original_raw=None,
     assessment_raw=None,
@@ -138,6 +182,9 @@ def reconcile(
     original_sha256=None,
     assessment_sha256=None,
     replacement_sha256=None,
+    replacement_format="json",
+    original_provenance=None,
+    replacement_provenance=None,
 ):
     result = {
         "kind": "orbitiq_historical_gp_reconciliation",
@@ -152,6 +199,7 @@ def reconcile(
         "ambiguous_identities": [],
         "field_differences": [],
         "representation_differences": [],
+        "adapter_numeric_type_differences": [],
         "semantic_match": False,
         "comparison_ready": False,
         "source_accepted": False,
@@ -164,6 +212,9 @@ def reconcile(
         "qualification_gates": INTAKE["gates"](),
         "independent_assessment_review": "not_established_by_this_tool",
         "scope": "comparison diagnostics only; never science approval or GP import",
+        "replacement_format": replacement_format,
+        "source_token_differences": [],
+        "field_comparisons": [],
     }
     if replacement_raw is None:
         result["reasons"] = ["corrected_provider_export_not_supplied"]
@@ -171,10 +222,23 @@ def reconcile(
     try:
         checked(replacement_raw, replacement_sha256, INTAKE["MAX_BYTES"])
         result["replacement_sha256"] = replacement_sha256
-        inspected = INTAKE["inspect_attachment"](replacement_raw)
+        if replacement_format == "csv":
+            csv_tool = runpy.run_path(
+                str(Path(__file__).with_name("inspect_historical_csv.py"))
+            )
+            inspected = csv_tool["inspect_attachment"](
+                replacement_raw, replacement_provenance
+            )
+            result["qualification_gates"] = inspected["qualification_gates"]
+        elif replacement_format == "json":
+            inspected = INTAKE["inspect_attachment"](
+                replacement_raw, replacement_provenance
+            )
+        else:
+            raise ValueError("unsupported_explicit_replacement_format")
         result["replacement_inspection"] = inspected
         if inspected["document_errors"]:
-            raise ValueError("replacement_strict_json_refused")
+            raise ValueError("replacement_explicit_format_refused")
         result["replacement_count"] = inspected["counts"]["enumerated"]
         if inspected["counts"]["excluded"]:
             raise ValueError("replacement_contains_invalid_or_duplicate_records")
@@ -182,14 +246,38 @@ def reconcile(
         checked(assessment_raw, assessment_sha256, 65536)
         assessment = decoded(assessment_raw)
         view = comparison_view(original_raw, assessment)
-        original_inspection = INTAKE["inspect_attachment"](view)
+        original_inspection = INTAKE["inspect_attachment"](view, original_provenance)
         result["original_inspection"] = original_inspection
         if (
             original_inspection["document_errors"]
             or original_inspection["counts"]["excluded"]
         ):
             raise ValueError("original_comparison_view_not_model_compatible_or_unique")
-        before, after = exact_records(view), exact_records(replacement_raw)
+        before = exact_records(view)
+        if replacement_format == "csv":
+            after = [
+                csv_tool["exact_record"](row["source_fields"])
+                for row in inspected["records"]
+            ]
+            original_tokens = flat_source_tokens(original_raw)
+            if len(original_tokens) != len(before):
+                raise ValueError("original_source_token_count_mismatch")
+            result["provenance_comparison"] = {
+                "original": original_inspection["provenance"],
+                "csv": inspected["provenance"],
+                "authentication_established_by_value_match": False,
+                "original_format": "malformed_JSON",
+                "csv_format": "CSV_not_corrected_JSON",
+                "assessment_edit_count": len(assessment["edits"]),
+                "asserted_metadata_differences": [
+                    field
+                    for field in sorted(INTAKE["METADATA_FIELDS"])
+                    if original_inspection["provenance"]["asserted"][field]
+                    != inspected["provenance"]["asserted"][field]
+                ],
+            }
+        else:
+            after = exact_records(replacement_raw)
         result.update(
             original_sha256=original_sha256,
             assessment_sha256=assessment_sha256,
@@ -221,6 +309,34 @@ def reconcile(
                 left, right = before[oi[0]], after[ni[0]]
                 for field in sorted(left.keys() | right.keys()):
                     entry = {**item, "field": field}
+                    if replacement_format == "csv":
+                        old_token = original_tokens[oi[0]].get(field)
+                        new_token = inspected["records"][ni[0]]["source_fields"].get(
+                            field
+                        )
+                        result["field_comparisons"].append(
+                            {
+                                **entry,
+                                "original_source_text": old_token,
+                                "csv_source_text": new_token,
+                                "value_equal": field in left
+                                and field in right
+                                and left[field] == right[field],
+                            }
+                        )
+                        if old_token != new_token:
+                            result["source_token_differences"].append(
+                                {
+                                    **entry,
+                                    "original_source_text": old_token,
+                                    "csv_source_text": new_token,
+                                    "exponent_case_only": isinstance(old_token, str)
+                                    and isinstance(new_token, str)
+                                    and old_token.lower() == new_token.lower()
+                                    and numeric(left.get(field))
+                                    and numeric(right.get(field)),
+                                }
+                            )
                     if field not in left or field not in right:
                         entry["reason"] = (
                             "field_added" if field not in left else "field_removed"
@@ -237,14 +353,35 @@ def reconcile(
                             result["field_differences"].append(
                                 {**entry, "reason": "numeric_value_changed"}
                             )
-                        elif representation(left[field]) != representation(
-                            right[field]
+                        elif (
+                            representation(Decimal(old_token))
+                            != representation(Decimal(new_token))
+                            if replacement_format == "csv"
+                            else representation(left[field])
+                            != representation(right[field])
                         ):
                             result["representation_differences"].append(
                                 {
                                     **entry,
                                     "reason": (
                                         "numeric_representation_or_precision_changed"
+                                    ),
+                                }
+                            )
+                        if replacement_format == "csv" and type(
+                            left[field]
+                        ) is not type(right[field]):
+                            result["adapter_numeric_type_differences"].append(
+                                {
+                                    **entry,
+                                    "original_comparison_type": type(
+                                        left[field]
+                                    ).__name__,
+                                    "csv_exact_comparison_type": type(
+                                        right[field]
+                                    ).__name__,
+                                    "reason": (
+                                        "explicit_csv_schema_typing_not_source_text_change"
                                     ),
                                 }
                             )
@@ -277,6 +414,14 @@ def reconcile(
             result["reasons"].append(
                 "numeric_representation_or_precision_requires_review"
             )
+        result["source_order_preserved"] = (
+            len(before) == len(after)
+            and len(result["matched_records"]) == len(before)
+            and all(
+                item["original_indices"] == item["replacement_indices"]
+                for item in result["matched_records"]
+            )
+        )
     except (
         ValueError,
         TypeError,

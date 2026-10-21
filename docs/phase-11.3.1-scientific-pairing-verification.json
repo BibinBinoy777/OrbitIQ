@@ -1,0 +1,1015 @@
+{
+  "acceptance": [
+    {
+      "criterion": 1,
+      "name": "implementation/reports inspected",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 2,
+      "name": "authentic ESA files verified",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 3,
+      "name": "product/spacecraft/quality/provenance documented",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 4,
+      "name": "authorized historical-source search",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 5,
+      "name": "genuine GP/TLE acquired/validated",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PARTIAL"
+    },
+    {
+      "criterion": 6,
+      "name": "spacecraft identity matching",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 7,
+      "name": "temporal overlap/pair suitability",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "BLOCKED"
+    },
+    {
+      "criterion": 8,
+      "name": "lineage/independence limits",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 9,
+      "name": "actual GPS timestamp conventions",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PARTIAL"
+    },
+    {
+      "criterion": 10,
+      "name": "required conversions tested",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PARTIAL"
+    },
+    {
+      "criterion": 11,
+      "name": "reference frames/realizations identified",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 12,
+      "name": "TEME\u2192reference realization qualification",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "BLOCKED"
+    },
+    {
+      "criterion": 13,
+      "name": "EOP/leap requirements preserved",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 14,
+      "name": "invalid-residual gate",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 15,
+      "name": "actual-source adapter requirements",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 16,
+      "name": "qualified operational adapter",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "BLOCKED"
+    },
+    {
+      "criterion": 17,
+      "name": "no fabricated residuals/results",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 18,
+      "name": "existing data/evidence preserved",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 19,
+      "name": "scientific regressions",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 20,
+      "name": "new tests where implemented",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 21,
+      "name": "quality/build/browser checks",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    },
+    {
+      "criterion": 22,
+      "name": "remaining limitations/actions",
+      "scope": "current scoped evidence in scientific pairing report; documentation/protection PASS does not accept scientific evaluation",
+      "status": "PASS"
+    }
+  ],
+  "acceptance_counts": {
+    "BLOCKED": 3,
+    "PARTIAL": 3,
+    "PASS": 16
+  },
+  "actual_source_assessment": {
+    "assessment_tool_sha256": "f3ed90b965c1d09094507c7266e5588d721c4c210f8e1bc828ef665b97c5b6c8",
+    "current_reconciliation": {
+      "adapter_numeric_type_differences": 3,
+      "assessment_sha256": "620e9545fd4820709a3ecfff101e3705f4a70fbde2ae91de6f48dd5e7c0c8575",
+      "csv_sha256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4",
+      "exponent_case_only_differences": 6,
+      "fields_equal": 51,
+      "original_sha256": "c55dc4cbb2331a162014833a1a354e6f62ff4572d5238954b8108f69cae3053c",
+      "semantic_match": true,
+      "source_accepted": false,
+      "source_order_preserved": true,
+      "source_precision_differences": 0
+    },
+    "frame": {
+      "calculated_frame": "TEME",
+      "existing_path": [
+        "TEME",
+        "ITRS"
+      ],
+      "existing_terrestrial_output": "ITRS",
+      "helmert_transform_implemented": false,
+      "identity_transform_assumed": false,
+      "installed_astropy_igb08_frame": false,
+      "itrs_attributes": [
+        "location",
+        "obstime"
+      ],
+      "reason": "IGb08 datum alignment to ITRF2008 is documented, but no precision-scoped alignment from this pipeline is qualified",
+      "source_frame": "IGb08",
+      "status": "BLOCKED"
+    },
+    "independent_jan2014_calendar_crosscheck": {
+      "esa_gnss_time_source_sha256": "76c15344530f94793a237fffdd37017614fa4f8369bd1db751d473fa46515492",
+      "gps_minus_utc_seconds": 16,
+      "passed": 5118,
+      "scope": "Jan2014 integral accepted source seconds only, independently specified literal arithmetic; not production conversion, receiver clock accuracy, or excluded-time repair",
+      "tai_minus_gps_seconds": 19,
+      "tai_minus_utc_seconds": 35,
+      "usno_source_sha256": "3524e1ae34d67e858873a89e59983bbc5bd100221da898e796c1b36036a310c3"
+    },
+    "offline_attempts": {
+      "database": 0,
+      "network": 0,
+      "process": 0,
+      "propagation_transform_residual": 0
+    },
+    "pairing_decision": {
+      "accepted_reference_indices": [],
+      "approved_evaluation_configuration": null,
+      "future_comparison_label": "retrospective_only_unless_availability_proven",
+      "method": "all_records_against_all_ordinary_times_no_nearest_selection",
+      "prerequisites": [
+        "authenticated_source_and_actual_pair_provenance_assessment",
+        "predeclared_initial_record_and_reference_epoch_selection",
+        "source_time_and_format_discrepancy_disposition",
+        "precision_scoped_igb08_alignment_and_independent_verification",
+        "kinematic_epoch_quality_acceptance_and_uncertainty_limits",
+        "fitting_lineage_and_independence_limitations",
+        "reproducible_operational_input_configuration_and_separate_authorization"
+      ],
+      "selected_source_index": null,
+      "status": "BLOCKED",
+      "timing_candidate_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    "phase_status": "PARTIAL",
+    "quality": {
+      "accepted_quality_indices": [],
+      "axis_sigma_ranges_mm": [
+        {
+          "maximum": 95,
+          "minimum": 5
+        },
+        {
+          "maximum": 85,
+          "minimum": 5
+        },
+        {
+          "maximum": 97,
+          "minimum": 6
+        }
+      ],
+      "clock_sigma_range_ps": {
+        "maximum": 311,
+        "minimum": 36
+      },
+      "covariance_or_physical_accuracy_inferred": false,
+      "header_accuracy_exponent": 0,
+      "header_zero_accuracy_means_unknown": true,
+      "nominal_product_uncertainty_not_epoch_error_bound": true,
+      "reason": "formal_uncertainties_and_matching_val_are_not_epoch_acceptance",
+      "rows_with_extended_p_quality_fields": 0,
+      "rows_with_format_review_reasons": 0,
+      "rows_with_zero_position_component": 0,
+      "source_records": 7647,
+      "status": "PARTIAL"
+    },
+    "redundant_header_time": {
+      "gps_week_and_seconds_match_first_epoch": false,
+      "mjd_fraction_used_for_conversion": false,
+      "mjd_minus_first_epoch_seconds": "3.71200E-8",
+      "scope": "redundant_header_consistency_not_a_tolerance_or_clock_accuracy",
+      "status": "PARTIAL",
+      "week_seconds_minus_first_epoch_seconds": "-120.00000000"
+    },
+    "reference_source": {
+      "catalog_mapping": {
+        "norad_id": 39452,
+        "source": "https://ilrs.gsfc.nasa.gov/missions/correspondence_table.html",
+        "sp3_id": "L47",
+        "spacecraft": "Swarm-A"
+      },
+      "kinematic": {
+        "created_at": "UTC=2022-05-17T12:08:43",
+        "header_checksum": 3267709387,
+        "header_checksum_method": "POSIX cksum",
+        "header_validity_start": "UTC=2013-12-31T23:59:44",
+        "header_validity_stop": "UTC=2014-01-01T23:59:44",
+        "input_files": [
+          "SW_OPER_MODA_SC_1B_20140101T000000_20140101T235959_0401.sp3",
+          "SW_OPER_STRAATT_1B_20140101T000000_20140101T235959_0401_MDR_SAT_AT.cdf",
+          "SW_OPER_SC_ADYN_1B_20140101T000000_20140101T235959_0401_MDR_SC_DYN.cdf",
+          "SW_OPER_GPSA_RO_1B_20140101T000004_20140101T235954_0401.rnx"
+        ],
+        "members": {
+          "SW_OPER_SP3AKIN_2__20131231T235944_20140101T235944_0201.HDR": {
+            "bytes": 2625,
+            "sha256": "3607191f0a525e664a3453f96e7f03caf5876bc276f617bf0b376f019981cc69"
+          },
+          "SW_OPER_SP3AKIN_2__20131231T235944_20140101T235944_0201.sp3": {
+            "bytes": 1554264,
+            "sha256": "c6c9c0c610c64258abf7b0e7c38d0429fb73a90768b0c600a43f6c3f1f43eb27"
+          }
+        },
+        "mission": "Swarm",
+        "product": "SW_OPER_SP3AKIN_2__20131231T235944_20140101T235944_0201",
+        "product_error_code": "0",
+        "product_family": "SP3AKIN_2_",
+        "quality_codes_interpreted_as_acceptance": false,
+        "quality_indicator": "000",
+        "software": "L2PS-DUT/44.88",
+        "spacecraft": "Swarm-A",
+        "version": "0201",
+        "zip_crc_checked": true,
+        "zip_sha256": "a62164ca7940d415d63a81518a974422d7868b285abc2509423bac96bd9048b3"
+      },
+      "sp3": {
+        "ep_record_count": 7647,
+        "epoch_and_field_diagnostics": {
+          "seconds_field_60": 723,
+          "submicrosecond": 1806
+        },
+        "epoch_count": 7647,
+        "exact_gps_calendar_interval_histogram_seconds": {
+          "1.1E+2": 1,
+          "1.3E+2": 1,
+          "1.4E+2": 1,
+          "1.5E+2": 2,
+          "1.6E+2": 1,
+          "1.7E+2": 3,
+          "1.8E+2": 1,
+          "10.00000001": 529,
+          "109.99999999": 1,
+          "119.99999999": 1,
+          "139.99999999": 1,
+          "150.00000001": 1,
+          "170.00000001": 1,
+          "19.99999999": 1,
+          "1E+1": 6481,
+          "1E+2": 4,
+          "2.5E+2": 1,
+          "2.6E+2": 1,
+          "20.00000001": 6,
+          "239.99999999": 1,
+          "299.99999999": 1,
+          "2E+1": 24,
+          "2E+2": 1,
+          "3.3E+2": 2,
+          "3.5E+2": 2,
+          "3.8E+2": 1,
+          "30.00000001": 3,
+          "339.99999999": 1,
+          "379.99999999": 1,
+          "39.99999999": 2,
+          "3E+1": 9,
+          "40.00000001": 1,
+          "499.99999999": 1,
+          "4E+1": 4,
+          "4E+2": 1,
+          "5E+1": 4,
+          "60.00000001": 2,
+          "6E+1": 3,
+          "7E+1": 5,
+          "8.8E+2": 1,
+          "80.00000001": 1,
+          "8E+1": 3,
+          "9.99999999": 532,
+          "99.99999999": 1,
+          "9E+1": 1
+        },
+        "first_epoch_raw": "*  2014 01 01 00 02 20.00000000",
+        "format": "SP3-d",
+        "format_conformance": "Specimen layout inspected; zero nominal interval and time encodings do not certify general SP3 conformance or temporal alignment.",
+        "frame_declaration": "IGb08",
+        "interval_interpretation": "irregular epochs",
+        "last_epoch_raw": "*  2014 01 01 23 58 10.00000000",
+        "nominal_interval_seconds": "0",
+        "position_count": 7647,
+        "position_unit": "km",
+        "reference_uncertainty": "EP fields retained in source; no joint covariance inferred",
+        "sp3_id": "L47",
+        "time_diagnostic_is_utc_conversion": false,
+        "time_system": "GPS",
+        "velocity_records": 0
+      },
+      "tool_sha256": "a811b268cc925f0ab9aca443e266a1e4747c31b27d2f59f39fe3659a477fa598",
+      "validation": {
+        "created_at": "UTC=2022-05-17T12:08:44",
+        "header_checksum": 2624079523,
+        "header_checksum_method": "POSIX cksum",
+        "header_validity_start": "UTC=2013-12-31T23:59:44",
+        "header_validity_stop": "UTC=2014-01-01T23:59:44",
+        "input_files": [
+          "SW_OPER_MODA_SC_1B_20140101T000000_20140101T235959_0401.sp3",
+          "SW_OPER_STRAATT_1B_20140101T000000_20140101T235959_0401_MDR_SAT_AT.cdf",
+          "SW_OPER_SC_ADYN_1B_20140101T000000_20140101T235959_0401_MDR_SC_DYN.cdf",
+          "SW_OPER_GPSA_RO_1B_20140101T000004_20140101T235954_0401.rnx"
+        ],
+        "members": {
+          "SW_OPER_SP3AVAL_2__20131231T235944_20140101T235944_0201.HDR": {
+            "bytes": 2589,
+            "sha256": "db48d16156e4673d15181b85c5566825909f7e9c03a3408caf58cd00089922f7"
+          },
+          "SW_OPER_SP3AVAL_2__20131231T235944_20140101T235944_0201.pdf": {
+            "bytes": 829415,
+            "sha256": "ce2158a025430bea6fe856a905f9671060a181d42b8226b30287f7437de020e7"
+          }
+        },
+        "mission": "Swarm",
+        "product": "SW_OPER_SP3AVAL_2__20131231T235944_20140101T235944_0201",
+        "product_error_code": "0",
+        "product_family": "SP3AVAL_2_",
+        "quality_codes_interpreted_as_acceptance": false,
+        "quality_indicator": "000",
+        "software": "L2PS-DUT/44.88",
+        "spacecraft": "Swarm-A",
+        "version": "0201",
+        "zip_crc_checked": true,
+        "zip_sha256": "e258ea6afb9bc998e406c5d2f7a26369d716d958da7d2961eb273b645adfeca2"
+      }
+    },
+    "status": "BLOCKED",
+    "time": {
+      "candidate_offsets": [
+        {
+          "attachment_sha256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4",
+          "available_at": null,
+          "catalog_id": 39452,
+          "element_not_later_than_first_ordinary_reference": true,
+          "element_set_source_text": "35",
+          "epoch_source_text": "2013-12-30T20:24:39.765600",
+          "first_reference_offset_microseconds": 99444234400,
+          "forecast_eligible": false,
+          "international_designator": "2013-067B",
+          "last_reference_offset_microseconds": 185594234400,
+          "maximum_offset_microseconds": 185594234400,
+          "minimum_offset_microseconds": 99444234400,
+          "orbital_epoch_utc": "2013-12-30T20:24:39.765600+00:00",
+          "reference_after_element_epoch": 5118,
+          "reference_at_element_epoch": 0,
+          "reference_before_element_epoch": 0,
+          "revolution_source_text": "583",
+          "selected": false,
+          "source_index": 0,
+          "temporal_pair_approved": false,
+          "within_inclusive_seven_day_bound": 5118
+        },
+        {
+          "attachment_sha256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4",
+          "available_at": null,
+          "catalog_id": 39452,
+          "element_not_later_than_first_ordinary_reference": false,
+          "element_set_source_text": "36",
+          "epoch_source_text": "2014-01-01T05:30:45.095904",
+          "first_reference_offset_microseconds": -19721095904,
+          "forecast_eligible": false,
+          "international_designator": "2013-067B",
+          "last_reference_offset_microseconds": 66428904096,
+          "maximum_offset_microseconds": 66428904096,
+          "minimum_offset_microseconds": -19721095904,
+          "orbital_epoch_utc": "2014-01-01T05:30:45.095904+00:00",
+          "reference_after_element_epoch": 3895,
+          "reference_at_element_epoch": 0,
+          "reference_before_element_epoch": 1223,
+          "revolution_source_text": "604",
+          "selected": false,
+          "source_index": 1,
+          "temporal_pair_approved": false,
+          "within_inclusive_seven_day_bound": 5118
+        },
+        {
+          "attachment_sha256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4",
+          "available_at": null,
+          "catalog_id": 39452,
+          "element_not_later_than_first_ordinary_reference": false,
+          "element_set_source_text": "37",
+          "epoch_source_text": "2014-01-02T06:43:57.421344",
+          "first_reference_offset_microseconds": -110513421344,
+          "forecast_eligible": false,
+          "international_designator": "2013-067B",
+          "last_reference_offset_microseconds": -24363421344,
+          "maximum_offset_microseconds": -24363421344,
+          "minimum_offset_microseconds": -110513421344,
+          "orbital_epoch_utc": "2014-01-02T06:43:57.421344+00:00",
+          "reference_after_element_epoch": 0,
+          "reference_at_element_epoch": 0,
+          "reference_before_element_epoch": 5118,
+          "revolution_source_text": "620",
+          "selected": false,
+          "source_index": 2,
+          "temporal_pair_approved": false,
+          "within_inclusive_seven_day_bound": 5118
+        }
+      ],
+      "converted_count": 5118,
+      "eop_blocked": 0,
+      "eop_passed": 5118,
+      "eop_scope": "all_converted_epochs_and_existing_plus_minus_half_second_support",
+      "evaluated_at_utc": "2026-10-21T10:52:40.194883+00:00",
+      "excluded_count": 2529,
+      "exclusion_reasons": {
+        "source_precision_exceeds_microsecond_contract": 1806,
+        "source_second_60_requires_provider_clarification": 723
+      },
+      "first_converted_utc": "2014-01-01T00:02:04.000000Z",
+      "last_converted_utc": "2014-01-01T23:57:54.000000Z",
+      "offset_unit": "integer microseconds",
+      "reference_epoch_quality_approved": false,
+      "resources": {
+        "first_mjd": 41684.0,
+        "last_mjd": 61682.0,
+        "leap_seconds_expires": "2027-06-28",
+        "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "package_version": "0.2026.10.12.1.3.27",
+        "predictive_mjd": 61315.0,
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "source": "astropy-iers-data bundled IERS-A finals2000A.all"
+      },
+      "source_epoch_count": 7647,
+      "source_rounding_or_second_60_rollover": false,
+      "status": "PARTIAL"
+    }
+  },
+  "complete_nonignored_snapshot_sha256_excluding_this_file": "3d60026d912e266e8f4aa6abd8e5c12500ebe8f075537091ff832748522e7c1a",
+  "git": {
+    "branch": "phase-11.3.1-readiness-hardening",
+    "committed": false,
+    "existing_changes_preserved": true,
+    "head": "67abe1588bcada4fd30ee46134a71c4d27dcbd05",
+    "index_empty": true,
+    "pushed": false,
+    "remote_ci_invoked": false,
+    "starting_working_tree_paths": 58,
+    "unchanged_head_and_branch": true
+  },
+  "kind": "orbitiq_phase1131_scientific_pairing_qualification",
+  "milestones": {
+    "locally_verified_qualification_investigation": true,
+    "production_deployed": false,
+    "production_infrastructure_verified": false,
+    "published": false,
+    "remote_ci_verified_for_this_work": false,
+    "scientific_evaluation_qualified": false
+  },
+  "new_implementation_files": [
+    "scripts/assess_swarm_pairing.py",
+    "backend/tests/test_swarm_pairing_assessment.py"
+  ],
+  "next_action": "Obtain baseline-specific time/header and KIN-quality clarification; define precision-scoped IGb08 alignment and predeclared selection before seeking authorization for real evaluation. Manual checklist prepared, not sent.",
+  "phase8_boundaries": "Public hosting/HTTPS, independent recovery, actual alerts and production verification remain separate open milestones.",
+  "phase_status": "PARTIAL",
+  "preservation": {
+    "all_database_schema_and_rows_match_baseline": true,
+    "all_other_previous_reports_unchanged": true,
+    "baseline_local_artifact_sha256": "46c55513a3867fa5bd903c3b1850668d03fbe51421e27e3c7e356d580029e309",
+    "changed_existing_files": [
+      "docs/phase-11.3.1-report.md"
+    ],
+    "genuine_snapshots": 2,
+    "historical_report_original_body_retained_as_exact_prefix": true,
+    "historical_report_original_sha256": "c547077a5bf8e7751e24be454f5f45e2cc3132aa487dd92bb73bae6e3ee26ece",
+    "new_private_manifests": {
+      "assessment": {
+        "files": {
+          "assessment.json": {
+            "bytes": 8333064,
+            "sha256": "270919539e8ffc021da2029e323ff4423c7e8f6124834c188edb5471a1655a60"
+          }
+        },
+        "manifest_sha256": "6dd10c5ba592869763b24f0429beb04c2839045073ff382c0b83b941d875c940"
+      },
+      "documents": {
+        "files": {
+          "astropy-satellites.body": {
+            "bytes": 242462,
+            "sha256": "e2dbbec328cf4b22de00f3efa6b646d1bb1c8cf931b29fc729d7e47f430eae6e"
+          },
+          "astropy-timegps.body": {
+            "bytes": 233325,
+            "sha256": "96b5bdf9da686124d5b3c945e337b0aba142b7fa6d51a1aa7a36521aecb5d3d5"
+          },
+          "celestrak-gp.body": {
+            "bytes": 40338,
+            "sha256": "07db67c077bd0136301f849e3f4f70c3cef565628ec576409b585a85148c2dfb"
+          },
+          "esa-l2-spec.body": {
+            "bytes": 2098031,
+            "sha256": "03e40d82e2729cb8a3370a91333c6cd8837ae0fd338ce5b9b3da17e6999db5e1"
+          },
+          "gps-time-esa.body": {
+            "bytes": 28639,
+            "sha256": "76c15344530f94793a237fffdd37017614fa4f8369bd1db751d473fa46515492"
+          },
+          "iers-conventions.body": {
+            "bytes": 419947,
+            "sha256": "9ec6fac43f7037ff43896539d759333fc7e6007176cd72043b38d71cfd3e69c0"
+          },
+          "igs-6663.body": {
+            "bytes": 7299,
+            "sha256": "1fdfa31a2b17624cb7e4129fee9f654cd3f3574d75c147b361a26194961da436"
+          },
+          "igs-frame.body": {
+            "bytes": 1110895,
+            "sha256": "5a4e7229bcd90e38f9e092ee3faaff14b9e069dbec62a024d47eecb964b40b96"
+          },
+          "itrf2008.body": {
+            "bytes": 29642,
+            "sha256": "9e10f4f165864a771f58645ee659382b7199ccfde0478fe553ad845ff64907bd"
+          },
+          "receipts.json": {
+            "bytes": 4517,
+            "sha256": "8bcd71f096e8e17b6eee6b4e03856992fdf5873824fd72a34f143a67094b0f45"
+          },
+          "sp3-d.body": {
+            "bytes": 321385,
+            "sha256": "0809fe6571816a9b8394b46b8851b9bfbab956b46f7acab5af6eb62acee5ebbe"
+          },
+          "usno-leaps.body": {
+            "bytes": 3321,
+            "sha256": "3524e1ae34d67e858873a89e59983bbc5bd100221da898e796c1b36036a310c3"
+          }
+        },
+        "manifest_sha256": "36c6206d8b262bb26e0a2b82d8823399fed7941c1df751eeed2c808e517f9958"
+      }
+    },
+    "ordinary_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "original_nonignored_files": 307,
+    "private_original_files_unchanged": 39,
+    "schema_version": 3,
+    "swarm_snapshots": 0,
+    "unchanged_original_files": 306
+  },
+  "recorded_at_utc": "2026-10-21T11:00:32.029511+00:00",
+  "research_limitations": [
+    "Two search-engine requests returned 429, not retried and not treated as evidence.",
+    "A guessed ESA Docs directory and Astropy online-source route returned 404.",
+    "Guessed ESA catalogue returned an undefined shell despite HTTP 200; not used as metadata.",
+    "No baseline-specific KIN change note or unique KIN-member quality mask was established."
+  ],
+  "reviewed_authoritative_sources": [
+    {
+      "bytes": 2098031,
+      "content_type": "application/pdf",
+      "final_url": "https://earth.esa.int/eogateway/documents/d/earth-online/swarm-level-2-product-specification",
+      "name": "esa-l2-spec",
+      "requested_at_utc": "2026-10-21T10:39:32.636817+00:00",
+      "sha256": "03e40d82e2729cb8a3370a91333c6cd8837ae0fd338ce5b9b3da17e6999db5e1",
+      "status": 200,
+      "url": "https://earth.esa.int/eogateway/documents/d/earth-online/swarm-level-2-product-specification"
+    },
+    {
+      "bytes": 321385,
+      "content_type": "application/pdf",
+      "final_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "name": "sp3-d",
+      "requested_at_utc": "2026-10-21T10:39:32.637414+00:00",
+      "sha256": "0809fe6571816a9b8394b46b8851b9bfbab956b46f7acab5af6eb62acee5ebbe",
+      "status": 200,
+      "url": "https://files.igs.org/pub/data/format/sp3d.pdf"
+    },
+    {
+      "bytes": 1110895,
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://igs.org/wg/reference-frame/",
+      "name": "igs-frame",
+      "requested_at_utc": "2026-10-21T10:39:32.637902+00:00",
+      "sha256": "5a4e7229bcd90e38f9e092ee3faaff14b9e069dbec62a024d47eecb964b40b96",
+      "status": 200,
+      "url": "https://igs.org/wg/reference-frame/"
+    },
+    {
+      "bytes": 7299,
+      "content_type": "text/html",
+      "final_url": "https://lists.igs.org/pipermail/igsmail/2012/000497.html",
+      "name": "igs-6663",
+      "requested_at_utc": "2026-10-21T10:39:32.638359+00:00",
+      "sha256": "1fdfa31a2b17624cb7e4129fee9f654cd3f3574d75c147b361a26194961da436",
+      "status": 200,
+      "url": "https://lists.igs.org/pipermail/igsmail/2012/000497.html"
+    },
+    {
+      "bytes": 29642,
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://itrf.ign.fr/en/solutions/ITRF2008",
+      "name": "itrf2008",
+      "requested_at_utc": "2026-10-21T10:39:32.638907+00:00",
+      "sha256": "9e10f4f165864a771f58645ee659382b7199ccfde0478fe553ad845ff64907bd",
+      "status": 200,
+      "url": "https://itrf.ign.fr/en/solutions/ITRF2008"
+    },
+    {
+      "bytes": 40338,
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "name": "celestrak-gp",
+      "requested_at_utc": "2026-10-21T10:39:32.639236+00:00",
+      "sha256": "07db67c077bd0136301f849e3f4f70c3cef565628ec576409b585a85148c2dfb",
+      "status": 200,
+      "url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php"
+    },
+    {
+      "bytes": 242462,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://docs.astropy.org/en/stable/coordinates/satellites.html",
+      "name": "astropy-satellites",
+      "requested_at_utc": "2026-10-21T10:39:33.578488+00:00",
+      "sha256": "e2dbbec328cf4b22de00f3efa6b646d1bb1c8cf931b29fc729d7e47f430eae6e",
+      "status": 200,
+      "url": "https://docs.astropy.org/en/stable/coordinates/satellites.html"
+    },
+    {
+      "bytes": 3321,
+      "content_type": "text/plain; charset=UTF-8",
+      "final_url": "https://maia.usno.navy.mil/ser7/tai-utc.dat",
+      "name": "usno-leaps",
+      "requested_at_utc": "2026-10-21T10:39:33.667273+00:00",
+      "sha256": "3524e1ae34d67e858873a89e59983bbc5bd100221da898e796c1b36036a310c3",
+      "status": 200,
+      "url": "https://maia.usno.navy.mil/ser7/tai-utc.dat"
+    },
+    {
+      "bytes": 419947,
+      "content_type": "application/pdf",
+      "final_url": "https://iers-conventions.obspm.fr/content/chapter5/icc5.pdf",
+      "name": "iers-conventions",
+      "requested_at_utc": "2026-10-21T10:42:17.528456+00:00",
+      "sha256": "9ec6fac43f7037ff43896539d759333fc7e6007176cd72043b38d71cfd3e69c0",
+      "status": 200,
+      "url": "https://iers-conventions.obspm.fr/content/chapter5/icc5.pdf"
+    },
+    {
+      "bytes": 28639,
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://gssc.esa.int/navipedia/index.php/Time_References_in_GNSS",
+      "name": "gps-time-esa",
+      "requested_at_utc": "2026-10-21T10:42:17.528873+00:00",
+      "sha256": "76c15344530f94793a237fffdd37017614fa4f8369bd1db751d473fa46515492",
+      "status": 200,
+      "url": "https://gssc.esa.int/navipedia/index.php/Time_References_in_GNSS"
+    },
+    {
+      "bytes": 233325,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://docs.astropy.org/en/stable/api/astropy.time.TimeGPS.html",
+      "name": "astropy-timegps",
+      "requested_at_utc": "2026-10-21T10:42:18.632664+00:00",
+      "sha256": "96b5bdf9da686124d5b3c945e337b0aba142b7fa6d51a1aa7a36521aecb5d3d5",
+      "status": 200,
+      "url": "https://docs.astropy.org/en/stable/api/astropy.time.TimeGPS.html"
+    }
+  ],
+  "schema_version": 1,
+  "scientific_pairing_status": "BLOCKED",
+  "task_file_sha256_excluding_this_file": {
+    "backend/tests/test_swarm_pairing_assessment.py": "775468cfe089bbc7da13cf69a0b0a522a98afb7d6032b485245443f4c8157284",
+    "docs/phase-11.3.1-report.md": "844dfbb41967453b5e623b407d093f292d1b4e92d8218e8e8228d4629e506b5f",
+    "docs/phase-11.3.1-scientific-clarification-request.md": "f42b13be459dc2f2f9008ad8510976dbba9b9d735da268ebdc115d0b2ef79c58",
+    "docs/phase-11.3.1-scientific-pairing-report.md": "c73ff23ca1d371b400164dbb889dcc8843e3562104f1c0b857cc66d56b61e02e",
+    "scripts/assess_swarm_pairing.py": "f3ed90b965c1d09094507c7266e5588d721c4c210f8e1bc828ef665b97c5b6c8"
+  },
+  "verification": {
+    "final_backend": {
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "c2689d7bfe02b171a5af5830a553ab7df815d78d1c2ab1358a03b1d2037fd922",
+      "new_pairing_cases": 22,
+      "skipped": 0,
+      "tests": 1177
+    },
+    "final_backend_rerun_after_last_test_edit": true,
+    "final_focused": {
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "052cabffcd157fbf7d613100d16994795c55bbd909e44d2c6200133b6a5cfcab",
+      "new_pairing_cases": 22,
+      "skipped": 0,
+      "tests": 303
+    },
+    "final_lint_format_whitespace": [
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "--no-sync",
+          "ruff",
+          "check",
+          "."
+        ],
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "--no-sync",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "exit_code": 0,
+        "log_sha256": "3accebe6ea89f2c78ec6c12dbcaa6ecf88913ed058c8e2b2909b52889ac7ba20"
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "frontend_test_files": 25,
+    "frontend_tests": 344,
+    "full_check_commands": [
+      {
+        "argv": [
+          "uv",
+          "sync",
+          "--locked"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "uv-sync",
+        "seconds": 0.045102834701538086
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "--junitxml=/tmp/orbitiq-reference-qualification/workspace/backend.xml"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "backend",
+        "seconds": 41.26550483703613
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "ruff",
+        "seconds": 0.02258467674255371
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "format",
+        "seconds": 0.02479243278503418
+      },
+      {
+        "argv": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "frontend",
+        "seconds": 11.47190260887146
+      },
+      {
+        "argv": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "eslint",
+        "seconds": 3.849012851715088
+      },
+      {
+        "argv": [
+          "npm",
+          "run",
+          "format:check"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "prettier",
+        "seconds": 1.650266408920288
+      },
+      {
+        "argv": [
+          "./node_modules/.bin/tsc",
+          "--noEmit"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "typescript",
+        "seconds": 3.7071633338928223
+      },
+      {
+        "argv": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "build",
+        "seconds": 6.360802412033081
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "whitespace",
+        "seconds": 0.005090951919555664
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_scientific_references.py",
+          "--output",
+          "/tmp/orbitiq-reference-qualification/workspace/sgp4.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "sgp4",
+        "seconds": 0.15817523002624512
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_earth_fixed_references.py",
+          "--output",
+          "/tmp/orbitiq-reference-qualification/workspace/earth-fixed.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "earth-fixed",
+        "seconds": 0.9787166118621826
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase61_science.py",
+          "--output",
+          "/tmp/orbitiq-reference-qualification/workspace/science61.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "science61",
+        "seconds": 1.0866670608520508
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase611_geodesy.py",
+          "--output",
+          "/tmp/orbitiq-reference-qualification/workspace/geodesy.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "geodesy",
+        "seconds": 0.4190080165863037
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase101_golden.py",
+          "--directory",
+          "/tmp/orbitiq-reference-qualification/workspace/golden"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "golden",
+        "seconds": 3.388983964920044
+      }
+    ],
+    "initial_failed_expanded_header_test_retained": true,
+    "local_evidence_is_not_off_machine_backup": true,
+    "logs_directory": "/tmp/orbitiq-reference-qualification/",
+    "new_browser_and_pdf_runs": false,
+    "prior_browser_pdf_evidence": {
+      "backend_and_built_frontend_hashes_still_match": true,
+      "browser_and_pdf_script_hashes_still_match": true,
+      "flows": 77,
+      "input_hashes_artifact_sha256": "d5f25c0a97b54ea33861ab1833f33a38549c31b217e620f66814df9dcf5e761d",
+      "pdfs": 7,
+      "scope": "earlier CSV task, not rerun here"
+    },
+    "runtime_frontend_scientific_audit_sources_unchanged_by_header_diagnostic": true,
+    "science": {
+      "earth_fixed_passed": 6,
+      "expanded_science_passed": 32,
+      "geodetic_independent_passed": 28,
+      "geodetic_round_trips_passed": 28,
+      "golden_exact_offline_replays_passed": 3,
+      "golden_published_components_passed": 6,
+      "sgp4_passed": 40
+    },
+    "warnings": [
+      "Starlette/httpx deprecation",
+      "Intentional duplicate-member ZIP fixture"
+    ]
+  }
+}

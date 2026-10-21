@@ -1,0 +1,798 @@
+{
+  "branch_protection": {
+    "main_protected": false,
+    "observed_main_sha": "d9f85d5d6e28cea90f25965c761422f16705eea8",
+    "protection_or_visibility_changed": false,
+    "ruleset_query_explanation": "GitHub Pro or public repository required by API response",
+    "ruleset_query_http_status": 403,
+    "ruleset_required_check_details_verified": false
+  },
+  "ci_review": {
+    "expected_backend_tests": 1089,
+    "expected_frontend_tests": 307,
+    "expected_jobs": [
+      "backend",
+      "frontend",
+      "release-images"
+    ],
+    "expected_trigger": "push",
+    "manual_dispatch_planned": false,
+    "real_data_or_provider_credentials_required": false,
+    "remote_browser_golden_pdf_checks_in_workflow": false,
+    "workflow": ".github/workflows/ci.yml",
+    "workflow_modified": false,
+    "workflow_sha256": "a7b489350c0668613923da31558654aa5f3a6fb2e06a33911252c89f5b3deecd"
+  },
+  "content_review": {
+    "complete_tracked_diff_artifact_sha256": "5b238750c150ec37fb2341bebb22830bddf43a8e7a17687b0c5e7d074f2438c1",
+    "complete_untracked_diff_artifact_sha256": "4dc8daf3671720880badc01429823cb7aef4c3ba6c32a5de56131cc9a8e67255",
+    "credential_private_contact_pattern_hits": 0,
+    "every_included_file_read": true,
+    "mathematical_fixture_results_scope": "existing published numerical reference and synthetic fixture diagnostics, not actual ESA coordinates",
+    "raw_gp_csv_json_esa_correspondence_db_env_private_bundles_included": false,
+    "review_artifact_sha256": "fa49a11d303a9019ed43a9781d84804cc49b20384cb79ad1c8d5a9511d4e38eb",
+    "source_intake_coordinate_payloads_included": false
+  },
+  "excluded_original_path_count": 42,
+  "excluded_original_paths": [
+    " M .env.example",
+    " M .gitignore",
+    " M README.md",
+    " M backend/orbitiq/api/boundary.py",
+    " M backend/orbitiq/main.py",
+    " M backend/orbitiq/services/investigations.py",
+    " M deploy/server-routes.conf",
+    " M frontend/src/Investigations.tsx",
+    " M frontend/src/report-presentation.ts",
+    " M frontend/src/style.css",
+    "?? backend/orbitiq/api/history.py",
+    "?? backend/orbitiq/api/observation_validation.py",
+    "?? backend/orbitiq/maintenance/observation_validation.py",
+    "?? backend/orbitiq/observation_validation.py",
+    "?? backend/orbitiq/services/history.py",
+    "?? backend/orbitiq/services/observation_validation.py",
+    "?? backend/tests/test_observation_validation.py",
+    "?? backend/tests/test_phase11_history.py",
+    "?? docs/historical-analysis-methodology.md",
+    "?? docs/observation-record.schema.json",
+    "?? docs/observation-validation.md",
+    "?? docs/phase-11-dataset-source-review.md",
+    "?? docs/phase-11-extension-integration-results.json",
+    "?? docs/phase-11-extension-report.md",
+    "?? docs/phase-11-followup-integration-results.json",
+    "?? docs/phase-11-followup-report.md",
+    "?? docs/phase-11-integration-results.json",
+    "?? docs/phase-11-report.md",
+    "?? docs/phase-11.3-integration-results.json",
+    "?? docs/phase-11.3-report.md",
+    "?? docs/scientific-benchmark-protocol.md",
+    "?? frontend/src/HistoricalAnalysis.test.tsx",
+    "?? frontend/src/HistoricalAnalysis.tsx",
+    "?? frontend/src/ObservationValidation.test.tsx",
+    "?? frontend/src/ObservationValidation.tsx",
+    "?? frontend/src/history-api.ts",
+    "?? frontend/src/test-fixtures/history-invalid.json",
+    "?? frontend/src/test-fixtures/history.json",
+    "?? frontend/src/test-fixtures/observation-validation.json",
+    "?? scripts/verify_historical_analysis.py",
+    "?? scripts/verify_history_browser.py",
+    "?? scripts/verify_observation_browser.py"
+  ],
+  "included_file_sha256_excluding_this_snapshot": {
+    "backend/tests/conftest.py": "14c40f072f02438b01fc298695b5ff2a036f118ad939441779208da0d8945137",
+    "backend/tests/test_historical_csv_intake.py": "905dde071581c59c5dfa53392b178cfcc6845f576d49d7f3a0342db1e7962187",
+    "backend/tests/test_phase1131_qualification.py": "b2085f71d81651ce88f4f57677e87bc3635e85a477872501838e089f5db23389",
+    "backend/tests/test_phase113_swarm_inspection.py": "27eea3ffedc6d701c752d6234b7db55c6de5b5b3451a09e9012dd85d40fe8bd6",
+    "backend/tests/test_swarm_pairing_assessment.py": "225968312aa61a18ac7e16c80deb7e3ad360ac31cee415aec44457f85c79c16d",
+    "docs/phase-11.3-dataset-provenance.md": "b6938c9eba873232832b59e74d883f9dadc2106aa6b710480e69e3257430abf6",
+    "docs/phase-11.3.1-csv-intake-report.md": "4907c49014f921524da2ca7f34cfe7d36dbc0f89209e420e4d56e9e3b241f82b",
+    "docs/phase-11.3.1-csv-verification.json": "2e0d68df72e092d0c4f42fe6c1a421076b681ccc476942e61753d1f9a2ee822f",
+    "docs/phase-11.3.1-frame-and-time-qualification.md": "e2a625ece54577f8a414510233998af10f3e39476b01a69a4063e095d13fa271",
+    "docs/phase-11.3.1-historical-csv-intake.md": "20b79cf05c6986233b7efb9ca95c609c82b36ebd680533ebe1a8a504c8bd480e",
+    "docs/phase-11.3.1-historical-input-request.md": "4017b280901f2f48e46d042bfe5728f85a9ba24c9241cd9341754e937afc4427",
+    "docs/phase-11.3.1-integration-results.json": "8c4d88f3716b1c4ef2e81dfea4a48f539cabc63693041eb8d8cb000a8d4c570e",
+    "docs/phase-11.3.1-provider-inquiries.md": "c09892b3011a5bf157bef790afc48a37762115546a410951f45c1654f34b7f36",
+    "docs/phase-11.3.1-publication.md": "8af30f12f671a03bd1e00db062da87ed31689d505b6e49a1d8274c146da2d494",
+    "docs/phase-11.3.1-report.md": "844dfbb41967453b5e623b407d093f292d1b4e92d8218e8e8228d4629e506b5f",
+    "docs/phase-11.3.1-scientific-clarification-request.md": "d828690106aa4c228a01591fc08da2b5a1699d1a78b87858c15e3e21b12c1ab9",
+    "docs/phase-11.3.1-scientific-pairing-report.md": "c73ff23ca1d371b400164dbb889dcc8843e3562104f1c0b857cc66d56b61e02e",
+    "docs/phase-11.3.1-scientific-pairing-verification.json": "a5bf4200a67b8ed4403863de45e04a9bf6a286bb8ce0f3beebf388fdfe7b0a8d",
+    "scripts/assess_swarm_pairing.py": "f3ed90b965c1d09094507c7266e5588d721c4c210f8e1bc828ef665b97c5b6c8",
+    "scripts/inspect_historical_csv.py": "c21850ced27f91515986916a5f99e077f253b5fbdfdd127d02cc56d32b96b340",
+    "scripts/inspect_historical_gp.py": "4a84747ee873210bbc39e1d6535a540dba569c7825d323477a559c1d8259dd6d",
+    "scripts/inspect_swarm_reference.py": "a811b268cc925f0ab9aca443e266a1e4747c31b27d2f59f39fe3659a477fa598",
+    "scripts/qualify_swarm_inputs.py": "f8a333f68bc384fa594ffb277c9ec9c23eca20a1919bb1dc422e69ebf3473d12",
+    "scripts/reconcile_historical_gp.py": "56bfe56c50368997b220b58633bf137ccb0934cad8a0b5a6ceb81fc67ed749f0"
+  },
+  "included_paths": [
+    "scripts/inspect_historical_gp.py",
+    "scripts/reconcile_historical_gp.py",
+    "scripts/inspect_historical_csv.py",
+    "scripts/inspect_swarm_reference.py",
+    "scripts/qualify_swarm_inputs.py",
+    "scripts/assess_swarm_pairing.py",
+    "backend/tests/conftest.py",
+    "backend/tests/test_historical_csv_intake.py",
+    "backend/tests/test_phase113_swarm_inspection.py",
+    "backend/tests/test_phase1131_qualification.py",
+    "backend/tests/test_swarm_pairing_assessment.py",
+    "docs/phase-11.3-dataset-provenance.md",
+    "docs/phase-11.3.1-report.md",
+    "docs/phase-11.3.1-integration-results.json",
+    "docs/phase-11.3.1-frame-and-time-qualification.md",
+    "docs/phase-11.3.1-historical-input-request.md",
+    "docs/phase-11.3.1-historical-csv-intake.md",
+    "docs/phase-11.3.1-csv-intake-report.md",
+    "docs/phase-11.3.1-csv-verification.json",
+    "docs/phase-11.3.1-scientific-pairing-report.md",
+    "docs/phase-11.3.1-scientific-pairing-verification.json",
+    "docs/phase-11.3.1-scientific-clarification-request.md",
+    "docs/phase-11.3.1-provider-inquiries.md",
+    "docs/phase-11.3.1-publication.md",
+    "docs/phase-11.3.1-publication-verification.json"
+  ],
+  "kind": "orbitiq_phase1131p_precommit_publication_verification",
+  "logs_directory": "/tmp/orbitiq-publication-1131p/",
+  "milestones_at_snapshot": {
+    "committed": false,
+    "exact_published_commit_ci_verified": false,
+    "locally_verified": true,
+    "production_deployed": false,
+    "pushed": false,
+    "scientifically_qualified": false
+  },
+  "phase8": "Public HTTPS/hosting, independent recovery, real alerts, branch protection and production verification remain separate open milestones.",
+  "planned_publication_branch": "phase-11.3.1-verified-publication",
+  "preservation": {
+    "all_unrelated_original_files_unchanged": true,
+    "baseline_local_artifact_sha256": "0ae88868df2f50b763f5a581d8bfd00295b82d8994b98b9f8818b2382485d0e6",
+    "changed_existing_files": [
+      "backend/tests/test_historical_csv_intake.py",
+      "backend/tests/test_phase1131_qualification.py",
+      "backend/tests/test_swarm_pairing_assessment.py",
+      "docs/phase-11.3.1-scientific-clarification-request.md"
+    ],
+    "database_all_schema_rows_integrity_match_baseline": true,
+    "database_schema_version": 3,
+    "genuine_iss_snapshots": 2,
+    "ordinary_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "original_private_files_unchanged": 56,
+    "starting_source_report_files": 312,
+    "swarm_snapshots": 0
+  },
+  "provider_inquiries": {
+    "CelesTrak": {
+      "response": "AWAITING_RESPONSE",
+      "submission": "SUBMITTED_USER_REPORTED",
+      "submitted_at": null
+    },
+    "ESA": {
+      "response": "AWAITING_RESPONSE",
+      "submission": "SUBMITTED_USER_REPORTED",
+      "submitted_at": null
+    },
+    "messages_sent_by_assistant": false,
+    "private_email_body_or_metadata_published": false,
+    "submission_evidence": "user Phase 11.3.1-P instruction says both clarification emails were sent"
+  },
+  "recorded_at_utc": "2026-10-21T11:33:55.506451+00:00",
+  "remote": "https://github.com/BibinBinoy777/OrbitIQ.git",
+  "repository_visibility_unchanged": "private",
+  "reproducibility_fix": {
+    "affected_existing_tests": [
+      "backend/tests/test_historical_csv_intake.py",
+      "backend/tests/test_phase1131_qualification.py",
+      "backend/tests/test_swarm_pairing_assessment.py"
+    ],
+    "existing_assertions_and_guards_retained": true,
+    "new_guard_test": true,
+    "scientific_runtime_or_gates_changed": false,
+    "test_fixture": "backend/tests/conftest.py"
+  },
+  "schema_version": 1,
+  "scientific_status": {
+    "operational_adapter": false,
+    "pairing": "BLOCKED",
+    "phase": "PARTIAL",
+    "provider_answer_or_resolution_inferred": false,
+    "real_esa_residuals": false,
+    "real_swarm_propagation": false,
+    "unresolved": [
+      "120-second calendar/week-seconds conflict",
+      "37.12-nanosecond MJD discrepancy",
+      "SP3 time/format/interval/second-60 conventions",
+      "KIN quality acceptance",
+      "IGb08 alignment",
+      "historical record/reference selection",
+      "historical availability",
+      "provenance and independence"
+    ]
+  },
+  "scope": "pre-commit snapshot, no advance publication/remote-CI claim",
+  "scope_count_difference": {
+    "backend": 89,
+    "frontend": 37,
+    "reason": "excluded earlier application/history/observation work; no removed or skipped test"
+  },
+  "starting_branch": "phase-11.3.1-readiness-hardening",
+  "starting_head": "67abe1588bcada4fd30ee46134a71c4d27dcbd05",
+  "starting_index_empty": true,
+  "starting_working_tree_paths": 63,
+  "verification": {
+    "snapshot": {
+      "api_mocked": false,
+      "backend": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "12b3a030727cbd18fa67c7a430faf97b1defed9bf3bd497b02b83a87a7bbe50b",
+        "skipped": 0,
+        "tests": 1089
+      },
+      "browser_commands_sha256": "822379b9093732a12326364876a146763887f5a7e160ee57ccf1a73f9ebd6d96",
+      "browser_flows_passed": 35,
+      "browser_results": [
+        {
+          "cases": 7,
+          "file": "critical-chromium.json",
+          "sha256": "402e79f6cc4f703bd05e6e7c1183c8e70cff68a6db4e7a08e198481a0c392923"
+        },
+        {
+          "cases": 6,
+          "file": "reports/chromium-results.json",
+          "sha256": "cb23bc31f1ec730e36d9c795a8ae1d160abb6350bdee04390277a896fef37cf1"
+        },
+        {
+          "cases": 7,
+          "file": "critical-firefox.json",
+          "sha256": "0e5143c012cb0c143859b87d6a8d3776309c34b27ac37ef0b1c407e1cf0293a9"
+        },
+        {
+          "cases": 4,
+          "file": "reports/firefox-results.json",
+          "sha256": "9fda9d6b6ea99c93decc4664482fdbef2575ed4401d246372c3f36abfa46337c"
+        },
+        {
+          "cases": 7,
+          "file": "critical-webkit.json",
+          "sha256": "4c9ef577e290e5ad4f8a73beab61b65ed8ee97765badd9237e9efa2f901f532b"
+        },
+        {
+          "cases": 4,
+          "file": "reports/webkit-results.json",
+          "sha256": "f2853bf7286b06e22048719f7dfa6056c52a7bc49c60f7d7b330b1deadf78891"
+        }
+      ],
+      "checks": [
+        {
+          "argv": [
+            "uv",
+            "sync",
+            "--locked"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "uv-sync",
+          "seconds": 0.012403726577758789
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "pytest",
+            "-q",
+            "--junitxml=/tmp/orbitiq-publication-1131p/snapshot/backend.xml"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "backend",
+          "seconds": 41.85463881492615
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "ruff",
+            "check",
+            "."
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "ruff",
+          "seconds": 0.030570268630981445
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "ruff",
+            "format",
+            "--check",
+            "."
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "format",
+          "seconds": 0.038549184799194336
+        },
+        {
+          "argv": [
+            "npm",
+            "ci"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot/frontend",
+          "exit_code": 0,
+          "name": "npm-ci",
+          "seconds": 5.1111180782318115
+        },
+        {
+          "argv": [
+            "npm",
+            "test"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot/frontend",
+          "exit_code": 0,
+          "name": "frontend",
+          "seconds": 17.2003436088562
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "lint"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot/frontend",
+          "exit_code": 0,
+          "name": "eslint",
+          "seconds": 4.952178478240967
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "format:check"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot/frontend",
+          "exit_code": 0,
+          "name": "prettier",
+          "seconds": 1.8712682723999023
+        },
+        {
+          "argv": [
+            "./node_modules/.bin/tsc",
+            "--noEmit"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot/frontend",
+          "exit_code": 0,
+          "name": "typescript",
+          "seconds": 4.0486040115356445
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot/frontend",
+          "exit_code": 0,
+          "name": "build",
+          "seconds": 6.853510856628418
+        },
+        {
+          "argv": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "whitespace",
+          "seconds": 0.003180980682373047
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_scientific_references.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/snapshot/sgp4.json"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "sgp4",
+          "seconds": 0.19704508781433105
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_earth_fixed_references.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/snapshot/earth-fixed.json"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "earth-fixed",
+          "seconds": 1.0887389183044434
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_phase61_science.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/snapshot/science61.json"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "science61",
+          "seconds": 0.9390594959259033
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_phase611_geodesy.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/snapshot/geodesy.json"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "geodesy",
+          "seconds": 0.5202360153198242
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_phase101_golden.py",
+            "--directory",
+            "/tmp/orbitiq-publication-1131p/snapshot/golden"
+          ],
+          "cwd": "/tmp/orbitiq-publication-1131p/snapshot",
+          "exit_code": 0,
+          "name": "golden",
+          "seconds": 3.128575563430786
+        }
+      ],
+      "focused": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "ec5c9ea0ba5bcaeea66ee8adc8cae81ae17e77bdc89c7ed94eccfb0aa9085d29",
+        "skipped": 0,
+        "tests": 304
+      },
+      "frontend_tests": 307,
+      "maximum_track_rows_checked": 361,
+      "pdf_results_sha256": "49c8a68f83f7d5cfb9acdf1cd80160d9c5e8b177cd3a36fc5af7caa1b998c438",
+      "pdfs_passed": 7,
+      "published_ports": false,
+      "science": {
+        "earth_fixed": 6,
+        "expanded_science": 32,
+        "geodesy_independent": 28,
+        "geodesy_round_trips": 28,
+        "golden_components": 6,
+        "golden_exact_offline_replays": 3,
+        "sgp4": 40
+      }
+    },
+    "workspace": {
+      "api_mocked": false,
+      "backend": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "b043bab5b35f7343e85e9b0969696e27b467c1e086effd6724a8a6a5ce02d151",
+        "skipped": 0,
+        "tests": 1178
+      },
+      "browser_commands_sha256": "09cbb280adf8ad4ffc5410c8325f80f71beec45f66f8f67774af75b053462573",
+      "browser_flows_passed": 77,
+      "browser_results": [
+        {
+          "cases": 7,
+          "file": "critical-chromium.json",
+          "sha256": "0ebb187cb3d5451f17c226a657b078a2200fdab4c85b54a41dc29924d05e5531"
+        },
+        {
+          "cases": 6,
+          "file": "reports/chromium-results.json",
+          "sha256": "406db0073d9fe31be9b9c9d5d051b9653d7a3767c41f607f550120d78664bd85"
+        },
+        {
+          "cases": 2,
+          "file": "empty-chromium.json",
+          "sha256": "76f6a8dfec8893c3eba6f30536d8fb91bf30dc6300302f42554742fe47ab5ed9"
+        },
+        {
+          "cases": 4,
+          "file": "fixture-chromium.json",
+          "sha256": "c7db25ba5fa97e12cefbf57e782ad4e93a0c1aff46c3b1a92e855c9f2c6ca264"
+        },
+        {
+          "cases": 8,
+          "file": "history-chromium/evidence.json",
+          "sha256": "22f2dfed52eb777fc97c3e6efb02ae292775ba9592e4f69eec81d84849394bda"
+        },
+        {
+          "cases": 7,
+          "file": "critical-firefox.json",
+          "sha256": "1b764f679ab5e79f74c5e6b1fef04183798580b46adc536b6184266f96ac6b82"
+        },
+        {
+          "cases": 4,
+          "file": "reports/firefox-results.json",
+          "sha256": "13d1e0baf2a7812145c3d12d4d19f0c0c275dea3063c69374bb1b1f3b6c7728c"
+        },
+        {
+          "cases": 2,
+          "file": "empty-firefox.json",
+          "sha256": "228c1fc8043a2ce498936652eef3b24db33f8afa1d303731e7e4233355eb7fdf"
+        },
+        {
+          "cases": 4,
+          "file": "fixture-firefox.json",
+          "sha256": "a63eadcf24616edad9a3999ceacc027d04c28c39d08abdbd11c530f3aed5db4e"
+        },
+        {
+          "cases": 8,
+          "file": "history-firefox/evidence.json",
+          "sha256": "7a62dbc7d96e036a2caafcb5d0c2550c5fbd48687009ee4fb8887cabcb095e5f"
+        },
+        {
+          "cases": 7,
+          "file": "critical-webkit.json",
+          "sha256": "446ab1fbd7b8d9b0aabf20c583228735228b46feb8c73a1900d75543c2bf7e05"
+        },
+        {
+          "cases": 4,
+          "file": "reports/webkit-results.json",
+          "sha256": "9dc17f66f96fb2f7cdb824add8d94a31400ddf9ab65b3295e83adec094e2c0c6"
+        },
+        {
+          "cases": 2,
+          "file": "empty-webkit.json",
+          "sha256": "24239425f384a8772d4fdc1b45e1797a6032ab7d8d00352fd8e2b7d9c2a9d5a5"
+        },
+        {
+          "cases": 4,
+          "file": "fixture-webkit.json",
+          "sha256": "bb2774db4eadcdb66e1da7972416a121b36dcf4f7e8416507394ca0df370fac9"
+        },
+        {
+          "cases": 8,
+          "file": "history-webkit/evidence.json",
+          "sha256": "1ce4309b47320165ced5e24f658578fd78e1e9001bb3b266444696be447709c9"
+        }
+      ],
+      "checks": [
+        {
+          "argv": [
+            "uv",
+            "sync",
+            "--locked"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "uv-sync",
+          "seconds": 0.012918710708618164
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "pytest",
+            "-q",
+            "--junitxml=/tmp/orbitiq-publication-1131p/workspace/backend.xml"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "backend",
+          "seconds": 44.61143660545349
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "ruff",
+            "check",
+            "."
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "ruff",
+          "seconds": 0.04212784767150879
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "ruff",
+            "format",
+            "--check",
+            "."
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "format",
+          "seconds": 0.03898811340332031
+        },
+        {
+          "argv": [
+            "npm",
+            "test"
+          ],
+          "cwd": "/workspace/OrbitIQ/frontend",
+          "exit_code": 0,
+          "name": "frontend",
+          "seconds": 17.157875061035156
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "lint"
+          ],
+          "cwd": "/workspace/OrbitIQ/frontend",
+          "exit_code": 0,
+          "name": "eslint",
+          "seconds": 3.8532166481018066
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "format:check"
+          ],
+          "cwd": "/workspace/OrbitIQ/frontend",
+          "exit_code": 0,
+          "name": "prettier",
+          "seconds": 1.861203670501709
+        },
+        {
+          "argv": [
+            "./node_modules/.bin/tsc",
+            "--noEmit"
+          ],
+          "cwd": "/workspace/OrbitIQ/frontend",
+          "exit_code": 0,
+          "name": "typescript",
+          "seconds": 4.72919774055481
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "cwd": "/workspace/OrbitIQ/frontend",
+          "exit_code": 0,
+          "name": "build",
+          "seconds": 7.266759395599365
+        },
+        {
+          "argv": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "whitespace",
+          "seconds": 0.0062062740325927734
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_scientific_references.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/workspace/sgp4.json"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "sgp4",
+          "seconds": 0.15461134910583496
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_earth_fixed_references.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/workspace/earth-fixed.json"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "earth-fixed",
+          "seconds": 0.9911530017852783
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_phase61_science.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/workspace/science61.json"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "science61",
+          "seconds": 1.0877494812011719
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_phase611_geodesy.py",
+            "--output",
+            "/tmp/orbitiq-publication-1131p/workspace/geodesy.json"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "geodesy",
+          "seconds": 0.7197070121765137
+        },
+        {
+          "argv": [
+            "uv",
+            "run",
+            "--locked",
+            "python",
+            "scripts/verify_phase101_golden.py",
+            "--directory",
+            "/tmp/orbitiq-publication-1131p/workspace/golden"
+          ],
+          "cwd": "/workspace/OrbitIQ",
+          "exit_code": 0,
+          "name": "golden",
+          "seconds": 3.9463186264038086
+        }
+      ],
+      "focused": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "e63f72420f716b671c9fc23555e1d34265b85974290728ab8b1a4b40b31db459",
+        "skipped": 0,
+        "tests": 304
+      },
+      "frontend_tests": 344,
+      "maximum_track_rows_checked": 361,
+      "pdf_results_sha256": "7297a85ad0033be18a1d9d231a06ecc484faaa75061b8379dac93e91763a8f4b",
+      "pdfs_passed": 7,
+      "published_ports": false,
+      "science": {
+        "earth_fixed": 6,
+        "expanded_science": 32,
+        "geodesy_independent": 28,
+        "geodesy_round_trips": 28,
+        "golden_components": 6,
+        "golden_exact_offline_replays": 3,
+        "sgp4": 40
+      }
+    }
+  }
+}

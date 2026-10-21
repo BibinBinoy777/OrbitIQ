@@ -1,0 +1,557 @@
+{
+  "acceptance_criteria": {
+    "AC-01": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-02": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-03": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-04": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-05": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-06": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-07": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-08": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-09": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-10": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-11": "PASS within intake/preservation/explicit-blocker scope only",
+    "AC-12": "PASS within intake/preservation/explicit-blocker scope only"
+  },
+  "actual_source_verification": {
+    "adapter_numeric_type_differences": 3,
+    "adapter_operational": false,
+    "assessment_sha256": "620e9545fd4820709a3ecfff101e3705f4a70fbde2ae91de6f48dd5e7c0c8575",
+    "comparison_ready": false,
+    "csv_sha256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4",
+    "exponent_case_only_differences": 6,
+    "fields_compared": 51,
+    "frame_status": "BLOCKED",
+    "kind": "orbitiq_csv_scientific_requalification_local_verification",
+    "numeric_fields_equal": 39,
+    "offline_attempts": {
+      "database": 0,
+      "network": 0,
+      "process": 0,
+      "propagation_or_residual": 0
+    },
+    "original_sha256": "c55dc4cbb2331a162014833a1a354e6f62ff4572d5238954b8108f69cae3053c",
+    "prediction_evaluations": 0,
+    "qualification_gates": {
+      "coordinate_frame": {
+        "reason": "igb08_unqualified",
+        "status": "BLOCKED"
+      },
+      "historical_record_selection": {
+        "reason": "no_approved_record_selection",
+        "status": "BLOCKED"
+      },
+      "numbers_and_element_model": {
+        "reason": "static_csv_checks_only",
+        "status": "PASS"
+      },
+      "operational_evaluation": {
+        "reason": "no_operational_adapter_or_scientific_approval",
+        "status": "BLOCKED"
+      },
+      "provenance_and_independence": {
+        "reason": "authentication_availability_lineage_unknown",
+        "status": "BLOCKED"
+      },
+      "record_structure": {
+        "reason": "static_csv_checks_only",
+        "status": "PASS"
+      },
+      "reference_quality": {
+        "reason": "no_approved_epoch_quality_selection",
+        "status": "BLOCKED"
+      },
+      "source_identity": {
+        "reason": "labels_not_authentication",
+        "status": "PARTIAL"
+      },
+      "temporal_pairing": {
+        "reason": "epoch_bound_is_not_approved_pairing",
+        "status": "BLOCKED"
+      },
+      "time_system": {
+        "reason": "5118_converted_reference_times_2529_excluded",
+        "status": "PARTIAL"
+      }
+    },
+    "residuals": null,
+    "source_counts": {
+      "candidate": 3,
+      "enumerated": 3,
+      "excluded": 0
+    },
+    "source_order_preserved": true,
+    "source_precision_differences": 0,
+    "status": "PARTIAL",
+    "text_fields_equal": 12,
+    "time_converted": 5118,
+    "time_excluded": 2529,
+    "unexplained_field_differences": 0
+  },
+  "branch": "phase-11.3.1-readiness-hardening",
+  "checks": {
+    "backend_warnings": 2,
+    "browser": {
+      "api_mocked": false,
+      "browser_regression_omissions": [],
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "flows_passed": 77,
+      "isolated_copies_not_ordinary_database_writes": true,
+      "maximum_track_rows_checked": 361,
+      "native_pdf_engine": "chromium",
+      "pdf_results_sha256": "59364fe4b9cbd1605ae9529d7cc2500efb4b106afa125c0aef6bbdca1c86b2e6",
+      "pdfs_passed": 7,
+      "published_ports": false,
+      "result_files": [
+        {
+          "cases": 2,
+          "file": "empty-chromium.json",
+          "sha256": "76f6a8dfec8893c3eba6f30536d8fb91bf30dc6300302f42554742fe47ab5ed9"
+        },
+        {
+          "cases": 4,
+          "file": "fixture-chromium.json",
+          "sha256": "c7db25ba5fa97e12cefbf57e782ad4e93a0c1aff46c3b1a92e855c9f2c6ca264"
+        },
+        {
+          "cases": 8,
+          "file": "history-chromium/evidence.json",
+          "sha256": "c64da66a9fdcf7afdb816ca00f9b1f4571eeeecd4509b40e3ffbd468e54aef99"
+        },
+        {
+          "cases": 7,
+          "file": "critical-chromium.json",
+          "sha256": "2ff37aec264f341d6b1bba10fbb25afdf5fc25c97c89e7f143e605ca69eca318"
+        },
+        {
+          "cases": 6,
+          "file": "reports/chromium-results.json",
+          "sha256": "7621a81ea1685e84c37f363c2dfc444accdd33882e993fdfc2177b69cd286c94"
+        },
+        {
+          "cases": 2,
+          "file": "empty-firefox.json",
+          "sha256": "784930e7631dae79c562b4c08c2890a270696c906979d827bd0c8c04f332727c"
+        },
+        {
+          "cases": 4,
+          "file": "fixture-firefox.json",
+          "sha256": "a63eadcf24616edad9a3999ceacc027d04c28c39d08abdbd11c530f3aed5db4e"
+        },
+        {
+          "cases": 8,
+          "file": "history-firefox/evidence.json",
+          "sha256": "c57b15a036c14e928b95262ce950f92c9d2513442d8b7f25b3b430b7e538bf7f"
+        },
+        {
+          "cases": 7,
+          "file": "critical-firefox.json",
+          "sha256": "36ac174efa5f0fa146eeb8cfe41fa9ad2f79594bd89e176e94f9d330ac914862"
+        },
+        {
+          "cases": 4,
+          "file": "reports/firefox-results.json",
+          "sha256": "3c472fd8436abfeddc7b38a8ae474e750f6a8e824029dfc50fbcace684b0621a"
+        },
+        {
+          "cases": 2,
+          "file": "empty-webkit.json",
+          "sha256": "24239425f384a8772d4fdc1b45e1797a6032ab7d8d00352fd8e2b7d9c2a9d5a5"
+        },
+        {
+          "cases": 4,
+          "file": "fixture-webkit.json",
+          "sha256": "bb2774db4eadcdb66e1da7972416a121b36dcf4f7e8416507394ca0df370fac9"
+        },
+        {
+          "cases": 8,
+          "file": "history-webkit/evidence.json",
+          "sha256": "5b0de65eabce65232aff94e7cf44b4d4df63f8ebbf52c276a045b6cbab0c917d"
+        },
+        {
+          "cases": 7,
+          "file": "critical-webkit.json",
+          "sha256": "01485f93220c3a102ba138198c5d92b5641a48517342003b1d984b979bff7c67"
+        },
+        {
+          "cases": 4,
+          "file": "reports/webkit-results.json",
+          "sha256": "349dbc6fb0d425060bbda9a047abb312c35980d3a7a92961e073bfd113419433"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "argv": [
+          "uv",
+          "sync",
+          "--locked"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "uv-sync",
+        "seconds": 0.015074968338012695
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "--junitxml=/tmp/orbitiq-csv-adapter/workspace/backend.xml"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "backend",
+        "seconds": 42.35065412521362
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "ruff",
+        "seconds": 0.021754980087280273
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "format",
+        "seconds": 0.02315807342529297
+      },
+      {
+        "argv": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "frontend",
+        "seconds": 12.4168381690979
+      },
+      {
+        "argv": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "eslint",
+        "seconds": 4.155430793762207
+      },
+      {
+        "argv": [
+          "npm",
+          "run",
+          "format:check"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "prettier",
+        "seconds": 1.6827383041381836
+      },
+      {
+        "argv": [
+          "./node_modules/.bin/tsc",
+          "--noEmit"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "typescript",
+        "seconds": 3.9637868404388428
+      },
+      {
+        "argv": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/workspace/OrbitIQ/frontend",
+        "exit_code": 0,
+        "name": "build",
+        "seconds": 6.301979303359985
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "whitespace",
+        "seconds": 0.0051174163818359375
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_scientific_references.py",
+          "--output",
+          "/tmp/orbitiq-csv-adapter/workspace/sgp4.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "sgp4",
+        "seconds": 0.18974852561950684
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_earth_fixed_references.py",
+          "--output",
+          "/tmp/orbitiq-csv-adapter/workspace/earth-fixed.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "earth-fixed",
+        "seconds": 0.8712236881256104
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase61_science.py",
+          "--output",
+          "/tmp/orbitiq-csv-adapter/workspace/science61.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "science61",
+        "seconds": 0.9265027046203613
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase611_geodesy.py",
+          "--output",
+          "/tmp/orbitiq-csv-adapter/workspace/geodesy.json"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "geodesy",
+        "seconds": 0.5998353958129883
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "python",
+          "scripts/verify_phase101_golden.py",
+          "--directory",
+          "/tmp/orbitiq-csv-adapter/workspace/golden"
+        ],
+        "cwd": "/workspace/OrbitIQ",
+        "exit_code": 0,
+        "name": "golden",
+        "seconds": 3.3093502521514893
+      }
+    ],
+    "dependency_lockfiles_unchanged": true,
+    "final_backend": {
+      "csv_cases": 82,
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "ae50e6c76afdb5fe280beb46c0fda09558371cfb7bafe702ef429c12cb468321",
+      "skipped": 0,
+      "tests": 1155
+    },
+    "final_checks": [
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "--no-sync",
+          "ruff",
+          "check",
+          "."
+        ],
+        "exit_code": 0,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "name": "ruff-final"
+      },
+      {
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "--no-sync",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "exit_code": 0,
+        "log_sha256": "dd6674ff09df8dc39f4f1c8c77a0ca82de8a341c19024598a98438e8cba05919",
+        "name": "format-final"
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "name": "whitespace-final"
+      }
+    ],
+    "final_focused": {
+      "csv_cases": 82,
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "5e5dfe758e0809f487de2a17f8ab4657d4b0c2f3aac95b9ae033cbd58a116c3a",
+      "skipped": 0,
+      "tests": 240
+    },
+    "frontend_test_files": 25,
+    "frontend_tests": 344,
+    "local_artifacts_are_not_independent_backups": true,
+    "logs_location": "/tmp/orbitiq-csv-adapter/",
+    "npm_ci_rerun": false,
+    "science": {
+      "earth_fixed_passed": 6,
+      "expanded_science_passed": 32,
+      "geodetic_independent_passed": 28,
+      "geodetic_round_trips_passed": 28,
+      "golden_components_passed": 6,
+      "golden_exact_offline_replays": 3,
+      "sgp4_passed": 40
+    },
+    "warning_scope": "intentional duplicate-member ZIP fixtures"
+  },
+  "coverage_limitations": [
+    "Full backend and focused tests rerun after last implementation change.",
+    "Frontend/build/science/golden checks exercise unchanged application/runtime sources; no runtime or frontend edits in this task.",
+    "Browser calculations use legacy ISS copies and explicitly synthetic reference/UI fixtures, never genuine Swarm-A orbital evaluation.",
+    "Synthetic mathematical reference success is not independent observation accuracy."
+  ],
+  "final_working_tree_paths_before_this_new_evidence_file": 57,
+  "head": "67abe1588bcada4fd30ee46134a71c4d27dcbd05",
+  "head_changed": false,
+  "index_empty": true,
+  "initial_working_tree_paths": 51,
+  "kind": "orbitiq_phase1131_csv_intake_local_verification",
+  "milestones": {
+    "locally_verified": true,
+    "production_deployed": false,
+    "production_infrastructure_verified": false,
+    "published": false,
+    "remote_ci_initiated": false,
+    "remote_ci_verified_for_this_work": false
+  },
+  "overall_phase_status": "PARTIAL",
+  "preservation": {
+    "baseline_local_artifact_sha256": "9ecc0b7c5b5626e6acc6b70a8346d886428141290eb244f2cac7f3108b337a47",
+    "database_schema_and_all_rows_match_baseline": true,
+    "database_schema_version": 3,
+    "foreign_key_failures": 0,
+    "genuine_snapshots": 2,
+    "integrity_check": "ok",
+    "new_private_manifests": {
+      "capture": {
+        "files": {
+          "attachment.original": {
+            "bytes": 644,
+            "sha256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4"
+          },
+          "inspection.json": {
+            "bytes": 9573,
+            "sha256": "15817e1db842f6515870d909a402627da66b12e933772d43ae4cb3e85749ac7c"
+          },
+          "receipt.json": {
+            "bytes": 1032,
+            "sha256": "3640c3b6f7ac802ac343a7d7b73f67fcec556f15e1dabbfefc7290a35598b016"
+          }
+        },
+        "manifest_sha256": "ecb6b2a48fd1043f4c5e47bc4026d5230b8bad1ab0c4c332a4a43b3d4a294eb3"
+      },
+      "qualification": {
+        "files": {
+          "qualification.json": {
+            "bytes": 28856,
+            "sha256": "7d2cf922ad746db9ccb595ec45dd844d0118e508c2085395f40845339ca15aec"
+          },
+          "reconciliation.json": {
+            "bytes": 44449,
+            "sha256": "e9051bbac3960f5dbadc12036a42c261e073298bc64095428944e10f2ee86db5"
+          },
+          "verification.json": {
+            "bytes": 2176,
+            "sha256": "d3423faa29c99968a15585dcff05eb6b5ca41463a1a44fc2ddada9602a3be2e9"
+          }
+        },
+        "manifest_sha256": "54caa15f2c8bc88139d985ea4680c1630425ca9b00b21861f891deb934562f61"
+      }
+    },
+    "ordinary_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "preexisting_private_files_unchanged": 27,
+    "private_evidence_ignored_by_git": true,
+    "swarm_snapshots": 0
+  },
+  "recorded_at_utc": "2026-10-21T10:33:52.590319+00:00",
+  "review": {
+    "complete_nonignored_state_sha256_excluding_this_file": "05d922a83dae23bd84d4480f9fdd69b16bf9b9f055cbaee831dcc44c9373745e",
+    "complete_untracked_inventory_sha256": "cc644ad0050e8bb8e82ea0fdf80a04aaebee53b3089161a9ac76e4708af49c4f",
+    "five_implementation_test_files_reviewed": [
+      "scripts/inspect_historical_csv.py",
+      "scripts/inspect_historical_gp.py",
+      "scripts/reconcile_historical_gp.py",
+      "scripts/qualify_swarm_inputs.py",
+      "backend/tests/test_historical_csv_intake.py"
+    ],
+    "nonignored_file_count_excluding_this_file": 306,
+    "preexisting_changed_files": [
+      "scripts/qualify_swarm_inputs.py",
+      "scripts/inspect_historical_gp.py",
+      "scripts/reconcile_historical_gp.py"
+    ],
+    "preexisting_source_report_count": 302,
+    "preexisting_source_report_unchanged": 299,
+    "previous_reports_unchanged": true,
+    "task_file_hashes_excluding_this_file": {
+      "backend/tests/test_historical_csv_intake.py": "03c586393cc803c5eb6e8444726d4502c91388b1e231076bc8bb598f0f8d8e08",
+      "docs/phase-11.3.1-csv-intake-report.md": "4907c49014f921524da2ca7f34cfe7d36dbc0f89209e420e4d56e9e3b241f82b",
+      "docs/phase-11.3.1-historical-csv-intake.md": "20b79cf05c6986233b7efb9ca95c609c82b36ebd680533ebe1a8a504c8bd480e",
+      "scripts/inspect_historical_csv.py": "c21850ced27f91515986916a5f99e077f253b5fbdfdd127d02cc56d32b96b340",
+      "scripts/inspect_historical_gp.py": "4a84747ee873210bbc39e1d6535a540dba569c7825d323477a559c1d8259dd6d",
+      "scripts/qualify_swarm_inputs.py": "f8a333f68bc384fa594ffb277c9ec9c23eca20a1919bb1dc422e69ebf3473d12",
+      "scripts/reconcile_historical_gp.py": "56bfe56c50368997b220b58633bf137ccb0934cad8a0b5a6ceb81fc67ed749f0"
+    }
+  },
+  "schema_version": 1,
+  "scientific_evaluation_status": "BLOCKED"
+}

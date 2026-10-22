@@ -341,7 +341,7 @@ export default function GroundTrack({
         <SatelliteInfo source={source} point={selected} panelRef={infoPanel} />
       </div>
       {track && selected && (
-        <div aria-label="Calculated ground-track result">
+        <div role="region" aria-label="Calculated ground-track result">
           <InvestigationActions
             readOnly={readOnly}
             build={() => ({

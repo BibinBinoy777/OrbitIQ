@@ -412,3 +412,11 @@ regressions using disposable, explicitly synthetic/public-reference fixtures.
 See [E1 commands, coverage and diagnostics](docs/engineering-e1-browser-pdf-ci.md)
 for local execution, trace/artifact retrieval and limitations. This engineering
 automation leaves Phase 11.3.1 **PARTIAL** and scientific evaluation **BLOCKED**.
+
+## E2 accessibility and frontend performance
+
+E2 extends that same CI job with keyboard, responsive-layout, accessibility,
+renderer-recovery and informational performance checks. See the
+[E2 method and commands](docs/engineering-e2-accessibility-performance.md) and
+[verification report](docs/engineering-e2-report.md). Timing measurements do not
+qualify orbital accuracy or establish production readiness.

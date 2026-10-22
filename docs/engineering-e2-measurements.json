@@ -1,0 +1,2356 @@
+{
+  "schema_version": 1,
+  "purpose": "Informational engineering measurements; synthetic fixtures, not scientific evidence",
+  "baseline_commit": "ca2e93f4da1088c8f41a4e21f62d9af520cd4568",
+  "method": "engineering-e2-accessibility-performance.md",
+  "source_sha256": {
+    "frontend/package-lock.json": "10d53f9fd1d2338ffafc3cd25574fde175190f4af68a8d6719d44f3cec97f9e5",
+    "frontend/package.json": "64a08c1583e9442ba78c053cea7a0806c1e9ee9f7d46e5b5e4a7afbb4892a20e",
+    "frontend/src/App.test.tsx": "c7c1f284e2ebc370ee5ab8fc971a99ffb28551d0436737cb7b59b61378a6eb3f",
+    "frontend/src/App.tsx": "76349f42c8dd4c05f601501ac2e98b4170b383c200d5b523a25715df3fc62f97",
+    "frontend/src/Globe.test.tsx": "ee5b24de516cb46d355dc2cb31f070a5febd0463f06dfc675fe1321f92bad713",
+    "frontend/src/Globe.tsx": "ea32c89edec1fd4d8883cf932fd4c8ccdfab53f708a8795ad98a352d28868b2e",
+    "frontend/src/GroundTrack.tsx": "9de2e574db064e33ac82ff9e2945f98811eb87f49734a1e450d0e0dc4e87fdbc",
+    "frontend/src/Investigations.tsx": "8127d3c7398ffdd6f59024b0c65c8293136629da5f733ffb05db50da32f88ae6",
+    "frontend/src/ScientificExplorer.tsx": "d9fdefdb8baa6ae960ff2c19f50f328a96598cbc58f0c6fe502e4ca9c232b70c",
+    "frontend/src/report-print.css": "127a5dd16ea5447388b3db66cc07679bfa3522ea52b60b4a73093826fc0bfd29",
+    "frontend/src/style.css": "faa84e2dd8ef6ee915b9729077dd1b450c03fb35ea9954df1d5dc546fb69179d",
+    "scripts/verify_engineering_e2.py": "84af81a5855b0f4b397e4b88d67b9ff3e8e7207a22273d960ea8416a9e5f5a14",
+    "scripts/run_browser_regressions.py": "429890cca74f901d10570405508de38d725abcb2ebbc2217c6ea36f57d900a46",
+    "deploy/Dockerfile.browser": "036ec274af2a2ea31cafe2edbaad3f89ea86e44d9c87dbc495eae875dc4e89f7"
+  },
+  "baseline_isolated": {
+    "engine": "chromium",
+    "os": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "baseline": true,
+    "fixture": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+    "scene": "3 calculated samples from public Vallado 6251 fixture",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "timings": [
+      {
+        "repeat": 0,
+        "observed_ready_ms": 2816.7999999970198,
+        "initialization": [
+          {
+            "context_created_ms": 1259.5999999977648,
+            "first_draw_ms": 1342.7999999970198
+          }
+        ],
+        "stable": {
+          "duration_ms": 2012.6000000014901,
+          "samples": 121,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.700000000000728,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 26000000
+        },
+        "interaction": {
+          "duration_ms": 2013.5999999977648,
+          "samples": 120,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.700000000000728,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 26000000
+        },
+        "main_thread_task_seconds": 0.110784
+      },
+      {
+        "repeat": 1,
+        "observed_ready_ms": 1675.300000000745,
+        "initialization": [
+          {
+            "context_created_ms": 819.2000000029802,
+            "first_draw_ms": 892.2000000029802
+          }
+        ],
+        "stable": {
+          "duration_ms": 2002.5,
+          "samples": 119,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.800000000000182,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 26000000
+        },
+        "interaction": {
+          "duration_ms": 2016.5,
+          "samples": 121,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.700000000000728,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 26000000
+        },
+        "main_thread_task_seconds": 0.09807300000000008
+      },
+      {
+        "repeat": 2,
+        "observed_ready_ms": 2142.10000000149,
+        "initialization": [
+          {
+            "context_created_ms": 1267.5,
+            "first_draw_ms": 1364.9000000022352
+          }
+        ],
+        "stable": {
+          "duration_ms": 2011.8999999985099,
+          "samples": 121,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.700000000000273,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 26000000
+        },
+        "interaction": {
+          "duration_ms": 2004.0999999977648,
+          "samples": 120,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.800000000000182,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 26000000
+        },
+        "main_thread_task_seconds": 0.07838599999999996
+      }
+    ],
+    "accessibility": [
+      {
+        "view": "initial explorer",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "targets": [[".camera-controls"]]
+          },
+          {
+            "id": "color-contrast",
+            "targets": [[".legend-satellite"], [".legend-ground"]]
+          }
+        ],
+        "passes": 23
+      },
+      {
+        "view": "readiness",
+        "violations": [],
+        "incomplete": [],
+        "passes": 22
+      },
+      {
+        "view": "empty saved investigations",
+        "violations": [],
+        "incomplete": [],
+        "passes": 18
+      },
+      {
+        "view": "shared calculated ground track",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "targets": [
+              [".camera-controls"],
+              ["div[aria-label=\"Calculated ground-track result\"]"]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "targets": [
+              [".legend-satellite"],
+              [".legend-ground"],
+              ["text[x=\"-90\"]"],
+              ["text[x=\"0\"]"],
+              ["text[x=\"90\"]"],
+              ["text[y=\"48\"]"],
+              ["text[y=\"3\"]"],
+              ["text[y=\"-42\"]"]
+            ]
+          }
+        ],
+        "passes": 31
+      },
+      {
+        "view": "mobile printable dialog",
+        "violations": [],
+        "incomplete": [],
+        "passes": 14
+      },
+      {
+        "view": "mobile discovery and editable save form",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "targets": [["div[aria-label=\"History pagination\"]"]]
+          },
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > caption"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > thead > tr > th[scope=\"col\"]:nth-child(2)"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(2) > td:nth-child(2)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > caption"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > thead > tr > th[scope=\"col\"]:nth-child(3)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(1) > td:nth-child(3)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(2) > td:nth-child(3)"
+              ],
+              ["tr:nth-child(3) > td:nth-child(3)"],
+              ["tr:nth-child(4) > td:nth-child(3)"],
+              ["tr:nth-child(5) > td:nth-child(3)"],
+              ["tr:nth-child(6) > td:nth-child(3)"],
+              ["tr:nth-child(7) > td:nth-child(3)"],
+              ["tr:nth-child(8) > td:nth-child(3)"],
+              ["tr:nth-child(9) > td:nth-child(3)"],
+              ["tr:nth-child(10) > td:nth-child(3)"]
+            ]
+          }
+        ],
+        "passes": 28
+      }
+    ],
+    "layouts": [
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "globeWidth": 818.234375
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "globeWidth": 620
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "globeWidth": 290
+      },
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "globeWidth": 220
+      }
+    ],
+    "checks": [
+      {
+        "check": "keyboard skip link is first",
+        "pass": false
+      },
+      {
+        "check": "current-page keyboard focus remains distinct",
+        "pass": false
+      },
+      {
+        "check": "axe WCAG A/AA: initial explorer",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: readiness",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: empty saved investigations",
+        "pass": true
+      },
+      {
+        "check": "real camera interactions draw frames",
+        "pass": true
+      },
+      {
+        "check": "settled globe performs no idle draw calls",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: shared calculated ground track",
+        "pass": true
+      },
+      {
+        "check": "removed native scenes release their graphics contexts",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 1440",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 768",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 390",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 320",
+        "pass": true
+      },
+      {
+        "check": "print-dialog focus contrasts with white surface",
+        "pass": false
+      },
+      {
+        "check": "axe WCAG A/AA: mobile printable dialog",
+        "pass": true
+      },
+      {
+        "check": "native dialog keyboard controls, Escape and opener focus work",
+        "pass": true
+      },
+      {
+        "check": "download denial exposes retry and native retry succeeds",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: mobile discovery and editable save form",
+        "pass": true
+      },
+      {
+        "check": "editable investigation fits 320px viewport",
+        "pass": true
+      },
+      {
+        "check": "keyboard save failure, retry and reopen work on mobile",
+        "pass": true
+      },
+      {
+        "check": "no uncaught page errors",
+        "pass": true
+      },
+      {
+        "check": "stalled renderer import terminates with explicit retry",
+        "pass": false
+      }
+    ],
+    "issues": [
+      "keyboard skip link is first",
+      "current-page keyboard focus remains distinct",
+      "print-dialog focus contrasts with white surface",
+      "stalled renderer import terminates with explicit retry"
+    ],
+    "version": "151.0.7922.34",
+    "native_webgl2": true,
+    "graphics": {
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "loaded_assets": [
+      {
+        "name": "index-C-Buf1Y4.js",
+        "bytes": 287888
+      },
+      {
+        "name": "index-ClmDnvGD.css",
+        "bytes": 7468
+      },
+      {
+        "name": "RestoredInvestigation-CMQwQR65.js",
+        "bytes": 3670
+      },
+      {
+        "name": "investigation-api-BnSv1X2G.js",
+        "bytes": 8011
+      },
+      {
+        "name": "InvestigationReport-DThcResL.js",
+        "bytes": 5227
+      },
+      {
+        "name": "report-presentation-Dwa8pw-T.js",
+        "bytes": 17261
+      },
+      {
+        "name": "InvestigationReport-Dw8yMP3A.css",
+        "bytes": 2448
+      },
+      {
+        "name": "globe-renderer-DKyQHFp8.js",
+        "bytes": 558595
+      },
+      {
+        "name": "earth-atmosphere.jpg",
+        "bytes": 512606
+      }
+    ],
+    "resources": [
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": true,
+        "lost": false
+      },
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": true,
+        "lost": false
+      }
+    ],
+    "dialog_focus_color": "rgb(255, 215, 130)",
+    "page_errors": []
+  },
+  "paired_before": {
+    "engine": "chromium",
+    "os": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "baseline": true,
+    "fixture": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+    "scene": "3 calculated samples from public Vallado 6251 fixture",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "timings": [
+      {
+        "repeat": 0,
+        "observed_ready_ms": 1040.800000000745,
+        "initialization": [
+          {
+            "context_created_ms": 355.4000000022352,
+            "first_draw_ms": 410.80000000074506
+          }
+        ],
+        "stable": {
+          "duration_ms": 2004,
+          "samples": 121,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.700000000000273,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 11900000
+        },
+        "interaction": {
+          "duration_ms": 2005.6000000014901,
+          "samples": 119,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.700000000000728,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 11900000
+        },
+        "main_thread_task_seconds": 0.10194600000000004
+      },
+      {
+        "repeat": 1,
+        "observed_ready_ms": 1166.300000000745,
+        "initialization": [
+          {
+            "context_created_ms": 435.1000000014901,
+            "first_draw_ms": 473.80000000074506
+          }
+        ],
+        "stable": {
+          "duration_ms": 2009.2999999970198,
+          "samples": 119,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.800000000000182,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 11900000
+        },
+        "interaction": {
+          "duration_ms": 2004.300000000745,
+          "samples": 110,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.800000000000182,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 11900000
+        },
+        "main_thread_task_seconds": 0.07263200000000003
+      },
+      {
+        "repeat": 2,
+        "observed_ready_ms": 1218.5,
+        "initialization": [
+          {
+            "context_created_ms": 432.5,
+            "first_draw_ms": 482.30000000074506
+          }
+        ],
+        "stable": {
+          "duration_ms": 2016.5999999977648,
+          "samples": 111,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.800000000000182,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 11900000
+        },
+        "interaction": {
+          "duration_ms": 2035.8999999985099,
+          "samples": 118,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.799999999999727,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 11900000
+        },
+        "main_thread_task_seconds": 0.079878
+      }
+    ],
+    "accessibility": [
+      {
+        "view": "initial explorer",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "targets": [[".camera-controls"]]
+          },
+          {
+            "id": "color-contrast",
+            "targets": [[".legend-satellite"], [".legend-ground"]]
+          }
+        ],
+        "passes": 23
+      },
+      {
+        "view": "readiness",
+        "violations": [],
+        "incomplete": [],
+        "passes": 20
+      },
+      {
+        "view": "empty saved investigations",
+        "violations": [],
+        "incomplete": [],
+        "passes": 18
+      },
+      {
+        "view": "shared calculated ground track",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "targets": [
+              [".camera-controls"],
+              ["div[aria-label=\"Calculated ground-track result\"]"]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "targets": [
+              [".legend-satellite"],
+              [".legend-ground"],
+              ["text[x=\"-90\"]"],
+              ["text[x=\"0\"]"],
+              ["text[x=\"90\"]"],
+              ["text[y=\"48\"]"],
+              ["text[y=\"3\"]"],
+              ["text[y=\"-42\"]"]
+            ]
+          }
+        ],
+        "passes": 31
+      },
+      {
+        "view": "mobile printable dialog",
+        "violations": [],
+        "incomplete": [],
+        "passes": 14
+      },
+      {
+        "view": "mobile discovery and editable save form",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "targets": [["div[aria-label=\"History pagination\"]"]]
+          },
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > caption"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > thead > tr > th[scope=\"col\"]:nth-child(2)"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(2) > td:nth-child(2)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > caption"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > thead > tr > th[scope=\"col\"]:nth-child(3)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(1) > td:nth-child(3)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(2) > td:nth-child(3)"
+              ],
+              ["tr:nth-child(3) > td:nth-child(3)"],
+              ["tr:nth-child(4) > td:nth-child(3)"],
+              ["tr:nth-child(5) > td:nth-child(3)"],
+              ["tr:nth-child(6) > td:nth-child(3)"],
+              ["tr:nth-child(7) > td:nth-child(3)"],
+              ["tr:nth-child(8) > td:nth-child(3)"],
+              ["tr:nth-child(9) > td:nth-child(3)"],
+              ["tr:nth-child(10) > td:nth-child(3)"]
+            ]
+          }
+        ],
+        "passes": 28
+      }
+    ],
+    "layouts": [
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "globeWidth": 818.234375
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "globeWidth": 620
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "globeWidth": 290
+      },
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "globeWidth": 220
+      }
+    ],
+    "checks": [
+      {
+        "check": "keyboard skip link is first",
+        "pass": false
+      },
+      {
+        "check": "current-page keyboard focus remains distinct",
+        "pass": false
+      },
+      {
+        "check": "axe WCAG A/AA: initial explorer",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: readiness",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: empty saved investigations",
+        "pass": true
+      },
+      {
+        "check": "real camera interactions draw frames",
+        "pass": true
+      },
+      {
+        "check": "settled globe performs no idle draw calls",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: shared calculated ground track",
+        "pass": true
+      },
+      {
+        "check": "removed native scenes release their graphics contexts",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 1440",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 768",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 390",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 320",
+        "pass": true
+      },
+      {
+        "check": "print-dialog focus contrasts with white surface",
+        "pass": false
+      },
+      {
+        "check": "axe WCAG A/AA: mobile printable dialog",
+        "pass": true
+      },
+      {
+        "check": "native dialog keyboard controls, Escape and opener focus work",
+        "pass": true
+      },
+      {
+        "check": "download denial exposes retry and native retry succeeds",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: mobile discovery and editable save form",
+        "pass": true
+      },
+      {
+        "check": "editable investigation fits 320px viewport",
+        "pass": true
+      },
+      {
+        "check": "keyboard save failure, retry and reopen work on mobile",
+        "pass": true
+      },
+      {
+        "check": "no uncaught page errors",
+        "pass": true
+      },
+      {
+        "check": "stalled renderer import terminates with explicit retry",
+        "pass": false
+      }
+    ],
+    "issues": [
+      "keyboard skip link is first",
+      "current-page keyboard focus remains distinct",
+      "print-dialog focus contrasts with white surface",
+      "stalled renderer import terminates with explicit retry"
+    ],
+    "version": "151.0.7922.34",
+    "native_webgl2": true,
+    "graphics": {
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "loaded_assets": [
+      {
+        "name": "index-C-Buf1Y4.js",
+        "bytes": 287888
+      },
+      {
+        "name": "index-ClmDnvGD.css",
+        "bytes": 7468
+      },
+      {
+        "name": "RestoredInvestigation-CMQwQR65.js",
+        "bytes": 3670
+      },
+      {
+        "name": "investigation-api-BnSv1X2G.js",
+        "bytes": 8011
+      },
+      {
+        "name": "InvestigationReport-DThcResL.js",
+        "bytes": 5227
+      },
+      {
+        "name": "report-presentation-Dwa8pw-T.js",
+        "bytes": 17261
+      },
+      {
+        "name": "InvestigationReport-Dw8yMP3A.css",
+        "bytes": 2448
+      },
+      {
+        "name": "globe-renderer-DKyQHFp8.js",
+        "bytes": 558595
+      },
+      {
+        "name": "earth-atmosphere.jpg",
+        "bytes": 512606
+      }
+    ],
+    "resources": [
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": true,
+        "lost": false
+      },
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": true,
+        "lost": false
+      }
+    ],
+    "dialog_focus_color": "rgb(255, 215, 130)",
+    "screenshots_captured": true,
+    "page_errors": []
+  },
+  "paired_after": {
+    "engine": "chromium",
+    "os": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "baseline": false,
+    "fixture": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+    "scene": "3 calculated samples from public Vallado 6251 fixture",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "timings": [
+      {
+        "repeat": 0,
+        "observed_ready_ms": 1203.699999999255,
+        "initialization": [
+          {
+            "context_created_ms": 396.30000000074506,
+            "first_draw_ms": 456.80000000074506
+          }
+        ],
+        "stable": {
+          "duration_ms": 2007.3999999985099,
+          "samples": 109,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.800000000000182,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 26000000
+        },
+        "interaction": {
+          "duration_ms": 2010.4000000022352,
+          "samples": 112,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.799999999999727,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 26000000
+        },
+        "main_thread_task_seconds": 0.19581000000000004
+      },
+      {
+        "repeat": 1,
+        "observed_ready_ms": 1705.3999999985099,
+        "initialization": [
+          {
+            "context_created_ms": 613.8000000007451,
+            "first_draw_ms": 640
+          }
+        ],
+        "stable": {
+          "duration_ms": 2017.699999999255,
+          "samples": 107,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.799999999999727,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 26000000
+        },
+        "interaction": {
+          "duration_ms": 2002.5,
+          "samples": 114,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.799999999999272,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 26000000
+        },
+        "main_thread_task_seconds": 0.35707200000000006
+      },
+      {
+        "repeat": 2,
+        "observed_ready_ms": 1337.699999999255,
+        "initialization": [
+          {
+            "context_created_ms": 614.8000000007451,
+            "first_draw_ms": 679.5999999977648
+          }
+        ],
+        "stable": {
+          "duration_ms": 2010.0999999977648,
+          "samples": 121,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.799999999999727,
+          "draw_calls": 0,
+          "buffer_uploads": 0,
+          "actions": 0,
+          "heap_bytes": 26000000
+        },
+        "interaction": {
+          "duration_ms": 2012.8999999985099,
+          "samples": 121,
+          "raf_median_ms": 16.699999999999818,
+          "raf_p95_ms": 16.800000000000182,
+          "draw_calls": 60,
+          "buffer_uploads": 0,
+          "actions": 12,
+          "heap_bytes": 26000000
+        },
+        "main_thread_task_seconds": 0.09779300000000002
+      }
+    ],
+    "accessibility": [
+      {
+        "view": "initial explorer",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "targets": [[".legend-satellite"], [".legend-ground"]]
+          }
+        ],
+        "passes": 24
+      },
+      {
+        "view": "readiness",
+        "violations": [],
+        "incomplete": [],
+        "passes": 23
+      },
+      {
+        "view": "empty saved investigations",
+        "violations": [],
+        "incomplete": [],
+        "passes": 19
+      },
+      {
+        "view": "shared calculated ground track",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [".legend-satellite"],
+              [".legend-ground"],
+              ["text[x=\"-90\"]"],
+              ["text[x=\"0\"]"],
+              ["text[x=\"90\"]"],
+              ["text[y=\"48\"]"],
+              ["text[y=\"3\"]"],
+              ["text[y=\"-42\"]"]
+            ]
+          }
+        ],
+        "passes": 32
+      },
+      {
+        "view": "mobile printable dialog",
+        "violations": [],
+        "incomplete": [],
+        "passes": 14
+      },
+      {
+        "view": "mobile discovery and editable save form",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > caption"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > thead > tr > th[scope=\"col\"]:nth-child(2)"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+              ],
+              [
+                ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(2) > td:nth-child(2)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > caption"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > thead > tr > th[scope=\"col\"]:nth-child(3)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(1) > td:nth-child(3)"
+              ],
+              [
+                "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(2) > td:nth-child(3)"
+              ],
+              ["tr:nth-child(3) > td:nth-child(3)"],
+              ["tr:nth-child(4) > td:nth-child(3)"],
+              ["tr:nth-child(5) > td:nth-child(3)"],
+              ["tr:nth-child(6) > td:nth-child(3)"],
+              ["tr:nth-child(7) > td:nth-child(3)"],
+              ["tr:nth-child(8) > td:nth-child(3)"],
+              ["tr:nth-child(9) > td:nth-child(3)"],
+              ["tr:nth-child(10) > td:nth-child(3)"]
+            ]
+          }
+        ],
+        "passes": 28
+      }
+    ],
+    "layouts": [
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "globeWidth": 818.234375
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "globeWidth": 620
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "globeWidth": 290
+      },
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "globeWidth": 220
+      }
+    ],
+    "checks": [
+      {
+        "check": "keyboard skip link is first",
+        "pass": true
+      },
+      {
+        "check": "current-page keyboard focus remains distinct",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: initial explorer",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: readiness",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: empty saved investigations",
+        "pass": true
+      },
+      {
+        "check": "real camera interactions draw frames",
+        "pass": true
+      },
+      {
+        "check": "settled globe performs no idle draw calls",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: shared calculated ground track",
+        "pass": true
+      },
+      {
+        "check": "removed native scenes release their graphics contexts",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 1440",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 768",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 390",
+        "pass": true
+      },
+      {
+        "check": "track fits viewport 320",
+        "pass": true
+      },
+      {
+        "check": "print-dialog focus contrasts with white surface",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: mobile printable dialog",
+        "pass": true
+      },
+      {
+        "check": "native dialog keyboard controls, Escape and opener focus work",
+        "pass": true
+      },
+      {
+        "check": "download denial exposes retry and native retry succeeds",
+        "pass": true
+      },
+      {
+        "check": "axe WCAG A/AA: mobile discovery and editable save form",
+        "pass": true
+      },
+      {
+        "check": "editable investigation fits 320px viewport",
+        "pass": true
+      },
+      {
+        "check": "keyboard save failure, retry and reopen work on mobile",
+        "pass": true
+      },
+      {
+        "check": "no uncaught page errors",
+        "pass": true
+      },
+      {
+        "check": "stalled renderer import terminates with explicit retry",
+        "pass": true
+      },
+      {
+        "check": "stalled renderer retry recovers using the real renderer",
+        "pass": true
+      }
+    ],
+    "issues": [],
+    "version": "151.0.7922.34",
+    "native_webgl2": true,
+    "graphics": {
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "loaded_assets": [
+      {
+        "name": "index-CB3IVuQB.js",
+        "bytes": 288375
+      },
+      {
+        "name": "index-B0iyr_5T.css",
+        "bytes": 7681
+      },
+      {
+        "name": "RestoredInvestigation-9c7aEmhy.js",
+        "bytes": 3670
+      },
+      {
+        "name": "investigation-api-DxYMVFwL.js",
+        "bytes": 8011
+      },
+      {
+        "name": "InvestigationReport-CosmpAdM.js",
+        "bytes": 5227
+      },
+      {
+        "name": "report-presentation-BBjZqy5u.js",
+        "bytes": 17348
+      },
+      {
+        "name": "InvestigationReport-Bbd6GBDx.css",
+        "bytes": 2523
+      },
+      {
+        "name": "globe-renderer-9-kLv624.js",
+        "bytes": 558595
+      },
+      {
+        "name": "earth-atmosphere.jpg",
+        "bytes": 512606
+      }
+    ],
+    "resources": [
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": true,
+        "lost": false
+      },
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": false,
+        "lost": true
+      },
+      {
+        "connected": true,
+        "lost": false
+      }
+    ],
+    "dialog_focus_color": "rgb(12, 20, 36)",
+    "screenshots_captured": true,
+    "page_errors": []
+  },
+  "full_regression_run": {
+    "chromium": {
+      "engine": "chromium",
+      "os": "Linux-6.18.55-x86_64-with-glibc2.39",
+      "baseline": false,
+      "fixture": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+      "scene": "3 calculated samples from public Vallado 6251 fixture",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dpr": 1,
+      "timings": [
+        {
+          "repeat": 0,
+          "observed_ready_ms": 1807.5,
+          "initialization": [
+            {
+              "context_created_ms": 652.6000000014901,
+              "first_draw_ms": 770.5
+            }
+          ],
+          "stable": {
+            "duration_ms": 2218.300000000745,
+            "samples": 105,
+            "raf_median_ms": 16.699999999999818,
+            "raf_p95_ms": 16.799999999999727,
+            "draw_calls": 0,
+            "buffer_uploads": 0,
+            "actions": 0,
+            "heap_bytes": 26000000
+          },
+          "interaction": {
+            "duration_ms": 2004.8999999985099,
+            "samples": 28,
+            "raf_median_ms": 16.699999999999818,
+            "raf_p95_ms": 483.1999999999998,
+            "draw_calls": 60,
+            "buffer_uploads": 0,
+            "actions": 12,
+            "heap_bytes": 26000000
+          },
+          "main_thread_task_seconds": 1.6125310000000002
+        },
+        {
+          "repeat": 1,
+          "observed_ready_ms": 7944.099999997765,
+          "initialization": [
+            {
+              "context_created_ms": 5146.699999999255,
+              "first_draw_ms": 5308.599999997765
+            }
+          ],
+          "stable": {
+            "duration_ms": 2026.7999999970198,
+            "samples": 70,
+            "raf_median_ms": 16.69999999999891,
+            "raf_p95_ms": 149.89999999999964,
+            "draw_calls": 0,
+            "buffer_uploads": 0,
+            "actions": 0,
+            "heap_bytes": 26000000
+          },
+          "interaction": {
+            "duration_ms": 2171.099999997765,
+            "samples": 67,
+            "raf_median_ms": 16.69999999999891,
+            "raf_p95_ms": 150,
+            "draw_calls": 60,
+            "buffer_uploads": 0,
+            "actions": 12,
+            "heap_bytes": 26000000
+          },
+          "main_thread_task_seconds": 0.6295339999999996
+        },
+        {
+          "repeat": 2,
+          "observed_ready_ms": 19287,
+          "initialization": [
+            {
+              "context_created_ms": 16153.900000002235,
+              "first_draw_ms": 16672.699999999255
+            }
+          ],
+          "stable": {
+            "duration_ms": 2019.699999999255,
+            "samples": 76,
+            "raf_median_ms": 16.69999999999709,
+            "raf_p95_ms": 99.89999999999782,
+            "draw_calls": 0,
+            "buffer_uploads": 0,
+            "actions": 0,
+            "heap_bytes": 26000000
+          },
+          "interaction": {
+            "duration_ms": 2012.7999999970198,
+            "samples": 76,
+            "raf_median_ms": 16.700000000000728,
+            "raf_p95_ms": 83.20000000000073,
+            "draw_calls": 60,
+            "buffer_uploads": 0,
+            "actions": 12,
+            "heap_bytes": 26000000
+          },
+          "main_thread_task_seconds": 0.4858180000000001
+        }
+      ],
+      "accessibility": [
+        {
+          "view": "initial explorer",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [[".legend-satellite"], [".legend-ground"]]
+            }
+          ],
+          "passes": 24
+        },
+        {
+          "view": "readiness",
+          "violations": [],
+          "incomplete": [],
+          "passes": 23
+        },
+        {
+          "view": "empty saved investigations",
+          "violations": [],
+          "incomplete": [],
+          "passes": 19
+        },
+        {
+          "view": "shared calculated ground track",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [".legend-satellite"],
+                [".legend-ground"],
+                ["text[x=\"-90\"]"],
+                ["text[x=\"0\"]"],
+                ["text[x=\"90\"]"],
+                ["text[y=\"48\"]"],
+                ["text[y=\"3\"]"],
+                ["text[y=\"-42\"]"]
+              ]
+            }
+          ],
+          "passes": 32
+        },
+        {
+          "view": "mobile printable dialog",
+          "violations": [],
+          "incomplete": [],
+          "passes": 14
+        },
+        {
+          "view": "mobile discovery and editable save form",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > caption"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > thead > tr > th[scope=\"col\"]:nth-child(2)"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(2) > td:nth-child(2)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > caption"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > thead > tr > th[scope=\"col\"]:nth-child(3)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(1) > td:nth-child(3)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(2) > td:nth-child(3)"
+                ],
+                ["tr:nth-child(3) > td:nth-child(3)"],
+                ["tr:nth-child(4) > td:nth-child(3)"],
+                ["tr:nth-child(5) > td:nth-child(3)"],
+                ["tr:nth-child(6) > td:nth-child(3)"],
+                ["tr:nth-child(7) > td:nth-child(3)"],
+                ["tr:nth-child(8) > td:nth-child(3)"],
+                ["tr:nth-child(9) > td:nth-child(3)"],
+                ["tr:nth-child(10) > td:nth-child(3)"]
+              ]
+            }
+          ],
+          "passes": 28
+        }
+      ],
+      "layouts": [
+        {
+          "width": 1440,
+          "scrollWidth": 1440,
+          "globeWidth": 818.234375
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "globeWidth": 620
+        },
+        {
+          "width": 390,
+          "scrollWidth": 390,
+          "globeWidth": 290
+        },
+        {
+          "width": 320,
+          "scrollWidth": 320,
+          "globeWidth": 220
+        }
+      ],
+      "checks": [
+        {
+          "check": "keyboard skip link is first",
+          "pass": true
+        },
+        {
+          "check": "current-page keyboard focus remains distinct",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: initial explorer",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: readiness",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: empty saved investigations",
+          "pass": true
+        },
+        {
+          "check": "real camera interactions draw frames",
+          "pass": true
+        },
+        {
+          "check": "settled globe performs no idle draw calls",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: shared calculated ground track",
+          "pass": true
+        },
+        {
+          "check": "removed native scenes release their graphics contexts",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 1440",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 768",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 390",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 320",
+          "pass": true
+        },
+        {
+          "check": "print-dialog focus contrasts with white surface",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: mobile printable dialog",
+          "pass": true
+        },
+        {
+          "check": "native dialog keyboard controls, Escape and opener focus work",
+          "pass": true
+        },
+        {
+          "check": "download denial exposes retry and native retry succeeds",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: mobile discovery and editable save form",
+          "pass": true
+        },
+        {
+          "check": "editable investigation fits 320px viewport",
+          "pass": true
+        },
+        {
+          "check": "keyboard save failure, retry and reopen work on mobile",
+          "pass": true
+        },
+        {
+          "check": "no uncaught page errors",
+          "pass": true
+        },
+        {
+          "check": "stalled renderer import terminates with explicit retry",
+          "pass": true
+        },
+        {
+          "check": "stalled renderer retry recovers using the real renderer",
+          "pass": true
+        }
+      ],
+      "issues": [],
+      "version": "151.0.7922.34",
+      "native_webgl2": true,
+      "graphics": {
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "loaded_assets": [
+        {
+          "name": "index-CB3IVuQB.js",
+          "bytes": 288375
+        },
+        {
+          "name": "index-B0iyr_5T.css",
+          "bytes": 7681
+        },
+        {
+          "name": "RestoredInvestigation-9c7aEmhy.js",
+          "bytes": 3670
+        },
+        {
+          "name": "investigation-api-DxYMVFwL.js",
+          "bytes": 8011
+        },
+        {
+          "name": "InvestigationReport-CosmpAdM.js",
+          "bytes": 5227
+        },
+        {
+          "name": "report-presentation-BBjZqy5u.js",
+          "bytes": 17348
+        },
+        {
+          "name": "InvestigationReport-Bbd6GBDx.css",
+          "bytes": 2523
+        },
+        {
+          "name": "globe-renderer-9-kLv624.js",
+          "bytes": 558595
+        },
+        {
+          "name": "earth-atmosphere.jpg",
+          "bytes": 512606
+        }
+      ],
+      "resources": [
+        {
+          "connected": false,
+          "lost": true
+        },
+        {
+          "connected": true,
+          "lost": false
+        },
+        {
+          "connected": false,
+          "lost": true
+        },
+        {
+          "connected": false,
+          "lost": true
+        },
+        {
+          "connected": true,
+          "lost": false
+        }
+      ],
+      "dialog_focus_color": "rgb(12, 20, 36)",
+      "screenshots_captured": true,
+      "page_errors": []
+    },
+    "firefox": {
+      "engine": "firefox",
+      "os": "Linux-6.18.55-x86_64-with-glibc2.39",
+      "baseline": false,
+      "fixture": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+      "scene": "3 calculated samples from public Vallado 6251 fixture",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dpr": 1,
+      "timings": [],
+      "accessibility": [
+        {
+          "view": "initial explorer",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [[".legend-satellite"], [".legend-ground"]]
+            }
+          ],
+          "passes": 22
+        },
+        {
+          "view": "readiness",
+          "violations": [],
+          "incomplete": [],
+          "passes": 23
+        },
+        {
+          "view": "empty saved investigations",
+          "violations": [],
+          "incomplete": [],
+          "passes": 19
+        },
+        {
+          "view": "shared calculated ground track",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [".legend-satellite"],
+                [".legend-ground"],
+                ["text[x=\"-90\"]"],
+                ["text[x=\"0\"]"],
+                ["text[x=\"90\"]"],
+                ["text[y=\"48\"]"],
+                ["text[y=\"3\"]"],
+                ["text[y=\"-42\"]"]
+              ]
+            }
+          ],
+          "passes": 30
+        },
+        {
+          "view": "mobile printable dialog",
+          "violations": [],
+          "incomplete": [],
+          "passes": 14
+        },
+        {
+          "view": "mobile discovery and editable save form",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > caption"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > thead > tr > th[scope=\"col\"]:nth-child(2)"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(2) > td:nth-child(2)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > caption"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > thead > tr > th[scope=\"col\"]:nth-child(3)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(1) > td:nth-child(3)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(2) > td:nth-child(3)"
+                ],
+                ["tr:nth-child(3) > td:nth-child(3)"],
+                ["tr:nth-child(4) > td:nth-child(3)"],
+                ["tr:nth-child(5) > td:nth-child(3)"],
+                ["tr:nth-child(6) > td:nth-child(3)"],
+                ["tr:nth-child(7) > td:nth-child(3)"],
+                ["tr:nth-child(8) > td:nth-child(3)"],
+                ["tr:nth-child(9) > td:nth-child(3)"],
+                ["tr:nth-child(10) > td:nth-child(3)"]
+              ]
+            }
+          ],
+          "passes": 28
+        }
+      ],
+      "layouts": [
+        {
+          "width": 1440,
+          "scrollWidth": 1440,
+          "globeWidth": 818.2333374023438
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "globeWidth": 620
+        },
+        {
+          "width": 390,
+          "scrollWidth": 390,
+          "globeWidth": 290
+        },
+        {
+          "width": 320,
+          "scrollWidth": 320,
+          "globeWidth": 220
+        }
+      ],
+      "checks": [
+        {
+          "check": "keyboard skip link is first",
+          "pass": true
+        },
+        {
+          "check": "current-page keyboard focus remains distinct",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: initial explorer",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: readiness",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: empty saved investigations",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: shared calculated ground track",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 1440",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 768",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 390",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 320",
+          "pass": true
+        },
+        {
+          "check": "print-dialog focus contrasts with white surface",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: mobile printable dialog",
+          "pass": true
+        },
+        {
+          "check": "native dialog keyboard controls, Escape and opener focus work",
+          "pass": true
+        },
+        {
+          "check": "download denial exposes retry and native retry succeeds",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: mobile discovery and editable save form",
+          "pass": true
+        },
+        {
+          "check": "editable investigation fits 320px viewport",
+          "pass": true
+        },
+        {
+          "check": "keyboard save failure, retry and reopen work on mobile",
+          "pass": true
+        },
+        {
+          "check": "no uncaught page errors",
+          "pass": true
+        }
+      ],
+      "issues": [],
+      "version": "153.0",
+      "native_webgl2": false,
+      "fallback": "3D graphics are unavailable. The 2D map, timeline and coordinate information remain usable.",
+      "loaded_assets": [
+        {
+          "name": "index-CB3IVuQB.js",
+          "bytes": 288375
+        },
+        {
+          "name": "index-B0iyr_5T.css",
+          "bytes": 7681
+        },
+        {
+          "name": "RestoredInvestigation-9c7aEmhy.js",
+          "bytes": 3670
+        },
+        {
+          "name": "investigation-api-DxYMVFwL.js",
+          "bytes": 8011
+        },
+        {
+          "name": "InvestigationReport-CosmpAdM.js",
+          "bytes": 5227
+        },
+        {
+          "name": "report-presentation-BBjZqy5u.js",
+          "bytes": 17348
+        },
+        {
+          "name": "InvestigationReport-Bbd6GBDx.css",
+          "bytes": 2523
+        },
+        {
+          "name": "globe-renderer-9-kLv624.js",
+          "bytes": 558595
+        }
+      ],
+      "resources": [],
+      "resource_check": "Not exercised: 2D fallback, no native scene",
+      "dialog_focus_color": "rgb(12, 20, 36)",
+      "screenshots_captured": true,
+      "page_errors": []
+    },
+    "webkit": {
+      "engine": "webkit",
+      "os": "Linux-6.18.55-x86_64-with-glibc2.39",
+      "baseline": false,
+      "fixture": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+      "scene": "3 calculated samples from public Vallado 6251 fixture",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dpr": 1,
+      "timings": [
+        {
+          "repeat": 0,
+          "observed_ready_ms": 1127,
+          "initialization": [
+            {
+              "context_created_ms": 389,
+              "first_draw_ms": 795
+            }
+          ],
+          "stable": {
+            "duration_ms": 2015,
+            "samples": 124,
+            "raf_median_ms": 16,
+            "raf_p95_ms": 17,
+            "draw_calls": 0,
+            "buffer_uploads": 0,
+            "actions": 0,
+            "heap_bytes": null
+          },
+          "interaction": {
+            "duration_ms": 2014,
+            "samples": 123,
+            "raf_median_ms": 16,
+            "raf_p95_ms": 17,
+            "draw_calls": 60,
+            "buffer_uploads": 0,
+            "actions": 12,
+            "heap_bytes": null
+          },
+          "main_thread_task_seconds": null
+        },
+        {
+          "repeat": 1,
+          "observed_ready_ms": 1073,
+          "initialization": [
+            {
+              "context_created_ms": 258,
+              "first_draw_ms": 286
+            }
+          ],
+          "stable": {
+            "duration_ms": 2004,
+            "samples": 123,
+            "raf_median_ms": 16,
+            "raf_p95_ms": 17,
+            "draw_calls": 0,
+            "buffer_uploads": 0,
+            "actions": 0,
+            "heap_bytes": null
+          },
+          "interaction": {
+            "duration_ms": 2002,
+            "samples": 122,
+            "raf_median_ms": 16,
+            "raf_p95_ms": 20,
+            "draw_calls": 60,
+            "buffer_uploads": 0,
+            "actions": 12,
+            "heap_bytes": null
+          },
+          "main_thread_task_seconds": null
+        },
+        {
+          "repeat": 2,
+          "observed_ready_ms": 1043,
+          "initialization": [
+            {
+              "context_created_ms": 324,
+              "first_draw_ms": 352
+            }
+          ],
+          "stable": {
+            "duration_ms": 2000,
+            "samples": 123,
+            "raf_median_ms": 16,
+            "raf_p95_ms": 17,
+            "draw_calls": 0,
+            "buffer_uploads": 0,
+            "actions": 0,
+            "heap_bytes": null
+          },
+          "interaction": {
+            "duration_ms": 2003,
+            "samples": 112,
+            "raf_median_ms": 16,
+            "raf_p95_ms": 22,
+            "draw_calls": 60,
+            "buffer_uploads": 0,
+            "actions": 12,
+            "heap_bytes": null
+          },
+          "main_thread_task_seconds": null
+        }
+      ],
+      "accessibility": [
+        {
+          "view": "initial explorer",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [[".legend-satellite"], [".legend-ground"]]
+            }
+          ],
+          "passes": 24
+        },
+        {
+          "view": "readiness",
+          "violations": [],
+          "incomplete": [],
+          "passes": 23
+        },
+        {
+          "view": "empty saved investigations",
+          "violations": [],
+          "incomplete": [],
+          "passes": 19
+        },
+        {
+          "view": "shared calculated ground track",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [".legend-satellite"],
+                [".legend-ground"],
+                ["text[x=\"-90\"]"],
+                ["text[x=\"0\"]"],
+                ["text[x=\"90\"]"],
+                ["text[y=\"48\"]"],
+                ["text[y=\"3\"]"],
+                ["text[y=\"-42\"]"]
+              ]
+            }
+          ],
+          "passes": 32
+        },
+        {
+          "view": "mobile printable dialog",
+          "violations": [],
+          "incomplete": [],
+          "passes": 14
+        },
+        {
+          "view": "mobile discovery and editable save form",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > caption"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > thead > tr > th[scope=\"col\"]:nth-child(2)"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+                ],
+                [
+                  ".investigations > .table-scroll[role=\"region\"] > table > tbody > tr:nth-child(2) > td:nth-child(2)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > caption"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > thead > tr > th[scope=\"col\"]:nth-child(3)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(1) > td:nth-child(3)"
+                ],
+                [
+                  "div[aria-label=\"Validated source mean elements\"] > table > tbody > tr:nth-child(2) > td:nth-child(3)"
+                ],
+                ["tr:nth-child(3) > td:nth-child(3)"],
+                ["tr:nth-child(4) > td:nth-child(3)"],
+                ["tr:nth-child(5) > td:nth-child(3)"],
+                ["tr:nth-child(6) > td:nth-child(3)"],
+                ["tr:nth-child(7) > td:nth-child(3)"],
+                ["tr:nth-child(8) > td:nth-child(3)"],
+                ["tr:nth-child(9) > td:nth-child(3)"],
+                ["tr:nth-child(10) > td:nth-child(3)"]
+              ]
+            }
+          ],
+          "passes": 28
+        }
+      ],
+      "layouts": [
+        {
+          "width": 1440,
+          "scrollWidth": 1440,
+          "globeWidth": 818.234375
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "globeWidth": 620
+        },
+        {
+          "width": 390,
+          "scrollWidth": 390,
+          "globeWidth": 290
+        },
+        {
+          "width": 320,
+          "scrollWidth": 320,
+          "globeWidth": 220
+        }
+      ],
+      "checks": [
+        {
+          "check": "keyboard skip link is first",
+          "pass": true
+        },
+        {
+          "check": "current-page keyboard focus remains distinct",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: initial explorer",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: readiness",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: empty saved investigations",
+          "pass": true
+        },
+        {
+          "check": "real camera interactions draw frames",
+          "pass": true
+        },
+        {
+          "check": "settled globe performs no idle draw calls",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: shared calculated ground track",
+          "pass": true
+        },
+        {
+          "check": "removed native scenes release their graphics contexts",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 1440",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 768",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 390",
+          "pass": true
+        },
+        {
+          "check": "track fits viewport 320",
+          "pass": true
+        },
+        {
+          "check": "print-dialog focus contrasts with white surface",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: mobile printable dialog",
+          "pass": true
+        },
+        {
+          "check": "native dialog keyboard controls, Escape and opener focus work",
+          "pass": true
+        },
+        {
+          "check": "download denial exposes retry and native retry succeeds",
+          "pass": true
+        },
+        {
+          "check": "axe WCAG A/AA: mobile discovery and editable save form",
+          "pass": true
+        },
+        {
+          "check": "editable investigation fits 320px viewport",
+          "pass": true
+        },
+        {
+          "check": "keyboard save failure, retry and reopen work on mobile",
+          "pass": true
+        },
+        {
+          "check": "no uncaught page errors",
+          "pass": true
+        }
+      ],
+      "issues": [],
+      "version": "26.5",
+      "native_webgl2": true,
+      "graphics": {
+        "version": "WebGL 2.0",
+        "renderer": "Apple GPU"
+      },
+      "loaded_assets": [
+        {
+          "name": "index-CB3IVuQB.js",
+          "bytes": 288375
+        },
+        {
+          "name": "index-B0iyr_5T.css",
+          "bytes": 7681
+        },
+        {
+          "name": "RestoredInvestigation-9c7aEmhy.js",
+          "bytes": 0
+        },
+        {
+          "name": "investigation-api-DxYMVFwL.js",
+          "bytes": 0
+        },
+        {
+          "name": "InvestigationReport-CosmpAdM.js",
+          "bytes": 0
+        },
+        {
+          "name": "report-presentation-BBjZqy5u.js",
+          "bytes": 0
+        },
+        {
+          "name": "InvestigationReport-Bbd6GBDx.css",
+          "bytes": 2523
+        },
+        {
+          "name": "globe-renderer-9-kLv624.js",
+          "bytes": 558595
+        },
+        {
+          "name": "earth-atmosphere.jpg",
+          "bytes": 512606
+        }
+      ],
+      "resources": [
+        {
+          "connected": false,
+          "lost": true
+        },
+        {
+          "connected": true,
+          "lost": false
+        },
+        {
+          "connected": false,
+          "lost": true
+        },
+        {
+          "connected": false,
+          "lost": true
+        },
+        {
+          "connected": true,
+          "lost": false
+        }
+      ],
+      "dialog_focus_color": "rgb(12, 20, 36)",
+      "screenshots_captured": false,
+      "page_errors": []
+    }
+  },
+  "assets_before": {
+    "index.html": {
+      "bytes": 392,
+      "gzip_bytes": 266
+    },
+    "assets/RestoredInvestigation-CMQwQR65.js": {
+      "bytes": 3670,
+      "gzip_bytes": 1662
+    },
+    "assets/README.md": {
+      "bytes": 605,
+      "gzip_bytes": 411
+    },
+    "assets/SavedInvestigations-Bf7rpOsL.js": {
+      "bytes": 7156,
+      "gzip_bytes": 2460
+    },
+    "assets/InvestigationReport-Dw8yMP3A.css": {
+      "bytes": 2448,
+      "gzip_bytes": 939
+    },
+    "assets/report-presentation-Dwa8pw-T.js": {
+      "bytes": 17261,
+      "gzip_bytes": 6641
+    },
+    "assets/index-ClmDnvGD.css": {
+      "bytes": 7468,
+      "gzip_bytes": 2214
+    },
+    "assets/globe-renderer-DKyQHFp8.js": {
+      "bytes": 558595,
+      "gzip_bytes": 138971
+    },
+    "assets/earth-atmosphere.jpg": {
+      "bytes": 512606,
+      "gzip_bytes": 506103
+    },
+    "assets/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "gzip_bytes": 662
+    },
+    "assets/Investigations-wklGRz0V.js": {
+      "bytes": 44765,
+      "gzip_bytes": 12536
+    },
+    "assets/index-C-Buf1Y4.js": {
+      "bytes": 287888,
+      "gzip_bytes": 88922
+    },
+    "assets/investigation-api-BnSv1X2G.js": {
+      "bytes": 8011,
+      "gzip_bytes": 3007
+    },
+    "assets/InvestigationReport-DThcResL.js": {
+      "bytes": 5227,
+      "gzip_bytes": 2114
+    }
+  },
+  "assets_after": {
+    "index.html": {
+      "bytes": 392,
+      "gzip_bytes": 267
+    },
+    "assets/SavedInvestigations-D0hLrEIt.js": {
+      "bytes": 7156,
+      "gzip_bytes": 2461
+    },
+    "assets/InvestigationReport-Bbd6GBDx.css": {
+      "bytes": 2523,
+      "gzip_bytes": 970
+    },
+    "assets/index-CB3IVuQB.js": {
+      "bytes": 288375,
+      "gzip_bytes": 89063
+    },
+    "assets/README.md": {
+      "bytes": 605,
+      "gzip_bytes": 411
+    },
+    "assets/InvestigationReport-CosmpAdM.js": {
+      "bytes": 5227,
+      "gzip_bytes": 2115
+    },
+    "assets/earth-atmosphere.jpg": {
+      "bytes": 512606,
+      "gzip_bytes": 506103
+    },
+    "assets/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "gzip_bytes": 662
+    },
+    "assets/index-B0iyr_5T.css": {
+      "bytes": 7681,
+      "gzip_bytes": 2287
+    },
+    "assets/globe-renderer-9-kLv624.js": {
+      "bytes": 558595,
+      "gzip_bytes": 138972
+    },
+    "assets/investigation-api-DxYMVFwL.js": {
+      "bytes": 8011,
+      "gzip_bytes": 3008
+    },
+    "assets/RestoredInvestigation-9c7aEmhy.js": {
+      "bytes": 3670,
+      "gzip_bytes": 1666
+    },
+    "assets/report-presentation-BBjZqy5u.js": {
+      "bytes": 17348,
+      "gzip_bytes": 6677
+    },
+    "assets/Investigations-B2WwYYL5.js": {
+      "bytes": 44778,
+      "gzip_bytes": 12544
+    }
+  },
+  "renderer_equal_after_import_hash_normalization": true,
+  "cautions": [
+    "Timing variation is informational; no causal performance improvement inferred.",
+    "Browser heap estimates do not establish absence of leaks.",
+    "Firefox exercised fallback; WebKit renderer identifier is reported metadata, not physical hardware evidence."
+  ]
+}

@@ -358,7 +358,11 @@ export default function ScientificExplorer({
               <p role="alert">Calculation failed: {calculationError}</p>
             )}
             {position && (
-              <div className="result" aria-label="Calculated orbital state">
+              <div
+                className="result"
+                role="region"
+                aria-label="Calculated orbital state"
+              >
                 <h3>Calculated position · {position.frame}</h3>
                 <p>
                   Not a direct observation. Uncertainty is not quantified; no

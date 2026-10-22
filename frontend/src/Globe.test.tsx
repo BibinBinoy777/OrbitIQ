@@ -69,6 +69,7 @@ it("handles context loss, restored context and explicit recovery", async () => {
   expect(engine.dispose).toHaveBeenCalledTimes(1);
 });
 it("shows safe initialization failure without exposing internal errors", async () => {
+  const log = vi.spyOn(console, "error").mockImplementation(() => {});
   create.mockImplementation(() => {
     throw new Error("/secret/driver/path");
   });
@@ -77,6 +78,18 @@ it("shows safe initialization failure without exposing internal errors", async (
     await screen.findByText(/3D graphics are unavailable/),
   ).toBeInTheDocument();
   expect(screen.queryByText(/secret/)).not.toBeInTheDocument();
+  expect(log).toHaveBeenCalledWith(
+    "OrbitIQ globe initialization failed",
+    expect.any(Error),
+  );
+  create.mockImplementation((_host, callbacks) => {
+    callbacks.ready();
+    return engine;
+  });
+  fireEvent.click(screen.getByText("Retry 3D"));
+  await waitFor(() => expect(screen.getByText("Rotate left")).toBeEnabled());
+  expect(create).toHaveBeenCalledTimes(2);
+  log.mockRestore();
 });
 it("does not invent a marker when valid vectors are unavailable", async () => {
   const points = explorerTrack().points.map((p) => ({

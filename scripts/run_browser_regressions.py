@@ -23,6 +23,7 @@ def main():
     parser.add_argument("--release", required=True)
     parser.add_argument("--browser-image", default="e1")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--engineering-e2", action="store_true")
     args = parser.parse_args()
     output = args.output.absolute()
     output.mkdir(parents=True, exist_ok=False)  # No overwrites or arbitrary inputs.
@@ -328,6 +329,14 @@ def main():
                             ],
                         ),
                     ]
+                if mode == "empty" and args.engineering_e2:
+                    suites.append(
+                        (
+                            "engineering-e2",
+                            "verify_engineering_e2.py",
+                            ["--engine", engine],
+                        )
+                    )
                 for suite, script, options in suites:
                     name = engine + "-" + suite
                     try:
@@ -379,6 +388,7 @@ def main():
                     "browser_flows": counts,
                     "total_flows": sum(counts.values()),
                     "pdf_checks": len(pdfs),
+                    "engineering_e2": args.engineering_e2,
                     "additional_fault_injection_cases": len(
                         json.loads(
                             (

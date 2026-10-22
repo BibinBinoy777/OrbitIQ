@@ -11,6 +11,10 @@
 .report-dialog::backdrop {
   background: rgb(0 0 0 / 70%);
 }
+.report-dialog :focus-visible {
+  outline: 3px solid #0c1424;
+  outline-offset: 3px;
+}
 .report-controls {
   padding: 1rem;
   display: flex;

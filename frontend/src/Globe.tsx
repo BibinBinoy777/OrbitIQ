@@ -31,8 +31,14 @@ export default function Globe({
   useEffect(() => {
     let cancelled = false;
     if (typeof window.WebGL2RenderingContext === "undefined") return;
+    // Bound a stalled chunk fetch. A late import must not create a stale scene.
+    const timeout = window.setTimeout(() => {
+      cancelled = true;
+      setStatus("failed");
+    }, 15000);
     import("./globe-renderer")
       .then(({ createGlobe }) => {
+        window.clearTimeout(timeout);
         if (cancelled || !host.current) return;
         try {
           engine.current = createGlobe(host.current, {
@@ -49,15 +55,19 @@ export default function Globe({
             current.current.selected,
           );
           engine.current.setComparison?.(current.current.comparison);
-        } catch {
+        } catch (error) {
+          console.error("OrbitIQ globe initialization failed", error);
           if (!cancelled) setStatus("failed");
         }
       })
-      .catch(() => {
+      .catch((error: unknown) => {
+        window.clearTimeout(timeout);
+        console.error("OrbitIQ globe module failed to load", error);
         if (!cancelled) setStatus("failed");
       });
     return () => {
       cancelled = true;
+      window.clearTimeout(timeout);
       engine.current?.dispose();
       engine.current = null;
     };
@@ -116,6 +126,7 @@ export default function Globe({
       )}
       <div
         className="toolbar camera-controls"
+        role="group"
         aria-label="Globe camera controls"
       >
         {button("Rotate left", "left")}

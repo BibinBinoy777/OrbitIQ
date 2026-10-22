@@ -68,8 +68,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends poppler-utils
       - name: Build existing pinned Playwright runtime
         run: docker build -f deploy/Dockerfile.browser -t orbitiq-browser:e1 .
-      - name: Chromium, Firefox, WebKit and seven PDF regressions
-        run: python3 scripts/run_browser_regressions.py --release ci --output "${{ runner.temp }}/orbitiq-e1"
+      - name: E1 regressions, E2 accessibility and performance, seven PDFs
+        run: python3 scripts/run_browser_regressions.py --release ci --engineering-e2 --output "${{ runner.temp }}/orbitiq-e1"
       - name: Preserve fixture-only browser and PDF diagnostics
         if: always()
         uses: actions/upload-artifact@v4

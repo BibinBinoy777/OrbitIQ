@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, expect, it, vi } from "vitest";
 import App from "./App";
 import { getHealth } from "./api";
@@ -69,4 +69,14 @@ it("passes caller cancellation to the network request", async () => {
   controller.abort();
   await expect(request).rejects.toMatchObject({ name: "AbortError" });
   expect(requestSignal!.aborted).toBe(true);
+});
+
+it("skips repeated navigation without changing the investigation fragment", () => {
+  window.history.replaceState(null, "", "/#/saved");
+  vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("offline")));
+  render(<App />);
+  fireEvent.click(screen.getByRole("link", { name: "Skip to workspace" }));
+  expect(document.getElementById("workspace")).toHaveFocus();
+  expect(window.location.hash).toBe("#/saved");
+  window.history.replaceState(null, "", "/");
 });

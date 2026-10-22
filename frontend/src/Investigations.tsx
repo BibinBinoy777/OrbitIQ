@@ -616,7 +616,11 @@ export default function Investigations({
                   </table>
                 </div>
               )}
-              <div className="toolbar" aria-label="History pagination">
+              <div
+                className="toolbar"
+                role="group"
+                aria-label="History pagination"
+              >
                 <button
                   type="button"
                   disabled={!previous.length || loading}

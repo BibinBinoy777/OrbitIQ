@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { getHealth } from "./api";
 import ScientificExplorer from "./ScientificExplorer";
 import ReadinessDashboard from "./ReadinessDashboard";
@@ -31,6 +31,7 @@ function route() {
   }
 }
 export default function App() {
+  const workspace = useRef<HTMLDivElement>(null);
   const [opened, setOpened] = useState(route);
   const [revision, setRevision] = useState(0);
   const [view, setView] = useState<View>(
@@ -118,6 +119,17 @@ export default function App() {
   }, []);
   return (
     <main>
+      <a
+        className="skip-link"
+        href="#workspace"
+        onClick={(event) => {
+          // The investigation router owns the URL fragment.
+          event.preventDefault();
+          workspace.current?.focus();
+        }}
+      >
+        Skip to workspace
+      </a>
       <p>ORBITIQ / EXPLORER</p>
       <h1>Explore Earth’s orbital neighborhood.</h1>
       <p>Satellite exploration grounded in traceable orbital data.</p>
@@ -166,57 +178,63 @@ export default function App() {
           </button>
         )}
       </nav>
-      {view === "readiness" && (
-        <ReadinessDashboard onExplore={() => navigate("explorer")} />
-      )}
-      {explorerVisited && (
-        <div hidden={view !== "explorer"}>
-          {explorerSource && (
-            <button type="button" onClick={() => navigate("investigations")}>
-              Return to discovery / comparison
-            </button>
-          )}
-          <ScientificExplorer
-            key={explorerSource?.id ?? "manual"}
-            initialSource={explorerSource}
-            active={view === "explorer"}
-          />
-        </div>
-      )}
-      {visited && (
-        <div hidden={view !== "investigations"}>
-          <Suspense fallback={<p role="status">Loading stored-data tools…</p>}>
-            <Investigations
-              active={view === "investigations"}
-              onExplore={explore}
+      <div id="workspace" ref={workspace} tabIndex={-1}>
+        {view === "readiness" && (
+          <ReadinessDashboard onExplore={() => navigate("explorer")} />
+        )}
+        {explorerVisited && (
+          <div hidden={view !== "explorer"}>
+            {explorerSource && (
+              <button type="button" onClick={() => navigate("investigations")}>
+                Return to discovery / comparison
+              </button>
+            )}
+            <ScientificExplorer
+              key={explorerSource?.id ?? "manual"}
+              initialSource={explorerSource}
+              active={view === "explorer"}
             />
+          </div>
+        )}
+        {visited && (
+          <div hidden={view !== "investigations"}>
+            <Suspense
+              fallback={<p role="status">Loading stored-data tools…</p>}
+            >
+              <Investigations
+                active={view === "investigations"}
+                onExplore={explore}
+              />
+            </Suspense>
+          </div>
+        )}
+        {view === "saved" && (
+          <Suspense
+            fallback={
+              <p role="status">Loading browser-local investigations…</p>
+            }
+          >
+            <SavedInvestigations onOpen={(v) => open(v)} />
           </Suspense>
-        </div>
-      )}
-      {view === "saved" && (
-        <Suspense
-          fallback={<p role="status">Loading browser-local investigations…</p>}
-        >
-          <SavedInvestigations onOpen={(v) => open(v)} />
-        </Suspense>
-      )}
-      {(opened.investigation || opened.error) && (
-        <div hidden={view !== "restored"}>
-          <Suspense fallback={<p role="status">Loading investigation…</p>}>
-            <RestoredInvestigation
-              key={revision}
-              investigation={opened.investigation}
-              error={opened.error}
-              shared={opened.shared}
-              active={view === "restored"}
-              onCopy={() => {
-                if (opened.investigation) open(opened.investigation);
-              }}
-              onExplore={explore}
-            />
-          </Suspense>
-        </div>
-      )}
+        )}
+        {(opened.investigation || opened.error) && (
+          <div hidden={view !== "restored"}>
+            <Suspense fallback={<p role="status">Loading investigation…</p>}>
+              <RestoredInvestigation
+                key={revision}
+                investigation={opened.investigation}
+                error={opened.error}
+                shared={opened.shared}
+                active={view === "restored"}
+                onCopy={() => {
+                  if (opened.investigation) open(opened.investigation);
+                }}
+                onExplore={explore}
+              />
+            </Suspense>
+          </div>
+        )}
+      </div>
     </main>
   );
 }

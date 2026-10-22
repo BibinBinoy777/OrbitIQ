@@ -393,6 +393,22 @@ summary {
 [aria-current="page"] {
   outline: 2px solid #b6d8ff;
 }
+/* Current-location styling must not mask keyboard focus. */
+[aria-current="page"]:focus-visible {
+  outline: 3px solid #ffd782;
+}
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  padding: 0.8rem;
+  background: #142039;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
 @media (max-width: 800px) {
   .readiness-grid {
     grid-template-columns: minmax(0, 1fr);

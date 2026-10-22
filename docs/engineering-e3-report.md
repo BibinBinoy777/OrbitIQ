@@ -96,8 +96,8 @@ deduplication and the existing isolated recovery rehearsal. It retains only
 fixture evidence and stops the processes it started. This runs in the existing
 CI backend job; no redundant workflow was created.
 
-Local verification is complete. Publication and exact-commit remote CI remain
-pending at this pre-publication checkpoint:
+Local verification and implementation publication/remote CI are complete.
+The results below are tied to the implementation commit identified below:
 
 | Check                                                              | Actual result                                                                                              |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
@@ -114,7 +114,7 @@ pending at this pre-publication checkpoint:
 | Release images and isolated empty-archive API smoke                | Built; four HTTP checks passed, fixture unchanged                                                          |
 | E1 browser/PDF and E2 accessibility                                | 77 browser flows, 5 failure cases, 2 expected-failure probes, 7 PDFs; 62 E2 checks and 18 axe scans passed |
 | Isolated fresh installation                                        | Passed; actual backend/Vite proxy, failure, restart and recovery                                           |
-| Exact-commit remote CI                                             | Pending publication                                                                                        |
+| Exact-commit remote CI                                             | Implementation `4b50bcb`: backend, frontend and release-images all passed; exact SHA/run below             |
 
 The PDF maximum-track check verified all 361 rows. Browser fixture fingerprints
 were unchanged. Axe reported zero violations in its 18 scans; incomplete contrast
@@ -142,15 +142,15 @@ under `/tmp/orbitiq-e3`. Native Windows and macOS execution were not tested.
 
 The local E1/E2 run started before the final collector error-message correction.
 Its API/readiness/database and frontend code match the final implementation;
-collection is not invoked by browser reads. Final-commit remote CI must rebuild
-the image and rerun the complete browser/PDF/E2 set before remote success is claimed.
+collection is not invoked by browser reads. The implementation-commit remote CI rebuilt
+the image and reran the complete browser/PDF/E2 set successfully.
 The final local API image was separately rebuilt and passed release startup/ready
 checks; the final collector passed the full backend and isolated install runs.
 
 ## Publication and remaining gates
 
-The dedicated branch publication is authorized after final review and applicable
-checks. The reviewed file boundary is exactly:
+The dedicated branch was published after review and applicable checks.
+The reviewed and committed file boundary is exactly:
 
 - `.github/workflows/ci.yml`
 - `README.md`
@@ -164,9 +164,49 @@ checks. The reviewed file boundary is exactly:
 - `docs/engineering-e3-report.md`
 - `scripts/verify_fresh_checkout.py`
 
-No commit or push has occurred at this report checkpoint. Exact SHA,
-pushed file list, remote CI and final integrity evidence must be recorded after
-those operations actually occur.
+Implementation commit:
+[`4b50bcbe1b35c15d96cd6e3a580f455d2254abd5`](https://github.com/BibinBinoy777/OrbitIQ/commit/4b50bcbe1b35c15d96cd6e3a580f455d2254abd5),
+pushed to `engineering-e3-reliability-recovery`. Its exact published file list was
+checked against the 11-file review. The working tree was clean after publication.
+
+[OrbitIQ checks run 39834181812](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39834181812)
+completed successfully against that exact commit. All three check runs identify
+that SHA: **backend**, **frontend**, **release-images**. Actual completed-job logs
+confirm 1,234 backend tests, 345 frontend tests and all existing scientific audits,
+lint, formatting, TypeScript and build checks. Remote artifacts independently
+confirm 77 browser flows, five fault scenarios, two expected failures with
+diagnostics, seven PDFs including 361 rows, 62 E2 checks and 18 axe scans with
+zero reported violations. Incomplete accessibility items remain recorded.
+
+The remote isolated-installation artifact identifies source tree
+`806167fedc39f599ce465da220eeb072068fe3b9`, exactly the published commit's tree.
+It passes locked fresh installation, restart, provider failure/recovery and full
+fixture restoration; every restored schema/table digest matches the backup point.
+The three audit attempts and one snapshot remain present. No fixture database is
+uploaded. The 16 installation artifact files and 194 browser/PDF files were
+inspected; trace ZIP integrity, PDF text/headers and expected screenshots passed.
+No credentials, private attachments or personal email content was found. The only
+email-like trace matches are Playwright's hashed image-reference filenames.
+The frontend build artifact has 14 files, no source maps or axe bundle.
+
+Nonblocking Actions annotations retain the existing upload-artifact Node runtime
+and ubuntu-latest image-migration advisories. They did not fail a check.
+
+This documentation-only receipt records evidence for the implementation SHA above.
+Its own publication is a separate subsequent commit, with no application,
+dependency, test or workflow changes; the final handoff records that commit's exact
+SHA and independently verified CI. Earlier results are not substituted for it.
+Final preservation checks matched the real database's shared-lock checksum and
+logical fingerprint and all 72 private inputs to the trusted E2 baseline. Prior
+phase reports remain unchanged. No raw private evidence or databases were staged.
+
+| Milestone                          | Evidence at this receipt                        |
+| ---------------------------------- | ----------------------------------------------- |
+| Locally verified                   | Passed, with actual counts above                |
+| Published                          | Implementation SHA above; dedicated branch only |
+| Remote CI verified                 | All three jobs on that exact implementation SHA |
+| Production deployed                | No                                              |
+| Production infrastructure verified | No; separate launch gates remain open           |
 
 Phase 11.3.1 remains **PARTIAL**. Scientific evaluation remains **BLOCKED**.
 ESA time clarification, KIN-quality qualification and frame alignment remain

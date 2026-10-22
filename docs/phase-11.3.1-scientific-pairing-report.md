@@ -407,3 +407,29 @@ outcomes are recorded in [protocol verification](phase-11.3.1-protocol-verificat
 Phase 11.3.1 remains **PARTIAL**, evaluation **BLOCKED**. No genuine Swarm-A
 propagation, transformation, residual, commit, push, remote CI or deployment
 occurred during this protocol investigation.
+
+## Scoped CelesTrak follow-up closure — 22 October 2026
+
+The user authorized using the available CelesTrak clarification and closing that
+follow-up for the current retrospective objective. The supplied provider reply
+text was reviewed; it confirms CSV as the preferred path, no promised JSON-fix
+date, and unavailable record-creation timestamps. It does not establish EPOCH as
+the latest observation time, exact-record fitting lineage or historical
+availability. Original element-set values 35–37 remain unchanged; no modern
+999 convention is applied to these historical records.
+
+The [scoped closure decision](phase-11.3.1-provider-response-reconciliation.md#celestrak-follow-up-closure-for-the-current-retrospective-scope)
+marks the **local CelesTrak follow-up CLOSED WITH DOCUMENTED LIMITATIONS**. No
+further provider response or JSON fix is a prerequisite for this retrospective
+scope. Unknown clocks, incomplete lineage and NOT ESTABLISHED independence remain
+limitations, not successful scientific qualification. Historical forecasting and
+independent-accuracy claims remain unsupported. Reopen the follow-up if such
+claims become requirements or authoritative new evidence changes the assessment.
+
+ESA's supplied acknowledgement under `RITM0144536` does not answer the technical
+questions. Time conflicts, existing timestamp exclusions, KIN quality/epoch
+acceptance, actual-pair IGb08 alignment and precision/error budget remain open.
+The protocol is still predeclared but not executable for science. No source or
+accepted epoch mask is selected, no scientific guard is relaxed, and no genuine
+Swarm-A propagation, transformation or real ESA residual is performed. Phase
+11.3.1 remains **PARTIAL**, scientific evaluation **BLOCKED**.

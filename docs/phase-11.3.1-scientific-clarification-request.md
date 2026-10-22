@@ -1,11 +1,14 @@
 # Phase 11.3.1 — scientific clarification checklist
 
 Prepared on 21 October 2026; status updated **22 October 2026**.
-**ESA: SUBMITTED, AWAITING RESPONSE. CelesTrak: RESPONSE RECEIVED,
-user-reported summary.** Submission and reply dates/times were not supplied.
+**ESA: ACKNOWLEDGEMENT RECEIVED, SUBSTANTIVE CLARIFICATION PENDING.
+CelesTrak: CLOSED FOR CURRENT RETROSPECTIVE SCOPE, WITH DOCUMENTED LIMITATIONS.**
+User-supplied reply text was reviewed; authenticated delivery headers and full
+dated/time-zoned timestamps were not supplied. No UTC receipt time is inferred.
 ESA support reference **`RITM0144536`** was subsequently supplied by the user in
 the comparison-protocol request; substantive clarification remains pending.
 A support reference or acknowledgement is not scientific resolution.
+Phase 11.3.1 remains **PARTIAL**, scientific evaluation **BLOCKED**.
 See [provider inquiry tracking](phase-11.3.1-provider-inquiries.md) for evidence
 limits and outstanding subjects. This checklist is not a copy of the sent emails;
 the assistant did not send a message. Do not include correspondence or credentials
@@ -100,8 +103,8 @@ approve an identity transformation.
 
 The separate CelesTrak-attributed CSV has three Swarm-A records, source indices
 0–2, with `ELEMENT_SET_NO` values 35–37 (distinct from `REV_AT_EPOCH` 583/604/620).
-The complete private source strings and hashes are retained. The provider response
-as summarized by the user confirms CSV as supported/preferred, without a promised
+The complete private source strings and hashes are retained. The provider reply
+text supplied by the user confirms CSV as supported/preferred, without a promised
 JSON-fix timeline. Corrected JSON is no longer a prerequisite. It also states that
 record-creation timestamps are not retained; orbital epochs do not establish
 historical publication/availability, and available metadata does not establish
@@ -122,3 +125,13 @@ bodies to the repository. If availability cannot be established, preserve that
 limitation and retain **retrospective-only** interpretation. Unknown sensor-level
 GP fitting lineage must remain explicitly unknown, rather than inferred from the
 fact that the reference came through a different organization.
+
+For the current retrospective study, the local CelesTrak follow-up is now
+**CLOSED WITH DOCUMENTED LIMITATIONS** under the
+[scoped closure decision](phase-11.3.1-provider-response-reconciliation.md#celestrak-follow-up-closure-for-the-current-retrospective-scope).
+No further CelesTrak response or JSON fix is required for this scope. Unknown
+creation/publication clocks, fitting lineage and independence remain unknown;
+EPOCH is not evidence of the latest observation time. Reopen this follow-up if a
+future objective requires historical availability, supported independence claims
+or additional record-specific provenance. None of this accepts a genuine GP
+record/reference mask or closes an ESA scientific execution gate.

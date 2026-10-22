@@ -157,3 +157,54 @@ Nothing was staged, committed, pushed, published, merged or deployed. No remote 
 was initiated. Phase 8 production hosting/public HTTPS, independent off-machine
 recovery, actual alert delivery and branch-protection verification remain separate
 open milestones; this status update does not change them.
+
+## CelesTrak follow-up closure for the current retrospective scope
+
+Decision recorded **22 October 2026**, following the user's request to use the
+available information and close the CelesTrak problem. This addendum supersedes
+the earlier summary-only evidence description for current tracking; the earlier
+checkpoint and its verification results above remain historical evidence.
+
+Status: **CLOSED FOR CURRENT RETROSPECTIVE SCOPE, WITH DOCUMENTED LIMITATIONS**.
+This is an OrbitIQ follow-up decision, not a claim that CelesTrak closed a ticket,
+fixed JSON or supplied missing scientific metadata. The user supplied pasted
+provider reply text, which was read; original authenticated delivery headers and
+full dated/time-zoned timestamps were not supplied. The correspondence remains
+private. Only non-sensitive conclusions are recorded here.
+
+| Available clarification | Decision and retained limitation |
+| --- | --- |
+| CelesTrak recommends CSV; a JSON investigation has no promised completion date | Continue with the existing verified CSV intake. No JSON repair is required. Preserve both original attachments; the reply supplies no upstream JSON fix |
+| CelesTrak does not record/store record-creation timestamps in its data | Record creation time remains unknown. This does not establish historical publication or availability; further requests for this unavailable field are not a prerequisite for the retrospective scope |
+| The reply says there is no public documentation establishing a consistent relationship between EPOCH and latest observation time | Use EPOCH as the element reference epoch. Time since EPOCH is not a verified observation-age measurement or evidence of a fit window |
+| The reply questions interpreting Space-Track CREATION_DATE as orbit-solution generation time | Do not substitute that field for independently established generation or availability evidence. No Space-Track acquisition or metadata change is authorized by this closure |
+| General explanation of ELEMENT_SET_NO values of 999 | Does not establish historical applicability to these three records. Preserve their original values 35–37 and do not infer publication chronology |
+| No exact observation window, fit ledger or shared-input history supplied | Complete fitting lineage remains unknown; statistical independence remains NOT ESTABLISHED. No absolute-truth or independent prediction-accuracy claim |
+
+The authorized scope is a **proposed retrospective comparison**, not a historical
+forecast. The available software and CSV can support further qualification
+without waiting for another CelesTrak response. This is not approval to execute
+the genuine comparison. Missing historical availability does not by itself make
+a retrospective discrepancy calculation impossible, but it prevents claiming the
+elements were available before a historical decision. The incomplete lineage
+must remain explicit in the objective, error-budget review and eventual findings.
+Unknown availability and independence do not become passed evidence gates.
+
+All separate prerequisites remain: source-provenance review, producer-supported
+ESA time interpretation, accepted KIN quality/epoch criteria, justified IGb08
+alignment and precision/error budget, and final review of the predeclared
+protocol. ESA's user-supplied acknowledgement under `RITM0144536` is not a technical
+resolution. Phase 11.3.1 stays **PARTIAL**, genuine evaluation **BLOCKED**; selected
+GP record remains null, accepted reference indices empty, and no genuine Swarm-A
+propagation, coordinate transformation or real ESA residual is performed here.
+
+Reopen the CelesTrak follow-up if the objective changes to historical forecasting,
+requires supported independence/record-specific lineage, or new authoritative
+metadata contradicts the retained evidence. A future JSON repair can be assessed
+as optional new evidence without replacing originals. No further provider message
+is sent or required for the current scope.
+
+This closure changes documentation only. Prior execution evidence, application
+code, scientific guards, dependencies, private source data and database are
+preserved. Publication and CI evidence for commit `55a0a01528b22c5b2c8975edf6bd7e5a5dfc69f5`
+belong to that prior checkpoint, not a new test run for this addendum.

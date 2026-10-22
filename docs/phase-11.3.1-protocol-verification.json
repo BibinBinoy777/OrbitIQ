@@ -1,0 +1,414 @@
+{
+  "kind": "orbitiq_comparison_protocol_investigation_verification",
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-22T06:22:06.375485+00:00",
+  "starting_branch": "phase-11.3.1-verified-publication",
+  "starting_head": "52a76e95a9b2edf09f1cc974599c1d5b88ce1830",
+  "starting_tree_clean": true,
+  "task_scope": "predeclared protocol and local scientific investigation; no qualified comparison",
+  "scientific_phase": "PARTIAL",
+  "scientific_evaluation": "BLOCKED",
+  "esa": {
+    "support_reference": "RITM0144536",
+    "basis": "user-supplied reference; no independently reviewed correspondence or technical answer",
+    "substantive_clarification": "PENDING"
+  },
+  "changed_files": [
+    "docs/phase-11.3.1-provider-inquiries.md",
+    "docs/phase-11.3.1-scientific-clarification-request.md",
+    "docs/phase-11.3.1-scientific-pairing-report.md",
+    "backend/tests/test_swarm_comparison_protocol.py",
+    "docs/phase-11.3.1-comparison-protocol.md",
+    "docs/phase-11.3.1-frame-alignment-investigation.md",
+    "docs/phase-11.3.1-protocol-verification.json"
+  ],
+  "existing_application_and_diagnostic_code_changed": false,
+  "new_test_cases": 30,
+  "protocol_status": "PREDECLARED_BUT_NOT_YET_EXECUTABLE_FOR_SCIENCE",
+  "selected_source_index": null,
+  "accepted_reference_indices": [],
+  "adapter_operational": false,
+  "comparison_ready": false,
+  "genuine_prediction_evaluations": 0,
+  "genuine_coordinate_transformations": 0,
+  "real_residuals": null,
+  "source_audit": {
+    "reconciliation": {
+      "semantic_match": true,
+      "fields_equal": 51,
+      "source_order_preserved": true,
+      "exponent_case_only_differences": 6,
+      "source_precision_differences": 0,
+      "source_accepted": false,
+      "adapter_numeric_type_differences": 3,
+      "original_sha256": "c55dc4cbb2331a162014833a1a354e6f62ff4572d5238954b8108f69cae3053c",
+      "assessment_sha256": "620e9545fd4820709a3ecfff101e3705f4a70fbde2ae91de6f48dd5e7c0c8575",
+      "csv_sha256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4"
+    },
+    "conditional_time_conversions": 5118,
+    "excluded_submicrosecond": 1806,
+    "excluded_second_60": 723,
+    "all_conditional_epoch_eop_preflights_passed": 5118,
+    "quality_records_checked": 7647,
+    "kin_quality_indices_accepted": [],
+    "independence": "NOT_ESTABLISHED",
+    "historical_availability": null,
+    "complete_fitting_lineage": null,
+    "offline_attempts": {
+      "network": 0,
+      "database": 0,
+      "process": 0,
+      "propagation_transform_residual": 0
+    },
+    "assessment_manifest_sha256": "e0cb662c6646edf35d48f2e6ef5c313330840f9009315578ebb23b9403bf173d"
+  },
+  "time_derivation": {
+    "calendar_header": "#dP2014  1  1  0  2 20.00000000    7647 U+u   IGb08 KIN TUD ",
+    "redundant_header": "## 1773 259220.00000000              0 56658 0.0016203703708",
+    "first_epoch": "*  2014 01 01 00 02 20.00000000                             ",
+    "fixed_width_fields": {
+      "week": "1773",
+      "seconds_of_week": "259220.00000000",
+      "interval": "             0",
+      "mjd_day": "56658",
+      "mjd_fraction": "0.0016203703708"
+    },
+    "exact_mjd_delta_seconds": "3.712E-8",
+    "mjd_decimal_quantum_seconds": "8.64E-9",
+    "nearest_13_decimal_fraction": "0.0016203703704",
+    "nearest_fraction_delta_ns": "2.5600000000000",
+    "mjd_delta_divided_by_quantum": "116/27",
+    "raw_sp3_sha256": "c6c9c0c610c64258abf7b0e7c38d0429fb73a90768b0c600a43f6c3f1f43eb27"
+  },
+  "frame_control": {
+    "source": "IERS chapter-4 complete update 2019-04-01, Table 4.1, ITRF2014 to ITRF2008 at epoch 2010.0",
+    "control_point": "synthetic (7000000,0,0) m; not ESA or propagated Swarm coordinates",
+    "independent_expected_m": {
+      "2010.0": [
+        "7000000.00146",
+        "0.0019",
+        "0.0024"
+      ],
+      "2014.0": [
+        "7000000.0023",
+        "0.0019",
+        "0.0020"
+      ]
+    },
+    "mathematical_controls": "PASS, exact Decimal/Fraction comparison, including full moving-point derivative",
+    "actual_pipeline_igb08_alignment": "BLOCKED",
+    "physical_igb08_reference_vector_available": false,
+    "operational_transform_added": false,
+    "uncertainty_total": null
+  },
+  "checks": {
+    "full_backend": {
+      "passed": 1208,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "warnings": 2,
+      "junit_sha256": "f3ae52c475dcacff86b3a19229ff1f326e68b8dd65e25acd7503b82546b31156",
+      "log_sha256": "6d0d804392c982e7eeb273f716b7343b884fd138013bc25339fd81001628d5b3"
+    },
+    "final_commands": [
+      {
+        "name": "backend-final",
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-q",
+          "--junitxml=/tmp/orbitiq-comparison-protocol/backend-final.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 38.91916786901129
+      },
+      {
+        "name": "ruff-final",
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "check",
+          "."
+        ],
+        "exit_code": 0,
+        "seconds": 0.022354300002916716
+      },
+      {
+        "name": "format-final",
+        "argv": [
+          "uv",
+          "run",
+          "--locked",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "exit_code": 0,
+        "seconds": 0.022429959004512057
+      },
+      {
+        "name": "whitespace-final",
+        "argv": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.0027116539858980104
+      }
+    ],
+    "standalone_earth_fixed": {
+      "passed": 6,
+      "log_sha256": "6ee10f56501bccc36968db4d0ea799f52c8ef7db2d70ed445a3583eca33313ab"
+    },
+    "standalone_sgp4": {
+      "passed": 40,
+      "log_sha256": "3b25a84d4fee5e283aea39a8666fbbc91ad4db9d28233f4fda960dd6eb2c5289"
+    },
+    "frontend_tests": "NOT_RERUN; application/frontend/dependency inputs unchanged",
+    "frontend_build": "NOT_RERUN",
+    "browser_and_pdf": "NOT_RERUN; no application changes",
+    "remote_ci": "NOT_RUN",
+    "documentation": {
+      "relative_links_resolved": 25,
+      "markdown_fences": "PASS",
+      "new_content_contact_and_key_pattern_check": "PASS",
+      "evidence_consistency": "PASS"
+    }
+  },
+  "preservation": {
+    "starting_nonignored_files": 318,
+    "unchanged_starting_files": 315,
+    "changed_existing_files": [
+      "docs/phase-11.3.1-provider-inquiries.md",
+      "docs/phase-11.3.1-scientific-clarification-request.md",
+      "docs/phase-11.3.1-scientific-pairing-report.md"
+    ],
+    "existing_scientific_pairing_report_append_only": true,
+    "original_private_files_byte_identical": 56,
+    "ordinary_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "ordinary_database_written": false,
+    "prior_execution_evidence_overwritten": false,
+    "new_research_manifest_sha256": "1ace1a9e920c27a06ad47df06f0c99976c9caca2ebcd923484193bb3270c1a45",
+    "no_source_products_republished": true
+  },
+  "authoritative_sources_reviewed": [
+    {
+      "name": "esa-l2-spec",
+      "url": "https://earth.esa.int/eogateway/documents/d/earth-online/swarm-level-2-product-specification",
+      "requested_at_utc": "2026-10-21T10:39:32.636817+00:00",
+      "status": 200,
+      "final_url": "https://earth.esa.int/eogateway/documents/d/earth-online/swarm-level-2-product-specification",
+      "content_type": "application/pdf",
+      "bytes": 2098031,
+      "sha256": "03e40d82e2729cb8a3370a91333c6cd8837ae0fd338ce5b9b3da17e6999db5e1",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "sp3-d",
+      "url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "requested_at_utc": "2026-10-21T10:39:32.637414+00:00",
+      "status": 200,
+      "final_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "content_type": "application/pdf",
+      "bytes": 321385,
+      "sha256": "0809fe6571816a9b8394b46b8851b9bfbab956b46f7acab5af6eb62acee5ebbe",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "igs-frame",
+      "url": "https://igs.org/wg/reference-frame/",
+      "requested_at_utc": "2026-10-21T10:39:32.637902+00:00",
+      "status": 200,
+      "final_url": "https://igs.org/wg/reference-frame/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 1110895,
+      "sha256": "5a4e7229bcd90e38f9e092ee3faaff14b9e069dbec62a024d47eecb964b40b96",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "igs-6663",
+      "url": "https://lists.igs.org/pipermail/igsmail/2012/000497.html",
+      "requested_at_utc": "2026-10-21T10:39:32.638359+00:00",
+      "status": 200,
+      "final_url": "https://lists.igs.org/pipermail/igsmail/2012/000497.html",
+      "content_type": "text/html",
+      "bytes": 7299,
+      "sha256": "1fdfa31a2b17624cb7e4129fee9f654cd3f3574d75c147b361a26194961da436",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "itrf2008",
+      "url": "https://itrf.ign.fr/en/solutions/ITRF2008",
+      "requested_at_utc": "2026-10-21T10:39:32.638907+00:00",
+      "status": 200,
+      "final_url": "https://itrf.ign.fr/en/solutions/ITRF2008",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 29642,
+      "sha256": "9e10f4f165864a771f58645ee659382b7199ccfde0478fe553ad845ff64907bd",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "celestrak-gp",
+      "url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "requested_at_utc": "2026-10-21T10:39:32.639236+00:00",
+      "status": 200,
+      "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 40338,
+      "sha256": "07db67c077bd0136301f849e3f4f70c3cef565628ec576409b585a85148c2dfb",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "astropy-satellites",
+      "url": "https://docs.astropy.org/en/stable/coordinates/satellites.html",
+      "requested_at_utc": "2026-10-21T10:39:33.578488+00:00",
+      "status": 200,
+      "final_url": "https://docs.astropy.org/en/stable/coordinates/satellites.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 242462,
+      "sha256": "e2dbbec328cf4b22de00f3efa6b646d1bb1c8cf931b29fc729d7e47f430eae6e",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "usno-leaps",
+      "url": "https://maia.usno.navy.mil/ser7/tai-utc.dat",
+      "requested_at_utc": "2026-10-21T10:39:33.667273+00:00",
+      "status": 200,
+      "final_url": "https://maia.usno.navy.mil/ser7/tai-utc.dat",
+      "content_type": "text/plain; charset=UTF-8",
+      "bytes": 3321,
+      "sha256": "3524e1ae34d67e858873a89e59983bbc5bd100221da898e796c1b36036a310c3",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "iers-conventions",
+      "url": "https://iers-conventions.obspm.fr/content/chapter5/icc5.pdf",
+      "requested_at_utc": "2026-10-21T10:42:17.528456+00:00",
+      "status": 200,
+      "final_url": "https://iers-conventions.obspm.fr/content/chapter5/icc5.pdf",
+      "content_type": "application/pdf",
+      "bytes": 419947,
+      "sha256": "9ec6fac43f7037ff43896539d759333fc7e6007176cd72043b38d71cfd3e69c0",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "gps-time-esa",
+      "url": "https://gssc.esa.int/navipedia/index.php/Time_References_in_GNSS",
+      "requested_at_utc": "2026-10-21T10:42:17.528873+00:00",
+      "status": 200,
+      "final_url": "https://gssc.esa.int/navipedia/index.php/Time_References_in_GNSS",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 28639,
+      "sha256": "76c15344530f94793a237fffdd37017614fa4f8369bd1db751d473fa46515492",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    },
+    {
+      "name": "astropy-timegps",
+      "url": "https://docs.astropy.org/en/stable/api/astropy.time.TimeGPS.html",
+      "requested_at_utc": "2026-10-21T10:42:18.632664+00:00",
+      "status": 200,
+      "final_url": "https://docs.astropy.org/en/stable/api/astropy.time.TimeGPS.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 233325,
+      "sha256": "96b5bdf9da686124d5b3c945e337b0aba142b7fa6d51a1aa7a36521aecb5d3d5",
+      "reviewed_on": "2026-10-22",
+      "new_download": false
+    }
+  ],
+  "new_document_requests": [
+    {
+      "name": "itrf-transformation-page",
+      "url": "https://itrf.ign.fr/en/solutions/transformations",
+      "reviewed_at_utc": "2026-10-22T06:04:22.167092+00:00",
+      "status": 200,
+      "final_url": "https://itrf.ign.fr/",
+      "bytes": 3182,
+      "sha256": "7377ee8ef32df32c988cd366436d9db1d12ae6c89dc1fd55fc0521af350e382c",
+      "content_type": "text/html"
+    },
+    {
+      "name": "itrf2020-transformations",
+      "url": "https://itrf.ign.fr/docs/solutions/itrf2020/Transfo-ITRF2020_TRFs.txt",
+      "reviewed_at_utc": "2026-10-22T06:04:22.167691+00:00",
+      "status": 200,
+      "final_url": "https://itrf.ign.fr/",
+      "bytes": 3182,
+      "sha256": "7377ee8ef32df32c988cd366436d9db1d12ae6c89dc1fd55fc0521af350e382c",
+      "content_type": "text/html"
+    },
+    {
+      "name": "iers-chapter4",
+      "url": "https://iers-conventions.obspm.fr/content/chapter4/icc4.pdf",
+      "reviewed_at_utc": "2026-10-22T06:04:22.168111+00:00",
+      "status": 200,
+      "final_url": "https://iers-conventions.obspm.fr/content/chapter4/icc4.pdf",
+      "bytes": 210378,
+      "sha256": "30172aa50942afb464c791ddadda6d1c494c844bf4d4b74e183a5d215a852016",
+      "content_type": "application/pdf"
+    },
+    {
+      "name": "astropy-intermediate-source",
+      "url": "https://docs.astropy.org/en/stable/_modules/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.html",
+      "reviewed_at_utc": "2026-10-22T06:04:22.168633+00:00",
+      "status": 404,
+      "final_url": "https://docs.astropy.org/en/stable/_modules/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.html",
+      "bytes": 2587,
+      "sha256": "4a8001a26acdb16a41f14b12dd6a8cd5ef74487383045969d64f4203208bda7c",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "name": "astropy-itrs-source",
+      "url": "https://docs.astropy.org/en/stable/_modules/astropy/coordinates/builtin_frames/itrs.html",
+      "reviewed_at_utc": "2026-10-22T06:04:22.168938+00:00",
+      "status": 200,
+      "final_url": "https://docs.astropy.org/en/stable/_modules/astropy/coordinates/builtin_frames/itrs.html",
+      "bytes": 244691,
+      "sha256": "175d3c11298ba8e0f8119ced1f165e6b29f85e432d877b1eb738917a07935eaa",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ],
+  "limits": [
+    "No canonical resolution of the 120-s header contradiction or MJD writer semantics.",
+    "KIN-specific quality selection and uncertainty remain unqualified.",
+    "No justified realization mapping or complete error budget for this actual pair.",
+    "Specification-model tests rank only hypothetical metadata and never enable execution.",
+    "Reference and software agreement is not independent physical accuracy validation."
+  ],
+  "preliminary_issues_resolved": [
+    "A source-inspection command initially used the default unwritable uv cache; retried with a task-owned cache.",
+    "Initial new-file lint/format checks failed; corrected strict zip and formatting, including Python Markdown blocks, then reran the final full backend suite and quality checks.",
+    "An initial research capture refused a relative directory; the empty reserved directory was retained and a fresh absolute private capture succeeded."
+  ],
+  "publication": {
+    "committed": false,
+    "pushed": false,
+    "remote_ci_initiated": false,
+    "deployed": false,
+    "infrastructure_changed": false
+  },
+  "changed_file_sha256_excluding_this_evidence": {
+    "docs/phase-11.3.1-provider-inquiries.md": "77c6b20f7d714e99212b25d551ea45c4ea58ece17d8b2333f5e2aa7684e23893",
+    "docs/phase-11.3.1-scientific-clarification-request.md": "2300d637371989f6150c6681d46d27d507423487a0ea227ae83fa48b3f552c34",
+    "docs/phase-11.3.1-scientific-pairing-report.md": "2f1dd9b2c1a203382a3518bcda4e48aaf7fb6fe69ddf4ddd9a3f718e6cd1e32f",
+    "backend/tests/test_swarm_comparison_protocol.py": "fd5697183fa45b4797b97cf73507b73c125c6d1488c971aa8759eaf4a9b01f0b",
+    "docs/phase-11.3.1-comparison-protocol.md": "37736f813eb01cd86048e0455eadf5bea65b80e3f900497052b66571be9cc8c0",
+    "docs/phase-11.3.1-frame-alignment-investigation.md": "4519cac67c045353ef083f489de569036290aa387312eec1ce6724e573b56ae0"
+  }
+}

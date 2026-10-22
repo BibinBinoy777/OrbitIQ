@@ -374,3 +374,36 @@ availability evidence is obtained; independence remains **NOT ESTABLISHED**.
 ESA's response remains pending under the existing exact product reference.
 None of the scientific gates, timing diagnostics, exclusions or execution results
 above changed. Phase 11.3.1 remains **PARTIAL**, scientific evaluation **BLOCKED**.
+
+## Comparison protocol and frame investigation — 22 October 2026
+
+The [version-1 comparison protocol](phase-11.3.1-comparison-protocol.md) is
+predeclared before any genuine Swarm-A residuals. It defines a fixed initial
+record, qualified common epochs, reference-minus-calculated Cartesian differences,
+descriptive-only statistics and deterministic exclusion/ambiguity handling.
+Its synthetic specification model never selects a source or authorizes evaluation.
+No actual GP record or reference mask was selected.
+
+The [frame investigation](phase-11.3.1-frame-alignment-investigation.md) rechecks
+the preserved products/CSV and exact time fields, documents the actual Astropy
+path, evaluates alignment alternatives and sets out an unquantified error budget.
+It independently verifies the 120-s and 37.12-ns discrepancies. SP3 F15.13 MJD
+resolution is 8.64 ns; simple nearest rounding of the literal calendar fraction
+would give +2.56 ns, not the supplied +37.12 ns. No producer error mechanism,
+field precedence or acceptable tolerance is inferred.
+
+The reviewed IERS chapter-4 **1 April 2019 update** gives an illustrative
+ITRF2014→ITRF2008 row, independently checked on synthetic points. It does not
+identify this application's generic ITRS as ITRF2014, or qualify IGb08 alignment.
+The full moving-point velocity derivative retains terms omitted by the document's
+station-motion simplification. No operational transformation or approximation was
+implemented. KIN quality, epoch selection, alignment and time qualification remain
+independently unresolved; all original exclusions and execution gates remain.
+
+ESA support reference `RITM0144536` is now supplied by the user; substantive
+technical clarification remains pending. This supersedes the earlier absence of
+a case number, not any scientific blocker. Fresh execution and preservation
+outcomes are recorded in [protocol verification](phase-11.3.1-protocol-verification.json).
+Phase 11.3.1 remains **PARTIAL**, evaluation **BLOCKED**. No genuine Swarm-A
+propagation, transformation, residual, commit, push, remote CI or deployment
+occurred during this protocol investigation.

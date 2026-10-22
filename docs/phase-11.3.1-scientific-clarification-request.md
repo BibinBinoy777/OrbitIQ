@@ -3,6 +3,9 @@
 Prepared on 21 October 2026; status updated **22 October 2026**.
 **ESA: SUBMITTED, AWAITING RESPONSE. CelesTrak: RESPONSE RECEIVED,
 user-reported summary.** Submission and reply dates/times were not supplied.
+ESA support reference **`RITM0144536`** was subsequently supplied by the user in
+the comparison-protocol request; substantive clarification remains pending.
+A support reference or acknowledgement is not scientific resolution.
 See [provider inquiry tracking](phase-11.3.1-provider-inquiries.md) for evidence
 limits and outstanding subjects. This checklist is not a copy of the sent emails;
 the assistant did not send a message. Do not include correspondence or credentials

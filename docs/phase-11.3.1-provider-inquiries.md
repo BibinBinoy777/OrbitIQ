@@ -9,7 +9,7 @@ not independently authenticated correspondence. This task sent no messages.
 
 | Provider | Technical subject | Submission | Submission date/time | Response | Outstanding questions |
 | --- | --- | --- | --- | --- | --- |
-| ESA / Swarm product support | Swarm-A `SP3AKIN_2_`, file version `0201`, processor `L2PS-DUT/44.88`; reference time, quality and realization semantics | SUBMITTED — user reports the email was sent | Unknown; not supplied | AWAITING RESPONSE — no reply supplied | 120-s calendar/week-seconds conflict; +37.12-ns MJD difference; SP3-c/d, zero interval, second-60 and fractional-time conventions; KIN-specific VAL/EP acceptance and uncertainty; IGb08 processing/alignment lineage |
+| ESA / Swarm product support, reference `RITM0144536` (user-supplied) | Swarm-A `SP3AKIN_2_`, file version `0201`, processor `L2PS-DUT/44.88`; reference time, quality and realization semantics | SUBMITTED — user reports the email was sent | Unknown; not supplied | SUBSTANTIVE CLARIFICATION PENDING — reference supplied, no technical answer reviewed | 120-s calendar/week-seconds conflict; +37.12-ns MJD difference; SP3-c/d, zero interval, second-60 and fractional-time conventions; KIN-specific VAL/EP acceptance and uncertainty; IGb08 processing/alignment lineage |
 | CelesTrak | Historical Swarm-A GP records, NORAD 39452 / 2013-067B; format, availability and record interpretation | SUBMITTED — user-reported | Unknown; not supplied | RESPONSE RECEIVED — user-reported summary; reply date/time unknown | CSV supported/preferred; no promised JSON-fix timeline; creation timestamps not retained. Historical availability and complete fitting lineage remain unestablished; historical `ELEMENT_SET_NO` interpretation remains uncertain |
 
 The user's general submission statement does not establish the exact wording of
@@ -26,11 +26,19 @@ does not resolve source authentication, historical availability, fitting lineage
 or any ESA-dependent gate. Phase 11.3.1 remains **PARTIAL**, scientific
 pairing/evaluation **BLOCKED**.
 
-Keep ESA tracked under the existing exact product reference in the
-[technical checklist](phase-11.3.1-scientific-clarification-request.md); no ESA
-ticket/case number was supplied, so none is invented. Assess any eventual reply
+Keep ESA tracked under `RITM0144536`, supplied by the user in the comparison
+protocol request, and the existing exact product reference in the
+[technical checklist](phase-11.3.1-scientific-clarification-request.md). A tracking
+reference or acknowledgement does not resolve technical issues. No original
+acknowledgement, response date or substantive clarification was supplied.
+Assess any eventual technical reply
 against the preserved product, applicable specification and independent checks
 before changing a gate. Original correspondence, if later supplied, belongs in
 private storage. No personal contact details, email bodies, credentials or
 unrelated mail metadata belong here. The 21 October publication report retains
 its historical pending-response checkpoint.
+
+The [comparison protocol](phase-11.3.1-comparison-protocol.md) and
+[frame investigation](phase-11.3.1-frame-alignment-investigation.md) predeclare the
+proposed study and record independently checked arithmetic. They do not close
+ESA's time, KIN-quality or alignment gates and do not authorize real evaluation.

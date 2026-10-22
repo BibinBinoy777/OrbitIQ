@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlencode, urlsplit, urlunsplit
 from urllib.request import ProxyHandler, build_opener
 
+from browser_diagnostics import browser_session
 from playwright.sync_api import expect, sync_playwright
 
 
@@ -39,7 +40,7 @@ def main():
     assert all(s["catalog_id"] == args.catalog for s in sources)
     at = sources[1]["orbital_epoch"]
     errors, violations, requests, cases = [], [], [], []
-    with sync_playwright() as p:
+    with browser_session(sync_playwright) as p:
         launch = {"headless": True}
         if args.engine == "chromium":
             launch["args"] = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"]

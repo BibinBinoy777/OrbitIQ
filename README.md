@@ -404,3 +404,11 @@ critical Firefox/WebKit/Chromium tests in a supported isolated runtime. See the
 [monitoring/alert runbook](docs/monitoring-and-alerting.md). Local encrypted storage
 and loopback alert tests do not establish off-machine recovery or production alert
 delivery. Public launch remains NO-GO pending the documented external gates.
+
+## E1 browser and PDF regressions
+
+The existing CI release-image job also runs Chromium, Firefox, WebKit and PDF
+regressions using disposable, explicitly synthetic/public-reference fixtures.
+See [E1 commands, coverage and diagnostics](docs/engineering-e1-browser-pdf-ci.md)
+for local execution, trace/artifact retrieval and limitations. This engineering
+automation leaves Phase 11.3.1 **PARTIAL** and scientific evaluation **BLOCKED**.

@@ -13,6 +13,7 @@ from time import monotonic
 from urllib.parse import urlencode, urlsplit
 from urllib.request import ProxyHandler, build_opener
 
+from browser_diagnostics import browser_session
 from playwright.sync_api import expect, sync_playwright
 
 
@@ -111,7 +112,7 @@ def main():
         )
     errors, violations, requests, cases = [], [], [], []
     stage = "startup"
-    with sync_playwright() as p:
+    with browser_session(sync_playwright) as p:
         options = {"headless": True}
         if args.engine == "chromium":
             options["args"] = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"]

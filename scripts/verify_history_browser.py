@@ -1,6 +1,7 @@
 """Actual loopback historical-analysis UI checks; no API/canvas mocks or ingestion.
 
-Use a separately copied read-only genuine archive and explicit known catalog/IDs.
+Use a separate read-only archive and explicit known catalog/IDs. Declare --fixture
+for synthetic CI inputs; default operator mode expects genuine retained history.
 Requires the existing provisioned Playwright browser image.
 """
 
@@ -11,6 +12,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from urllib.request import ProxyHandler, build_opener
 
+from browser_diagnostics import browser_session
 from playwright.sync_api import expect, sync_playwright
 
 
@@ -22,6 +24,7 @@ def main():
         "--engine", choices=["chromium", "firefox", "webkit"], required=True
     )
     parser.add_argument("--output-directory", type=Path, required=True)
+    parser.add_argument("--fixture", action="store_true")
     args = parser.parse_args()
     base, out = args.base_url.rstrip("/"), args.output_directory
     if urlsplit(base).scheme != "http" or urlsplit(base).hostname not in {
@@ -37,11 +40,11 @@ def main():
         expected = json.loads(response.read(4 * 1024 * 1024))
     assert expected["coverage"]["complete_anchored_history"]
     assert len(expected["points"]) == 2, (
-        "This genuine-data rehearsal requires exactly two archived records"
+        "This bounded rehearsal requires exactly two archived records"
     )
     ids = [p["metadata"]["id"] for p in expected["points"]]
     cases, errors, violations, requests = [], [], [], []
-    with sync_playwright() as p:
+    with browser_session(sync_playwright) as p:
         options = {"headless": True}
         if args.engine == "chromium":
             options["args"] = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"]
@@ -83,7 +86,7 @@ def main():
                 )
             ).to_be_visible()
         cases.append(
-            "two genuine source points, identities, clocks and pairwise limitation"
+            "two archived source points, identities, clocks and pairwise limitation"
         )
         page.get_by_text(
             f"Inspect archived orbital elements #{ids[0]}", exact=True
@@ -202,6 +205,9 @@ def main():
         ).to_be_visible()
         cases.append("navigation to existing comparison service")
         page.get_by_role("button", name="Historical analysis", exact=True).click()
+        # Returning remounts the form with its product default (25544). Use the
+        # explicit test catalog again, including non-ISS public CI fixtures.
+        page.get_by_label("Historical satellite NORAD ID").fill(str(args.catalog))
         page.get_by_role("button", name="Analyze archived history", exact=True).click()
         expect(page.locator(".history-points > li")).to_have_count(2)
         page.get_by_role(
@@ -233,7 +239,10 @@ def main():
             "page_errors": errors,
             "csp_violations": violations,
             "requests": requests,
-            "genuine_sources": expected["sources"],
+            "fixture_inputs": args.fixture,
+            "fixture_sources" if args.fixture else "genuine_sources": expected[
+                "sources"
+            ],
             "no_ingestion_requests": True,
             "accessibility_scope": (
                 "Semantic native controls, visible focus and responsive overflow; "

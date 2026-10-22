@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from browser_diagnostics import browser_session
 from playwright.sync_api import expect, sync_playwright
 
 
@@ -24,14 +25,15 @@ def main():
     ):
         raise ValueError("Explicit loopback service required")
     errors, violations, requests, cases = [], [], [], []
-    with sync_playwright() as p:
+    with browser_session(sync_playwright) as p:
         options = {"headless": True}
         if args.engine == "chromium":
             options["args"] = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"]
         browser = getattr(p, args.engine).launch(**options)
-        page = browser.new_page(
+        context = browser.new_context(
             viewport={"width": 1440, "height": 1000}, accept_downloads=True
         )
+        page = context.new_page()
         page.on("pageerror", lambda e: errors.append(str(e)))
         page.on(
             "request", lambda r: requests.append({"method": r.method, "url": r.url})
@@ -60,8 +62,7 @@ def main():
                 page.get_by_label("Captured prediction / observation run")
             ).to_have_count(0)
             cases.append(
-                "genuine archive with zero observations exposes "
-                "no fabricated selection/results"
+                "archive with zero observations exposes no fabricated selection/results"
             )
         else:
             if not args.run_id:
@@ -146,6 +147,7 @@ def main():
             )
             + "\n"
         )
+        context.close()
         browser.close()
     print(json.dumps({"engine": args.engine, "mode": args.mode, "cases": len(cases)}))
 

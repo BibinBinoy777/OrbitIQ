@@ -104,6 +104,12 @@ dependency updates. On a machine with a read-only home directory, set
 The local tests need no external services or credentials. Live ingestion needs
 HTTPS access to CelesTrak through the inherited proxy and trusted CA configuration.
 
+The [E3 reliability guide](docs/engineering-e3-reliability-recovery.md) documents
+provider failure handling, atomic no-overwrite storage publication, recovery
+diagnosis and the isolated checkout installation check. Its
+[verification report](docs/engineering-e3-report.md) separates engineering evidence
+from the unresolved scientific and production gates.
+
 ## Development
 
 In terminal one, from the repository root:

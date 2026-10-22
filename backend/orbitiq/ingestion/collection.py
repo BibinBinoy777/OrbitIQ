@@ -44,6 +44,15 @@ def retry_time(value, now):
         return datetime.max.replace(tzinfo=UTC) if value.strip().isdigit() else None
 
 
+def collection_gate(db):
+    row = db.execute("SELECT * FROM collection_gate WHERE id=1").fetchone()
+    if row is None:
+        raise IngestionError(
+            "Collection gate is missing; inspect configured storage", category="storage"
+        )
+    return dict(row)
+
+
 def reserve(path, catalog_id, source, now, resume):
     """Short transaction before network I/O; no writer lock during acquisition."""
     with closing(connect(path, write=True)) as db, db:
@@ -52,7 +61,7 @@ def reserve(path, catalog_id, source, now, resume):
                 "Explicit migration to schema 3 is required", category="storage"
             )
         db.execute("BEGIN IMMEDIATE")
-        gate = dict(db.execute("SELECT * FROM collection_gate WHERE id=1").fetchone())
+        gate = collection_gate(db)
         active = gate["active_attempt_id"]
         if active is not None:
             row = db.execute(
@@ -142,7 +151,7 @@ def finish_failure(path, attempt, error, facts, now, jitter):
     """One best-effort failure write; no recursive logging/persistence retries."""
     with closing(connect(path, write=True)) as db, db:
         db.execute("BEGIN IMMEDIATE")
-        gate = dict(db.execute("SELECT * FROM collection_gate WHERE id=1").fetchone())
+        gate = collection_gate(db)
         if gate["active_attempt_id"] != attempt:
             raise IngestionError("Collection ownership changed", category="storage")
         failures = gate["consecutive_failures"] + 1

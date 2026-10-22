@@ -3,13 +3,16 @@
 import argparse
 import os
 import sqlite3
-from contextlib import closing
+import tempfile
+import time
+from contextlib import closing, contextmanager
 from pathlib import Path
 
 INITIAL_MIGRATION = Path(__file__).parent / "migrations" / "001_initial.sql"
 SNAPSHOT_MIGRATION = INITIAL_MIGRATION.with_name("002_snapshots.sql")
 INGESTION_MIGRATION = INITIAL_MIGRATION.with_name("003_ingestion.sql")
 LATEST_SCHEMA = 3
+BACKUP_PROGRESS_SECONDS = 30
 
 
 def schema_version(connection: sqlite3.Connection) -> int:
@@ -55,28 +58,50 @@ def validate(connection: sqlite3.Connection) -> None:
     if version >= 3:
         connection.execute("SELECT id, outcome FROM ingestion_attempts LIMIT 0")
         connection.execute("SELECT snapshot_id FROM snapshot_insertions LIMIT 0")
-        connection.execute("SELECT next_allowed_at FROM collection_gate LIMIT 0")
+        validate_collection_gate(connection)
         if connection.execute("PRAGMA foreign_key_check").fetchone() is not None:
             raise ValueError("SQLite foreign key check failed")
 
 
-def reserve(path: Path) -> None:
-    # Exclusive creation prevents an existing file from being replaced.
-    with path.open("xb"):
-        pass
+def validate_collection_gate(connection: sqlite3.Connection) -> None:
+    rows = connection.execute(
+        "SELECT id, next_allowed_at FROM collection_gate LIMIT 2"
+    ).fetchall()
+    if len(rows) != 1 or rows[0][0] != 1:
+        raise ValueError("Missing or invalid collection gate")
+
+
+@contextmanager
+def new_database(path: Path):
+    """Publish only a completed file, atomically, without replacing any target.
+
+    A same-directory hard link supplies atomic no-overwrite publication. Never
+    use replace/rename-overwrite for archives. SIGKILL may leave a private staging
+    file; a handled exception (including KeyboardInterrupt) cleans it up.
+    """
+    if os.path.lexists(path):
+        raise FileExistsError(f"Database destination already exists: {path}")
+    descriptor, name = tempfile.mkstemp(
+        prefix=f".{path.name}.orbitiq-", suffix=".tmp", dir=path.parent
+    )
+    os.close(descriptor)
+    temporary = Path(name)
+    try:
+        yield temporary
+        with temporary.open("rb") as completed:
+            os.fsync(completed.fileno())
+        os.link(temporary, path)  # Fails if another process created the target.
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def initialize(path: Path) -> None:
-    reserve(path)
-    try:
-        with closing(sqlite3.connect(path)) as connection, connection:
+    with new_database(path) as temporary:
+        with closing(sqlite3.connect(temporary)) as connection, connection:
             connection.executescript(INITIAL_MIGRATION.read_text())
             apply_snapshot_migration(connection)
             apply_sql(connection, INGESTION_MIGRATION)
             validate(connection)
-    except Exception:
-        path.unlink()
-        raise
 
 
 def copy_database(source: Path, destination: Path) -> None:
@@ -84,14 +109,19 @@ def copy_database(source: Path, destination: Path) -> None:
         raise ValueError("Source and destination must differ")
     with closing(connect_existing(source)) as original:
         validate(original)
-        reserve(destination)
-        try:
-            with closing(sqlite3.connect(destination)) as copied, copied:
-                original.backup(copied)
+        with new_database(destination) as temporary:
+            deadline = time.monotonic() + BACKUP_PROGRESS_SECONDS
+
+            def progress(status, remaining, total):
+                if time.monotonic() >= deadline:
+                    raise TimeoutError(
+                        "SQLite backup exceeded its 30-second progress budget; "
+                        "retry in a quieter maintenance window"
+                    )
+
+            with closing(sqlite3.connect(temporary)) as copied, copied:
+                original.backup(copied, pages=128, progress=progress, sleep=0.05)
                 validate(copied)
-        except Exception:
-            destination.unlink()
-            raise
 
 
 def migrate(path: Path, backup: Path) -> bool:

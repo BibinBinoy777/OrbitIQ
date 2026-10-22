@@ -20,7 +20,13 @@ folders must exist. The destination must not exist. SQLite's `Connection.backup`
 creates a consistent database image, including committed data in journals/WAL;
 never substitute a raw `cp` of an active database file. Source/destination schema
 and integrity are checked. Schema 3 also checks foreign keys. Source access is
-read-only. Partial target creation failures remove only the newly reserved target.
+read-only. E3 builds a private sibling staging file and publishes only the closed,
+validated image through an atomic no-overwrite hard link. Handled failures remove
+only that staging file; existing destinations and racing creators are preserved.
+Uncatchable termination can leave identifiable staging artifacts, but never
+publishes a partially copied target. Backup progress has a 30-second callback
+budget; integrity scans and filesystem operations are outside that stage budget.
+See [E3 failure diagnosis and limitations](engineering-e3-reliability-recovery.md#storage-failure-diagnosis).
 No successful message is emitted for failure.
 
 Retain the artifact checksum, creation UTC time, size, schema version, source

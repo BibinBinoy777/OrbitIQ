@@ -5,7 +5,7 @@ import sqlite3
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
-from orbitiq.database import configured_path
+from orbitiq.database import configured_path, validate_collection_gate
 from orbitiq.storage import browsing_connection
 
 router = APIRouter()
@@ -23,7 +23,7 @@ def ready():
             db.execute("SELECT id FROM snapshots LIMIT 1").fetchall()
             db.execute("SELECT id FROM ingestion_attempts LIMIT 1").fetchall()
             db.execute("SELECT snapshot_id FROM snapshot_insertions LIMIT 1").fetchall()
-            db.execute("SELECT id FROM collection_gate LIMIT 1").fetchall()
+            validate_collection_gate(db)
         return JSONResponse({"status": "ready"}, headers={"Cache-Control": "no-store"})
     except (OSError, ValueError, sqlite3.Error, RuntimeError):
         return JSONResponse(

@@ -29,6 +29,23 @@ jobs:
         run: uv run --locked pytest -q backend/tests/test_phase6_collection.py -k "migration or restore or backup"
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: E3 isolated checkout, locked installs and failure recovery
+        run: python3 scripts/verify_fresh_checkout.py --output "${{ runner.temp }}/orbitiq-e3"
+      - name: Preserve fixture-only installation and recovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fresh-checkout-recovery
+          path: |
+            ${{ runner.temp }}/orbitiq-e3/summary.json
+            ${{ runner.temp }}/orbitiq-e3/failure.json
+            ${{ runner.temp }}/orbitiq-e3/*.log
+            ${{ runner.temp }}/orbitiq-e3/recovery/verification.json
+          if-no-files-found: warn
+          retention-days: 7
   frontend:
     runs-on: ubuntu-latest
     timeout-minutes: 10

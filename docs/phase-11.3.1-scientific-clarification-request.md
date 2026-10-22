@@ -1,8 +1,8 @@
 # Phase 11.3.1 — scientific clarification checklist
 
-Prepared on 21 October 2026. **Current submission status: ESA and CelesTrak
-clarification inquiries SUBMITTED, responses AWAITING RESPONSE**, according to
-the user's Phase 11.3.1-P instruction. Submission dates/times were not supplied.
+Prepared on 21 October 2026; status updated **22 October 2026**.
+**ESA: SUBMITTED, AWAITING RESPONSE. CelesTrak: RESPONSE RECEIVED,
+user-reported summary.** Submission and reply dates/times were not supplied.
 See [provider inquiry tracking](phase-11.3.1-provider-inquiries.md) for evidence
 limits and outstanding subjects. This checklist is not a copy of the sent emails;
 the assistant did not send a message. Do not include correspondence or credentials
@@ -96,9 +96,21 @@ approve an identity transformation.
 ## Historical GP provenance clarification
 
 The separate CelesTrak-attributed CSV has three Swarm-A records, source indices
-0–2 and element-set numbers 35–37. The complete private source strings and hashes
-are retained. Actual provider-email receipt/acquisition and 2013/2014 record
-creation/publication/archive-availability timestamps were not supplied.
+0–2, with `ELEMENT_SET_NO` values 35–37 (distinct from `REV_AT_EPOCH` 583/604/620).
+The complete private source strings and hashes are retained. The provider response
+as summarized by the user confirms CSV as supported/preferred, without a promised
+JSON-fix timeline. Corrected JSON is no longer a prerequisite. It also states that
+record-creation timestamps are not retained; orbital epochs do not establish
+historical publication/availability, and available metadata does not establish
+complete fitting lineage. Actual provider-email receipt/acquisition and historical
+publication/archive-availability times remain unknown.
+
+The reported explanation concerning use of 999 in GP data does not establish its
+applicability to these historical rows. Preserve 35–37; do not replace them with
+999 or interpret them as publication times or globally unique archive identifiers.
+See the [response reconciliation](phase-11.3.1-provider-response-reconciliation.md)
+for the inspected schema/evidence and remaining semantic uncertainty. These GP
+clarifications do not answer the ESA time, quality or frame questions above.
 
 If available, obtain non-sensitive provenance that links the exact records to the
 provider return and distinguishes element epoch from creation/publication and

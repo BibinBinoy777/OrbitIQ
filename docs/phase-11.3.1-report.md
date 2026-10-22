@@ -265,3 +265,16 @@ remain BLOCKED. No genuine Swarm propagation, coordinate-state transformation,
 real residual, publication, remote CI or deployment was performed. The
 [clarification checklist](phase-11.3.1-scientific-clarification-request.md) was
 prepared for manual review and was not sent.
+
+## Provider response checkpoint — 22 October 2026
+
+The [provider response reconciliation](phase-11.3.1-provider-response-reconciliation.md)
+supersedes earlier pending-CelesTrak/format-next-step statements for current status;
+the historical execution reports above are preserved. CelesTrak's response is
+reported by the user, ESA's reply remains pending, and CSV is the supported format
+path without requiring corrected JSON. Creation timestamps are not retained;
+historical availability and complete fitting lineage remain unestablished.
+`ELEMENT_SET_NO` 35–37 is preserved without inferring the meaning of the provider's
+999 convention for these historical records. Phase 11.3.1 remains **PARTIAL**,
+scientific evaluation **BLOCKED**. No source/calculation changes, genuine Swarm
+propagation, real residuals, publication or remote CI occurred in this status task.

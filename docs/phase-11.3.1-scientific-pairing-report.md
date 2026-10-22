@@ -361,3 +361,16 @@ Branch/HEAD and empty index remain unchanged. No commit, push, publication, remo
 CI, deployment, DNS or production action occurred. Phase 8 public HTTPS/hosting,
 independent recovery, alert delivery and production verification remain separate
 open milestones. Local scientific diagnostics do not close them.
+
+## Provider response checkpoint — 22 October 2026
+
+See the [provider response reconciliation](phase-11.3.1-provider-response-reconciliation.md)
+for the user-reported CelesTrak findings and exact `ELEMENT_SET_NO` review.
+CSV is the supported format path; corrected JSON is no longer a prerequisite.
+The provider does not retain record-creation timestamps, and the reported metadata
+does not establish historical availability or complete record-specific fitting
+lineage. Any future qualified comparison remains retrospective unless separate
+availability evidence is obtained; independence remains **NOT ESTABLISHED**.
+ESA's response remains pending under the existing exact product reference.
+None of the scientific gates, timing diagnostics, exclusions or execution results
+above changed. Phase 11.3.1 remains **PARTIAL**, scientific evaluation **BLOCKED**.

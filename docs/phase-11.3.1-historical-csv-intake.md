@@ -1,5 +1,14 @@
 # Phase 11.3.1 — historical GP CSV intake
 
+**22 October 2026 format decision:** the user-reported CelesTrak response confirms
+CSV as supported and preferred. The existing validated CSV adapter is the format
+path for this investigation; a corrected JSON export is no longer a prerequisite.
+The original JSON remains invalid and unchanged; no provider fix is claimed.
+This format decision does not authorize operational ingestion or scientific
+evaluation. See the [provider response reconciliation](phase-11.3.1-provider-response-reconciliation.md)
+for availability, identifier and independence limits. The recorded implementation
+and execution evidence below remains the 21 October checkpoint.
+
 The 21 October 2026 checkpoint supports the actual privately preserved
 `sat000039452.csv` as a separate **CSV** source. It contains three Swarm-A records,
 17 columns per record, comma delimiters, CRLF endings and no quoted fields in the

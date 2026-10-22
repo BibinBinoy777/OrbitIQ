@@ -1,6 +1,8 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import Globe from "./Globe";
+import HistoricalAnalysis from "./HistoricalAnalysis";
+import ObservationValidation from "./ObservationValidation";
 import {
   comparisonMarkers,
   elementUnits,
@@ -115,9 +117,9 @@ export default function Investigations({
   const headingId = useId();
   const detailHeadingId = useId();
   const comparisonHeadingId = useId();
-  const [mode, setMode] = useState<"discovery" | "history" | "comparison">(
-    initialInvestigation ? "comparison" : "discovery",
-  );
+  const [mode, setMode] = useState<
+    "discovery" | "history" | "comparison" | "analysis" | "validation"
+  >(initialInvestigation ? "comparison" : "discovery");
   const [query, setQuery] = useState("");
   const [match, setMatch] = useState("partial");
   const [catalog, setCatalog] = useState("");
@@ -332,6 +334,7 @@ export default function Investigations({
     if (source) onExplore(source);
   }
   const state = comparison?.state_comparison;
+  const browsing = mode === "discovery" || mode === "history";
   return (
     <section className="investigations" aria-labelledby={headingId}>
       <h2 id={headingId}>
@@ -370,8 +373,42 @@ export default function Investigations({
         >
           Compare snapshots
         </button>
+        <button
+          type="button"
+          disabled={readOnly}
+          aria-current={mode === "analysis" ? "page" : undefined}
+          onClick={() => setMode("analysis")}
+        >
+          Historical analysis
+        </button>
+        <button
+          type="button"
+          disabled={readOnly}
+          aria-current={mode === "validation" ? "page" : undefined}
+          onClick={() => setMode("validation")}
+        >
+          Observation validation
+        </button>
       </nav>
-      {mode !== "comparison" && (
+      {mode === "validation" && active && <ObservationValidation />}
+      {mode === "analysis" && active && (
+        <HistoricalAnalysis
+          onInspect={(source) => {
+            setMode("history");
+            void inspect(source);
+          }}
+          onCompare={(a, b) => {
+            clearComparison();
+            setFirst(String(a));
+            setSecond(String(b));
+            setAt("");
+            setFrame("TEME");
+            setCategory("all");
+            setMode("comparison");
+          }}
+        />
+      )}
+      {browsing && (
         <>
           {mode === "discovery" && (
             <form className="controls" onSubmit={search}>

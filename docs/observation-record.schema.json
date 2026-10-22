@@ -1,0 +1,244 @@
+{
+  "$defs": {
+    "Uncertainty": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "axis_standard_deviation",
+          "title": "Kind",
+          "type": "string"
+        },
+        "values": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "maximum": 1000000000.0,
+              "minimum": -1000000000.0,
+              "type": "number"
+            },
+            {
+              "maximum": 1000000000.0,
+              "minimum": -1000000000.0,
+              "type": "number"
+            },
+            {
+              "maximum": 1000000000.0,
+              "minimum": -1000000000.0,
+              "type": "number"
+            }
+          ],
+          "title": "Values",
+          "type": "array"
+        },
+        "unit": {
+          "enum": [
+            "km",
+            "m"
+          ],
+          "title": "Unit",
+          "type": "string"
+        },
+        "provenance": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Provenance",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "values",
+        "unit",
+        "provenance"
+      ],
+      "title": "Uncertainty",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "observation_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,63}$",
+      "title": "Observation Id",
+      "type": "string"
+    },
+    "catalog_id": {
+      "maximum": 339999,
+      "minimum": 1,
+      "title": "Catalog Id",
+      "type": "integer"
+    },
+    "source_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_organization": {
+      "anyOf": [
+        {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Organization"
+    },
+    "source_record_reference": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Source Record Reference",
+      "type": "string"
+    },
+    "upstream_payload_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Upstream Payload Sha256"
+    },
+    "retrieved_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Retrieved At"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "time_scale": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Time Scale",
+      "type": "string"
+    },
+    "frame": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Frame",
+      "type": "string"
+    },
+    "origin": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Origin",
+      "type": "string"
+    },
+    "unit": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Unit",
+      "type": "string"
+    },
+    "measurement_type": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Measurement Type",
+      "type": "string"
+    },
+    "data_kind": {
+      "enum": [
+        "measurement",
+        "observation_derived_state",
+        "model_output",
+        "unknown"
+      ],
+      "title": "Data Kind",
+      "type": "string"
+    },
+    "position": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "maximum": 1000000000.0,
+          "minimum": -1000000000.0,
+          "type": "number"
+        },
+        {
+          "maximum": 1000000000.0,
+          "minimum": -1000000000.0,
+          "type": "number"
+        },
+        {
+          "maximum": 1000000000.0,
+          "minimum": -1000000000.0,
+          "type": "number"
+        }
+      ],
+      "title": "Position",
+      "type": "array"
+    },
+    "quality": {
+      "enum": [
+        "accepted",
+        "unknown",
+        "rejected"
+      ],
+      "title": "Quality",
+      "type": "string"
+    },
+    "quality_reference": {
+      "anyOf": [
+        {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quality Reference"
+    },
+    "uncertainty": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Uncertainty"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "observation_id",
+    "catalog_id",
+    "source_id",
+    "source_record_reference",
+    "observed_at",
+    "time_scale",
+    "frame",
+    "origin",
+    "unit",
+    "measurement_type",
+    "data_kind",
+    "position",
+    "quality"
+  ],
+  "title": "Observation",
+  "type": "object"
+}

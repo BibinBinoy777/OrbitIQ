@@ -1,0 +1,668 @@
+{
+  "kind": "orbitiq_observation_validation_report",
+  "schema_version": 1,
+  "rule_set_version": 1,
+  "report_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "generated_at": "2026-10-20T18:18:18.832395+00:00",
+  "status": "discrepancies_with_unverified_independence",
+  "prediction_source": {
+    "snapshot_id": 1,
+    "catalog_id": 6251,
+    "orbital_epoch": "2006-06-25T19:46:43.980096Z",
+    "retrieved_at": "2026-10-17T00:00:00Z",
+    "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057"
+  },
+  "prediction_kind": "retrospective_SGP4_WGS72_from_archived_GP",
+  "input_sha256": "a0068b3da680b4802ab983813c2b4107a081bbfa9ee8cd0322a5222c664f2b13",
+  "input_representation": "operator_normalized_observations_not_authenticated_provider_payload",
+  "samples": [
+    {
+      "index": 0,
+      "observation": {
+        "observation_id": "SYNTHETIC-ONLY-0",
+        "catalog_id": 6251,
+        "source_id": "isolated-reference-fixture-not-observation-provider",
+        "source_organization": null,
+        "source_record_reference": "synthetic-arithmetic-record-0",
+        "upstream_payload_sha256": null,
+        "retrieved_at": null,
+        "observed_at": "2006-06-25T19:46:43.980096Z",
+        "time_scale": "UTC",
+        "frame": "TEME",
+        "origin": "Earth center",
+        "unit": "km",
+        "measurement_type": "geocentric_cartesian_position",
+        "data_kind": "measurement",
+        "position": [3991.3102274113908, 5494.966572052988, 0.9005579621277242],
+        "quality": "accepted",
+        "quality_reference": null,
+        "uncertainty": null
+      },
+      "original_record": {
+        "observation_id": "SYNTHETIC-ONLY-0",
+        "catalog_id": 6251,
+        "source_id": "isolated-reference-fixture-not-observation-provider",
+        "source_record_reference": "synthetic-arithmetic-record-0",
+        "observed_at": "2006-06-25T19:46:43.980096+00:00",
+        "time_scale": "UTC",
+        "frame": "TEME",
+        "origin": "Earth center",
+        "unit": "km",
+        "measurement_type": "geocentric_cartesian_position",
+        "data_kind": "measurement",
+        "quality": "accepted",
+        "position": [3991.3102274113908, 5494.966572052988, 0.9005579621277242]
+      },
+      "status": "compatible_with_warnings",
+      "reason": "Compatible discrepancy; independently validated prediction accuracy is not established.",
+      "checks": {
+        "target_identity": true,
+        "time_scale": true,
+        "coordinate_frame": true,
+        "origin": true,
+        "unit": true,
+        "measurement_type": true,
+        "measurement_kind": true,
+        "quality": true,
+        "observed_not_future": true,
+        "retrieval_chronology": true
+      },
+      "prediction_reference": {
+        "snapshot_id": 1,
+        "catalog_id": 6251,
+        "orbital_epoch": "2006-06-25T19:46:43.980096Z",
+        "retrieved_at": "2026-10-17T00:00:00Z",
+        "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057"
+      },
+      "prediction": {
+        "at": "2006-06-25T19:46:43.980096+00:00",
+        "calculated_at": "2026-10-20T18:18:18.840050+00:00",
+        "catalog_id": 6251,
+        "epoch_offset_days": 0.0,
+        "frame": "TEME",
+        "freshness_info": {
+          "accuracy_guarantee": false,
+          "basis": "orbital_epoch",
+          "epoch_age_seconds": 641255494.859954,
+          "evaluated_at": "2026-10-20T18:18:18.840050+00:00",
+          "fresh_hours": 24.0,
+          "retrieval_age_seconds": 325098.84005,
+          "stale_hours": 72.0,
+          "state": "stale"
+        },
+        "gravity_model": "WGS72",
+        "ingestion_sgp4_version": "2.27",
+        "kind": "calculated",
+        "model": "SGP4",
+        "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+        "origin": "Earth center",
+        "position_km": [
+          3988.3102274113908, 5498.966572052988, 0.9005579621277242
+        ],
+        "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057",
+        "retrieved_at": "2026-10-17T00:00:00+00:00",
+        "sgp4_version": "2.27",
+        "snapshot_created_at": "2026-10-20T18:18:18.564+00:00",
+        "snapshot_id": 1,
+        "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+        "time_system": "UTC",
+        "uncertainty": {
+          "covariance_available": false,
+          "observation_validated": false,
+          "status": "not_quantified"
+        },
+        "units": {
+          "epoch_offset": "days",
+          "position": "km",
+          "velocity": "km/s"
+        },
+        "validation_scope": "Published numerical cases; not observed orbit accuracy",
+        "validation_status": "reference_tested_engine_not_observation_validated",
+        "validator_version": "orbitiq-omm-v1",
+        "velocity_km_s": [
+          -3.2900327372943483, 2.3576528205234055, 6.496623474956995
+        ],
+        "warnings": [
+          "Calculated from mean elements, not a direct observation.",
+          "No position uncertainty or collision assessment is provided.",
+          "Source element freshness is stale; recent retrieval does not guarantee an accurate orbit."
+        ]
+      },
+      "residual": {
+        "xyz_km": [3.0, -4.0, 0.0],
+        "magnitude_km": 5.0,
+        "sign": "observed_minus_predicted",
+        "rac": {
+          "status": "complete",
+          "radial_km": -1.4766512195782107,
+          "along_track_km": -2.525840913046018,
+          "cross_track_km": 4.054581218535527,
+          "definition": "R=r/|r|, C=(r\u00d7v)/|r\u00d7v|, A=C\u00d7R; along-track is transverse, not generally velocity direction."
+        }
+      },
+      "independence": {
+        "status": "unverified_input_lineage",
+        "eligible": false,
+        "basis": "Prediction fitting-observation lineage is not available; input reuse cannot be excluded."
+      },
+      "uncertainty": {
+        "observation": null,
+        "normalized_sigma_km": null,
+        "prediction": null,
+        "joint_status": "unavailable_prediction_uncertainty",
+        "weighted_statistics": false
+      },
+      "frame": "TEME",
+      "prediction_bundle": "prediction-0",
+      "prediction_manifest_sha256": "66f5259762a010b6926c9dc4fbbba5fea995c9876141d56e86fc600cb25963ff",
+      "prediction_definition": {
+        "schema_version": 1,
+        "source": {
+          "snapshot_id": 1,
+          "catalog_id": 6251,
+          "orbital_epoch": "2006-06-25T19:46:43.980096Z",
+          "retrieved_at": "2026-10-17T00:00:00Z",
+          "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057"
+        },
+        "at": "2006-06-25T19:46:43.980096+00:00",
+        "frame": "TEME",
+        "mode": "position"
+      },
+      "prediction_id": "813aaa58-154c-4a78-95ae-7907e8b5f490",
+      "prediction_generated_at": "2026-10-20T18:18:18.839439+00:00",
+      "prediction_horizon_from_input_epoch_seconds": 0.0,
+      "holdout_from_retrieval_seconds": -640930396.019904,
+      "normalized_observation_position_km": [
+        3991.3102274113908, 5494.966572052988, 0.9005579621277242
+      ]
+    },
+    {
+      "index": 1,
+      "observation": {
+        "observation_id": "SYNTHETIC-ONLY-1",
+        "catalog_id": 6251,
+        "source_id": "isolated-reference-fixture-not-observation-provider",
+        "source_organization": null,
+        "source_record_reference": "synthetic-arithmetic-record-1",
+        "upstream_payload_sha256": null,
+        "retrieved_at": null,
+        "observed_at": "2006-06-25T19:47:43.980096Z",
+        "time_scale": "UTC",
+        "frame": "TEME",
+        "origin": "Earth center",
+        "unit": "km",
+        "measurement_type": "geocentric_cartesian_position",
+        "data_kind": "measurement",
+        "position": [3784.9202250192916, 5623.714568726664, 390.396691080334],
+        "quality": "accepted",
+        "quality_reference": null,
+        "uncertainty": null
+      },
+      "original_record": {
+        "observation_id": "SYNTHETIC-ONLY-1",
+        "catalog_id": 6251,
+        "source_id": "isolated-reference-fixture-not-observation-provider",
+        "source_record_reference": "synthetic-arithmetic-record-1",
+        "observed_at": "2006-06-25T19:47:43.980096+00:00",
+        "time_scale": "UTC",
+        "frame": "TEME",
+        "origin": "Earth center",
+        "unit": "km",
+        "measurement_type": "geocentric_cartesian_position",
+        "data_kind": "measurement",
+        "quality": "accepted",
+        "position": [3784.9202250192916, 5623.714568726664, 390.396691080334]
+      },
+      "status": "compatible_with_warnings",
+      "reason": "Compatible discrepancy; independently validated prediction accuracy is not established.",
+      "checks": {
+        "target_identity": true,
+        "time_scale": true,
+        "coordinate_frame": true,
+        "origin": true,
+        "unit": true,
+        "measurement_type": true,
+        "measurement_kind": true,
+        "quality": true,
+        "observed_not_future": true,
+        "retrieval_chronology": true
+      },
+      "prediction_reference": {
+        "snapshot_id": 1,
+        "catalog_id": 6251,
+        "orbital_epoch": "2006-06-25T19:46:43.980096Z",
+        "retrieved_at": "2026-10-17T00:00:00Z",
+        "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057"
+      },
+      "prediction": {
+        "at": "2006-06-25T19:47:43.980096+00:00",
+        "calculated_at": "2026-10-20T18:18:18.861987+00:00",
+        "catalog_id": 6251,
+        "epoch_offset_days": 0.0006944444444444445,
+        "frame": "TEME",
+        "freshness_info": {
+          "accuracy_guarantee": false,
+          "basis": "orbital_epoch",
+          "epoch_age_seconds": 641255494.881891,
+          "evaluated_at": "2026-10-20T18:18:18.861987+00:00",
+          "fresh_hours": 24.0,
+          "retrieval_age_seconds": 325098.861987,
+          "stale_hours": 72.0,
+          "state": "stale"
+        },
+        "gravity_model": "WGS72",
+        "ingestion_sgp4_version": "2.27",
+        "kind": "calculated",
+        "model": "SGP4",
+        "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+        "origin": "Earth center",
+        "position_km": [
+          3781.9202250192916, 5627.714568726664, 390.396691080334
+        ],
+        "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057",
+        "retrieved_at": "2026-10-17T00:00:00+00:00",
+        "sgp4_version": "2.27",
+        "snapshot_created_at": "2026-10-20T18:18:18.564+00:00",
+        "snapshot_id": 1,
+        "snapshot_validation_status": "structural_and_epoch_propagation_passed",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+        "time_system": "UTC",
+        "uncertainty": {
+          "covariance_available": false,
+          "observation_validated": false,
+          "status": "not_quantified"
+        },
+        "units": {
+          "epoch_offset": "days",
+          "position": "km",
+          "velocity": "km/s"
+        },
+        "validation_scope": "Published numerical cases; not observed orbit accuracy",
+        "validation_status": "reference_tested_engine_not_observation_validated",
+        "validator_version": "orbitiq-omm-v1",
+        "velocity_km_s": [
+          -3.5870753834827216, 1.932297274707191, 6.4816203503978365
+        ],
+        "warnings": [
+          "Calculated from mean elements, not a direct observation.",
+          "No position uncertainty or collision assessment is provided.",
+          "Source element freshness is stale; recent retrieval does not guarantee an accurate orbit."
+        ]
+      },
+      "residual": {
+        "xyz_km": [3.0, -4.0, 0.0],
+        "magnitude_km": 5.0,
+        "sign": "observed_minus_predicted",
+        "rac": {
+          "status": "complete",
+          "radial_km": -1.6439449328569116,
+          "along_track_km": -2.420304411211971,
+          "cross_track_km": 4.054574159489744,
+          "definition": "R=r/|r|, C=(r\u00d7v)/|r\u00d7v|, A=C\u00d7R; along-track is transverse, not generally velocity direction."
+        }
+      },
+      "independence": {
+        "status": "unverified_input_lineage",
+        "eligible": false,
+        "basis": "Prediction fitting-observation lineage is not available; input reuse cannot be excluded."
+      },
+      "uncertainty": {
+        "observation": null,
+        "normalized_sigma_km": null,
+        "prediction": null,
+        "joint_status": "unavailable_prediction_uncertainty",
+        "weighted_statistics": false
+      },
+      "frame": "TEME",
+      "prediction_bundle": "prediction-1",
+      "prediction_manifest_sha256": "207fce0568e2838e85ec1bc5a0bd05c1f65fa496bf1e026e7d16e35ed4dbdb37",
+      "prediction_definition": {
+        "schema_version": 1,
+        "source": {
+          "snapshot_id": 1,
+          "catalog_id": 6251,
+          "orbital_epoch": "2006-06-25T19:46:43.980096Z",
+          "retrieved_at": "2026-10-17T00:00:00Z",
+          "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057"
+        },
+        "at": "2006-06-25T19:47:43.980096+00:00",
+        "frame": "TEME",
+        "mode": "position"
+      },
+      "prediction_id": "99e7f92d-ccd8-476e-8717-90f4443399ee",
+      "prediction_generated_at": "2026-10-20T18:18:18.861152+00:00",
+      "prediction_horizon_from_input_epoch_seconds": 60.0,
+      "holdout_from_retrieval_seconds": -640930336.019904,
+      "normalized_observation_position_km": [
+        3784.9202250192916, 5623.714568726664, 390.396691080334
+      ]
+    }
+  ],
+  "summary": {
+    "requested_count": 2,
+    "compatible_coverage": {
+      "oldest_observed_at": "2006-06-25T19:46:43.980096+00:00",
+      "newest_observed_at": "2006-06-25T19:47:43.980096+00:00",
+      "sampling_intervals_seconds": [60.0],
+      "missing_intervals": "unknown_no_expected_measurement_cadence",
+      "error_trend_statistic": null
+    },
+    "compatible_count": 2,
+    "excluded_count": 0,
+    "independently_verified_count": 0,
+    "all_candidates_unavailable": false,
+    "descriptive_discrepancy_by_frame": {
+      "TEME": {
+        "status": "descriptive_only",
+        "sample_count": 2,
+        "unit": "km",
+        "axes": {
+          "x": {
+            "bias": 3.0,
+            "mae": 3.0,
+            "rmse": 2.9999999999999996,
+            "maximum_absolute": 3.0,
+            "median_absolute": 3.0,
+            "population_standard_deviation": 0.0
+          },
+          "y": {
+            "bias": -4.0,
+            "mae": 4.0,
+            "rmse": 4.0,
+            "maximum_absolute": 4.0,
+            "median_absolute": 4.0,
+            "population_standard_deviation": 0.0
+          },
+          "z": {
+            "bias": 0.0,
+            "mae": 0.0,
+            "rmse": 0.0,
+            "maximum_absolute": 0.0,
+            "median_absolute": 0.0,
+            "population_standard_deviation": 0.0
+          }
+        },
+        "position_norm": {
+          "mean": 5.0,
+          "rmse": 5.0,
+          "maximum": 5.0,
+          "median": 5.0
+        },
+        "aggregation": "Equal-weight compatible samples; denominator N for RMS/dispersion. No independent/IID population inference."
+      },
+      "ITRS": {
+        "status": "insufficient_samples",
+        "sample_count": 0,
+        "minimum_samples": 2,
+        "values": null
+      }
+    },
+    "independent_error_metrics": null,
+    "independent_validation_status": "not_established",
+    "exclusion_policy": "All incompatible, duplicate, invalid or failed samples are listed with reasons. Unknown independence does not become verified."
+  },
+  "findings": [
+    {
+      "schema_version": 1,
+      "rule_id": "observation.position_discrepancy",
+      "rule_version": 1,
+      "status": "compatible_with_warnings",
+      "severity": null,
+      "confidence": null,
+      "observation_index": 0,
+      "observation_reference": {
+        "observation_id": "SYNTHETIC-ONLY-0",
+        "catalog_id": 6251,
+        "source_id": "isolated-reference-fixture-not-observation-provider",
+        "source_organization": null,
+        "source_record_reference": "synthetic-arithmetic-record-0",
+        "upstream_payload_sha256": null,
+        "retrieved_at": null,
+        "observed_at": "2006-06-25T19:46:43.980096Z",
+        "time_scale": "UTC",
+        "frame": "TEME",
+        "origin": "Earth center",
+        "unit": "km",
+        "measurement_type": "geocentric_cartesian_position",
+        "data_kind": "measurement",
+        "position": [3991.3102274113908, 5494.966572052988, 0.9005579621277242],
+        "quality": "accepted",
+        "quality_reference": null,
+        "uncertainty": null
+      },
+      "prediction_reference": {
+        "snapshot_id": 1,
+        "catalog_id": 6251,
+        "orbital_epoch": "2006-06-25T19:46:43.980096Z",
+        "retrieved_at": "2026-10-17T00:00:00Z",
+        "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057"
+      },
+      "checks": {
+        "target_identity": true,
+        "time_scale": true,
+        "coordinate_frame": true,
+        "origin": true,
+        "unit": true,
+        "measurement_type": true,
+        "measurement_kind": true,
+        "quality": true,
+        "observed_not_future": true,
+        "retrieval_chronology": true
+      },
+      "result": {
+        "xyz_km": [3.0, -4.0, 0.0],
+        "magnitude_km": 5.0,
+        "sign": "observed_minus_predicted",
+        "rac": {
+          "status": "complete",
+          "radial_km": -1.4766512195782107,
+          "along_track_km": -2.525840913046018,
+          "cross_track_km": 4.054581218535527,
+          "definition": "R=r/|r|, C=(r\u00d7v)/|r\u00d7v|, A=C\u00d7R; along-track is transverse, not generally velocity direction."
+        }
+      },
+      "frame": "TEME",
+      "unit": "km",
+      "uncertainty": {
+        "observation": null,
+        "normalized_sigma_km": null,
+        "prediction": null,
+        "joint_status": "unavailable_prediction_uncertainty",
+        "weighted_statistics": false
+      },
+      "independence": {
+        "status": "unverified_input_lineage",
+        "eligible": false,
+        "basis": "Prediction fitting-observation lineage is not available; input reuse cannot be excluded."
+      },
+      "explanation": "Recorded position discrepancy is 5.0 km at the common epoch. Independence and joint uncertainty are not established; no physical cause or accuracy classification is inferred.",
+      "evidence": {
+        "prediction_bundle": "prediction-0",
+        "manifest_sha256": "66f5259762a010b6926c9dc4fbbba5fea995c9876141d56e86fc600cb25963ff",
+        "observation_input": "observations.json"
+      },
+      "limitations": [
+        "Residuals are observed minus predicted, after explicit time/frame/unit checks.",
+        "Operator-normalized observations are not independently authenticated by OrbitIQ. Their original input bytes are retained; upstream hashes are declarations only.",
+        "CelesTrak GP fitting-observation lineage is unavailable. Different IDs/providers do not establish independence. Temporal holdout is conditional on truthful clocks.",
+        "Retrospective propagation from archived input is not a historically issued forecast.",
+        "Prediction uncertainty is unquantified. Observation sigmas are retained without joint covariance, significance tests, confidence intervals or weighted statistics.",
+        "Descriptive discrepancy statistics do not establish model accuracy, causes, maneuvers, anomalies, collision risk or operational safety.",
+        "No interpolation, extrapolated error trend or outlier removal is performed."
+      ],
+      "finding_id": "observation-finding-sha256:ec2615074edd404a5d500e225b7ff75f4b1f116267e8d57743b5ab668595d40e"
+    },
+    {
+      "schema_version": 1,
+      "rule_id": "observation.position_discrepancy",
+      "rule_version": 1,
+      "status": "compatible_with_warnings",
+      "severity": null,
+      "confidence": null,
+      "observation_index": 1,
+      "observation_reference": {
+        "observation_id": "SYNTHETIC-ONLY-1",
+        "catalog_id": 6251,
+        "source_id": "isolated-reference-fixture-not-observation-provider",
+        "source_organization": null,
+        "source_record_reference": "synthetic-arithmetic-record-1",
+        "upstream_payload_sha256": null,
+        "retrieved_at": null,
+        "observed_at": "2006-06-25T19:47:43.980096Z",
+        "time_scale": "UTC",
+        "frame": "TEME",
+        "origin": "Earth center",
+        "unit": "km",
+        "measurement_type": "geocentric_cartesian_position",
+        "data_kind": "measurement",
+        "position": [3784.9202250192916, 5623.714568726664, 390.396691080334],
+        "quality": "accepted",
+        "quality_reference": null,
+        "uncertainty": null
+      },
+      "prediction_reference": {
+        "snapshot_id": 1,
+        "catalog_id": 6251,
+        "orbital_epoch": "2006-06-25T19:46:43.980096Z",
+        "retrieved_at": "2026-10-17T00:00:00Z",
+        "response_sha256": "853f1935465cd70b4a21d6d7539e1e9a4f37f0a8344bee3b363ee935b4519057"
+      },
+      "checks": {
+        "target_identity": true,
+        "time_scale": true,
+        "coordinate_frame": true,
+        "origin": true,
+        "unit": true,
+        "measurement_type": true,
+        "measurement_kind": true,
+        "quality": true,
+        "observed_not_future": true,
+        "retrieval_chronology": true
+      },
+      "result": {
+        "xyz_km": [3.0, -4.0, 0.0],
+        "magnitude_km": 5.0,
+        "sign": "observed_minus_predicted",
+        "rac": {
+          "status": "complete",
+          "radial_km": -1.6439449328569116,
+          "along_track_km": -2.420304411211971,
+          "cross_track_km": 4.054574159489744,
+          "definition": "R=r/|r|, C=(r\u00d7v)/|r\u00d7v|, A=C\u00d7R; along-track is transverse, not generally velocity direction."
+        }
+      },
+      "frame": "TEME",
+      "unit": "km",
+      "uncertainty": {
+        "observation": null,
+        "normalized_sigma_km": null,
+        "prediction": null,
+        "joint_status": "unavailable_prediction_uncertainty",
+        "weighted_statistics": false
+      },
+      "independence": {
+        "status": "unverified_input_lineage",
+        "eligible": false,
+        "basis": "Prediction fitting-observation lineage is not available; input reuse cannot be excluded."
+      },
+      "explanation": "Recorded position discrepancy is 5.0 km at the common epoch. Independence and joint uncertainty are not established; no physical cause or accuracy classification is inferred.",
+      "evidence": {
+        "prediction_bundle": "prediction-1",
+        "manifest_sha256": "207fce0568e2838e85ec1bc5a0bd05c1f65fa496bf1e026e7d16e35ed4dbdb37",
+        "observation_input": "observations.json"
+      },
+      "limitations": [
+        "Residuals are observed minus predicted, after explicit time/frame/unit checks.",
+        "Operator-normalized observations are not independently authenticated by OrbitIQ. Their original input bytes are retained; upstream hashes are declarations only.",
+        "CelesTrak GP fitting-observation lineage is unavailable. Different IDs/providers do not establish independence. Temporal holdout is conditional on truthful clocks.",
+        "Retrospective propagation from archived input is not a historically issued forecast.",
+        "Prediction uncertainty is unquantified. Observation sigmas are retained without joint covariance, significance tests, confidence intervals or weighted statistics.",
+        "Descriptive discrepancy statistics do not establish model accuracy, causes, maneuvers, anomalies, collision risk or operational safety.",
+        "No interpolation, extrapolated error trend or outlier removal is performed."
+      ],
+      "finding_id": "observation-finding-sha256:da8e3170fa45e953d10742f03870a4a5c1103c1d3ecc399ade49099ec71b1ddc"
+    }
+  ],
+  "software": {
+    "python": "3.12.14",
+    "implementation": "CPython",
+    "packages": {
+      "sgp4": "2.27",
+      "astropy": "7.2.3",
+      "pyerfa": "2.0.1.5",
+      "numpy": "2.5.4",
+      "astropy-iers-data": "0.2026.10.12.1.3.27"
+    },
+    "backend_sha256": {
+      "backend/orbitiq/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/api/__init__.py": "5e07dd0d73d377eb2a5c8a66cfcee482618cb27c26de72903bb8fa1bd0d98399",
+      "backend/orbitiq/api/boundary.py": "29b20d36df97046cd70e949491fe78870238ecb6a583132033014c8a9ae2588e",
+      "backend/orbitiq/api/errors.py": "28265e6cf3514d0f7a9c2c135a79c211f3eb95c2e8c652a16f024894a9806ad6",
+      "backend/orbitiq/api/ground_tracks.py": "07d7a652913ae0aaf2584354e52e7762c056b8f94d251b520972bdcade63440a",
+      "backend/orbitiq/api/health.py": "9a1e90c4ca376a52669d6684fb9ef8438a6cf50d6f41e2aab3d6d7c923e903b6",
+      "backend/orbitiq/api/history.py": "46f6bfc9a986e86d94e476502fade458c03d527418bde99f61d06fdf898600af",
+      "backend/orbitiq/api/investigations.py": "fe501934859e32e739e4d403325dce751ab99f6148f12d5b0904d08d4f554b73",
+      "backend/orbitiq/api/observation_validation.py": "21bb1a5f931d651ed46a7bb17b19a13b3a152eb4bbd9d85d8ae77da5219e9014",
+      "backend/orbitiq/api/operational.py": "969b7c319056460d5c587aa23ef7cedaf3b0656289f5cf19c926df96ef056d59",
+      "backend/orbitiq/api/orbits.py": "aedb0ee9c56a1d714694b0726f29a1bf9a486a68c1b7ca58671eec2632fb1871",
+      "backend/orbitiq/api/readiness.py": "24db2cdd74d793abf6969ea1a179761a846f228539070b99fe2ef9f5dc35c0cf",
+      "backend/orbitiq/api/reports.py": "835828e758c7a66d1a65f52bd3f2e651fae7880049610dfd0f96b20880d5c750",
+      "backend/orbitiq/api/scientific_schemas.py": "044e42dd1a06f264e20b7c9ea5213857cbe895f3819e3e31e2247a1243ec5079",
+      "backend/orbitiq/database.py": "bec62754a897227af1a5b5a3a360b4fa0c1999a25d845798714e7417d1314e28",
+      "backend/orbitiq/ingestion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/ingestion/celestrak.py": "2f2b5471482b6f185231f180f72f87d9bf73634009a2b6d046cae87940afe2af",
+      "backend/orbitiq/ingestion/collection.py": "a95c7aaa8d9db84bc83f4d99adf7d1cdf83a3b29f5606fe6e4f7081b68961b93",
+      "backend/orbitiq/main.py": "48cd1e6a223dc887d331b3188bbdedaad888d2458b45207b4a0ce2d9cec8a645",
+      "backend/orbitiq/maintenance/__init__.py": "6b529e4c828464104859982376e974d7be0bde4b3f65b70f16bcf3d45202fa37",
+      "backend/orbitiq/maintenance/backup_export.py": "6e827eff4101cefa289c25fb180c4887027fa27885014b1cc28d4f4c42e8339f",
+      "backend/orbitiq/maintenance/eop.py": "840063bacc01e55d0cd87cdbacc3f4e7a53695b7ab064b8b4595086a21c1acec",
+      "backend/orbitiq/maintenance/monitor.py": "e514a47c0bda9c8421f7bec00bb21209c7bfcfb144451993c10653a5cc990f66",
+      "backend/orbitiq/maintenance/observation_validation.py": "da5a85c6d1403f3eb0feea63a82d91198d9a0c7d0a676a38805523089925afef",
+      "backend/orbitiq/maintenance/probe.py": "b0964bb7b90b2c1c0ce24ab68803fd0444ce7d21debfc007c803cd4eaf2e07ca",
+      "backend/orbitiq/maintenance/recovery.py": "483feac2a7ebb38ee22488d3a695dd2ee66241d4868dceeccb36ec678cfce848",
+      "backend/orbitiq/maintenance/replay.py": "05978f74f7c61ccd060ba21f4c8477a6a9215dc24dd061bb09c86726f1a98603",
+      "backend/orbitiq/observation_validation.py": "f58732dbd1988cf16bf7b5f817bb54ec06a61b216514690ff509685d50259f2d",
+      "backend/orbitiq/orbits/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/orbitiq/orbits/coordinates.py": "6ebc8491fc96118eac0fd40afc2d1eb8459d87ea7b5008819d8c17ea89e3e19b",
+      "backend/orbitiq/orbits/earth_orientation.py": "fb26e1a75294f1515f48faa301463d750ad89caf1b48f136068a6ab8f7fdf6ec",
+      "backend/orbitiq/orbits/elements.py": "514cf3bdedc54d2b5f3af0155dfb5e10d24608ce924a6419c622413ac7f206dc",
+      "backend/orbitiq/orbits/engine.py": "509c00730325ca2d24cca4d13260473a598ebfd9666f62b9ea40855f0804ae26",
+      "backend/orbitiq/orbits/freshness.py": "3776c31476b01f56accaf5f1de50fe73c821d168fe7da65e58f1eef061b440e7",
+      "backend/orbitiq/orbits/sampling.py": "825ebb40becb7acf0da59d2c91ebf122b165d45d195d19aa9e9089360a74238d",
+      "backend/orbitiq/replay.py": "100f4bd1b430cac164e710daaa9ef987795a54231f33324a9484bc891abd17c1",
+      "backend/orbitiq/replay_contract.py": "72e9d3543b8d02d11aeef0388cb7e1d4f4e791428b9c83656278fc2265bbbace",
+      "backend/orbitiq/replay_isolation.py": "213738e5f32f66fbe075677df8edc0332e3e575a4502445370ee454a645e7149",
+      "backend/orbitiq/replay_json.py": "c6635d2f870e922491dd99c738c423477c9bf3a720b3aa595d2bd7d1805c0e5e",
+      "backend/orbitiq/replay_validation.py": "8cfe72e09d82991ca9fe0bfd95c7995b3cb684ec8e14fa6ca5be522110061c40",
+      "backend/orbitiq/reporting.py": "bf441bcd6d18c458314511fdee499face45f91557cbf5213c9bc046162efa129",
+      "backend/orbitiq/runtime.py": "7b5f65625b35a512f17de309efdaa456d0baa77e3662decde9741abe18b3bcea",
+      "backend/orbitiq/services/__init__.py": "0cd24ec0d86900bfb8b922249feb031cdf22888d987a325b5a3d15ed7918b7c1",
+      "backend/orbitiq/services/analysis.py": "6dcd9904f4c72a79b728f21f519b52eacb281889bbd761859465feed0bc81904",
+      "backend/orbitiq/services/ground_tracks.py": "cf43222d95b3b77dcb2646805568571de8ee16b2bcda6f235cc7bd4b5f77dd4d",
+      "backend/orbitiq/services/history.py": "4591c5029e80e24f99e3ca225f11a26249317c0f0bb0519a574e9f1e04cda7e1",
+      "backend/orbitiq/services/ingestion_status.py": "321f28b6bee9a89ff18fb85c7e5ea17d93d9110cb4c383d12e563aadc395a439",
+      "backend/orbitiq/services/investigations.py": "d454044c0a317c62b07bed5f77453b025b133da6e7d057a11045917a5a61e164",
+      "backend/orbitiq/services/observation_validation.py": "97a3e3219e406090b8e8c60a451c4bfdc3069e62901cda145a6d493d9a2013fb",
+      "backend/orbitiq/services/readiness.py": "1083508fd54c3ac6359804eb153942624850bc5547fa075b8907c597c7525135",
+      "backend/orbitiq/services/replay.py": "6fd8a9eb924f069cdfaf36a930421624b50923e2e82cf61298f9006bb6b1c439",
+      "backend/orbitiq/services/reports.py": "84e8ee382c9f7baea7fa63217cda934f8c9698e643dc3f8450b6deab18865754",
+      "backend/orbitiq/storage.py": "ffc76c2f5e28694b3f9222ffd85aa83c8c487b98d06d8d2dad4a36ec8f0e70eb"
+    },
+    "uv_lock_sha256": "997bed039a21ed300fb61324770ba7d73344ad5e87ddea13d318fe8e2883e6f1"
+  },
+  "limitations": [
+    "Residuals are observed minus predicted, after explicit time/frame/unit checks.",
+    "Operator-normalized observations are not independently authenticated by OrbitIQ. Their original input bytes are retained; upstream hashes are declarations only.",
+    "CelesTrak GP fitting-observation lineage is unavailable. Different IDs/providers do not establish independence. Temporal holdout is conditional on truthful clocks.",
+    "Retrospective propagation from archived input is not a historically issued forecast.",
+    "Prediction uncertainty is unquantified. Observation sigmas are retained without joint covariance, significance tests, confidence intervals or weighted statistics.",
+    "Descriptive discrepancy statistics do not establish model accuracy, causes, maneuvers, anomalies, collision risk or operational safety.",
+    "No interpolation, extrapolated error trend or outlier removal is performed."
+  ],
+  "reproduction": {
+    "status": "captured_not_yet_replayed",
+    "prediction_scope": "Exact nested Phase 10 packages; arithmetic can be checked against preserved states and observation input.",
+    "original_observation_bytes": "observations.json"
+  }
+}

@@ -331,6 +331,6 @@ export function reportHtml(report: InvestigationReport): string {
       "",
     )}<footer>OrbitIQ · Report ${e(report.report_id)} · Generated ${e(report.generated_at)} · schema ${report.schema_version} / template ${report.template_version}. Scientific certification is not implied.</footer></article></body></html>`;
 }
-export function reportJson(report: InvestigationReport): string {
+export function reportJson<T>(report: T): string {
   return JSON.stringify(report, null, 2) + "\n";
 }

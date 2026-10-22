@@ -13,7 +13,7 @@ from orbitiq.runtime import Settings
 
 LOGGER = logging.getLogger("orbitiq.requests")
 EXPENSIVE = re.compile(
-    r"^/api/(?:comparisons|investigation-reports|snapshots/[^/]+/(?:position|earth-fixed)|"
+    r"^/api/(?:observation-validations/[a-f0-9]{32}|historical-analysis|comparisons|investigation-reports|snapshots/[^/]+/(?:position|earth-fixed)|"
     r"satellites/[^/]+/ground-track)/?$"
 )
 

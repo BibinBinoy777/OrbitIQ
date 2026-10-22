@@ -1,0 +1,635 @@
+{
+  "kind": "orbitiq_historical_analysis",
+  "schema_version": 1,
+  "rule_set_version": 1,
+  "generated_at": "2026-10-20T00:00:00+00:00",
+  "catalog_id": 6251,
+  "request": {
+    "catalog_id": 6251,
+    "limit": 20,
+    "before_id": null,
+    "anchor_id": 2
+  },
+  "pagination": {
+    "anchor_id": 2,
+    "has_more": false,
+    "next_before_id": null,
+    "page_size": 20,
+    "total_count": 2,
+    "total_count_status": "exact_within_anchor"
+  },
+  "coverage": {
+    "inspected_count": 2,
+    "validated_record_count": 1,
+    "distinct_payload_count": 1,
+    "complete_anchored_history": true,
+    "extrema_scope": "verifiable_retrievals_in_inspected_window",
+    "oldest_verifiable_retrieval": "2026-10-18T00:00:00+00:00",
+    "newest_verifiable_retrieval": "2026-10-18T00:00:00+00:00",
+    "retrieval_span_seconds": 0.0,
+    "chronology": "retrieval_ascending",
+    "summary": "One suitable persisted record is available; historical comparison is not yet possible.",
+    "trend_statistic": null,
+    "interpolation": false,
+    "extrapolation": false
+  },
+  "sources": [
+    {
+      "snapshot_id": 2,
+      "catalog_id": 6251,
+      "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+      "retrieved_at": "2026-10-18T00:00:00+00:00",
+      "orbital_epoch": "2006-06-26T01:46:43.980096+00:00"
+    },
+    {
+      "snapshot_id": 1,
+      "catalog_id": 6251,
+      "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+      "retrieved_at": "2026-10-17T00:00:00+00:00",
+      "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+    }
+  ],
+  "points": [
+    {
+      "metadata": {
+        "id": 1,
+        "catalog_id": 6251,
+        "object_name": "ISOLATED REFERENCE FIXTURE \u2014 NOT ARCHIVE HISTORY",
+        "object_id": "1962-025E",
+        "identity_consistent": true,
+        "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+        "retrieved_at": "2026-10-17T00:00:00+00:00",
+        "snapshot_created_at": "2026-10-20T17:27:30.686000+00:00",
+        "insertion_time_status": "recorded",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+        "provider": "CelesTrak",
+        "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+        "validation_status": "structural_and_epoch_propagation_passed",
+        "validator_version": "orbitiq-omm-v1",
+        "ingestion_sgp4_version": "2.27",
+        "frame": "TEME",
+        "record_count": 1,
+        "record_count_basis": "schema_2_single_satellite_snapshot",
+        "metadata_issues": [],
+        "listing_validation": "metadata_only_not_full_provenance_verification",
+        "freshness_info": {
+          "state": "stale",
+          "evaluated_at": "2026-10-20T00:00:00+00:00",
+          "epoch_age_seconds": 641189596.019904,
+          "retrieval_age_seconds": 259200.0,
+          "fresh_hours": 24.0,
+          "stale_hours": 72.0,
+          "basis": "orbital_epoch",
+          "accuracy_guarantee": false
+        },
+        "membership": "stored_record"
+      },
+      "reference": {
+        "snapshot_id": 1,
+        "catalog_id": 6251,
+        "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+        "retrieved_at": "2026-10-17T00:00:00+00:00",
+        "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+      },
+      "usable": false,
+      "validation_error": {
+        "code": "snapshot_invalid",
+        "message": "Snapshot cannot pass scientific provenance validation; metadata remain inspectable."
+      },
+      "elements": null,
+      "element_units": {
+        "EPOCH": "ISO8601 UTC",
+        "REV_AT_EPOCH": "rev",
+        "MEAN_MOTION": "rev/day",
+        "ECCENTRICITY": "dimensionless",
+        "INCLINATION": "deg",
+        "RA_OF_ASC_NODE": "deg",
+        "ARG_OF_PERICENTER": "deg",
+        "MEAN_ANOMALY": "deg",
+        "BSTAR": "1/Earth-radii",
+        "MEAN_MOTION_DOT": "rev/day^2",
+        "MEAN_MOTION_DDOT": "rev/day^3"
+      },
+      "freshness": {
+        "state": "stale",
+        "evaluated_at": "2026-10-20T00:00:00+00:00",
+        "epoch_age_seconds": 641189596.019904,
+        "retrieval_age_seconds": 259200.0,
+        "fresh_hours": 24.0,
+        "stale_hours": 72.0,
+        "basis": "orbital_epoch",
+        "accuracy_guarantee": false
+      }
+    },
+    {
+      "metadata": {
+        "id": 2,
+        "catalog_id": 6251,
+        "object_name": "ISOLATED REFERENCE FIXTURE \u2014 NOT ARCHIVE HISTORY",
+        "object_id": "1962-025E",
+        "identity_consistent": true,
+        "orbital_epoch": "2006-06-26T01:46:43.980096+00:00",
+        "retrieved_at": "2026-10-18T00:00:00+00:00",
+        "snapshot_created_at": "2026-10-20T17:27:30.687000+00:00",
+        "insertion_time_status": "recorded",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+        "provider": "CelesTrak",
+        "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+        "validation_status": "structural_and_epoch_propagation_passed",
+        "validator_version": "orbitiq-omm-v1",
+        "ingestion_sgp4_version": "2.27",
+        "frame": "TEME",
+        "record_count": 1,
+        "record_count_basis": "schema_2_single_satellite_snapshot",
+        "metadata_issues": [],
+        "listing_validation": "metadata_only_not_full_provenance_verification",
+        "freshness_info": {
+          "state": "stale",
+          "evaluated_at": "2026-10-20T00:00:00+00:00",
+          "epoch_age_seconds": 641167996.019904,
+          "retrieval_age_seconds": 172800.0,
+          "fresh_hours": 24.0,
+          "stale_hours": 72.0,
+          "basis": "orbital_epoch",
+          "accuracy_guarantee": false
+        },
+        "membership": "stored_record"
+      },
+      "reference": {
+        "snapshot_id": 2,
+        "catalog_id": 6251,
+        "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+        "retrieved_at": "2026-10-18T00:00:00+00:00",
+        "orbital_epoch": "2006-06-26T01:46:43.980096+00:00"
+      },
+      "usable": true,
+      "validation_error": null,
+      "elements": {
+        "OBJECT_NAME": "ISOLATED REFERENCE FIXTURE \u2014 NOT ARCHIVE HISTORY",
+        "OBJECT_ID": "1962-025E",
+        "NORAD_CAT_ID": 6251,
+        "EPOCH": "2006-06-26T01:46:43.980096Z",
+        "MEAN_MOTION": 15.573872910000002,
+        "ECCENTRICITY": 0.0030035,
+        "INCLINATION": 57.80789999999999,
+        "RA_OF_ASC_NODE": 54.0425,
+        "ARG_OF_PERICENTER": 139.1568,
+        "MEAN_ANOMALY": 221.1854,
+        "BSTAR": 0.00012808,
+        "MEAN_MOTION_DOT": 8.885e-5,
+        "MEAN_MOTION_DDOT": 0.0,
+        "CLASSIFICATION_TYPE": "U",
+        "ELEMENT_SET_NO": 398,
+        "REV_AT_EPOCH": 677,
+        "EPHEMERIS_TYPE": 0,
+        "CENTER_NAME": "EARTH",
+        "REF_FRAME": "TEME",
+        "TIME_SYSTEM": "UTC",
+        "MEAN_ELEMENT_THEORY": "SGP4"
+      },
+      "element_units": {
+        "EPOCH": "ISO8601 UTC",
+        "REV_AT_EPOCH": "rev",
+        "MEAN_MOTION": "rev/day",
+        "ECCENTRICITY": "dimensionless",
+        "INCLINATION": "deg",
+        "RA_OF_ASC_NODE": "deg",
+        "ARG_OF_PERICENTER": "deg",
+        "MEAN_ANOMALY": "deg",
+        "BSTAR": "1/Earth-radii",
+        "MEAN_MOTION_DOT": "rev/day^2",
+        "MEAN_MOTION_DDOT": "rev/day^3"
+      },
+      "freshness": {
+        "state": "stale",
+        "evaluated_at": "2026-10-20T00:00:00+00:00",
+        "epoch_age_seconds": 641167996.019904,
+        "retrieval_age_seconds": 172800.0,
+        "fresh_hours": 24.0,
+        "stale_hours": 72.0,
+        "basis": "orbital_epoch",
+        "accuracy_guarantee": false
+      }
+    }
+  ],
+  "intervals": [
+    {
+      "source_ids": [1, 2],
+      "seconds": 86400.0,
+      "unit": "s",
+      "scope": "inspected_window_only",
+      "intermediate_samples": "not_inferred"
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "pair-1-2",
+      "first": {
+        "snapshot_id": 1,
+        "catalog_id": 6251,
+        "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+        "retrieved_at": "2026-10-17T00:00:00+00:00",
+        "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+      },
+      "second": {
+        "snapshot_id": 2,
+        "catalog_id": 6251,
+        "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+        "retrieved_at": "2026-10-18T00:00:00+00:00",
+        "orbital_epoch": "2006-06-26T01:46:43.980096+00:00"
+      },
+      "chronology_status": "source_unusable",
+      "status": "unavailable",
+      "retrieval_interval_seconds": 86400.0,
+      "differences": [],
+      "evidence": {
+        "status": "unavailable",
+        "definition": null,
+        "manifest_sha256": null,
+        "package_url": null,
+        "scope": "Underlying Phase 9 comparison report / Phase 10 calculation replay only; findings themselves are not replayed."
+      }
+    }
+  ],
+  "findings": [
+    {
+      "schema_version": 1,
+      "rule_id": "history.coverage",
+      "rule_version": 1,
+      "category": "incomplete_data",
+      "status": "recorded",
+      "severity": null,
+      "confidence": null,
+      "title": "Historical coverage",
+      "explanation": "One suitable persisted record is available; historical comparison is not yet possible.",
+      "catalog_id": 6251,
+      "sources": [
+        {
+          "snapshot_id": 2,
+          "catalog_id": 6251,
+          "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+          "retrieved_at": "2026-10-18T00:00:00+00:00",
+          "orbital_epoch": "2006-06-26T01:46:43.980096+00:00"
+        },
+        {
+          "snapshot_id": 1,
+          "catalog_id": 6251,
+          "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+          "retrieved_at": "2026-10-17T00:00:00+00:00",
+          "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+        }
+      ],
+      "inputs": {
+        "validated_record_count": 1,
+        "distinct_payload_count": 1,
+        "inspected_count": 2,
+        "scope": "inspected_window",
+        "complete_anchored_history": true
+      },
+      "result": null,
+      "evidence": null,
+      "assumptions": [
+        "Count provenance-validated records in the inspected window."
+      ],
+      "limitations": [
+        "Published mean-element sets are source estimates, not direct observations.",
+        "Element differences may reflect epochs, estimation or source updates, physical motion or data quality; these inputs cannot distinguish those explanations.",
+        "No maneuver, anomaly, collision-risk or operational-safety conclusion is supported.",
+        "Two records support pairwise changes only. More samples alone do not establish a reliable long-term trend or prediction. No fit, interpolation or extrapolation is used.",
+        "Only the inspected insertion-ID window is analyzed. Chronology is retrieval time, not insertion ID; element epochs are separately checked for reversal.",
+        "Intervals between samples do not establish provider outages or expected collection cadence.",
+        "Checksums validate stored bytes, not independent provider authenticity.",
+        "Independent observation-based prediction validation is blocked; uncertainty is unquantified.",
+        "Finding replay is not implemented by the Phase 10 format. A comparison capture recipe reproduces underlying calculations only; it is not an existing evidence package."
+      ],
+      "reproduction_status": "deterministic_rule_evaluated_not_independently_replayed",
+      "finding_id": "history-finding-sha256:927f5ba391bb5ddf3cb69f215537505d27e88c7aea5fb56ed8f4f3c546472e46"
+    },
+    {
+      "schema_version": 1,
+      "rule_id": "history.freshness",
+      "rule_version": 1,
+      "category": "stale_source_data",
+      "status": "recorded",
+      "severity": null,
+      "confidence": null,
+      "title": "Element freshness: stale",
+      "explanation": "Existing epoch-based policy classifies snapshot #2 as stale. Retrieval age is recorded separately and does not quantify prediction accuracy.",
+      "catalog_id": 6251,
+      "sources": [
+        {
+          "snapshot_id": 2,
+          "catalog_id": 6251,
+          "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+          "retrieved_at": "2026-10-18T00:00:00+00:00",
+          "orbital_epoch": "2006-06-26T01:46:43.980096+00:00"
+        }
+      ],
+      "inputs": {
+        "state": "stale",
+        "evaluated_at": "2026-10-20T00:00:00+00:00",
+        "epoch_age_seconds": 641167996.019904,
+        "retrieval_age_seconds": 172800.0,
+        "fresh_hours": 24.0,
+        "stale_hours": 72.0,
+        "basis": "orbital_epoch",
+        "accuracy_guarantee": false
+      },
+      "result": null,
+      "evidence": null,
+      "assumptions": [
+        "Existing classify(epoch,retrieval,as_of,configured_policy) is not fresh."
+      ],
+      "limitations": [
+        "Published mean-element sets are source estimates, not direct observations.",
+        "Element differences may reflect epochs, estimation or source updates, physical motion or data quality; these inputs cannot distinguish those explanations.",
+        "No maneuver, anomaly, collision-risk or operational-safety conclusion is supported.",
+        "Two records support pairwise changes only. More samples alone do not establish a reliable long-term trend or prediction. No fit, interpolation or extrapolation is used.",
+        "Only the inspected insertion-ID window is analyzed. Chronology is retrieval time, not insertion ID; element epochs are separately checked for reversal.",
+        "Intervals between samples do not establish provider outages or expected collection cadence.",
+        "Checksums validate stored bytes, not independent provider authenticity.",
+        "Independent observation-based prediction validation is blocked; uncertainty is unquantified.",
+        "Finding replay is not implemented by the Phase 10 format. A comparison capture recipe reproduces underlying calculations only; it is not an existing evidence package."
+      ],
+      "reproduction_status": "deterministic_rule_evaluated_not_independently_replayed",
+      "finding_id": "history-finding-sha256:897bf8fd54063238457dd6d8351e7c4d33fa50abab54730a6c36d4912d29b041"
+    },
+    {
+      "schema_version": 1,
+      "rule_id": "history.validation",
+      "rule_version": 1,
+      "category": "validation_failure",
+      "status": "recorded",
+      "severity": null,
+      "confidence": null,
+      "title": "Source validation unavailable",
+      "explanation": "This record cannot support orbital-element calculations. Original metadata remain visible; missing or invalid values are not zero.",
+      "catalog_id": 6251,
+      "sources": [
+        {
+          "snapshot_id": 1,
+          "catalog_id": 6251,
+          "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+          "retrieved_at": "2026-10-17T00:00:00+00:00",
+          "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+        }
+      ],
+      "inputs": {
+        "error": {
+          "code": "snapshot_invalid",
+          "message": "Snapshot cannot pass scientific provenance validation; metadata remain inspectable."
+        },
+        "identity_consistent": true,
+        "requested_catalog_id": 6251
+      },
+      "result": null,
+      "evidence": null,
+      "assumptions": [
+        "Existing full source validation rejects this persisted record."
+      ],
+      "limitations": [
+        "Published mean-element sets are source estimates, not direct observations.",
+        "Element differences may reflect epochs, estimation or source updates, physical motion or data quality; these inputs cannot distinguish those explanations.",
+        "No maneuver, anomaly, collision-risk or operational-safety conclusion is supported.",
+        "Two records support pairwise changes only. More samples alone do not establish a reliable long-term trend or prediction. No fit, interpolation or extrapolation is used.",
+        "Only the inspected insertion-ID window is analyzed. Chronology is retrieval time, not insertion ID; element epochs are separately checked for reversal.",
+        "Intervals between samples do not establish provider outages or expected collection cadence.",
+        "Checksums validate stored bytes, not independent provider authenticity.",
+        "Independent observation-based prediction validation is blocked; uncertainty is unquantified.",
+        "Finding replay is not implemented by the Phase 10 format. A comparison capture recipe reproduces underlying calculations only; it is not an existing evidence package."
+      ],
+      "reproduction_status": "deterministic_rule_evaluated_not_independently_replayed",
+      "finding_id": "history-finding-sha256:b43f234c34910526cbb8aa3fa3c1154c57e0ca8e8dbb75701dccfd72ec7f9649"
+    },
+    {
+      "schema_version": 1,
+      "rule_id": "history.freshness",
+      "rule_version": 1,
+      "category": "stale_source_data",
+      "status": "recorded",
+      "severity": null,
+      "confidence": null,
+      "title": "Element freshness: stale",
+      "explanation": "Existing epoch-based policy classifies snapshot #1 as stale. Retrieval age is recorded separately and does not quantify prediction accuracy.",
+      "catalog_id": 6251,
+      "sources": [
+        {
+          "snapshot_id": 1,
+          "catalog_id": 6251,
+          "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+          "retrieved_at": "2026-10-17T00:00:00+00:00",
+          "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+        }
+      ],
+      "inputs": {
+        "state": "stale",
+        "evaluated_at": "2026-10-20T00:00:00+00:00",
+        "epoch_age_seconds": 641189596.019904,
+        "retrieval_age_seconds": 259200.0,
+        "fresh_hours": 24.0,
+        "stale_hours": 72.0,
+        "basis": "orbital_epoch",
+        "accuracy_guarantee": false
+      },
+      "result": null,
+      "evidence": null,
+      "assumptions": [
+        "Existing classify(epoch,retrieval,as_of,configured_policy) is not fresh."
+      ],
+      "limitations": [
+        "Published mean-element sets are source estimates, not direct observations.",
+        "Element differences may reflect epochs, estimation or source updates, physical motion or data quality; these inputs cannot distinguish those explanations.",
+        "No maneuver, anomaly, collision-risk or operational-safety conclusion is supported.",
+        "Two records support pairwise changes only. More samples alone do not establish a reliable long-term trend or prediction. No fit, interpolation or extrapolation is used.",
+        "Only the inspected insertion-ID window is analyzed. Chronology is retrieval time, not insertion ID; element epochs are separately checked for reversal.",
+        "Intervals between samples do not establish provider outages or expected collection cadence.",
+        "Checksums validate stored bytes, not independent provider authenticity.",
+        "Independent observation-based prediction validation is blocked; uncertainty is unquantified.",
+        "Finding replay is not implemented by the Phase 10 format. A comparison capture recipe reproduces underlying calculations only; it is not an existing evidence package."
+      ],
+      "reproduction_status": "deterministic_rule_evaluated_not_independently_replayed",
+      "finding_id": "history-finding-sha256:e9083feeff59c68d12882f34f2fbddebb4d0927b76653a174674c9a92a2aa158"
+    },
+    {
+      "schema_version": 1,
+      "rule_id": "history.chronology",
+      "rule_version": 1,
+      "category": "comparison_unavailable",
+      "status": "recorded",
+      "severity": null,
+      "confidence": null,
+      "title": "Directional change unavailable",
+      "explanation": "Reliable compatible chronology is unavailable or element epochs conflict, retrievals are future-dated, or payloads repeat. No earlier-to-later change is claimed.",
+      "catalog_id": 6251,
+      "sources": [
+        {
+          "snapshot_id": 1,
+          "catalog_id": 6251,
+          "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+          "retrieved_at": "2026-10-17T00:00:00+00:00",
+          "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+        },
+        {
+          "snapshot_id": 2,
+          "catalog_id": 6251,
+          "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+          "retrieved_at": "2026-10-18T00:00:00+00:00",
+          "orbital_epoch": "2006-06-26T01:46:43.980096+00:00"
+        }
+      ],
+      "inputs": {
+        "chronology": {
+          "status": "ordered",
+          "basis": "stored_retrieval_time",
+          "older_snapshot_id": 1,
+          "newer_snapshot_id": 2
+        },
+        "epoch_order_conflict": false,
+        "duplicate_payload": false,
+        "future_retrieval_timestamp": false,
+        "evaluated_at": "2026-10-20T00:00:00+00:00",
+        "source_errors": [
+          {
+            "code": "snapshot_invalid",
+            "message": "Snapshot cannot pass scientific provenance validation; metadata remain inspectable."
+          },
+          null
+        ]
+      },
+      "result": null,
+      "evidence": null,
+      "assumptions": [
+        "Retrieval order is unknown/equal, epochs conflict, or payloads repeat."
+      ],
+      "limitations": [
+        "Published mean-element sets are source estimates, not direct observations.",
+        "Element differences may reflect epochs, estimation or source updates, physical motion or data quality; these inputs cannot distinguish those explanations.",
+        "No maneuver, anomaly, collision-risk or operational-safety conclusion is supported.",
+        "Two records support pairwise changes only. More samples alone do not establish a reliable long-term trend or prediction. No fit, interpolation or extrapolation is used.",
+        "Only the inspected insertion-ID window is analyzed. Chronology is retrieval time, not insertion ID; element epochs are separately checked for reversal.",
+        "Intervals between samples do not establish provider outages or expected collection cadence.",
+        "Checksums validate stored bytes, not independent provider authenticity.",
+        "Independent observation-based prediction validation is blocked; uncertainty is unquantified.",
+        "Finding replay is not implemented by the Phase 10 format. A comparison capture recipe reproduces underlying calculations only; it is not an existing evidence package."
+      ],
+      "reproduction_status": "deterministic_rule_evaluated_not_independently_replayed",
+      "finding_id": "history-finding-sha256:ddc0b4f7025b3bd6fd8a9419ff39c40c8603afbe71f154e638654fab60b633ee"
+    },
+    {
+      "schema_version": 1,
+      "rule_id": "history.comparison",
+      "rule_version": 1,
+      "category": "comparison_unavailable",
+      "status": "recorded",
+      "severity": null,
+      "confidence": null,
+      "title": "Element comparison unavailable",
+      "explanation": "The existing comparison service or chronology policy cannot support this directional comparison; no missing value is replaced with zero.",
+      "catalog_id": 6251,
+      "sources": [
+        {
+          "snapshot_id": 1,
+          "catalog_id": 6251,
+          "response_sha256": "9463540b65fe3b37413918a01fc6f1902f0737a3159836457cfefb2dfd07ce3d",
+          "retrieved_at": "2026-10-17T00:00:00+00:00",
+          "orbital_epoch": "2006-06-25T19:46:43.980096+00:00"
+        },
+        {
+          "snapshot_id": 2,
+          "catalog_id": 6251,
+          "response_sha256": "18bb119657b2ae94ba9f79afa3ee6a6d1ae2d60c7f4ae9812e2aeca0f8026e74",
+          "retrieved_at": "2026-10-18T00:00:00+00:00",
+          "orbital_epoch": "2006-06-26T01:46:43.980096+00:00"
+        }
+      ],
+      "inputs": {
+        "element_comparison_status": "incompatible_or_no_shared_record",
+        "chronology_status": "source_unusable",
+        "source_errors": [
+          {
+            "code": "snapshot_invalid",
+            "message": "Snapshot cannot pass scientific provenance validation; metadata remain inspectable."
+          },
+          null
+        ]
+      },
+      "result": null,
+      "evidence": {
+        "status": "unavailable",
+        "definition": null,
+        "manifest_sha256": null,
+        "package_url": null,
+        "scope": "Underlying Phase 9 comparison report / Phase 10 calculation replay only; findings themselves are not replayed."
+      },
+      "assumptions": [
+        "Existing comparison service rejects compatible element subtraction."
+      ],
+      "limitations": [
+        "Published mean-element sets are source estimates, not direct observations.",
+        "Element differences may reflect epochs, estimation or source updates, physical motion or data quality; these inputs cannot distinguish those explanations.",
+        "No maneuver, anomaly, collision-risk or operational-safety conclusion is supported.",
+        "Two records support pairwise changes only. More samples alone do not establish a reliable long-term trend or prediction. No fit, interpolation or extrapolation is used.",
+        "Only the inspected insertion-ID window is analyzed. Chronology is retrieval time, not insertion ID; element epochs are separately checked for reversal.",
+        "Intervals between samples do not establish provider outages or expected collection cadence.",
+        "Checksums validate stored bytes, not independent provider authenticity.",
+        "Independent observation-based prediction validation is blocked; uncertainty is unquantified.",
+        "Finding replay is not implemented by the Phase 10 format. A comparison capture recipe reproduces underlying calculations only; it is not an existing evidence package."
+      ],
+      "reproduction_status": "deterministic_rule_evaluated_not_independently_replayed",
+      "finding_id": "history-finding-sha256:7f6b0cb85a00bb1f9f240d23181da0a51db160912e77e0dce334f12a1285a90c"
+    }
+  ],
+  "methodology": {
+    "software_versions": {
+      "sgp4": "2.27",
+      "astropy": "7.2.3",
+      "pyerfa": "2.0.1.5"
+    },
+    "fields": {
+      "INCLINATION": "deg",
+      "ECCENTRICITY": "dimensionless",
+      "MEAN_MOTION": "rev/day"
+    },
+    "difference": "later retrieval minus earlier retrieval; inclination linear, not wrapped; no percentages",
+    "freshness_policy": {
+      "fresh_hours": 24.0,
+      "stale_hours": 72.0
+    },
+    "observation_at": null,
+    "calculation_at": null,
+    "rules": {
+      "coverage": "Count provenance-validated records in the inspected window.",
+      "partial_window": "The bounded window does not contain the complete anchored satellite history.",
+      "metadata": "Required public metadata issues or missing insertion timestamp are recorded.",
+      "validation": "Existing full source validation rejects this persisted record.",
+      "freshness": "Existing classify(epoch,retrieval,as_of,configured_policy) is not fresh.",
+      "chronology": "Retrieval order is unknown/equal, epochs conflict, or payloads repeat.",
+      "interval": "Retrieval interval exceeds configured stale_hours; a coverage flag, not an outage.",
+      "epoch_interval": "Epoch separation exceeds configured stale_hours; no accuracy inference.",
+      "comparison": "Existing comparison service rejects compatible element subtraction.",
+      "element_change": "Existing element_differences: second minus first; inclination is not wrapped."
+    },
+    "categories": {
+      "informational": "Recorded facts or calculated differences; no physical severity.",
+      "incomplete_data": "Insufficient coverage or metadata; absence is not a negative finding.",
+      "stale_source_data": "Element age exceeds the existing configured freshness policy.",
+      "comparison_unavailable": "Compatible directional element comparison is not supported.",
+      "validation_failure": "Stored source fails existing integrity/provenance validation."
+    },
+    "max_points": 20,
+    "max_comparisons": 19,
+    "max_findings": 200
+  },
+  "limitations": [
+    "Published mean-element sets are source estimates, not direct observations.",
+    "Element differences may reflect epochs, estimation or source updates, physical motion or data quality; these inputs cannot distinguish those explanations.",
+    "No maneuver, anomaly, collision-risk or operational-safety conclusion is supported.",
+    "Two records support pairwise changes only. More samples alone do not establish a reliable long-term trend or prediction. No fit, interpolation or extrapolation is used.",
+    "Only the inspected insertion-ID window is analyzed. Chronology is retrieval time, not insertion ID; element epochs are separately checked for reversal.",
+    "Intervals between samples do not establish provider outages or expected collection cadence.",
+    "Checksums validate stored bytes, not independent provider authenticity.",
+    "Independent observation-based prediction validation is blocked; uncertainty is unquantified.",
+    "Finding replay is not implemented by the Phase 10 format. A comparison capture recipe reproduces underlying calculations only; it is not an existing evidence package."
+  ],
+  "report_id": "history-report-sha256:b86b8c8f7a3b1e0097c6cab2d4db61c61f8bf4111a144aa4426a6502c4a3ea2b"
+}

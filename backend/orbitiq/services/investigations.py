@@ -230,7 +230,12 @@ def source_for_comparison(path, snapshot_id):
     page = listing(path, snapshot_id=snapshot_id)
     if not page["snapshots"]:
         raise analysis.AnalysisError(404, "snapshot_not_found", "Snapshot not found")
-    summary = page["snapshots"][0]
+    return source_from_summary(path, page["snapshots"][0])
+
+
+def source_from_summary(path, summary):
+    """Validate an already listed source without another metadata/count query."""
+    snapshot_id = summary["id"]
     try:
         item, elements = analysis.load_snapshot(path, snapshot_id)
         return summary, item, elements, None
@@ -427,6 +432,13 @@ def compare(path, first_id, second_id, at=None, frame="TEME", category="all"):
         source_for_comparison(path, first_id),
         source_for_comparison(path, second_id),
     ]
+    return compare_sources(sources, at, frame, category, now=now)
+
+
+def compare_sources(sources, at=None, frame="TEME", category="all", *, now=None):
+    """Shared comparison for already validated immutable source tuples."""
+    now = now or datetime.now(UTC)
+    first_id, second_id = (s[0]["id"] for s in sources)
     a, b = sources[0][0], sources[1][0]
     invalid = any(s[3] for s in sources) or not all(
         s[0]["identity_consistent"] for s in sources

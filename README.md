@@ -40,6 +40,22 @@ common-time TEME/ITRS comparison evidence. See [Phase 6 verification](docs/phase
 [backup/restore runbook](docs/backup-restore-runbook.md). Public deployment remains
 subject to the separate [Phase 8 launch gates](docs/phase-8-closure-checklist.md).
 
+## Historical analysis
+
+Open **Discovery & history → Historical analysis** to inspect bounded archived
+satellite timelines, exact orbital-element differences and explainable data-quality
+findings. JSON export preserves the captured sources and limitations. Two genuine
+ISS records currently support pairwise changes; broader genuine-history validation
+remains limited by coverage. See the [methodology](docs/historical-analysis-methodology.md)
+and [Phase 11 verification report](docs/phase-11-report.md). No collection or replay
+package creation is triggered by this view.
+
+The [observation-validation extension](docs/observation-validation.md) adds local
+operator-supplied evidence, compatible position discrepancies and captured JSON
+inspection under **Observation validation**. No independent observations are
+currently supplied; genuine accuracy validation remains blocked. See the
+[extension report](docs/phase-11-extension-report.md) for actual verification.
+
 ## Requirements and installation
 
 Phase 7 adds **Saved investigations**: browser-local saved snapshot, TEME position,

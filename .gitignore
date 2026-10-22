@@ -19,3 +19,6 @@ replay-bundles/
 *.key
 *.log
 .DS_Store
+
+# Local normalized observation inputs, private validation evidence and nested replays.
+validation-evidence/

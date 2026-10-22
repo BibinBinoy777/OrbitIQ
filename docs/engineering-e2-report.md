@@ -1,8 +1,10 @@
 # E2 implementation and verification report
 
-This is a local pre-publication checkpoint. Remote CI is pending at the time of
-writing; the final publication receipt must identify the exact pushed commit and
-its GitHub Actions run. Local checks are not remote CI or production evidence.
+The implementation was published as `6205c21097afd8af8e55fb9bc8e1d595e74922d7`.
+All three jobs passed in [its exact-commit CI run](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39827064131).
+The documentation-only cache-method clarification below follows that run and
+requires its own publication receipt and CI result. Local checks, publication,
+remote CI and production deployment remain separate milestones.
 
 ## Repository and scope
 
@@ -59,8 +61,9 @@ justified geometry, pixel-ratio, animation-loop or React-render optimizations.
   restoration passed. Chromium's held real module request produced the 15-second
   fallback and recovered with the real renderer after release and explicit retry.
 - Backend tests were not rerun locally: no backend source, API, Python dependency
-  or schema changed. The unchanged CI backend job will run its full suite and
-  scientific/migration checks on the published E2 commit.
+  or schema changed. The unchanged CI backend job ran its full suite and
+  scientific/migration checks on implementation commit `6205c21`: **1,208 tests
+  passed with two existing warnings**, plus all reference/migration checks.
 
 The build retains the existing renderer chunk warning. No warning threshold,
 scientific guard, test assertion or E1 workflow is disabled to obtain a pass.
@@ -94,7 +97,8 @@ repeat. All use Linux, Chromium 151.0.7922.34, the same pinned E2 browser image,
 1440x1000 viewport, DPR 1, SwiftShader WebGL2, identical three-sample synthetic
 tracks and the same measurement script. No other regression suite ran during
 the paired repeat. The fixture API stayed the same across the paired images;
-browser-cache warming and order still limit causal comparisons.
+Playwright diagnostic routing disables browser HTTP caching. OS/server/shader
+cache warming and run order still limit causal comparisons.
 
 | Paired measurement, three repetitions      |              E1 baseline |                       E2 |
 | ------------------------------------------ | -----------------------: | -----------------------: |
@@ -162,5 +166,7 @@ settings. Neither a local build nor passing engineering CI closes these gates.
 All 19 files are limited to E2. Databases, private attachments/correspondence,
 credentials, environment files, browser artifacts, research source maps and
 unrelated changes are excluded. Existing E1 runners and previous phase reports
-are preserved. GitHub publication and exact-commit CI verification are separate
-from this local checkpoint; no production milestone is claimed here.
+are preserved. The implementation commit and its CI run above are verified. This follow-up
+changes only the cache description and its evidence annotation; measurements and
+application/test sources are preserved. The final publication receipt identifies
+CI for the resulting documentation commit. No production milestone is claimed.

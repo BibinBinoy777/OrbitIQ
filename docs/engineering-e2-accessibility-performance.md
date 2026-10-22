@@ -76,9 +76,10 @@ not available in this environment.
 Use the same pinned browser image, synthetic three-sample ground track, viewport,
 DPR, headless software graphics configuration and script for baseline and E2.
 Baseline uses the preserved E1 web image, not a source reset. Three fresh document
-navigations (`?e2=0/1/2`) preserve normal browser caching between repetitions.
-The preceding explorer audit warms the browser asset cache; these are not cold
-public-network startup measurements.
+navigations (`?e2=0/1/2`) use the same diagnostic request guard. Playwright
+routing disables the browser HTTP cache; local assets are fetched again. OS,
+server and shader caches are not reset. These are not cold public-network startup
+measurements.
 Wait for the real track, renderer and Earth texture resource. Record context
 creation, first draw and test-observed readiness relative to document navigation.
 Observed readiness includes network-idle waiting and test overhead; it is not an

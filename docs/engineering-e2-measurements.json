@@ -2351,6 +2351,7 @@
   "cautions": [
     "Timing variation is informational; no causal performance improvement inferred.",
     "Browser heap estimates do not establish absence of leaks.",
-    "Firefox exercised fallback; WebKit renderer identifier is reported metadata, not physical hardware evidence."
+    "Firefox exercised fallback; WebKit renderer identifier is reported metadata, not physical hardware evidence.",
+    "The diagnostic request guard enables Playwright routing, which disables browser HTTP caching. OS/server/shader caches were not reset."
   ]
 }

@@ -30,7 +30,7 @@ It does not implement a global live satellite catalog, automatic provider
 scheduler, multi-device/account saves, server report archive, browser replay
 import or qualified genuine independent accuracy assessment. The audit maps each
 material capability and its limits to source, APIs, journeys and tests.
-The audit has 22 bounded capability rows. A fresh development OpenAPI inspection
+The audit has 23 bounded capability rows. A fresh development OpenAPI inspection
 found 15 registered GET operations, with no ingestion or public write endpoint.
 README's outdated present-tense CI description is corrected; phase reports retain
 their historical scope and bytes.
@@ -122,6 +122,9 @@ durable application data. Reproduce with the existing [E1/E2 commands](engineeri
 [E3 installation procedure](engineering-e3-reliability-recovery.md#reproduce-verification)
 and [E4 candidate procedure](engineering-e4-release-readiness.md#exact-source-release-verification).
 No redundant workflow or test exclusion is introduced.
+Private diagnostic CLIs were not rerun on raw research files. Their parser,
+reconciliation and qualification-guard regressions ran in the backend suite with
+fixtures; the original private-input scientific dispositions remain unchanged.
 
 ## Preservation and boundaries
 
@@ -153,6 +156,46 @@ qualified residuals, independent-accuracy or historical-forecast claim is made.
 
 Local checks: **PASS for the implementation and reviewed index recorded above**;
 subsequent edits are documentation-only and receive link/privacy/whitespace review.
-Publication: prepared on `engineering-e5-product-acceptance`; not yet committed
-or pushed at this checkpoint. Remote CI: **pending exact published commit**.
+Implementation publication: **PUSHED**, eight reviewed files on
+`engineering-e5-product-acceptance`, commit
+`2689e6f50115c67fce9ca2de66eaa0590779d8b0`, tree
+`18e4028ef9564b539de7a0a843cb506458e1b4e7`. The original E4 and default-branch
+refs are preserved; no merge occurred.
+
+Remote CI: **VERIFIED for that implementation commit**,
+[run 39954800692](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39954800692).
+All three jobs (`backend`, `frontend`, `release-images`) succeeded. Actual downloaded
+JUnit records confirm 1,278 backend and 350 frontend tests, zero failed/skipped.
+The full browser evidence confirms 77 flows, the new E5 assertions in each engine,
+five failure cases, both expected-negative probes, 62 E2 checks, 18 axe scans with
+zero reported violations, and seven PDF checks including 361 maximum-track rows.
+Locked installs, all numerical audits, lint/format/types/build, advisory lookup,
+explicit migration/recovery, isolated checkout/restart/recovery and gateway/TLS
+checks passed remotely as well.
+
+Downloaded source/lock/frontend hashes match this exact Git commit/tree and the
+sealed record. Its API image ID is
+`sha256:7ad65c6dcc6dbd9a2f2cca052a1390f04ebaead0665ed24e3aaf9aa6c26a5787`;
+web image ID is
+`sha256:75081ef2682c6e85dffe743bb13b6881acfdb4e9eb178fbf0f2429e919f67dc9`.
+Full and compact evidence verify offline against their hashes. Privacy checks
+passed for downloaded fixture evidence, PDF text, test results and frontend assets.
+Nine expected artifacts have actual non-expired server metadata matching the
+existing 7/90-day policy. Future expiration/deletion and global retention settings
+were not tested. The two optional manual image-archive steps were skipped on this
+ordinary push as designed; no required job or test was skipped. E5 does not retain
+its image bytes or publish them to a registry. This remains trusted-CI evidence,
+not an independent build attestation or deployment approval.
+
+Nonblocking CI annotations concern the existing upload action's forced Node 24
+runtime and the Ubuntu runner migration. The known renderer chunk warning and
+existing test warnings remain visible. None was suppressed.
+
+This results-only documentation follow-up changes this report and adds an explicit
+static-diagnostics row to the audit; application/tests/runners/locks are unchanged.
+The follow-up commit is identified by Git history and its own exact-commit CI result
+must be checked separately. The implementation run above cannot verify a later SHA.
+
 Production deployed: **NO**. Production infrastructure verified: **NO**.
+E5 audit/acceptance: **COMPLETE**. E4: **OPEN**. Phase 11.3.1: **PARTIAL**;
+scientific evaluation: **BLOCKED**. No genuine Swarm-A residuals produced.

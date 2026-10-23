@@ -218,6 +218,48 @@ def evidence(directory):
                 "Accessibility/regression evidence is incomplete or failed"
             )
         files.append(path)
+        history_path = browser / f"{engine}-history/history/evidence.json"
+        history = load(history_path).get("engineering_e7", {})
+        expected_cases = {
+            "initial_retry",
+            "next_retry",
+            "previous_retry",
+            "wrong_window_refused",
+            "captured_export",
+            "input_clears_retry",
+            "keyboard_layout",
+        }
+        if (
+            history.get("status") != "PASS"
+            or history.get("page_errors")
+            or history.get("no_network_writes") is not True
+            or history.get("browser_storage_unchanged") is not True
+            or len(history.get("cases", [])) != 7
+            or {c.get("case") for c in history.get("cases", [])} != expected_cases
+            or any(c.get("status") != "PASS" for c in history["cases"])
+            or summary.get("engineering_e7", {}).get(engine) != 7
+            or len(history.get("accessibility", [])) != 2
+            or any(a["violations"] for a in history["accessibility"])
+            or {
+                layout.get("width")
+                for layout in history.get("layouts", [])
+                if layout.get("status") == "PASS"
+            }
+            != {320, 1440}
+        ):
+            raise ValueError(
+                "Historical window recovery evidence is incomplete or failed"
+            )
+        download = history_path.parent / "selected-window.json"
+        receipt = history.get("download", {})
+        if receipt.get("file") != download.name or digest(download) != receipt.get(
+            "sha256"
+        ):
+            raise ValueError("Historical captured export changed or is missing")
+        captured = load(download)
+        if captured.get("request") != history.get("captured_request"):
+            raise ValueError("Historical captured window does not match receipt")
+        files.extend([history_path, download])
         path = browser / f"{engine}-engineering-e6/evidence.json"
         recovery = load(path)
         if (

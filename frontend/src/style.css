@@ -565,6 +565,14 @@ textarea {
 .historical-analysis {
   min-width: 0;
 }
+.historical-analysis .controls > * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.historical-analysis button {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
 .historical-analysis details {
   margin-block: 0.75rem;
   padding: 0.75rem;

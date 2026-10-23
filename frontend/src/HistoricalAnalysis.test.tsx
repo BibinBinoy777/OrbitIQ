@@ -11,6 +11,7 @@ import HistoricalAnalysis from "./HistoricalAnalysis";
 import { getHistory, parseHistory } from "./history-api";
 import fixture from "./test-fixtures/history.json";
 import invalidFixture from "./test-fixtures/history-invalid.json";
+import windows from "./test-fixtures/history-windows.json";
 type Fixture = Omit<typeof fixture, "pagination" | "coverage"> & {
   pagination: Omit<typeof fixture.pagination, "next_before_id"> & {
     next_before_id: number | null;
@@ -111,23 +112,10 @@ it("rejects invalid identifiers before requesting", async () => {
   expect(fetchMock).not.toHaveBeenCalled();
 });
 it("paginates bounded windows with an anchor and partial coverage", async () => {
-  const first = data();
-  first.points = [first.points[1]];
-  first.comparisons = [];
-  first.findings = [];
-  first.pagination = {
-    ...first.pagination,
-    page_size: 1,
-    has_more: true,
-    next_before_id: 2,
-  };
-  first.coverage = {
-    ...first.coverage,
-    inspected_count: 1,
-    validated_record_count: 1,
-    complete_anchored_history: false,
-  };
-  const { fetchMock } = setup(first);
+  const { fetchMock } = setup(windows.first);
+  fireEvent.change(screen.getByLabelText("Timeline page size"), {
+    target: { value: "1" },
+  });
   await analyze();
   expect(screen.getByText(/Partial window:/)).toBeInTheDocument();
   fireEvent.click(screen.getByText("Next timeline page"));
@@ -154,21 +142,7 @@ it("aborts obsolete requests on editing and hides stale results", async () => {
   expect(screen.queryByText(/Historical coverage ·/)).not.toBeInTheDocument();
 });
 it("renders empty coverage honestly", async () => {
-  const empty = data();
-  empty.points = [];
-  empty.findings = [];
-  empty.comparisons = [];
-  empty.coverage = {
-    ...empty.coverage,
-    inspected_count: 0,
-    validated_record_count: 0,
-    summary: "No suitable persisted records are available.",
-    oldest_verifiable_retrieval: null,
-    newest_verifiable_retrieval: null,
-    retrieval_span_seconds: null,
-  };
-  empty.pagination.total_count = 0;
-  setup(empty);
+  setup(windows.empty);
   await analyze();
   expect(screen.getByText(/No archived records found/)).toBeInTheDocument();
   expect(

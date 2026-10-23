@@ -14,6 +14,7 @@ from urllib.request import ProxyHandler, build_opener
 
 from browser_diagnostics import browser_session
 from playwright.sync_api import expect, sync_playwright
+from verify_history_window import verify_window
 
 
 def main():
@@ -219,6 +220,8 @@ def main():
             )
         ).to_be_visible()
         cases.append("navigation to existing snapshot detail")
+        # E7 faults use a separate context; preceding cases use the actual API.
+        window_checks = verify_window(browser, base, args.catalog, expected, out)
         (out / "diagnostics.json").write_text(
             json.dumps(
                 {"errors": errors, "violations": violations, "requests": requests},
@@ -236,6 +239,7 @@ def main():
             "screenshots_captured": args.engine != "webkit",
             "recorded_at": datetime.now(UTC).isoformat(),
             "cases": cases,
+            "engineering_e7": window_checks,
             "page_errors": errors,
             "csp_violations": violations,
             "requests": requests,

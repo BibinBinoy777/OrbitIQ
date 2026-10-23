@@ -390,12 +390,18 @@ def main():
             )
         assert counts == {"chromium": 27, "firefox": 25, "webkit": 25}, counts
         e6 = {}
+        e7 = {}
         for engine in ENGINES:
             record = json.loads(
                 (output / f"{engine}-engineering-e6/evidence.json").read_text()
             )
             assert record["status"] == "PASS" and len(record["round_trips"]) == 4
             e6[engine] = len(record["cases"])
+            history = json.loads(
+                (output / f"{engine}-history/history/evidence.json").read_text()
+            )
+            assert history["engineering_e7"]["status"] == "PASS"
+            e7[engine] = len(history["engineering_e7"]["cases"])
         if failures:
             raise RuntimeError(str(failures))
         (output / "summary.json").write_text(
@@ -407,6 +413,7 @@ def main():
                     "pdf_checks": len(pdfs),
                     "engineering_e2": args.engineering_e2,
                     "engineering_e6": e6,
+                    "engineering_e7": e7,
                     "additional_fault_injection_cases": len(
                         json.loads(
                             (

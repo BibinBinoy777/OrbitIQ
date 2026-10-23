@@ -13,6 +13,10 @@ export default function HistoricalAnalysis({
 }) {
   const heading = useId(),
     request = useRef<AbortController | null>(null);
+  const retryWindow = useRef<{
+    params: URLSearchParams;
+    back: URLSearchParams[];
+  } | null>(null);
   const [catalog, setCatalog] = useState("25544"),
     [size, setSize] = useState("20");
   const [report, setReport] = useState<HistoricalReport | null>(null),
@@ -25,6 +29,7 @@ export default function HistoricalAnalysis({
     [second, setSecond] = useState("");
   useEffect(() => () => request.current?.abort(), []);
   function clear() {
+    retryWindow.current = null;
     request.current?.abort();
     setReport(null);
     setError("");
@@ -36,6 +41,10 @@ export default function HistoricalAnalysis({
     request.current?.abort();
     const controller = new AbortController();
     request.current = controller;
+    // Capture the attempted window, not just the most recent successful result.
+    const attempted = new URLSearchParams(p);
+    const previousWindows = previous.map((value) => new URLSearchParams(value));
+    retryWindow.current = { params: attempted, back: previousWindows };
     setReport(null);
     setError("");
     setNotice("");
@@ -47,11 +56,18 @@ export default function HistoricalAnalysis({
         Number(catalog) > 339999
       )
         throw new Error("Use a NORAD catalog identifier from 1 to 339999.");
-      const value = await getHistory(Number(catalog), p, controller.signal);
+      const value = await getHistory(
+        Number(catalog),
+        attempted,
+        controller.signal,
+      );
       if (!controller.signal.aborted) {
         setReport(value);
-        setParams(p);
-        setBack(previous);
+        const resolved = new URLSearchParams(attempted);
+        if (value.pagination.anchor_id !== null)
+          resolved.set("anchor_id", String(value.pagination.anchor_id));
+        setParams(resolved);
+        setBack(previousWindows);
         const ids = value.points
           .filter((x) => x.usable)
           .map((x) => String(x.metadata.id));
@@ -133,7 +149,13 @@ export default function HistoricalAnalysis({
       {error && (
         <p role="alert">
           {error}{" "}
-          <button type="button" onClick={() => void load(params, back)}>
+          <button
+            type="button"
+            onClick={() => {
+              const target = retryWindow.current;
+              if (target) void load(target.params, target.back);
+            }}
+          >
             Retry historical analysis
           </button>
         </p>

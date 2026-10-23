@@ -34,6 +34,7 @@ def artifacts(tmp_path):
                 "status": "PASS",
                 "engineering_e2": True,
                 "engineering_e6": {"chromium": 13, "firefox": 13, "webkit": 13},
+                "engineering_e7": {"chromium": 7, "firefox": 7, "webkit": 7},
                 "fixture_unchanged": True,
                 "pdf_checks": 7,
                 "additional_fault_injection_cases": 5,
@@ -128,6 +129,44 @@ def artifacts(tmp_path):
                     }
                 )
             )
+    for engine in ["chromium", "firefox", "webkit"]:
+        folder = browser / f"{engine}-history/history"
+        folder.mkdir(parents=True)
+        captured = folder / "selected-window.json"
+        captured.write_text(json.dumps({"request": {"limit": 1}}))
+        (folder / "evidence.json").write_text(
+            json.dumps(
+                {
+                    "engineering_e7": {
+                        "status": "PASS",
+                        "page_errors": [],
+                        "no_network_writes": True,
+                        "browser_storage_unchanged": True,
+                        "captured_request": {"limit": 1},
+                        "cases": [
+                            {"case": c, "status": "PASS"}
+                            for c in (
+                                "initial_retry",
+                                "next_retry",
+                                "previous_retry",
+                                "wrong_window_refused",
+                                "captured_export",
+                                "input_clears_retry",
+                                "keyboard_layout",
+                            )
+                        ],
+                        "accessibility": [{"violations": []}] * 2,
+                        "layouts": [
+                            {"width": w, "status": "PASS"} for w in (320, 1440)
+                        ],
+                        "download": {
+                            "file": captured.name,
+                            "sha256": release.digest(captured),
+                        },
+                    }
+                }
+            )
+        )
     pdfs = []
     for index in range(7):
         path = browser / f"fixture-{index}.pdf"
@@ -176,7 +215,7 @@ def test_successful_record_is_not_production_approval(candidate, artifacts):
     record = release.seal(capture, frontend, artifacts, output)
     assert record["release_candidate"] and record["production_approved"] is False
     assert release.verify_files(output, artifacts)["status"] == "PASS"
-    assert len(record["evidence_sha256"]) == 63
+    assert len(record["evidence_sha256"]) == 69
 
 
 def test_local_index_candidate_cannot_become_committed_release(candidate, artifacts):
@@ -406,6 +445,39 @@ def test_e6_recovery_failures_refuse_release(candidate, artifacts, defect):
             data["layouts"].pop()
         path.write_text(json.dumps(data))
     output = artifacts / "rejected-e6.json"
+    with pytest.raises((ValueError, FileNotFoundError)):
+        release.seal(capture, frontend, artifacts, output)
+    assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    "defect",
+    ["missing", "case", "summary", "storage", "axe", "layout", "download", "request"],
+)
+def test_e7_window_failures_refuse_release(candidate, artifacts, defect):
+    _, _, frontend, capture = candidate
+    path = artifacts / "browser/chromium-history/history/evidence.json"
+    data = json.loads(path.read_text())
+    check = data["engineering_e7"]
+    if defect == "missing":
+        path.unlink()
+    else:
+        if defect == "case":
+            check["cases"][0]["status"] = "FAIL"
+        elif defect == "summary":
+            check["cases"].pop()
+        elif defect == "storage":
+            check["browser_storage_unchanged"] = False
+        elif defect == "axe":
+            check["accessibility"][0]["violations"] = ["test violation"]
+        elif defect == "layout":
+            check["layouts"].pop()
+        elif defect == "download":
+            (path.parent / "selected-window.json").write_text("changed")
+        elif defect == "request":
+            check["captured_request"]["limit"] = 20
+        path.write_text(json.dumps(data))
+    output = artifacts / "rejected-e7.json"
     with pytest.raises((ValueError, FileNotFoundError)):
         release.seal(capture, frontend, artifacts, output)
     assert not output.exists()

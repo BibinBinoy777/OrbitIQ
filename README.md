@@ -445,3 +445,5 @@ renderer-recovery and informational performance checks. See the
 qualify orbital accuracy or establish production readiness.
 
 Stored-catalog onboarding and local portable recovery: [E6 usage and bundle format](docs/engineering-e6-guide.md).
+
+Historical window validation and exact-window Retry: [E7 usage and verification](docs/engineering-e7-guide.md).

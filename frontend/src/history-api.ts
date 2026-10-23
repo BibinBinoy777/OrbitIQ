@@ -2,7 +2,7 @@ import { object, parseStored } from "./investigation-api";
 import type { StoredSnapshot } from "./investigation-api";
 import type { Investigation } from "./saved-investigation";
 import { canonicalTime } from "./saved-investigation";
-interface HistoricalReference {
+export interface HistoricalReference {
   snapshot_id: number;
   catalog_id: number | null;
   orbital_epoch: string | null;
@@ -50,6 +50,12 @@ export interface HistoryFinding {
   result: unknown;
   reproduction_status: string;
 }
+export interface HistoryRequest {
+  catalog_id: number;
+  limit: number;
+  before_id: number | null;
+  anchor_id: number | null;
+}
 export interface HistoricalReport {
   kind: "orbitiq_historical_analysis";
   schema_version: 1;
@@ -57,6 +63,8 @@ export interface HistoricalReport {
   report_id: string;
   generated_at: string;
   catalog_id: number;
+  request: HistoryRequest;
+  sources: HistoricalReference[];
   pagination: {
     anchor_id: number | null;
     has_more: boolean;
@@ -121,6 +129,8 @@ export function parseHistory(v: unknown): HistoricalReport {
     !time(v.generated_at) ||
     v.generated_at === null ||
     !strings(v.limitations) ||
+    !object(v.request) ||
+    !Array.isArray(v.sources) ||
     !object(v.pagination) ||
     !object(v.coverage) ||
     !Array.isArray(v.points) ||
@@ -132,8 +142,14 @@ export function parseHistory(v: unknown): HistoricalReport {
   )
     invalid();
   const p = v.pagination,
-    c = v.coverage;
+    c = v.coverage,
+    request = v.request;
   if (
+    request.catalog_id !== v.catalog_id ||
+    request.limit !== p.page_size ||
+    !(request.before_id === null || id(request.before_id)) ||
+    request.anchor_id !== p.anchor_id ||
+    v.sources.length !== v.points.length ||
     !(p.anchor_id === null || id(p.anchor_id)) ||
     typeof p.has_more !== "boolean" ||
     !(p.next_before_id === null || id(p.next_before_id)) ||
@@ -146,13 +162,29 @@ export function parseHistory(v: unknown): HistoricalReport {
       p.total_count === null ||
       (Number.isSafeInteger(p.total_count) && Number(p.total_count) >= 0)
     ) ||
-    typeof p.total_count_status !== "string" ||
+    !["exact_within_anchor", "unknown_exceeds_bounded_count"].includes(
+      String(p.total_count_status),
+    ) ||
+    (p.total_count_status === "exact_within_anchor") !==
+      (p.total_count !== null) ||
+    (p.total_count !== null && Number(p.total_count) < v.points.length) ||
+    (c.complete_anchored_history &&
+      p.total_count !== null &&
+      p.total_count !== v.points.length) ||
     c.inspected_count !== v.points.length ||
     !Number.isInteger(c.validated_record_count) ||
     Number(c.validated_record_count) < 0 ||
     Number(c.validated_record_count) > v.points.length ||
     typeof c.complete_anchored_history !== "boolean" ||
-    (c.complete_anchored_history && p.has_more) ||
+    c.complete_anchored_history !==
+      (request.before_id === null && !p.has_more) ||
+    (request.before_id !== null &&
+      p.anchor_id !== null &&
+      Number(request.before_id) > Number(p.anchor_id)) ||
+    (p.has_more &&
+      (Number(p.next_before_id) > Number(p.anchor_id) ||
+        (request.before_id !== null &&
+          Number(p.next_before_id) >= Number(request.before_id)))) ||
     !time(c.oldest_verifiable_retrieval) ||
     !time(c.newest_verifiable_retrieval) ||
     !(
@@ -202,7 +234,14 @@ export function parseHistory(v: unknown): HistoricalReport {
     )
       invalid();
     const s = parseStored(point.metadata);
-    if (sources.has(s.id) || s.catalog_id !== v.catalog_id) invalid();
+    if (
+      sources.has(s.id) ||
+      s.catalog_id !== v.catalog_id ||
+      p.anchor_id === null ||
+      s.id > Number(p.anchor_id) ||
+      (request.before_id !== null && s.id >= Number(request.before_id))
+    )
+      invalid();
     sources.set(s.id, s);
     checkRef(point.reference, point.usable);
     if (point.usable) {
@@ -221,6 +260,13 @@ export function parseHistory(v: unknown): HistoricalReport {
     c.validated_record_count
   )
     invalid();
+  const listed = new Set<number>();
+  for (const ref of v.sources) {
+    checkRef(ref);
+    if (!object(ref) || !id(ref.snapshot_id) || listed.has(ref.snapshot_id))
+      invalid();
+    listed.add(ref.snapshot_id);
+  }
   const pairIds = new Set<string>();
   for (const pair of v.comparisons) {
     if (
@@ -339,6 +385,17 @@ export async function getHistory(
   const text = await r.text();
   if (text.length > 4 * 1024 * 1024) invalid();
   const value = parseHistory(JSON.parse(text));
-  if (value.catalog_id !== catalog) invalid();
+  const expectedLimit = query.get("limit") ?? "20";
+  const expectedBefore = query.get("before_id");
+  const expectedAnchor = query.get("anchor_id");
+  if (
+    value.catalog_id !== catalog ||
+    value.request.limit !== Number(expectedLimit) ||
+    value.request.before_id !==
+      (expectedBefore === null ? null : Number(expectedBefore)) ||
+    (expectedAnchor !== null &&
+      value.request.anchor_id !== Number(expectedAnchor))
+  )
+    invalid();
   return value;
 }

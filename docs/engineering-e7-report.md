@@ -1,8 +1,9 @@
 # Engineering milestone E7 — historical window integrity and recovery
 
-Status: **E7 remains open** pending corrected-commit remote CI verification.
-Local checks passed; the first published CI run failed as investigated below.
-Local results alone do not close the remote gate.
+Status: **E7 engineering acceptance passed** on the published corrected
+implementation commit below, with complete remote CI and retained-evidence
+verification. This report records that baseline. The documentation receipt is a
+separate commit and also requires its own exact-SHA CI before final handoff.
 
 ## Scope and baseline
 
@@ -71,8 +72,8 @@ report version or orbital algorithm changes.
 - The complete local Docker browser/PDF/container release rehearsal was not rerun:
   the inherited VFS storage constraint left about 2.2 GiB on the root filesystem.
   Native Chromium was installed only under `/tmp` as an additional focused check.
-  All three engines, seven PDFs and container/release verification must run in
-  supported remote CI before E7 acceptance is complete.
+  All three engines, seven PDFs and container/release verification subsequently
+  passed in supported remote CI, as recorded below.
 
 The full local Chromium history journey also passed all eight original cases plus
 seven E7 cases, with no page/CSP errors. A fresh isolated Git-index checkout also
@@ -107,7 +108,63 @@ passed **1,306 tests** and the complete local Chromium history journey passed
 again, with and without trace recording. Twelve real calculation requests were
 scheduled in the traced run, with nonzero waits retained in diagnostics. Frontend
 application source/dependencies are unchanged from its 427-test passing state.
-Exact corrected-commit remote CI remains pending at this checkpoint.
+The corrected-commit remote results are recorded below.
+
+## Published corrected implementation and remote evidence
+
+- Implementation commit: `5d234c07ccea605acea381a8d3a3b02b8804c797`.
+- [Exact-commit CI run](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/40003693468): **backend, frontend and release-images all
+  succeeded**. Expected required execution steps passed; only the two optional
+  manual image-retention steps were skipped on this ordinary push.
+- Remote JUnit: **1,306 backend / 427 frontend tests passed**,
+  zero failures/errors/skips. Locked dependency installation, lint/format,
+  TypeScript/build, numerical references and migration/recovery checks passed.
+- Original E1 **77 flows** (27 Chromium, 25 Firefox, 25 WebKit), E2 **62 checks**,
+  and E6 **39 scenarios** / 12 cross-context round trips / 39 native portable
+  downloads passed. Existing suites and assertions were retained.
+- E7: **21 scenarios** (seven in each engine), three native captured-history JSON
+  downloads, exact response/request equality, unchanged browser storage, keyboard
+  interaction, and 320/1440-pixel layouts passed. The original read-only fixture
+  archive remained unchanged. Transport/wrong-window injections used separate
+  contexts; recovered responses came from the actual fixture API.
+- Axe: E2 18 + E6 12 + E7 six = **36 scans**, zero reported violations. Manual
+  review items remain; this is not full WCAG/screen-reader/device certification.
+- **Seven PDFs passed**, including all 361 rows of the maximum-track PDF.
+- Gateway configuration, loopback TLS/API smoke, exact frontend artifact/image
+  comparison and source/image sealing passed. All **369 tracked source files**
+  were independently matched against the published Git blobs. Both full and
+  compact release records verified all **69 sealed evidence files** and the
+  frontend artifact offline. Production approval remains false.
+- Fresh remote checkout matched the exact commit tree. Locked installs,
+  live proxy/startup/restart, safe initialization, failure recovery and separate
+  backup/restore rehearsal passed, with unchanged source and equal restored
+  fingerprints. These disposable local-container checks are not off-machine
+  production recovery.
+- Actual advisory lookup: **29 Python packages / zero matches / zero skipped**;
+  npm **zero reported vulnerabilities**. This is lookup evidence at execution,
+  not a permanent vulnerability or operating-system assurance.
+- All nine expected artifacts belonged to this SHA and were unexpired when
+  inspected. GitHub metadata confirmed configured seven-/90-day retention bounds;
+  future expiration/global settings were not tested. Text/trace content and
+  extracted PDF text passed the established secret/contact scan; database/key
+  filenames were absent, ZIP integrity and PNG/PDF signatures passed. Browser
+  inputs were restricted to declared public/synthetic fixtures. Image OCR was not
+  performed. Existing synthetic URL-rejection canaries and Playwright image
+  references were identified by the established narrow rules.
+- GitHub annotated the existing `ubuntu-latest` migration and upload-artifact
+  runtime transition; neither was a failed check. No workflow or runner setting
+  was changed in E7.
+
+| Plan criterion                         | Actual evidence                                                                | Result |
+| -------------------------------------- | ------------------------------------------------------------------------------ | ------ |
+| 1. Establish original failures         | Ten new regressions failed before fixes                                        | PASS   |
+| 2. Preserve valid/partial/unknown data | Seven real-API shared fixtures accepted                                        | PASS   |
+| 3. Refuse mismatches, preserve clocks  | Validator/UI tests, offset/microsecond cases, browser refusal/export checks    | PASS   |
+| 4. Exact Retry and cancellation        | Initial/Next/Previous, stack/anchor and late-response tests                    | PASS   |
+| 5. Actual browser recovery/export      | Seven E7 cases in all three engines, layouts/axe/native downloads              | PASS   |
+| 6. Document compatible envelope        | API/OpenAPI/golden-payload/report-hash tests                                   | PASS   |
+| 7. Complete relevant checks and CI     | All three jobs at the exact implementation SHA; full/compact evidence verified | PASS   |
+| 8. Preserve/publish safe scope         | 22 reviewed files, 72 private files and earlier reports/branches preserved     | PASS   |
 
 ## Reviewed files and preserved boundaries
 
@@ -148,7 +205,9 @@ engineering branch; no merge, release, image registry publication or deployment.
 
 ## Remaining work and separate statuses
 
-- E7: remote CI/artifact verification pending before engineering closure.
+- E7: **engineering complete** for the selected history-window workflow on the
+  implementation baseline above; final documentation publication receives its
+  own exact-SHA CI verification. No merge or deployment is authorized by this status.
 - E4: **OPEN**. Authorized hosting/public HTTPS, independent off-machine backup
   recovery, real monitoring alert delivery, exact authorized release verification
   and required-check enforcement remain separate production gates.

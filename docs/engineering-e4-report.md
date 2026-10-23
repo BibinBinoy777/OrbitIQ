@@ -105,7 +105,7 @@ Local candidate verification completed against reviewed index tree
 `d2a8c5311177d9e8deb9f87a7f67fe57eba63f1f` (base revision
 `235e91ad7f29504bf394bebcebde1a74d163486d`). The evidence record explicitly
 sets `release_candidate=false` and `production_approved=false`. This report update
-is documentation only; exact published-source verification is still required in CI.
+is documentation only; independent exact published-source verification is recorded below.
 
 Results actually executed:
 
@@ -123,7 +123,7 @@ Results actually executed:
 | Local proxy/TLS/outage/replacement                 | Passed; TLS 1.2/1.3 and negative trust/hostname cases                                    |
 | E1/E2/PDF against patched images                   | 77 flows, 62 E2 checks, 18 axe scans with zero violations, seven PDFs passed             |
 | E3 isolated checkout and recovery                  | Passed; same index tree, fresh locked installs, restart and separate restore             |
-| Published E4 SHA and exact remote CI               | Pending publication                                                                      |
+| Published E4 SHA and exact remote CI               | Implementation SHA below; all three jobs passed                                          |
 
 The local gateway probe initially failed because the restrictive host umask made
 its generated test-certificate directory/certificate unreadable to the non-root
@@ -165,8 +165,64 @@ as such; remote CI must verify the actual published commit independently.
 
 Exactly these twelve implementation/test/workflow/lock/documentation files are
 reviewed. Private inputs, database files, local evidence, credentials and earlier
-phase/E1/E2/E3 reports are excluded. Publication and exact-commit remote CI remain
-pending at this local checkpoint.
+phase/E1/E2/E3 reports are excluded. The reviewed implementation is published only
+to its dedicated engineering branch, with exact-commit verification below.
+
+## Verified implementation publication
+
+**E4 repository-side milestone complete, with the external gates below open.**
+Published branch: `engineering-e4-release-readiness`.
+Implementation commit: `15c5a51103cf26824dd8214ba5806e7261f91c4e`.
+Source tree: `5986931b92a8ff1650ed96da0682ebd2c780fd6d`.
+
+[Exact-commit CI run](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39910094140) completed successfully. The three expected jobs
+`backend`, `frontend` and `release-images` and every reported step passed. The
+check-runs API independently identifies those same three successes on that SHA.
+Actual remote logs confirm **1,254 backend tests** and **345 frontend tests**,
+scientific reference audits, migration/recovery, lint/format/TypeScript/build,
+strict Python audit (29 packages, none skipped, no matches) and npm audit (no
+matches). The release job verifies local gateway/TLS/outage/replacement behavior,
+77 browser flows, five fault-injection cases, two expected-failure probes, 62 E2
+checks, 18 axe scans with zero violations and seven PDFs.
+
+Downloaded release identity/evidence and frontend artifacts pass `verify-files`.
+Every recorded source-file hash matches its blob in the exact commit, including
+locks and build/proxy configuration. All 14 frontend files match the tested web
+root; the PDF/paired-report hashes match validation results. The record is
+`committed`, `release_candidate=true`, `production_approved=false`. The retained
+image IDs identify that CI run's Linux/amd64 images:
+
+- API: `sha256:4311818074c39273ec45e5c4c75b530c8d5882796933c324ad0daaafc61c0bff`.
+- Web: `sha256:648e5c1e7cf11e701cd8520306348b67a8b7506335afb5a8501ecd747696e945`.
+
+These IDs do not preserve the image bytes or authorize a rebuild/deployment. The
+future approved artifact store/transfer and explicit production approval remain
+open. Metadata/browser diagnostics have seven-day CI retention. No image registry
+push or GitHub release object is created.
+
+The remote isolated-installation summary matches the exact source tree above.
+Its separate restoration matches every backup-point schema/table/payload/audit
+fingerprint, with one synthetic snapshot and three ingestion audit attempts;
+the source fixture remains unchanged. The 16 recovery artifact files, 14 frontend
+files, advisory reports, release records and 194 browser/PDF files were inspected.
+Trace ZIP integrity and expected screenshots/PDFs pass; no private attachments,
+databases, credentials or personal email content were found. Playwright's hashed
+`page` image-reference filenames are the only allowed email-like trace matches.
+
+This documentation-only receipt records the implementation SHA above. Its own
+publication is a separate subsequent commit, with no application, dependency,
+test or workflow changes. The final handoff records that commit and its own
+independently verified CI; earlier results are not substituted for it. Existing
+renderer-size and TestClient/duplicate-ZIP warnings remain documented limitations,
+not suppressed test failures.
+
+| Milestone                          | Evidence at this receipt                                          |
+| ---------------------------------- | ----------------------------------------------------------------- |
+| Locally verified                   | Passed against the explicit reviewed index tree above             |
+| Published                          | Implementation SHA above; dedicated branch only                   |
+| Remote CI verified                 | All three jobs and retained artifacts for that implementation SHA |
+| Production deployed                | No                                                                |
+| Production infrastructure verified | No; separate Phase 8 gates remain open                            |
 
 ## Production readiness and scientific status
 

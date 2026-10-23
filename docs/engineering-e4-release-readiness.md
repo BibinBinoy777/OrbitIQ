@@ -6,6 +6,11 @@ not deployment authorization. Production remains **NO-GO**. See the
 [Phase 8 closure](phase-8-closure-report.md), and the current
 [infrastructure decision inventory](production-infrastructure-decisions.md).
 
+The [final-closure continuation](engineering-e4-final-closure.md) keeps overall E4
+open until all five infrastructure gates have actual evidence. Its
+[artifact policy](engineering-e4-artifact-retention.md) extends the baseline below
+with explicit longer-lived evidence and opt-in private candidate image archives.
+
 ## ADR E4-001: retain the existing bounded single-host candidate
 
 Decision: retain one private FastAPI worker, same-origin static Nginx/Vite,
@@ -157,8 +162,10 @@ builder or someone able to replace both records and hashes is outside this check
 Image IDs are local content identities, not registry manifest digests. This
 pipeline compares identity before/after tests; it is not an adversarially isolated
 builder. Branch review/protection, trusted artifact access and deliberate approval
-remain necessary. CI retains metadata/diagnostics for seven days, not application
-image archives or production history. No registry push, release object or deploy
+remain necessary. At the original E4 checkpoint, CI retained metadata/diagnostics
+for seven days and no image archives. The continuation's artifact policy above
+adds explicit 90-day compact evidence and opt-in candidate bytes; it does not
+establish permanent production history. No registry push, release object or deploy
 is performed. Before actual deployment, retain the **same tested image bytes** in
 an owner-approved artifact store and verify transfer integrity/platform. Rebuilding
 later requires a new complete verification; the old record cannot bless new IDs.

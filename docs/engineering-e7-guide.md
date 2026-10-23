@@ -75,6 +75,15 @@ browser storage, responsive layout and two axe scans. Native downloaded bytes
 must equal the actual response. Diagnostics can contain fixture DOM/network data;
 use only disposable public/synthetic inputs.
 
+The first E7 CI run found genuine gateway HTTP 429 responses in Firefox history
+and WebKit report generation: dense synthetic journeys exceeded the unchanged
+one-calculation-per-second budget. The history/report browser journeys now opt in
+to fixture request scheduling (1.05-second spacing across calculation routes and
+contexts), before sending requests. They never retry responses or relax gateway
+limits/assertions. Other journeys, failure probes and E2 performance measurements
+retain their behavior. Pacing decisions are retained in diagnostics; report
+journey timing includes this test overhead and is not a latency benchmark.
+
 The existing release evidence gate requires all seven named E7 cases in each
 engine, accessibility/layout evidence and the selected-window download's digest
 and request identity. It retains these in both full and compact sealed evidence.

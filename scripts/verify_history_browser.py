@@ -45,7 +45,8 @@ def main():
     )
     ids = [p["metadata"]["id"] for p in expected["points"]]
     cases, errors, violations, requests = [], [], [], []
-    with browser_session(sync_playwright) as p:
+    # These dense fixture journeys obey the gateway budget, without response retries.
+    with browser_session(sync_playwright, pace_calculations=True) as p:
         options = {"headless": True}
         if args.engine == "chromium":
             options["args"] = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"]

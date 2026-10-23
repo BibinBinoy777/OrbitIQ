@@ -1,7 +1,9 @@
 # Engineering milestone E6 — stored onboarding and portable recovery
 
-Status: local feature verification passed; complete release verification and
-publication confirmation pending exact-commit remote CI. E6 is not yet closed.
+Status: **E6 engineering acceptance passed** on the published implementation
+commit below, with complete remote CI and retained-evidence verification. This
+report records that implementation baseline. The documentation receipt is
+published separately and its exact commit receives its own CI verification.
 
 ## Baseline and implementation
 
@@ -88,6 +90,56 @@ cover missing/failed E6 evidence. No redundant workflow was added. The exact
 published commit must pass backend, frontend and release-images, including full
 browser/PDF checks and a committed-source seal, before E6 can close.
 
+## Published baseline and remote verification
+
+Implementation commit: `8825feec429cd28154dc7c42c9d55fe978dc37ac`.
+Source tree: `117ddbd68d2032b360e29dbfb7ab701fc89c93cd`.
+Published to `origin/engineering-e6-onboarding-recovery`.
+[Exact-commit CI run 39994831581](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39994831581)
+completed successfully. `backend`, `frontend` and `release-images` each passed;
+all three check runs identify that exact SHA. Only the two optional manual
+image-retention steps were skipped, as expected for a normal push.
+
+Downloaded JUnit and sealed evidence confirm:
+
+- **1,286 backend tests and 405 frontend tests**, zero failures/errors/skips.
+- **77 E1 browser flows**: Chromium 27, Firefox 25, WebKit 25, plus five explicit
+  transport/WebGL failure-state checks and two deliberate failing diagnostic probes.
+- **62 E2 checks**, including 18 WCAG A/AA axe scans with zero violations;
+  manual-review/incomplete items remain distinct from automatic passes.
+- **39 E6 scenarios**, 12 independent-context round trips, 39 native downloaded
+  bundles, 33 invalid-file rejection checks, 12 additional axe scans with zero
+  violations, and mobile/desktop layout checks in all three engines.
+- **Seven PDFs** passed text/provenance/layout checks, including the maximum
+  361-row track. Compact and diagnostic artifact copies are the same seven PDFs,
+  not additional independent checks.
+- All numerical reference audits, migration/restore selection, fresh-checkout
+  installation, failure/restart/recovery rehearsal, lint/format/types/build passed.
+- Python advisory lookup covered 29 packages without skipped packages or matches;
+  npm reported zero advisories. These are dependency checks, not OS assurance.
+- Exact committed source hashes, image IDs, frontend artifact bytes, PDFs,
+  recovery receipts and portable bundle files passed release-seal verification.
+  Both full and compact retained evidence passed independent offline hash checks.
+  `release_candidate` is true; **`production_approved` is false**.
+
+Nine artifacts were downloaded and inspected. Content/trace/PDF scans found no
+unexpected credentials/contact information or private database/research files.
+Observed metadata confirms bounded 7/90-day retention for these artifacts only;
+future expiry and repository-wide retention settings were not verified.
+
+The final documentation update changes only this report. Application, tests,
+locks and workflow behavior remain byte-identical to the named implementation.
+Its independent exact-head CI result is reported at publication; this receipt
+does not substitute an earlier run for a later commit's verification.
+
+| Milestone                          | Evidence/status                                                       |
+| ---------------------------------- | --------------------------------------------------------------------- |
+| Local feature verification         | Passed; full local browser launch blocked by disk as documented above |
+| Published software                 | Dedicated E6 branch, exact implementation commit above                |
+| Remote CI                          | Full implementation run and retained evidence verified above          |
+| Production deployed                | No                                                                    |
+| Production infrastructure verified | E4 remains OPEN; external gates unresolved                            |
+
 ## Reviewed publication scope
 
 Exactly 17 files:
@@ -132,7 +184,7 @@ API returned 403 requesting a plan upgrade or public repository. Neither was
 performed. Default-branch protection/required CI remains unresolved. Bounded
 artifact retention is a separate previously verified gate. Portable files do not
 replace database backup or disaster recovery. No public deployment, DNS change,
-paid service, new account, private-data upload or default-branch modification.
+new paid service/account, private-data upload or default-branch modification.
 
 Phase 11.3.1 remains **PARTIAL**; scientific evaluation remains **BLOCKED**.
 ESA time clarification, KIN-quality qualification and frame alignment remain

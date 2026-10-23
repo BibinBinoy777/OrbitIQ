@@ -30,13 +30,13 @@ these resources are not yet confirmed and asked that missing gates remain blocke
 
 ## Gate results
 
-| Gate                                | Current result                                         | Evidence or missing prerequisite                                                                                                         |
-| ----------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| A: remote hosting/HTTPS/persistence | **BLOCKED — HOSTING ENVIRONMENT NOT AVAILABLE**        | No authorized staging URL, selected host/identity or durable target volume                                                               |
-| B: independent backup/recovery      | **BLOCKED — APPROVED DESTINATION NOT AVAILABLE**       | No approved external backup repository, least-privilege credential, recovery host or approved policy                                     |
-| C: operational monitoring/alerts    | **BLOCKED — DESTINATION AND HOST NOT AVAILABLE**       | No authorized receiver/recipient, monitor runtime/schedule or demonstrated failure/recovery delivery                                     |
-| D: artifact retention               | **PENDING VERIFICATION**                               | Explicit policy and optional image/evidence archive are being validated; exact published-run upload/expiry/download verification pending |
-| E: default-branch protection        | **BLOCKED — API PERMISSION / PRIVATE-REPOSITORY PLAN** | `main` reports unprotected; protection GET denied and rulesets unavailable under the reported plan                                       |
+| Gate                                | Current result                                         | Evidence or missing prerequisite                                                                                                                                       |
+| ----------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A: remote hosting/HTTPS/persistence | **BLOCKED — HOSTING ENVIRONMENT NOT AVAILABLE**        | No authorized staging URL, selected host/identity or durable target volume                                                                                             |
+| B: independent backup/recovery      | **BLOCKED — APPROVED DESTINATION NOT AVAILABLE**       | No approved external backup repository, least-privilege credential, recovery host or approved policy                                                                   |
+| C: operational monitoring/alerts    | **BLOCKED — DESTINATION AND HOST NOT AVAILABLE**       | No authorized receiver/recipient, monitor runtime/schedule or demonstrated failure/recovery delivery                                                                   |
+| D: artifact retention               | **PASS — BOUNDED CI POLICY VERIFIED**                  | Explicit 7/90-day settings, real uploads, server expiry/digest metadata and downloaded candidate/evidence checks passed; permanent production archiving is not claimed |
+| E: default-branch protection        | **BLOCKED — API PERMISSION / PRIVATE-REPOSITORY PLAN** | `main` reports unprotected; protection GET denied and rulesets unavailable under the reported plan                                                                     |
 
 ## Gate A: minimum remaining setup
 
@@ -122,7 +122,7 @@ bytes with all compact evidence and frontend files. Ordinary pushes do not expor
 those archives. A verifier checks configuration and layer digests without image
 loading or archive extraction. No application behavior or lockfile is changed.
 
-Current local and exact-commit remote results are recorded below as they execute.
+Actual local and exact-commit remote results are recorded below.
 Do not treat the workflow definition alone as accepted retention or a candidate
 manifest alone as production approval. Actual metadata, artifact contents and
 safe expected-failure diagnostics must be inspected. Global raw-log retention and
@@ -170,9 +170,9 @@ Local verification executed for this continuation:
 | Actions workflow syntax                                       | Actionlint passed                                                                                                     |
 | Actual local Docker save and raw/gzip validation              | Two existing local candidate images, 26 distinct layers; 125,036,689 compressed bytes; no image loading or deployment |
 | Source/privacy/link/earlier-report review                     | Six intended files; passed                                                                                            |
-| Isolated current-index checkout and fixture recovery          | Pending                                                                                                               |
+| Isolated current-index checkout and fixture recovery          | Passed: locked installs, frontend proxy, restart and separate fixture restoration                                     |
 | Fresh local browser/PDF run for this continuation             | Not run; exact-published-commit CI must run existing E1/E2/PDF checks                                                 |
-| New published SHA, selected image archive and exact remote CI | Pending publication                                                                                                   |
+| New published SHA, selected image archive and exact remote CI | Implementation SHA and both exact-commit CI paths passed; retained candidate verified below                           |
 
 The local Docker archive test uses the earlier explicitly labelled reviewed-index
 images to exercise the real save format, not to certify this new source tree. It
@@ -206,8 +206,114 @@ Reviewed publication scope:
 
 Only these six implementation/test/workflow/documentation files belong in the
 continuation. Raw attachments, databases, private evidence, credentials and local
-archive test files are excluded. Publication and exact-commit remote CI are pending
-at this local checkpoint.
+archive test files are excluded. The implementation publication and exact-commit
+verification are recorded below; the subsequent documentation receipt has its own
+SHA and CI in the final handoff.
+
+## Verified implementation publication and retention
+
+Published implementation: `f217e65ff5e4236a9b664c88ed3969f4a837743c` on
+`engineering-e4-final-closure`, tree `aeddc836796a4e391ac63a527f9c8cbf97c4dd10`.
+The [push run](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39946004532)
+and [selected manual candidate run](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/39946042679) each passed
+`backend`, `frontend` and `release-images` for that exact SHA. The normal push
+correctly skips only the two optional image-retention steps. The manual selection
+runs every step successfully. Check-runs, exact source-file hashes and actual
+workflow logs were inspected; earlier SHA results are not substituted.
+
+Actual remote results: **1,275 backend tests**, **345 frontend tests**, all four
+numerical reference audits, migration/recovery, lint/format/TypeScript/build,
+local gateway/TLS/outage/replacement checks, **77 browser flows**, five additional
+fault-injection cases, two expected-failure probes, **62 E2 checks**, **18 axe scans
+with zero violations**, and **seven PDFs** including the 361-row maximum track.
+Python audited 29 packages with no skipped packages or advisory matches; npm
+reported zero matches. This is not an OS-image scan or complete security assurance.
+Firefox's actual 2D fallback, Chromium-only PDF generation, software rendering,
+manual/incomplete accessibility findings and the existing globe bundle warning
+remain explicit. No physical-device/GPU or screen-reader certification is claimed.
+
+The new remote backend/frontend JUnit reports contain zero failures, errors or
+skips. Privacy review found only the exact existing synthetic unsafe-URL/SFTP test
+inputs in seven email-shaped JUnit occurrences; these are existing synthetic negative-test
+fixtures, not real addresses or credentials. Browser traces contain Playwright's
+known hashed image-reference filenames. No tests or application behavior were
+changed to suppress these findings.
+
+Server artifact metadata was read back for nine ordinary-push artifacts and ten
+selected-run artifacts. Requested durations were accepted within the authoritative
+run-creation/upload-creation bounds. In these runs, 90-day expiry is capped at
+90 days from workflow creation, rather than 90 full days after a later upload.
+The exact selected-run expirations below are in IST. No future expiration was
+simulated and no old artifact was deleted. Global repository/log retention remains
+HTTP-403 unverified; these explicit artifacts do not rely on raw job-log retention.
+
+| Artifact                  | Requested days | Artifact ID   | Read-back expiry (IST)      |
+| ------------------------- | -------------- | ------------- | --------------------------- |
+| `backend-verification`    | 90             | `12498531217` | `2027-01-21T16:56:07+05:30` |
+| `browser-pdf-regressions` | 7              | `12498397840` | `2026-10-30T17:04:22+05:30` |
+| `fresh-checkout-recovery` | 7              | `12498680911` | `2026-10-30T16:57:28+05:30` |
+| `frontend-dist`           | 90             | `12498865356` | `2027-01-21T16:56:07+05:30` |
+| `frontend-verification`   | 90             | `12498003277` | `2027-01-21T16:56:07+05:30` |
+| `npm-advisories`          | 90             | `12498426674` | `2027-01-21T16:56:07+05:30` |
+| `python-advisories`       | 90             | `12498611085` | `2027-01-21T16:56:07+05:30` |
+| `release-evidence`        | 90             | `12498417776` | `2027-01-21T16:56:07+05:30` |
+| `release-verification`    | 7              | `12497914493` | `2026-10-30T17:04:27+05:30` |
+| `retained-candidate`      | 90             | `12497869719` | `2027-01-21T16:56:07+05:30` |
+
+The selected candidate ZIP is **129,452,667 bytes**, containing 39 files.
+Its downloaded SHA256 matches GitHub's artifact digest:
+`sha256:361314c22ee00692bac94cc2d5dbcaf8302e78d2d58055fe95744eb657343634`. ZIP integrity passes. Its inner archive contains the exact tested
+API/web image configurations and 26 distinct uncompressed layers; config/layer
+hashes match the sealed image IDs. Every one of the API image's 56 source files
+matches its Git blob. Image review found no private-data paths or forbidden secret
+environment keys. These bounded checks are not a comprehensive secret or OS
+vulnerability scan.
+
+- API image: `sha256:1e237e2bf10f2e43fbeff31060d5558efb136d584698bbda4413476bf20a0fcb`.
+- Web image: `sha256:719530c160172cde342c6ee5049f049c67883994438c5c79b00386d277ee3c4d`.
+
+Offline `verify_retained_candidate.py verify --revision` passes without Docker
+loading, image execution or tar extraction. The independently retained 23-file
+compact evidence passes `verify-files` with its frontend artifact. Full browser
+artifacts, compact evidence and the saved candidate contain the same sealed record;
+all seven PDF/paired-JSON hashes match. The browser artifact's ZIP traces and failure
+diagnostics were inspected. Original `if: always()` uploads are preserved; expected
+nonzero browser probes produced uploaded diagnostics. A separate deliberately
+failing GitHub job and actual expiration/deletion behavior were **not** exercised.
+
+The 16-file fixture-recovery artifact matches the exact source tree and restored
+schema/table/payload/audit fingerprints, with one synthetic snapshot and three
+ingestion attempts. The original fixture remains unchanged. The software image
+archive contains no application database: its successful retrieval does **not**
+close independent application-data backup Gate B.
+
+The selected retained candidate belongs specifically to the implementation SHA
+above. This result-only documentation receipt is a subsequent commit, changes no
+application/dependency/test/workflow source, and receives its own CI verification
+in the final handoff. Ordinary pushes deliberately do not retain another large
+image archive; do not treat the selected archive as an archive for a later SHA.
+
+Gate D is verified for this finite private engineering policy. It supplies no
+immutable or permanent production release record, cloud-host qualification,
+independent data recovery or production deployment approval. Gates A/B/C/E remain
+blocked. Overall E4 remains **OPEN**.
+
+## Remaining production risks and closure evidence
+
+| Unresolved requirement                                                                      | Consequence                                                                        | Minimum closure action                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Authorized staging host, real HTTPS and durable volume                                      | Remote transport and persistence behavior is unknown                               | Approve an existing target; verify chain/hostname, secure API flows, storage ownership and restart/replacement preservation                                                            |
+| Independent backup, key recovery, retention, schedule and RPO/RTO                           | Historical data can be lost; recovery duration/loss is unestablished               | Approve the exact independent destination/policy and least-privilege identity; retrieve an encrypted backup and demonstrate full separate-host recovery                                |
+| Active monitoring, alert receiver and operational ownership                                 | Failures or stale records can go unnoticed without human response                  | Approve receiver/scheduler/on-call; verify actual failure and recovery notifications, human receipt and monitor/job-failure handling                                                   |
+| Default-branch protection and effective permissions/plan                                    | Passing CI does not prevent direct or failed changes                               | Owner uses supported private-repository controls; read back settings and demonstrate failed/missing checks block a safe PR                                                             |
+| Finite mutable CI artifacts, unknown global log policy and future production archive policy | Evidence/image bytes can expire or be deleted; CI is not permanent release storage | Approve production retention/access/capacity; retain exact selected bytes and records before read-back expiry; verify any approved transfer                                            |
+| Different-release rollback and target migration/recovery rehearsal                          | A target rollback can fail or restore incompatible data                            | Select a prior approved patched image/schema contract, retain originals/backups and rehearse on isolated target storage; old vulnerable E3 images are not approved rollback candidates |
+| Public dataset disclosure, actual target abuse/capacity/security review                     | Private exposure or resource exhaustion remains possible                           | Approve served data/redistribution and anonymous API scope; review current final-image/OS advisories, trusted ingress, shared-NAT limits and measured target load before exposure      |
+| Scientific reference qualification                                                          | Unsupported observational-accuracy or independence claims remain prohibited        | Await/qualify ESA time, KIN quality and frame treatment; retain unknown GP availability/lineage and blocked scientific evaluation                                                      |
+
+No infrastructure provider, recipient, budget, recovery objective or production
+approval was invented to remove these risks. Closing a CI retention policy does
+not resolve any of the other rows.
 
 ## Scientific and production boundary
 

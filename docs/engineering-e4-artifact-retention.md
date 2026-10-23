@@ -36,7 +36,10 @@ JUnit/reference/sealed evidence carry the documented retention instead.
 After a run, inspect actual `created_at`, `expires_at`, `expired`, digest and size
 for each artifact. The server's accepted metadata is authoritative; a workflow
 request alone does not establish retention. No artifact is deleted to test expiry,
-and no claim is made that a 90-day expiration has already occurred. GitHub admins
+and no claim is made that a 90-day expiration has already occurred. Observed
+90-day expirations are capped at workflow-creation time plus 90 days; later uploads
+therefore have slightly less than 90 full days remaining. Use the read-back
+`expires_at`, not an assumed upload-time anniversary. GitHub admins
 can delete artifacts early; retention is not immutability or independent recovery.
 A real production release will need an owner-approved long-term artifact policy,
 access controls, capacity/budget and transfer evidence before these artifacts expire.

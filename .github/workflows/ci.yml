@@ -16,6 +16,10 @@ jobs:
           version: "0.12.23"
       - run: uv python install 3.12
       - run: uv sync --locked
+      - name: Audit locked Python dependencies (advisory lookup, not OS assurance)
+        run: |
+          uv export --locked --format requirements-txt --no-hashes --output-file "${{ runner.temp }}/requirements.txt"
+          uvx --from pip-audit==2.9.0 pip-audit --strict --no-deps --disable-pip --cache-dir "${{ runner.temp }}/pip-audit" -r "${{ runner.temp }}/requirements.txt" --format json --output "${{ runner.temp }}/python-advisories.json"
       - run: uv run --locked pytest
       - name: Published SGP4 reference audit
         run: PYTHONPATH=backend uv run --locked python scripts/verify_scientific_references.py --output /tmp/sgp4-results.json
@@ -46,6 +50,13 @@ jobs:
             ${{ runner.temp }}/orbitiq-e3/recovery/verification.json
           if-no-files-found: warn
           retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: python-advisories
+          path: ${{ runner.temp }}/python-advisories.json
+          if-no-files-found: warn
+          retention-days: 7
   frontend:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -60,6 +71,8 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
       - run: npm ci
+      - name: Audit locked frontend dependencies
+        run: npm audit --audit-level=high --json > "${{ runner.temp }}/npm-advisories.json"
       - run: npm test
       - run: npm run lint
       - run: npm run format:check
@@ -68,30 +81,59 @@ jobs:
         with:
           name: frontend-dist
           path: frontend/dist
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: npm-advisories
+          path: ${{ runner.temp }}/npm-advisories.json
+          if-no-files-found: warn
+          retention-days: 7
   release-images:
+    needs: [backend, frontend]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          name: frontend-dist
+          path: ${{ runner.temp }}/frontend-dist
       - name: Build locked release targets (local only; no registry publication)
         run: |
-          docker build --target api -t orbitiq-api:ci .
-          docker build --target web -t orbitiq-web:ci .
+          docker build --build-arg ORBITIQ_SOURCE_REVISION="$GITHUB_SHA" --build-arg ORBITIQ_SOURCE_TREE="$(git rev-parse HEAD^{tree})" --target api -t orbitiq-api:ci .
+          docker build --build-arg ORBITIQ_SOURCE_REVISION="$GITHUB_SHA" --build-arg ORBITIQ_SOURCE_TREE="$(git rev-parse HEAD^{tree})" --target web -t orbitiq-web:ci .
+      - name: Capture source, locks, image IDs and exact frontend artifact before tests
+        run: |
+          mkdir -p "${{ runner.temp }}/orbitiq-release"
+          python3 scripts/verify_release_evidence.py capture --release ci --frontend "${{ runner.temp }}/frontend-dist" --output "${{ runner.temp }}/orbitiq-release/capture.json"
       - name: Validate static gateway configuration
         run: docker run --rm --network none orbitiq-web:ci nginx -t
       - name: Start release images against a separate empty fixture and verify APIs
-        run: python3 scripts/verify_release_containers.py --release ci
+        run: python3 scripts/verify_release_containers.py --release ci --tls --output "${{ runner.temp }}/orbitiq-release/proxy.json"
       - name: Install PDF text inspection tool
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends poppler-utils
       - name: Build existing pinned Playwright runtime
         run: docker build -f deploy/Dockerfile.browser -t orbitiq-browser:e1 .
       - name: E1 regressions, E2 accessibility and performance, seven PDFs
-        run: python3 scripts/run_browser_regressions.py --release ci --engineering-e2 --output "${{ runner.temp }}/orbitiq-e1"
+        run: python3 scripts/run_browser_regressions.py --release ci --engineering-e2 --output "${{ runner.temp }}/orbitiq-release/browser"
+      - name: Refuse changed images, source or artifacts and seal verification record
+        run: |
+          python3 scripts/verify_release_evidence.py seal --capture "${{ runner.temp }}/orbitiq-release/capture.json" --frontend "${{ runner.temp }}/frontend-dist" --directory "${{ runner.temp }}/orbitiq-release" --output "${{ runner.temp }}/orbitiq-release/verified-release.json"
+          python3 scripts/verify_release_evidence.py verify-files --record "${{ runner.temp }}/orbitiq-release/verified-release.json" --directory "${{ runner.temp }}/orbitiq-release" --frontend "${{ runner.temp }}/frontend-dist"
       - name: Preserve fixture-only browser and PDF diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: browser-pdf-regressions
-          path: ${{ runner.temp }}/orbitiq-e1
+          path: ${{ runner.temp }}/orbitiq-release/browser
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Preserve release identity and artifact checksums (no image registry publication)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-verification
+          path: ${{ runner.temp }}/orbitiq-release/*.json
           if-no-files-found: warn
           retention-days: 7

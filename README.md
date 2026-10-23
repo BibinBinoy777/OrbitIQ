@@ -110,6 +110,13 @@ diagnosis and the isolated checkout installation check. Its
 [verification report](docs/engineering-e3-report.md) separates engineering evidence
 from the unresolved scientific and production gates.
 
+The [E4 release-engineering guide](docs/engineering-e4-release-readiness.md)
+connects source/lockfile hashes, labelled image IDs, the exact frontend artifact,
+gateway/TLS checks and browser/PDF evidence. Its
+[execution report](docs/engineering-e4-report.md) records the targeted certifi
+security update and remaining production decisions. A verified engineering branch
+does not authorize deployment or close the scientific qualification gates.
+
 ## Development
 
 In terminal one, from the repository root:

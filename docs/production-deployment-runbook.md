@@ -6,6 +6,13 @@ durable storage, backup destination, monitoring delivery and operational owners
 must be selected and validated before public exposure. See the
 [readiness decision](phase-8-readiness-report.md) and [security review](production-security-review.md).
 
+**Current E4 operator entry point:** use the
+[release-engineering and approval procedure](engineering-e4-release-readiness.md)
+and its [actual verification report](engineering-e4-report.md). Earlier dated
+Phase 8 publication statements below describe their original checkpoints. Current
+CI includes E1/E2 browser/PDF and E3 isolated installation/recovery, plus E4 image
+and artifact identity checks. No production gate is closed by engineering CI.
+
 ## Architecture and storage decision
 
 ```text
@@ -298,14 +305,16 @@ now pass in that supported runtime. Firefox used the actual 2D fallback when Web
 was unavailable; WebKit/Chromium rendered software WebGL2. No physical-device,
 physical-GPU, Apple Safari or screen-reader certification is implied.
 
-The currently published commit remains Phase 7 `ec1f9f8`; Phase 8 and 8.1 are local
-changes. After a future **authorized** review/commit/push, record the actual full
+At the Phase 8.1 checkpoint, the published commit was Phase 7 `ec1f9f8`; those
+Phase 8/8.1 changes were still local. For every new **authorized** publication,
+record the actual full
 release SHA, locate Actions runs for that exact SHA, and inspect every backend,
 frontend and release-images job/step. Require tests, all scientific audits,
 migration/recovery checks, lint/format, TypeScript/build and image startup checks;
-record skips/cancellations/missing jobs. Critical browser/encrypted-recovery local
-artifacts must also match the released sources; they are not automatic remote jobs
-in the current workflow. Confirm required-status/review rules with a repository
+record skips/cancellations/missing jobs. E1/E2 browser/PDF and E3 local-fixture
+recovery now run in CI; encrypted off-machine recovery remains a separate target
+requirement. All artifacts must match the selected source/images. Confirm
+required-status/review rules with a repository
 administrator; existing integration access returns 403 for protection/rulesets.
 Do not substitute the successful Phase 7 run for current-release verification.
 

@@ -6,6 +6,12 @@ been established. The managed task workspace is a development environment, not
 durable production storage. Its configured `ORBITIQ_DATABASE_PATH` identifies the
 existing development archive; it is not evidence of a production database.
 
+E4 retains that **NO-GO** production decision. The
+[current release procedure and ADR](engineering-e4-release-readiness.md) and
+[E4 report](engineering-e4-report.md) supersede dated CI/publication descriptions
+below; they preserve the original Phase 8 reports. E4 authorizes publication to
+its engineering branch only, not infrastructure, protection changes or deployment.
+
 Keep the existing container architecture: one private FastAPI worker, a same-origin
 static Nginx gateway, and schema-3 SQLite on reliable local POSIX storage. The
 operator collector, migration, EOP maintenance, backup and monitor remain separate
@@ -111,9 +117,10 @@ No publication is authorized by Phase 8.2. These are future release requirements
    status contexts and review policy. Current API access returns 403; this proves
    neither that protection exists nor that it is absent. Do not change repository
    visibility or purchase a plan to bypass the limitation without authorization.
-5. Browser and encrypted-recovery checks are separate local/manual evidence in
-   the current workflow. Match their input hashes and image IDs to the final
-   candidate or rerun them if inputs change. Do not call them remote CI jobs.
+5. E1/E2 browser/PDF, E3 isolated-installation recovery and E4 gateway/TLS/artifact
+   verification now run in the existing CI jobs. Check their actual exact-SHA
+   results and artifact hashes. Encrypted off-machine recovery remains separately
+   unverified until the approved destination and replacement environment exist.
 6. Deployment remains a separate authorization even after publication/CI. On the
    selected target, verify the missing production gates and rehearse replacement,
    recovery and compatible rollback before recommending public launch.

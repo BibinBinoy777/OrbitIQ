@@ -5,6 +5,7 @@ This checks text/pagination consistency, not physical printers or optical fideli
 """
 
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -84,6 +85,10 @@ def main():
                 "file": path.name,
                 "pages": len(pages),
                 "bytes": path.stat().st_size,
+                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                "report_sha256": hashlib.sha256(
+                    path.with_suffix(".json").read_bytes()
+                ).hexdigest(),
                 "status": "PASS",
                 "page_counters": True,
                 "all_sections": True,

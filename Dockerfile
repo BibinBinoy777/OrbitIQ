@@ -1,6 +1,10 @@
 # syntax=docker/dockerfile:1
 FROM ghcr.io/astral-sh/uv:0.12.23@sha256:61d393e44e249f2e4b526b6c7ddcecce245946826e608e11c93ad4f5bba55b21 AS uv
 FROM python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258 AS api
+ARG ORBITIQ_SOURCE_REVISION=unrecorded
+ARG ORBITIQ_SOURCE_TREE=unrecorded
+LABEL org.opencontainers.image.revision=$ORBITIQ_SOURCE_REVISION \
+    io.orbitiq.source-tree=$ORBITIQ_SOURCE_TREE
 COPY --from=uv /uv /usr/local/bin/uv
 WORKDIR /app
 ENV UV_PYTHON_DOWNLOADS=never UV_LINK_MODE=copy PYTHONDONTWRITEBYTECODE=1 \
@@ -27,6 +31,14 @@ COPY frontend/ ./
 RUN npm run build
 
 FROM nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8 AS web
+ARG ORBITIQ_SOURCE_REVISION=unrecorded
+ARG ORBITIQ_SOURCE_TREE=unrecorded
+LABEL org.opencontainers.image.revision=$ORBITIQ_SOURCE_REVISION \
+    io.orbitiq.source-tree=$ORBITIQ_SOURCE_TREE
+USER 0
+# Serve exactly the tested Vite artifact, without stock gateway HTML.
+RUN rm -f /usr/share/nginx/html/index.html /usr/share/nginx/html/50x.html
+USER 101:101
 COPY --chmod=644 deploy/nginx.conf /etc/nginx/nginx.conf
 COPY --chmod=644 deploy/api-proxy.conf /etc/nginx/api-proxy.conf
 COPY --chmod=644 deploy/security-headers.conf /etc/nginx/security-headers.conf

@@ -9,8 +9,10 @@ import {
 import type { SavedInvestigation } from "./investigation-storage";
 import type { Investigation } from "./saved-investigation";
 import { LIMITS, parseInvestigation, shiftTime } from "./saved-investigation";
-import { ReportAction, ShareAction } from "./InvestigationActions";
+import { ShareAction } from "./InvestigationActions";
+import InvestigationReport from "./InvestigationReport";
 import { formatUtc } from "./time-presentation";
+import PortableImport, { PortableExport } from "./PortableInvestigations";
 
 function state() {
   try {
@@ -262,6 +264,7 @@ export default function SavedInvestigations({
       </button>
       {data.error && <p role="alert">{data.error}</p>}
       {message && <p role="status">{message}</p>}
+      <PortableImport />
       {!data.error && !data.records.length && (
         <p>
           No saved investigations yet. Open a stored snapshot, position, track
@@ -369,7 +372,8 @@ export default function SavedInvestigations({
             />
           )}
           <ShareAction investigation={record.investigation} />
-          <ReportAction investigation={record.investigation} />
+          <PortableExport record={record} />
+          <InvestigationReport investigation={record.investigation} />
         </article>
       ))}
     </section>

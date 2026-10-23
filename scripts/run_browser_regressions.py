@@ -89,6 +89,8 @@ def main():
                 "--network",
                 "container:" + web,
                 "--shm-size=1g",
+                "--tmpfs",
+                "/tmp:rw,nosuid,nodev,size=1g",
                 "--cap-drop=ALL",
                 "--security-opt=no-new-privileges:true",
                 "--mount",
@@ -337,6 +339,14 @@ def main():
                             ["--engine", engine],
                         )
                     )
+                if mode == "empty":
+                    suites.append(
+                        (
+                            "engineering-e6",
+                            "verify_engineering_e6.py",
+                            ["--engine", engine],
+                        )
+                    )
                 for suite, script, options in suites:
                     name = engine + "-" + suite
                     try:
@@ -379,6 +389,13 @@ def main():
                 len(json.loads(path.read_text())["cases"]) for path in paths
             )
         assert counts == {"chromium": 27, "firefox": 25, "webkit": 25}, counts
+        e6 = {}
+        for engine in ENGINES:
+            record = json.loads(
+                (output / f"{engine}-engineering-e6/evidence.json").read_text()
+            )
+            assert record["status"] == "PASS" and len(record["round_trips"]) == 4
+            e6[engine] = len(record["cases"])
         if failures:
             raise RuntimeError(str(failures))
         (output / "summary.json").write_text(
@@ -389,6 +406,7 @@ def main():
                     "total_flows": sum(counts.values()),
                     "pdf_checks": len(pdfs),
                     "engineering_e2": args.engineering_e2,
+                    "engineering_e6": e6,
                     "additional_fault_injection_cases": len(
                         json.loads(
                             (

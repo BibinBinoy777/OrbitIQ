@@ -24,7 +24,7 @@ export interface SavedInvestigation {
   updated_at: string;
   investigation: Investigation;
 }
-type BrowserStorage = Pick<Storage, "getItem" | "setItem">;
+export type BrowserStorage = Pick<Storage, "getItem" | "setItem">;
 const uuid =
   /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 const unavailable = () =>
@@ -222,5 +222,99 @@ export async function deleteInvestigation(
       records.filter((r) => r.id !== id),
       target,
     );
+  });
+}
+
+export interface ImportPreview {
+  record: SavedInvestigation;
+  expectedStorage: string | null;
+  status: "new" | "already_saved" | "collision";
+  existingId?: string;
+}
+function sameContent(a: SavedInvestigation, b: SavedInvestigation): boolean {
+  return JSON.stringify({ ...a, id: "" }) === JSON.stringify({ ...b, id: "" });
+}
+export function previewImport(
+  value: SavedInvestigation,
+  target: BrowserStorage = storage(),
+): ImportPreview {
+  const record = parseSaved(value);
+  let expectedStorage: string | null;
+  try {
+    expectedStorage = target.getItem(STORAGE_KEY);
+  } catch {
+    throw unavailable();
+  }
+  const records = loadSaved(target);
+  try {
+    if (target.getItem(STORAGE_KEY) !== expectedStorage) throw new Error();
+  } catch {
+    throw new Error(
+      "Local saves changed or became unavailable. Preview the file again.",
+    );
+  }
+  const duplicate = records.find((r) => sameContent(r, record));
+  return {
+    record,
+    expectedStorage,
+    status: duplicate
+      ? "already_saved"
+      : records.some((r) => r.id === record.id)
+        ? "collision"
+        : "new",
+    existingId: duplicate?.id,
+  };
+}
+export async function confirmImport(
+  preview: ImportPreview,
+  copy: boolean,
+  target: BrowserStorage = storage(),
+): Promise<{ record: SavedInvestigation; inserted: boolean }> {
+  // Import shares the existing writers' lock and requires it for cross-tab safety.
+  // Unsupported clients may still export; there is no unsafe overwrite fallback.
+  if (typeof navigator === "undefined" || !navigator.locks?.request)
+    throw new Error(
+      "Safe import requires Web Locks. Use a current browser in a secure context; existing saves were not changed.",
+    );
+  return locked(() => {
+    const current = previewImport(parseSaved(preview.record), target);
+    if (current.expectedStorage !== preview.expectedStorage)
+      throw new Error(
+        "Local saves changed since preview. Preview the file again before importing.",
+      );
+    const records = loadSaved(target);
+    if (current.status === "already_saved")
+      return {
+        record: records.find((r) => r.id === current.existingId)!,
+        inserted: false,
+      };
+    let record = current.record;
+    if (current.status === "collision") {
+      if (!copy)
+        throw new Error(
+          "This identifier already exists. Cancel or explicitly import a separate copy.",
+        );
+      if (!globalThis.crypto?.randomUUID)
+        throw new Error(
+          "Secure identifiers are unavailable. No import was performed.",
+        );
+      record = parseSaved({ ...record, id: crypto.randomUUID() });
+      if (records.some((r) => r.id === record.id))
+        throw new Error(
+          "A unique identifier could not be created. No import was performed.",
+        );
+    }
+    // Recheck immediately before the single atomic localStorage write. Cooperating
+    // tabs use this lock; direct devtools/older application writers are not covered.
+    try {
+      if (target.getItem(STORAGE_KEY) !== current.expectedStorage)
+        throw new Error();
+    } catch {
+      throw new Error(
+        "Local saves changed or became unavailable. Preview the file again.",
+      );
+    }
+    persist([record, ...records], target);
+    return { record, inserted: true };
   });
 }

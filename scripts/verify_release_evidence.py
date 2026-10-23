@@ -218,6 +218,60 @@ def evidence(directory):
                 "Accessibility/regression evidence is incomplete or failed"
             )
         files.append(path)
+        path = browser / f"{engine}-engineering-e6/evidence.json"
+        recovery = load(path)
+        if (
+            recovery.get("status") != "PASS"
+            or recovery.get("engine") != engine
+            or recovery.get("original_browser_unchanged") is not True
+            or recovery.get("no_network_writes") is not True
+            or recovery.get("page_errors")
+            or recovery.get("offline_import") is not True
+            or len(recovery.get("cases", [])) != 13
+            or any(c.get("status") != "PASS" for c in recovery["cases"])
+            or summary.get("engineering_e6", {}).get(engine) != len(recovery["cases"])
+            or {r.get("mode") for r in recovery.get("round_trips", [])}
+            != {"snapshot", "position", "ground-track", "comparison"}
+            or len(recovery.get("round_trips", [])) != 4
+            or any(
+                r.get("status") != "PASS"
+                or r.get("independent_context") is not True
+                or r.get("record_equal") is not True
+                or r.get("original_unchanged") is not True
+                for r in recovery["round_trips"]
+            )
+            or len(recovery.get("accessibility", [])) != 4
+            or any(s["violations"] for s in recovery["accessibility"])
+            or {
+                r.get("width")
+                for r in recovery.get("layouts", [])
+                if r.get("status") == "PASS"
+            }
+            != {320, 390, 1440}
+        ):
+            raise ValueError("Portable recovery evidence is incomplete or failed")
+        files.append(path)
+        downloads = recovery.get("downloaded_bundles", [])
+        if len(downloads) < 13 or len(set(downloads)) != len(downloads):
+            raise ValueError("Native portable downloads are missing")
+        for name in downloads:
+            if not isinstance(name, str) or not re.fullmatch(
+                r"\d{2}-orbitiq-investigation-(snapshot|position|ground-track|comparison)-[a-f0-9-]{36}\.json",
+                name,
+            ):
+                raise ValueError("Invalid portable download evidence name")
+            downloaded = path.parent / "bundles" / name
+            if downloaded.is_symlink() or not 0 < downloaded.stat().st_size <= 16384:
+                raise ValueError("Invalid portable download evidence size")
+            bundle = load(downloaded)
+            if (
+                set(bundle) != {"kind", "schema_version", "exported_at", "record"}
+                or bundle["kind"] != "orbitiq_saved_investigation_bundle"
+                or bundle["schema_version"] != 1
+                or not isinstance(bundle["record"], dict)
+            ):
+                raise ValueError("Invalid portable download evidence format")
+            files.append(downloaded)
     pdf_results = json.loads((browser / "pdf-results.json").read_text())
     pdfs = sorted(browser.rglob("*.pdf"))
     if (

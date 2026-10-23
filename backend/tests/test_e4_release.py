@@ -33,6 +33,7 @@ def artifacts(tmp_path):
             {
                 "status": "PASS",
                 "engineering_e2": True,
+                "engineering_e6": {"chromium": 13, "firefox": 13, "webkit": 13},
                 "fixture_unchanged": True,
                 "pdf_checks": 7,
                 "additional_fault_injection_cases": 5,
@@ -66,6 +67,67 @@ def artifacts(tmp_path):
                 }
             )
         )
+    for engine in ["chromium", "firefox", "webkit"]:
+        folder = browser / f"{engine}-engineering-e6"
+        folder.mkdir()
+        (folder / "evidence.json").write_text(
+            json.dumps(
+                {
+                    "engine": engine,
+                    "status": "PASS",
+                    "original_browser_unchanged": True,
+                    "no_network_writes": True,
+                    "offline_import": True,
+                    "downloaded_bundles": [
+                        f"{i:02d}-orbitiq-investigation-snapshot-c7fcaa37-5da9-4bd5-8000-582c07b66830.json"
+                        for i in range(13)
+                    ],
+                    "page_errors": [],
+                    "cases": [{"status": "PASS"}] * 13,
+                    "round_trips": [
+                        {
+                            "mode": mode,
+                            "status": "PASS",
+                            "independent_context": True,
+                            "record_equal": True,
+                            "original_unchanged": True,
+                        }
+                        for mode in [
+                            "snapshot",
+                            "position",
+                            "ground-track",
+                            "comparison",
+                        ]
+                    ],
+                    "accessibility": [
+                        {"violations": [], "incomplete": ["manual review"]}
+                    ]
+                    * 4,
+                    "layouts": [
+                        {"width": width, "status": "PASS"} for width in [320, 390, 1440]
+                    ],
+                }
+            )
+        )
+        bundles = folder / "bundles"
+        bundles.mkdir()
+        for i in range(13):
+            (
+                bundles
+                / (
+                    f"{i:02d}-orbitiq-investigation-snapshot-"
+                    "c7fcaa37-5da9-4bd5-8000-582c07b66830.json"
+                )
+            ).write_text(
+                json.dumps(
+                    {
+                        "kind": "orbitiq_saved_investigation_bundle",
+                        "schema_version": 1,
+                        "exported_at": "2026-10-19T00:00:00Z",
+                        "record": {},
+                    }
+                )
+            )
     pdfs = []
     for index in range(7):
         path = browser / f"fixture-{index}.pdf"
@@ -114,7 +176,7 @@ def test_successful_record_is_not_production_approval(candidate, artifacts):
     record = release.seal(capture, frontend, artifacts, output)
     assert record["release_candidate"] and record["production_approved"] is False
     assert release.verify_files(output, artifacts)["status"] == "PASS"
-    assert len(record["evidence_sha256"]) == 21
+    assert len(record["evidence_sha256"]) == 63
 
 
 def test_local_index_candidate_cannot_become_committed_release(candidate, artifacts):
@@ -306,3 +368,44 @@ def test_offline_receipt_binds_capture_and_frontend(candidate, artifacts, change
         (frontend / "index.html").write_text("changed public artifact")
     with pytest.raises(ValueError):
         release.verify_files(target, artifacts, frontend)
+
+
+@pytest.mark.parametrize(
+    "defect",
+    [
+        "missing",
+        "round-trip",
+        "original",
+        "axe",
+        "summary",
+        "layout",
+        "offline",
+        "download",
+    ],
+)
+def test_e6_recovery_failures_refuse_release(candidate, artifacts, defect):
+    _, _, frontend, capture = candidate
+    path = artifacts / "browser/chromium-engineering-e6/evidence.json"
+    data = json.loads(path.read_text())
+    if defect == "missing":
+        path.unlink()
+    else:
+        if defect == "round-trip":
+            data["round_trips"].pop()
+        elif defect == "original":
+            data["original_browser_unchanged"] = False
+        elif defect == "axe":
+            data["accessibility"][0]["violations"] = ["test violation"]
+        elif defect == "summary":
+            data["cases"].pop()
+        elif defect == "offline":
+            data["offline_import"] = False
+        elif defect == "download":
+            (path.parent / "bundles" / data["downloaded_bundles"][0]).write_text("{bad")
+        else:
+            data["layouts"].pop()
+        path.write_text(json.dumps(data))
+    output = artifacts / "rejected-e6.json"
+    with pytest.raises((ValueError, FileNotFoundError)):
+        release.seal(capture, frontend, artifacts, output)
+    assert not output.exists()

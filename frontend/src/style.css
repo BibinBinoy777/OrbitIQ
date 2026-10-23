@@ -580,3 +580,28 @@ textarea {
 .source-hash {
   overflow-wrap: anywhere;
 }
+
+.stored-catalog,
+.portable-tools {
+  margin-block: 1.25rem;
+  padding: 1rem;
+  border: 1px solid #6e91b8;
+  border-radius: 0.5rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.catalog-records {
+  padding-left: 1.25rem;
+}
+.catalog-records > li {
+  margin-block: 1.25rem;
+}
+.portable-tools input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+.portable-tools input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}

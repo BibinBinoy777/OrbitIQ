@@ -443,3 +443,5 @@ renderer-recovery and informational performance checks. See the
 [E2 method and commands](docs/engineering-e2-accessibility-performance.md) and
 [verification report](docs/engineering-e2-report.md). Timing measurements do not
 qualify orbital accuracy or establish production readiness.
+
+Stored-catalog onboarding and local portable recovery: [E6 usage and bundle format](docs/engineering-e6-guide.md).

@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { getHealth } from "./api";
 import ScientificExplorer from "./ScientificExplorer";
 import ReadinessDashboard from "./ReadinessDashboard";
+import StoredCatalog from "./StoredCatalog";
 import {
   parseInvestigation,
   parseShareLink,
@@ -184,6 +185,11 @@ export default function App() {
         )}
         {explorerVisited && (
           <div hidden={view !== "explorer"}>
+            <StoredCatalog
+              onExplore={explore}
+              onBrowse={() => navigate("investigations")}
+              onReadiness={() => navigate("readiness")}
+            />
             {explorerSource && (
               <button type="button" onClick={() => navigate("investigations")}>
                 Return to discovery / comparison

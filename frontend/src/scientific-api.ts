@@ -1,4 +1,5 @@
 import { formatUtc } from "./time-presentation";
+import { canonicalTime } from "./saved-investigation";
 export type FreshnessState =
   "fresh" | "aging" | "stale" | "unknown" | "future_epoch";
 export interface SnapshotSummary {
@@ -150,6 +151,15 @@ export async function getPosition(
     throw new Error(
       "Calculation response has invalid identity, frame, units or numbers",
     );
+  // Missing legacy metadata remains unknown. If a time is supplied, it must
+  // identify the requested instant, including all supported microseconds.
+  if (data.at !== undefined) {
+    try {
+      if (canonicalTime(data.at) !== canonicalTime(at)) throw new Error();
+    } catch {
+      throw new Error("Calculation time does not match the requested time");
+    }
+  }
   return {
     snapshot_id: snapshot,
     catalog_id: data.catalog_id,

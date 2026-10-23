@@ -14,6 +14,13 @@ Read the [intended-use statement](docs/intended-use.md): OrbitIQ supports explor
 and historical analysis. Independent observation-based prediction validation remains
 blocked and orbital prediction uncertainty remains unquantified.
 
+The [E5 product audit](docs/engineering-e5-product-audit.md) maps current
+capabilities to source, APIs, user journeys and tests. Its
+[verification report](docs/engineering-e5-report.md) and
+[prioritized roadmap](docs/engineering-e5-roadmap.md) distinguish implemented
+local workflows from missing product capabilities and unresolved scientific and
+production gates. The phase sections below retain their historical scope.
+
 The pre-Phase 5 foundation adds a read-only **Scientific-data readiness** view and
 `GET /api/readiness`, separate from liveness. It reports bounded database metadata,
 stored epoch/retrieval freshness, local EOP coverage/prediction policy and actual
@@ -206,8 +213,9 @@ npm run build
 ```
 
 Formatting: `uv run --locked ruff format .` and `cd frontend && npm run format`.
-Tests use temporary databases and mocked frontend health responses. Live proxy
-validation additionally requires both development processes: request
+Tests use temporary archives, labelled reference/synthetic fixtures, mocked
+provider failures and actual browser/API workflows. Manual development-proxy
+validation requires both development processes: request
 `/api/health` on port 5173 and verify the JSON above. The backend suite includes published SGP4 reference cases. Current transformation and browser checks are documented in `docs/phase-3-report.md`.
 See `docs/phase-1-report.md`
 for ingestion evidence; `docs/phase-0-report.md` records the earlier foundation checks.
@@ -226,11 +234,13 @@ The frontend health request times out after five seconds and is cancelled when
 the component unmounts. Modern browsers supporting `AbortSignal.any` and
 `AbortSignal.timeout` are required; broader browser support needs explicit review.
 
-`.github/workflows/ci.yml` defines locked backend and frontend checks for pull
-requests, pushes and manual runs. The published Phase 5 commit has a verified
-successful backend/frontend run; the Phase 6 report links the exact SHA and jobs.
-Phase 6 locally adds explicit reference-audit and migration/recovery steps; these
-new workflow changes have not run remotely. There is no deployment workflow.
+`.github/workflows/ci.yml` defines `backend`, `frontend` and `release-images` checks
+for pull requests, pushes and manual runs. These include scientific audits,
+explicit migration/recovery, isolated installation, exact-source image/artifact
+seals, gateway/TLS checks and E1/E2 browser/PDF regressions. See the
+[E4 closure evidence](docs/engineering-e4-final-closure.md) and
+[E5 verification report](docs/engineering-e5-report.md) for actual results and
+exact-commit CI scope. There is no deployment workflow.
 
 
 ## Phase 1 live ingestion

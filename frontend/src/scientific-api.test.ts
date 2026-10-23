@@ -108,3 +108,62 @@ it.each(["2026-10-19T07:58:23.415+00:00", "invalid"])(
     );
   },
 );
+
+// An otherwise valid response for another instant must not become evidence
+// for the requested time. Fractions below Date's millisecond precision matter.
+it.each([
+  "2000-01-01T00:00:01.123456Z",
+  "2000-01-01T00:00:00.123457Z",
+  "2000-01-01T00:00:00",
+  "invalid",
+])(
+  "rejects a mismatched or invalid returned calculation time: %s",
+  async (at) => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          snapshot_id: 1,
+          catalog_id: 5,
+          kind: "calculated",
+          frame: "TEME",
+          model: "SGP4",
+          gravity_model: "WGS72",
+          time_system: "UTC",
+          position_km: [1, 2, 3],
+          velocity_km_s: [4, 5, 6],
+          units: { position: "km", velocity: "km/s" },
+          at,
+        }),
+      }),
+    );
+    await expect(
+      getPosition(1, "2000-01-01T00:00:00.123456Z", signal()),
+    ).rejects.toThrow("Calculation time does not match the requested time");
+  },
+);
+
+it("accepts the same calculation instant expressed with a UTC offset", async () => {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        snapshot_id: 1,
+        catalog_id: 5,
+        kind: "calculated",
+        frame: "TEME",
+        model: "SGP4",
+        gravity_model: "WGS72",
+        time_system: "UTC",
+        position_km: [1, 2, 3],
+        velocity_km_s: [4, 5, 6],
+        units: { position: "km", velocity: "km/s" },
+        at: "2000-01-01T05:30:00.123456+05:30",
+      }),
+    }),
+  );
+  const result = await getPosition(1, "2000-01-01T00:00:00.123456Z", signal());
+  expect(result.at).toBe("2000-01-01T05:30:00.123456+05:30");
+});

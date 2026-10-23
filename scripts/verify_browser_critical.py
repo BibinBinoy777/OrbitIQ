@@ -6,7 +6,7 @@ No source ingestion, orbital fixture insertion or API/canvas mocking occurs.
 
 import argparse
 import json
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import parse_qs, urlencode, urlsplit, urlunsplit
 from urllib.request import ProxyHandler, build_opener
@@ -40,6 +40,7 @@ def main():
     assert all(s["catalog_id"] == args.catalog for s in sources)
     at = sources[1]["orbital_epoch"]
     errors, violations, requests, cases = [], [], [], []
+    product_acceptance = {}
     with browser_session(sync_playwright) as p:
         launch = {"headless": True}
         if args.engine == "chromium":
@@ -144,6 +145,43 @@ def main():
             page.get_by_role(
                 "button", name="Explore an editable copy", exact=True
             ).click()
+            # E5: exercise the ordinary TEME inspector through the real API,
+            # including a non-UTC input offset and actionable invalid input.
+            page.get_by_text(
+                "Source provenance and TEME inspection", exact=True
+            ).click()
+            inspector = page.get_by_label(
+                "Requested propagation time (UTC or explicit offset)", exact=True
+            )
+            requested = datetime.fromisoformat(sources[0]["orbital_epoch"])
+            inspector.fill(
+                requested.astimezone(
+                    timezone(timedelta(hours=5, minutes=30))
+                ).isoformat()
+            )
+            page.get_by_role("button", name="Calculate position", exact=True).click()
+            state = page.get_by_role(
+                "region", name="Calculated orbital state", exact=True
+            )
+            expect(state).to_be_visible()
+            expect(state).to_contain_text(sources[0]["response_sha256"])
+            expect(state).to_contain_text("Not a direct observation")
+            utc_label = requested.isoformat(timespec="microseconds").replace(
+                "+00:00", "Z"
+            )
+            expect(state).to_contain_text(utc_label)
+            inspector.fill("not-an-ISO-time")
+            page.get_by_role("button", name="Calculate position", exact=True).click()
+            expect(page.get_by_role("alert")).to_contain_text(
+                "Invalid request parameters"
+            )
+            expect(state).to_have_count(0)
+            inspector.fill(sources[0]["orbital_epoch"])
+            page.get_by_role("button", name="Calculate position", exact=True).click()
+            expect(state).to_be_visible()
+            product_acceptance[
+                "teme_offset_utc_provenance_and_invalid_input_recovery"
+            ] = "PASS"
             track = page.get_by_role(
                 "region", name="Earth-relative ground track", exact=True
             )
@@ -161,6 +199,23 @@ def main():
             expect(
                 track.get_by_label("Selected track sample", exact=True)
             ).to_have_value("1")
+            before_playback = sum("/api/" in r["url"] for r in requests)
+            track.get_by_role("button", name="Play", exact=True).click()
+            expect(
+                track.get_by_label("Selected track sample", exact=True)
+            ).to_have_value("2")
+            expect(
+                track.get_by_role("button", name="Play", exact=True)
+            ).to_be_disabled()
+            assert sum("/api/" in r["url"] for r in requests) == before_playback, (
+                "Playback requested new data"
+            )
+            track.get_by_role("button", name="Reset timeline", exact=True).click()
+            expect(track.get_by_label("Calculated sample", exact=True)).to_have_value(
+                "0"
+            )
+            track.get_by_role("button", name="Next sample", exact=True).click()
+            product_acceptance["playback_end_reset_and_no_additional_requests"] = "PASS"
             action = track.get_by_role(
                 "region", name="Save or share ground-track investigation", exact=True
             )
@@ -310,6 +365,7 @@ def main():
                 "source_hashes": [s["response_sha256"] for s in sources],
                 "api_mocked": False,
                 "canvas_mocked": False,
+                "product_acceptance": product_acceptance,
             }
             args.output.write_text(json.dumps(result, indent=2) + "\n")
             print(

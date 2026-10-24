@@ -1,0 +1,509 @@
+{
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "decision": "BLOCKED \u2014 ADDITIONAL EVIDENCE REQUIRED",
+  "source_captures": {
+    "earthdata-orbits": {
+      "source_url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/orbit-products",
+      "retrieved_at": "2026-10-24T04:56:16.514834+00:00",
+      "status": 200,
+      "final_url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/precise-orbits-product",
+      "bytes": 147514,
+      "sha256": "7a978bdb26304238c057486eb90127aa370892ebfb1d02136e5503eecb78ee7b",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": [
+        {
+          "status": 301,
+          "url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/orbit-products"
+        }
+      ]
+    },
+    "cddis": {
+      "source_url": "https://cddis.nasa.gov/",
+      "retrieved_at": "2026-10-24T04:56:16.515364+00:00",
+      "status": 200,
+      "final_url": "https://cddis.nasa.gov/",
+      "bytes": 442,
+      "sha256": "1140f9e57b5767b59877d1e119635e675721eb828d6724638d49c841bddcb858",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "igs-products": {
+      "source_url": "https://igs.org/products/",
+      "retrieved_at": "2026-10-24T04:56:16.515961+00:00",
+      "status": 200,
+      "final_url": "https://igs.org/products/",
+      "bytes": 1189063,
+      "sha256": "f84af4dbae028a2a960d0ff136678fde4b1a075ad9f3a2b7efb4b65d248efd0e",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "celestrak-formats": {
+      "source_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "retrieved_at": "2026-10-24T04:56:16.516304+00:00",
+      "status": 200,
+      "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "bytes": 40338,
+      "sha256": "b4b9fb137a35d80cd7d50c886b76900e33d679ecbc7ccffd4763bd496f706c76",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "sp3-spec": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "retrieved_at": "2026-10-24T04:56:17.157263+00:00",
+      "status": 200,
+      "final_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "bytes": 321385,
+      "sha256": "0809fe6571816a9b8394b46b8851b9bfbab956b46f7acab5af6eb62acee5ebbe",
+      "content_type": "application/pdf",
+      "redirects": []
+    },
+    "igs-frames": {
+      "source_url": "https://igs.org/wg/reference-frame/",
+      "retrieved_at": "2026-10-24T04:56:17.253859+00:00",
+      "status": 200,
+      "final_url": "https://igs.org/wg/reference-frame/",
+      "bytes": 1110895,
+      "sha256": "1440565f2df5810aab50bb4ce59d0e404b94a8f884707e4934eec76e054a3dd5",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "igs-satellite-metadata": {
+      "source_url": "https://files.igs.org/pub/station/general/igs_satellite_metadata.snx",
+      "retrieved_at": "2026-10-24T04:56:17.746107+00:00",
+      "status": 200,
+      "final_url": "https://files.igs.org/pub/station/general/igs_satellite_metadata.snx",
+      "bytes": 277829,
+      "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+      "content_type": null,
+      "redirects": []
+    },
+    "cddis-final-probe": {
+      "source_url": "https://cddis.nasa.gov/archive/gnss/products/2439/IGS0OPSFIN_20262770000_01D_15M_ORB.SP3.gz",
+      "retrieved_at": "2026-10-24T04:58:28.339900+00:00",
+      "status": 200,
+      "bytes": 11043,
+      "sha256": "1db8a4be73dea04560d0b210aca53f9adb6e286f177129529c6e11632202f889",
+      "final_url": "https://urs.earthdata.nasa.gov/oauth/authorize",
+      "content_type": "text/html; charset=utf-8",
+      "redirects": [
+        {
+          "status": 302,
+          "url": "https://cddis.nasa.gov/archive/gnss/products/2439/IGS0OPSFIN_20262770000_01D_15M_ORB.SP3.gz"
+        }
+      ]
+    },
+    "bkg-index": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2439/",
+      "retrieved_at": "2026-10-24T04:58:28.340334+00:00",
+      "status": 200,
+      "bytes": 11764,
+      "sha256": "d1e48f6a5af4a106ad4f84211f470a19145d901d2a98e91fc6b6eff50844107e",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2439/",
+      "content_type": "text/html;charset=ISO-8859-1",
+      "redirects": []
+    },
+    "bkg-access": {
+      "source_url": "https://igs.bkg.bund.de/",
+      "retrieved_at": "2026-10-24T04:58:28.341011+00:00",
+      "status": 200,
+      "bytes": 22327,
+      "sha256": "b3fc381e7afadd4c89b4e51f9e6c30dff368ee18109307057c8496492f511463",
+      "final_url": "https://igs.bkg.bund.de/",
+      "content_type": "text/html; charset=utf-8",
+      "redirects": []
+    },
+    "ign-index": {
+      "source_url": "https://igs.ign.fr/pub/igs/products/2439/",
+      "retrieved_at": "2026-10-24T04:58:28.340642+00:00",
+      "status": 503,
+      "bytes": 91,
+      "sha256": "2f85832e31ca57711e6107af6b142363351ae516adb71c69afc643fac26be7f6",
+      "final_url": "https://igs.ign.fr/pub/igs/products/2439/",
+      "content_type": "text/plain",
+      "redirects": []
+    },
+    "bkg-2438": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2438/",
+      "retrieved_at": "2026-10-24T04:59:37.701252+00:00",
+      "status": 200,
+      "bytes": 33489,
+      "sha256": "4749c30624ed1349f8b9e1d18990104645ec27b738bf59f5add71dbc610f9a54",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2438/",
+      "content_type": "text/html;charset=ISO-8859-1",
+      "redirects": []
+    },
+    "bkg-2295": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/",
+      "retrieved_at": "2026-10-24T04:59:37.701721+00:00",
+      "status": 200,
+      "bytes": 49439,
+      "sha256": "a62431bd24e40aa17d1cfe8feeb85cbf767c851cdc32592afa57479b9cf22e6c",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/",
+      "content_type": "text/html;charset=ISO-8859-1",
+      "redirects": []
+    },
+    "igs-final-2024001": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "retrieved_at": "2026-10-24T05:00:22.757926+00:00",
+      "status": 200,
+      "bytes": 102609,
+      "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "content_type": "application/x-gzip",
+      "redirects": []
+    },
+    "igs-final-summary-2295": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+      "retrieved_at": "2026-10-24T05:00:22.758539+00:00",
+      "status": 200,
+      "bytes": 23095,
+      "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+      "content_type": "application/x-gzip",
+      "redirects": []
+    },
+    "igs-sinex-spec": {
+      "source_url": "https://files.igs.org/pub/resource/working_groups/multi_gnss/Metadata_SINEX_1.10.pdf",
+      "retrieved_at": "2026-10-24T05:02:29.611518+00:00",
+      "status": 200,
+      "bytes": 444029,
+      "sha256": "c31a578b33324d05df06cc694538eb88bc066ac2dde5adb4bb986946b4aa9f46",
+      "final_url": "https://files.igs.org/pub/resource/working_groups/multi_gnss/Metadata_SINEX_1.10.pdf",
+      "content_type": "application/pdf",
+      "redirects": []
+    },
+    "igs-antenna-conventions": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+      "retrieved_at": "2026-10-24T05:00:22.759070+00:00",
+      "status": 200,
+      "bytes": 52994,
+      "sha256": "ac844f38cd1c1a1eafbaa45d7ba0baf89b0787cf307fb42ba645b03dc195da9d",
+      "final_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+      "content_type": "text/plain; charset=UTF-8",
+      "redirects": []
+    },
+    "igs-frame-8238": {
+      "source_url": "https://lists.igs.org/pipermail/igsmail/2022/008238.html",
+      "retrieved_at": "2026-10-24T05:00:22.759498+00:00",
+      "status": 200,
+      "bytes": 5649,
+      "sha256": "4f31ce7cbe4ccadc5c1996e651ce5d75148cfb145f11abbaa9a5847c9d1cb363",
+      "final_url": "https://lists.igs.org/pipermail/igsmail/2022/008238.html",
+      "content_type": "text/html",
+      "redirects": []
+    },
+    "earthdata-access": {
+      "source_url": "https://www.earthdata.nasa.gov/centers/cddis-daac/archive-access",
+      "retrieved_at": "2026-10-24T04:59:37.702296+00:00",
+      "status": 200,
+      "bytes": 183646,
+      "sha256": "f138b223b4622ec37da9b02dd5ba2845a0105e48b41c9faee84f8c677789d096",
+      "final_url": "https://www.earthdata.nasa.gov/centers/cddis-daac/archive-access",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "gps-current": {
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=gps-ops&FORMAT=JSON",
+      "retrieved_at": "2026-10-24T04:58:29.302996+00:00",
+      "status": 200,
+      "bytes": 13256,
+      "sha256": "8e1b961369ba5d083ec99b792453e26e82217f0ac609dc6f4eece432a0f5ef87",
+      "final_url": "https://celestrak.org/NORAD/elements/gp.php",
+      "content_type": "application/json; charset=UTF-8",
+      "redirects": []
+    },
+    "cddis-selected-final-probe": {
+      "source_url": "https://cddis.nasa.gov/archive/gnss/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "retrieved_at": "2026-10-24T05:17:59.655554+00:00",
+      "status": 200,
+      "bytes": 11043,
+      "sha256": "1355976694044a6ea8dd4a420d38676adade55ab0c8e6dce3ac625852e14be8e",
+      "final_url": "https://urs.earthdata.nasa.gov/oauth/authorize",
+      "content_type": "text/html; charset=utf-8",
+      "redirects": [
+        {
+          "status": 302,
+          "url": "https://cddis.nasa.gov/archive/gnss/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz"
+        }
+      ]
+    }
+  },
+  "product": {
+    "product_name": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "source_sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "source_bytes": 102609,
+    "expanded_sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c",
+    "expanded_bytes": 253250,
+    "profile": "SP3-c/GPS/P/FIN/15M",
+    "frame_declaration": "IGS20",
+    "time_system": "GPS",
+    "position_unit": "km",
+    "epoch_count": 96,
+    "sampling_seconds": 900,
+    "satellite_ids": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32"
+    ],
+    "position_counts": {
+      "G01": 96,
+      "G02": 96,
+      "G03": 96,
+      "G04": 96,
+      "G05": 96,
+      "G06": 96,
+      "G07": 96,
+      "G08": 96,
+      "G09": 96,
+      "G10": 96,
+      "G11": 96,
+      "G12": 96,
+      "G13": 96,
+      "G14": 96,
+      "G15": 96,
+      "G16": 96,
+      "G17": 96,
+      "G18": 96,
+      "G19": 96,
+      "G20": 96,
+      "G21": 96,
+      "G22": 96,
+      "G23": 96,
+      "G24": 96,
+      "G25": 96,
+      "G26": 96,
+      "G27": 96,
+      "G28": 96,
+      "G29": 96,
+      "G30": 96,
+      "G31": 96,
+      "G32": 96
+    },
+    "header_accuracy_exponents": {
+      "G01": 2,
+      "G02": 2,
+      "G03": 2,
+      "G04": 2,
+      "G05": 2,
+      "G06": 1,
+      "G07": 1,
+      "G08": 2,
+      "G09": 2,
+      "G10": 2,
+      "G11": 2,
+      "G12": 2,
+      "G13": 2,
+      "G14": 2,
+      "G15": 2,
+      "G16": 2,
+      "G17": 2,
+      "G18": 2,
+      "G19": 2,
+      "G20": 2,
+      "G21": 2,
+      "G22": 1,
+      "G23": 2,
+      "G24": 2,
+      "G25": 2,
+      "G26": 2,
+      "G27": 3,
+      "G28": 2,
+      "G29": 2,
+      "G30": 2,
+      "G31": 1,
+      "G32": 2
+    }
+  },
+  "product_exclusions_by_satellite": {
+    "G01": {
+      "unknown_y_sigma": 5
+    },
+    "G02": {
+      "unknown_x_sigma": 1
+    },
+    "G03": {
+      "unknown_x_sigma": 3
+    },
+    "G04": {
+      "unknown_z_sigma": 4
+    },
+    "G06": {
+      "unknown_z_sigma": 7,
+      "unknown_x_sigma": 5,
+      "unknown_y_sigma": 1
+    },
+    "G07": {
+      "unknown_z_sigma": 6,
+      "unknown_y_sigma": 5
+    },
+    "G14": {
+      "unknown_z_sigma": 2
+    },
+    "G15": {
+      "unknown_y_sigma": 6
+    },
+    "G17": {
+      "unknown_y_sigma": 7,
+      "unknown_z_sigma": 3
+    },
+    "G20": {
+      "unknown_x_sigma": 3,
+      "unknown_z_sigma": 3
+    },
+    "G21": {
+      "unknown_x_sigma": 3
+    },
+    "G22": {
+      "unknown_z_sigma": 4,
+      "unknown_y_sigma": 2
+    },
+    "G24": {
+      "unknown_y_sigma": 1
+    },
+    "G26": {
+      "unknown_z_sigma": 1
+    },
+    "G27": {
+      "missing_clock_unused": 96,
+      "unknown_y_sigma": 7,
+      "unknown_z_sigma": 20,
+      "unknown_x_sigma": 14
+    },
+    "G28": {
+      "unknown_x_sigma": 5
+    },
+    "G29": {
+      "unknown_z_sigma": 3
+    },
+    "G31": {
+      "unknown_y_sigma": 6,
+      "unknown_x_sigma": 3
+    },
+    "G32": {
+      "unknown_z_sigma": 3,
+      "unknown_x_sigma": 3
+    }
+  },
+  "candidate_inputs": [
+    {
+      "candidate_gp": {
+        "source_sha256": "8e1b961369ba5d083ec99b792453e26e82217f0ac609dc6f4eece432a0f5ef87",
+        "source_bytes": 13256,
+        "source_index_zero_based": 14,
+        "canonical_record_sha256": "da1c730d1fc16648e57d2954f3f7c7eb7d8c3c14a71522bde262022f41c6f70d",
+        "catalog_id": 39533,
+        "cospar_id": "2014-008A",
+        "epoch_utc": "2026-10-23T07:38:57.767424+00:00",
+        "ephemeris_type": 0,
+        "mean_element_theory": "SGP4",
+        "initialization_method": "d",
+        "gravity_model": "existing WGS72",
+        "propagation_executed": false,
+        "fit_lineage": "not established",
+        "historical_availability": "not established"
+      },
+      "nominal_identity": {
+        "prn": "G30",
+        "svn": "G064",
+        "cospar_id": "2014-008A",
+        "catalog_id": 39533,
+        "valid_from_raw": "2014:052:00000",
+        "valid_to_raw": "0000:000:00000",
+        "metadata_sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "scope": "nominal civil-calendar identity only; metadata interval time scale requires review at boundaries"
+      },
+      "exclusion_counts": {
+        "outside_existing_7_day_guard": 96,
+        "gp_after_reference_anchor": 96
+      },
+      "frozen_anchor_utc": "2023-12-31T23:59:42.000000Z",
+      "resource_quality_counts": {
+        "IERS_B_final": 192
+      }
+    },
+    {
+      "candidate_gp": {
+        "source_sha256": "8e1b961369ba5d083ec99b792453e26e82217f0ac609dc6f4eece432a0f5ef87",
+        "source_bytes": 13256,
+        "source_index_zero_based": 20,
+        "canonical_record_sha256": "3846a56ee8ca90efe4a3401df8b738e00c1978d2ed1e8c80f37f3e342ce6aab1",
+        "catalog_id": 41019,
+        "cospar_id": "2015-062A",
+        "epoch_utc": "2026-10-22T09:56:02.175648+00:00",
+        "ephemeris_type": 0,
+        "mean_element_theory": "SGP4",
+        "initialization_method": "d",
+        "gravity_model": "existing WGS72",
+        "propagation_executed": false,
+        "fit_lineage": "not established",
+        "historical_availability": "not established"
+      },
+      "nominal_identity": {
+        "prn": "G10",
+        "svn": "G073",
+        "cospar_id": "2015-062A",
+        "catalog_id": 41019,
+        "valid_from_raw": "2015:304:00000",
+        "valid_to_raw": "0000:000:00000",
+        "metadata_sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "scope": "nominal civil-calendar identity only; metadata interval time scale requires review at boundaries"
+      },
+      "exclusion_counts": {
+        "outside_existing_7_day_guard": 96,
+        "gp_after_reference_anchor": 96
+      },
+      "frozen_anchor_utc": "2023-12-31T23:59:42.000000Z",
+      "resource_quality_counts": {
+        "IERS_B_final": 192
+      }
+    }
+  ],
+  "first_utc_diagnostic": "2023-12-31T23:59:42.000000Z",
+  "last_utc_diagnostic": "2024-01-01T23:44:42.000000Z",
+  "time_resources": {
+    "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+    "package_version": "0.2026.10.12.1.3.27",
+    "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+    "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+    "leap_seconds_expires": "2027-06-28",
+    "first_mjd": 41684.0,
+    "last_mjd": 61682.0,
+    "predictive_mjd": 61315.0
+  },
+  "source_eligible_epochs": 0,
+  "scientifically_accepted_epochs": 0,
+  "propagation_executed": false,
+  "residuals_calculated": false,
+  "ephemerides_in_this_evidence": false,
+  "cddis_authenticated_product_acquisition": false,
+  "raw_products_excluded_from_git_and_ci": true
+}

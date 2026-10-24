@@ -1,0 +1,29 @@
+#cP2024  1  1  0  0  0.00000000       2 ORBIT IGS20 HLM  IGS
+## 2295  86400.00000000   900.00000000 60310 0.0000000000000
++    2   G10G30  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
++          0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
++          0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
++          0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
++          0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+++         2  2  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+++         0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+++         0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+++         0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+++         0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+%c G  cc GPS ccc cccc cccc cccc cccc ccccc ccccc ccccc ccccc
+%c cc cc ccc ccc cccc cccc cccc cccc ccccc ccccc ccccc ccccc
+%f  1.2500000  1.025000000  0.00000000000  0.000000000000000
+%f  0.0000000  0.000000000  0.00000000000  0.000000000000000
+%i    0    0    0    0      0      0      0      0         0
+%i    0    0    0    0      0      0      0      0         0
+/* FINAL ORBIT COMBINATION FROM WEIGHTED AVERAGE OF:
+/* SYNTHETIC FORMAT CONTROL ONLY, NOT AN IGS PRODUCT
+/* Invented coordinates; no real observations or uncertainty
+/* Layout: SP3-c spec and inspected 2024 IGS final structure
+*  2024  1  1  0  0  0.00000000
+PG10  10000.000000  20000.000000  15000.000000      0.000000  0  1  2   0       
+PG30  10000.000000  20000.000000  15000.000000      0.000000  0  1  2   0       
+*  2024  1  1  0 15  0.00000000
+PG10  10015.000000  20000.000000  15000.000000      0.000000  0  1  2   0       
+PG30  10015.000000  20000.000000  15000.000000      0.000000  0  1  2   0       
+EOF

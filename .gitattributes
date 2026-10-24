@@ -1,0 +1,2 @@
+# Fixed-column SP3 records preserve blank flag columns through column 80.
+backend/tests/fixtures/igs/synthetic-final.sp3 whitespace=-blank-at-eol

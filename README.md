@@ -447,3 +447,5 @@ qualify orbital accuracy or establish production readiness.
 Stored-catalog onboarding and local portable recovery: [E6 usage and bundle format](docs/engineering-e6-guide.md).
 
 Historical window validation and exact-window Retry: [E7 usage and verification](docs/engineering-e7-guide.md).
+
+NASA/IGS alternative-reference feasibility: [E8 findings and blocked comparison prerequisites](docs/engineering-e8-feasibility-report.md).

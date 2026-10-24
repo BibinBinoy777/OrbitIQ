@@ -2,6 +2,10 @@
 
 Baseline: `309aa02826bc0ca36ce82ed31d14fb76dbeecbfb`.
 Branch: `engineering-e8-nasa-igs-feasibility` in the separate E8 worktree.
+Status: **E8 feasibility engineering verified on the corrected implementation
+baseline below**. This receipt and metadata-only documentation additions receive
+their own exact-SHA CI before final handoff.
+
 The [feasibility report](engineering-e8-feasibility-report.md) ends in
 **BLOCKED — ADDITIONAL EVIDENCE REQUIRED**. That scientific decision is separate
 from software/feasibility-task completion and production readiness.
@@ -44,8 +48,10 @@ state vectors, database writes or scientific-approval switch.
   live frontend/API proxy, missing-database safety, explicit initialization,
   duplicate-init refusal, no-op migration, injected collection failure/recovery,
   restart and separate restore rehearsal. Tested tree:
-  `50c685da75711d645361e1ee6ae21c3fee251403`; subsequent changes were documentation
-  and the fixed-column whitespace attribute only. CI rechecks its exact tree.
+  `50c685da75711d645361e1ee6ae21c3fee251403`. Initial subsequent changes were
+  documentation and the fixed-column whitespace attribute; later CLI-test and
+  compressed-input corrections were separately verified by the exact corrected
+  CI tree below, including another full fresh-checkout rehearsal.
 - The final inspector independently parsed the genuine 102,609-byte gzip product,
   verified its SHA-256, expanded 253,250-byte SHA-256, all 96 epochs / 3,072 P
   records, and checked official nominal identity plus time/resource eligibility
@@ -84,8 +90,63 @@ unhandled compression traceback, covered by the existing integrity test. No
 orbital, scientific qualification, dependency or workflow behavior changed.
 Corrective tests were run with PYTHONPATH removed from the parent environment:
 **46 focused and 1,352 full backend tests passed**. Genuine G30/G10 inspection
-results remained identical and scientifically BLOCKED. The next exact-commit CI
-result must be observed rather than inferred from the earlier local success.
+results remained identical and scientifically BLOCKED. The corrected remote CI
+result was then observed and independently verified below.
+
+## Corrected published baseline and remote verification
+
+Implementation commit: `ef1c8f3308941a82d28d70208b6c26c0c4ced480`.
+[Exact-commit run](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/40067071165): **backend, frontend and release-images succeeded**.
+No failed/cancelled required execution step was accepted; only the two optional
+manual image-retention steps were skipped on an ordinary push.
+
+- Remote JUnit: **1,352 backend / 427 frontend tests passed**,
+  zero failures/errors/skips. All 46 E8 tests run offline with synthetic controls;
+  no genuine GP/reference product or NASA connectivity is needed by CI.
+- Locked installation/advisory checks, Ruff, ESLint, formatting, TypeScript,
+  production builds, all existing numerical audits and migrations/recovery passed.
+  Actual advisory lookup checked 29 Python packages with zero matches/skips; npm
+  reported zero vulnerabilities. This is execution-time lookup evidence.
+- Existing E1 **77 flows** (27 Chromium / 25 Firefox / 25 WebKit), E2 **62 checks**,
+  E6 **39 scenarios / 12 cross-context round trips / 39 native downloads**, and E7
+  **21 cases / three native captured-history downloads** passed. All suites and
+  assertions remain; E8 added no redundant browser workflow or mock data feed.
+- E2/E6/E7 axe scans totalled **36**, with zero reported violations. Manual/device
+  and screen-reader certification remain outside this evidence.
+- **Seven PDFs passed**, including all 361 maximum-track rows.
+- Gateway/configuration, loopback TLS/API smoke, exact frontend/image matching and
+  source/image sealing passed. All **380 source files** were independently
+  hashed against the published Git blobs. Full and compact release records both
+  verified all **69 sealed evidence files** and frontend artifacts offline.
+  Production approval remains false; no image registry publication or deployment.
+- Fresh checkout matched exact tree `519552802dda5060775989b29f1124427d253dfa` and passed locked installs,
+  frontend/API startup/proxy, safe initialization/refusal, injected failure/recovery,
+  restart and separate restore. Restored/source fingerprints matched and the
+  disposable source was unchanged. This is not independent production recovery.
+- All nine expected artifacts belonged to this SHA and were unexpired when
+  inspected. GitHub metadata confirmed configured seven-/90-day retention bounds;
+  future expiry/global settings were not tested. Text/trace and extracted PDF
+  text passed the established credential/contact scan. Database/key files were
+  absent; ZIP integrity and PNG/PDF signatures passed. Images were not OCR-scanned.
+  Existing narrowly identified synthetic URL canaries/Playwright image references
+  were retained as known test strings. No private product was uploaded.
+- Source evidence still states **BLOCKED — ADDITIONAL EVIDENCE REQUIRED**, zero
+  scientific epochs and no propagation/residual calculation. Test and artifact
+  success cannot promote the genuine candidate to scientific acceptance.
+
+| Milestone                       | Evidence/status                                                       |
+| ------------------------------- | --------------------------------------------------------------------- |
+| Local engineering verification  | Passed, scoped above                                                  |
+| Published implementation        | Corrected E8 engineering commit above                                 |
+| Remote CI / retained artifacts  | Exact corrected commit verified                                       |
+| Reference acquisition           | VERIFIED via BKG; CDDIS authentication BLOCKED                        |
+| Candidate scientific evaluation | BLOCKED; no eligible historical GP and unresolved qualification gates |
+| Production deployment           | Not performed                                                         |
+| Production infrastructure       | Not verified; E4 OPEN                                                 |
+
+The final documentation receipt is published separately and its own exact-commit
+CI/artifacts must be checked before final handoff; this report records the
+already-verified implementation baseline without claiming an unobserved later run.
 
 ## Reproduction
 
@@ -137,7 +198,7 @@ not automatically accepted. Partial declared grids can be inspected but remain
 an explicit daily-coverage blocker. Metadata mapping is a nominal civil-calendar
 lookup, not proof of an interval's sub-second physical time scale.
 
-## Preservation, publication and pending remote gate
+## Preservation and publication boundaries
 
 The original E7 worktree stays on its verified commit. Its tracked files, previous
 reports, real schema-3 two-snapshot database and 72 private files are checked
@@ -163,8 +224,9 @@ its baseline and prohibits scientific comparisons, which remain absent.
 The existing CI workflow already covers locked installs, complete tests, frontend
 build, numerical references, migrations, fresh-checkout recovery, pinned release
 containers/TLS, E1–E7 browser/accessibility/PDF checks and sealed artifact verification.
-No redundant workflow was added. Commit/push and exact-final-SHA CI/artifact review
-remain pending at this local checkpoint; prior E7 success is not E8 verification.
+No redundant workflow was added. The corrected implementation's actual E8
+publication/CI/artifact evidence is recorded above; prior E7 success was not used
+as a substitute. Final documentation publication receives its own exact-SHA CI.
 
 E4 remains **OPEN**. Swarm-A Phase 11.3.1 remains **PARTIAL**, scientific evaluation
 **BLOCKED**. This feasibility work does not establish production or scientific

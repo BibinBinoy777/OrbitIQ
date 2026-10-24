@@ -226,6 +226,16 @@
           "url": "https://cddis.nasa.gov/archive/gnss/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz"
         }
       ]
+    },
+    "igs20-atx": {
+      "source_url": "https://files.igs.org/pub/station/general/igs20.atx",
+      "retrieved_at": "2026-10-24T05:02:29.611988+00:00",
+      "status": 200,
+      "bytes": 61579571,
+      "sha256": "0cd58d0d9ee678d5586de6c01f576e5aceb86f4a0735a168f733dfd091c0a614",
+      "final_url": "https://files.igs.org/pub/station/general/igs20.atx",
+      "content_type": "audio/ATRAC-X",
+      "redirects": []
     }
   },
   "product": {
@@ -505,5 +515,14 @@
   "residuals_calculated": false,
   "ephemerides_in_this_evidence": false,
   "cddis_authenticated_product_acquisition": false,
-  "raw_products_excluded_from_git_and_ci": true
+  "raw_products_excluded_from_git_and_ci": true,
+  "local_inspection_software": {
+    "python": "3.12.14",
+    "sgp4": "2.27",
+    "astropy": "7.2.3",
+    "pyerfa": "2.0.1.5",
+    "astropy-iers-data": "0.2026.10.12.1.3.27",
+    "uv_lock_sha256": "cf5f1577b37d703cca8d9406e1a6666426dcab6daac9c7d85c899620bea3bdae",
+    "scope": "Local genuine-product metadata/time/resource inspection; separate CI environment is verified independently"
+  }
 }

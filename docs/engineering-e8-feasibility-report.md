@@ -205,6 +205,13 @@ physical-event conclusions remain unsupported. No numerical scientific
 acceptance threshold or uncertainty budget was invented, and the existing
 numerical regression tolerances were not changed.
 
+The source-evidence ledger pins the local inspection software versions and
+uv-lock hash separately from remote CI. No product-processing software baseline
+identifier has been established: SP3-c, the HLM/IGS header, filename fields and the
+summary's format version 2.0 are not invented processing-version identifiers.
+The captured current ANTEX resource's URL/time/size/hash are recorded, without
+asserting it was the 2024 processing input.
+
 ## Proposed protocol and minimum next evidence
 
 The [separate protocol v0.1](engineering-e8-comparison-protocol.md) fixes the

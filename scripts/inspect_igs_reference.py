@@ -12,6 +12,7 @@ import io
 import json
 import re
 import runpy
+import zlib
 from collections import Counter
 from datetime import datetime, timedelta
 from decimal import Decimal
@@ -70,7 +71,7 @@ def inspect_sp3(source, sha256, product_name):
             raw = stream.read(MAX_TEXT + 1)
         require(len(raw) <= MAX_TEXT, "expanded_source_size")
         lines = raw.decode("ascii").splitlines()
-    except (OSError, EOFError, UnicodeError):
+    except (OSError, EOFError, UnicodeError, zlib.error):
         raise Refusal("not_gzip_ascii_sp3") from None
     require(
         24 <= len(lines) <= 100000 and all(len(s) <= 80 for s in lines), "record_bounds"

@@ -3,6 +3,7 @@
 import gzip
 import hashlib
 import json
+import os
 import runpy
 import subprocess
 import sys
@@ -167,7 +168,8 @@ def test_hash_compression_and_size_integrity(monkeypatch):
     raw = source()
     with pytest.raises(M["Refusal"], match="source_hash_mismatch"):
         M["inspect_sp3"](raw, "0" * 64, NAME)
-    for invalid in (b"<html>login</html>", raw[:-8]):
+    invalid_deflate = b"\x1f\x8b\x08\x00" + b"\x00" * 6 + b"\x07" + b"\x00" * 8
+    for invalid in (b"<html>login</html>", raw[:-8], invalid_deflate):
         with pytest.raises(M["Refusal"], match="not_gzip_ascii_sp3"):
             inspect(invalid)
     monkeypatch.setitem(M["inspect_sp3"].__globals__, "MAX_TEXT", 64)
@@ -350,7 +352,10 @@ def test_unrepresentable_or_invalid_gps_epochs_are_not_rounded(parts):
         M["TIME"]["gps_value"](parts, "GPS")
 
 
-def test_bounded_files_symlinks_and_no_overwrite_cli(tmp_path):
+def test_bounded_files_symlinks_and_no_overwrite_cli(tmp_path, monkeypatch):
+    # Mirror CI: pytest's pythonpath setting is not inherited by child Python.
+    monkeypatch.delenv("PYTHONPATH", raising=False)
+    child_env = dict(os.environ, PYTHONPATH=str(ROOT / "backend"))
     product = tmp_path / "synthetic.gz"
     product.write_bytes(source())
     rawgp = tmp_path / "synthetic.json"
@@ -382,11 +387,15 @@ def test_bounded_files_symlinks_and_no_overwrite_cli(tmp_path):
     ]
     for label, path in (("product", product), ("gp", rawgp), ("metadata", metadata)):
         cmd += ["--" + label + "-sha256", sha(path.read_bytes())]
-    run = subprocess.run(cmd, capture_output=True, text=True, check=False)
+    run = subprocess.run(
+        cmd, capture_output=True, text=True, check=False, env=child_env
+    )
     assert run.returncode == 0, run.stderr
     before = output.read_bytes()
     assert json.loads(before)["scientifically_accepted_count"] == 0
-    again = subprocess.run(cmd, capture_output=True, text=True, check=False)
+    again = subprocess.run(
+        cmd, capture_output=True, text=True, check=False, env=child_env
+    )
     assert again.returncode == 1 and output.read_bytes() == before
     assert "No fallback or comparison" in again.stderr
     assert str(tmp_path) not in again.stderr

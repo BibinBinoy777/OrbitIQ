@@ -67,6 +67,26 @@ check the actual refusal and explicit six-digit formatting; parser/precision
 requirements were not relaxed. The final results above followed those corrections
 and the added strict metadata-header/identity checks.
 
+## First remote CI run and corrective verification
+
+Commit `111995ebca025e11f661c9c932337e3e263822dd`,
+[run 40066531919](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/40066531919),
+passed frontend but had **1 failed / 1,351 passed** backend tests. Release/browser
+checks were skipped because backend did not pass. The new CLI subprocess test
+could not import `orbitiq`: local testing supplied PYTHONPATH, whereas pytest's
+own pythonpath configuration does not propagate to child processes in CI.
+
+The test now explicitly removes any inherited caller PYTHONPATH and supplies the
+child with the absolute backend path, matching the documented standalone CLI
+invocation. All refusal/no-overwrite assertions remain. Review also added safe
+refusal of malformed DEFLATE streams rather than an
+unhandled compression traceback, covered by the existing integrity test. No
+orbital, scientific qualification, dependency or workflow behavior changed.
+Corrective tests were run with PYTHONPATH removed from the parent environment:
+**46 focused and 1,352 full backend tests passed**. Genuine G30/G10 inspection
+results remained identical and scientifically BLOCKED. The next exact-commit CI
+result must be observed rather than inferred from the earlier local success.
+
 ## Reproduction
 
 With locked dependencies installed from the repository root:

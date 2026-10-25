@@ -1,0 +1,1584 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-25",
+  "review_timezone": "Asia/Calcutta",
+  "V1_target_date": "2026-10-31",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_HEAD": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "publication": "NONE — current working-tree changes remain unpublished",
+  "source_catalog": {
+    "docs/engineering-e1-report.md": {
+      "bytes": 6823,
+      "sha256": "b11af23a156fd52e0fe1e7c832042ac7254e36891906fb0a04cf760d5e941eff"
+    },
+    "docs/engineering-e2-report.md": {
+      "bytes": 10675,
+      "sha256": "0ffcee1a441c2ccf15c3069c50a13f28bb1a1158ec25426429b14505bd6f7805"
+    },
+    "docs/engineering-e3-report.md": {
+      "bytes": 15512,
+      "sha256": "12e74401068923aa0f942e7f87a875324ba72fbfdab0da536382b6585c18ac82"
+    },
+    "docs/engineering-e4-report.md": {
+      "bytes": 16731,
+      "sha256": "b3bc0d2231c0ed0bce42781c00b5a703a74748bb4be9b4c229e0521c9ae82c4a"
+    },
+    "docs/engineering-e4-final-closure.md": {
+      "bytes": 26694,
+      "sha256": "ae7183b2b48213dad2f0b2aa2ca17473b9872414797d34bfb9d15f0c73d9f806"
+    },
+    "docs/engineering-e5-product-audit.md": {
+      "bytes": 25326,
+      "sha256": "f2308b3097c7c6d13e02cd00a89311a6922ae7eb63a7955703bb1a01789892af"
+    },
+    "docs/engineering-e5-roadmap.md": {
+      "bytes": 9337,
+      "sha256": "554ee0e29d3543eb35e3843ed7e043da407eb58da41ddb3a06aa6445fdeb912f"
+    },
+    "docs/engineering-e6-report.md": {
+      "bytes": 12614,
+      "sha256": "8e83409f5334a6f9929de25396c4fd268c4b2ccafead874fad651e9fb2434e52"
+    },
+    "docs/engineering-e7-report.md": {
+      "bytes": 15204,
+      "sha256": "0c6af90579565c30253036af577c13e8b2942fc0dc26ed7bde07c84ec56fc6be"
+    },
+    "docs/engineering-e8.7.10-erp-time-scale-interpolation.md": {
+      "bytes": 22126,
+      "sha256": "15c243805f84c1dfe1576aa7a62ae2c26078e53015fd662b8174636e88db3fd0"
+    },
+    "docs/engineering-e8.7.10-erp-time-scale-evidence.json": {
+      "bytes": 49339,
+      "sha256": "9c4d8c60a59282aeb0cbaf05c24e5eea096331caede0196744b15f0745fd421a"
+    },
+    "docs/engineering-e8.7.10-igs-clarification-draft.md": {
+      "bytes": 4152,
+      "sha256": "02b1b60b4e9bb59e1877e4a90f0389dabee61fc48e31f391604765c294c325ef"
+    },
+    "docs/igs-inquiry-status.json": {
+      "bytes": 2481,
+      "sha256": "e0f6e5364d6bc5cd4cbb4b70e812cbec89c51da490e5215ba2bd41dfa728ec71"
+    },
+    "scripts/verify_report_pdf.py": {
+      "bytes": 5430,
+      "sha256": "ca0d7852640df2c6e58ea699a91fad9908b1b4b4e412d5a4427d75cf0333f947"
+    },
+    "backend/tests/test_report_pdf_verifier.py": {
+      "bytes": 2854,
+      "sha256": "95e9e6e0b31858ee017c27c7d1ed3a49beed18de2c2b3fb725147e2d4ce826e0"
+    },
+    "docs/v1-user-acceptance-checklist.md": {
+      "bytes": 7171,
+      "sha256": "a059d6e7c56a583ae857d4ad090db177caa166cc490d365f7be7056721ef0fab"
+    },
+    "scripts/seed_browser_fixtures.py": {
+      "bytes": 4815,
+      "sha256": "4884ebef5aafb7afd14f6ebde622a9e7a74e5ac70928d4d41b00f3d5316cde12"
+    },
+    "backend/tests/test_owner_acceptance_seed.py": {
+      "bytes": 2985,
+      "sha256": "45a60893e83f782b2fc3b7a3731b7626b71e4d6376ddb05199cc6feb33a04010"
+    }
+  },
+  "IGS_inquiry": {
+    "status": "SENT_USER_REPORTED",
+    "record": "docs/igs-inquiry-status.json",
+    "sent_timestamp": null,
+    "recipient_mailbox": null,
+    "message_identifier": null,
+    "delivery_verified": false,
+    "response": "PENDING",
+    "scientific_questions_resolved": []
+  },
+  "highest_priority_requirement": "Integrated verification of the current local V1 candidate, including a locked fresh setup and non-destructive fixture recovery",
+  "demonstrated_defect_and_fix": {
+    "file": "scripts/verify_report_pdf.py",
+    "trigger": "Complete scientific limitation split across PDF pages; pdftotext running header/footer interrupts exact normalized body match",
+    "before": "Actual six-PDF check failed on chromium-comparison.pdf despite complete body text",
+    "after": "Validate raw page count and known numbered page-boundary furniture, remove only that furniture for body matching; retain layout and every required-content assertion",
+    "existing_assertion_ASTs_unchanged": 6,
+    "new_synthetic_regressions": 15,
+    "application_or_scientific_algorithm_changed": false
+  },
+  "local_checks": {
+    "backend_final": {
+      "status": "PASS",
+      "command": [
+        "/workspace/OrbitIQ/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=/tmp/orbitiq-v1-closure/backend-final/backend-tests.xml"
+      ],
+      "counts": {
+        "tests": 1582,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "pytest_seconds": 69.73,
+      "source_unchanged_during_run": true,
+      "warnings": [
+        "Existing Starlette/httpx deprecation",
+        "Deliberate synthetic ZIP duplicate-name warning"
+      ]
+    },
+    "frontend": {
+      "status": "PASS",
+      "counts": {
+        "tests": 427,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "commands": [
+        {
+          "name": "tests",
+          "command": [
+            "npm",
+            "test",
+            "--",
+            "--maxWorkers=2",
+            "--reporter=default",
+            "--reporter=junit",
+            "--outputFile.junit=/tmp/orbitiq-v1-closure/frontend/tests.xml"
+          ],
+          "exit_code": 0,
+          "seconds": 33.791
+        },
+        {
+          "name": "lint",
+          "command": ["npm", "run", "lint"],
+          "exit_code": 0,
+          "seconds": 16.467
+        },
+        {
+          "name": "format",
+          "command": ["npm", "run", "format:check"],
+          "exit_code": 0,
+          "seconds": 9.056
+        },
+        {
+          "name": "build",
+          "command": ["npm", "run", "build"],
+          "exit_code": 0,
+          "seconds": 19.526
+        }
+      ],
+      "tracked_source_files_unchanged": 87,
+      "warning": "Existing globe-renderer chunk558.60kB; threshold unchanged"
+    },
+    "ruff": {
+      "status": "PASS",
+      "commands": [
+        "/workspace/OrbitIQ/.venv/bin/ruff check .",
+        "/workspace/OrbitIQ/.venv/bin/ruff format --check ."
+      ],
+      "formatted_python_files": 253
+    },
+    "installation_recovery": {
+      "status": "PASS",
+      "command": "python3 scripts/verify_fresh_checkout.py --output /tmp/orbitiq-v1-closure/fresh-checkout",
+      "source_snapshot_tree": "9582a30c70042bc0736bb9321e4e604eeda0601a",
+      "reviewed_files": 425,
+      "source_scope": "Disposable starting working-tree snapshot includes untracked E8 tools/tests, own temporary index/no commit. Inquiry/closure docs and later PDF-verifier-only fix are outside that installation snapshot; runtime application/dependency files match current source.",
+      "fresh_locked_installs": true,
+      "missing_database_no_auto_creation": true,
+      "duplicate_initialization_refused": true,
+      "frontend_API_proxy": true,
+      "restart_and_injected_provider_failure_recovery": true,
+      "separate_fixture_backup_restore_and_all_table_fingerprints": true,
+      "off_machine_or_real_archive_recovery_verified": false
+    }
+  },
+  "browser_and_PDF": {
+    "status": "PARTIAL",
+    "runtime": "Native system Chromium154.0.8037.57 with Playwright1.62.0; current fixture API/gateway and separately host Vite preview for PDF flow",
+    "production_gateway_fixture_cases": {
+      "critical": 7,
+      "failure_states": 5,
+      "empty_observation": 2,
+      "expected_failure_diagnostic_probes": 2,
+      "WebGL2_rendered": true,
+      "physical_device_verified": false
+    },
+    "PDF_components": {
+      "status": "PASS_FOR_SIX_GENERATED_FILES",
+      "checked_files": [
+        {
+          "file": "chromium-comparison.pdf",
+          "pages": 17,
+          "bytes": 104643,
+          "sha256": "619d719fd209786960d9d7b867b9f0d2c7f9e4a2e254989bb6e166e8fea45682",
+          "report_sha256": "a4c2371fa13fd3cb22654171a42a685454ec4b9047bc52b799751e712fad2042",
+          "status": "PASS",
+          "page_counters": true,
+          "all_sections": true,
+          "source_identity_and_warnings": true,
+          "track_rows_checked": 0,
+          "application_excluded": true
+        },
+        {
+          "file": "chromium-ground-track.pdf",
+          "pages": 13,
+          "bytes": 83830,
+          "sha256": "349a7aae680be2c79eb188626aa9b622edb06604b4991ad51f4adf42b32aaab0",
+          "report_sha256": "59dab83c33fb652337dc4530f7522da8843afdee7126fc8bdf39ad563507923f",
+          "status": "PASS",
+          "page_counters": true,
+          "all_sections": true,
+          "source_identity_and_warnings": true,
+          "track_rows_checked": 3,
+          "application_excluded": true
+        },
+        {
+          "file": "chromium-maximum-track.pdf",
+          "pages": 72,
+          "bytes": 317884,
+          "sha256": "b53b3b888c6f8cac29b4f333ae66f8f6976f862eb8fbbe948e585af3abafa3ba",
+          "report_sha256": "7df2cb0bbead2f6d1628dd8cfd047975aae7777fcd02a964cc3998c5f0e9906d",
+          "status": "PASS",
+          "page_counters": true,
+          "all_sections": true,
+          "source_identity_and_warnings": true,
+          "track_rows_checked": 361,
+          "application_excluded": true
+        },
+        {
+          "file": "chromium-position.pdf",
+          "pages": 8,
+          "bytes": 66716,
+          "sha256": "51e914cb19166bca99b71221bb67f7d774ef59db2c3c9539a9c357530d4f358e",
+          "report_sha256": "829541ea65be879dadc42e9027b159f84bafb2ed0f068d74a4128dc8561347a0",
+          "status": "PASS",
+          "page_counters": true,
+          "all_sections": true,
+          "source_identity_and_warnings": true,
+          "track_rows_checked": 0,
+          "application_excluded": true
+        },
+        {
+          "file": "chromium-saved.pdf",
+          "pages": 7,
+          "bytes": 61126,
+          "sha256": "92df1360af560040fcb00de23097aad20d5d0d5bf44a328833d76c8b0811b147",
+          "report_sha256": "0d2dc73e0fe3d8795026ce0ded0deb21b1b5d1940cc65d427487ba76b65e117f",
+          "status": "PASS",
+          "page_counters": true,
+          "all_sections": true,
+          "source_identity_and_warnings": true,
+          "track_rows_checked": 0,
+          "application_excluded": true
+        },
+        {
+          "file": "chromium-snapshot.pdf",
+          "pages": 7,
+          "bytes": 61256,
+          "sha256": "21005cf721a5583cf1a9aaa74908359ac6ef50c7fa290f8de76bd36ef851399e",
+          "report_sha256": "4261d5b7a6d5d4b16fb6280999b87dda924188b00fb65635da0e54132fd650ff",
+          "status": "PASS",
+          "page_counters": true,
+          "all_sections": true,
+          "source_identity_and_warnings": true,
+          "track_rows_checked": 0,
+          "application_excluded": true
+        }
+      ],
+      "full_seven_PDF_gate_passed": false,
+      "offline_seventh_generated": false
+    },
+    "unverified": [
+      "Complete pinned Chromium/Firefox/WebKit release suite",
+      "Full current E2/E6/E7 browser harness",
+      "Standalone offline HTML navigation/PDF under an approved runtime"
+    ],
+    "actual_limitations": [
+      "Initial internal-network Docker published loopback transport unreachable; raw loopback bridge preserved real gateway responses",
+      "Native history helper required container-only axe path; no product assertion failure established there",
+      "Docker VFS exhausted root disk; owned run stopped and cleaned, no unrelated pruning",
+      "System Chromium returned ERR_BLOCKED_BY_ADMINISTRATOR for file:// offline navigation; no bypass"
+    ],
+    "production_web_image_scope": "Exact original pinned gateway final stage assembled with hash-identical tested current frontend dist/configs; not a full multistage web Docker build or sealed remote release",
+    "all_14_host_fixture_hashes_unchanged": true,
+    "owned_services_and_container_resources_cleaned": true
+  },
+  "remaining_release_gaps": [
+    {
+      "gate": "Local browser/PDF release gate",
+      "status": "PARTIAL",
+      "needs": "Approved runtime with adequate Docker storage, all required engines and permitted synthetic offline-file navigation; complete unchanged regression checks"
+    },
+    {
+      "gate": "Human acceptance/accessibility",
+      "status": "PARTIAL",
+      "needs": "Local scope accepted on 2026-10-25; six individual checklist outcomes and real-device/screen-reader observations remain unverified. No formal waiver of engineering gates supplied.",
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE"
+    },
+    {
+      "gate": "Hosting/HTTPS/durable target storage",
+      "status": "BLOCKED",
+      "needs": "Authorized target/URL/identity/storage/certificate and actual remote persistence/TLS tests"
+    },
+    {
+      "gate": "Independent backup/recovery",
+      "status": "BLOCKED",
+      "needs": "Explicitly approved off-machine destination and recovery host, private credentials/key recovery, actual upload/retrieval/separate restore proof; no private upload authorized here"
+    },
+    {
+      "gate": "Operational monitoring/alert delivery",
+      "status": "BLOCKED",
+      "needs": "Approved host/schedule/receiver/recipient plus demonstrated failure and recovery delivery and human receipt"
+    },
+    {
+      "gate": "Remote CI and required-check enforcement",
+      "status": "NOT VERIFIED FOR CURRENT CANDIDATE",
+      "needs": "Exact candidate verification and authorized enforcement evidence; no publication action in this task. Latest E7 recorded public repo/main unprotected/empty rulesets/protection-read403 is historical, not a fresh settings check."
+    }
+  ],
+  "October31_decision_path": [
+    "Finish remaining browser/offline-PDF checks in a permitted adequately resourced runtime; fix only demonstrated defects and rerun affected checks",
+    "Retain owner acceptance of current intended-local-use scope; complete outstanding technical/accessibility evidence separately and keep unqualified scientific claims unavailable",
+    "Freeze reviewed candidate and record evidence-based local V1 decision by2026-10-31 Asia/Calcutta. Public production and scientific qualification remain separate open decisions; date does not resolve them."
+  ],
+  "milestones": {
+    "locally_verified": "Integrated tests, build and isolated installation/recovery PASS; browser/PDF PARTIAL",
+    "published": "NO",
+    "remote_CI_current_candidate": "NOT VERIFIED",
+    "production_deployed": "NO",
+    "production_infrastructure_verified": "NO",
+    "scientific_study": "BLOCKED — NO-GO"
+  },
+  "preservation": {
+    "prior_private_manifest_entries": 230,
+    "original_private_files": 72,
+    "older_research_inventory_files": 178,
+    "original_database_schema": 3,
+    "original_database_snapshots": 2,
+    "original_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "new_local_evidence_root": "/workspace/OrbitIQ-e82/data/v1-release-closure-local",
+    "new_local_manifest_entries": 26,
+    "new_local_manifest": {
+      "bytes": 3666,
+      "sha256": "e1392a75223e7e60c97691e4e07f17b3c57046a3b33bf5a81a9b2794e7423aac"
+    },
+    "real_data_used_for_acceptance": false,
+    "independent_backup_claimed": false
+  },
+  "scientific_boundaries": {
+    "Phase11_3_1": "PARTIAL",
+    "study": "BLOCKED — NO-GO",
+    "IGS_response": "PENDING",
+    "epoch_scale": "UNRESOLVED",
+    "zero_field_meanings": "UNRESOLVED; unused fields are not automatically universal blockers for bounded unweighted claims",
+    "subdaily_TIO_frame_compatibility": "UNRESOLVED",
+    "G05_G30_record_selected": false,
+    "active_EOP_policy_changed": false,
+    "synthetic_ERP_prototype_connected": false,
+    "original_protocol_or_admission_policy_changed": false,
+    "genuine_historical_study_propagation_transform_interpolation_residual_or_uncertainty_calculation": false
+  },
+  "changed_files": [
+    "docs/igs-inquiry-status.json",
+    "scripts/verify_report_pdf.py",
+    "backend/tests/test_report_pdf_verifier.py",
+    "docs/v1-local-release-closure.md",
+    "docs/v1-local-release-evidence.json"
+  ],
+  "credentials_or_raw_correspondence_in_public_report": false,
+  "Git_publication_or_deployment_performed": false,
+  "final_acceptance_assessment": {
+    "review_date": "2026-10-25",
+    "review_timezone": "Asia/Calcutta",
+    "target_date": "2026-10-31",
+    "prior_closure_evidence_identity": {
+      "bytes": 15558,
+      "sha256": "1ad4b725f09c877aca1f65d01e0d57a3b8c5e694e3668e02a273a0474e18cf1c"
+    },
+    "tests_reused": {
+      "backend": 1582,
+      "frontend": 427,
+      "PDF_components": 6,
+      "basis": "Exact current backend/scripts and87 frontend source hashes match prior final test manifests; six PDF bytes unchanged. No runtime/dependency/source edit in this continuation."
+    },
+    "new_browser_or_PDF_checks_completed": [],
+    "blocked_offline_check": {
+      "script": "scripts/verify_report_browser.py",
+      "stage": "standalone HTML",
+      "navigation": "Downloaded chromium-position.html via file://",
+      "missing_artifact": "chromium-position-offline.pdf",
+      "required_assertions": [
+        "Report article visible",
+        "Seven sections",
+        "White print background",
+        "Repeating table header style",
+        "Only file: requests",
+        "Offline JSON/PDF capture",
+        "No page/CSP errors"
+      ],
+      "actual_prior_error": "ERR_BLOCKED_BY_ADMINISTRATOR",
+      "policy_bypass_attempted": false,
+      "retried_without_changed_prerequisites": false
+    },
+    "runtime_observation": {
+      "root_free_bytes_at_review": 496476160,
+      "tmp_free_bytes_at_review": 16961228800,
+      "playwright_version": "1.62.0",
+      "default_managed_browser_cache_present": false,
+      "native_runtime": "Existing system Chromium154.0.8037.57; prior file-navigation restriction unchanged by any supplied evidence",
+      "full_pinned_browser_image_size_recorded": "2.54GB, before API/web/runtime copies and output",
+      "cleanup": "No new cleanup/prune; shared cache ownership not established. No research/DB removal."
+    },
+    "missing_browser_scopes": [
+      "Standalone offline position HTML/PDF with original assertions",
+      "Full historical-analysis/window browser regression (prior native helper path failure is not a pass)",
+      "Configured nonempty synthetic observation browser journeys",
+      "Complete E2 accessibility/layout/performance and E6 portable-recovery/E7 browser coverage",
+      "Complete pinned Chromium/Firefox/WebKit release suite; Firefox/WebKit not freshly run"
+    ],
+    "minimum_browser_action": "Provide an authorized runtime permitting the unchanged synthetic offline-file workflow and enough Docker storage for the2.54GB browser plus API/web/runtime layers. Complete existing pinned suite without bypasses; do not repeat successful unit/setup checks absent changes.",
+    "installation_recovery_reassessment": {
+      "local_locked_setup_restart_fixture_backup_restore": "PASS — retained receipts, unchanged application/dependency hashes",
+      "real_archive_off_machine_backup_protection": "NOT VERIFIED",
+      "approved_external_destination_available_in_supported_context": false,
+      "external_backup_attempted": false,
+      "needed": "Approved independent destination and recovery host, privately configured least-privilege identity/key recovery, retention/RPO/RTO, actual retrieve/separate restore proof"
+    },
+    "operational_review": {
+      "basis": [
+        "docs/engineering-e4-final-closure.md",
+        "docs/engineering-e7-report.md"
+      ],
+      "fresh_runtime_capabilities": [],
+      "fresh_outbound_identities": [],
+      "fresh_secret_bindings": [],
+      "database_variable_readiness": "unknown",
+      "outside_accounts_absence_proven": false,
+      "hosting_HTTPS_persistent_target": "BLOCKED — approved target/URL/access/durable volume/certificate and actual remote tests missing",
+      "independent_backup": "BLOCKED — approved destination/recovery environment and actual off-machine proof missing",
+      "monitoring_alert_delivery": "BLOCKED — approved monitor runtime/receiver/recipient and actual failure/recovery human receipt missing",
+      "current_release_automated_gate": "PARTIAL — prior passes retained, full browser gate and current exact-source remote CI unverified",
+      "branch_controls": "NOT VERIFIED — latest E7 settings evidence retained as historical, not a new API read; authorized administrator readback/enforcement evidence needed",
+      "artifact_retention": "Earlier bounded policy evidence retained; current candidate remote artifact upload/retention not verified",
+      "external_resources_or_DNS_or_security_settings_changed": false
+    },
+    "owner_acceptance": {
+      "status": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "checklist": "docs/v1-user-acceptance-checklist.md",
+      "explicit_confirmation_received": true,
+      "agent_performed_human_acceptance": false,
+      "acceptance_date": "2026-10-25",
+      "acceptance_timezone": "Asia/Calcutta",
+      "acceptance_time": null,
+      "confirmation": "Yes, I am satisfied with this version of OrbitIQ for its intended local use.",
+      "source": "Explicit owner confirmation in this conversation",
+      "scope": "The current OrbitIQ version for its intended local use",
+      "individual_checklist_results_supplied": false,
+      "technical_checklist_items_marked_passed": 0,
+      "browser_OS_device_observations_supplied": false,
+      "outstanding_engineering_gates_formally_accepted_as_limitations": false
+    },
+    "decisions": {
+      "local_engineering": {
+        "decision": "CONDITIONAL GO",
+        "evidence": "Retained final1582 backend/427 frontend passes, lint/build, locked installation/restart/separate fixture restore and six complete PDF checks",
+        "conditions": [
+          "Complete missing browser/offline-PDF release checks in permitted runtime"
+        ],
+        "meaning": "Continue local candidate handoff/closure; not unconditional acceptance, publication or production release",
+        "fulfilled_conditions": [
+          "Explicit owner acceptance of current OrbitIQ version for its intended local use, 2026-10-25; no individual technical results or formal limitation waiver supplied"
+        ]
+      },
+      "scientific_validation": {
+        "decision": "NO-GO",
+        "evidence": "IGS inquiry SENT_USER_REPORTED with reply pending; ERP time/subdaily/TIO/frame and applicable point/quality/provenance/protocol gates unresolved",
+        "conditions": [
+          "Authoritative evidence, independent qualification and explicit comparison authorization"
+        ],
+        "study": "BLOCKED — NO-GO"
+      },
+      "production_readiness": {
+        "decision": "NO-GO",
+        "evidence": "E4 OPEN; hosting/HTTPS/durability, independent recovery, actual alerts and release-control enforcement unverified",
+        "conditions": [
+          "Authorized infrastructure and actual operational/control verification"
+        ],
+        "deployment_performed": false
+      },
+      "owner_acceptance": {
+        "decision": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+        "scope": "The current OrbitIQ version for its intended local use",
+        "date": "2026-10-25",
+        "does_not_resolve_technical_gates": true
+      }
+    },
+    "shortest_path_to_target": [
+      "Provide permitted adequately resourced browser runtime and finish only outstanding checks",
+      "Retain recorded owner local-scope acceptance; record item-specific accessibility/device/journey evidence separately without assuming it exists",
+      "Freeze reviewed evidence and decide local V1 by2026-10-31 Asia/Calcutta; keep public production and scientific qualification separate, without deadline waivers"
+    ],
+    "continuation_changed_files": [
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json",
+      "docs/v1-user-acceptance-checklist.md"
+    ],
+    "continuation_tests": "Documentation/source/hash/preservation checks only; no broad suite rerun and no new browser pass claimed"
+  },
+  "browser_owner_preparation": {
+    "review_date": "2026-10-25",
+    "timezone": "Asia/Calcutta",
+    "prior_evidence_identity": {
+      "bytes": 22501,
+      "sha256": "9076b3b4695d87b515cd5173d7e8b8fed64a6810241fe40e62f8fa06e2b242fb"
+    },
+    "runtime_inspected": {
+      "root_free_bytes": 496414720,
+      "tmp_free_bytes": 17131413504,
+      "playwright_version": "1.62.0",
+      "system_chromium": "/usr/bin/chromium",
+      "default_Playwright_browser_cache": false,
+      "firefox_executable": null,
+      "firefox_esr_executable": null,
+      "approved_external_runtime_in_supported_context": false
+    },
+    "browser_results": {
+      "Chromium": {
+        "new_tests_passed": 0,
+        "retained_scope": "Prior7critical/5failure-state/2empty-observation cases and sixPDFcomponentpasses",
+        "seventh_offline_PDF": "BLOCKED — prior administrator file:// restriction, no changed authorization/runtime supplied",
+        "full_release_suite": "BLOCKED — insufficientDockerstorage and incompletepreviousnativeharness"
+      },
+      "Firefox": {
+        "status": "NOT EXECUTED",
+        "reason": "No usable native/cache runtime discovered; pinnedDockerbrowserblockedbycapacity"
+      },
+      "WebKit": {
+        "status": "NOT EXECUTED",
+        "reason": "No managedPlaywrightcache; pinnedDockerbrowserblockedbycapacity"
+      }
+    },
+    "downloads_or_policy_changes_or_repeat_browser_attempts": false,
+    "minimum_runtime_requirement": "Authorized offline-file-capable browser runtime with requiredPlaywrightengines and adequate storage for2.54GBbrowser plusAPI/web/runtime layers; no publicdomainrequired",
+    "owner_setup": {
+      "status": "PREPARED_SYNTHETIC_ONLY",
+      "seed_script": "scripts/seed_browser_fixtures.py",
+      "mode": "--local-owner --directory <absolute fresh empty directory>",
+      "default_container_mode_changed": false,
+      "local_reference": "Bundled backend/tests/fixtures/vallado-leo.json only; no operator research-file override",
+      "receipt": {
+        "fixture": "SYNTHETIC UI INPUTS; NOT SATELLITE OBSERVATIONS",
+        "catalog": 6251,
+        "first": 1,
+        "second": 2,
+        "run_id": "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1",
+        "synthetic_only": true,
+        "database": "/tmp/orbitiq-v1-owner/acceptance/archive.sqlite3",
+        "database_sha256": "88db5cfdc46eda94aa6a80443e3d136ac508a0547a3acb1307b0cd13efd8f4d2"
+      },
+      "live_API_smoke": {
+        "status": "PASS",
+        "synthetic_only": true,
+        "fixture_directory": "/tmp/orbitiq-v1-owner/acceptance",
+        "database_sha256": "88db5cfdc46eda94aa6a80443e3d136ac508a0547a3acb1307b0cd13efd8f4d2",
+        "checks": {
+          "/api/health": {
+            "status": 200,
+            "body": {
+              "status": "ok",
+              "service": "OrbitIQ"
+            }
+          },
+          "/api/ready": {
+            "status": 200,
+            "body": {
+              "status": "ready"
+            }
+          },
+          "/api/snapshots": {
+            "status": 200,
+            "body": {
+              "snapshots": [
+                {
+                  "id": 2,
+                  "catalog_id": 6251,
+                  "object_name": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+                  "object_id": "1962-025E",
+                  "identity_consistent": true,
+                  "orbital_epoch": "2006-06-26T01:46:43.980096+00:00",
+                  "retrieved_at": "2026-10-18T00:00:00+00:00",
+                  "snapshot_created_at": "2026-10-25T12:05:15.262000+00:00",
+                  "insertion_time_status": "recorded",
+                  "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+                  "provider": "CelesTrak",
+                  "response_sha256": "a4cf95a19214e266aeed34c3584bba069a5e7520bdefb0f596831ea701221e61",
+                  "validation_status": "structural_and_epoch_propagation_passed",
+                  "validator_version": "orbitiq-omm-v1",
+                  "ingestion_sgp4_version": "2.27",
+                  "frame": "TEME",
+                  "record_count": 1,
+                  "record_count_basis": "schema_2_single_satellite_snapshot",
+                  "metadata_issues": [],
+                  "listing_validation": "metadata_only_not_full_provenance_verification",
+                  "freshness_info": {
+                    "state": "stale",
+                    "evaluated_at": "2026-10-25T12:07:36.029596+00:00",
+                    "epoch_age_seconds": 641643652.0495,
+                    "retrieval_age_seconds": 648456.029596,
+                    "fresh_hours": 24.0,
+                    "stale_hours": 72.0,
+                    "basis": "orbital_epoch",
+                    "accuracy_guarantee": false
+                  },
+                  "membership": "stored_record"
+                },
+                {
+                  "id": 1,
+                  "catalog_id": 6251,
+                  "object_name": "E1 SYNTHETIC UI FIXTURE - NOT OBSERVED HISTORY",
+                  "object_id": "1962-025E",
+                  "identity_consistent": true,
+                  "orbital_epoch": "2006-06-25T19:46:43.980096+00:00",
+                  "retrieved_at": "2026-10-17T00:00:00+00:00",
+                  "snapshot_created_at": "2026-10-25T12:05:15.261000+00:00",
+                  "insertion_time_status": "recorded",
+                  "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=6251&FORMAT=JSON",
+                  "provider": "CelesTrak",
+                  "response_sha256": "1f547c269eb3c79fcbfbfdd36b74c29b7873114e5839233f3fd316dcef92ecff",
+                  "validation_status": "structural_and_epoch_propagation_passed",
+                  "validator_version": "orbitiq-omm-v1",
+                  "ingestion_sgp4_version": "2.27",
+                  "frame": "TEME",
+                  "record_count": 1,
+                  "record_count_basis": "schema_2_single_satellite_snapshot",
+                  "metadata_issues": [],
+                  "listing_validation": "metadata_only_not_full_provenance_verification",
+                  "freshness_info": {
+                    "state": "stale",
+                    "evaluated_at": "2026-10-25T12:07:36.029596+00:00",
+                    "epoch_age_seconds": 641665252.0495,
+                    "retrieval_age_seconds": 734856.029596,
+                    "fresh_hours": 24.0,
+                    "stale_hours": 72.0,
+                    "basis": "orbital_epoch",
+                    "accuracy_guarantee": false
+                  },
+                  "membership": "stored_record"
+                }
+              ],
+              "evaluated_at": "2026-10-25T12:07:36.029596+00:00",
+              "order": "insertion_id_desc_not_retrieval_chronology",
+              "anchor_id": 2,
+              "has_more": false,
+              "next_before_id": null,
+              "page_size": 20,
+              "returned_count": 2,
+              "scanned_count": 2,
+              "scan_limit": 250,
+              "total_count": 2,
+              "total_count_status": "exact_within_anchor",
+              "count_bound": 1000,
+              "context_snapshot": null,
+              "storage_model": "one_satellite_record_per_snapshot",
+              "global_latest_retrieval_known": false,
+              "warnings": [
+                "ID ordering is insertion order, not element or retrieval chronology.",
+                "No match means not found in inspected stored records, not absent from orbit.",
+                "Search can return an empty scan window with more history to examine.",
+                "Counts exclude records appended above the fixed history anchor."
+              ]
+            }
+          }
+        },
+        "database_unchanged": true,
+        "services_stopped": true,
+        "human_acceptance": "PENDING_USER_ACCEPTANCE",
+        "command": [
+          "/workspace/OrbitIQ/.venv/bin/python",
+          "-m",
+          "uvicorn",
+          "orbitiq.main:app",
+          "--app-dir",
+          "backend",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "54587"
+        ],
+        "initial_driver_correction": "Used documented object_name listing key after initial test-driver KeyError; no product change"
+      },
+      "human_acceptance": "PENDING_USER_ACCEPTANCE",
+      "services_left_running": false
+    },
+    "verification": {
+      "targeted_synthetic_seed_tests": 4,
+      "targeted_command": "/workspace/OrbitIQ/.venv/bin/python -m pytest -q backend/tests/test_owner_acceptance_seed.py --junitxml=/tmp/orbitiq-v1-owner/seed-tests-final.xml",
+      "result": "4 passed in0.90s",
+      "lint_format": "TargetedRuffpassed",
+      "prior_full_backend_1582": "Historical retained full run; unchanged application modules, new seed/test changes verified separately; not a fresh expanded full-suite claim",
+      "frontend_427": "Retained unchanged frontend-source result",
+      "full_suites_rerun": false
+    },
+    "production_and_scientific_boundaries": "UNCHANGED — production NO-GO, scientific NO-GO, local CONDITIONAL GO; IGSreplypending; owneracceptancepending",
+    "changed_files": [
+      "scripts/seed_browser_fixtures.py",
+      "backend/tests/test_owner_acceptance_seed.py",
+      "docs/v1-user-acceptance-checklist.md",
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ]
+  },
+  "owner_acceptance_addendum": {
+    "record_date": "2026-10-25",
+    "timezone": "Asia/Calcutta",
+    "acceptance_date": "2026-10-25",
+    "acceptance_time": null,
+    "status": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+    "confirmation": "Yes, I am satisfied with this version of OrbitIQ for its intended local use.",
+    "source": "Explicit owner confirmation in this conversation",
+    "scope": "The current OrbitIQ version for its intended local use",
+    "supersedes": "Current owner acceptance only; earlier preparation receipts remain historical. No technical gate or scientific question is resolved.",
+    "prior_evidence_identity": {
+      "bytes": 32223,
+      "sha256": "5fe15c76244dac65352606777d4853b19851f4265baf262b4c7c7e69c7fcfc48"
+    },
+    "prior_values": {
+      "owner_acceptance": {
+        "status": "PENDING_USER_ACCEPTANCE",
+        "checklist": "docs/v1-user-acceptance-checklist.md",
+        "explicit_confirmation_received": false,
+        "agent_performed_human_acceptance": false
+      },
+      "decisions": {
+        "local_engineering": {
+          "decision": "CONDITIONAL GO",
+          "evidence": "Retained final1582 backend/427 frontend passes, lint/build, locked installation/restart/separate fixture restore and six complete PDF checks",
+          "conditions": [
+            "Complete missing browser/offline-PDF release checks in permitted runtime",
+            "Explicit owner acceptance of agreed local V1 scope"
+          ],
+          "meaning": "Continue local candidate handoff/closure; not unconditional acceptance, publication or production release"
+        },
+        "scientific_validation": {
+          "decision": "NO-GO",
+          "evidence": "IGS inquiry SENT_USER_REPORTED with reply pending; ERP time/subdaily/TIO/frame and applicable point/quality/provenance/protocol gates unresolved",
+          "conditions": [
+            "Authoritative evidence, independent qualification and explicit comparison authorization"
+          ],
+          "study": "BLOCKED — NO-GO"
+        },
+        "production_readiness": {
+          "decision": "NO-GO",
+          "evidence": "E4 OPEN; hosting/HTTPS/durability, independent recovery, actual alerts and release-control enforcement unverified",
+          "conditions": [
+            "Authorized infrastructure and actual operational/control verification"
+          ],
+          "deployment_performed": false
+        }
+      },
+      "human_acceptance_gap": {
+        "gate": "Human acceptance/accessibility",
+        "status": "NOT VERIFIED",
+        "needs": "Owner acceptance of agreed V1 journeys; real-device and screen-reader coverage beyond automated viewport/keyboard/axe checks"
+      },
+      "October31_decision_path": [
+        "Finish remaining browser/offline-PDF checks in a permitted adequately resourced runtime; fix only demonstrated defects and rerun affected checks",
+        "Agree local V1 feature/acceptance scope and complete owner critical-journey/accessibility review; keep unqualified scientific claims unavailable",
+        "Freeze reviewed candidate and record evidence-based local V1 decision by2026-10-31 Asia/Calcutta. Public production and scientific qualification remain separate open decisions; date does not resolve them."
+      ],
+      "shortest_path_to_target": [
+        "Provide permitted adequately resourced browser runtime and finish only outstanding checks",
+        "Complete owner checklist and record accepted local V1 scope/exceptions",
+        "Freeze reviewed evidence and decide local V1 by2026-10-31 Asia/Calcutta; keep public production and scientific qualification separate, without deadline waivers"
+      ],
+      "checklist_source_identity": {
+        "bytes": 6015,
+        "sha256": "4751400e2948929d86e65d490e6739a63acddca4967102728740d79719628d71"
+      }
+    },
+    "technical_checklist": {
+      "total_items": 6,
+      "checked_items": 0,
+      "individual_results_provided": false,
+      "browser_OS_device_observations_provided": false,
+      "formal_engineering_limitation_waiver_provided": false
+    },
+    "resulting_statuses": {
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "local_engineering": "CONDITIONAL GO",
+      "scientific_validation": "NO-GO",
+      "scientific_study": "BLOCKED — NO-GO",
+      "production_readiness": "NO-GO",
+      "E4": "OPEN",
+      "IGS_frame_EOP_clarification": "PENDING"
+    },
+    "retained_limitations": [
+      "Seventh offline PDF blocked by recorded ERR_BLOCKED_BY_ADMINISTRATOR browser restriction",
+      "Full Chromium/Firefox/WebKit coverage incomplete",
+      "Public hosting and HTTPS unverified",
+      "Off-machine backup/recovery unverified",
+      "Real alert delivery unverified",
+      "Release-control enforcement and exact-current-candidate remote CI unverified",
+      "Scientific validation NO-GO; IGS frame/EOP clarification pending"
+    ],
+    "changed_files": [
+      "docs/v1-user-acceptance-checklist.md",
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "validation": {
+      "scope": "Documentation only; no application/source/test/dependency changes",
+      "checks": [
+        "Prettier formatting",
+        "JSON structure and typed evidence invariants (no dedicated V1 JSON Schema exists)",
+        "Evidence consistency and source-catalog hashes",
+        "Local Markdown links and anchors",
+        "Whitespace and scoped diff review",
+        "Four worktrees, database, research-input and private-manifest preservation"
+      ],
+      "result": "PASS",
+      "report": "/tmp/orbitiq-owner-acceptance-record/check-results.json",
+      "broad_suites_rerun": false,
+      "browser_PDF_checks_rerun": false
+    },
+    "scientific_calculations_performed": false,
+    "publication_or_deployment_performed": false
+  },
+  "final_browser_gate_attempt": {
+    "review_date": "2026-10-25",
+    "review_timezone": "Asia/Calcutta",
+    "status": "PARTIAL — FULL BROWSER GATE NOT CLOSED",
+    "prior_evidence_identity": {
+      "bytes": 39258,
+      "sha256": "5ff4d79ccf3cd35939ab5b4fa153ad942a9bab68c48b2c0dcbb1b023ce906529"
+    },
+    "current_runtime": {
+      "host": "Debian13, UID1000",
+      "Playwright": "1.62.0",
+      "Chromium": {
+        "runtime": "System /usr/bin/chromium",
+        "actual_version": "154.0.8037.57"
+      },
+      "root_Docker_driver": "vfs",
+      "initial_root_free_bytes": 496369664,
+      "initial_tmp_free_bytes": 17130287104,
+      "root_free_after_container_cleanup": 496340992,
+      "configured_alternative_runtime_capabilities": [],
+      "browser_container_image": "orbitiq-browser:e2, 2.54GB; not started or downloaded",
+      "downloaded_packages": {
+        "location": "/tmp/orbitiq-v1-browser-gate/browsers",
+        "Firefox": "153.0 / build1538, Debian13",
+        "WebKit": "26.5 / build2336, Debian13",
+        "FFmpeg": "build1011",
+        "install_command": "PLAYWRIGHT_BROWSERS_PATH=/tmp/orbitiq-v1-browser-gate/browsers TMPDIR=/tmp/orbitiq-v1-browser-gate/download-tmp NODE_EXTRA_CA_CERTS=\"$CODEX_PROXY_CERT\" python -m playwright install firefox webkit",
+        "install_exit_code": 0,
+        "host_dependency_warning": true,
+        "proxy_and_TLS_verification_preserved": true,
+        "system_packages_or_policy_modified": false
+      }
+    },
+    "offline_PDF": {
+      "status": "BLOCKED",
+      "artifact": "chromium-position-offline.pdf",
+      "new_test_execution": false,
+      "new_PDF_generated": false,
+      "prior_error": "ERR_BLOCKED_BY_ADMINISTRATOR",
+      "current_policy_file": "/etc/chromium/policies/managed/urls.json",
+      "policy_identity": {
+        "bytes": 223,
+        "sha256": "47e595d31fd4f9e4273dba00536d7d4b7c0e8c50aa4017bc6e5c33dd4193855a"
+      },
+      "verified_policy": "URLBlocklist [*]; URLAllowlist permits HTTP/HTTPS/WSS and selected chrome: pages, not file:",
+      "policy_modified_or_bypassed": false,
+      "alternate_browser_used_to_evade_policy": false,
+      "unchanged_offline_assertions_preserved": true
+    },
+    "setup_attempts": [
+      {
+        "result": "NOT A PRODUCT TEST",
+        "failure": "First task-only orchestration driver imported fixture seed with system Python lacking orbitiq; corrected to existing application venv and explicit PYTHONPATH. No repository source changed."
+      },
+      {
+        "result": "BLOCKED BEFORE READINESS",
+        "runtime": "Cached API:e6 plus web:e6; current read-only backend/dist/config bind mounts, exact pyproject/uv.lock match verified",
+        "failure": "VFS container copies exhausted root space (measured 0 bytes available); API/web exited before browser execution. Task-owned driver interrupted, containers/network removed, free space restored. Advertised image sizes were insufficient to budget VFS copy overhead.",
+        "browser_scenarios_executed": 0,
+        "no_unrelated_prune_or_daemon_change": true
+      }
+    ],
+    "executed_scope": "Native Chromium HTTP UI against current backend + hash-matched tested production dist via Vite preview; NOT production-gateway CSP/rate-limit/three-engine/offline verification",
+    "Chromium": {
+      "status": "PARTIAL — NEW HTTP UI CHECKS PASS",
+      "actual_version": "154.0.8037.57",
+      "new_passed": {
+        "history_cases": 8,
+        "E7_window_cases": 7,
+        "E2_blocking_checks": 23,
+        "E2_automated_accessibility_views": 6,
+        "E2_viewport_layouts": 4,
+        "E6_cases": 13,
+        "E6_export_restore_round_trips": 4,
+        "configured_synthetic_observation_cases": 4
+      },
+      "failed_product_assertions": [],
+      "blocked": ["Seventh offline HTML/PDF via file: policy"],
+      "not_newly_executed": [
+        "Full pinned release harness",
+        "Production-gateway versions of these newly passing UI journeys",
+        "Previously passing critical/failure/empty-observation/six-PDF checks were retained rather than repeated"
+      ],
+      "real_WebGL2_observed": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "physical_device_or_human_accessibility_proven": false
+    },
+    "Firefox": {
+      "status": "BLOCKED AT STARTUP — APPLICATION SCENARIOS NOT EXECUTED",
+      "package": "153.0/build1538",
+      "running_browser_version_obtained": false,
+      "passed_scenarios": [],
+      "failed_product_assertions": [],
+      "blocked": [
+        "Launch did not complete; logged Sandbox: writing /proc/self/uid_map: EROFS and RenderCompositorSWGL failed mapping default framebuffer, no dt; Fontconfig also reported no writable cache directories"
+      ],
+      "termination": "Task-owned stalled launch terminated after about43s; not a completed test or proof of a single root cause",
+      "unexecuted": "All required application journeys",
+      "sandbox_disabled_or_security_controls_changed": false
+    },
+    "WebKit": {
+      "status": "BLOCKED AT DEPENDENCY VALIDATION — APPLICATION SCENARIOS NOT EXECUTED",
+      "package": "26.5/build2336",
+      "passed_scenarios": [],
+      "failed_product_assertions": [],
+      "missing_libraries": [
+        "libgtk-4.so.1",
+        "libgraphene-1.0.so.0",
+        "libharfbuzz-icu.so.0",
+        "libmanette-0.2.so.0",
+        "libhyphen.so.0",
+        "libGLESv2.so.2"
+      ],
+      "unexecuted": "All required application journeys",
+      "dependency_validation_skipped": false
+    },
+    "commands": [
+      {
+        "name": "chromium-history",
+        "command": [
+          "python",
+          "/tmp/orbitiq-v1-closure/native-browser/native_wrapper_v3.py",
+          "verify_history_browser.py",
+          "/tmp/orbitiq-v1-browser-gate/host-ui/chromium-history",
+          "--base-url",
+          "http://127.0.0.1:8080",
+          "--engine",
+          "chromium",
+          "--catalog",
+          "6251",
+          "--fixture",
+          "--output-directory",
+          "/tmp/orbitiq-v1-browser-gate/host-ui/chromium-history/history"
+        ],
+        "exit_code": 0,
+        "seconds": 17.692
+      },
+      {
+        "name": "chromium-engineering-e2",
+        "command": [
+          "python",
+          "/tmp/orbitiq-v1-closure/native-browser/native_wrapper_v3.py",
+          "verify_engineering_e2.py",
+          "/tmp/orbitiq-v1-browser-gate/host-ui/chromium-engineering-e2",
+          "--engine",
+          "chromium",
+          "--axe",
+          "/workspace/OrbitIQ/frontend/node_modules/axe-core/axe.min.js"
+        ],
+        "exit_code": 0,
+        "seconds": 32.281
+      },
+      {
+        "name": "chromium-engineering-e6",
+        "command": [
+          "python",
+          "/tmp/orbitiq-v1-closure/native-browser/native_wrapper_v3.py",
+          "verify_engineering_e6.py",
+          "/tmp/orbitiq-v1-browser-gate/host-ui/chromium-engineering-e6",
+          "--engine",
+          "chromium",
+          "--output",
+          "/tmp/orbitiq-v1-browser-gate/host-ui/chromium-engineering-e6"
+        ],
+        "exit_code": 0,
+        "seconds": 19.318
+      },
+      {
+        "name": "chromium-observation-fixture",
+        "command": [
+          "python",
+          "/tmp/orbitiq-v1-closure/native-browser/native_wrapper_v3.py",
+          "verify_observation_browser.py",
+          "/tmp/orbitiq-v1-browser-gate/host-ui/chromium-observation-fixture",
+          "--base-url",
+          "http://127.0.0.1:8080",
+          "--engine",
+          "chromium",
+          "--mode",
+          "fixture",
+          "--run-id",
+          "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1",
+          "--output",
+          "/tmp/orbitiq-v1-browser-gate/host-ui/chromium-observation-fixture/evidence.json"
+        ],
+        "exit_code": 0,
+        "seconds": 4.508
+      }
+    ],
+    "harness_adaptation": {
+      "existing_task_adapter": "/tmp/orbitiq-v1-closure/native-browser/native_wrapper_v3.py",
+      "changes": "Only selects system Chromium executable and rebinds container-only /results and axe file paths to task-owned/local installed equivalents; imported helper axe path is rebound too",
+      "existing_test_and_application_sources_modified": false,
+      "assertions_disabled_or_weakened": false,
+      "scope_limit": "Vite preview does not prove production nginx CSP/rate-limit/security behavior; no full release PASS inferred"
+    },
+    "receipt_directory": "/tmp/orbitiq-v1-browser-gate",
+    "receipt_identities": {
+      "host-ui/result.json": {
+        "bytes": 2476,
+        "sha256": "4634b79f55ab28c77f91f1aa3bce6f5e56cad64f4a4f0e8bf0f073382ea29350"
+      },
+      "host-ui/commands.json": {
+        "bytes": 1982,
+        "sha256": "5f974791aafc4c973ffbe1d7a83e65b8b4a2011767e95e84fe7487326d9b0bff"
+      },
+      "host-ui/fixture-before.json": {
+        "bytes": 1929,
+        "sha256": "814f0e17db511382d9ffb51ee01a5ed233549980c33df6bd1c286df1bebc622e"
+      },
+      "host-ui/fixture-after.json": {
+        "bytes": 1929,
+        "sha256": "814f0e17db511382d9ffb51ee01a5ed233549980c33df6bd1c286df1bebc622e"
+      },
+      "host-ui/chromium-history/history/evidence.json": {
+        "bytes": 5187,
+        "sha256": "0ddd79ac5a0939441596fd0fc088932e46bbb91bb923e9c0de83940196492ccc"
+      },
+      "host-ui/chromium-engineering-e2/evidence.json": {
+        "bytes": 10033,
+        "sha256": "3773014fe32aedbed9458a84d803d5126f93bfaf019afb13d3703bb836e7f0f7"
+      },
+      "host-ui/chromium-engineering-e6/evidence.json": {
+        "bytes": 5920,
+        "sha256": "8f6b98c52f2661d9c442a89bb53692c0e31db8f67885570cf241082a0b1eebf9"
+      },
+      "host-ui/chromium-observation-fixture/evidence.json": {
+        "bytes": 1685,
+        "sha256": "c18373720fea2e8bea0dafcc70e2f9bf8d6f167dc7243bc4121b1fae21ebdb33"
+      },
+      "runtime-launch.json": {
+        "bytes": 3281,
+        "sha256": "50e101b834686b2eb8f7b10f8858bf5eb99580d96676868f0eea8eea1a5d5a22"
+      },
+      "browser-install.log": {
+        "bytes": 8819,
+        "sha256": "b84e02b5ab10cda5a9a2f7881087508f73544798ed5b76e1625f86f4735d65b5"
+      },
+      "http-checks/result.json": {
+        "bytes": 465,
+        "sha256": "afbad2a92725e84881a28835a1f904ab1174bd3e06e6179b65a9c5418491607f"
+      },
+      "http-checks-v2/result.json": {
+        "bytes": 464,
+        "sha256": "6d5078385c640537fd7262fc17a63f2210afa1f24348c06f0202e56c6dc09005"
+      },
+      "cleanup-confirmation.json": {
+        "bytes": 168,
+        "sha256": "78d2e4ea808ba3148564cde8d4b0edfffaca57616d30761fb07d861ed3c93039"
+      }
+    },
+    "new_defects_fixed": [],
+    "broad_backend_frontend_suites_rerun": false,
+    "prior_backend_1582_frontend_427_six_PDF_results": "Retained historical evidence, not fresh reruns",
+    "cleanup": {
+      "synthetic_fixture_files_unchanged": true,
+      "fixture_file_count": 14,
+      "API_and_preview_terminated": true,
+      "task_Docker_resources_removed": true,
+      "initial_naive_bind_check": {
+        "8080": false,
+        "18001": false
+      },
+      "followup": {
+        "8080": {
+          "bind": "AVAILABLE_WITH_SO_REUSEADDR",
+          "connect_ex": 111
+        },
+        "18001": {
+          "bind": "AVAILABLE_WITH_SO_REUSEADDR",
+          "connect_ex": 111
+        }
+      },
+      "interpretation": "Initial non-reuse bind saw TIME_WAIT; subsequent SO_REUSEADDR binds succeeded, TCP connect_ex111 and empty ss listener listing confirmed no listener on8080/18001."
+    },
+    "decisions": {
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "owner_acceptance_date": "2026-10-25",
+      "local_engineering": "CONDITIONAL GO",
+      "scientific_validation": "NO-GO",
+      "scientific_study": "BLOCKED — NO-GO",
+      "production_readiness": "NO-GO",
+      "IGS_frame_EOP_clarification": "PENDING",
+      "six_owner_technical_checkboxes_passed": 0
+    },
+    "minimum_completion_requirements": [
+      "An authorized environment explicitly permitting the existing synthetic offline-file workflow; do not remove or bypass managed browser policy here",
+      "A compatible host or CI runner with all Playwright1.62 browser dependencies, functional browser sandboxing and writable per-user caches; enough Docker storage for VFS runtime copies if using existing container harness",
+      "Run the unchanged scripts/run_browser_regressions.py with engineering-e2 and the exact current reviewed backend/frontend, all three engines, configured/empty synthetic archives and seven PDF assertions; preserve actual results"
+    ],
+    "preservation_validation": {
+      "result": "PASS",
+      "report": "/tmp/orbitiq-v1-browser-gate/check-results.json",
+      "scope": "Only two existing V1 documentation files changed; owner checklist and all previous evidence blocks unchanged; private manifests, original database and research inventory unchanged"
+    },
+    "changed_files": [
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "real_research_used_or_changed": false,
+    "scientific_policy_or_protocol_changed": false,
+    "real_input_propagation_transform_interpolation_residual_or_uncertainty_calculation": false,
+    "publication_or_deployment": false
+  },
+  "browser_runtime_resolution": {
+    "review_date": "2026-10-25",
+    "timezone": "Asia/Calcutta",
+    "status": "BASELINE CI EVIDENCE VERIFIED; CURRENT LOCAL RUNTIME AND CURRENT-CANDIDATE END-TO-END GATE REMAIN OPEN",
+    "prior_evidence_identity": {
+      "bytes": 52488,
+      "sha256": "9337578d24e2600809c88dd4766ef437c039876c14401aca731ff7b6cb2a7b10"
+    },
+    "runtime_inspection": {
+      "root_free_bytes": 496308224,
+      "tmp_free_bytes": 16497442816,
+      "package_sizes": {
+        "webkit-2336": {
+          "apparent_bytes": 283152121
+        },
+        "ffmpeg-1011": {
+          "apparent_bytes": 5127582
+        },
+        "firefox-1538": {
+          "apparent_bytes": 315627774
+        }
+      },
+      "system_chromium_path": "/usr/bin/chromium",
+      "system_chromium_version": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+      "native_firefox_path": null,
+      "native_firefox_esr_path": null,
+      "default_playwright_cache_exists": false,
+      "managed_policy_sha256": "47e595d31fd4f9e4273dba00536d7d4b7c0e8c50aa4017bc6e5c33dd4193855a",
+      "uid": 1000
+    },
+    "local_execution": {
+      "suitable_full_runtime_found": false,
+      "Docker_attempts": 0,
+      "software_installed": false,
+      "managed_policy_changed": false,
+      "security_controls_disabled": false,
+      "browser_startup_or_application_tests_repeated": false,
+      "unchanged_policy_matches_prior_evidence": true,
+      "Chromium": "Existing154.0.8037.57 supports HTTP UI; file: remains excluded by managed URLBlocklist/allowlist",
+      "Firefox": "Downloaded153.0/build1538 package retained; earlier sandbox/framebuffer startup failure not retried absent changed prerequisites",
+      "WebKit": "Downloaded26.5/build2336 retained; six missing shared libraries independently rechecked with ctypes.util.find_library",
+      "missing_WebKit_libraries": [
+        "libgtk-4.so.1",
+        "libgraphene-1.0.so.0",
+        "libharfbuzz-icu.so.0",
+        "libmanette-0.2.so.0",
+        "libhyphen.so.0",
+        "libGLESv2.so.2"
+      ]
+    },
+    "existing_CI_route": {
+      "workflow": ".github/workflows/ci.yml",
+      "active": true,
+      "runner_configuration": "ubuntu-latest GitHub-hosted, existing pinned Playwright1.62.0 browser image",
+      "verified_run_id": 40067874081,
+      "run_url": "https://github.com/BibinBinoy777/OrbitIQ/actions/runs/40067874081",
+      "exact_verified_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+      "baseline_jobs": {
+        "backend": "success",
+        "frontend": "success",
+        "release-images": "success"
+      },
+      "runner_execution_status": "Existing hosted runner successfully executed baseline; not a current available instance or current-source run",
+      "self_hosted_runner_inventory": "HTTP403 Resource not accessible by integration; absence of runners not established",
+      "local_branch_remote_lookup": "HTTP404 Branch not found; current working tree not present at that remote branch",
+      "new_workflow_dispatched": false,
+      "reason_no_dispatch": "Existing dispatch checks out a Git ref; it has no local-source-archive input. Repeating the baseline would not test unpublished helper changes. No workflow or infrastructure changed."
+    },
+    "retrieved_artifacts": [
+      {
+        "name": "release-evidence",
+        "artifact_id": 12550327121,
+        "download_sha256": "sha256:d5098d022f6685443c8b9a14b58c3c9bbe38c06e077412bd710cb67efadbc798",
+        "compressed_bytes": 721654,
+        "expanded_bytes": 3126589,
+        "digest_verified": true,
+        "path": "/tmp/orbitiq-v1-runtime-resolution/artifacts/release-evidence"
+      },
+      {
+        "name": "frontend-dist",
+        "artifact_id": 12550316395,
+        "download_sha256": "sha256:5ccb8e0d9fb7b7301857ee2778d087b49c960b4132f3f546165ea15441cf4a17",
+        "compressed_bytes": 775325,
+        "expanded_bytes": 1477121,
+        "digest_verified": true,
+        "path": "/tmp/orbitiq-v1-runtime-resolution/artifacts/frontend-dist"
+      },
+      {
+        "name": "browser-pdf-regressions",
+        "artifact_id": 12550037964,
+        "download_sha256": "sha256:3ad0b15697498fc648587879e136888468f53a683e0706ac9d6b10a6cf48f74c",
+        "compressed_bytes": 132777814,
+        "expanded_bytes": 140101604,
+        "digest_verified": true,
+        "path": "/tmp/orbitiq-v1-runtime-resolution/artifacts/browser-pdf-regressions"
+      }
+    ],
+    "artifact_integrity": {
+      "all_three_GitHub_archive_digests_matched": true,
+      "sealed_release_record_verification": "PASS — artifact integrity only, not deployment approval",
+      "sealed_evidence_entries_verified": 69,
+      "identical_raw_browser_counterparts_verified": 68,
+      "no_research_inputs_uploaded": true
+    },
+    "source_applicability": {
+      "sealed_baseline_revision": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+      "sealed_baseline_tree": "45049d9818be7ff4b04118cb7e7ab1e86dc3b8aa",
+      "sealed_source_files_verified": 380,
+      "source_group_counts": {
+        "backend/orbitiq/": 57,
+        "frontend/": 87,
+        "deploy/": 10,
+        "scripts/": 31
+      },
+      "only_tracked_differences": [
+        "scripts/seed_browser_fixtures.py",
+        "scripts/verify_report_pdf.py"
+      ],
+      "extra_application_or_fixture_paths": [],
+      "current_tested_frontend_dist_equals_sealed_CI_artifact": true,
+      "CI_dist_file_count": 13,
+      "unchanged_runtime_or_harness_paths": [
+        "backend/orbitiq",
+        "frontend",
+        "deploy",
+        "Dockerfile",
+        "pyproject.toml",
+        "uv.lock",
+        ".github/workflows/ci.yml",
+        "scripts/run_browser_regressions.py",
+        "scripts/browser_diagnostics.py",
+        "scripts/verify_*browser*.py"
+      ],
+      "scope": "Baseline browser results support unchanged application source; not fresh CI or current entire working-tree verification"
+    },
+    "changed_helper_assessment": {
+      "seed_default_function_AST_equivalence": true,
+      "seed_AST_normalization": "Remove added keyword-only local_owner=False and unwrap its sole if-not-local_owner ownership guard; all remaining seed AST identical. No execution or test change.",
+      "original_PDF_main_assertions_preserved": 6,
+      "prior_seed_and_PDF_regression_results": "Retained existing four synthetic seed tests and15 PDF-verifier regressions at their recorded source hashes; not rerun",
+      "current_PDF_verifier_executed_on_retained_CI_artifacts": true,
+      "current_end_to_end_helper_integration_in_three_engines": "NOT EXECUTED; no fresh complete current-working-tree CI claim"
+    },
+    "seventh_PDF": {
+      "local_generation": "BLOCKED — managed file: exclusion unchanged",
+      "retained_authorized_CI_generation": "PASS at exact baseline revision; Chromium151.0.7922.34",
+      "new_PDF_generated": false,
+      "fresh_current_verifier_result": {
+        "file": "chromium-position-offline.pdf",
+        "pages": 8,
+        "bytes": 44895,
+        "sha256": "ea78049255612089a105bd100315a55d299118169976b82fed378f2850197929",
+        "report_sha256": "ef834d6d175b6bd1fe02bf67c47cfb751b568ccb74dbab78ccd550612248aae0",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      "scope": "Reverified retained genuine CI artifact, not a new browser generation or removal of local administrator restriction"
+    },
+    "engines": {
+      "chromium": {
+        "actual_CI_version": "151.0.7922.34",
+        "baseline_release_flows": 27,
+        "E6_cases": 13,
+        "E7_window_cases": 7,
+        "E2_enabled": true,
+        "offline_HTML_checked": true,
+        "native_PDF_generated": true,
+        "baseline_suites_passed": [
+          "chromium-failure-states",
+          "chromium-observation-empty",
+          "chromium-critical",
+          "chromium-history",
+          "chromium-report",
+          "chromium-engineering-e2",
+          "chromium-engineering-e6",
+          "chromium-observation-fixture"
+        ],
+        "failed_application_suites": []
+      },
+      "firefox": {
+        "actual_CI_version": "153.0",
+        "baseline_release_flows": 25,
+        "E6_cases": 13,
+        "E7_window_cases": 7,
+        "E2_enabled": true,
+        "offline_HTML_checked": true,
+        "native_PDF_generated": false,
+        "baseline_suites_passed": [
+          "firefox-observation-empty",
+          "firefox-critical",
+          "firefox-history",
+          "firefox-report",
+          "firefox-engineering-e2",
+          "firefox-engineering-e6",
+          "firefox-observation-fixture"
+        ],
+        "failed_application_suites": []
+      },
+      "webkit": {
+        "actual_CI_version": "26.5",
+        "baseline_release_flows": 25,
+        "E6_cases": 13,
+        "E7_window_cases": 7,
+        "E2_enabled": true,
+        "offline_HTML_checked": true,
+        "native_PDF_generated": false,
+        "baseline_suites_passed": [
+          "webkit-observation-empty",
+          "webkit-critical",
+          "webkit-history",
+          "webkit-report",
+          "webkit-engineering-e2",
+          "webkit-engineering-e6",
+          "webkit-observation-fixture"
+        ],
+        "failed_application_suites": []
+      }
+    },
+    "engine_scope": "77 actual retained CI flows at baseline27/25/25; E2 enabled, E6=13 and E7=7 per engine. All current runtime/browser assertion sources match baseline; helpers differ as recorded. No new browser execution. Local Firefox/WebKit remain blocked and current complete harness remains unexecuted.",
+    "fresh_checks": [
+      {
+        "command": "gh api repos/BibinBinoy777/OrbitIQ/actions/workflows/ci.yml and read-only run/jobs/artifact endpoints for40067874081",
+        "result": "Workflow active; exact baseline backend/frontend/release-images success and artifacts retrieved; runner inventory403 and local branch404 recorded separately"
+      },
+      {
+        "command": "gh api repos/BibinBinoy777/OrbitIQ/actions/artifacts/{id}/zip",
+        "result": "Three existing synthetic/public CI archives downloaded; each SHA-256 matched official API digest"
+      },
+      {
+        "command": "python scripts/verify_release_evidence.py verify-files --record /tmp/orbitiq-v1-runtime-resolution/artifacts/release-evidence/verified-release.json --directory /tmp/orbitiq-v1-runtime-resolution/artifacts/release-evidence --frontend /tmp/orbitiq-v1-runtime-resolution/artifacts/frontend-dist",
+        "result": "PASS — artifact integrity only"
+      },
+      {
+        "command": "python scripts/verify_report_pdf.py --directory /tmp/orbitiq-v1-runtime-resolution/artifacts/browser-pdf-regressions/chromium-report/reports --output /tmp/orbitiq-v1-runtime-resolution/current-verifier-seven-PDFs.json",
+        "result": "7 PASS; maximum track361rows; all content/source/clocks/warnings/limitations/page-counter checks retained"
+      },
+      {
+        "command": "python /tmp/orbitiq-v1-runtime-resolution/qualify_evidence.py",
+        "result": "PASS_WITH_EXPLICIT_BASELINE_SCOPE;69 sealed entries,68 raw matches, seed-default AST equivalence and6 original PDF assertions verified"
+      }
+    ],
+    "newly_reverified_PDF_results": [
+      {
+        "file": "chromium-comparison.pdf",
+        "pages": 17,
+        "bytes": 73116,
+        "sha256": "d1d2a09df751acf1a06e2862e36e74e8dd6026279810b3abcb12b2d0c1aab692",
+        "report_sha256": "503ba46799bd8e9bac45cd043048ba3b9efefb39a39b2dc1e309af96e51c1253",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-ground-track.pdf",
+        "pages": 13,
+        "bytes": 57543,
+        "sha256": "5aea1d967891146dcc70be71b442fd41a264544c1deecbbc3a7bf60fa6c546ea",
+        "report_sha256": "f4be8df6b36f4d3c8b79ae13a2430b0cda77138924ee01be7f2351c58a4b97d0",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 3,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-maximum-track.pdf",
+        "pages": 72,
+        "bytes": 240169,
+        "sha256": "78d4035158cd53999ed521a4b52adda10a97d7f523913c18c45399d0a95e692f",
+        "report_sha256": "7cdecb3c14c17f7b7124352803239eab036db41905f6cf5aaae2fc0f4d24e9d1",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 361,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-position-offline.pdf",
+        "pages": 8,
+        "bytes": 44895,
+        "sha256": "ea78049255612089a105bd100315a55d299118169976b82fed378f2850197929",
+        "report_sha256": "ef834d6d175b6bd1fe02bf67c47cfb751b568ccb74dbab78ccd550612248aae0",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-position.pdf",
+        "pages": 8,
+        "bytes": 45107,
+        "sha256": "ceb29b58198afa34e3a69a11c7c0b31a89b0d8d9f85e59fa7eb1e2707e61ea7f",
+        "report_sha256": "ef834d6d175b6bd1fe02bf67c47cfb751b568ccb74dbab78ccd550612248aae0",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-saved.pdf",
+        "pages": 7,
+        "bytes": 41073,
+        "sha256": "235b6e9bb2c52b8390df26280c576f389c773ee9baa0aebaa320f95db0f8df58",
+        "report_sha256": "fce2762f6a553d952ff0996164da984230d0a276687e609a5dff82a16e066424",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      },
+      {
+        "file": "chromium-snapshot.pdf",
+        "pages": 7,
+        "bytes": 41218,
+        "sha256": "98fd684674aeb01f2cba380f90056718bb0f6db76a4ff6e684e4a7270739d33d",
+        "report_sha256": "1474e95d513c2439847302f2439c78a19d31ff8a9a8e06714686270a278a3308",
+        "status": "PASS",
+        "page_counters": true,
+        "all_sections": true,
+        "source_identity_and_warnings": true,
+        "track_rows_checked": 0,
+        "application_excluded": true
+      }
+    ],
+    "storage_assessment": {
+      "measurements_are_apparent_bytes_and_free_space_not_install_size_guarantees": true,
+      "downloaded_Firefox_WebKit_FFmpeg_payload_bytes": 603907593,
+      "existing_python_venv_bytes": 165747373,
+      "existing_frontend_node_modules_bytes": 181497857,
+      "prior_host_UI_outputs_bytes": 25485778,
+      "retrieved_archives_compressed_bytes": 134274793,
+      "retrieved_archives_expanded_bytes": 144705314,
+      "existing_image_virtual_bytes": {
+        "browser": 2541066757,
+        "API": 304158130,
+        "web": 55383474
+      },
+      "missing_shared_library_install_footprint": "NOT MEASURED; no approved system dependency installation performed",
+      "prebuilt_VFS_runner_planning_free_space_GiB": 8,
+      "clean_build_runner_planning_free_space_GiB": 16,
+      "budget_basis": "Approx2.9GB combined virtual payload; conservatively allow two runtime/copy equivalents (~5.8GB), at least1GB temporary/trace/download artifacts and margin; clean builds need additional base/layer/npm caches. Prior API/web copies alone exhausted496MB despite advertised359MB. Re-measure actual driver/copies and peak usage before execution; these are planning estimates, not proven minima or successful provisioning."
+    },
+    "minimum_practical_resolution": {
+      "existing_route": "Reuse active existing CI workflow on an exact approved current-source candidate in a permitted runner; no duplicate workflow needed",
+      "local_alternative": "Administrator-provided compatible host with explicitly permitted synthetic file: workflow, functional browser sandbox, writable caches and the missing shared libraries. This task neither changes policy nor installs dependencies.",
+      "current_candidate_requirement": "Current updated helper integration must be exercised in the approved context before upgrading its complete-harness status. Retained baseline evidence establishes application coverage, not a new entire-working-tree run.",
+      "preflight": "Verify versions, browser startup, policy permission, driver/free storage and artifact budget; then use unchanged existing harness, E2, both synthetic modes and seven PDF assertions",
+      "operational_verification": "NOT PERFORMED for a new current-source runner; configuration and recommendation are not success"
+    },
+    "changed_files": [
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "validation": {
+      "result": "PASS",
+      "report": "/tmp/orbitiq-v1-runtime-resolution/check-results.json",
+      "broad_backend_frontend_suites_rerun": false,
+      "new_application_code_or_tests": false,
+      "scope": "JSON/evidence/source/digest/link/format/whitespace/preservation checks only; fresh artifact checks distinguished from prior browser execution"
+    },
+    "resulting_decisions": {
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "owner_acceptance_date": "2026-10-25",
+      "local_engineering": "CONDITIONAL GO",
+      "baseline_unchanged_application_browser_evidence": "VERIFIED — all three engines and seven PDFs at baseline",
+      "current_complete_helper_harness": "NOT EXECUTED",
+      "current_worktree_remote_CI": "NOT VERIFIED",
+      "scientific_validation": "NO-GO",
+      "scientific_study": "BLOCKED — NO-GO",
+      "production_readiness": "NO-GO",
+      "IGS_frame_EOP_clarification": "PENDING",
+      "individual_owner_checkboxes_marked_passed": 0
+    },
+    "receipt_directory": "/tmp/orbitiq-v1-runtime-resolution",
+    "receipt_identities": {
+      "runtime-inspection.json": {
+        "bytes": 638,
+        "sha256": "be87802d3f76483d450bac5fefffafef27d5e8f775c6c711d28fd8dc6910e649"
+      },
+      "remote-summary.json": {
+        "bytes": 1824,
+        "sha256": "518fa0ca2239efec3c4b26fdb4ce3a92ba73a3726d42e5d58412abd142d8a67e"
+      },
+      "remote-jobs.json": {
+        "bytes": 18626,
+        "sha256": "097a91f47b23a9496c16cab9975942af6ace07843ddf1a4f1bc1d1a4afa4fd52"
+      },
+      "remote-artifacts.json": {
+        "bytes": 7988,
+        "sha256": "757561384d3c189e216ccd23a9a78fdf8cb27010ecd8057a5c607b1160c33f30"
+      },
+      "source-applicability.json": {
+        "bytes": 990,
+        "sha256": "1f84a6e84b5dd95badae7c04c5998be889117c1eb399a21f62b501e077507e53"
+      },
+      "artifact-retrieval.json": {
+        "bytes": 1033,
+        "sha256": "1b6c98825e8e0b079d380b7aa38656b79fbe4bcb7b0ceede60fdeca15a62a643"
+      },
+      "qualification-results.json": {
+        "bytes": 5938,
+        "sha256": "b328793be3328245d6123db534a6cacb288200413540e5b6f83d26ce894e2d9c"
+      },
+      "current-verifier-seven-PDFs.json": {
+        "bytes": 3049,
+        "sha256": "79e299f15c666d2f0f8167a96836c1f6491e7f73cdb69277e37f86e56790bf6e"
+      },
+      "sealed-evidence-check.log": {
+        "bytes": 136,
+        "sha256": "5fb2f90cc7286a7d8fb9416e59cf821ee87fd68f3bbd39ef8ba6ed5e7b0c3a7c"
+      },
+      "current-verifier-seven-PDFs.log": {
+        "bytes": 2697,
+        "sha256": "e628dc673dadd3a0e9c4f64550e944a046eb590ddeae34a89b592f4d1d03aecf"
+      }
+    },
+    "scientific_or_production_boundary_changed": false,
+    "real_input_scientific_calculation": false,
+    "Git_or_deployment_mutation": false
+  }
+}

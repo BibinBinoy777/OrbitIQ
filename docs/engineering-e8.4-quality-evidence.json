@@ -1,0 +1,918 @@
+{
+  "schema_version": 1,
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "phase": "E8.4",
+  "review_date_utc": "2026-10-24",
+  "overall_scientific_status": "BLOCKED",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "scope": "Source-quality and field-definition audit, not orbital comparison or a quantified uncertainty budget",
+  "preserved_document_hashes": {
+    "docs/engineering-e8-comparison-protocol.md": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+    "docs/engineering-e8-source-evidence.json": "ec48aa4adca8cb4bc0001d7f489d5a1ba4f6d839568fe49812fc3efc27062626",
+    "docs/engineering-e8.2-reference-evidence.json": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+    "docs/engineering-e8.2-reference-qualification.md": "11c7cf31107c3a20cae68a094f8a8b32eb5d0900eddfe21501731545913a3a2f",
+    "docs/engineering-e8.3-frame-eop-evidence.json": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+    "docs/engineering-e8.3-frame-eop-qualification.md": "d0546aa40b8779bfcb029ead333c52b907c642699cc7196a406e258bdac4bb92"
+  },
+  "reference_identity": {
+    "product_name": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "source_sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "source_bytes": 102609,
+    "expanded_sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c",
+    "expanded_bytes": 253250,
+    "frame_declaration": "IGS20",
+    "time_system": "GPS",
+    "epoch_count": 96,
+    "sampling_seconds": 900,
+    "satellite_ids": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32"
+    ],
+    "position_counts": {
+      "G01": 96,
+      "G02": 96,
+      "G03": 96,
+      "G04": 96,
+      "G05": 96,
+      "G06": 96,
+      "G07": 96,
+      "G08": 96,
+      "G09": 96,
+      "G10": 96,
+      "G11": 96,
+      "G12": 96,
+      "G13": 96,
+      "G14": 96,
+      "G15": 96,
+      "G16": 96,
+      "G17": 96,
+      "G18": 96,
+      "G19": 96,
+      "G20": 96,
+      "G21": 96,
+      "G22": 96,
+      "G23": 96,
+      "G24": 96,
+      "G25": 96,
+      "G26": 96,
+      "G27": 96,
+      "G28": 96,
+      "G29": 96,
+      "G30": 96,
+      "G31": 96,
+      "G32": 96
+    },
+    "complete_15_minute_daily_grid": true,
+    "velocity_records": 0
+  },
+  "retained_source_captures": {
+    "igs-antenna-conventions": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+      "retrieved_at": "2026-10-24T05:00:22.759070+00:00",
+      "status": 200,
+      "bytes": 52994,
+      "sha256": "ac844f38cd1c1a1eafbaa45d7ba0baf89b0787cf307fb42ba645b03dc195da9d",
+      "final_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+      "content_type": "text/plain; charset=UTF-8",
+      "redirects": []
+    },
+    "sp3-spec": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "retrieved_at": "2026-10-24T04:56:17.157263+00:00",
+      "status": 200,
+      "final_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "bytes": 321385,
+      "sha256": "0809fe6571816a9b8394b46b8851b9bfbab956b46f7acab5af6eb62acee5ebbe",
+      "content_type": "application/pdf",
+      "redirects": []
+    },
+    "igs-products": {
+      "source_url": "https://igs.org/products/",
+      "retrieved_at": "2026-10-24T04:56:16.515961+00:00",
+      "status": 200,
+      "final_url": "https://igs.org/products/",
+      "bytes": 1189063,
+      "sha256": "f84af4dbae028a2a960d0ff136678fde4b1a075ad9f3a2b7efb4b65d248efd0e",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "igs-final-summary-2295": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+      "retrieved_at": "2026-10-24T05:00:22.758539+00:00",
+      "status": 200,
+      "bytes": 23095,
+      "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+      "content_type": "application/x-gzip",
+      "redirects": []
+    },
+    "igs-sinex-spec": {
+      "source_url": "https://files.igs.org/pub/resource/working_groups/multi_gnss/Metadata_SINEX_1.10.pdf",
+      "retrieved_at": "2026-10-24T05:02:29.611518+00:00",
+      "status": 200,
+      "bytes": 444029,
+      "sha256": "c31a578b33324d05df06cc694538eb88bc066ac2dde5adb4bb986946b4aa9f46",
+      "final_url": "https://files.igs.org/pub/resource/working_groups/multi_gnss/Metadata_SINEX_1.10.pdf",
+      "content_type": "application/pdf",
+      "redirects": []
+    },
+    "igs20-atx": {
+      "source_url": "https://files.igs.org/pub/station/general/igs20.atx",
+      "retrieved_at": "2026-10-24T05:02:29.611988+00:00",
+      "status": 200,
+      "bytes": 61579571,
+      "sha256": "0cd58d0d9ee678d5586de6c01f576e5aceb86f4a0735a168f733dfd091c0a614",
+      "final_url": "https://files.igs.org/pub/station/general/igs20.atx",
+      "content_type": "audio/ATRAC-X",
+      "redirects": []
+    }
+  },
+  "new_public_document_capture": {
+    "source_url": "https://files.igs.org/pub/data/format/antex14.txt",
+    "retrieval_started_utc": "2026-10-24T10:53:00.930412+00:00",
+    "status": 200,
+    "final_url": "https://files.igs.org/pub/data/format/antex14.txt",
+    "bytes": 23668,
+    "content_type": "text/plain; charset=UTF-8",
+    "sha256": "86458154367916d2fa6282ca2f8e5137c3d9663d7c18eb44eaf344c8e7eba621",
+    "completed_utc": "2026-10-24T10:53:01.760951+00:00"
+  },
+  "document_decoding_note": "ANTEX 1.4 specification bytes are not UTF-8 despite HTTP charset=UTF-8. ISO-8859-1 was used for a review-only text view; original bytes/hash unchanged.",
+  "private_g30_quality_record": {
+    "path": "data/e8.4-quality-qualification/g30-quality-record.json",
+    "bytes": 213489,
+    "sha256": "56a356d883d67a70f3f4b0722f4885343f3b1ca6b553c60926635e03476178bf",
+    "record_count": 96,
+    "contains": "Exact raw quality fields/epoch tags, source line/column provenance and format-code decodings only; no XYZ or clock-correction values",
+    "publication_policy": "Private ignored derived evidence, not a fixture or ordinary CI artifact"
+  },
+  "formal_field_definitions": {
+    "header_accuracy": {
+      "record": "++",
+      "location": "SP3-c header lines 8-12; same slot as satellite ID on lines 3-7",
+      "units": "2**n millimeters, except n=0 unknown",
+      "scope": "Satellite/file-wide intended one-standard-deviation orbit-error representation; IGS summary says weighted RMS over daily arc",
+      "zero": "unknown, not 1 mm",
+      "blank_or_invalid": "No quantitative interpretation; do not substitute zero",
+      "source": "SP3-c 17 August 2010 introduction and lines 635-642; IGS week-2295 Products Generated"
+    },
+    "p_position_sigma": {
+      "record": "P",
+      "columns_1based": {
+        "x": [62, 63],
+        "y": [65, 66],
+        "z": [68, 69]
+      },
+      "units": "b**n millimeters; b from %f columns 4-13",
+      "scope": "Reported component/epoch standard deviations, approximate encoded indicators",
+      "zero": "1 mm",
+      "blank": "unknown",
+      "sentinel_99": "too large to represent; not b**99",
+      "invalid": "unresolved, no numerical decoding",
+      "source": "SP3-c 17 August 2010 introduction; P-record definition and explanation"
+    },
+    "p_clock_sigma": {
+      "record": "P",
+      "columns_1based": [71, 73],
+      "units": "b_clock**n picoseconds; b_clock from %f columns 15-26",
+      "zero": "1 picosecond",
+      "blank": "unknown",
+      "sentinel_999": "too large to represent",
+      "use_in_this_phase": "Raw values retained; no clock uncertainty calculation or use as position uncertainty"
+    },
+    "EP": {
+      "record": "EP, optional",
+      "position_sigma_columns_1based": {
+        "x": [5, 8],
+        "y": [10, 13],
+        "z": [15, 18]
+      },
+      "position_sigma_units": "direct millimeters, not exponents",
+      "position_sigma_blank": "unknown",
+      "position_sigma_9999": "too large to represent",
+      "position_sigma_zero": "Outside the stated 1..9999 position-sdev range; no zero-variance meaning established here",
+      "clock_sigma_columns_1based": [20, 26],
+      "clock_sigma_units": "direct picoseconds",
+      "clock_sigma_9999999": "too large to represent",
+      "correlation_columns_1based": {
+        "xy": [28, 35],
+        "xz": [37, 44],
+        "xc": [46, 53],
+        "yz": [55, 62],
+        "yc": [64, 71],
+        "zc": [73, 80]
+      },
+      "correlation_scale": "signed integer divided by 10000000; range -0.9999999 to +0.9999999",
+      "correlation_blank": "unknown, not zero",
+      "correlation_explicit_zero": "zero coefficient only if actually supplied and valid",
+      "absent_EP": "No EP standard deviations/correlations; do not fill a zero or diagonal covariance"
+    },
+    "P_flags": {
+      "columns_1based": {
+        "clock_event": 75,
+        "clock_prediction": 76,
+        "maneuver": 79,
+        "orbit_prediction": 80
+      },
+      "clock_event_E": "clock discontinuity since previous epoch or at current epoch",
+      "clock_event_blank": "no event or unknown whether an event occurred",
+      "clock_prediction_P": "predicted correction",
+      "clock_prediction_blank": "observed correction in SP3 terminology",
+      "maneuver_M": "maneuver since previous epoch or at current epoch",
+      "maneuver_blank": "no maneuver or unknown whether a maneuver occurred",
+      "orbit_prediction_P": "predicted position",
+      "orbit_prediction_blank": "observed/source-derived in SP3 terminology, not a directly measured Cartesian position or accuracy certificate"
+    },
+    "other_missing_markers": {
+      "P_xyz": "0.000000 specified for bad/absent positions; coordinate-zero ambiguity not used to invent missing data",
+      "P_clock": "999999 with optional fractional nines denotes bad/absent clock",
+      "short_P_records": "SP3-c permits absent trailing columns, interpreted as blanks by the format; actual product has 80-column records and needs no padding"
+    }
+  },
+  "g30_summary": {
+    "satellite_id": "G30",
+    "header_accuracy": {
+      "raw": "  2",
+      "source_line_1based": 9,
+      "source_columns_1based_inclusive": [46, 48],
+      "reported_interpretation": {
+        "status": "reported_format_indicator",
+        "exponent": 2,
+        "decoded_mm": "4"
+      },
+      "scope": "satellite/file-wide indicator, not a coordinate/epoch sigma or guaranteed error"
+    },
+    "position_sigma_base_raw": " 1.2500000",
+    "clock_sigma_base_raw": " 1.025000000",
+    "position_record_count": 96,
+    "coordinate_sigma_fields_present": 288,
+    "first_GPS_epoch_raw": "*  2024  1  1  0  0  0.00000000",
+    "last_GPS_epoch_raw": "*  2024  1  1 23 45  0.00000000",
+    "epoch_time_system": "GPS, not UTC",
+    "per_epoch_component_exponent_counts": {
+      "x": {
+        "8": 2,
+        "7": 15,
+        "6": 8,
+        "5": 28,
+        "4": 25,
+        "3": 12,
+        "2": 5,
+        "1": 1
+      },
+      "y": {
+        "4": 51,
+        "5": 33,
+        "6": 5,
+        "3": 7
+      },
+      "z": {
+        "5": 22,
+        "6": 20,
+        "4": 24,
+        "3": 17,
+        "2": 8,
+        "1": 4,
+        "7": 1
+      }
+    },
+    "all_flags_blank_counts": {
+      "clock_event": 96,
+      "clock_prediction": 96,
+      "maneuver": 96,
+      "orbit_prediction": 96
+    },
+    "coordinate_sigma_blanks": 0,
+    "coordinate_sigma_zero_exponents": 0,
+    "coordinate_sigma_censor_codes": 0,
+    "clock_sigma_codes_present": 96,
+    "clock_sigma_decode_scope": "definition known; retained raw and not used in position uncertainty",
+    "clock_correction_missing_markers": 0,
+    "zero_coordinate_marker_candidates": 0,
+    "EP_records": 0,
+    "position_correlations": null,
+    "position_covariance_matrix": null,
+    "scientifically_accepted_for_comparison": false
+  },
+  "cross_satellite_special_value_counts": {
+    "coordinate_sigma_blank_by_axis": {
+      "x": 40,
+      "y": 40,
+      "z": 56
+    },
+    "coordinate_sigma_zero_exponents_by_axis": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "coordinate_sigma_censored_by_axis": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "g27_missing_clocks": 96
+  },
+  "indicator_reconciliation": {
+    "status": "PARTIALLY_EXPLAINED",
+    "resolved": "Header satellite/file-wide and P coordinate/epoch sigma scopes, bases and special values differ by definition. They are not interchangeable.",
+    "summary_raw_cells": {
+      "g30_table1_day1": {
+        "table": "Table 1.2295.b",
+        "source_line_1based": 498,
+        "source_columns_1based_inclusive": [17, 17],
+        "raw_token": "3"
+      },
+      "g30_table3_first_igs": {
+        "table": "Table 3.2295.1",
+        "source_line_1based": 723,
+        "source_columns_1based_inclusive": [67, 67],
+        "raw_token": "2"
+      },
+      "g08_table3_first_igs": {
+        "table": "Table 3.2295.1",
+        "source_line_1based": 701,
+        "source_columns_1based_inclusive": [67, 67],
+        "raw_token": "5"
+      }
+    },
+    "g08_header_raw": "  2",
+    "hypothesis_rejected": "A literal verbatim copy of this SP3 header exponent column cannot be assumed from G30 alone; G08 header raw 2 versus Table3 first IGS raw 5 is a counterexample for this pair.",
+    "unresolved": "Exact reported-statistic/encoding/rounding and processing-revision relationship of Table1 3 mm, Table3 raw 2 and SP3 header n=2 (format indicator 4 mm).",
+    "quantization_is_proven_producer_rule": false,
+    "contradiction_or_corruption_established": false,
+    "unsafe_numeric_substitutions": [
+      "Treat Table3 raw 2 as exponent 2 solely because G30 happens to match",
+      "Decode Table1 reported 3 mm as header exponent 3",
+      "Use a sqrt(3) factor to force agreement without a producer definition",
+      "Choose the smallest value as an error bound"
+    ]
+  },
+  "product_class_statistic": {
+    "approximate_cm": "2.5",
+    "definition": "1D mean RMS over XYZ geocentric components",
+    "scope": "IGS general final-GPS product table at retained capture, not per-G30-epoch or a 2024 processing guarantee",
+    "no_new_accuracy_measurement": true
+  },
+  "antenna_metadata_evidence": {
+    "private_path": "data/e8.4-quality-qualification/antex-g064-metadata.json",
+    "bytes": 1375,
+    "sha256": "fab19540cfc051ed3dc1a77b9d5044e3ca9ad3745aceade5399bce08888b06ec",
+    "model_original_sha256": "0cd58d0d9ee678d5586de6c01f576e5aceb86f4a0735a168f733dfd091c0a614",
+    "format": "1.4",
+    "absolute_PCV_code": "A",
+    "entry_identifiers": "BLOCK IIF / G30 / G064 / 2014-008A",
+    "SINEX_CODE": "IGS20_2437",
+    "historical_2024_processing_input_proven": false,
+    "offsets_applied": false,
+    "satellite_reference_point_compatibility": "PARTIAL"
+  },
+  "matrix": [
+    {
+      "id": "format",
+      "requirement": "SP3 format/version applicability",
+      "status": "PASS",
+      "evidence": [
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "SP3-c definitions"
+        },
+        {
+          "source": "actual_sp3",
+          "category": "directly verified",
+          "exact_version": "pinned file",
+          "locator": "Header #cP, 80-column P records, 96 epochs"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "version_character": "c",
+        "record_kind": "P",
+        "profile": "IGS20/GPS/FIN/15M"
+      },
+      "known_limitation": "SP3-d 21 February 2016 corroborates compatible fields but is not the actual file version; narrow inspector is not a general SP3 conformance validator.",
+      "next_evidence_required": "None for the identified format; retain exact bytes and schema scope."
+    },
+    {
+      "id": "header",
+      "requirement": "Header accuracy indicator semantics",
+      "status": "PASS",
+      "evidence": [
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "Introduction; header lines 8-12"
+        },
+        {
+          "source": "summary",
+          "category": "authoritative documentation",
+          "exact_version": "sum-file format 2.0",
+          "locator": "Products Generated: daily-arc weighted RMS"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "raw": "  2",
+        "source_line_1based": 9,
+        "source_columns_1based_inclusive": [46, 48],
+        "reported_interpretation": {
+          "status": "reported_format_indicator",
+          "exponent": 2,
+          "decoded_mm": "4"
+        },
+        "scope": "satellite/file-wide indicator, not a coordinate/epoch sigma or guaranteed error"
+      },
+      "known_limitation": "Decoded 4-mm indicator is intended satellite/file-wide quality, not calibrated absolute error or per-coordinate sigma; producer encoding/revision mapping to summary is not established.",
+      "next_evidence_required": "No further evidence for decoding code 2; obtain actual producer statistic/encoding provenance before numerical uncertainty use."
+    },
+    {
+      "id": "p_sigma",
+      "requirement": "Per-epoch coordinate standard-deviation semantics",
+      "status": "PASS",
+      "evidence": [
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "P columns 62-63, 65-66, 68-69; %f base"
+        },
+        {
+          "source": "actual_sp3",
+          "category": "directly verified",
+          "exact_version": "pinned file",
+          "locator": "All 96 G30 P quality blocks"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "base_position_raw": " 1.2500000",
+        "g30_valid_component_fields": 288,
+        "raw_epoch_record_count": 96
+      },
+      "known_limitation": "Source-reported, quantized marginal/component indicators are not independently demonstrated physical errors; exact decimal code decoding is not metrological precision.",
+      "next_evidence_required": "None for the observed valid codes; independently establish calibration/statistical applicability before stronger claims."
+    },
+    {
+      "id": "EP",
+      "requirement": "Optional EP availability and interpretation",
+      "status": "PASS",
+      "evidence": [
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "EP record definitions and correlation explanation"
+        },
+        {
+          "source": "actual_sp3",
+          "category": "directly verified",
+          "exact_version": "pinned file",
+          "locator": "Full record-type inventory"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "EP_records": 0,
+        "position_correlations": null,
+        "position_covariance_matrix": null
+      },
+      "known_limitation": "Absent means unknown, never zero correlation. Valid marginal sigmas alone do not establish a full covariance matrix.",
+      "next_evidence_required": "Actual valid standard deviations and same-epoch correlations plus model/calibration context if covariance use is proposed; no missing fields may be fabricated."
+    },
+    {
+      "id": "special_values",
+      "requirement": "Missing/special values and flags",
+      "status": "PASS",
+      "evidence": [
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "Header/P/EP special values and flags"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "g30_all_four_flags_blank": 96,
+        "g30_zero_or_blank_sigma_codes": 0,
+        "g30_censored_sigma_codes": 0,
+        "global_blank_sigmas": {
+          "x": 40,
+          "y": 40,
+          "z": 56
+        },
+        "g27_missing_clocks": 96
+      },
+      "known_limitation": "Blank event/maneuver can mean no event or unknown; blank prediction flags use SP3 observed terminology, not direct-measurement or accuracy certification.",
+      "next_evidence_required": "No additional evidence for the field definitions; physical event/accuracy claims require separate evidence."
+    },
+    {
+      "id": "reconciliation",
+      "requirement": "G30 indicator reconciliation",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "Different header and P-field scopes/bases"
+        },
+        {
+          "source": "summary",
+          "category": "directly verified",
+          "exact_version": "sum-file format 2.0",
+          "locator": "Tables 1.2295.b and 3.2295.1"
+        },
+        {
+          "source": "actual_sp3",
+          "category": "directly verified",
+          "exact_version": "pinned file",
+          "locator": "G30/G08 header slots"
+        },
+        {
+          "source": "producer_mapping",
+          "category": "unknown",
+          "exact_version": null,
+          "locator": "Generator/revision/rounding linkage unavailable"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "g30_header_raw": "  2",
+        "g30_decoded_header_indicator_mm": "4",
+        "summary_cells": {
+          "g30_table1_day1": {
+            "table": "Table 1.2295.b",
+            "source_line_1based": 498,
+            "source_columns_1based_inclusive": [17, 17],
+            "raw_token": "3"
+          },
+          "g30_table3_first_igs": {
+            "table": "Table 3.2295.1",
+            "source_line_1based": 723,
+            "source_columns_1based_inclusive": [67, 67],
+            "raw_token": "2"
+          },
+          "g08_table3_first_igs": {
+            "table": "Table 3.2295.1",
+            "source_line_1based": 701,
+            "source_columns_1based_inclusive": [67, 67],
+            "raw_token": "5"
+          }
+        },
+        "g08_header_raw": "  2"
+      },
+      "known_limitation": "Different SP3 scopes/representations are explained. Quantization is a possible explanation for some differences, not a proven producer rule; exact 3/2/4 summary mapping remains unresolved. No contradiction is established.",
+      "next_evidence_required": "Product-specific definition/encoder rule and processing-revision linkage for the exact summary/SP3 pair. Do not reinterpret summary 2 as an exponent, multiply by sqrt(3), or choose the smallest value without evidence."
+    },
+    {
+      "id": "scope",
+      "requirement": "Satellite/file-wide versus component/epoch quality scope",
+      "status": "PASS",
+      "evidence": [
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "Introduction distinguishes three indicator sets"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "header_scope": "satellite over file",
+        "P_scope": "component at epoch",
+        "EP_scope": "optional same-epoch finer standard deviations and correlations"
+      },
+      "known_limitation": "No one indicator substitutes for another; none establishes cross-time or cross-provider covariance.",
+      "next_evidence_required": "Use each field only in its defined scope; retain unknown dependence."
+    },
+    {
+      "id": "product_statistics",
+      "requirement": "IGS product-class accuracy statistic",
+      "status": "PASS",
+      "evidence": [
+        {
+          "source": "igs_products",
+          "category": "authoritative documentation",
+          "exact_version": null,
+          "locator": "Final-GPS orbit table and Note 1"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "published_approximate_value_cm": "2.5",
+        "published_scope": "1D mean RMS over XYZ geocentric components",
+        "published_validation_scope": "laser-ranging comparisons and consecutive-day discontinuities, as described generally by IGS"
+      },
+      "known_limitation": "Not a guaranteed G30 per-epoch bound, 3D radius, confidence interval, GP agreement or proof of independently validated G30 truth.",
+      "next_evidence_required": "Satellite/arc-specific calibration or matched independent validation if a stronger accuracy statement is requested; none acquired here."
+    },
+    {
+      "id": "reference_point",
+      "requirement": "Satellite reference-point convention",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "source": "igs_guide",
+          "category": "authoritative documentation",
+          "exact_version": "May 2009, section 5.1.1",
+          "locator": "General precise-GPS CoM convention"
+        },
+        {
+          "source": "metadata_sinex",
+          "category": "authoritative documentation",
+          "exact_version": "1.10, 30 September 2024",
+          "locator": "Sections 1.1 and 3.5"
+        },
+        {
+          "source": "antex14",
+          "category": "authoritative documentation",
+          "exact_version": "1.4, 15 September 2010",
+          "locator": "Satellite antenna sign convention"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "actual_sp3_standalone_reference_point_flag": null,
+        "published_intended_point": "satellite center of mass",
+        "GP_fitted_point_verified": false
+      },
+      "known_limitation": "General published convention supports intended CoM; it is not a product-specific 2024 receipt or GP fitted-point proof.",
+      "next_evidence_required": "Applicable precise-product processing/reference-point evidence and actual GP point/fit interpretation; justify compatibility or a separately reviewed historical treatment."
+    },
+    {
+      "id": "antenna",
+      "requirement": "Antenna-calibration relevance",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "source": "antex14",
+          "category": "authoritative documentation",
+          "exact_version": "1.4, 15 September 2010",
+          "locator": "Satellite-fixed offsets, millimeters, TYPE/SERIAL and SINEX CODE"
+        },
+        {
+          "source": "current_antex",
+          "category": "directly verified",
+          "exact_version": "captured 2026-10-24, file format 1.4",
+          "locator": "G064/G30 entry and IGS20_2437 SINEX CODE"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "format_raw": "     1.4            M",
+        "PCV_type_raw": "A",
+        "satellite": "G30/G064/2014-008A",
+        "SINEX_code_raw": "IGS20_2437",
+        "valid_from_raw": "  2014     2    21     0     0    0.0000000"
+      },
+      "known_limitation": "Validity beginning before 2024 does not prove this calibration revision was used in week 2295; frequency identifiers G01/G02 are not satellite substitutions. No offset applied.",
+      "next_evidence_required": "Exact historical ANTEX revision and applicable attitude/CoM/frequency combination conventions if a correction is needed. A calibration model alone does not certify the SP3 physical point."
+    },
+    {
+      "id": "epoch_uncertainty",
+      "requirement": "Per-epoch uncertainty availability",
+      "status": "PARTIAL",
+      "evidence": [
+        {
+          "source": "actual_sp3",
+          "category": "directly verified",
+          "exact_version": "pinned file",
+          "locator": "96 populated G30 XYZ sigma triples and no EP"
+        },
+        {
+          "source": "sp3_c",
+          "category": "authoritative documentation",
+          "exact_version": "17 August 2010",
+          "locator": "Reported standard deviations/correlations and scope"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "reported_marginal_sigma_fields_available": 288,
+        "correlations_available": false,
+        "calibrated_absolute_error_model_available": false
+      },
+      "known_limitation": "Quantized source component sigmas are available; joint/cross-time covariance, calibration and relevant systematic effects are not.",
+      "next_evidence_required": "Review appropriate uncertainty/limitations policy, field calibration and required covariance/dependence evidence; do not infer diagonal independence or 96 independent samples."
+    },
+    {
+      "id": "comparison",
+      "requirement": "Applicability to future SGP4-versus-IGS comparison",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "source": "missing_gp",
+          "category": "unknown",
+          "exact_version": null,
+          "locator": "Original historical GP has not arrived"
+        },
+        {
+          "source": "e83",
+          "category": "directly verified",
+          "exact_version": "preserved E8.3 ledger",
+          "locator": "Frame/EOP/reference-point and authorization gates"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "qualified_GP_record": null,
+        "qualified_pair": false,
+        "comparison_uncertainty": null
+      },
+      "known_limitation": "No GP covariance or source pair exists; frame/EOP/reference-point treatment and combined uncertainty are unqualified.",
+      "next_evidence_required": "Actual GP intake/identity/time/model/unique eligibility; independently reviewed physical conventions, claims and final protocol authorization."
+    },
+    {
+      "id": "independence",
+      "requirement": "Provenance, lineage and statistical independence",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "source": "e82",
+          "category": "directly verified",
+          "exact_version": "preserved E8.2 report/ledger",
+          "locator": "IGS contributors and limited source evidence"
+        },
+        {
+          "source": "missing_gp",
+          "category": "unknown",
+          "exact_version": null,
+          "locator": "Fit lineage and source dependencies not established"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "independence_established": false,
+        "GP_cross_covariance": null
+      },
+      "known_limitation": "Different provider names, source sigma fields and IGS internal validation do not establish independence from a GP fit.",
+      "next_evidence_required": "Actual source/provenance and documented fit/dependency evidence, or explicitly limited retrospective claims retaining unknowns; never assume zero cross-covariance."
+    },
+    {
+      "id": "review",
+      "requirement": "Final uncertainty/claims and protocol review",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "source": "protocol",
+          "category": "directly verified",
+          "exact_version": "proposed v0.1, unchanged",
+          "locator": "Review and explicit scientific-authorization requirement"
+        }
+      ],
+      "raw_evidence_inspected": {
+        "uncertainty_budget_established": false,
+        "scientifically_accepted_epochs": 0
+      },
+      "known_limitation": "No numerical thresholds, confidence intervals, safety/anomaly findings or independent-accuracy claims are justified.",
+      "next_evidence_required": "Freeze supported field meanings, inputs, exclusions and claims; resolve essential physical/source gates and obtain explicit authorization before any comparison."
+    }
+  ],
+  "source_catalog": {
+    "sp3_c": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+      "version": "17 August 2010",
+      "capture_key": "igs-antenna-conventions"
+    },
+    "sp3_d": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "version": "21 February 2016; corroborating only",
+      "capture_key": "sp3-spec"
+    },
+    "actual_sp3": {
+      "identity_field": "reference_identity",
+      "version": "SP3-c #cP, pinned original hash"
+    },
+    "summary": {
+      "capture_key": "igs-final-summary-2295",
+      "version": "sum-file Version 2.0; not a producer software-release identifier"
+    },
+    "igs_products": {
+      "source_url": "https://igs.org/products/",
+      "capture_key": "igs-products",
+      "version": null
+    },
+    "igs_guide": {
+      "source_url": "https://files.igs.org/pub/resource/pubs/UsingIGSProductsVer21.pdf",
+      "version": "May 2009, section 5.1.1",
+      "evidence_path": "docs/engineering-e8.2-reference-evidence.json"
+    },
+    "metadata_sinex": {
+      "capture_key": "igs-sinex-spec",
+      "version": "1.10, 30 September 2024"
+    },
+    "antex14": {
+      "source_url": "https://files.igs.org/pub/data/format/antex14.txt",
+      "version": "1.4, 15 September 2010",
+      "capture_field": "new_public_document_capture"
+    },
+    "current_antex": {
+      "capture_key": "igs20-atx",
+      "version": "Retained October-2026 capture, format 1.4, G064 SINEX CODE IGS20_2437"
+    },
+    "producer_mapping": {
+      "version": null,
+      "status": "not established"
+    },
+    "missing_gp": {
+      "version": null,
+      "status": "not received/qualified"
+    },
+    "e82": {
+      "path": "docs/engineering-e8.2-reference-evidence.json",
+      "version": "preserved prior report"
+    },
+    "e83": {
+      "path": "docs/engineering-e8.3-frame-eop-evidence.json",
+      "version": "preserved prior report"
+    },
+    "protocol": {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "version": "proposed v0.1; unchanged"
+    }
+  },
+  "safeguards": {
+    "application_code_changed": false,
+    "tests_changed": false,
+    "protocol_changed": false,
+    "historical_GP_received": false,
+    "GP_record_selected_or_qualified": false,
+    "real_input_propagated": false,
+    "real_spacecraft_states_transformed": false,
+    "orbital_states_interpolated_or_extrapolated": false,
+    "orbital_residuals_calculated": false,
+    "comparison_uncertainty_established": false,
+    "source_independence_established": false,
+    "antenna_offsets_applied": false,
+    "scientifically_accepted_epochs": 0,
+    "private_accounts_accessed": false,
+    "authentication_attempted": false,
+    "git_publication_performed": false,
+    "production_deployment_performed": false
+  },
+  "raw_orbital_coordinates_or_clock_corrections_in_this_ledger": false,
+  "quantitative_interpretation_policy": {
+    "header_G30_code": {
+      "can_decode_reported_indicator": true,
+      "reported_indicator_mm": "4",
+      "can_use_as_guaranteed_epoch_error": false
+    },
+    "G30_P_coordinate_sigma_codes": {
+      "can_decode_reported_component_sigma": true,
+      "valid_source_fields": 288,
+      "can_use_as_independently_calibrated_absolute_error": false
+    },
+    "G30_P_clock_sigma_codes": {
+      "format_definition_known": true,
+      "ordinary_numeric_codes_present": 96,
+      "numeric_clock_sigma_values_calculated": false,
+      "use_as_position_uncertainty": false
+    },
+    "summary_Table1_G30_day1": {
+      "can_read_as_reported_table_value_mm": true,
+      "reported_value": "3",
+      "can_use_as_header_exponent": false,
+      "exact_mapping_to_product_header_established": false
+    },
+    "summary_Table3_G30_first_IGS": {
+      "raw_value": "2",
+      "table_unit_label": "mm",
+      "exact_statistic_or_encoding_interpretation": "UNRESOLVED",
+      "can_use_for_numerical_uncertainty_without_clarification": false
+    },
+    "EP_standard_deviations_or_correlations": {
+      "values_available": false,
+      "can_fill_missing_with_zero": false,
+      "can_construct_covariance_from_supplied_EP": false
+    },
+    "flags": {
+      "interpretation": "Non-numerical format flags; blank event/maneuver may mean unknown",
+      "can_infer_no_physical_event_from_blank": false
+    },
+    "comparison_uncertainty": {
+      "numerical_value_established": false,
+      "independence_assumed": false
+    }
+  }
+}

@@ -1,0 +1,1614 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.7",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "assessment_date_UTC": "2026-10-25",
+  "overall_scientific_status": "BLOCKED",
+  "scope": "Readiness consolidation only; no newadmission,selection,scientificimplementation or permission inferred.",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "source_catalog": {
+    "E82": {
+      "path": "docs/engineering-e8.2-reference-evidence.json",
+      "bytes": 15299,
+      "sha256": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+      "locator": "matrix;direct_reference_recheck;reused_time_validation"
+    },
+    "E83": {
+      "path": "docs/engineering-e8.3-frame-eop-evidence.json",
+      "bytes": 41223,
+      "sha256": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+      "locator": "matrix idsigs_realization,itrs_itrf,teme_transform,subdaily_eop,ut1_resource,polar_resource;software_audit/time_chain"
+    },
+    "E84": {
+      "path": "docs/engineering-e8.4-quality-evidence.json",
+      "bytes": 35912,
+      "sha256": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0",
+      "locator": "formal_field_definitions;matrix idsreference_point,antenna,epoch_uncertainty,independence,review"
+    },
+    "E85": {
+      "path": "docs/engineering-e8.5-source-provenance-evidence.json",
+      "bytes": 56308,
+      "sha256": "fb0beabdf7d43062e3c0657f24257df792e4bc8edb4261abb4f703c342e77749",
+      "locator": "category_assessments;findings;required_external_evidence"
+    },
+    "E86": {
+      "path": "docs/engineering-e8.6-g30-statistic-evidence.json",
+      "bytes": 84331,
+      "sha256": "34f36197dd3a3409822b08cba9d6cb65e7a0cbca33edf9ddeb48f0eba660b728",
+      "locator": "outcomes E86-Q03,Q08,Q09;producer_question sent=false"
+    },
+    "G05_READINESS": {
+      "path": "docs/engineering-e8.7.1-readiness-evidence.json",
+      "bytes": 29568,
+      "sha256": "8b91b96665eca0fd9c13d80d0b4d2c9c39cf0f272bba6177705fa81f940a11cc",
+      "locator": "reference.G05_private_quality_record;G05_antenna;qualification_matrix"
+    },
+    "G05_INTAKE": {
+      "path": "docs/engineering-e8.7.2-g05-intake-evidence.json",
+      "bytes": 27295,
+      "sha256": "013f7a2651b6f1c910ab8ad5bf68ab1133f87b660602bbdf25b0c3dcb311f798",
+      "locator": "per_record_static_assessment;parsing;attachment"
+    },
+    "HEADERS": {
+      "path": "docs/engineering-e8.7.3-header-semantics-evidence.json",
+      "bytes": 50459,
+      "sha256": "1b4e025477ce5de2c1587eb39e20353eab9d6ce2145888b0ae97526e98a5f021",
+      "locator": "specification_assessment;provider_documentation;schema_validation"
+    },
+    "G05_CONFLICT": {
+      "path": "docs/engineering-e8.7.4-record-conflict-evidence.json",
+      "bytes": 25617,
+      "sha256": "79d820c498791ee67bdd1f37177f377eef825e63f1491e37ec789f2acf582c27",
+      "locator": "pair_audits;provider_inquiry statusUNSENT_LOCAL_DRAFT"
+    },
+    "G30_INTAKE": {
+      "path": "docs/engineering-e8.7.5-g30-intake-evidence.json",
+      "bytes": 47597,
+      "sha256": "6e92fe0d76237e4ac75a8b6bce0e50ba0db95cea9b44997055c36c1a580c2429",
+      "locator": "identity_mapping;per_record_results;duplicate_and_conflict_review;schema_validation"
+    },
+    "ADMISSION": {
+      "path": "docs/engineering-e8.7.6-retrospective-admission-evidence.json",
+      "bytes": 56066,
+      "sha256": "3e8a714e44f2f7e1a51114c2161e70fa1adeae331d5ec52c62ab37076919ddb0",
+      "locator": "cases;aggregate_results;activation_record;verification"
+    },
+    "POLICY": {
+      "path": "config/historical-retrospective-admission-v1.json",
+      "bytes": 3442,
+      "sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+      "locator": "artifacts;reference;activation;header_exception"
+    },
+    "G30_PROTOCOL": {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+      "locator": "GP initial condition;Exact time and sampling;Frame and physical point;Quality;Review gates"
+    },
+    "G05_PROTOCOL": {
+      "path": "docs/engineering-e8.7.1-g05-protocol-proposal.md",
+      "bytes": 9559,
+      "sha256": "e83abf2f1e3403cce30cdf787d0118385c619d06940b24ff1eee2b2e2ff46bec",
+      "locator": "Guard,sampling andselection;scientific qualification;proposedv0.2notapproved"
+    },
+    "INSPECTOR": {
+      "path": "scripts/inspect_historical_xml.py",
+      "bytes": 27871,
+      "sha256": "2da71b31ad6fbb753ff4d2f52d63e949197493750eedae4b7af5b6eb1ead0d00",
+      "locator": "_authorize_artifact,_reference_times,_apply_admission_policy;strictdefault;noqualified/selected/authorizedadvancement"
+    },
+    "COORDINATES": {
+      "path": "backend/orbitiq/orbits/coordinates.py",
+      "bytes": 9427,
+      "sha256": "6ebc8491fc96118eac0fd40afc2d1eb8459d87ea7b5008819d8c17ea89e3e19b",
+      "locator": "earth_fixed same-obstime TEME->ITRS;source inspected only"
+    },
+    "EOP_CODE": {
+      "path": "backend/orbitiq/orbits/earth_orientation.py",
+      "bytes": 7863,
+      "sha256": "fb26e1a75294f1515f48faa301463d750ad89caf1b48f136068a6ab8f7fdf6ec",
+      "locator": "resources,orientation,parameters;offline resource/preflight policy"
+    },
+    "TESTS": {
+      "path": "backend/tests/test_retrospective_admission.py",
+      "bytes": 15033,
+      "sha256": "7918ac8d811cde4741dba4cb670b2ee9eb7888433317822e4c4dda7e3db24255",
+      "locator": "synthetic scope/guard/conflict/no-state regressioncontrols;not rerun"
+    },
+    "IGS_TESTS": {
+      "path": "backend/tests/test_igs_feasibility.py",
+      "bytes": 14586,
+      "sha256": "678e65e368a2464c86132f966477faaf265ace5e2b0c0cd49acec5e949c23e41",
+      "locator": "fixed firstanchor/sevenday guardandidentity syntheticcontrols;not rerun"
+    },
+    "ACTIVATION": {
+      "path": "data/e8.7.6-retrospective-admission/activation-record.json",
+      "bytes": 4202,
+      "sha256": "d6d7d230b204dbeb33d5e226f2e9cf83dab301c82f442c99d3b5c9331ac4de3f",
+      "locator": "actual explicitpolicy invocations and captures;immutable privateactivation record"
+    },
+    "G05_RESULT": {
+      "path": "data/e8.7.6-retrospective-admission/G05/ceba022f4f664d0794ccec27a32d36bd/inspection.json",
+      "bytes": 26643,
+      "sha256": "8186e8d5377dd0120e76a0bb50d3f759b3745f9132d3c8801d45ffbabfc2f731",
+      "locator": "records[*] strict_policy_outcome+retrospective_admission;whole artifact/APPLIED"
+    },
+    "G30_RESULT": {
+      "path": "data/e8.7.6-retrospective-admission/G30/cc4b24bd06ab4197abcaf43e6d534b38/inspection.json",
+      "bytes": 30261,
+      "sha256": "3793988ad25cb4737f7b4bf834c0411e77dbc31a82d378b45972e3c4590a7f3a",
+      "locator": "records[*] strict_policy_outcome+retrospective_admission;whole artifact/APPLIED"
+    }
+  },
+  "status_definitions": {
+    "PASS": "Satisfied only within statedevidence/scope, not wholesystem readiness",
+    "PARTIAL": "Some evidence exists; precise scientificclosure/limitedclaims decision unmade",
+    "BLOCKED": "Essential scientificrequirement/authorization unresolved",
+    "NOT ASSESSED": "Later-stage decision notperformed"
+  },
+  "historical_report_policy": "Old missing-input/sourcefingerprint findings are datedsnapshots; E876supersedes intake status only. No oldreport edited or historicalcodefingerprint misrepresented as current.",
+  "candidates": [
+    {
+      "satellite": "G05",
+      "norad_id": 35752,
+      "original_artifact_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+      "original_artifact_bytes": 10072,
+      "integrity_reverified": true,
+      "counts_unchanged": {
+        "admitted": 6,
+        "held": 2,
+        "rejected": 2
+      },
+      "strict_candidates_unchanged": 0,
+      "protocol_source_id": "G05_PROTOCOL",
+      "overall_readiness": "BLOCKED",
+      "scientifically_qualified_record_count": 0,
+      "selected_source_index": null,
+      "comparison_authorized": false,
+      "qualification_review_order": 2,
+      "qualification_review_basis": "Six unaffected admittedrecords can share common frame/EOP review; IIR-Mpoint/quality assessed independently; olderholds not blanketveto.",
+      "shorter_fully_qualified_path_established": false,
+      "gates": [
+        {
+          "id": "G01",
+          "requirement": "Original file integrity and acquisition provenance",
+          "status": "PARTIAL",
+          "supporting_evidence": "Originalhash,size,capturemanifests verified; submittedrequest/fulfillment evidence bound byactive policy. File integrity PASS; source attribution remains user-reported.",
+          "source_refs": ["ADMISSION", "POLICY", "G05_RESULT"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Sender authentication/exactreceipt and complete producer-to-local lineage not established.",
+          "smallest_next_evidence_or_decision": "Retain verified capture and explicitly review claimed-source limitations for intended retrospective claim; authenticated delivery evidence only if available or required by that review. Do not invent receipt.",
+          "work_class": "LOCAL_REVIEW_WITH_OPTIONAL_EXTERNAL_SOURCE_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].original_hash_size_capture_integrity; cases[].policy_application.source_evidence"
+            },
+            {
+              "source_id": "POLICY",
+              "locator": "artifacts[].acquisition_evidence"
+            },
+            {
+              "source_id": "G05_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G02",
+          "requirement": "Satellite identity and element-record integrity",
+          "status": "PASS",
+          "supporting_evidence": "Actual NORAD/COSPAR match dated SVN/PRN mapping, requiredGPmodel/numeric fields and precise epochs validated.",
+          "source_refs": ["G05_INTAKE", "ADMISSION", "G05_RESULT"],
+          "scope": "All admitted records for G05",
+          "precise_unresolved_requirement": "No outstanding mismatch under supported intake scope; not physicalaccuracy or fullfitting-lineage proof.",
+          "smallest_next_evidence_or_decision": "Preserve input/index/hash bindings; reverify them at later execution preparation. No new satellite/date acquisition needed.",
+          "work_class": "CURRENT_LOCAL_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "G05_INTAKE",
+              "locator": "parsing.catalog_ids/COSPAR_ids; per_record_static_assessment"
+            },
+            {
+              "source_id": "G05_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G03",
+          "requirement": "Static admission under active policy",
+          "status": "PASS",
+          "supporting_evidence": "Explicit v1 applied to authorized originalhash only; original strict rejection retained. Metadata PARTIAL, not PASS.",
+          "source_refs": ["POLICY", "ADMISSION", "G05_RESULT"],
+          "scope": "All admitted records for G05",
+          "precise_unresolved_requirement": "Admission does not settle scientific gates or select a record.",
+          "smallest_next_evidence_or_decision": "Keep strict default and exact v1scope; no new admissionexception needed.",
+          "work_class": "CURRENT_LOCAL_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].policy_application.status/counts; per_record_dispositions[].v1"
+            },
+            {
+              "source_id": "POLICY",
+              "locator": "activation; artifacts; header_exception"
+            },
+            {
+              "source_id": "G05_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G04",
+          "requirement": "Temporal eligibility under original comparison protocol",
+          "status": "PASS",
+          "supporting_evidence": "Every admitted record passes forward-only/inclusive7dayguard at all96original instants; exactsourceepoch preserved.",
+          "source_refs": ["ADMISSION", "G05_PROTOCOL", "G05_RESULT"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Final scientific mask/runpacket not yet approved; no partial-grid relaxation.",
+          "smallest_next_evidence_or_decision": "Retain frozen UTCgrid/sourceindices and recheck resource/input identity before later authorized run. No guardchange.",
+          "work_class": "CURRENT_LOCAL_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].per_record_dispositions[].v1.reference_epochs_checked/age_guard_pass_count"
+            },
+            {
+              "source_id": "G05_PROTOCOL",
+              "locator": "Guard, sampling and selection recovered from existing work"
+            },
+            {
+              "source_id": "G05_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G05",
+          "requirement": "Coordinate-frame and datum compatibility",
+          "status": "BLOCKED",
+          "supporting_evidence": "SP3declaresIGS20; installed chain outputs AstropyITRS without realization selector. E83 inventories GMST82/polar motion/s-prime0.",
+          "source_refs": ["E82", "E83", "COORDINATES"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Applicability of computed terrestrial convention to ITRF2020/IGS20, including origin/axes/scale/time behavior, not independently qualified.",
+          "smallest_next_evidence_or_decision": "Close E83 realization/transform questions with an explicit justified alignment/treatment and independent review/appropriate synthetic-published controls; no blind stationHelmert or new corrections.",
+          "work_class": "LOCAL_AND_AUTHORITATIVE_DOCUMENTATION_REVIEW",
+          "source_locations": [
+            {
+              "source_id": "E83",
+              "locator": "matrix ids igs_realization,itrs_itrf,teme_transform; frame_sequence_specification"
+            },
+            {
+              "source_id": "COORDINATES",
+              "locator": "earth_fixed"
+            }
+          ]
+        },
+        {
+          "id": "G06",
+          "requirement": "Time-system and Earth-orientation compatibility",
+          "status": "BLOCKED",
+          "supporting_evidence": "Actual GPdeclaresUTC; exactGPS->UTC referencegrid and historicalIERS-B resource coverage already supported. Coverage/format only PASS; EOP model compatibility remains partial.",
+          "source_refs": ["E83", "EOP_CODE", "ADMISSION"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Actual2024product ERP/regularization/subdaily convention inventory versus audited TEME chain not reconciled.",
+          "smallest_next_evidence_or_decision": "Reuse E83inventory; identify missing/overlapping high-frequency components and independently approve treatment. If existing records cannot establish product-era conventions, seek targeted IGS/AC documentation/clarification. No fallback or double addition.",
+          "work_class": "LOCAL_REVIEW_PLUS_PRODUCT_ERA_DOCUMENTATION_IF_MISSING",
+          "source_locations": [
+            {
+              "source_id": "E83",
+              "locator": "matrix ids ut1_resource,polar_resource,subdaily_eop,leap_conversion; eop_component_audit"
+            },
+            {
+              "source_id": "EOP_CODE",
+              "locator": "orientation; parameters"
+            }
+          ]
+        },
+        {
+          "id": "G07",
+          "requirement": "Satellite physical reference-point compatibility",
+          "status": "BLOCKED",
+          "supporting_evidence": "GeneralCoM convention,currentG050 GPS-IIR-M ANTEX entry; IIR-M case distinct from G30IIF, historicalrevision/GPpoint unproven.",
+          "source_refs": ["G05_READINESS", "E84"],
+          "scope": "Satellite-specific: G05;all its admitted records",
+          "precise_unresolved_requirement": "Common spacecraft physical point and applicable historical antenna/attitude/processing treatment not established.",
+          "smallest_next_evidence_or_decision": "Product-era satellite-specific processing/calibration evidence plus GPpoint interpretation; independently justify no correction or an applicable reviewed treatment. Current ANTEX validity alone insufficient.",
+          "work_class": "AUTHORITATIVE_HISTORICAL_PROCESSING_DATA_OR_PROVIDER_CLARIFICATION",
+          "source_locations": [
+            {
+              "source_id": "E84",
+              "locator": "matrix ids reference_point,antenna; antenna_metadata_evidence"
+            },
+            {
+              "source_id": "G05_READINESS",
+              "locator": "G05_antenna; qualification_matrix physical_reference_point"
+            }
+          ]
+        },
+        {
+          "id": "G08",
+          "requirement": "Quality-indicator interpretation and uncertainty limitations",
+          "status": "PARTIAL",
+          "supporting_evidence": "G05 own96record quality availability audited; own header/SUM relation/calibration unestablished, no G30interpretation transferred.",
+          "source_refs": ["G05_READINESS", "HEADERS"],
+          "scope": "Satellite-specific: G05;all its admitted records",
+          "precise_unresolved_requirement": "No calibrated joint/cross-time/provider covariance or qualified reference-quality/claims acceptance for this arc.",
+          "smallest_next_evidence_or_decision": "Review target-specific flags/quality mask and descriptive unweighted claims with uncertainty unquantified. Resolve producer mapping/calibration before numericaluncertainty use. A restricted-claims acceptance remains an unmade scientific decision, not a gatewaiver here.",
+          "work_class": "LOCAL_CLAIMS_REVIEW_OR_IGS_PRODUCER_EVIDENCE_FOR_NUMERICAL_USE",
+          "source_locations": [
+            {
+              "source_id": "G05_READINESS",
+              "locator": "reference.G05_header_indicator; reference.weekly_summary; qualification_matrix G05_quality_uncertainty"
+            }
+          ]
+        },
+        {
+          "id": "G09",
+          "requirement": "Record-creation and fitting provenance",
+          "status": "PARTIAL",
+          "supporting_evidence": "Creation/originator blank preserved; exact artifacts and field strings known. V1 intentionally retains unknown message/publication/fit history.",
+          "source_refs": ["HEADERS", "ADMISSION", "POLICY"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Record-generation/publication history and full observation/fit lineage unavailable; none recovered byadmission.",
+          "smallest_next_evidence_or_decision": "Independent review of retained unknowns and bounded retrospective claims. Seek retained record-level evidence if available; do not require invented/unretained timestamps or useepoch as availability. Stronger forecasting claims require actual availability evidence.",
+          "work_class": "LOCAL_SCOPE_REVIEW_WITH_EXTERNAL_RECORD_PROVENANCE_IF_AVAILABLE",
+          "source_locations": [
+            {
+              "source_id": "HEADERS",
+              "locator": "specification_assessment; provider_documentation; raw_representation_summary"
+            },
+            {
+              "source_id": "ADMISSION",
+              "locator": "missing_provenance; cases[].per_record_dispositions[].creation_UTC/publication_UTC"
+            },
+            {
+              "source_id": "POLICY",
+              "locator": "header_exception; artifacts[].acquisition_evidence.limitations"
+            }
+          ]
+        },
+        {
+          "id": "G10",
+          "requirement": "Source dependencies and independence",
+          "status": "PARTIAL",
+          "supporting_evidence": "E85 documents combination/source paths and SGP4fit/evaluatorlink; independence not established. IGSincludesESA and shared conventions.",
+          "source_refs": ["E85", "ADMISSION"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Actual GPsource overlap/fit dependencies and cross-provider covariance unestablished.",
+          "smallest_next_evidence_or_decision": "Review explicit nonindependent estimated-product-disagreement scope retaining unknown dependencies. Independent-accuracy claims need genuinely independent matched validation data/provenance. No zero-covariance assumption.",
+          "work_class": "LOCAL_DEPENDENCY_CLAIMS_REVIEW_OR_ADDITIONAL_INDEPENDENT_VALIDATION_FOR_STRONGER_CLAIMS",
+          "source_locations": [
+            {
+              "source_id": "E85",
+              "locator": "category_assessments A-F; findings; required_external_evidence"
+            },
+            {
+              "source_id": "ADMISSION",
+              "locator": "missing_provenance"
+            }
+          ]
+        },
+        {
+          "id": "G11",
+          "requirement": "Duplicate or conflicting record resolution",
+          "status": "PARTIAL",
+          "supporting_evidence": "G05 admittedindices[2,5,6,7,8,9] unaffected by knownpairs. Pair[0,1]fails time;inwindow[3,4]HOLD.",
+          "source_refs": ["G05_CONFLICT", "G05_PROTOCOL", "ADMISSION"],
+          "scope": "KnownG05pairs[0,1]and[3,4];no identified conflict on six admittedrecords",
+          "precise_unresolved_requirement": "Cause ofpairs unresolved and[3,4]remainheld. Existing single-latest protocol does not impose universal artifactveto for older unselectedpairs.",
+          "smallest_next_evidence_or_decision": "Provider explanation linked to exacthash/pairs could resolve held decisions with any necessary separately reviewed policy/protocol action. Do not block unaffected admittedrecords solely for these olderpairs; reopen wider case if response reveals wider issue.",
+          "work_class": "CELESTRAK_CLARIFICATION_FOR_AFFECTED_RECORDS_ONLY",
+          "source_locations": [
+            {
+              "source_id": "G05_CONFLICT",
+              "locator": "pair_audits; provider_inquiry.status"
+            },
+            {
+              "source_id": "ADMISSION",
+              "locator": "G05_conflict_reconciliation; G30_reconciliation"
+            }
+          ]
+        },
+        {
+          "id": "G12",
+          "requirement": "Protocol completeness and comparison authorization",
+          "status": "BLOCKED",
+          "supporting_evidence": "Frozen input/grid/selection/claims proposals exist; E876enforces noqualified/selected/authorized advancement.",
+          "source_refs": ["ADMISSION", "G05_PROTOCOL", "INSPECTOR"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "No independently approved frame/EOP/point/quality/claims disposition, qualifiedchosenrecord, frozen finalrun packet or explicitcomparison approval.",
+          "smallest_next_evidence_or_decision": "After essential clearances: apply unchanged latest-unique/single-record rule, freeze finalinputs/resources/mask/software/claims, independent scientific review and explicitscope-bound userauthorization. No selection now.",
+          "work_class": "WAIT_FOR_ESSENTIAL_GATES_THEN_REVIEW_AND_AUTHORIZATION",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].stages[5..7]; aggregate_results.scientifically_qualified_count/selected_records/scientific_comparison_authorized"
+            },
+            {
+              "source_id": "G05_PROTOCOL",
+              "locator": "Scientific qualification and claims"
+            },
+            {
+              "source_id": "INSPECTOR",
+              "locator": "retrospective_admission scientifically_qualified_count/selected_source_index/comparison_authorized"
+            }
+          ]
+        }
+      ],
+      "admitted_records": [
+        {
+          "record_identifier": {
+            "artifact_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+            "source_index_0based": 2,
+            "parsed_fields_sha256": "3676e5863f57c225bb2e64dc91c5e9ce12e6733714d41b7a27da79f079e295ff"
+          },
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[2]",
+          "record_ordinal_1based": 3,
+          "EPOCH_original_text": "2023-12-27T05:25:27.694272",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10525",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+            "source_index_0based": 5,
+            "parsed_fields_sha256": "36e243a47abfc3da7575d228a0bbfa063dd30ad205282647be2057afb97a1876"
+          },
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[5]",
+          "record_ordinal_1based": 6,
+          "EPOCH_original_text": "2023-12-29T06:11:47.963328",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10529",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+            "source_index_0based": 6,
+            "parsed_fields_sha256": "e0c8ef8bc57bb2b30548ce797518c1177d8b62fb544e12534df81068e69da4b6"
+          },
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[6]",
+          "record_ordinal_1based": 7,
+          "EPOCH_original_text": "2023-12-29T18:40:53.635584",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10530",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+            "source_index_0based": 7,
+            "parsed_fields_sha256": "4e32e41799d1cd8bf8fe5af47d02bf92450633d7daff70ddc59c9246807990e0"
+          },
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[7]",
+          "record_ordinal_1based": 8,
+          "EPOCH_original_text": "2023-12-30T04:33:03.375360",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10531",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+            "source_index_0based": 8,
+            "parsed_fields_sha256": "89571bdd644aad4b3e45b1f35ba26cfc12a382b40b8b4898f8c73c1fe84a8d26"
+          },
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[8]",
+          "record_ordinal_1based": 9,
+          "EPOCH_original_text": "2023-12-31T04:19:53.685408",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10530",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+            "source_index_0based": 9,
+            "parsed_fields_sha256": "5d22a623a21f68c0cf2679fbee500daa5245611acbd727cb1960723930998c4c"
+          },
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[9]",
+          "record_ordinal_1based": 10,
+          "EPOCH_original_text": "2023-12-31T20:06:29.141856",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10534",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        }
+      ],
+      "nonadmitted_records": [
+        {
+          "source_index_0based": 0,
+          "EPOCH_original_text": "2023-12-25T21:13:18.902784",
+          "REV_AT_EPOCH": "10520",
+          "disposition": "REJECTED",
+          "reasons": ["original_full_window_temporal_rule_failed"]
+        },
+        {
+          "source_index_0based": 1,
+          "EPOCH_original_text": "2023-12-25T21:13:18.902784",
+          "REV_AT_EPOCH": "10522",
+          "disposition": "REJECTED",
+          "reasons": ["original_full_window_temporal_rule_failed"]
+        },
+        {
+          "source_index_0based": 3,
+          "EPOCH_original_text": "2023-12-28T04:47:54.504096",
+          "REV_AT_EPOCH": "10524",
+          "disposition": "HOLD",
+          "reasons": ["unresolved_duplicate_or_same_epoch_conflict"]
+        },
+        {
+          "source_index_0based": 4,
+          "EPOCH_original_text": "2023-12-28T04:47:54.504096",
+          "REV_AT_EPOCH": "10527",
+          "disposition": "HOLD",
+          "reasons": ["unresolved_duplicate_or_same_epoch_conflict"]
+        }
+      ]
+    },
+    {
+      "satellite": "G30",
+      "norad_id": 39533,
+      "original_artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+      "original_artifact_bytes": 11057,
+      "integrity_reverified": true,
+      "counts_unchanged": {
+        "admitted": 9,
+        "held": 0,
+        "rejected": 2
+      },
+      "strict_candidates_unchanged": 0,
+      "protocol_source_id": "G30_PROTOCOL",
+      "overall_readiness": "BLOCKED",
+      "scientifically_qualified_record_count": 0,
+      "selected_source_index": null,
+      "comparison_authorized": false,
+      "qualification_review_order": 1,
+      "qualification_review_basis": "Administrative review only: originalG30protocol/deeper E82-E86targetaudit reusable; no residual/accuracy score or demonstrated shorter completed path.",
+      "shorter_fully_qualified_path_established": false,
+      "gates": [
+        {
+          "id": "G01",
+          "requirement": "Original file integrity and acquisition provenance",
+          "status": "PARTIAL",
+          "supporting_evidence": "Originalhash,size,capturemanifests verified; submittedrequest/fulfillment evidence bound byactive policy. File integrity PASS; source attribution remains user-reported.",
+          "source_refs": ["ADMISSION", "POLICY", "G30_RESULT"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Sender authentication/exactreceipt and complete producer-to-local lineage not established.",
+          "smallest_next_evidence_or_decision": "Retain verified capture and explicitly review claimed-source limitations for intended retrospective claim; authenticated delivery evidence only if available or required by that review. Do not invent receipt.",
+          "work_class": "LOCAL_REVIEW_WITH_OPTIONAL_EXTERNAL_SOURCE_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].original_hash_size_capture_integrity; cases[].policy_application.source_evidence"
+            },
+            {
+              "source_id": "POLICY",
+              "locator": "artifacts[].acquisition_evidence"
+            },
+            {
+              "source_id": "G30_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G02",
+          "requirement": "Satellite identity and element-record integrity",
+          "status": "PASS",
+          "supporting_evidence": "Actual NORAD/COSPAR match dated SVN/PRN mapping, requiredGPmodel/numeric fields and precise epochs validated.",
+          "source_refs": ["G30_INTAKE", "ADMISSION", "G30_RESULT"],
+          "scope": "All admitted records for G30",
+          "precise_unresolved_requirement": "No outstanding mismatch under supported intake scope; not physicalaccuracy or fullfitting-lineage proof.",
+          "smallest_next_evidence_or_decision": "Preserve input/index/hash bindings; reverify them at later execution preparation. No new satellite/date acquisition needed.",
+          "work_class": "CURRENT_LOCAL_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "G30_INTAKE",
+              "locator": "identity_mapping; per_record_results"
+            },
+            {
+              "source_id": "G30_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G03",
+          "requirement": "Static admission under active policy",
+          "status": "PASS",
+          "supporting_evidence": "Explicit v1 applied to authorized originalhash only; original strict rejection retained. Metadata PARTIAL, not PASS.",
+          "source_refs": ["POLICY", "ADMISSION", "G30_RESULT"],
+          "scope": "All admitted records for G30",
+          "precise_unresolved_requirement": "Admission does not settle scientific gates or select a record.",
+          "smallest_next_evidence_or_decision": "Keep strict default and exact v1scope; no new admissionexception needed.",
+          "work_class": "CURRENT_LOCAL_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].policy_application.status/counts; per_record_dispositions[].v1"
+            },
+            {
+              "source_id": "POLICY",
+              "locator": "activation; artifacts; header_exception"
+            },
+            {
+              "source_id": "G30_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G04",
+          "requirement": "Temporal eligibility under original comparison protocol",
+          "status": "PASS",
+          "supporting_evidence": "Every admitted record passes forward-only/inclusive7dayguard at all96original instants; exactsourceepoch preserved.",
+          "source_refs": ["ADMISSION", "G30_PROTOCOL", "G30_RESULT"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Final scientific mask/runpacket not yet approved; no partial-grid relaxation.",
+          "smallest_next_evidence_or_decision": "Retain frozen UTCgrid/sourceindices and recheck resource/input identity before later authorized run. No guardchange.",
+          "work_class": "CURRENT_LOCAL_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].per_record_dispositions[].v1.reference_epochs_checked/age_guard_pass_count"
+            },
+            {
+              "source_id": "G30_PROTOCOL",
+              "locator": "GP initial condition; Exact time and sampling policy"
+            },
+            {
+              "source_id": "G30_RESULT",
+              "locator": "records[].strict_policy_outcome/retrospective_admission; retrospective_admission artifact_authorized/counts"
+            }
+          ]
+        },
+        {
+          "id": "G05",
+          "requirement": "Coordinate-frame and datum compatibility",
+          "status": "BLOCKED",
+          "supporting_evidence": "SP3declaresIGS20; installed chain outputs AstropyITRS without realization selector. E83 inventories GMST82/polar motion/s-prime0.",
+          "source_refs": ["E82", "E83", "COORDINATES"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Applicability of computed terrestrial convention to ITRF2020/IGS20, including origin/axes/scale/time behavior, not independently qualified.",
+          "smallest_next_evidence_or_decision": "Close E83 realization/transform questions with an explicit justified alignment/treatment and independent review/appropriate synthetic-published controls; no blind stationHelmert or new corrections.",
+          "work_class": "LOCAL_AND_AUTHORITATIVE_DOCUMENTATION_REVIEW",
+          "source_locations": [
+            {
+              "source_id": "E83",
+              "locator": "matrix ids igs_realization,itrs_itrf,teme_transform; frame_sequence_specification"
+            },
+            {
+              "source_id": "COORDINATES",
+              "locator": "earth_fixed"
+            }
+          ]
+        },
+        {
+          "id": "G06",
+          "requirement": "Time-system and Earth-orientation compatibility",
+          "status": "BLOCKED",
+          "supporting_evidence": "Actual GPdeclaresUTC; exactGPS->UTC referencegrid and historicalIERS-B resource coverage already supported. Coverage/format only PASS; EOP model compatibility remains partial.",
+          "source_refs": ["E83", "EOP_CODE", "ADMISSION"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Actual2024product ERP/regularization/subdaily convention inventory versus audited TEME chain not reconciled.",
+          "smallest_next_evidence_or_decision": "Reuse E83inventory; identify missing/overlapping high-frequency components and independently approve treatment. If existing records cannot establish product-era conventions, seek targeted IGS/AC documentation/clarification. No fallback or double addition.",
+          "work_class": "LOCAL_REVIEW_PLUS_PRODUCT_ERA_DOCUMENTATION_IF_MISSING",
+          "source_locations": [
+            {
+              "source_id": "E83",
+              "locator": "matrix ids ut1_resource,polar_resource,subdaily_eop,leap_conversion; eop_component_audit"
+            },
+            {
+              "source_id": "EOP_CODE",
+              "locator": "orientation; parameters"
+            }
+          ]
+        },
+        {
+          "id": "G07",
+          "requirement": "Satellite physical reference-point compatibility",
+          "status": "BLOCKED",
+          "supporting_evidence": "Generalprecise-GPSCoM convention,currentG064 GPS-IIF ANTEX metadata; exact2024revision and GP fittedpoint unproven.",
+          "source_refs": ["E82", "E84"],
+          "scope": "Satellite-specific: G30;all its admitted records",
+          "precise_unresolved_requirement": "Common spacecraft physical point and applicable historical antenna/attitude/processing treatment not established.",
+          "smallest_next_evidence_or_decision": "Product-era satellite-specific processing/calibration evidence plus GPpoint interpretation; independently justify no correction or an applicable reviewed treatment. Current ANTEX validity alone insufficient.",
+          "work_class": "AUTHORITATIVE_HISTORICAL_PROCESSING_DATA_OR_PROVIDER_CLARIFICATION",
+          "source_locations": [
+            {
+              "source_id": "E84",
+              "locator": "matrix ids reference_point,antenna; antenna_metadata_evidence"
+            }
+          ]
+        },
+        {
+          "id": "G08",
+          "requirement": "Quality-indicator interpretation and uncertainty limitations",
+          "status": "PARTIAL",
+          "supporting_evidence": "G30 own header/SUM/P scopes audited; exact3/2/4statistic/encoding/revision relationship still PARTIALLYRESOLVED.",
+          "source_refs": ["E84", "E86"],
+          "scope": "Satellite-specific: G30;all its admitted records",
+          "precise_unresolved_requirement": "No calibrated joint/cross-time/provider covariance or qualified reference-quality/claims acceptance for this arc.",
+          "smallest_next_evidence_or_decision": "Review target-specific flags/quality mask and descriptive unweighted claims with uncertainty unquantified. Resolve producer mapping/calibration before numericaluncertainty use. A restricted-claims acceptance remains an unmade scientific decision, not a gatewaiver here.",
+          "work_class": "LOCAL_CLAIMS_REVIEW_OR_IGS_PRODUCER_EVIDENCE_FOR_NUMERICAL_USE",
+          "source_locations": [
+            {
+              "source_id": "E84",
+              "locator": "matrix ids reconciliation,epoch_uncertainty,review; indicator_reconciliation"
+            },
+            {
+              "source_id": "E86",
+              "locator": "outcomes E86-Q03,E86-Q08,E86-Q09"
+            }
+          ]
+        },
+        {
+          "id": "G09",
+          "requirement": "Record-creation and fitting provenance",
+          "status": "PARTIAL",
+          "supporting_evidence": "Creation/originator blank preserved; exact artifacts and field strings known. V1 intentionally retains unknown message/publication/fit history.",
+          "source_refs": ["HEADERS", "ADMISSION", "POLICY"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Record-generation/publication history and full observation/fit lineage unavailable; none recovered byadmission.",
+          "smallest_next_evidence_or_decision": "Independent review of retained unknowns and bounded retrospective claims. Seek retained record-level evidence if available; do not require invented/unretained timestamps or useepoch as availability. Stronger forecasting claims require actual availability evidence.",
+          "work_class": "LOCAL_SCOPE_REVIEW_WITH_EXTERNAL_RECORD_PROVENANCE_IF_AVAILABLE",
+          "source_locations": [
+            {
+              "source_id": "HEADERS",
+              "locator": "specification_assessment; provider_documentation; raw_representation_summary"
+            },
+            {
+              "source_id": "ADMISSION",
+              "locator": "missing_provenance; cases[].per_record_dispositions[].creation_UTC/publication_UTC"
+            },
+            {
+              "source_id": "POLICY",
+              "locator": "header_exception; artifacts[].acquisition_evidence.limitations"
+            }
+          ]
+        },
+        {
+          "id": "G10",
+          "requirement": "Source dependencies and independence",
+          "status": "PARTIAL",
+          "supporting_evidence": "E85 documents combination/source paths and SGP4fit/evaluatorlink; independence not established. IGSincludesESA and shared conventions.",
+          "source_refs": ["E85", "ADMISSION"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "Actual GPsource overlap/fit dependencies and cross-provider covariance unestablished.",
+          "smallest_next_evidence_or_decision": "Review explicit nonindependent estimated-product-disagreement scope retaining unknown dependencies. Independent-accuracy claims need genuinely independent matched validation data/provenance. No zero-covariance assumption.",
+          "work_class": "LOCAL_DEPENDENCY_CLAIMS_REVIEW_OR_ADDITIONAL_INDEPENDENT_VALIDATION_FOR_STRONGER_CLAIMS",
+          "source_locations": [
+            {
+              "source_id": "E85",
+              "locator": "category_assessments A-F; findings; required_external_evidence"
+            },
+            {
+              "source_id": "ADMISSION",
+              "locator": "missing_provenance"
+            }
+          ]
+        },
+        {
+          "id": "G11",
+          "requirement": "Duplicate or conflicting record resolution",
+          "status": "PASS",
+          "supporting_evidence": "G30 has11distinct exact epochs,no exactduplicates/equalepochconflicts; millisecondseparations preserved.",
+          "source_refs": ["G30_INTAKE", "ADMISSION"],
+          "scope": "All admittedG30records",
+          "precise_unresolved_requirement": "No known active-rule conflict on admittedrecords; underlying archivehistory remains Gate09.",
+          "smallest_next_evidence_or_decision": "Retain distinctepochs/sourceindices; investigate any new contradictory evidence before selection.",
+          "work_class": "CURRENT_LOCAL_EVIDENCE",
+          "source_locations": [
+            {
+              "source_id": "G30_INTAKE",
+              "locator": "duplicate_and_conflict_review"
+            },
+            {
+              "source_id": "ADMISSION",
+              "locator": "G05_conflict_reconciliation; G30_reconciliation"
+            }
+          ]
+        },
+        {
+          "id": "G12",
+          "requirement": "Protocol completeness and comparison authorization",
+          "status": "BLOCKED",
+          "supporting_evidence": "Frozen input/grid/selection/claims proposals exist; E876enforces noqualified/selected/authorized advancement.",
+          "source_refs": ["ADMISSION", "G30_PROTOCOL", "INSPECTOR"],
+          "scope": "All admitted records of both satellites;case-specific sources as cited",
+          "precise_unresolved_requirement": "No independently approved frame/EOP/point/quality/claims disposition, qualifiedchosenrecord, frozen finalrun packet or explicitcomparison approval.",
+          "smallest_next_evidence_or_decision": "After essential clearances: apply unchanged latest-unique/single-record rule, freeze finalinputs/resources/mask/software/claims, independent scientific review and explicitscope-bound userauthorization. No selection now.",
+          "work_class": "WAIT_FOR_ESSENTIAL_GATES_THEN_REVIEW_AND_AUTHORIZATION",
+          "source_locations": [
+            {
+              "source_id": "ADMISSION",
+              "locator": "cases[].stages[5..7]; aggregate_results.scientifically_qualified_count/selected_records/scientific_comparison_authorized"
+            },
+            {
+              "source_id": "G30_PROTOCOL",
+              "locator": "Review gates and next inputs"
+            },
+            {
+              "source_id": "INSPECTOR",
+              "locator": "retrospective_admission scientifically_qualified_count/selected_source_index/comparison_authorized"
+            }
+          ]
+        }
+      ],
+      "admitted_records": [
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 2,
+            "parsed_fields_sha256": "b0a03f9bfc3a05c772874e6b41a07733a10f04149bca32a05c22ffe524a5c2f5"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[2]",
+          "record_ordinal_1based": 3,
+          "EPOCH_original_text": "2023-12-26T06:13:55.672032",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7155",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 3,
+            "parsed_fields_sha256": "b17d0c7d22365139141aff6eae45cd75fb64d84e0052fb35c8086975f47edcb5"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[3]",
+          "record_ordinal_1based": 4,
+          "EPOCH_original_text": "2023-12-26T18:11:53.409984",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7156",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 4,
+            "parsed_fields_sha256": "a6c124289e188ec33f280dec124ed742a6edfeae47ad13d04eec7244ce7da44e"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[4]",
+          "record_ordinal_1based": 5,
+          "EPOCH_original_text": "2023-12-26T18:11:53.411712",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7156",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 5,
+            "parsed_fields_sha256": "e633d387475787acd4fb54da02706b3ca15158885c1c01cc67be85341da0f88c"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[5]",
+          "record_ordinal_1based": 6,
+          "EPOCH_original_text": "2023-12-28T06:05:46.637664",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7159",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 6,
+            "parsed_fields_sha256": "befcb2627b458e6012313c2d5bffa664660969f1671b92f629be5c795a4ef97c"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[6]",
+          "record_ordinal_1based": 7,
+          "EPOCH_original_text": "2023-12-28T06:05:46.642848",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7214",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 7,
+            "parsed_fields_sha256": "86e9f3ded8a7184b4c9827c68769600cf55643e9a77e0ae6109e0953aafebb76"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[7]",
+          "record_ordinal_1based": 8,
+          "EPOCH_original_text": "2023-12-29T06:01:42.253536",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7161",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 8,
+            "parsed_fields_sha256": "ff914af00034b9264a0e2780d3451e9501e4982750b11996b80c075738e8a74d"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[8]",
+          "record_ordinal_1based": 9,
+          "EPOCH_original_text": "2023-12-30T05:57:38.010240",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7163",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 9,
+            "parsed_fields_sha256": "9aec4942448ed49fe1812d4e67ee19206584232d1f01fb3f4ab406e740dc529a"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[9]",
+          "record_ordinal_1based": 10,
+          "EPOCH_original_text": "2023-12-30T17:55:35.952960",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7219",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        },
+        {
+          "record_identifier": {
+            "artifact_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+            "source_index_0based": 10,
+            "parsed_fields_sha256": "5841306b45b53d0deeca3218327d8c227b1b886ab977b7a0b6803cf559b6c4e7"
+          },
+          "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[10]",
+          "record_ordinal_1based": 11,
+          "EPOCH_original_text": "2023-12-31T05:53:33.943200",
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7165",
+          "admission_policy_id": "historical-retrospective-admission-v1",
+          "admission_policy_version": 1,
+          "policy_definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+          "admission_status": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+          "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+          "provenance_status": "PARTIAL",
+          "creation_time": null,
+          "publication_time": null,
+          "historically_available_at": null,
+          "gate_statuses": {
+            "G01": "PARTIAL",
+            "G02": "PASS",
+            "G03": "PASS",
+            "G04": "PASS",
+            "G05": "BLOCKED",
+            "G06": "BLOCKED",
+            "G07": "BLOCKED",
+            "G08": "PARTIAL",
+            "G09": "PARTIAL",
+            "G10": "PARTIAL",
+            "G11": "PASS",
+            "G12": "BLOCKED"
+          },
+          "G11_scoped_evidence": "Not a member of any currently identified exactduplicate/sameepochconflict; this PASS is scoped to this admittedrecord, not whole artifact lineage.",
+          "scientifically_qualified": false,
+          "selected_under_protocol": false,
+          "authorized_for_comparison": false,
+          "record_priority_assigned": false
+        }
+      ],
+      "nonadmitted_records": [
+        {
+          "source_index_0based": 0,
+          "EPOCH_original_text": "2023-12-25T06:18:00.145152",
+          "REV_AT_EPOCH": "7153",
+          "disposition": "REJECTED",
+          "reasons": ["original_full_window_temporal_rule_failed"]
+        },
+        {
+          "source_index_0based": 1,
+          "EPOCH_original_text": "2023-12-25T06:18:00.149472",
+          "REV_AT_EPOCH": "7153",
+          "disposition": "REJECTED",
+          "reasons": ["original_full_window_temporal_rule_failed"]
+        }
+      ]
+    }
+  ],
+  "priority_decision": {
+    "first_qualification_review_workstream": "G30",
+    "scientific_candidate_selected": null,
+    "specific_record_prioritized_or_selected": null,
+    "shorter_fully_qualified_scientific_path_established": false,
+    "basis": "G30originalprotocol anddeeper product-specificaudit reduce review repetition; sameessential physical gates remainforboth. Counts9versus6 and G05olderholds do not rankaccuracy or establish a shorter sciencepath.",
+    "G05_held_pair_is_automatic_whole_case_veto": false,
+    "G30_quality_discrepancy_resolved": false,
+    "recommended_next_action_id": "A1_FRAME_EOP_CLOSURE",
+    "no_numerical_ranking_score": true
+  },
+  "minimum_remaining_clearance_bundles": [
+    {
+      "id": "B1",
+      "gates": ["G05", "G06"],
+      "requirement": "Frame/time/EOPphysicalconvention compatibility"
+    },
+    {
+      "id": "B2",
+      "gates": ["G07"],
+      "requirement": "Common spacecraft point/historicalprocessing"
+    },
+    {
+      "id": "B3",
+      "gates": ["G01", "G08", "G09", "G10"],
+      "requirement": "Targetquality andlimitedclaims/provenance/dependencyreview; do not demandunavailabletimestampsorindependence for an unclaimedforecast/independentaccuracy objective"
+    },
+    {
+      "id": "B4",
+      "gates": ["G11", "G12"],
+      "requirement": "Conflict-scope handling, qualifiedrecordselection,frozenpacket,independentreview andexplicitscientificauthorization"
+    }
+  ],
+  "next_actions": [
+    {
+      "order": 1,
+      "id": "A1_FRAME_EOP_CLOSURE",
+      "task": "Close the specific E83 datum/terrestrial-chain and2024ERP/subdaily compatibility questions using its existing inventory.",
+      "can_do_now": "Existingsource/docs can support a convention crosswalk and identify exactmissing producer facts; no needto reingest GP or repeat sameaudit.",
+      "requires": "Independent scientific review/appropriate published-synthetic controls in later authorizedqualification work; targeted IGS/AC product-era evidence if existingdocs insufficient.",
+      "depends_on": [],
+      "unblocking_outcome": "Reviewed complete applicable alignment/EOP treatment with independent support; unresolved item means BLOCKED, not assumedzero.",
+      "work_class": ["CURRENT_LOCAL_EVIDENCE", "AUTHORITATIVE_DOCUMENTATION"],
+      "not_performed_here": true
+    },
+    {
+      "order": 2,
+      "id": "A2_REFERENCE_POINT",
+      "task": "Qualify common spacecraft point and historical calibration/attitude applicability, G30first for documentation continuity, G05separately.",
+      "can_do_now": "ReusegeneralCoM andtarget-specific currentANTEX/SINEX findings; name missing2024processing and GPpoint facts.",
+      "requires": "Authoritative product-era/producer point evidence or independently justified treatment; exacthistoricalcalibration inputs if needed.",
+      "depends_on": [],
+      "unblocking_outcome": "Supported common physical point/treatment for intendedcase; currentcalibration validity labels alone do notclose it.",
+      "work_class": [
+        "AUTHORITATIVE_DOCUMENTATION",
+        "ADDITIONAL_HISTORICAL_PROCESSING_EVIDENCE"
+      ],
+      "not_performed_here": true
+    },
+    {
+      "order": 3,
+      "id": "A3_QUALITY_CLAIMS_AND_DEPENDENCIES",
+      "task": "Finalize descriptive product-disagreement quality/uncertainty/provenance/dependency limits.",
+      "can_do_now": "Review knownflags/definitions, retain unknowncovariance/history/independence, explicitly exclude unqualifiedstats from uncertainty weighting/bounds.",
+      "requires": "Independent scopedacceptance; IGSproducer mapping/calibration if numericalindicator use requested.",
+      "depends_on": ["A1_FRAME_EOP_CLOSURE", "A2_REFERENCE_POINT"],
+      "parallel_drafting_allowed": true,
+      "unblocking_outcome": "Approved target-specific qualitymask and restrictedclaims; physical/eop gates are notwaived and originalG30discrepancy remainsopen unless producer-evidenced.",
+      "work_class": [
+        "CURRENT_LOCAL_EVIDENCE",
+        "AUTHORITATIVE_DOCUMENTATION_IF_QUANTITATIVE_INDICATORS_USED"
+      ],
+      "not_performed_here": true
+    },
+    {
+      "order": 4,
+      "id": "A4_CELESTRAK_CLARIFICATION",
+      "task": "Obtain record-specific header/source and G05sameepoch explanation if available, without fabricated timestamps.",
+      "can_do_now": "Reuse E874unsentdraft/exactpair identifiers; no message dispatched by this task. Repositorydoesnot establish dispatch or a reply.",
+      "requires": "External CelesTrakclarification/retainedarchiveIDs ifavailable; not expectedto resolve IGSframe/calibration/quality.",
+      "depends_on": [],
+      "unblocking_outcome": "Improved provenance/affectedpair disposition afterappropriate review. Not universal prerequisiteforunaffectedadmittedrecords underactivev1.",
+      "work_class": ["CELESTRAK_CLARIFICATION"],
+      "not_performed_here": true
+    },
+    {
+      "order": 5,
+      "id": "A5_FINAL_RUN_PACKET",
+      "task": "After scientific clearances, apply originallatestunique selection rule, freeze one qualified record/reference/resources/mask/software/claims and obtain independentreview then explicitcalculationauthorization.",
+      "can_do_now": "Prepare packet fields/checklist without choosing a record.",
+      "requires": "Completion of essentialcase-specific gates andscopeapproval; conflictfree eligiblequalifiedrecord.",
+      "depends_on": [
+        "A1_FRAME_EOP_CLOSURE",
+        "A2_REFERENCE_POINT",
+        "A3_QUALITY_CLAIMS_AND_DEPENDENCIES"
+      ],
+      "unblocking_outcome": "Reviewable immutable case/record-scoped scientific authorization; not currentpolicyactivation or passing softwaretests.",
+      "work_class": ["WAIT_FOR_PREVIOUS_REQUIREMENTS"],
+      "not_performed_here": true
+    },
+    {
+      "order": 6,
+      "id": "A6_STRONGER_INDEPENDENT_VALIDATION",
+      "task": "Acquire matched, independently qualified observation/reference data only if pursuing independentaccuracy/truth/forecastclaims or ifscientificreview identifies a specificquality requirement.",
+      "can_do_now": "Define intendedstrongerclaim andneededdata provenance/time/frame/point/uncertainty/dependence before acquisition.",
+      "requires": "Actual independent data with demonstrated independence andmatching scientificqualifications; none acquiredhere.",
+      "depends_on": ["A3_QUALITY_CLAIMS_AND_DEPENDENCIES"],
+      "unblocking_outcome": "Could support separatelyreviewed strongerclaim; anotherprovider/product name aloneinsufficient. Not a newuniversal intake prerequisite for restrictedretrospective disagreement.",
+      "work_class": [
+        "ADDITIONAL_INDEPENDENT_OBSERVATIONS_OR_REFERENCE_DATA_FOR_STRONGER_CLAIMS"
+      ],
+      "not_performed_here": true
+    }
+  ],
+  "authorization_gate": {
+    "status": "BLOCKED",
+    "conditions": [
+      {
+        "id": "C1",
+        "status": "PASS",
+        "condition": "Exactoriginals/policyactivation/identities and existingfull-grid admission verified; retain allsource indices andlimitations."
+      },
+      {
+        "id": "C2",
+        "status": "BLOCKED",
+        "condition": "Case-specific frame/datum/terrestrial-chain andtime/EOPcompatibility independently qualified with a justified applicable treatment."
+      },
+      {
+        "id": "C3",
+        "status": "BLOCKED",
+        "condition": "Common spacecraft physical point and historicalprocessing treatment established/independently justified."
+      },
+      {
+        "id": "C4",
+        "status": "PARTIAL",
+        "condition": "Independently approved target-specific referencequality/mask and bounded descriptiveuncertainty/provenance/dependencyclaims; no unqualifiednumericalindicator use. Missingcreation/covariance/independence may remainexplicitlyunknown only within approvedrestrictedclaim."
+      },
+      {
+        "id": "C5",
+        "status": "NOT ASSESSED",
+        "condition": "Afterqualification, unchangedlatestunique/single-record protocol selects one eligibleconflictfree scientificallyqualifiedrecord; no fallback or residual-driven choice."
+      },
+      {
+        "id": "C6",
+        "status": "NOT ASSESSED",
+        "condition": "Finalrecord/raw+derivedhash/reference/grid/units/frame/point/resource/software/mask/claims packet frozen and independentlyreviewed; capture executionpolicy."
+      },
+      {
+        "id": "C7",
+        "status": "BLOCKED",
+        "condition": "Explicit user scientificauthorization identifies exactreviewedcase,record,methods,scopeandgrid before realpropagation/transformation/comparison; not inferred from E876activation."
+      }
+    ],
+    "actual_authorization_granted": false,
+    "scientifically_qualified_record_count": 0,
+    "selected_source_index": null,
+    "all_essential_requirements_independently_qualified": false,
+    "no_automatic_execution_trigger": true
+  },
+  "external_response_tracking": {
+    "CelesTrak": "Clarificationneeded; E874localdraftUNSENT, no dispatch/reply established inrepository evidence. No assumption about externalemail outside thisworkspace.",
+    "IGS_ACC_statistic_mapping": "E86producer_question prepared=true,sent=false; no response in evidence. Exactmapping needed ifusednumerically.",
+    "new_messages_or_account_access_this_phase": false
+  },
+  "verification": {
+    "evidence_source_policy_consistency": "PASS",
+    "application_code_changed": false,
+    "tests_rerun": "NONE; documentation/evidence/preservation checks only",
+    "prior_160_test_result": "E876historicalevidence retained,not freshE877validation",
+    "full_application_browser_PDF_build_remote_CI": "NOT_RUN"
+  },
+  "preservation": {
+    "prior_private_manifest_entries": 186,
+    "original_private_files": 72,
+    "original_database_schema_version": 3,
+    "database_snapshots": 2,
+    "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "new_repository_files": 2,
+    "existing_repository_files_modified": 0,
+    "new_GP_or_reference_data_acquired": false,
+    "local_preservation_is_independent_backup": false
+  },
+  "safeguards": {
+    "real_GP_initialization_or_propagation": false,
+    "spacecraft_state_transformation": false,
+    "orbital_interpolation_or_extrapolation": false,
+    "orbital_residual_calculation": false,
+    "new_uncertainty_estimates": false,
+    "admission_policy_or_protocol_changed": false,
+    "record_selected_merged_or_discarded": false,
+    "policy_activation_record_or_historical_reports_modified": false,
+    "original_XML_SP3_or_database_modified": false,
+    "private_accounts_accessed": false,
+    "private_data_uploaded": false,
+    "git_publication_or_deployment": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN"
+}

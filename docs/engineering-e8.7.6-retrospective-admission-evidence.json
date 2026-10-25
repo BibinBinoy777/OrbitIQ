@@ -1,0 +1,1370 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.6",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "overall_scientific_status": "BLOCKED",
+  "implementation_status": "IMPLEMENTED_AND_EXPLICITLY_APPLIED_TO_BOTH_AUTHORIZED_ARTIFACTS",
+  "intake_blocker": "RESOLVED_FOR_15_RECORDS_WITH_PARTIAL_PROVENANCE_ONLY",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "policy": {
+    "id": "historical-retrospective-admission-v1",
+    "version": 1,
+    "definition": {
+      "path": "config/historical-retrospective-admission-v1.json",
+      "bytes": 3442,
+      "sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4"
+    },
+    "document": "docs/historical-retrospective-admission-v1.md",
+    "activation": {
+      "status": "ACTIVE_EXPLICIT_SELECTION_ONLY",
+      "authority": "User E8.7.6 explicitly authorizes implementation and application to these two exact artifacts",
+      "date_utc": "2026-10-25",
+      "purpose": "Admission for further scientific qualification only; no scientific comparison authorization"
+    },
+    "active_only_with_explicit_selection": true,
+    "default_policy_id": "strict-historical-omm-v1",
+    "definition_integrity_enforced_in_code": true,
+    "scope_extension_authorized": false,
+    "provenance_classification": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+    "authorization_basis": "User E8.7.6 explicit instruction; bounded risk-management decision, not recovered metadata or complete OMM semantics"
+  },
+  "activation_record": {
+    "path": "data/e8.7.6-retrospective-admission/activation-record.json",
+    "bytes": 4202,
+    "sha256": "d6d7d230b204dbeb33d5e226f2e9cf83dab301c82f442c99d3b5c9331ac4de3f"
+  },
+  "inspector": {
+    "path": "scripts/inspect_historical_xml.py",
+    "bytes": 27871,
+    "sha256": "2da71b31ad6fbb753ff4d2f52d63e949197493750eedae4b7af5b6eb1ead0d00"
+  },
+  "cases": [
+    {
+      "satellite": "G05",
+      "norad_id": 35752,
+      "original_filename": "sat000035752.xml",
+      "original_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+      "original_bytes": 10072,
+      "original_mtime_ns": 1792905888058917549,
+      "original_path": "/workspace/attachments/fe927def-24b1-44f2-b5ae-8d538be8190e/sat000035752.xml",
+      "original_hash_size_capture_integrity": "PASS",
+      "strict_previous_evidence": "data/e8.7.2-g05-xml-intake/82caacb215304190ab4e33b536e3ad93/inspection.json",
+      "strict_previous_and_current_fields_match": true,
+      "explicit_invocation_arguments": [
+        "--attachment",
+        "/workspace/attachments/fe927def-24b1-44f2-b5ae-8d538be8190e/sat000035752.xml",
+        "--archive-root",
+        "/workspace/OrbitIQ-e82/data/e8.7.6-retrospective-admission/G05",
+        "--metadata",
+        "/workspace/OrbitIQ-e82/data/e8.7.6-retrospective-admission/G05-operator-provenance.json",
+        "--expected-sha256",
+        "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+        "--norad-id",
+        "35752",
+        "--admission-policy",
+        "historical-retrospective-admission-v1"
+      ],
+      "policy_application": {
+        "activation": {
+          "authority": "User E8.7.6 explicitly authorizes implementation and application to these two exact artifacts",
+          "date_utc": "2026-10-25",
+          "purpose": "Admission for further scientific qualification only; no scientific comparison authorization",
+          "status": "ACTIVE_EXPLICIT_SELECTION_ONLY"
+        },
+        "artifact_authorized": true,
+        "comparison_authorized": false,
+        "counts": {
+          "admitted": 6,
+          "held": 2,
+          "rejected": 2
+        },
+        "definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+        "policy_id": "historical-retrospective-admission-v1",
+        "policy_version": 1,
+        "refusal_reasons": [],
+        "scientific_status": "BLOCKED",
+        "scientifically_qualified_count": 0,
+        "selected_source_index": null,
+        "source_evidence": {
+          "bytes": 27295,
+          "fulfillment_status": "RECEIVED_USER_REPORTED",
+          "independently_authenticated": false,
+          "limitations": [
+            "Email receipt time unknown",
+            "Provider attribution is user-reported, not independently authenticated",
+            "Historical creation/publication/availability and full fitting lineage unestablished"
+          ],
+          "path": "docs/engineering-e8.7.2-g05-intake-evidence.json",
+          "request_status": "SUBMITTED_USER_REPORTED",
+          "sha256": "013f7a2651b6f1c910ab8ad5bf68ab1133f87b660602bbdf25b0c3dcb311f798",
+          "source": "USER_REPORTED_CELESTRAK_REQUEST_AND_FULFILLMENT"
+        },
+        "status": "APPLIED"
+      },
+      "legacy_strict_counts": {
+        "enumerated": 10,
+        "static_candidates": 0
+      },
+      "record_count": 10,
+      "same_epoch_conflict_groups": [
+        [0, 1],
+        [3, 4]
+      ],
+      "exact_duplicate_groups": [],
+      "per_record_dispositions": [
+        {
+          "source_index_0based": 0,
+          "record_ordinal_1based": 1,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-25T21:13:18.902784",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10520",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": ["outside_protocol_gp_epoch_interval"],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "689431c27e721f36414999679070ed8c66026aa57659f2dfde794f35e7959891",
+          "v1": {
+            "age_guard_failed_indices": [
+              85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
+            ],
+            "age_guard_pass_count": 85,
+            "disposition": "REJECTED",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": ["original_full_window_temporal_rule_failed"],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 1,
+          "record_ordinal_1based": 2,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-25T21:13:18.902784",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10522",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": ["outside_protocol_gp_epoch_interval"],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "5dece9ee4e703043c3a74bd17ca57b96e36073f54ed6e104d326efbebe5aa1f5",
+          "v1": {
+            "age_guard_failed_indices": [
+              85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
+            ],
+            "age_guard_pass_count": 85,
+            "disposition": "REJECTED",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": ["original_full_window_temporal_rule_failed"],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 2,
+          "record_ordinal_1based": 3,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-27T05:25:27.694272",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10525",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "3676e5863f57c225bb2e64dc91c5e9ce12e6733714d41b7a27da79f079e295ff",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 3,
+          "record_ordinal_1based": 4,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-28T04:47:54.504096",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10524",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "71523ba99cd62871ed0f81e8f5bdaa30dcda1c324297a864bf4a69aef205a0f4",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "HOLD",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": ["unresolved_duplicate_or_same_epoch_conflict"],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 4,
+          "record_ordinal_1based": 5,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-28T04:47:54.504096",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10527",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "33603bc78bfa3f92b644996f7fd0fbf3e81bf3c20a66c0b2833a260dbd26b4b7",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "HOLD",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": ["unresolved_duplicate_or_same_epoch_conflict"],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 5,
+          "record_ordinal_1based": 6,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-29T06:11:47.963328",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10529",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "36e243a47abfc3da7575d228a0bbfa063dd30ad205282647be2057afb97a1876",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 6,
+          "record_ordinal_1based": 7,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-29T18:40:53.635584",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10530",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "e0c8ef8bc57bb2b30548ce797518c1177d8b62fb544e12534df81068e69da4b6",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 7,
+          "record_ordinal_1based": 8,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-30T04:33:03.375360",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10531",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "4e32e41799d1cd8bf8fe5af47d02bf92450633d7daff70ddc59c9246807990e0",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 8,
+          "record_ordinal_1based": 9,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-31T04:19:53.685408",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10530",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "89571bdd644aad4b3e45b1f35ba26cfc12a382b40b8b4898f8c73c1fe84a8d26",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 9,
+          "record_ordinal_1based": 10,
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "EPOCH_original_text": "2023-12-31T20:06:29.141856",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10534",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "5d22a623a21f68c0cf2679fbee500daa5245611acbd727cb1960723930998c4c",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        }
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "name": "original_input_and_hash_verified",
+          "status": "PASS"
+        },
+        {
+          "stage": 2,
+          "name": "XML_and_identity_validated",
+          "status": "PASS"
+        },
+        {
+          "stage": 3,
+          "name": "static_eligibility_assessed",
+          "status": "ASSESSED_STRICT_REJECTIONS_RETAINED"
+        },
+        {
+          "stage": 4,
+          "name": "retrospective_policy_admission_applied",
+          "status": "APPLIED_EXPLICIT_POLICY"
+        },
+        {
+          "stage": 5,
+          "name": "record_admitted_to_further_scientific_qualification",
+          "status": "ADMITTED_RECORDS_FOR_FURTHER_QUALIFICATION_ONLY"
+        },
+        {
+          "stage": 6,
+          "name": "scientific_prerequisites_qualified",
+          "status": "BLOCKED"
+        },
+        {
+          "stage": 7,
+          "name": "record_selected_under_original_protocol",
+          "status": "NOT_SELECTED"
+        },
+        {
+          "stage": 8,
+          "name": "scientific_comparison_authorized",
+          "status": "NOT_AUTHORIZED"
+        }
+      ],
+      "private_result": {
+        "path": "data/e8.7.6-retrospective-admission/G05/ceba022f4f664d0794ccec27a32d36bd/inspection.json",
+        "bytes": 26643,
+        "sha256": "8186e8d5377dd0120e76a0bb50d3f759b3745f9132d3c8801d45ffbabfc2f731"
+      },
+      "private_strict_replay": {
+        "path": "data/e8.7.6-retrospective-admission/G05-strict-replay.json",
+        "bytes": 22222,
+        "sha256": "c9c65e6c9d27a0690531434e2458a2120be43fe7f2ac42975a8592381feadc6d"
+      },
+      "private_capture_manifest": {
+        "path": "data/e8.7.6-retrospective-admission/G05/ceba022f4f664d0794ccec27a32d36bd/manifest.json",
+        "bytes": 522,
+        "sha256": "6e428e95eb7cdaa67ec1b52af680697ba1a326b783f056be6225fe9d1969bb24"
+      }
+    },
+    {
+      "satellite": "G30",
+      "norad_id": 39533,
+      "original_filename": "sat000039533.xml",
+      "original_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+      "original_bytes": 11057,
+      "original_mtime_ns": 1792908009377598040,
+      "original_path": "/workspace/attachments/fb977528-2e35-495e-8654-1fbebd2088ff/sat000039533.xml",
+      "original_hash_size_capture_integrity": "PASS",
+      "strict_previous_evidence": "data/e8.7.5-g30-xml-intake/strict-inspection.json",
+      "strict_previous_and_current_fields_match": true,
+      "explicit_invocation_arguments": [
+        "--attachment",
+        "/workspace/attachments/fb977528-2e35-495e-8654-1fbebd2088ff/sat000039533.xml",
+        "--archive-root",
+        "/workspace/OrbitIQ-e82/data/e8.7.6-retrospective-admission/G30",
+        "--metadata",
+        "/workspace/OrbitIQ-e82/data/e8.7.6-retrospective-admission/G30-operator-provenance.json",
+        "--expected-sha256",
+        "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+        "--norad-id",
+        "39533",
+        "--admission-policy",
+        "historical-retrospective-admission-v1"
+      ],
+      "policy_application": {
+        "activation": {
+          "authority": "User E8.7.6 explicitly authorizes implementation and application to these two exact artifacts",
+          "date_utc": "2026-10-25",
+          "purpose": "Admission for further scientific qualification only; no scientific comparison authorization",
+          "status": "ACTIVE_EXPLICIT_SELECTION_ONLY"
+        },
+        "artifact_authorized": true,
+        "comparison_authorized": false,
+        "counts": {
+          "admitted": 9,
+          "held": 0,
+          "rejected": 2
+        },
+        "definition_sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+        "policy_id": "historical-retrospective-admission-v1",
+        "policy_version": 1,
+        "refusal_reasons": [],
+        "scientific_status": "BLOCKED",
+        "scientifically_qualified_count": 0,
+        "selected_source_index": null,
+        "source_evidence": {
+          "bytes": 47597,
+          "fulfillment_status": "RECEIVED_USER_REPORTED",
+          "independently_authenticated": false,
+          "limitations": [
+            "Email receipt time unknown",
+            "Provider attribution is user-reported, not independently authenticated",
+            "Historical creation/publication/availability and full fitting lineage unestablished"
+          ],
+          "path": "docs/engineering-e8.7.5-g30-intake-evidence.json",
+          "request_status": "SUBMITTED_USER_REPORTED",
+          "sha256": "6e92fe0d76237e4ac75a8b6bce0e50ba0db95cea9b44997055c36c1a580c2429",
+          "source": "USER_REPORTED_CELESTRAK_REQUEST_AND_FULFILLMENT"
+        },
+        "status": "APPLIED"
+      },
+      "legacy_strict_counts": {
+        "enumerated": 11,
+        "static_candidates": 0
+      },
+      "record_count": 11,
+      "same_epoch_conflict_groups": [],
+      "exact_duplicate_groups": [],
+      "per_record_dispositions": [
+        {
+          "source_index_0based": 0,
+          "record_ordinal_1based": 1,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-25T06:18:00.145152",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7153",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": ["outside_protocol_gp_epoch_interval"],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "1fad6e961e655c2af7a22bc2bb2b1b5e7edf598602a0f3068284b036455af44b",
+          "v1": {
+            "age_guard_failed_indices": [
+              26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+              42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
+              58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73,
+              74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
+              90, 91, 92, 93, 94, 95
+            ],
+            "age_guard_pass_count": 26,
+            "disposition": "REJECTED",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": ["original_full_window_temporal_rule_failed"],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 1,
+          "record_ordinal_1based": 2,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-25T06:18:00.149472",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7153",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": ["outside_protocol_gp_epoch_interval"],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "45f44647693b699fc72a71ac0b4d89bfcb2af4b31280542577d76141902aa792",
+          "v1": {
+            "age_guard_failed_indices": [
+              26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+              42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
+              58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73,
+              74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
+              90, 91, 92, 93, 94, 95
+            ],
+            "age_guard_pass_count": 26,
+            "disposition": "REJECTED",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": ["original_full_window_temporal_rule_failed"],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 2,
+          "record_ordinal_1based": 3,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-26T06:13:55.672032",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7155",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "b0a03f9bfc3a05c772874e6b41a07733a10f04149bca32a05c22ffe524a5c2f5",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 3,
+          "record_ordinal_1based": 4,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-26T18:11:53.409984",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7156",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "b17d0c7d22365139141aff6eae45cd75fb64d84e0052fb35c8086975f47edcb5",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 4,
+          "record_ordinal_1based": 5,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-26T18:11:53.411712",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7156",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "a6c124289e188ec33f280dec124ed742a6edfeae47ad13d04eec7244ce7da44e",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 5,
+          "record_ordinal_1based": 6,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-28T06:05:46.637664",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7159",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "e633d387475787acd4fb54da02706b3ca15158885c1c01cc67be85341da0f88c",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 6,
+          "record_ordinal_1based": 7,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-28T06:05:46.642848",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7214",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "befcb2627b458e6012313c2d5bffa664660969f1671b92f629be5c795a4ef97c",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 7,
+          "record_ordinal_1based": 8,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-29T06:01:42.253536",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7161",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "86e9f3ded8a7184b4c9827c68769600cf55643e9a77e0ae6109e0953aafebb76",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 8,
+          "record_ordinal_1based": 9,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-30T05:57:38.010240",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7163",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "ff914af00034b9264a0e2780d3451e9501e4982750b11996b80c075738e8a74d",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 9,
+          "record_ordinal_1based": 10,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-30T17:55:35.952960",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7219",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "9aec4942448ed49fe1812d4e67ee19206584232d1f01fb3f4ab406e740dc529a",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        },
+        {
+          "source_index_0based": 10,
+          "record_ordinal_1based": 11,
+          "NORAD_CAT_ID": "39533",
+          "OBJECT_ID": "2014-008A",
+          "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+          "EPOCH_original_text": "2023-12-31T05:53:33.943200",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "7165",
+          "strict_static_candidate": false,
+          "strict_policy_outcome": "REJECTED_STATIC_CANDIDATE",
+          "strict_validation_errors": [
+            "invalid_creation_date",
+            "invalid_header_metadata",
+            "missing_or_invalid_required_fields"
+          ],
+          "strict_exclusions": [],
+          "creation_source_text": "",
+          "originator_source_text": "",
+          "creation_UTC": null,
+          "publication_UTC": null,
+          "historically_available_at": null,
+          "parsed_fields_sha256": "5841306b45b53d0deeca3218327d8c227b1b886ab977b7a0b6803cf559b6c4e7",
+          "v1": {
+            "age_guard_failed_indices": [],
+            "age_guard_pass_count": 96,
+            "disposition": "ADMITTED_FOR_FURTHER_SCIENTIFIC_QUALIFICATION",
+            "forward_only_pass": true,
+            "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE",
+            "policy_id": "historical-retrospective-admission-v1",
+            "policy_version": 1,
+            "provenance_status": "PARTIAL",
+            "reasons": [],
+            "reference_epochs_checked": 96,
+            "scientific_status": "BLOCKED"
+          },
+          "scientific_status": "BLOCKED",
+          "selected": false
+        }
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "name": "original_input_and_hash_verified",
+          "status": "PASS"
+        },
+        {
+          "stage": 2,
+          "name": "XML_and_identity_validated",
+          "status": "PASS"
+        },
+        {
+          "stage": 3,
+          "name": "static_eligibility_assessed",
+          "status": "ASSESSED_STRICT_REJECTIONS_RETAINED"
+        },
+        {
+          "stage": 4,
+          "name": "retrospective_policy_admission_applied",
+          "status": "APPLIED_EXPLICIT_POLICY"
+        },
+        {
+          "stage": 5,
+          "name": "record_admitted_to_further_scientific_qualification",
+          "status": "ADMITTED_RECORDS_FOR_FURTHER_QUALIFICATION_ONLY"
+        },
+        {
+          "stage": 6,
+          "name": "scientific_prerequisites_qualified",
+          "status": "BLOCKED"
+        },
+        {
+          "stage": 7,
+          "name": "record_selected_under_original_protocol",
+          "status": "NOT_SELECTED"
+        },
+        {
+          "stage": 8,
+          "name": "scientific_comparison_authorized",
+          "status": "NOT_AUTHORIZED"
+        }
+      ],
+      "private_result": {
+        "path": "data/e8.7.6-retrospective-admission/G30/cc4b24bd06ab4197abcaf43e6d534b38/inspection.json",
+        "bytes": 30261,
+        "sha256": "3793988ad25cb4737f7b4bf834c0411e77dbc31a82d378b45972e3c4590a7f3a"
+      },
+      "private_strict_replay": {
+        "path": "data/e8.7.6-retrospective-admission/G30-strict-replay.json",
+        "bytes": 23953,
+        "sha256": "3364418f1a2ef3a6ab184d4db9ac52eea3c31941c8a50006bba900551c543cc8"
+      },
+      "private_capture_manifest": {
+        "path": "data/e8.7.6-retrospective-admission/G30/cc4b24bd06ab4197abcaf43e6d534b38/manifest.json",
+        "bytes": 521,
+        "sha256": "d5726e960ce7f6676d2c325dee4cbe3f07eeeb9bceb3b39f6b6c1d59b8a4419a"
+      }
+    }
+  ],
+  "aggregate_results": {
+    "G05": {
+      "admitted": 6,
+      "held": 2,
+      "rejected": 2,
+      "strict_candidates": 0
+    },
+    "G30": {
+      "admitted": 9,
+      "held": 0,
+      "rejected": 2,
+      "strict_candidates": 0
+    },
+    "total_admitted_for_further_scientific_qualification": 15,
+    "scientifically_qualified_count": 0,
+    "selected_records": 0,
+    "scientific_comparison_authorized": false
+  },
+  "G05_conflict_reconciliation": {
+    "outside_window_pair": {
+      "indices_0based": [0, 1],
+      "epoch": "2023-12-25T21:13:18.902784",
+      "REV_AT_EPOCH": ["10520", "10522"],
+      "disposition": "REJECTED",
+      "reason": "Original full-window time failure; conflict flag preserved, not conflated with HOLD"
+    },
+    "in_window_pair": {
+      "indices_0based": [3, 4],
+      "epoch": "2023-12-28T04:47:54.504096",
+      "REV_AT_EPOCH": ["10524", "10527"],
+      "disposition": "HOLD",
+      "reason": "Unresolved same-epoch record conflict; no merge or revolution tie-break"
+    },
+    "admitted_indices_0based": [2, 5, 6, 7, 8, 9],
+    "original_values_rewritten": false
+  },
+  "G30_reconciliation": {
+    "admitted_indices_0based": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "rejected_indices_0based": [0, 1],
+    "same_epoch_holds": [],
+    "original_full96_age_guard_failures_preserved": true,
+    "distinct_millisecond_epochs_not_merged": true,
+    "original_latest_unique_and_single_record_protocol_unchanged": true,
+    "no_record_automatically_selected": true
+  },
+  "unchanged_temporal_policy": {
+    "product": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "compressed_sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "first_utc": "2023-12-31T23:59:42+00:00",
+    "last_utc": "2024-01-01T23:44:42+00:00",
+    "epoch_count": 96,
+    "cadence_seconds": 900,
+    "guard_seconds_inclusive": 604800,
+    "forward_only": true,
+    "GP_epoch_window_inclusive": [
+      "2023-12-25T23:44:42Z",
+      "2023-12-31T23:59:42Z"
+    ],
+    "guard_evaluations_per_record": 96,
+    "selection_has_not_run": true,
+    "quality_anchor_or_sampling_subset_changed": false
+  },
+  "missing_provenance": {
+    "creation_and_originator": "PRESENT_EMPTY_RETAINED_NOT_PASS",
+    "creation_time": null,
+    "publication_time": null,
+    "historically_available_at": null,
+    "exact_email_receipt_time": null,
+    "provider_source": "USER_REPORTED_CELESTRAK_REQUEST_AND_FULFILLMENT",
+    "source_independently_authenticated": false,
+    "complete_fitting_lineage": "UNESTABLISHED",
+    "statistical_independence": "UNESTABLISHED"
+  },
+  "remaining_scientific_requirements": [
+    {
+      "requirement": "frame_datum_TEME_terrestrial_EOP_compatibility",
+      "status": "BLOCKED",
+      "evidence": "Realization and historical/subdaily convention review remains separate from resource coverage"
+    },
+    {
+      "requirement": "spacecraft_physical_reference_point",
+      "status": "BLOCKED",
+      "evidence": "Historical satellite-specific calibration/attitude and GP fitted point unqualified"
+    },
+    {
+      "requirement": "quality_statistics_and_uncertainty",
+      "status": "PARTIAL",
+      "evidence": "G30E8.6relationship remains partly unresolved; G05 own indicators not calibrated truth or joint covariance"
+    },
+    {
+      "requirement": "record_creation_full_fitting_lineage_and_source_dependencies",
+      "status": "BLOCKED",
+      "evidence": "Admission retains missing information and cannot establish independence or historical forecasting availability"
+    },
+    {
+      "requirement": "G05_same_epoch_conflict_explanation",
+      "status": "BLOCKED",
+      "evidence": "In-window pair held; out-of-window pair rejected bytime; no explanation invented or transferred toG30"
+    },
+    {
+      "requirement": "protocol_review_selection_and_scientific_authorization",
+      "status": "BLOCKED",
+      "evidence": "No qualification/selection/authorization follows automatically from admission"
+    }
+  ],
+  "verification": {
+    "targeted_tests": {
+      "passed": 160,
+      "duration_seconds": 13.74,
+      "existing_tests": 129,
+      "new_synthetic_policy_tests": 31,
+      "evidence_class": "SYNTHETIC_TEST_FIXTURES_NOT_ACQUIRED_SCIENTIFIC_EVIDENCE",
+      "modules": [
+        "test_historical_xml_intake.py",
+        "test_igs_feasibility.py",
+        "test_retrospective_admission.py"
+      ]
+    },
+    "real_artifact_application": "Separate actual execution, explicitpolicy and case/definition/source fingerprints recorded; original fields reverified",
+    "strict_current_vs_old_real_results": "PASS, all old fields equal after removing new additive policy audit fields and expected code fingerprints",
+    "definition_unknown_hash_size_identity_count_evidence_fail_closed": "PASS",
+    "lint_and_format": "PASS",
+    "documentation_source_policy_consistency_and_preservation": "PASS",
+    "full_application_frontend_browser_PDF_build_remote_CI": "NOT_RUN",
+    "tests_weakened_or_removed": false,
+    "synthetic_authorization_note": "Test-only loader dependency injection allows generated synthetic hashes in memory. Production fixed definition/CLI has no override. No raw original GP data in tests."
+  },
+  "preserved_sources": [
+    {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc"
+    },
+    {
+      "path": "docs/engineering-e8.7.1-g05-protocol-proposal.md",
+      "bytes": 9559,
+      "sha256": "e83abf2f1e3403cce30cdf787d0118385c619d06940b24ff1eee2b2e2ff46bec"
+    },
+    {
+      "path": "docs/engineering-e8.7.2-g05-intake-evidence.json",
+      "bytes": 27295,
+      "sha256": "013f7a2651b6f1c910ab8ad5bf68ab1133f87b660602bbdf25b0c3dcb311f798"
+    },
+    {
+      "path": "docs/engineering-e8.7.3-header-semantics-evidence.json",
+      "bytes": 50459,
+      "sha256": "1b4e025477ce5de2c1587eb39e20353eab9d6ce2145888b0ae97526e98a5f021"
+    },
+    {
+      "path": "docs/engineering-e8.7.4-record-conflict-evidence.json",
+      "bytes": 25617,
+      "sha256": "79d820c498791ee67bdd1f37177f377eef825e63f1491e37ec789f2acf582c27"
+    },
+    {
+      "path": "docs/engineering-e8.7.5-g30-intake-evidence.json",
+      "bytes": 47597,
+      "sha256": "6e92fe0d76237e4ac75a8b6bce0e50ba0db95cea9b44997055c36c1a580c2429"
+    },
+    {
+      "path": "docs/engineering-e8.6-g30-statistic-evidence.json",
+      "bytes": 84331,
+      "sha256": "34f36197dd3a3409822b08cba9d6cb65e7a0cbca33edf9ddeb48f0eba660b728"
+    },
+    {
+      "path": "backend/tests/test_historical_xml_intake.py",
+      "bytes": 24071,
+      "sha256": "413a5971c7af497d2b2f5c15cf107ff558280415be6ec6c7cf03a75f89810210"
+    },
+    {
+      "path": "backend/tests/test_igs_feasibility.py",
+      "bytes": 14586,
+      "sha256": "678e65e368a2464c86132f966477faaf265ace5e2b0c0cd49acec5e949c23e41"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 46977,
+      "sha256": "cf5f1577b37d703cca8d9406e1a6666426dcab6daac9c7d85c899620bea3bdae"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 520,
+      "sha256": "fa8ebb649044fbe98e7f4cc9c9d6bb3cd42c201b898c2854f1e65f6f727df8a4"
+    }
+  ],
+  "private_evidence_manifest": {
+    "path": "data/e8.7.6-retrospective-admission/preservation-manifest.json",
+    "bytes": 2009,
+    "sha256": "58f2818de3107968b57d718364bff947b972c60d502235b0f6d28fc2ccb71817"
+  },
+  "changed_files": [
+    "scripts/inspect_historical_xml.py",
+    "backend/tests/test_retrospective_admission.py",
+    "config/historical-retrospective-admission-v1.json",
+    "docs/historical-retrospective-admission-v1.md",
+    "docs/engineering-e8.7.6-retrospective-admission.md",
+    "docs/engineering-e8.7.6-retrospective-admission-evidence.json"
+  ],
+  "preservation": {
+    "prior_private_manifest_entries_preserved": 173,
+    "original_private_files_preserved": 72,
+    "prior_research_inventory_files_preserved": 178,
+    "original_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_schema_version": 3,
+    "database_snapshots": 2,
+    "existing_untracked_inspector_modified": true,
+    "new_repository_files": 5,
+    "old_test_files_and_comparison_protocols_modified": false,
+    "branches_and_HEADs_changed": false,
+    "raw_originals_and_old_captures_unchanged": true,
+    "new_private_manifest_entries": 13
+  },
+  "safeguards": {
+    "real_GP_initialization_or_propagation": false,
+    "spacecraft_state_transformation": false,
+    "orbital_interpolation_or_extrapolation": false,
+    "orbital_residuals": false,
+    "new_uncertainty_estimates": false,
+    "independent_validation_claim": false,
+    "metadata_backfilled_or_marked_PASS": false,
+    "record_selected_merged_or_discarded": false,
+    "comparison_authorized": false,
+    "old_protocols_or_reports_rewritten": false,
+    "original_XML_SP3_or_database_modified": false,
+    "private_accounts_accessed": false,
+    "private_data_uploaded": false,
+    "git_publication_or_deployment": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN"
+}

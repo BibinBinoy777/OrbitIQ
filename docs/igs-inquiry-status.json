@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "SENT_USER_REPORTED",
+  "status_recorded_date": "2026-10-25",
+  "status_recorded_date_timezone": "Asia/Calcutta",
+  "source": "Operator statement in this conversation, including the text of the email they report sending; no sent-message headers or mailbox access supplied",
+  "product": "IGS0OPSFIN_20233650000_07D_01D_ERP.ERP.gz",
+  "product_sha256": "2a201026f27e1265e77b9af8b81636bca0b0dfbf425ca4de0797ee5e587b1fd3",
+  "recipient_role_as_reported": "IGS Analysis Center Coordinator",
+  "recipient_email_address": null,
+  "sent_timestamp": null,
+  "message_identifier": null,
+  "sent_message_metadata_independently_verified": false,
+  "delivery_status": "NOT_VERIFIED",
+  "response_status": "PENDING",
+  "provider_response_received": false,
+  "questions_in_operator_supplied_sent_text": [
+    "MJD epoch time scale and fractional .50 interpretation",
+    "Meaning of zero UTsig, Nr, Nf, Nt, dpsi and deps values",
+    "Recommended interpolation preserving fractional epochs without extrapolation",
+    "Subdaily Earth-orientation and TIO conventions for TEME-to-ITRS use"
+  ],
+  "historical_draft": "docs/engineering-e8.7.10-igs-clarification-draft.md",
+  "historical_report": "docs/engineering-e8.7.10-erp-time-scale-interpolation.md",
+  "historical_ledger": "docs/engineering-e8.7.10-erp-time-scale-evidence.json",
+  "historical_evidence_policy": "The original UNSENT draft and E8.7.10 snapshots remain unchanged. This later operator-reported sent status supersedes only the current inquiry status; the pasted sent wording is not asserted identical to the original draft.",
+  "scientific_status": "BLOCKED — NO-GO",
+  "scientific_questions_resolved_by_sending": [],
+  "unknowns_preserved": [
+    "Exact ERP epoch scale",
+    "Product-specific zero and extension meanings",
+    "Exact product-era interpolation and subdaily conventions",
+    "TIO adequacy and complete frame compatibility"
+  ],
+  "outbound_message_sent_by_assistant": false,
+  "private_correspondence_or_personal_contact_information_copied": false,
+  "historical_file_sha256": {
+    "docs/engineering-e8.7.10-igs-clarification-draft.md": "02b1b60b4e9bb59e1877e4a90f0389dabee61fc48e31f391604765c294c325ef",
+    "docs/engineering-e8.7.10-erp-time-scale-interpolation.md": "15c243805f84c1dfe1576aa7a62ae2c26078e53015fd662b8174636e88db3fd0",
+    "docs/engineering-e8.7.10-erp-time-scale-evidence.json": "9c4d8c60a59282aeb0cbaf05c24e5eea096331caede0196744b15f0745fd421a"
+  }
+}

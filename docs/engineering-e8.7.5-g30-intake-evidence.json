@@ -1,0 +1,1265 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.5",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "overall_scientific_status": "BLOCKED",
+  "result": "PARTIALLY VERIFIED \u2014 input/identity/structure established, strict static candidates0",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "original_attachment": {
+    "filename": "sat000039533.xml",
+    "original_path": "/workspace/attachments/fb977528-2e35-495e-8654-1fbebd2088ff/sat000039533.xml",
+    "existing_private_capture": "/workspace/OrbitIQ-e82/data/e8.7.5-g30-preflight/dac6dfa44a744a4f815c76915c0f46ee/attachment.original",
+    "bytes": 11057,
+    "sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+    "capture_reused_without_modification": true,
+    "original_byte_identical_to_capture": true,
+    "source": "User-supplied original, user attributes fulfillment to CelesTrak",
+    "independent_transport_authentication": false,
+    "email_received_at_UTC": null,
+    "actual_capture_stored_at_UTC": "2026-10-25T06:00:59.820877+00:00",
+    "capture_time_is_email_receipt": false,
+    "raw_publication": "EXCLUDED_FROM_GIT_AND_ROUTINE_CI"
+  },
+  "acquisition_states": [
+    {
+      "stage": 1,
+      "name": "request_submitted",
+      "status": "SUBMITTED_USER_REPORTED",
+      "submitted_at_UTC": null,
+      "period_inclusive": ["2023-12-25", "2023-12-31"],
+      "target_NORAD": 39533
+    },
+    {
+      "stage": 2,
+      "name": "fulfillment_notification_received",
+      "status": "RECEIVED_USER_REPORTED",
+      "reported_record_count": 11,
+      "reported_calendar_coverage": ["2023-12-25", "2023-12-31"],
+      "received_at_UTC": null
+    },
+    {
+      "stage": 3,
+      "name": "original_attachment_verified_and_captured",
+      "status": "PASS_REUSED_EXISTING_PRIVATE_CAPTURE"
+    },
+    {
+      "stage": 4,
+      "name": "XML_parsed",
+      "status": "PASS_STRUCTURAL_PARSING",
+      "record_count": 11,
+      "schema_valid": true,
+      "strict_combined_parsing_status": "PARTIALLY VERIFIED"
+    },
+    {
+      "stage": 5,
+      "name": "satellite_identity_validated",
+      "status": "PASS_LOCAL_METADATA_CONSISTENCY",
+      "limitation": "Not independent source authentication or record lineage proof"
+    },
+    {
+      "stage": 6,
+      "name": "individual_record_metadata_validated",
+      "status": "FAILED_REQUIRED_HEADER_CONTENT_ALL11",
+      "unknowns": [
+        "message_creation",
+        "originator",
+        "historical_publication_availability",
+        "complete_fit_lineage"
+      ]
+    },
+    {
+      "stage": 7,
+      "name": "temporal_eligibility_assessed",
+      "status": "ASSESSED",
+      "pass": 9,
+      "fail": 2,
+      "checks_per_record": 96
+    },
+    {
+      "stage": 8,
+      "name": "static_candidate_disposition_established",
+      "status": "ASSESSED_NONE_QUALIFY",
+      "rejected": 11,
+      "unresolved_dispositions": 0,
+      "candidates": 0,
+      "selected_source_index": null
+    },
+    {
+      "stage": 9,
+      "name": "scientific_prerequisites_qualified",
+      "status": "BLOCKED"
+    },
+    {
+      "stage": 10,
+      "name": "scientific_comparison_authorized",
+      "status": "NOT_AUTHORIZED"
+    }
+  ],
+  "protocol": {
+    "path": "docs/engineering-e8-comparison-protocol.md",
+    "title": "ORBITIQ-IGS-GPS-RETRO-001 original G30 proposed protocol v0.1, frozen unchanged",
+    "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+    "target": {
+      "PRN": "G30",
+      "SVN": "G064",
+      "NORAD": 39533,
+      "COSPAR": "2014-008A"
+    },
+    "G05_protocol_used": false,
+    "G05_retrospective_policy_activated_or_applied": false,
+    "strict_inspector_target": "Default39533; norad_id keyword omitted intentionally",
+    "reference_GPS_interval": [
+      "2024-01-01T00:00:00.00000000",
+      "2024-01-01T23:45:00.00000000"
+    ],
+    "reference_UTC_interval": [
+      "2023-12-31T23:59:42.000000Z",
+      "2024-01-01T23:44:42.000000Z"
+    ],
+    "reference_epochs": 96,
+    "cadence_seconds": 900,
+    "original_reference_source_indices": [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+      22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+      40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
+      58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75,
+      76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93,
+      94, 95, 96
+    ],
+    "reference_source_index_note": "E8 labels1..96, normalized diagnostic indices0..95; same original time tags, not shifted/subsetted",
+    "time_conversion_evidence": "Reuse E8 exact local-resource Astropy GPS/TAI-to-UTC diagnostics; no new fixed18second rule or spacecraft transformation",
+    "GP_epoch_window_inclusive": [
+      "2023-12-25T23:44:42Z",
+      "2023-12-31T23:59:42Z"
+    ],
+    "guard_seconds_inclusive": 604800,
+    "guard_applies": "Separately at every one of96original reference epochs",
+    "forward_only_anchor": "First original reference epoch, never a surviving quality sample",
+    "single_fixed_GP": true,
+    "selection": "After identity/static/provenance qualification, latest unique eligible epoch only; same-epoch ambiguity blocks without fallback. No source-order/element-set/revolution/residual tie-break.",
+    "selected_source_index": null,
+    "sampling_subset_authorized": false
+  },
+  "rule_catalog": [
+    {
+      "id": "S0_SOURCE_INTEGRITY",
+      "source": "Existing capture receipt/manifest and original-protocol frozen-input requirements",
+      "rule": "Original hash/size/capture must match; no source conversion or overwrite"
+    },
+    {
+      "id": "S1_SUPPORTED_XML_AND_GP_FIELDS",
+      "source": "Existing XMLdocument/typed_fields/Elements.model_validate",
+      "rule": "Supported bounded OMM2.0 structure and required explicit GP fields/numbers/model declarations; no satellite initialization"
+    },
+    {
+      "id": "I1_NORAD_COSPAR_DATED_MAPPING",
+      "source": "Original G30 protocol identifiers; existing inspect_record/nominal_identity",
+      "rule": "NORAD39533/COSPAR2014-008A, dated G30/G064; display name not an exact-match criterion"
+    },
+    {
+      "id": "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+      "source": "Active original E8.1.1 G30 inspect_record strict header validation, retained unchanged",
+      "rule": "Required nonempty creation header with supported exact UTC calendar; v0.1 does not restate every XML adapter validation rule"
+    },
+    {
+      "id": "M2_ORIGINATOR_NONEMPTY",
+      "source": "Active original E8.1.1 G30 inspect_record strict header validation, retained unchanged",
+      "rule": "Required nonempty originator text, no empty/whitespace substitution"
+    },
+    {
+      "id": "P1_PROVENANCE_REVIEW",
+      "source": "Original G30 protocol GP initial condition/review gates",
+      "rule": "Source claims, exact epoch, publication/availability and fit lineage remain distinct; no manufactured provenance"
+    },
+    {
+      "id": "T0_EXACT_EPOCH_REQUEST_CALENDAR",
+      "source": "Existing exact_epoch helper and original XML request bounds",
+      "rule": "Preserve exact epoch; requested calendarDec25through31,stopJan1exclusive; no rounding"
+    },
+    {
+      "id": "T1_FORWARD_ONLY_ORIGINAL_ANCHOR",
+      "source": "Original G30 protocol; inspect_igs_reference.qualify; test_existing_inclusive_seven_day_guard_and_fixed_first_epoch_anchor",
+      "rule": "GP epoch no later than first original reference epoch"
+    },
+    {
+      "id": "T2_ALL96_INCLUSIVE_SEVEN_DAY_GUARD",
+      "source": "Original G30 protocol; unchanged engine.propagate and metadata-only qualify",
+      "rule": "abs(reference_time - GP_epoch)<=7days at each original epoch; no partial-grid eligibility"
+    },
+    {
+      "id": "D1_EXACT_DUPLICATE_AND_SAME_EPOCH_REVIEW",
+      "source": "Existing inspect_attachment duplicate_groups/same_epoch_conflict_groups and original latest-unique rule",
+      "rule": "Preserve all records; no same-epoch tiebreak or fallback. Repeated element-set identifiers not uniquely identifying records"
+    },
+    {
+      "id": "C1_STRICT_STATIC_CANDIDATE",
+      "source": "Existing inspect_record static_candidate expression and original G30 static/provenance before selection",
+      "rule": "No strict candidate when any required field/header/identity/temporal validation fails. Scientific qualification separate"
+    }
+  ],
+  "identity_mapping": {
+    "prn": "G30",
+    "svn": "G064",
+    "cospar_id": "2014-008A",
+    "catalog_id": 39533,
+    "valid_from_raw": "2014:052:00000",
+    "valid_to_raw": "0000:000:00000",
+    "metadata_sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+    "scope": "nominal civil-calendar identity only; metadata interval time scale requires review at boundaries"
+  },
+  "record_structure": {
+    "record_count": 11,
+    "fulfillment_reported_count": 11,
+    "counts_match": true,
+    "document_errors": [],
+    "names": ["NAVSTAR 69 (USA 248)"],
+    "catalog_ids": [39533],
+    "COSPAR_ids": ["2014-008A"],
+    "mixed_objects": false,
+    "G05_NORAD35752_present": false,
+    "earliest_original_epoch": "2023-12-25T06:18:00.145152",
+    "latest_original_epoch": "2023-12-31T05:53:33.943200",
+    "timestamp_precision": "All11source EPOCHs have6fractionaldecimaldigits, no offset suffix; explicit TIME_SYSTEM=UTC. Original text preserved.",
+    "required_GP_fields_valid": true,
+    "all_declarations": {
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPHEMERIS_TYPE": "0",
+      "CLASSIFICATION_TYPE": "U"
+    },
+    "available_quality_manoeuvre_metadata": "No explicit covariance, orbit-quality or manoeuvre flags in the supplied supported-profile XML. Absence does not prove no events or quantify accuracy.",
+    "combined_strict_structure_and_fields_valid": false,
+    "combined_flag_explanation": "Inspector combined flag includes required header content, so is false although XML structure/required orbital fields pass.",
+    "private_GP_fields": "All parsed source strings/headers/units preserved separately in raw-parsed-fields.json, not exported to public docs"
+  },
+  "header_semantics": {
+    "exact_CREATION_DATE": "<CREATION_DATE/>",
+    "exact_ORIGINATOR": "<ORIGINATOR/>",
+    "all11classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+    "schema_accepts_empty_content": true,
+    "strict_policy_accepts_empty_content": false,
+    "validation_errors": [
+      "invalid_creation_date",
+      "invalid_header_metadata",
+      "missing_or_invalid_required_fields"
+    ],
+    "creation_error_note": "invalid_creation_date is caused by blank creation value, not invalid element epoch or malformed XML.",
+    "availability_or_creation_inferred_from_epoch": false
+  },
+  "per_record_results": [
+    {
+      "source_index_0based": 0,
+      "record_ordinal_1based": 1,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[0]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-25T06:18:00.145152",
+      "EPOCH_UTC": "2023-12-25T06:18:00.145152+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7153",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 256
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 272
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 26,
+      "age_guard_failed_indices_0based": [
+        26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+        44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61,
+        62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+        80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
+      ],
+      "temporal_status": "FAIL",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY",
+        "T2_ALL96_INCLUSIVE_SEVEN_DAY_GUARD"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 1,
+      "record_ordinal_1based": 2,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[1]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-25T06:18:00.149472",
+      "EPOCH_UTC": "2023-12-25T06:18:00.149472+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7153",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 1242
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 1258
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 26,
+      "age_guard_failed_indices_0based": [
+        26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+        44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61,
+        62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+        80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
+      ],
+      "temporal_status": "FAIL",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY",
+        "T2_ALL96_INCLUSIVE_SEVEN_DAY_GUARD"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 2,
+      "record_ordinal_1based": 3,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[2]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-26T06:13:55.672032",
+      "EPOCH_UTC": "2023-12-26T06:13:55.672032+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7155",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 2226
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 2242
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 3,
+      "record_ordinal_1based": 4,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[3]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-26T18:11:53.409984",
+      "EPOCH_UTC": "2023-12-26T18:11:53.409984+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7156",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 3212
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 3228
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 4,
+      "record_ordinal_1based": 5,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[4]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-26T18:11:53.411712",
+      "EPOCH_UTC": "2023-12-26T18:11:53.411712+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7156",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 4198
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 4214
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 5,
+      "record_ordinal_1based": 6,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[5]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-28T06:05:46.637664",
+      "EPOCH_UTC": "2023-12-28T06:05:46.637664+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7159",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 5184
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 5200
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 6,
+      "record_ordinal_1based": 7,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[6]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-28T06:05:46.642848",
+      "EPOCH_UTC": "2023-12-28T06:05:46.642848+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7214",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 6170
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 6186
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 7,
+      "record_ordinal_1based": 8,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[7]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-29T06:01:42.253536",
+      "EPOCH_UTC": "2023-12-29T06:01:42.253536+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7161",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 7156
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 7172
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 8,
+      "record_ordinal_1based": 9,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[8]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-30T05:57:38.010240",
+      "EPOCH_UTC": "2023-12-30T05:57:38.010240+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7163",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 8141
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 8157
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 9,
+      "record_ordinal_1based": 10,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[9]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-30T17:55:35.952960",
+      "EPOCH_UTC": "2023-12-30T17:55:35.952960+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7219",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 9127
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 9143
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    },
+    {
+      "source_index_0based": 10,
+      "record_ordinal_1based": 11,
+      "local_id": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5:omm[10]",
+      "NORAD_CAT_ID": "39533",
+      "OBJECT_ID": "2014-008A",
+      "OBJECT_NAME": "NAVSTAR 69 (USA 248)",
+      "EPOCH_original_text": "2023-12-31T05:53:33.943200",
+      "EPOCH_UTC": "2023-12-31T05:53:33.943200+00:00",
+      "fractional_digits": 6,
+      "ELEMENT_SET_NO": "999",
+      "REV_AT_EPOCH": "7165",
+      "supported_structure_and_required_GP_fields": "PASS",
+      "combined_strict_structure_and_fields_valid": false,
+      "identity": "PASS",
+      "header_representation": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 10113
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "original_byte_offset": 10129
+        }
+      ],
+      "metadata_status": "FAIL_REQUIRED_HEADER_CONTENT",
+      "provenance": "PARTIAL_UNVERIFIED_SOURCE_CLAIM",
+      "missing_required_GP_fields": [],
+      "field_failures": [],
+      "inspector_validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "in_requested_calendar_interval": true,
+      "forward_only_pass": true,
+      "reference_epochs_tested": 96,
+      "age_guard_pass_count": 96,
+      "age_guard_failed_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflict": false,
+      "static_candidate": false,
+      "strict_disposition": "REJECTED_STATIC_CANDIDATE",
+      "failed_rule_ids": [
+        "M1_CREATION_DATE_NONEMPTY_EXACT_UTC",
+        "M2_ORIGINATOR_NONEMPTY"
+      ],
+      "scientific_status": "BLOCKED",
+      "selected": false
+    }
+  ],
+  "aggregate_results": {
+    "structural_GP_field_passes": 11,
+    "identity_passes": 11,
+    "metadata_header_failures": 11,
+    "forward_only_passes": 11,
+    "temporal_passes": 9,
+    "temporal_failures": 2,
+    "total_record_reference_guard_checks": 1056,
+    "strict_static_candidates": 0,
+    "static_dispositions_rejected": 11,
+    "scientifically_accepted_count": 0,
+    "selected_source_index": null
+  },
+  "duplicate_and_conflict_review": {
+    "distinct_exact_epochs": 11,
+    "exact_duplicate_groups": [],
+    "same_epoch_conflict_groups": [],
+    "repeated_element_set_number": {
+      "value": "999",
+      "indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      "effect": "Not a unique record ID or standalone rejection/tie-break"
+    },
+    "shared_whole_second_diagnostics": [
+      {
+        "source_indices": [0, 1],
+        "EPOCH_texts": [
+          "2023-12-25T06:18:00.145152",
+          "2023-12-25T06:18:00.149472"
+        ],
+        "exact_epoch_difference_microseconds": 4320,
+        "differing_parsed_field_names": [
+          "ARG_OF_PERICENTER",
+          "ECCENTRICITY",
+          "EPOCH",
+          "MEAN_ANOMALY",
+          "MEAN_MOTION"
+        ],
+        "classification": "DISTINCT_EXACT_EPOCHS_NOT_SAME_EPOCH_CONFLICT",
+        "selection_effect": "No grouping, rounding, new tolerance or tie-break"
+      },
+      {
+        "source_indices": [3, 4],
+        "EPOCH_texts": [
+          "2023-12-26T18:11:53.409984",
+          "2023-12-26T18:11:53.411712"
+        ],
+        "exact_epoch_difference_microseconds": 1728,
+        "differing_parsed_field_names": [
+          "ARG_OF_PERICENTER",
+          "ECCENTRICITY",
+          "EPOCH",
+          "INCLINATION",
+          "MEAN_ANOMALY",
+          "MEAN_MOTION"
+        ],
+        "classification": "DISTINCT_EXACT_EPOCHS_NOT_SAME_EPOCH_CONFLICT",
+        "selection_effect": "No grouping, rounding, new tolerance or tie-break"
+      },
+      {
+        "source_indices": [5, 6],
+        "EPOCH_texts": [
+          "2023-12-28T06:05:46.637664",
+          "2023-12-28T06:05:46.642848"
+        ],
+        "exact_epoch_difference_microseconds": 5184,
+        "differing_parsed_field_names": [
+          "ECCENTRICITY",
+          "EPOCH",
+          "INCLINATION",
+          "MEAN_ANOMALY",
+          "MEAN_MOTION",
+          "REV_AT_EPOCH"
+        ],
+        "classification": "DISTINCT_EXACT_EPOCHS_NOT_SAME_EPOCH_CONFLICT",
+        "selection_effect": "No grouping, rounding, new tolerance or tie-break"
+      }
+    ],
+    "interpretation": "Shared whole-second prefixes are a text diagnostic only, not a grouping tolerance, rounded epoch or new rejection rule; underlying GP fields also differ as listed. All11records retained. REV7153and7156repeat, not archive IDs or chronology evidence."
+  },
+  "schema_validation": {
+    "kind": "REAL_G30_FILE_SCHEMA_VALIDATION_ONLY_NOT_SCIENTIFIC_QUALIFICATION",
+    "attachment_sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+    "schema_master": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-master-2.0.xsd",
+    "pinned_schema_files": 12,
+    "network_during_validation": false,
+    "whole_document_valid": true,
+    "errors": [],
+    "individual_OMM_results": [
+      {
+        "source_index_0based": 0,
+        "valid": true
+      },
+      {
+        "source_index_0based": 1,
+        "valid": true
+      },
+      {
+        "source_index_0based": 2,
+        "valid": true
+      },
+      {
+        "source_index_0based": 3,
+        "valid": true
+      },
+      {
+        "source_index_0based": 4,
+        "valid": true
+      },
+      {
+        "source_index_0based": 5,
+        "valid": true
+      },
+      {
+        "source_index_0based": 6,
+        "valid": true
+      },
+      {
+        "source_index_0based": 7,
+        "valid": true
+      },
+      {
+        "source_index_0based": 8,
+        "valid": true
+      },
+      {
+        "source_index_0based": 9,
+        "valid": true
+      },
+      {
+        "source_index_0based": 10,
+        "valid": true
+      }
+    ],
+    "validator_lxml_version": [6, 0, 2, 0],
+    "libxml_version": [2, 14, 6],
+    "policy_note": "XSD permits these empty contents. Active G30 strict policy still requires populated headers and admits0records."
+  },
+  "reference_identity": {
+    "product": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "compressed": {
+      "bytes": 102609,
+      "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38"
+    },
+    "expanded_sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c",
+    "redownloaded_or_replaced": false,
+    "G30_quality_statistic_reconciliation": "PARTIALLY RESOLVED as E8.6; no new uncertainty conclusion"
+  },
+  "remaining_scientific_requirements": [
+    {
+      "requirement": "strict_header_metadata_and_record_provenance",
+      "status": "BLOCKED",
+      "evidence": "Empty message creation/originator; historical availability/full lineage unestablished; no strict candidate"
+    },
+    {
+      "requirement": "coordinate_realization_TEME_terrestrial_and_EOP_compatibility",
+      "status": "BLOCKED",
+      "evidence": "Earlier resource coverage alone is not realized-frame/product-era EOP qualification"
+    },
+    {
+      "requirement": "satellite_physical_reference_point",
+      "status": "BLOCKED",
+      "evidence": "Historical G064 calibration/attitude/common fitted point not established"
+    },
+    {
+      "requirement": "G30_quality_and_uncertainty",
+      "status": "PARTIAL",
+      "evidence": "E8.6 producer statistic relationship remains partly unresolved; no numerical bound invented"
+    },
+    {
+      "requirement": "source_dependencies_and_independent_validation",
+      "status": "BLOCKED",
+      "evidence": "No record-level fit dependency or statistical independence proof; IGS includes ESA contributions"
+    },
+    {
+      "requirement": "record_conflict_semantics",
+      "status": "PARTIAL",
+      "evidence": "No exact duplicate/equalepochconflict underactive rules; distinct millisecond-separated records/field differences retained, archive history unknown"
+    },
+    {
+      "requirement": "protocol_review_and_scientific_authorization",
+      "status": "BLOCKED",
+      "evidence": "Original proposal frozen, not approval for computation"
+    }
+  ],
+  "private_evidence": [
+    {
+      "path": "data/e8.7.5-g30-xml-intake/all-epoch-static-guard.json",
+      "bytes": 285097,
+      "sha256": "d17f5d2b12d40f98d4694e91550c376eeaa905ca654f1aafc9f80391c7bfb8ca"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/assess_g30.py",
+      "bytes": 7869,
+      "sha256": "a353d795de58073fc2efabaef8f1c1808f77d27c164ee04e697af7f77640429f"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/preservation-manifest.json",
+      "bytes": 1083,
+      "sha256": "e6f9d3fd6d82cdf7496c7aaa95c4e87ccbc19574e1804e4683361247f1e0d022"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/raw-parsed-fields.json",
+      "bytes": 8749,
+      "sha256": "71f1b87958e735be4dedc32d81ac49f4d3ff35726937bfdad667f33b33986c79"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/record-metadata-assessment.json",
+      "bytes": 27086,
+      "sha256": "03b79cbb77bd48166babe6dc360459bf7d80aab627074d1b8a44ca56c51167fe"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/run_intake.py",
+      "bytes": 2598,
+      "sha256": "bac2a569c96c550556f00ab168e3ac4c8cae4f03dc396b8b804225177be39aac"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/schema-validation.json",
+      "bytes": 1376,
+      "sha256": "882993dc7b8b9a1510b0c1ef51c2f263883e685135a0ad52e53bac7c33bfcf56"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/strict-inspection.json",
+      "bytes": 19752,
+      "sha256": "c31cc9748264574d2495bec0852e13341c0b91f9c2106005ed64746c37479b0e"
+    },
+    {
+      "path": "data/e8.7.5-g30-xml-intake/validate_g30_schema.py",
+      "bytes": 2401,
+      "sha256": "426706aa87444767834e3d503ad6fa8836a77224d0c36657ad60fe516f218bb7"
+    },
+    {
+      "path": "data/e8.7.5-g30-preflight/dac6dfa44a744a4f815c76915c0f46ee/attachment.original",
+      "bytes": 11057,
+      "sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5"
+    },
+    {
+      "path": "data/e8.7.5-g30-preflight/dac6dfa44a744a4f815c76915c0f46ee/receipt.json",
+      "bytes": 957,
+      "sha256": "645c099895673dc5f3b1d6b059e1f9aef3d413aac8993bbbaace420b7322d951"
+    },
+    {
+      "path": "data/e8.7.5-g30-preflight/dac6dfa44a744a4f815c76915c0f46ee/inspection.json",
+      "bytes": 1069,
+      "sha256": "ffbafecdfde69c53b853abf3f5d451d5a6a6f712addf4b8999b0f63c36f71e56"
+    },
+    {
+      "path": "data/e8.7.5-g30-preflight/dac6dfa44a744a4f815c76915c0f46ee/manifest.json",
+      "bytes": 520,
+      "sha256": "6d951aa34fe7ede888a063a95f82e2cc5f2a88eeae3b049d5b98f552725f7bb8"
+    },
+    {
+      "path": "data/e8.7.5-g30-preflight/preservation-manifest.json",
+      "bytes": 645,
+      "sha256": "ae538c22bf397890fcb12ae83c246e5bd61db93a03bc037e7bec1f54713463da"
+    }
+  ],
+  "preserved_sources": [
+    {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc"
+    },
+    {
+      "path": "scripts/inspect_historical_xml.py",
+      "bytes": 18016,
+      "sha256": "3be501542c8116a1fda0e6e3fe05aaa38fdf1957d975c8707f50e34d9c29e5ca"
+    },
+    {
+      "path": "scripts/inspect_historical_csv.py",
+      "bytes": 12931,
+      "sha256": "c21850ced27f91515986916a5f99e077f253b5fbdfdd127d02cc56d32b96b340"
+    },
+    {
+      "path": "scripts/inspect_historical_gp.py",
+      "bytes": 17457,
+      "sha256": "4a84747ee873210bbc39e1d6535a540dba569c7825d323477a559c1d8259dd6d"
+    },
+    {
+      "path": "scripts/inspect_igs_reference.py",
+      "bytes": 20249,
+      "sha256": "87d100608dd306b2db051d9babdd34b8ed03ccf86233cd0dacac09ebb0b28cda"
+    },
+    {
+      "path": "backend/orbitiq/orbits/engine.py",
+      "bytes": 3912,
+      "sha256": "509c00730325ca2d24cca4d13260473a598ebfd9666f62b9ea40855f0804ae26"
+    },
+    {
+      "path": "backend/orbitiq/orbits/elements.py",
+      "bytes": 3686,
+      "sha256": "514cf3bdedc54d2b5f3af0155dfb5e10d24608ce924a6419c622413ac7f206dc"
+    },
+    {
+      "path": "backend/tests/test_historical_xml_intake.py",
+      "bytes": 24071,
+      "sha256": "413a5971c7af497d2b2f5c15cf107ff558280415be6ec6c7cf03a75f89810210"
+    },
+    {
+      "path": "backend/tests/test_igs_feasibility.py",
+      "bytes": 14586,
+      "sha256": "678e65e368a2464c86132f966477faaf265ace5e2b0c0cd49acec5e949c23e41"
+    },
+    {
+      "path": "docs/engineering-e8.2-reference-evidence.json",
+      "bytes": 15299,
+      "sha256": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57"
+    },
+    {
+      "path": "docs/engineering-e8.3-frame-eop-evidence.json",
+      "bytes": 41223,
+      "sha256": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238"
+    },
+    {
+      "path": "docs/engineering-e8.4-quality-evidence.json",
+      "bytes": 35912,
+      "sha256": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0"
+    },
+    {
+      "path": "docs/engineering-e8.5-source-provenance-evidence.json",
+      "bytes": 56308,
+      "sha256": "fb0beabdf7d43062e3c0657f24257df792e4bc8edb4261abb4f703c342e77749"
+    },
+    {
+      "path": "docs/engineering-e8.6-g30-statistic-evidence.json",
+      "bytes": 84331,
+      "sha256": "34f36197dd3a3409822b08cba9d6cb65e7a0cbca33edf9ddeb48f0eba660b728"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 46977,
+      "sha256": "cf5f1577b37d703cca8d9406e1a6666426dcab6daac9c7d85c899620bea3bdae"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-satellite-metadata.bin",
+      "bytes": 277829,
+      "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/final-qualification-G30.json",
+      "bytes": 21574,
+      "sha256": "8ffbd611b4a002a27aa8924801e33f8f3c4e01ce16b853fe35a4287d364828a4"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/actual-product-inspection.json",
+      "bytes": 106031,
+      "sha256": "c71c4e452e2f0da54ab52faa8bf482fd4846541446dcf865cabadeb8e54f2614"
+    }
+  ],
+  "verification": {
+    "targeted_XML_and_IGS_G30_regressions": {
+      "passed": 129,
+      "duration_seconds": 11.56,
+      "modules": ["test_historical_xml_intake.py", "test_igs_feasibility.py"],
+      "evidence_class": "SYNTHETIC_OR_PUBLISHED_NUMERICAL_TEST_FIXTURES_NOT_ACQUIRED_EVIDENCE"
+    },
+    "fresh_G30_schema": "PASS complete original plus11individualOMMs, offline12pinnedofficialschemas",
+    "source_lint_format": "PASS",
+    "documentation_consistency_preservation": "PASS",
+    "code_changes": false,
+    "full_application_frontend_browser_PDF_build_remote_CI": "NOT_RUN",
+    "task_harness_note": "Initial temporary helper filename inspect.py shadowed Python stdlib; renamed before private output creation. Project source/tests/requirements unchanged."
+  },
+  "preservation": {
+    "existing_private_manifest_entries_preserved": 165,
+    "prior_research_inventory_files_preserved": 178,
+    "original_private_files_preserved": 72,
+    "original_database_schema_version": 3,
+    "database_snapshots": 2,
+    "original_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "new_repository_files": 2,
+    "existing_repository_files_changed": 0,
+    "original_preflight_capture_and_manifests_unchanged": true,
+    "new_private_manifest_entries": 8,
+    "all_branches_and_HEADs_unchanged": true
+  },
+  "safeguards": {
+    "real_GP_initialization_or_propagation": false,
+    "spacecraft_state_transformation": false,
+    "orbital_interpolation_or_extrapolation": false,
+    "orbital_residuals": false,
+    "new_uncertainty_estimates": false,
+    "independent_validation_claim": false,
+    "G05_policy_imported_or_activated": false,
+    "G30_protocol_modified": false,
+    "record_selected_merged_or_discarded": false,
+    "original_XML_or_reference_SP3_modified": false,
+    "database_or_unrelated_functionality_changed": false,
+    "private_accounts_accessed": false,
+    "private_data_uploaded": false,
+    "git_publication_or_deployment": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN"
+}

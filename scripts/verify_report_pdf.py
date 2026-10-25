@@ -16,6 +16,39 @@ def compact(value):
     return re.sub(r"\s+", "", value)
 
 
+def content_reading_order(raw, page_count):
+    """Remove only validated running furniture at each raw page boundary.
+
+    Poppler can place margin boxes between the two halves of a sentence when
+    it crosses pages. Keep the independent layout/page-counter checks and all
+    body text; do not globally remove strings resembling report content.
+    """
+    pages = raw.split("\f")
+    if len(pages) != page_count + 1 or pages[-1].strip():
+        raise ValueError("Raw PDF pagination does not match layout")
+    bodies = []
+    for number, page in enumerate(pages[:-1], 1):
+        lines = page.splitlines()
+        while lines and not lines[0].strip():
+            lines.pop(0)
+        while lines and not lines[-1].strip():
+            lines.pop()
+        header = "OrbitIQ / Investigation report"
+        footer = f"OrbitIQ · Page {number} of {page_count}"
+        start = [line.strip() for line in lines[:2]]
+        end = [line.strip() for line in lines[-2:]]
+        if start in ([header, footer], [footer, header]):
+            body = lines[2:]
+        elif end in ([header, footer], [footer, header]):
+            body = lines[:-2]
+        elif lines and lines[0].strip() == header and lines[-1].strip() == footer:
+            body = lines[1:-1]
+        else:
+            raise ValueError(f"Missing or misplaced running furniture on page {number}")
+        bodies.append("\n".join(body))
+    return "\n".join(bodies)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", type=Path, required=True)
@@ -41,7 +74,7 @@ def main():
         raw = subprocess.check_output(
             ["pdftotext", "-raw", str(path), "-"], text=True, timeout=30
         )
-        normalized = compact(raw)
+        normalized = compact(content_reading_order(raw, len(pages)))
         expected = [
             report["report_id"],
             report["generated_at"],

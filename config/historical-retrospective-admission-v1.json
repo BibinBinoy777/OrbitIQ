@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "historical-retrospective-admission-v1",
+  "version": 1,
+  "activation": {
+    "status": "ACTIVE_EXPLICIT_SELECTION_ONLY",
+    "authority": "User E8.7.6 explicitly authorizes implementation and application to these two exact artifacts",
+    "date_utc": "2026-10-25",
+    "purpose": "Admission for further scientific qualification only; no scientific comparison authorization"
+  },
+  "strict_policy_id": "strict-historical-omm-v1",
+  "scope": "Exactly these two hash-bound original historical exports. No unknown files/providers or automatic future extension.",
+  "artifacts": [
+    {
+      "sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+      "bytes": 10072,
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "expected_record_count": 10,
+      "acquisition_evidence": {
+        "path": "docs/engineering-e8.7.2-g05-intake-evidence.json",
+        "bytes": 27295,
+        "sha256": "013f7a2651b6f1c910ab8ad5bf68ab1133f87b660602bbdf25b0c3dcb311f798",
+        "source": "USER_REPORTED_CELESTRAK_REQUEST_AND_FULFILLMENT",
+        "request_status": "SUBMITTED_USER_REPORTED",
+        "fulfillment_status": "RECEIVED_USER_REPORTED",
+        "independently_authenticated": false,
+        "limitations": [
+          "Email receipt time unknown",
+          "Provider attribution is user-reported, not independently authenticated",
+          "Historical creation/publication/availability and full fitting lineage unestablished"
+        ]
+      }
+    },
+    {
+      "sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+      "bytes": 11057,
+      "norad_id": 39533,
+      "cospar_id": "2014-008A",
+      "expected_record_count": 11,
+      "acquisition_evidence": {
+        "path": "docs/engineering-e8.7.5-g30-intake-evidence.json",
+        "bytes": 47597,
+        "sha256": "6e92fe0d76237e4ac75a8b6bce0e50ba0db95cea9b44997055c36c1a580c2429",
+        "source": "USER_REPORTED_CELESTRAK_REQUEST_AND_FULFILLMENT",
+        "request_status": "SUBMITTED_USER_REPORTED",
+        "fulfillment_status": "RECEIVED_USER_REPORTED",
+        "independently_authenticated": false,
+        "limitations": [
+          "Email receipt time unknown",
+          "Provider attribution is user-reported, not independently authenticated",
+          "Historical creation/publication/availability and full fitting lineage unestablished"
+        ]
+      }
+    }
+  ],
+  "reference": {
+    "product": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "compressed_sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "first_utc": "2023-12-31T23:59:42+00:00",
+    "last_utc": "2024-01-01T23:44:42+00:00",
+    "epoch_count": 96,
+    "cadence_seconds": 900,
+    "guard_seconds_inclusive": 604800,
+    "forward_only": true
+  },
+  "header_exception": {
+    "fields": ["CREATION_DATE", "ORIGINATOR"],
+    "representation": "Both present-empty without nil attributes; no other field/validation exception",
+    "metadata_status": "PARTIAL \u2014 PROVIDER-EXPORTED MESSAGE PROVENANCE UNAVAILABLE"
+  },
+  "conflict_rule": "Temporal failures remain REJECTED. Otherwise any unresolved exact duplicate or same-epoch conflict is HOLD. No merge, source-order/revolution tie-break or fallback.",
+  "prohibited_advancement": [
+    "scientific prerequisites qualified",
+    "record selected",
+    "scientific comparison authorized"
+  ],
+  "scientific_status": "BLOCKED"
+}

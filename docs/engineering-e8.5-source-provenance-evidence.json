@@ -1,0 +1,1278 @@
+{
+  "schema_version": 1,
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "phase": "E8.5",
+  "review_date_utc": "2026-10-24",
+  "overall_scientific_status": "BLOCKED — ADDITIONAL EVIDENCE REQUIRED",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "scope": "Documentation and source-dependency evidence only. Producer-reported statistics are transcribed, not newly calculated residuals.",
+  "evidence_categories": [
+    "direct observation",
+    "authoritative documentation",
+    "inference",
+    "unknown"
+  ],
+  "status_definitions": {
+    "SUPPORTED": "Evidence supports the explicitly scoped proposition; not universal independence or scientific acceptance.",
+    "PARTIALLY SUPPORTED": "Some links supported; essential record-specific evidence missing.",
+    "UNKNOWN": "Evidence cannot establish or refute the scoped proposition.",
+    "CONTRADICTED BY EVIDENCE": "Documented dependency contradicts the specific independence proposition; not an automatic comparison invalidation."
+  },
+  "no_aggregate_independence_score": true,
+  "preserved_document_hashes": {
+    "docs/engineering-e8.2-reference-evidence.json": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+    "docs/engineering-e8.2-reference-qualification.md": "11c7cf31107c3a20cae68a094f8a8b32eb5d0900eddfe21501731545913a3a2f",
+    "docs/engineering-e8.3-frame-eop-evidence.json": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+    "docs/engineering-e8.3-frame-eop-qualification.md": "d0546aa40b8779bfcb029ead333c52b907c642699cc7196a406e258bdac4bb92",
+    "docs/engineering-e8.4-quality-evidence.json": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0",
+    "docs/engineering-e8.4-quality-qualification.md": "a23c374ef275546af1e9c6be55e62a290a5f30765d8f154faf88aee6c47b130d",
+    "docs/engineering-e8-comparison-protocol.md": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+    "docs/engineering-e8-feasibility-report.md": "71e5282440e17ef07e1cb6bef878c7a688f432a1cd6165f4cd48884b6fde8f93",
+    "docs/engineering-e8-plan.md": "32db1a91af78b87666379df5d7e4f1b03dc5e8c225f0f094b0835832b53e5412",
+    "docs/engineering-e8-source-evidence.json": "ec48aa4adca8cb4bc0001d7f489d5a1ba4f6d839568fe49812fc3efc27062626",
+    "docs/engineering-e8-verification.md": "ecfe85bf2b66cefcdc05283d7a9d14acd1c616b0706502688e8cbeb0c17c38c9"
+  },
+  "reference_identity": {
+    "product_name": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "source_sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "source_bytes": 102609,
+    "expanded_sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c",
+    "expanded_bytes": 253250,
+    "frame_declaration": "IGS20",
+    "time_system": "GPS",
+    "epoch_count": 96,
+    "sampling_seconds": 900,
+    "satellite_ids": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32"
+    ],
+    "position_counts": {
+      "G01": 96,
+      "G02": 96,
+      "G03": 96,
+      "G04": 96,
+      "G05": 96,
+      "G06": 96,
+      "G07": 96,
+      "G08": 96,
+      "G09": 96,
+      "G10": 96,
+      "G11": 96,
+      "G12": 96,
+      "G13": 96,
+      "G14": 96,
+      "G15": 96,
+      "G16": 96,
+      "G17": 96,
+      "G18": 96,
+      "G19": 96,
+      "G20": 96,
+      "G21": 96,
+      "G22": 96,
+      "G23": 96,
+      "G24": 96,
+      "G25": 96,
+      "G26": 96,
+      "G27": 96,
+      "G28": 96,
+      "G29": 96,
+      "G30": 96,
+      "G31": 96,
+      "G32": 96
+    },
+    "complete_15_minute_daily_grid": true,
+    "velocity_records": 0
+  },
+  "igssummary_expanded_sha256": "f7dbf885db4a44fe67ae93e6956ae522406188ed4e801d0aca3067572a214d55",
+  "g30_quality_record": {
+    "path": "data/e8.4-quality-qualification/g30-quality-record.json",
+    "bytes": 213489,
+    "sha256": "56a356d883d67a70f3f4b0722f4885343f3b1ca6b553c60926635e03476178bf",
+    "epochs": 96,
+    "scientifically_accepted_for_comparison": false
+  },
+  "g30_daily_reported_cells": {
+    "weighted_average": {
+      "cod": {
+        "raw": "7",
+        "line_1based": 723,
+        "columns_1based_inclusive": [12, 12]
+      },
+      "emr": {
+        "raw": "13",
+        "line_1based": 723,
+        "columns_1based_inclusive": [16, 17]
+      },
+      "esa": {
+        "raw": "6",
+        "line_1based": 723,
+        "columns_1based_inclusive": [22, 22]
+      },
+      "gfz": {
+        "raw": "6",
+        "line_1based": 723,
+        "columns_1based_inclusive": [27, 27]
+      },
+      "grg": {
+        "raw": "5",
+        "line_1based": 723,
+        "columns_1based_inclusive": [32, 32]
+      },
+      "igr": {
+        "raw": "3",
+        "line_1based": 723,
+        "columns_1based_inclusive": [37, 37]
+      },
+      "jgx": {
+        "raw": "7",
+        "line_1based": 723,
+        "columns_1based_inclusive": [42, 42]
+      },
+      "jpl": {
+        "raw": "11",
+        "line_1based": 723,
+        "columns_1based_inclusive": [46, 47]
+      },
+      "mit": {
+        "raw": "5",
+        "line_1based": 723,
+        "columns_1based_inclusive": [52, 52]
+      },
+      "ngs": {
+        "raw": "8",
+        "line_1based": 723,
+        "columns_1based_inclusive": [57, 57]
+      },
+      "sio": {
+        "raw": "10",
+        "line_1based": 723,
+        "columns_1based_inclusive": [61, 62]
+      },
+      "IGS": {
+        "raw": "2",
+        "line_1based": 723,
+        "columns_1based_inclusive": [67, 67]
+      }
+    },
+    "orbit_dynamics_7_days": {
+      "cod": {
+        "raw": "22",
+        "line_1based": 723,
+        "columns_1based_inclusive": [74, 75]
+      },
+      "emr": {
+        "raw": "34",
+        "line_1based": 723,
+        "columns_1based_inclusive": [79, 80]
+      },
+      "esa": {
+        "raw": "26",
+        "line_1based": 723,
+        "columns_1based_inclusive": [84, 85]
+      },
+      "gfz": {
+        "raw": "26",
+        "line_1based": 723,
+        "columns_1based_inclusive": [89, 90]
+      },
+      "grg": {
+        "raw": "24",
+        "line_1based": 723,
+        "columns_1based_inclusive": [94, 95]
+      },
+      "igr": {
+        "raw": "25",
+        "line_1based": 723,
+        "columns_1based_inclusive": [99, 100]
+      },
+      "jgx": {
+        "raw": "25",
+        "line_1based": 723,
+        "columns_1based_inclusive": [104, 105]
+      },
+      "jpl": {
+        "raw": "35",
+        "line_1based": 723,
+        "columns_1based_inclusive": [109, 110]
+      },
+      "mit": {
+        "raw": "24",
+        "line_1based": 723,
+        "columns_1based_inclusive": [114, 115]
+      },
+      "ngs": {
+        "raw": "27",
+        "line_1based": 723,
+        "columns_1based_inclusive": [119, 120]
+      },
+      "sio": {
+        "raw": "28",
+        "line_1based": 723,
+        "columns_1based_inclusive": [124, 125]
+      },
+      "IGS": {
+        "raw": "25",
+        "line_1based": 723,
+        "columns_1based_inclusive": [130, 131]
+      }
+    },
+    "row_flags": "none of X/E/M present",
+    "table": "3.2295.1",
+    "gps_week": 2295,
+    "gps_week_day": 1,
+    "mjd_raw": "60310.000",
+    "table_units": "mm",
+    "numerical_weights_supplied": false,
+    "interpretation": "existing producer-reported statistics only; not newly calculated residuals or independent errors"
+  },
+  "orbit_roles_from_report": {
+    "cod": "included according to general orbit policy; no recovered per-G30 numerical weight vector",
+    "emr": "excluded from orbit combination per REMARKS 9; reported statistics retained",
+    "esa": "included according to general orbit policy; no recovered per-G30 numerical weight vector",
+    "gfz": "included according to general orbit policy; no recovered per-G30 numerical weight vector",
+    "grg": "included according to general orbit policy; no recovered per-G30 numerical weight vector",
+    "igr": "statistics-only rapid comparator",
+    "jgx": "included according to general orbit policy; no recovered per-G30 numerical weight vector",
+    "jpl": "excluded from orbit combination per REMARKS 9; reported statistics retained",
+    "mit": "included according to general orbit policy; no recovered per-G30 numerical weight vector",
+    "ngs": "included according to general orbit policy; no recovered per-G30 numerical weight vector",
+    "sio": "excluded from orbit combination per REMARKS 9; reported statistics retained"
+  },
+  "indicator_reconciliation": {
+    "status": "PARTIALLY_EXPLAINED",
+    "resolved": "Header satellite/file-wide and P coordinate/epoch sigma scopes, bases and special values differ by definition. They are not interchangeable.",
+    "summary_raw_cells": {
+      "g30_table1_day1": {
+        "table": "Table 1.2295.b",
+        "source_line_1based": 498,
+        "source_columns_1based_inclusive": [17, 17],
+        "raw_token": "3"
+      },
+      "g30_table3_first_igs": {
+        "table": "Table 3.2295.1",
+        "source_line_1based": 723,
+        "source_columns_1based_inclusive": [67, 67],
+        "raw_token": "2"
+      },
+      "g08_table3_first_igs": {
+        "table": "Table 3.2295.1",
+        "source_line_1based": 701,
+        "source_columns_1based_inclusive": [67, 67],
+        "raw_token": "5"
+      }
+    },
+    "g08_header_raw": "  2",
+    "hypothesis_rejected": "A literal verbatim copy of this SP3 header exponent column cannot be assumed from G30 alone; G08 header raw 2 versus Table3 first IGS raw 5 is a counterexample for this pair.",
+    "unresolved": "Exact reported-statistic/encoding/rounding and processing-revision relationship of Table1 3 mm, Table3 raw 2 and SP3 header n=2 (format indicator 4 mm).",
+    "quantization_is_proven_producer_rule": false,
+    "contradiction_or_corruption_established": false,
+    "unsafe_numeric_substitutions": [
+      "Treat Table3 raw 2 as exponent 2 solely because G30 happens to match",
+      "Decode Table1 reported 3 mm as header exponent 3",
+      "Use a sqrt(3) factor to force agreement without a producer definition",
+      "Choose the smallest value as an error bound"
+    ]
+  },
+  "indicator_discrepancy_resolved": false,
+  "new_public_document_capture_ids": [
+    "igs-acc-gps",
+    "igs-acc-resources",
+    "igs-acc-centers",
+    "celestrak-supplemental",
+    "igs-code-analysis",
+    "igs-esa-analysis",
+    "igs-repro3"
+  ],
+  "source_catalog": {
+    "igs-final-2024001": {
+      "evidence_kind": "retained producer product",
+      "version": "SP3-c, GPS day 2024-001, FIN",
+      "location": "header lines 1-22; original acquisition receipt",
+      "capture": {
+        "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+        "retrieved_at": "2026-10-24T05:00:22.757926+00:00",
+        "status": 200,
+        "bytes": 102609,
+        "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+        "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+        "content_type": "application/x-gzip",
+        "redirects": []
+      },
+      "private_original_path": "OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-final-2024001.bin"
+    },
+    "igs-final-summary-2295": {
+      "evidence_kind": "retained producer product",
+      "version": "GPS week 2295; sum-file Version 2.0, not executable version",
+      "location": "expanded ASCII, 1-based source lines; COMBINATION STRATEGY / SOFTWARE / REMARKS / Tables 1-7",
+      "capture": {
+        "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+        "retrieved_at": "2026-10-24T05:00:22.758539+00:00",
+        "status": 200,
+        "bytes": 23095,
+        "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870",
+        "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+        "content_type": "application/x-gzip",
+        "redirects": []
+      },
+      "private_original_path": "OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-final-summary-2295.bin"
+    },
+    "celestrak-formats": {
+      "evidence_kind": "authoritative documentation",
+      "version": "27 May 2020; updated 23 June 2026",
+      "location": "Background; The Solution",
+      "capture": {
+        "source_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+        "retrieved_at": "2026-10-24T04:56:16.516304+00:00",
+        "status": 200,
+        "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+        "bytes": 40338,
+        "sha256": "b4b9fb137a35d80cd7d50c886b76900e33d679ecbc7ccffd4763bd496f706c76",
+        "content_type": "text/html; charset=UTF-8",
+        "redirects": []
+      },
+      "private_original_path": "OrbitIQ-nasa-igs/data/e8-nasa-igs/original/celestrak-formats.bin"
+    },
+    "igs-products": {
+      "evidence_kind": "authoritative documentation",
+      "version": "No precise page version declared; captured 24 October 2026",
+      "location": "Products derived from GNSS data; final-GPS quality table and Note 1",
+      "capture": {
+        "source_url": "https://igs.org/products/",
+        "retrieved_at": "2026-10-24T04:56:16.515961+00:00",
+        "status": 200,
+        "final_url": "https://igs.org/products/",
+        "bytes": 1189063,
+        "sha256": "f84af4dbae028a2a960d0ff136678fde4b1a075ad9f3a2b7efb4b65d248efd0e",
+        "content_type": "text/html; charset=UTF-8",
+        "redirects": []
+      },
+      "private_original_path": "OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-products.bin"
+    },
+    "earthdata-orbits": {
+      "evidence_kind": "authoritative documentation",
+      "version": "No precise page version declared; captured 24 October 2026",
+      "location": "GNSS precise-orbit product description; official combined solutions",
+      "capture": {
+        "source_url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/orbit-products",
+        "retrieved_at": "2026-10-24T04:56:16.514834+00:00",
+        "status": 200,
+        "final_url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/precise-orbits-product",
+        "bytes": 147514,
+        "sha256": "7a978bdb26304238c057486eb90127aa370892ebfb1d02136e5503eecb78ee7b",
+        "content_type": "text/html; charset=UTF-8",
+        "redirects": [
+          {
+            "status": 301,
+            "url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/orbit-products"
+          }
+        ]
+      },
+      "private_original_path": "OrbitIQ-nasa-igs/data/e8-nasa-igs/original/earthdata-orbits.bin"
+    },
+    "igs-antenna-conventions": {
+      "evidence_kind": "authoritative documentation",
+      "version": "SP3-c, 17 August 2010",
+      "location": "SP3 header accuracy and P/EP definitions",
+      "capture": {
+        "source_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+        "retrieved_at": "2026-10-24T05:00:22.759070+00:00",
+        "status": 200,
+        "bytes": 52994,
+        "sha256": "ac844f38cd1c1a1eafbaa45d7ba0baf89b0787cf307fb42ba645b03dc195da9d",
+        "final_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+        "content_type": "text/plain; charset=UTF-8",
+        "redirects": []
+      },
+      "private_original_path": "OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-antenna-conventions.bin"
+    },
+    "igs-guide": {
+      "evidence_kind": "authoritative documentation",
+      "version": "A Guide to Using International GNSS Service (IGS) Products, May 2009",
+      "location": "sections 2, 3, 5.1.1 and 5.2.4",
+      "capture": {
+        "source_url": "https://files.igs.org/pub/resource/pubs/UsingIGSProductsVer21.pdf",
+        "retrieval_started_utc": "2026-10-24T10:01:06.835725+00:00",
+        "status": 200,
+        "final_url": "https://files.igs.org/pub/resource/pubs/UsingIGSProductsVer21.pdf",
+        "content_type": "application/pdf",
+        "bytes": 888722,
+        "sha256": "48f8f4f9a75d353a7382757df6e45fbbe65f8505d10299c3ad078e504ebbafed",
+        "completed_utc": "2026-10-24T10:01:07.907414+00:00"
+      },
+      "private_original_path": "data/e8.2-reference-qualification/original/igs-using-products-guide.bin"
+    },
+    "igs-acc-gps": {
+      "evidence_kind": "authoritative documentation",
+      "version": "No precise page version; Final and PPP sections; captured 24 October 2026",
+      "location": "section names and/or raw text line locators in findings",
+      "capture": {
+        "source_url": "https://igs.org/acc/gps-only/",
+        "retrieved_at_utc": "2026-10-24T17:04:19.126475Z",
+        "completed_at_utc": "2026-10-24T17:04:21.194460Z",
+        "http_status": 200,
+        "final_url": "https://igs.org/acc/gps-only/",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 1268995,
+        "sha256": "14ac39144babcf16a797d3e6510d13f679ce44f1e29b34670de5a84b87d553a3"
+      },
+      "private_original_path": "data/e8.5-source-provenance/original/igs-acc-gps.bin",
+      "review_decoding": "UTF-8 review-only view"
+    },
+    "igs-acc-resources": {
+      "evidence_kind": "authoritative documentation",
+      "version": "No precise page version; resource directory; captured 24 October 2026",
+      "location": "section names and/or raw text line locators in findings",
+      "capture": {
+        "source_url": "https://igs.org/acc/resources/",
+        "retrieved_at_utc": "2026-10-24T17:04:19.128170Z",
+        "completed_at_utc": "2026-10-24T17:04:21.238664Z",
+        "http_status": 200,
+        "final_url": "https://igs.org/acc/resources/",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 1109113,
+        "sha256": "b1a61e3743b33597f8ebd786bb1d548c3808b65407244f20f99b5dbf97f4cac5"
+      },
+      "private_original_path": "data/e8.5-source-provenance/original/igs-acc-resources.bin",
+      "review_decoding": "UTF-8 review-only view"
+    },
+    "igs-acc-centers": {
+      "evidence_kind": "authoritative documentation",
+      "version": "No precise page version; ACC responsibility and AC directory; captured 24 October 2026",
+      "location": "section names and/or raw text line locators in findings",
+      "capture": {
+        "source_url": "https://igs.org/acc/",
+        "retrieved_at_utc": "2026-10-24T17:04:19.130226Z",
+        "completed_at_utc": "2026-10-24T17:04:21.156975Z",
+        "http_status": 200,
+        "final_url": "https://igs.org/acc/",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 1106884,
+        "sha256": "df6f60e374785dbedcc6de7b1104be63b696073a8b6157579b1265ff01d0a302"
+      },
+      "private_original_path": "data/e8.5-source-provenance/original/igs-acc-centers.bin",
+      "review_decoding": "UTF-8 review-only view"
+    },
+    "celestrak-supplemental": {
+      "evidence_kind": "authoritative documentation",
+      "version": "No precise page version; Introduction and Methodology; captured 24 October 2026",
+      "location": "section names and/or raw text line locators in findings",
+      "capture": {
+        "source_url": "https://celestrak.org/NORAD/elements/supplemental/",
+        "retrieved_at_utc": "2026-10-24T17:04:19.131271Z",
+        "completed_at_utc": "2026-10-24T17:04:20.172041Z",
+        "http_status": 200,
+        "final_url": "https://celestrak.org/NORAD/elements/supplemental/",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 37096,
+        "sha256": "160153b861498f6aaed83e7c6fd676a58ddfd52590d21c5c9b10aeff5ddb7db1"
+      },
+      "private_original_path": "data/e8.5-source-provenance/original/celestrak-supplemental.bin",
+      "review_decoding": "UTF-8 review-only view"
+    },
+    "igs-code-analysis": {
+      "evidence_kind": "authoritative documentation",
+      "version": "CODE Analysis Strategy Summary; software field Bernese GNSS Software 5.5; last listed modification 21-Mar-2024 (model changes week 2238); not an actual 2024 run manifest",
+      "location": "section names and/or raw text line locators in findings",
+      "capture": {
+        "source_url": "https://files.igs.org/pub/center/analysis/code.acn",
+        "retrieved_at_utc": "2026-10-24T17:05:05.953955Z",
+        "completed_at_utc": "2026-10-24T17:05:06.745188Z",
+        "http_status": 200,
+        "final_url": "https://files.igs.org/pub/center/analysis/code.acn",
+        "content_type": "audio/asc",
+        "bytes": 84563,
+        "sha256": "9fd573cb746bc0ce7f37796139d58eb7be4b4805cdbe65fa3bb943b899b3b6a1"
+      },
+      "private_original_path": "data/e8.5-source-provenance/original/igs-code-analysis.bin",
+      "review_decoding": "ISO-8859-1 review-only view; raw bytes fail UTF-8"
+    },
+    "igs-esa-analysis": {
+      "evidence_kind": "authoritative documentation",
+      "version": "ESOC Analysis Strategy Summary; NAPEOS 3.9; preparation 2012-10-26; last listed modification 2015-06-30; final effective date 2015 179; not a week-2295 manifest",
+      "location": "section names and/or raw text line locators in findings",
+      "capture": {
+        "source_url": "https://files.igs.org/pub/center/analysis/esa.acn",
+        "retrieved_at_utc": "2026-10-24T17:05:05.954823Z",
+        "completed_at_utc": "2026-10-24T17:05:06.558647Z",
+        "http_status": 200,
+        "final_url": "https://files.igs.org/pub/center/analysis/esa.acn",
+        "content_type": "audio/asc",
+        "bytes": 36687,
+        "sha256": "ba36e392a289fa0d33f38b790a9bf5bcf44545c9186de69e3a8cdf578a48c3d4"
+      },
+      "private_original_path": "data/e8.5-source-provenance/original/igs-esa-analysis.bin",
+      "review_decoding": "UTF-8 review-only view"
+    },
+    "igs-repro3": {
+      "evidence_kind": "authoritative documentation",
+      "version": "No precise page version; 3rd Data Reprocessing Campaign / Conventions and Modelling; captured 24 October 2026; recommendations, not actual operational settings",
+      "location": "section names and/or raw text line locators in findings",
+      "capture": {
+        "source_url": "https://igs.org/acc/reprocessing/",
+        "retrieved_at_utc": "2026-10-24T17:05:05.955417Z",
+        "completed_at_utc": "2026-10-24T17:05:08.035608Z",
+        "http_status": 200,
+        "final_url": "https://igs.org/acc/reprocessing/",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 1216627,
+        "sha256": "64f05b07d37972aae9b4969777c9a648f9513569f4a450649960239edaea24c3"
+      },
+      "private_original_path": "data/e8.5-source-provenance/original/igs-repro3.bin",
+      "review_decoding": "UTF-8 review-only view"
+    },
+    "protocol": {
+      "evidence_kind": "existing project evidence",
+      "version": "proposed v0.1, unchanged",
+      "location": "docs/engineering-e8-comparison-protocol.md",
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+      "bytes": 12848
+    },
+    "e82": {
+      "evidence_kind": "existing project evidence",
+      "version": "preserved E8.2 evidence ledger",
+      "location": "docs/engineering-e8.2-reference-evidence.json",
+      "sha256": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+      "bytes": 15299
+    },
+    "e83": {
+      "evidence_kind": "existing project evidence",
+      "version": "preserved E8.3 evidence ledger; static installed-source audit, not rerun here",
+      "location": "docs/engineering-e8.3-frame-eop-evidence.json",
+      "sha256": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+      "bytes": 41223
+    },
+    "e84": {
+      "evidence_kind": "existing project evidence",
+      "version": "preserved E8.4 evidence ledger",
+      "location": "docs/engineering-e8.4-quality-evidence.json",
+      "sha256": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0",
+      "bytes": 35912
+    },
+    "g30-quality": {
+      "evidence_kind": "existing project evidence",
+      "version": "preserved private metadata-only 96-epoch record; no new science",
+      "location": "data/e8.4-quality-qualification/g30-quality-record.json",
+      "sha256": "56a356d883d67a70f3f4b0722f4885343f3b1ca6b553c60926635e03476178bf",
+      "bytes": 213489
+    },
+    "missing-gp": {
+      "evidence_kind": "unknown",
+      "version": null,
+      "location": "No original historical response received/qualified; user-reported Special Data Request is context only",
+      "source_url": null,
+      "sha256": null,
+      "bytes": null,
+      "received_at_utc": null,
+      "record_count": null,
+      "creation_or_publication_time": null
+    }
+  },
+  "historical_gp": {
+    "qualification_status": "BLOCKED",
+    "request_status": "user-reported submission; not delivery evidence",
+    "requested_norad": 39533,
+    "requested_calendar_dates": ["2023-12-25", "2023-12-31"],
+    "requested_format": "XML/OMM",
+    "eligible_interval_inclusive": [
+      "2023-12-25T23:44:42Z",
+      "2023-12-31T23:59:42Z"
+    ],
+    "filename": null,
+    "sha256": null,
+    "bytes": null,
+    "actual_receipt_time_utc": null,
+    "record_count": null,
+    "element_epoch": null,
+    "creation_time": null,
+    "publication_time": null,
+    "historical_availability": null,
+    "fit_lineage": "not established",
+    "selected_candidate": null,
+    "statistical_independence": "not established"
+  },
+  "category_assessments": [
+    {
+      "category": "A",
+      "name": "Observation-source independence",
+      "assessed_proposition": "Measurement-source independence of the actual GP/reference pair",
+      "status": "UNKNOWN",
+      "finding_ids": ["E85-06", "E85-08", "E85-16"],
+      "dependency": "General GNSS versus SSN paths documented; actual overlap/exclusion unestablished."
+    },
+    {
+      "category": "B",
+      "name": "Processing and solution independence",
+      "assessed_proposition": "Distinct record-specific processing paths sufficiently established for intended pair",
+      "status": "PARTIALLY SUPPORTED",
+      "finding_ids": ["E85-02", "E85-03", "E85-05", "E85-07"],
+      "dependency": "Distinct documented estimation/combination paths; actual GP run absent and IGS run details incomplete."
+    },
+    {
+      "category": "C",
+      "name": "Mathematical-model independence",
+      "assessed_proposition": "The planned SGP4 evaluator is independent of the GP generating model",
+      "status": "CONTRADICTED BY EVIDENCE",
+      "finding_ids": ["E85-13", "E85-14"],
+      "dependency": "Known SGP4 fit/evaluation model link; IGS model differences do not erase it."
+    },
+    {
+      "category": "D",
+      "name": "Frame and reference-system independence",
+      "assessed_proposition": "Shared and differing frame/time/EOP/point conventions are fully qualified",
+      "status": "PARTIALLY SUPPORTED",
+      "finding_ids": ["E85-15"],
+      "dependency": "Common basis is a compatibility requirement with possible shared systematics; actual chain incomplete."
+    },
+    {
+      "category": "E",
+      "name": "Product and distribution provenance",
+      "assessed_proposition": "Complete producer-to-local chain established for both actual inputs",
+      "status": "PARTIALLY SUPPORTED",
+      "finding_ids": ["E85-01", "E85-09", "E85-10", "E85-11", "E85-12"],
+      "dependency": "IGS chain supported; general GP path documented; actual GP delivery/origin/publication absent."
+    },
+    {
+      "category": "F",
+      "name": "Validation independence",
+      "assessed_proposition": "Available evidence supports independent scientific accuracy validation",
+      "status": "UNKNOWN",
+      "finding_ids": ["E85-04", "E85-17", "E85-18"],
+      "dependency": "No qualified pair or external independent truth; internal IGS consistency is not GP validation."
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "E85-01",
+      "requirement_or_question": "Identify the actual IGS producer, archive and local acquisition chain",
+      "evidence_sources": [
+        {
+          "source_id": "igs-final-2024001",
+          "precise_version_or_location": "original receipt, unchanged compressed/expanded hashes; SP3 lines 1-22"
+        },
+        {
+          "source_id": "igs-acc-centers",
+          "precise_version_or_location": "ACC responsibility section"
+        },
+        {
+          "source_id": "earthdata-orbits",
+          "precise_version_or_location": "official IGS product-generation description"
+        }
+      ],
+      "directly_observed_evidence": [
+        "IGS combined FIN product acquired through BKG at 2026-10-24T05:00:22.757926Z; header IGS/IGS20/GPS/HLM.",
+        "CDDIS earlier yielded HTML sign-in, not authenticated SP3 bytes."
+      ],
+      "evidence_category": "direct observation",
+      "independence_category": "E",
+      "status": "SUPPORTED",
+      "limitation": "Scoped to the acquired IGS chain; this is not proof of a hash-identical unacquired NASA copy or complete upstream measurement lineage.",
+      "required_next_evidence": [
+        "A producer run manifest if stronger origin/revision assurance is needed; do not relabel BKG as producer."
+      ]
+    },
+    {
+      "finding_id": "E85-02",
+      "requirement_or_question": "Identify contributors recorded in the specific week-2295 evidence",
+      "evidence_sources": [
+        {
+          "source_id": "igs-final-2024001",
+          "precise_version_or_location": "comment lines 19-22"
+        },
+        {
+          "source_id": "igs-final-summary-2295",
+          "precise_version_or_location": "REMARKS 2 and 9, lines 149-155 and 364-383; Table 3.2295.1 line 723"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Header submissions: cod emr esa gfz grg jgx jpl mit ngs sio.",
+        "JPL/SIO/EMR excluded by orbit remarks; JGX weighted from 2289; IGR statistics-only.",
+        "All 11 AC/comparator G30 columns populated; table membership is not evidence of nonzero weight."
+      ],
+      "evidence_category": "direct observation",
+      "independence_category": "B",
+      "status": "PARTIALLY SUPPORTED",
+      "limitation": "General reported inclusion supports COD/ESA/GFZ/GRG/JGX/MIT/NGS, not per-epoch numeric G30 weights; orbit and clock roles differ.",
+      "required_next_evidence": [
+        "Historical G30 contribution masks, numerical weights and immutable processing/revision manifest."
+      ]
+    },
+    {
+      "finding_id": "E85-03",
+      "requirement_or_question": "Describe final combination and distinguish it from underlying observations",
+      "evidence_sources": [
+        {
+          "source_id": "igs-final-summary-2295",
+          "precise_version_or_location": "COMBINATION STRATEGY lines 11-34; PRODUCTS GENERATED lines 87-105"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Report describes L1 robust estimation, Helmert alignment, position weights from absolute deviations, then weighted averages.",
+        "Header accuracy codes described as based on weighted RMS per satellite/daily arc."
+      ],
+      "evidence_category": "authoritative documentation",
+      "independence_category": "B",
+      "status": "SUPPORTED",
+      "limitation": "Scoped processing description; no independent rerun, exact executable, normal equations or input measurements present.",
+      "required_next_evidence": [
+        "Actual combination run/software version and source manifests for a record-specific processing audit."
+      ]
+    },
+    {
+      "finding_id": "E85-04",
+      "requirement_or_question": "Interpret weighted-average, long-arc, WRMS and ERP/navigation statistics",
+      "evidence_sources": [
+        {
+          "source_id": "igs-final-summary-2295",
+          "precise_version_or_location": "lines 36-43, 60-75, 389-418 and 633-646; Table 3.2295.1"
+        },
+        {
+          "source_id": "igs-acc-gps",
+          "precise_version_or_location": "Final orbit comparisons and Precise Point Positioning sections"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Table 3 distinguishes daily weighted-average fits from 7-day orbit-dynamics evaluation.",
+        "G30 last IGS value is reported 25 mm; not an OrbitIQ residual or uncertainty.",
+        "WRMS uses normalized SP3 accuracy-code weights; Tables 6/7 expressly are consistency checks, not official ERP combination.",
+        "ACC describes PPP as internal consistency."
+      ],
+      "evidence_category": "authoritative documentation",
+      "independence_category": "F",
+      "status": "SUPPORTED",
+      "limitation": "Scoped statistic definitions; internal independent evaluation terminology does not certify GP-independent validation, truth or a new residual.",
+      "required_next_evidence": [
+        "Producer algorithm definitions where exact statistics/rounding are needed; external validation lineage before an independence claim."
+      ]
+    },
+    {
+      "finding_id": "E85-05",
+      "requirement_or_question": "Reconcile G30 Table 1, Table 3, header and P-sigma indicators",
+      "evidence_sources": [
+        {
+          "source_id": "igs-final-summary-2295",
+          "precise_version_or_location": "Table 1.2295.b line 498 col 17; Table 3.2295.1 line 723 col 67; G08 line 701 col 67"
+        },
+        {
+          "source_id": "igs-final-2024001",
+          "precise_version_or_location": "line 9 cols 46-48 G30; line 8 cols 31-33 G08"
+        },
+        {
+          "source_id": "igs-antenna-conventions",
+          "precise_version_or_location": "SP3-c header and P sigma definitions"
+        },
+        {
+          "source_id": "e84",
+          "precise_version_or_location": "indicator_reconciliation and g30_summary"
+        },
+        {
+          "source_id": "g30-quality",
+          "precise_version_or_location": "summary_cells, header_accuracy, 96 epoch metadata"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Table1/day1 raw 3, Table3 first IGS raw 2, SP3 header raw  2 (base-2 format indicator 4 mm).",
+        "G08 header raw  2 vs Table3 raw 5 excludes assuming a literal header-exponent copy.",
+        "P axis/epoch fields use base 1.25, not the header base; 288 G30 component fields, no EP."
+      ],
+      "evidence_category": "direct observation",
+      "independence_category": "B",
+      "status": "PARTIALLY SUPPORTED",
+      "limitation": "Exact table statistic/encoding/rounding and SP3/SUM revision linkage remain unknown. No corruption or contradiction established.",
+      "required_next_evidence": [
+        "Authoritative generator definitions and immutable revision linkage; do not force agreement numerically or derive uncertainty."
+      ]
+    },
+    {
+      "finding_id": "E85-06",
+      "requirement_or_question": "Determine what IGS upstream measurements are documented",
+      "evidence_sources": [
+        {
+          "source_id": "igs-products",
+          "precise_version_or_location": "products derived from archived GNSS data"
+        },
+        {
+          "source_id": "igs-guide",
+          "precise_version_or_location": "May 2009 sections 2-3"
+        },
+        {
+          "source_id": "igs-code-analysis",
+          "precise_version_or_location": "Basic Observables lines 570-572"
+        },
+        {
+          "source_id": "igs-esa-analysis",
+          "precise_version_or_location": "Basic observables line 85"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Global GNSS tracking and carrier-phase/pseudorange measurement use are documented.",
+        "CODE describes phase with code for clock synchronization/ambiguity resolution; ESA describes undifferenced phase/pseudorange."
+      ],
+      "evidence_category": "authoritative documentation",
+      "independence_category": "A",
+      "status": "PARTIALLY SUPPORTED",
+      "limitation": "No actual week-2295 G30 station/observation inventory or full rejection lineage acquired; 2009 network counts are not current data.",
+      "required_next_evidence": [
+        "Applicable historical station, RINEX input and rejection/normal-equation manifests."
+      ]
+    },
+    {
+      "finding_id": "E85-07",
+      "requirement_or_question": "Identify known IGS software, forces and processing conventions without inventing a run baseline",
+      "evidence_sources": [
+        {
+          "source_id": "igs-final-summary-2295",
+          "precise_version_or_location": "SOFTWARE lines 56-75; REMARKS 6-9"
+        },
+        {
+          "source_id": "igs-final-2024001",
+          "precise_version_or_location": "comment line 22"
+        },
+        {
+          "source_id": "igs-code-analysis",
+          "precise_version_or_location": "software line 25, modifications 550-551, measurement/orbit/estimation sections"
+        },
+        {
+          "source_id": "igs-esa-analysis",
+          "precise_version_or_location": "software line 19, dates 43-59, ORBIT MODELS"
+        },
+        {
+          "source_id": "igs-repro3",
+          "precise_version_or_location": "Conventions and Modelling"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Summary names historical software origins, not deployed executable releases.",
+        "CODE strategy states Bernese 5.5 and 21-Mar-2024 update; describes numerical integration, EGM2008, FES2014b, third bodies and radiation models.",
+        "ESA strategy states NAPEOS 3.9; preparation 2012-10-26, updates through 2015-06-30; visibly not a 2024 run manifest.",
+        "SP3 carries PCV:IGS20 and OL/AL:FES2014b NONE, ORB:CMB CLK:CMB.",
+        "Repro3 page recommends IERS/model conventions but does not certify actual operational G30 settings."
+      ],
+      "evidence_category": "authoritative documentation",
+      "independence_category": "B",
+      "status": "PARTIALLY SUPPORTED",
+      "limitation": "Examples cover documented paths, not all ACs or exact epoch-specific software/resources/observation dependencies.",
+      "required_next_evidence": [
+        "Historical per-AC configuration/software/resource and combination-run manifests."
+      ]
+    },
+    {
+      "finding_id": "E85-08",
+      "requirement_or_question": "Separate individual AC solutions from independent measurements",
+      "evidence_sources": [
+        {
+          "source_id": "igs-guide",
+          "precise_version_or_location": "global tracking network and AC processing, sections 2-3"
+        },
+        {
+          "source_id": "igs-acc-gps",
+          "precise_version_or_location": "Final and PPP consistency descriptions"
+        },
+        {
+          "source_id": "igs-repro3",
+          "precise_version_or_location": "shared conventions/model recommendations"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Multiple documented solutions can use global GNSS observations, common frames, calibrations and models."
+      ],
+      "evidence_category": "inference",
+      "independence_category": "A",
+      "status": "UNKNOWN",
+      "limitation": "Shared resources are a documented dependency path, not a recovered overlap list for G30 or proof of GP overlap. Multiple ACs do not establish independent samples.",
+      "required_next_evidence": [
+        "Actual input observation/source inventories and shared-constraint audit; no effective independent sample count assumed."
+      ]
+    },
+    {
+      "finding_id": "E85-09",
+      "requirement_or_question": "Document ordinary government GP generation and distribution",
+      "evidence_sources": [
+        {
+          "source_id": "celestrak-formats",
+          "precise_version_or_location": "Background and The Solution; updated 23 June 2026"
+        },
+        {
+          "source_id": "celestrak-supplemental",
+          "precise_version_or_location": "Introduction distinguishes normal SSN radar/optical path"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Official CelesTrak page states SSN observations fitted to Brouwer mean elements using SGP4.",
+        "Page describes 18 SPCS/Space-Track GP ingestion and CelesTrak format distribution."
+      ],
+      "evidence_category": "authoritative documentation",
+      "independence_category": "E",
+      "status": "SUPPORTED",
+      "limitation": "General documented path, not the missing 2023 record; legacy unit naming does not prove actual generation unit/version/settings.",
+      "required_next_evidence": [
+        "Original response and record-specific provenance; authoritative clarification for exact historical generation details."
+      ]
+    },
+    {
+      "finding_id": "E85-10",
+      "requirement_or_question": "Distinguish ordinary GP from SupGP derived from owner/operator data",
+      "evidence_sources": [
+        {
+          "source_id": "celestrak-supplemental",
+          "precise_version_or_location": "Introduction and Methodology; GPS almanac/STK example and classification discussion"
+        }
+      ],
+      "directly_observed_evidence": [
+        "SupGP documented as owner/operator-data-derived fits with STK/SGP4.",
+        "GPS example derives fit ephemerides from a 2 SOPS almanac; source distinctions documented."
+      ],
+      "evidence_category": "authoritative documentation",
+      "independence_category": "E",
+      "status": "SUPPORTED",
+      "limitation": "This does not establish that requested historical GP is SupGP, is IGS-derived, or can be replaced by SupGP; classification alone is not full lineage.",
+      "required_next_evidence": [
+        "Verify actual product path, original metadata and response documentation after delivery."
+      ]
+    },
+    {
+      "finding_id": "E85-11",
+      "requirement_or_question": "Establish provenance and eligibility for actual historical NORAD 39533 input",
+      "evidence_sources": [
+        {
+          "source_id": "missing-gp",
+          "precise_version_or_location": "user-reported request only"
+        },
+        {
+          "source_id": "protocol",
+          "precise_version_or_location": "fixed eligible interval and latest-unique-eligible one-record policy"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Request reported for NORAD 39533, 2023-12-25 through 2023-12-31, XML/OMM.",
+        "No original attachment, receipt, hash, count, epochs or eligible candidate available in qualified evidence."
+      ],
+      "evidence_category": "unknown",
+      "independence_category": "E",
+      "status": "UNKNOWN",
+      "limitation": "Record-level provenance qualification BLOCKED; submitted request is not proof of delivery. No GP selected.",
+      "required_next_evidence": [
+        "Original unmodified attachment, source/receipt evidence and offline validation using existing E8.1.1 inspector; unchanged protocol review."
+      ]
+    },
+    {
+      "finding_id": "E85-12",
+      "requirement_or_question": "Distinguish epoch, creation, publication, availability and receipt",
+      "evidence_sources": [
+        {
+          "source_id": "missing-gp",
+          "precise_version_or_location": "all actual timestamps except requested interval unknown"
+        },
+        {
+          "source_id": "protocol",
+          "precise_version_or_location": "historical availability limitations"
+        }
+      ],
+      "directly_observed_evidence": [
+        "No actual originator, creation or publication fields exist to interpret.",
+        "OMM creation/header semantics must be assessed from actual producer evidence; epoch is not publication or receipt."
+      ],
+      "evidence_category": "unknown",
+      "independence_category": "E",
+      "status": "UNKNOWN",
+      "limitation": "Even delivered XML may omit historical availability, fit time, publication or full lineage; do not infer them.",
+      "required_next_evidence": [
+        "Original metadata plus authoritative definitions and independently supported receipt/publication evidence if available."
+      ]
+    },
+    {
+      "finding_id": "E85-13",
+      "requirement_or_question": "Test mathematical independence of planned SGP4 evaluation from GP generating model",
+      "evidence_sources": [
+        {
+          "source_id": "celestrak-formats",
+          "precise_version_or_location": "Background: GP fitted using SGP4"
+        },
+        {
+          "source_id": "e83",
+          "precise_version_or_location": "software_audit and frame_sequence_specification; existing sgp4 2.27/WGS72 path"
+        },
+        {
+          "source_id": "protocol",
+          "precise_version_or_location": "planned existing SGP4 evaluation, no calculation authorization"
+        }
+      ],
+      "directly_observed_evidence": [
+        "General government GP generation uses SGP4; planned OrbitIQ evaluation uses SGP4."
+      ],
+      "evidence_category": "authoritative documentation",
+      "independence_category": "C",
+      "status": "CONTRADICTED BY EVIDENCE",
+      "limitation": "The proposition of a model-independent SGP4 evaluator is contradicted by the documented fit/evaluation link. Exact historical government implementation and record theory still unverified.",
+      "required_next_evidence": [
+        "Inspect actual GP theory/model declaration and generation lineage; retain model-coupled interpretation and qualified conformance tests."
+      ]
+    },
+    {
+      "finding_id": "E85-14",
+      "requirement_or_question": "Assess different IGS dynamics versus GP model and common physical concepts",
+      "evidence_sources": [
+        {
+          "source_id": "igs-code-analysis",
+          "precise_version_or_location": "ORBIT MODELS and numerical integration lines 780-850"
+        },
+        {
+          "source_id": "igs-esa-analysis",
+          "precise_version_or_location": "ORBIT MODELS and numerical integration sections"
+        },
+        {
+          "source_id": "celestrak-formats",
+          "precise_version_or_location": "Background: Brouwer/SGP4"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Published AC numerical-dynamics approaches differ from GP mean-element/SGP4 representation."
+      ],
+      "evidence_category": "inference",
+      "independence_category": "C",
+      "status": "PARTIALLY SUPPORTED",
+      "limitation": "Different models do not establish independent assumptions/errors; actual 2024 configurations and missing GP settings are unknown. Gravity/third-body concepts may be common without identical implementation.",
+      "required_next_evidence": [
+        "Actual per-source model inventories and source dependency review; no covariance inferred from model names."
+      ]
+    },
+    {
+      "finding_id": "E85-15",
+      "requirement_or_question": "Qualify common/different frame, time, EOP and reference-point dependencies",
+      "evidence_sources": [
+        {
+          "source_id": "e82",
+          "precise_version_or_location": "frame and reference-point qualification"
+        },
+        {
+          "source_id": "e83",
+          "precise_version_or_location": "frame_sequence_specification, eop_component_audit and time_chain"
+        },
+        {
+          "source_id": "e84",
+          "precise_version_or_location": "antenna_metadata_evidence; uncertainty/reference-point matrix"
+        },
+        {
+          "source_id": "igs-repro3",
+          "precise_version_or_location": "Conventions and Modelling recommendations"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Reference IGS20/GPS; intended GP TEME/UTC; existing Astropy ITRS path audited, not qualified as matching IGS20.",
+        "Coverage of pinned IERS values does not establish subdaily ERP/model compatibility; actual calibration and fitted physical-point pairing remain open."
+      ],
+      "evidence_category": "inference",
+      "independence_category": "D",
+      "status": "PARTIALLY SUPPORTED",
+      "limitation": "Common reference basis is required for comparison; it can share systematic errors but is not proof of measurement independence or of dependence on identical observations.",
+      "required_next_evidence": [
+        "Qualified realization/EOP/subdaily/time/point chain, historical resources and controls; do not apply new corrections here."
+      ]
+    },
+    {
+      "finding_id": "E85-16",
+      "requirement_or_question": "Determine actual measurement-source independence of intended GP/reference pair",
+      "evidence_sources": [
+        {
+          "source_id": "missing-gp",
+          "precise_version_or_location": "no observation lineage"
+        },
+        {
+          "source_id": "igs-guide",
+          "precise_version_or_location": "general GNSS observation sources"
+        },
+        {
+          "source_id": "celestrak-formats",
+          "precise_version_or_location": "general SSN observations"
+        },
+        {
+          "source_id": "celestrak-supplemental",
+          "precise_version_or_location": "distinct owner/operator-derived path; not assigned to target"
+        }
+      ],
+      "directly_observed_evidence": [
+        "Generally documented measurement classes differ.",
+        "No evidence inventory proves shared observations or excludes GP use of related upstream ephemerides/constraints for this actual record."
+      ],
+      "evidence_category": "unknown",
+      "independence_category": "A",
+      "status": "UNKNOWN",
+      "limitation": "Neither overlap nor independence established. Different organizations/distributors alone are insufficient.",
+      "required_next_evidence": [
+        "Actual GP sensor/fit/source documentation plus applicable IGS input lineage; record file alone may be insufficient."
+      ]
+    },
+    {
+      "finding_id": "E85-17",
+      "requirement_or_question": "Determine support for independent accuracy validation",
+      "evidence_sources": [
+        {
+          "source_id": "protocol",
+          "precise_version_or_location": "permitted retrospective-product-disagreement interpretation"
+        },
+        {
+          "source_id": "igs-final-summary-2295",
+          "precise_version_or_location": "internal long-arc/navigation evaluation"
+        },
+        {
+          "source_id": "missing-gp",
+          "precise_version_or_location": "no qualified initial condition"
+        },
+        {
+          "source_id": "e84",
+          "precise_version_or_location": "quality/uncertainty and claims limitations"
+        }
+      ],
+      "directly_observed_evidence": [
+        "No actual GP pair, propagation, residuals or independent truth acquired/calculated.",
+        "Existing IGS internal checks do not establish external independent GP validation."
+      ],
+      "evidence_category": "unknown",
+      "independence_category": "F",
+      "status": "UNKNOWN",
+      "limitation": "A future product disagreement cannot automatically be named pure propagation error, historical forecast accuracy, anomaly or operational safety.",
+      "required_next_evidence": [
+        "Complete lineage, frame/point/quality/uncertainty/claims review, frozen manifest/protocol and explicit authorization; separate independent evidence for stronger claims."
+      ]
+    },
+    {
+      "finding_id": "E85-18",
+      "requirement_or_question": "Preserve uncertainty and scientific authorization boundaries",
+      "evidence_sources": [
+        {
+          "source_id": "e84",
+          "precise_version_or_location": "quality matrix and quantitative_interpretation_policy"
+        },
+        {
+          "source_id": "protocol",
+          "precise_version_or_location": "review gates and exact frozen selection/sampling policy"
+        },
+        {
+          "source_id": "e83",
+          "precise_version_or_location": "remaining frame/EOP qualifications"
+        }
+      ],
+      "directly_observed_evidence": [
+        "G30 quality indicator relation not fully reconciled; no calibrated combined/cross-time/GP covariance or error budget.",
+        "Fixed inclusive GP window and 96 source epochs preserved; comparison not authorized."
+      ],
+      "evidence_category": "direct observation",
+      "independence_category": "F",
+      "status": "SUPPORTED",
+      "limitation": "Scoped safeguard finding, not a scientific PASS; no uncertainties or numerical accuracy estimates derived.",
+      "required_next_evidence": [
+        "Essential scientific evidence, protocol review and explicit user authorization before any real computation."
+      ]
+    }
+  ],
+  "required_from_original_xml": [
+    "Unmodified bytes/hash/size and declared product/source identity.",
+    "Record count, exact epochs, metadata, parse/duplicate checks and fixed-policy eligibility review.",
+    "Actual creation/originator fields with their meanings; receipt evidence only when explicitly supplied."
+  ],
+  "required_external_evidence": [
+    "GP historical sensor/observation/fit/software/source dependencies and physical-point lineage; may not be in OMM.",
+    "IGS historical per-AC/resource/run/contribution/weight and antenna/attitude lineage.",
+    "G30 summary/header statistic, encoding, rounding and immutable revision mapping.",
+    "Frame/EOP/subdaily/time/point, uncertainty/claims and frozen-protocol review with explicit authorization."
+  ],
+  "preservation": {
+    "original_private_file_count": 72,
+    "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "schema_version": 3,
+    "snapshot_count": 2,
+    "existing_private_manifest_entry_counts": [53, 8, 20, 4],
+    "new_private_manifest_path": "data/e8.5-source-provenance/preservation-manifest.json",
+    "new_private_manifest_entries": 14,
+    "new_private_manifest_sha256": "13ec97e9ed0e70be28df1ee96ae83737a7805a262719858e8ed8e69efa966bb0"
+  },
+  "verification": {
+    "documentation_only": true,
+    "method": "Local static source/ledger/transcription/link/format/privacy/preservation checks; no package scientific API calls.",
+    "results_file": "/tmp/orbitiq-e85/review-results.json",
+    "targeted_checks": "PASS",
+    "pytest_rerun": false,
+    "frontend_browser_pdf_build_rerun": false,
+    "remote_ci_run": false,
+    "earlier_suite_results_are_not_fresh_validation": true,
+    "check_groups": {
+      "scientific_boundaries_and_unknowns": "PASS",
+      "18_findings_and_six_distinct_assessments": "PASS",
+      "20_source_entries_receipts_versions_and_document_claims": "PASS",
+      "24_G30_cells_and_contribution_statistic_scope": "PASS",
+      "three_indicator_locators_and_96_preserved_quality_blocks": "PASS",
+      "four_worktrees_72_original_files_database_and_85_old_manifest_entries": "PASS",
+      "14_new_private_capture_files_permissions_and_git_exclusion": "PASS",
+      "local_links_privacy_format_whitespace_and_complete_two_file_diff": "PASS"
+    },
+    "verified_counts": {
+      "findings": 18,
+      "category_assessments": 6,
+      "G30_reported_cells_checked": 24,
+      "existing_G30_quality_blocks_rechecked": 96,
+      "new_public_documents": 7,
+      "old_private_manifest_entries_checked": 85,
+      "new_private_capture_entries_checked": 14,
+      "original_private_files_unchanged": 72,
+      "original_tracked_files_unchanged_in_current_worktree": 380
+    },
+    "initial_check_harness_note": "The first preservation assertion compared in-memory SQLite schema tuples against JSON lists; normalization resolved the harness mismatch. A follow-up confirmed original-data and private-file hashes identical. Final checks passed; no source data was changed."
+  },
+  "safeguards": {
+    "application_code_changed": false,
+    "tests_changed": false,
+    "dependencies_changed": false,
+    "protocol_changed": false,
+    "historical_gp_received": false,
+    "gp_record_selected": false,
+    "historical_gp_eligibility_verified": false,
+    "source_independence_established": false,
+    "real_gp_propagated": false,
+    "real_spacecraft_states_transformed": false,
+    "orbital_states_interpolated_or_extrapolated": false,
+    "orbital_residuals_calculated": false,
+    "uncertainty_or_accuracy_claim_generated": false,
+    "private_accounts_accessed": false,
+    "authentication_attempted": false,
+    "provider_contacted": false,
+    "git_publication_performed": false,
+    "production_deployment_performed": false,
+    "original_reference_modified": false,
+    "database_modified": false
+  },
+  "scientifically_accepted_epochs": 0,
+  "swarm_phase_11_3_1": "PARTIAL",
+  "swarm_scientific_evaluation": "BLOCKED",
+  "e4_production_readiness": "OPEN",
+  "raw_orbital_coordinates_or_private_correspondence_in_ledger": false
+}

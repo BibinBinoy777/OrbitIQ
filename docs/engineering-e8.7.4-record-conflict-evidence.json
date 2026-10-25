@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.4",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "overall_scientific_status": "BLOCKED",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "scope": "Direct original XML field/byte audit and unsent provider draft only. No policy activation or new eligibility.",
+  "original_attachment": {
+    "original_filename": "sat000035752.xml",
+    "bytes": 10072,
+    "sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+    "private_original_path": "/workspace/attachments/fe927def-24b1-44f2-b5ae-8d538be8190e/sat000035752.xml",
+    "private_capture_path": "data/e8.7.2-g05-xml-intake/82caacb215304190ab4e33b536e3ad93/attachment.original",
+    "source": "User-supplied original attachment, asserted CelesTrak fulfillment",
+    "original_transport_independently_authenticated": false,
+    "received_at_UTC": null,
+    "receipt_time_evidence": "No original email headers or unambiguous reliable receipt metadata supplied. No inference from filesystem, upload/capture time or epoch.",
+    "raw_file_publication": "EXCLUDED_FROM_GIT_AND_ROUTINE_CI"
+  },
+  "pair_audits": [
+    {
+      "source_indices_0based": [0, 1],
+      "records": [
+        {
+          "source_index_0based": 0,
+          "record_ordinal_1based": 1,
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[0]",
+          "raw_fragment_bytes": 983,
+          "raw_fragment_sha256": "822f8d572fb3a52b00ca38862b55cea65c3fc8c9b3856dba7e26ad7bef4b3f2f",
+          "original_byte_start_0based": 207,
+          "original_byte_stop_exclusive_0based": 1190,
+          "EPOCH": "2023-12-25T21:13:18.902784",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10520"
+        },
+        {
+          "source_index_0based": 1,
+          "record_ordinal_1based": 2,
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[1]",
+          "raw_fragment_bytes": 983,
+          "raw_fragment_sha256": "5e2916542722028a366c83077a753b92147e99c2cee87cc46c692019ecdded27",
+          "original_byte_start_0based": 1192,
+          "original_byte_stop_exclusive_0based": 2175,
+          "EPOCH": "2023-12-25T21:13:18.902784",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10522"
+        }
+      ],
+      "differing_fields": ["REV_AT_EPOCH"],
+      "differing_attributes": [],
+      "GP_fields_compared_exactly": [
+        "ARG_OF_PERICENTER",
+        "BSTAR",
+        "ECCENTRICITY",
+        "INCLINATION",
+        "MEAN_ANOMALY",
+        "MEAN_MOTION",
+        "MEAN_MOTION_DDOT",
+        "MEAN_MOTION_DOT",
+        "RA_OF_ASC_NODE"
+      ],
+      "all_GP_fields_equal_within_pair": true,
+      "all_other_original_fragment_bytes_identical": true,
+      "all_leaf_fields_per_message": 23,
+      "missing_header_content": ["CREATION_DATE", "ORIGINATOR"],
+      "extra_distinguishing_metadata_found": false,
+      "cause": "UNKNOWN",
+      "resolution": "UNRESOLVED"
+    },
+    {
+      "source_indices_0based": [3, 4],
+      "records": [
+        {
+          "source_index_0based": 3,
+          "record_ordinal_1based": 4,
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[3]",
+          "raw_fragment_bytes": 984,
+          "raw_fragment_sha256": "7b3471f706d2738116a4d0f46690e1e68a6a0d24261e18120483dc86ab1c5a1c",
+          "original_byte_start_0based": 3163,
+          "original_byte_stop_exclusive_0based": 4147,
+          "EPOCH": "2023-12-28T04:47:54.504096",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10524"
+        },
+        {
+          "source_index_0based": 4,
+          "record_ordinal_1based": 5,
+          "local_id": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828:omm[4]",
+          "raw_fragment_bytes": 984,
+          "raw_fragment_sha256": "e7ed80c3d1ef155785d20beb940c433d08d5667c7e775c5ff08e02a7cbbd4fac",
+          "original_byte_start_0based": 4149,
+          "original_byte_stop_exclusive_0based": 5133,
+          "EPOCH": "2023-12-28T04:47:54.504096",
+          "NORAD_CAT_ID": "35752",
+          "OBJECT_ID": "2009-043A",
+          "OBJECT_NAME": "NAVSTAR 64 (USA 206)",
+          "ELEMENT_SET_NO": "999",
+          "REV_AT_EPOCH": "10527"
+        }
+      ],
+      "differing_fields": ["REV_AT_EPOCH"],
+      "differing_attributes": [],
+      "GP_fields_compared_exactly": [
+        "ARG_OF_PERICENTER",
+        "BSTAR",
+        "ECCENTRICITY",
+        "INCLINATION",
+        "MEAN_ANOMALY",
+        "MEAN_MOTION",
+        "MEAN_MOTION_DDOT",
+        "MEAN_MOTION_DOT",
+        "RA_OF_ASC_NODE"
+      ],
+      "all_GP_fields_equal_within_pair": true,
+      "all_other_original_fragment_bytes_identical": true,
+      "all_leaf_fields_per_message": 23,
+      "missing_header_content": ["CREATION_DATE", "ORIGINATOR"],
+      "extra_distinguishing_metadata_found": false,
+      "cause": "UNKNOWN",
+      "resolution": "UNRESOLVED"
+    }
+  ],
+  "comparison_method": {
+    "source": "Original user-supplied raw XML plus byte-identical private E872capture",
+    "record_count": 10,
+    "audited_source_indices_0based": [0, 1, 3, 4],
+    "records_audited": 4,
+    "leaf_fields_per_record": 23,
+    "mode": "Exact source text, raw XML lexemes, attributes/structure and original message bytes; no numeric conversion/serialization",
+    "comparison_mask": "REV_AT_EPOCH value replaced only in temporary in-memory comparison views to prove all other original bytes identical; source/fragments unchanged",
+    "full_GP_values": "PRIVATE exact-record-audit.json and four raw original fragment files; not copied into public documents or routine CI"
+  },
+  "header_semantics": {
+    "original_representations": {
+      "CREATION_DATE": "<CREATION_DATE/>",
+      "ORIGINATOR": "<ORIGINATOR/>"
+    },
+    "all_10_records_present_empty": true,
+    "formal_XSI_nil": false,
+    "missing_element": false,
+    "populated_invalid_value": false,
+    "exact_schema": "SANA unqualified NDM/XML2.0.0 master2.0 +11dependency files; OMM fixed2.0. Master compatibility comments name502.0-B-2(2009) and505.0-P-1.0.3(2020).",
+    "schema_result_reused": {
+      "validator": "lxml",
+      "lxml_version": [6, 0, 2, 0],
+      "libxml_version": [2, 14, 6],
+      "schema_master_URI": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-master-2.0.xsd",
+      "schema_files": 12,
+      "all_dependencies_pinned": true,
+      "network_during_validation": false,
+      "original_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+      "original_document_valid": true,
+      "errors": [],
+      "individual_OMM_schema_results": [
+        {
+          "source_index": 0,
+          "valid": true
+        },
+        {
+          "source_index": 1,
+          "valid": true
+        },
+        {
+          "source_index": 2,
+          "valid": true
+        },
+        {
+          "source_index": 3,
+          "valid": true
+        },
+        {
+          "source_index": 4,
+          "valid": true
+        },
+        {
+          "source_index": 5,
+          "valid": true
+        },
+        {
+          "source_index": 6,
+          "valid": true
+        },
+        {
+          "source_index": 7,
+          "valid": true
+        },
+        {
+          "source_index": 8,
+          "valid": true
+        },
+        {
+          "source_index": 9,
+          "valid": true
+        }
+      ]
+    },
+    "schema_run_this_phase": false,
+    "schema_vs_provenance": "Exact XSD accepts present-empty; it does not supply meaningful creation time/originator or full provenance.",
+    "rules": [
+      {
+        "field": "CREATION_DATE",
+        "source_file": "schema-ndmxml-2.0.0-common-2.0.xsd.bin",
+        "declaration_line": 207,
+        "type": "ndm:epochType",
+        "presence": "required(default minOccurs=1)",
+        "nillable": "false(default)",
+        "empty_content": "Accepted by epochType regular expression, whose numeric alternative permits zero digits; definition lines683-688."
+      },
+      {
+        "field": "ORIGINATOR",
+        "source_file": "schema-ndmxml-2.0.0-common-2.0.xsd.bin",
+        "declaration_line": 208,
+        "type": "xsd:string",
+        "presence": "required(default minOccurs=1)",
+        "nillable": "false(default)",
+        "empty_content": "Accepted because string has no nonempty restriction here."
+      }
+    ],
+    "prose_versions": {
+      "ODM": "CCSDS502.0-B-3 April2023,EC1May2023,Table4-1 and4-3; currentOMM3prose contextual, not replaced exact2schema",
+      "XML": "CCSDS505.0-B-3 May2023,EC1Feb2024,EC2Oct2024; SANA naming/distribution"
+    },
+    "older_prose_limit": "Four official candidate URLs for502-B2 returned404; not treated as read. OMM2 requirements grounded in exact deployed SANA schema; full semantic compliance with unavailable older prose not certified.",
+    "provider_documentation": {
+      "source_id": "celestrak-formats",
+      "version_on_page": "Updated2026Jun23; retrieved2026-10-25",
+      "locators": [
+        "HTMLline128:recommends OMM XML2.0 and links currentCCSDS documents",
+        "HTMLline130:mandatory elements supplied, some unavailable TLE fields may be blank(KVN) or null(XML); OBJECT_NAME/OBJECT_ID examples",
+        "HTMLline134:JSON/CSV omission of null/blank/redundant mandatory fields, withCENTER_NAME/REF_FRAME/TIME_SYSTEM/MEAN_ELEMENT_THEORY examples"
+      ],
+      "explicit_header_specific_explanation": false,
+      "historical_G05_export_header_semantics_explicitly_documented": false,
+      "public_NULL_word_is_formal_XSI_nil_definition": false,
+      "finding": "Generic public provider behavior is consistent with unavailable content but does not expressly optionalize these two headers or prove why they are empty in this historical file. JSON/CSV omission guidance is not an XML header exception.",
+      "prior_user_reported_provider_response": {
+        "path": "docs/phase-11.3.1-provider-response-reconciliation.md",
+        "scope": "Earlier Swarm-A correspondence summary reports creation timestamps not retained, and rejects treating SpaceTrackCREATION_DATE as automatically orbit-solution generation. User-reported and not independently authenticated. Supports retaining unknowns; not a G05-specific header/schema ruling."
+      }
+    },
+    "public_documentation_specifically_explains_these_headers": false,
+    "required_additional_evidence": [
+      "provider-linked export-header interpretation for this file/hash",
+      "retained authoritative record-creation/originator/source/archival metadata if available, not fabricated",
+      "reliable email receipt/delivery evidence may strengthen source linkage but not reconstruct historical availability or fitting history"
+    ]
+  },
+  "authoritative_source_reuse": [
+    {
+      "source_id": "ccsds-502",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-502.json",
+      "receipt_sha256": "11b44764cbd5f9b3ad8ee6f3c677adb7102aeff4b716b201f63028ad41cbd05f",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-502.bin",
+      "url": "https://public.ccsds.org/Pubs/502x0b3e1.pdf",
+      "final_url": "https://ccsds.org/Pubs/502x0b3e1.pdf",
+      "requested_at_UTC": "2026-10-25T05:37:00.730633+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:01.675996+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Last-Modified": "Tue, 29 Apr 2025 17:44:20 GMT",
+        "ETag": "\"68110ff4-23cc21\""
+      },
+      "bytes": 2346017,
+      "sha256": "97d1687b4a461ffdf965b9b65923820cc6aa9d1d1c4d4df77a598a53d4a49d81",
+      "error": null
+    },
+    {
+      "source_id": "ccsds-505",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-505.json",
+      "receipt_sha256": "9fda10a5becf54af72955e0a24e07ac0fa36c108d0136f6bce3e2a4cf290b9c0",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-505.bin",
+      "url": "https://public.ccsds.org/Pubs/505x0b3e2.pdf",
+      "final_url": "https://ccsds.org/Pubs/505x0b3e2.pdf",
+      "requested_at_UTC": "2026-10-25T05:37:00.731177+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:01.649423+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Last-Modified": "Tue, 29 Apr 2025 17:28:55 GMT",
+        "ETag": "\"68110c57-b0d46\""
+      },
+      "bytes": 724294,
+      "sha256": "21516570863fd85a3f9d4a322ae008054113e7d6840cd43918c44bc2bb238c09",
+      "error": null
+    },
+    {
+      "source_id": "celestrak-formats",
+      "receipt_path": "data/e8.7.3-header-semantics/celestrak-formats.json",
+      "receipt_sha256": "20923fda74483698c89380c8292980dc3f7c1874bfac70140aa4e440bc4c60f8",
+      "body_path": "data/e8.7.3-header-semantics/celestrak-formats.bin",
+      "url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "requested_at_UTC": "2026-10-25T05:37:00.729706+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:01.331397+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Last-Modified": null,
+        "ETag": null
+      },
+      "bytes": 40338,
+      "sha256": "640b37ce5d08e224771a01df323813d5b182f450ba8261e175b4ec62824f0216",
+      "error": null
+    },
+    {
+      "source_id": "sana-master-unqualified",
+      "receipt_path": "data/e8.7.3-header-semantics/sana-master-unqualified.json",
+      "receipt_sha256": "ce5fadbc78e4c42540acab08a257551146be974e380fd51a66d19085a92ef184",
+      "body_path": "data/e8.7.3-header-semantics/sana-master-unqualified.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-master-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-master-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:37:38.139438+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:38.506549+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-e9a\""
+      },
+      "bytes": 3738,
+      "sha256": "b24d76e24a6056e084e8e04c7a5fe09938764987321d9ae9ab2e02b3504431fa",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-common-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-common-2.0.xsd.json",
+      "receipt_sha256": "a46a48d52615882caf5b8a1194c3ebb9789f6d658aaa433bad2636741390efcf",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-common-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-common-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-common-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:40.131910+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.609531+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-9ebc\""
+      },
+      "bytes": 40636,
+      "sha256": "ec1f2430bcc59b3d54e6c0a676b7e4d85d3c1a1d480dd2ea19b6b160aa8ca0f3",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-omm-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-omm-2.0.xsd.json",
+      "receipt_sha256": "ee0d2d8fcdb154311ed290322b0f03b9f79783fa4c2df0c3515a993910c6e929",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-omm-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-omm-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-omm-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.631801+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.129827+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-2688\""
+      },
+      "bytes": 9864,
+      "sha256": "8eb703d301c2e20a1e8dc52a1b8bb506c4c002749e5e54a49b4be664303de0d9",
+      "error": null
+    }
+  ],
+  "provider_inquiry": {
+    "draft": "docs/engineering-e8.7.4-provider-clarification-draft.md",
+    "addressee": "Dr. T. S. Kelso, CelesTrak",
+    "status": "UNSENT_LOCAL_DRAFT",
+    "email_account_accessed": false,
+    "private_attachment_uploaded": false,
+    "source_data_table_verified_against_raw_XML": true,
+    "questions": [
+      "Are present-empty CREATION_DATE/ORIGINATOR expected for this kind of historical GP XML?",
+      "What do they mean for creation history/source provenance, and export originator versus element producer?",
+      "Is authoritative creation/originator/underlying archival element or other record-level provenance retained? If unavailable, confirm without reconstruction.",
+      "What explains exact same-epoch REV_AT_EPOCH differences?",
+      "Are these distinct historical element sets/archive entries, and is a retained identifier/archive metadata available to distinguish them?"
+    ],
+    "not_requested": "No invented timestamps, new fitted elements, preferred record or assumed correction.",
+    "provider_response": "NONE_RECEIVED_BY_THIS_TASK"
+  },
+  "conflict_conclusions": {
+    "only_differing_field_both_pairs": "REV_AT_EPOCH",
+    "revolution_values_by_pair": [
+      ["10520", "10522"],
+      ["10524", "10527"]
+    ],
+    "ELEMENT_SET_NO_all_four": "999",
+    "meaning": "Revolution Number; not revision rank, publication time or an archive identifier",
+    "known": "Within each pair every other original record-fragment byte is identical; all suppliedGP numeric source texts match.",
+    "unknown": "Reason for multiplicity, distinct archive/set semantics, retained identifiers and creation/publication/fit history.",
+    "cause": "UNRESOLVED",
+    "preferred_record": null,
+    "records_merged_or_discarded": false,
+    "physical_or_model_equivalence_claimed": false
+  },
+  "policy_and_scientific_state": {
+    "strict_inspector": "UNCHANGED",
+    "strict_static_candidates": 0,
+    "retrospective_policy": "ORBITIQ-RETRO-INTAKE-G05-1.0-PROPOSED",
+    "retrospective_policy_activated": false,
+    "previous_conditional_recommendations": 6,
+    "previous_conflict_holds": 2,
+    "previous_temporal_rejections": 2,
+    "actual_admissions": 0,
+    "scientifically_qualified_records": 0,
+    "selected_source_index": null,
+    "eligibility_reassessed_or_changed_this_phase": false,
+    "original_protocols_unchanged": true,
+    "remaining_scientific_requirements": [
+      "frame_realization_and_EOP_model_compatibility",
+      "historical_spacecraft_calibration_and_common_physical_point",
+      "G05_quality_uncertainty_interpretation",
+      "historical_availability_fitting_lineage_and_source_dependencies",
+      "protocol_review_and_explicit_scientific_authorization"
+    ]
+  },
+  "private_evidence": [
+    {
+      "path": "data/e8.7.4-record-conflict-audit/exact-record-audit.json",
+      "bytes": 76600,
+      "sha256": "6ec64213383af3ee5c63c74158f1ecbb9622a7fd8f7d7035a3274da43350def9"
+    },
+    {
+      "path": "data/e8.7.4-record-conflict-audit/preservation-manifest.json",
+      "bytes": 680,
+      "sha256": "d81ae69470f003c313a29ef09dbd15e1572500a78bd6eae7657838c16efe7540"
+    },
+    {
+      "path": "data/e8.7.4-record-conflict-audit/record-000.xml.fragment",
+      "bytes": 983,
+      "sha256": "822f8d572fb3a52b00ca38862b55cea65c3fc8c9b3856dba7e26ad7bef4b3f2f"
+    },
+    {
+      "path": "data/e8.7.4-record-conflict-audit/record-001.xml.fragment",
+      "bytes": 983,
+      "sha256": "5e2916542722028a366c83077a753b92147e99c2cee87cc46c692019ecdded27"
+    },
+    {
+      "path": "data/e8.7.4-record-conflict-audit/record-003.xml.fragment",
+      "bytes": 984,
+      "sha256": "7b3471f706d2738116a4d0f46690e1e68a6a0d24261e18120483dc86ab1c5a1c"
+    },
+    {
+      "path": "data/e8.7.4-record-conflict-audit/record-004.xml.fragment",
+      "bytes": 984,
+      "sha256": "e7ed80c3d1ef155785d20beb940c433d08d5667c7e775c5ff08e02a7cbbd4fac"
+    }
+  ],
+  "preserved_sources": [
+    {
+      "path": "docs/engineering-e8.7.2-g05-xml-intake.md",
+      "bytes": 13787,
+      "sha256": "76f6256fda892753b43c057e42dc4b3a5689a0d7a14f7c5538bbbf9e2316f657"
+    },
+    {
+      "path": "docs/engineering-e8.7.2-g05-intake-evidence.json",
+      "bytes": 27295,
+      "sha256": "013f7a2651b6f1c910ab8ad5bf68ab1133f87b660602bbdf25b0c3dcb311f798"
+    },
+    {
+      "path": "docs/engineering-e8.7.3-omm-header-semantics.md",
+      "bytes": 19891,
+      "sha256": "ec6ab35219bcaece4f2ff6846e80f0a22284662bf6748a2839023e405053a5d2"
+    },
+    {
+      "path": "docs/engineering-e8.7.3-header-semantics-evidence.json",
+      "bytes": 50459,
+      "sha256": "1b4e025477ce5de2c1587eb39e20353eab9d6ce2145888b0ae97526e98a5f021"
+    },
+    {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc"
+    },
+    {
+      "path": "docs/engineering-e8.7.1-g05-protocol-proposal.md",
+      "bytes": 9559,
+      "sha256": "e83abf2f1e3403cce30cdf787d0118385c619d06940b24ff1eee2b2e2ff46bec"
+    },
+    {
+      "path": "docs/phase-11.3.1-provider-response-reconciliation.md",
+      "bytes": 14841,
+      "sha256": "e5c2545e4ae7312116299275ba3b269ecc04591518c9ff922ba4fdf5f15aab59"
+    },
+    {
+      "path": "scripts/inspect_historical_xml.py",
+      "bytes": 18016,
+      "sha256": "3be501542c8116a1fda0e6e3fe05aaa38fdf1957d975c8707f50e34d9c29e5ca"
+    },
+    {
+      "path": "backend/tests/test_historical_xml_intake.py",
+      "bytes": 24071,
+      "sha256": "413a5971c7af497d2b2f5c15cf107ff558280415be6ec6c7cf03a75f89810210"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 46977,
+      "sha256": "cf5f1577b37d703cca8d9406e1a6666426dcab6daac9c7d85c899620bea3bdae"
+    }
+  ],
+  "technical_requirements": [
+    {
+      "requirement": "original_file_integrity",
+      "status": "PASS",
+      "evidence": "Actual10072bytes and originalSHA256verified"
+    },
+    {
+      "requirement": "exact_pair_field_and_byte_comparison",
+      "status": "PASS",
+      "evidence": "Bothpairs differ onlyREV_AT_EPOCH;23leaf fields per message and allotherbyteschecked"
+    },
+    {
+      "requirement": "schema_conformance",
+      "status": "PASS",
+      "evidence": "Reused prior exact12file validation of unchanged XML and10individualOMMs; not rerun"
+    },
+    {
+      "requirement": "header_creation_originator_provenance",
+      "status": "BLOCKED",
+      "evidence": "Presentempty; no meaningful values or historical lineage established"
+    },
+    {
+      "requirement": "provider_specific_empty_header_explanation",
+      "status": "PARTIAL",
+      "evidence": "Genericpublicnull guidance read; no explicitCREATION_DATE/ORIGINATOR explanation"
+    },
+    {
+      "requirement": "same_epoch_cause_and_archive_identity",
+      "status": "BLOCKED",
+      "evidence": "Rawdifferences established, historical explanation unknown; no preferredmember"
+    },
+    {
+      "requirement": "provider_draft_preparation",
+      "status": "PASS",
+      "evidence": "Five requested questions, exactrawmetadata, namedaddressee; unsent"
+    },
+    {
+      "requirement": "policy_preservation",
+      "status": "PASS",
+      "evidence": "Strictprofileunchanged,0candidates,policyproposalnotactivated"
+    },
+    {
+      "requirement": "scientific_comparison",
+      "status": "BLOCKED",
+      "evidence": "Prerequisites/authorization absent; no scienceperformed"
+    }
+  ],
+  "verification": {
+    "direct_source_audit": "PASS",
+    "evidence_format_link_privacy_whitespace_diff": "PASS",
+    "new_application_tests": "NOT_RUN \u2014 no sourcecodechanged",
+    "prior_XML_tests": "E8.7.3 83synthetic passed; reused only, not fresh",
+    "prior_schema_run": "E8.7.3 wholefile+10OMMs pass exact12file set; not rerun",
+    "full_application_frontend_browser_PDF_build_remote_CI": "NOT_RUN",
+    "no_publication": true
+  },
+  "preservation": {
+    "prior_private_manifest_entries": 156,
+    "original_database_schema_version": 3,
+    "database_snapshots": 2,
+    "original_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "new_public_documents": 3,
+    "existing_repository_files_modified": 0,
+    "new_private_manifest_entries": 5,
+    "all_prior_inputs_reports_protocols_branches_HEADs_unchanged": true,
+    "local_preservation_is_independent_backup": false
+  },
+  "safeguards": {
+    "GP_propagation": false,
+    "spacecraft_state_transformation": false,
+    "orbital_interpolation_or_extrapolation": false,
+    "orbital_residuals": false,
+    "new_uncertainty_calculation": false,
+    "source_independence_claim": false,
+    "policy_activation": false,
+    "record_merge_or_discard": false,
+    "original_XML_or_reference_SP3_modified": false,
+    "database_modified": false,
+    "unrelated_product_functionality_changed": false,
+    "email_sent": false,
+    "email_account_accessed": false,
+    "private_data_uploaded": false,
+    "git_publication_or_deployment": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN"
+}

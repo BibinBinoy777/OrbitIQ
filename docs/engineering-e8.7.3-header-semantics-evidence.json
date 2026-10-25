@@ -1,0 +1,1234 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.3",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "review_date_UTC": "2026-10-25",
+  "overall_scientific_status": "BLOCKED",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "evidence_categories": {
+    "D": "direct raw/source/schema verification",
+    "P": "authoritative published document, bounded by version",
+    "I": "documented proposal/inference",
+    "U": "unknown"
+  },
+  "original_attachment": {
+    "original_filename": "sat000035752.xml",
+    "bytes": 10072,
+    "sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+    "private_original_path": "/workspace/attachments/fe927def-24b1-44f2-b5ae-8d538be8190e/sat000035752.xml",
+    "private_capture_path": "data/e8.7.2-g05-xml-intake/82caacb215304190ab4e33b536e3ad93/attachment.original",
+    "source": "User-supplied original attachment, asserted CelesTrak fulfillment",
+    "original_transport_independently_authenticated": false,
+    "received_at_UTC": null,
+    "receipt_time_evidence": "No original email headers or unambiguous reliable receipt metadata supplied. No inference from filesystem, upload/capture time or epoch.",
+    "raw_file_publication": "EXCLUDED_FROM_GIT_AND_ROUTINE_CI"
+  },
+  "raw_header_representations": [
+    {
+      "source_index": 0,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 256
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 272
+        }
+      ]
+    },
+    {
+      "source_index": 1,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 1241
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 1257
+        }
+      ]
+    },
+    {
+      "source_index": 2,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 2226
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 2242
+        }
+      ]
+    },
+    {
+      "source_index": 3,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 3212
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 3228
+        }
+      ]
+    },
+    {
+      "source_index": 4,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 4198
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 4214
+        }
+      ]
+    },
+    {
+      "source_index": 5,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 5184
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 5200
+        }
+      ]
+    },
+    {
+      "source_index": 6,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 6170
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 6186
+        }
+      ]
+    },
+    {
+      "source_index": 7,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 7156
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 7172
+        }
+      ]
+    },
+    {
+      "source_index": 8,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 8142
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 8158
+        }
+      ]
+    },
+    {
+      "source_index": 9,
+      "fields": [
+        {
+          "field": "CREATION_DATE",
+          "raw_XML": "<CREATION_DATE/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 9128
+        },
+        {
+          "field": "ORIGINATOR",
+          "raw_XML": "<ORIGINATOR/>",
+          "present": true,
+          "text": null,
+          "attributes": {},
+          "classification": "PRESENT_EMPTY_NOT_XSI_NIL",
+          "source_byte_start_0based": 9144
+        }
+      ]
+    }
+  ],
+  "raw_representation_summary": {
+    "records": 10,
+    "each_CREATION_DATE": "<CREATION_DATE/>",
+    "each_ORIGINATOR": "<ORIGINATOR/>",
+    "classification": "PRESENT_EMPTY_NOT_FORMALLY_NIL",
+    "attributes_on_these_elements": {},
+    "absent_header_elements": 0,
+    "formally_nil_header_elements": 0,
+    "populated_but_invalid_header_values": 0,
+    "note": "Parser text=None is not evidence of XML xsi:nil; byte representations and attributes inspected directly."
+  },
+  "authoritative_sources": [
+    {
+      "source_id": "ccsds-502-B2-errata",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-502-B2-errata.json",
+      "receipt_sha256": "65e9427e5757d19ea613fc9f68faef4c4e8d99207f09fef06c9f09185094e991",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-502-B2-errata.bin",
+      "url": "https://public.ccsds.org/Pubs/502x0b2c1e2.pdf",
+      "final_url": "https://public.ccsds.org/Pubs/502x0b2c1e2.pdf",
+      "requested_at_UTC": "2026-10-25T05:38:03.878884+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:04.521534+00:00",
+      "status": 404,
+      "headers": {},
+      "bytes": 146,
+      "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+      "error": "HTTP_ERROR"
+    },
+    {
+      "source_id": "ccsds-502-B2",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-502-B2.json",
+      "receipt_sha256": "fec4d87b1361c1f8b6b5e901d9213d49a6d802cfc9122f6edc3164241bd5066d",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-502-B2.bin",
+      "url": "https://public.ccsds.org/Pubs/502x0b2.pdf",
+      "final_url": "https://public.ccsds.org/Pubs/502x0b2.pdf",
+      "requested_at_UTC": "2026-10-25T05:38:03.879903+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:04.534457+00:00",
+      "status": 404,
+      "headers": {},
+      "bytes": 146,
+      "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+      "error": "HTTP_ERROR"
+    },
+    {
+      "source_id": "ccsds-502",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-502.json",
+      "receipt_sha256": "11b44764cbd5f9b3ad8ee6f3c677adb7102aeff4b716b201f63028ad41cbd05f",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-502.bin",
+      "url": "https://public.ccsds.org/Pubs/502x0b3e1.pdf",
+      "final_url": "https://ccsds.org/Pubs/502x0b3e1.pdf",
+      "requested_at_UTC": "2026-10-25T05:37:00.730633+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:01.675996+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Last-Modified": "Tue, 29 Apr 2025 17:44:20 GMT",
+        "ETag": "\"68110ff4-23cc21\""
+      },
+      "bytes": 2346017,
+      "sha256": "97d1687b4a461ffdf965b9b65923820cc6aa9d1d1c4d4df77a598a53d4a49d81",
+      "error": null
+    },
+    {
+      "source_id": "ccsds-505",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-505.json",
+      "receipt_sha256": "9fda10a5becf54af72955e0a24e07ac0fa36c108d0136f6bce3e2a4cf290b9c0",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-505.bin",
+      "url": "https://public.ccsds.org/Pubs/505x0b3e2.pdf",
+      "final_url": "https://ccsds.org/Pubs/505x0b3e2.pdf",
+      "requested_at_UTC": "2026-10-25T05:37:00.731177+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:01.649423+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Last-Modified": "Tue, 29 Apr 2025 17:28:55 GMT",
+        "ETag": "\"68110c57-b0d46\""
+      },
+      "bytes": 724294,
+      "sha256": "21516570863fd85a3f9d4a322ae008054113e7d6840cd43918c44bc2bb238c09",
+      "error": null
+    },
+    {
+      "source_id": "ccsds-B2-direct-corr",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-B2-direct-corr.json",
+      "receipt_sha256": "068496388090835cbfa42dc0e746868afd51072c93be125585e0e2fc43a49102",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-B2-direct-corr.bin",
+      "url": "https://ccsds.org/Pubs/502x0b2c1.pdf",
+      "final_url": "https://ccsds.org/Pubs/502x0b2c1.pdf",
+      "requested_at_UTC": "2026-10-25T05:38:48.040391+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:48.196330+00:00",
+      "status": 404,
+      "headers": {},
+      "bytes": 146,
+      "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+      "error": "HTTP_ERROR"
+    },
+    {
+      "source_id": "ccsds-B2-direct-errata",
+      "receipt_path": "data/e8.7.3-header-semantics/ccsds-B2-direct-errata.json",
+      "receipt_sha256": "1e791b5c3f15da04f3ef53520845b977e14a9e07e9444043138d06499d783ff2",
+      "body_path": "data/e8.7.3-header-semantics/ccsds-B2-direct-errata.bin",
+      "url": "https://ccsds.org/Pubs/502x0b2c1e2.pdf",
+      "final_url": "https://ccsds.org/Pubs/502x0b2c1e2.pdf",
+      "requested_at_UTC": "2026-10-25T05:38:48.039532+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:48.155230+00:00",
+      "status": 404,
+      "headers": {},
+      "bytes": 146,
+      "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+      "error": "HTTP_ERROR"
+    },
+    {
+      "source_id": "celestrak-formats",
+      "receipt_path": "data/e8.7.3-header-semantics/celestrak-formats.json",
+      "receipt_sha256": "20923fda74483698c89380c8292980dc3f7c1874bfac70140aa4e440bc4c60f8",
+      "body_path": "data/e8.7.3-header-semantics/celestrak-formats.bin",
+      "url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "requested_at_UTC": "2026-10-25T05:37:00.729706+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:01.331397+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Last-Modified": null,
+        "ETag": null
+      },
+      "bytes": 40338,
+      "sha256": "640b37ce5d08e224771a01df323813d5b182f450ba8261e175b4ec62824f0216",
+      "error": null
+    },
+    {
+      "source_id": "sana-master-unqualified",
+      "receipt_path": "data/e8.7.3-header-semantics/sana-master-unqualified.json",
+      "receipt_sha256": "ce5fadbc78e4c42540acab08a257551146be974e380fd51a66d19085a92ef184",
+      "body_path": "data/e8.7.3-header-semantics/sana-master-unqualified.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-master-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-master-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:37:38.139438+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:38.506549+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-e9a\""
+      },
+      "bytes": 3738,
+      "sha256": "b24d76e24a6056e084e8e04c7a5fe09938764987321d9ae9ab2e02b3504431fa",
+      "error": null
+    },
+    {
+      "source_id": "sana-ndmxml",
+      "receipt_path": "data/e8.7.3-header-semantics/sana-ndmxml.json",
+      "receipt_sha256": "da62bfe6b43821b446d9e4845085f99da48b832a0273ee98544f82a675c676b1",
+      "body_path": "data/e8.7.3-header-semantics/sana-ndmxml.bin",
+      "url": "https://sanaregistry.org/r/ndmxml/",
+      "final_url": "https://sanaregistry.org/r/ndmxml/",
+      "requested_at_UTC": "2026-10-25T05:37:00.731642+00:00",
+      "completed_at_UTC": "2026-10-25T05:37:25.853085+00:00",
+      "status": null,
+      "headers": {},
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "TimeoutError"
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-aem-1.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-aem-1.0.xsd.json",
+      "receipt_sha256": "e5a310cd61165378b02412cb368ce9c0079a6458f85806847bef299cab9b0238",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-aem-1.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-aem-1.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-aem-1.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.628871+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.135814+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-2dad\""
+      },
+      "bytes": 11693,
+      "sha256": "6a2399b3e423d30f2d062095c10ff98ee3cde8b18643f7c5386ea793a1dc69c2",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-apm-1.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-apm-1.0.xsd.json",
+      "receipt_sha256": "264d8976bef4bde1e2d17fdeee0004af8b230c1eb0d03d8366d68dbc0b7e82b9",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-apm-1.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-apm-1.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-apm-1.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.629451+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.130220+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-29e5\""
+      },
+      "bytes": 10725,
+      "sha256": "ec6e26f8c43dc268935a2cec03a3818e73546bd6ae66aa3e4491e2741c2e2454",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-cdm-1.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-cdm-1.0.xsd.json",
+      "receipt_sha256": "3b902b46dfade1b4673767a860894d3d2c70403990961bb99379bdee75d0035b",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-cdm-1.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-cdm-1.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-cdm-1.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.630067+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:39.934393+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-534b\""
+      },
+      "bytes": 21323,
+      "sha256": "92bfe968e76f6d1957271b31e85fc49921ec61eef27cd1896176a55a542ba032",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-common-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-common-2.0.xsd.json",
+      "receipt_sha256": "a46a48d52615882caf5b8a1194c3ebb9789f6d658aaa433bad2636741390efcf",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-common-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-common-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-common-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:40.131910+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.609531+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-9ebc\""
+      },
+      "bytes": 40636,
+      "sha256": "ec1f2430bcc59b3d54e6c0a676b7e4d85d3c1a1d480dd2ea19b6b160aa8ca0f3",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-namespace-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-namespace-2.0.xsd.json",
+      "receipt_sha256": "954e2e54886eda5f1ef6552a4878ca2dfbbf5e4c96792cb4305c2248af1817c5",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-namespace-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-namespace-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-namespace-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:38.943652+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:39.626946+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-f5b\""
+      },
+      "bytes": 3931,
+      "sha256": "81a28b715dd2bc1de807f78a310fe99b6f9cca44dae731245a94a41ee2b7ad32",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-ndm-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-ndm-2.0.xsd.json",
+      "receipt_sha256": "51fb13358f3e5c0b17d6b3e61f10cb06603a3deef700c09afabe79e694452d07",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-ndm-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-ndm-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-ndm-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:40.131579+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.609614+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-1587\""
+      },
+      "bytes": 5511,
+      "sha256": "c817af0680de7f588e254d9b7cbe619771364c8053fec489eb2de8e4befbd6d8",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-oem-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-oem-2.0.xsd.json",
+      "receipt_sha256": "6e4a6c9725162377d1f948ed911dff93528c4709c938ce7b7fa79b06f6e92cb9",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-oem-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-oem-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-oem-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.630885+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:39.850941+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-187e\""
+      },
+      "bytes": 6270,
+      "sha256": "8fa24da5e6ff9a54b3fcbe5275e0bf459964a5f03880eb00ad5287b515488db1",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-omm-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-omm-2.0.xsd.json",
+      "receipt_sha256": "ee0d2d8fcdb154311ed290322b0f03b9f79783fa4c2df0c3515a993910c6e929",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-omm-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-omm-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-omm-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.631801+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.129827+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-2688\""
+      },
+      "bytes": 9864,
+      "sha256": "8eb703d301c2e20a1e8dc52a1b8bb506c4c002749e5e54a49b4be664303de0d9",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-opm-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-opm-2.0.xsd.json",
+      "receipt_sha256": "74c7d9f11ae120f19a70b13e445c6d89b322ec1e1ca974c6fff1d7e5a4fd4747",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-opm-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-opm-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-opm-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.851716+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.052822+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-1dbd\""
+      },
+      "bytes": 7613,
+      "sha256": "1c99b617bfd88d4d05b292483a6c157359a0577580c251a7fb37ef114c05be4e",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-rdm-1.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-rdm-1.0.xsd.json",
+      "receipt_sha256": "d5952f813de5b856da6403067ec2ea051df5aede51e6001a09eff854b3026fc9",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-rdm-1.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-rdm-1.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-rdm-1.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:39.935166+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.391876+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-20d4\""
+      },
+      "bytes": 8404,
+      "sha256": "ffb815c43bd983bef785458af0fa435a47d7345c871d4c9b62eaa008af6a3922",
+      "error": null
+    },
+    {
+      "source_id": "schema-ndmxml-2.0.0-tdm-2.0.xsd",
+      "receipt_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-tdm-2.0.xsd.json",
+      "receipt_sha256": "a7988cdcd279e7c279de8174ce4717d63823658d58b5a907b780b16fff26dd63",
+      "body_path": "data/e8.7.3-header-semantics/schema-ndmxml-2.0.0-tdm-2.0.xsd.bin",
+      "url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-tdm-2.0.xsd",
+      "final_url": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-tdm-2.0.xsd",
+      "requested_at_UTC": "2026-10-25T05:38:40.053369+00:00",
+      "completed_at_UTC": "2026-10-25T05:38:40.322836+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Last-Modified": "Thu, 23 Jun 2022 13:25:24 GMT",
+        "ETag": "\"62b469c4-49aa\""
+      },
+      "bytes": 18858,
+      "sha256": "784891af64ffbfddc5aa7594fe9aa0ecaf9a83a51a1b45645090e4c38531682f",
+      "error": null
+    }
+  ],
+  "specification_assessment": {
+    "exact_applicable_schema": "SANA unqualified NDM/XML2.0.0 master2.0 +11dependency files; OMM fixed2.0. Master compatibility comments name502.0-B-2(2009) and505.0-P-1.0.3(2020).",
+    "exact_schema_version_claim_limit": "Not silently replaced with current3.0schema or relabelled505-B3 schema. SANA12file set named by actual XML was used.",
+    "schema_field_rules": [
+      {
+        "field": "CREATION_DATE",
+        "source_file": "schema-ndmxml-2.0.0-common-2.0.xsd.bin",
+        "declaration_line": 207,
+        "type": "ndm:epochType",
+        "presence": "required(default minOccurs=1)",
+        "nillable": "false(default)",
+        "empty_content": "Accepted by epochType regular expression, whose numeric alternative permits zero digits; definition lines683-688."
+      },
+      {
+        "field": "ORIGINATOR",
+        "source_file": "schema-ndmxml-2.0.0-common-2.0.xsd.bin",
+        "declaration_line": 208,
+        "type": "xsd:string",
+        "presence": "required(default minOccurs=1)",
+        "nillable": "false(default)",
+        "empty_content": "Accepted because string has no nonempty restriction here."
+      }
+    ],
+    "current_prose_standard": {
+      "document": "CCSDS502.0-B-3,April2023,editorial change1May2023",
+      "applicability": "Current OMM3.0 prose; semantic context only, not a replacement for the exact OMM2.0 schema",
+      "locators": [
+        "section4.2.2,Table4-1,printed pages4-2/4-3",
+        "section7.5.10-11",
+        "Table4-3 REV_AT_EPOCH"
+      ],
+      "CREATION_DATE_meaning": "File creation date/time in UTC; mandatory",
+      "ORIGINATOR_meaning": "Creating agency or operator; mandatory",
+      "limitations": "A message creation time is not automatically orbit-fit time, record publication or historical availability. Message originator does not alone identify tracking sensors/complete GP fitting producer chain."
+    },
+    "current_XML_standard": {
+      "document": "CCSDS505.0-B-3,May2023;EC1February2024,EC2October2024",
+      "locators": ["section3.1.3", "section3.1.4", "AnnexG1"],
+      "scope": "Official SANA schema distribution and versioned naming; exact version2schema separately verified."
+    },
+    "older_prose_access": "Four official candidate URLs for502-B2 returned404; not treated as read. OMM2 requirements grounded in exact deployed SANA schema; full semantic compliance with unavailable older prose not certified.",
+    "full_semantic_conformance": "PARTIAL \u2014 header elements/schema conform, but actual UTC creation and creating agency are unknown; XSD success is not complete standard semantics/provenance certification."
+  },
+  "provider_documentation": {
+    "source_id": "celestrak-formats",
+    "version_on_page": "Updated2026Jun23; retrieved2026-10-25",
+    "locators": [
+      "HTMLline128:recommends OMM XML2.0 and links currentCCSDS documents",
+      "HTMLline130:mandatory elements supplied, some unavailable TLE fields may be blank(KVN) or null(XML); OBJECT_NAME/OBJECT_ID examples",
+      "HTMLline134:JSON/CSV omission of null/blank/redundant mandatory fields, withCENTER_NAME/REF_FRAME/TIME_SYSTEM/MEAN_ELEMENT_THEORY examples"
+    ],
+    "explicit_header_specific_explanation": false,
+    "historical_G05_export_header_semantics_explicitly_documented": false,
+    "public_NULL_word_is_formal_XSI_nil_definition": false,
+    "finding": "Generic public provider behavior is consistent with unavailable content but does not expressly optionalize these two headers or prove why they are empty in this historical file. JSON/CSV omission guidance is not an XML header exception.",
+    "prior_user_reported_provider_response": {
+      "path": "docs/phase-11.3.1-provider-response-reconciliation.md",
+      "scope": "Earlier Swarm-A correspondence summary reports creation timestamps not retained, and rejects treating SpaceTrackCREATION_DATE as automatically orbit-solution generation. User-reported and not independently authenticated. Supports retaining unknowns; not a G05-specific header/schema ruling."
+    }
+  },
+  "schema_validation": {
+    "validator": "lxml",
+    "lxml_version": [6, 0, 2, 0],
+    "libxml_version": [2, 14, 6],
+    "schema_master_URI": "https://sanaregistry.org/r/ndmxml_unqualified/ndmxml-2.0.0-master-2.0.xsd",
+    "schema_files": 12,
+    "all_dependencies_pinned": true,
+    "network_during_validation": false,
+    "original_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+    "original_document_valid": true,
+    "errors": [],
+    "individual_OMM_schema_results": [
+      {
+        "source_index": 0,
+        "valid": true
+      },
+      {
+        "source_index": 1,
+        "valid": true
+      },
+      {
+        "source_index": 2,
+        "valid": true
+      },
+      {
+        "source_index": 3,
+        "valid": true
+      },
+      {
+        "source_index": 4,
+        "valid": true
+      },
+      {
+        "source_index": 5,
+        "valid": true
+      },
+      {
+        "source_index": 6,
+        "valid": true
+      },
+      {
+        "source_index": 7,
+        "valid": true
+      },
+      {
+        "source_index": 8,
+        "valid": true
+      },
+      {
+        "source_index": 9,
+        "valid": true
+      }
+    ]
+  },
+  "questions": {
+    "A_safe_parse": {
+      "status": "PASS",
+      "evidence": "Existing supported reader safely parses10; required GP fields/identity/numbers pass. Strict populated-header validation still fails."
+    },
+    "B_retrospective_admission": {
+      "status": "PARTIAL",
+      "policy_outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+      "evidence": "Exact XSD pass and bounded, hash-pinned claimed-source packet justify proposal for further assessment only, with PARTIAL provenance. Not activated."
+    },
+    "C_scientific_qualification": {
+      "status": "BLOCKED",
+      "evidence": "No historical availability/full lineage, independent-source proof, frame/EOP/physical-point/quality/claims review or scientific authorization."
+    }
+  },
+  "policy": {
+    "id": "ORBITIQ-RETRO-INTAKE-G05-1.0-PROPOSED",
+    "version": "1.0",
+    "status": "PROPOSED_NOT_ACTIVATED",
+    "outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+    "scope": "Only NORAD35752/COSPAR2009-043A original XML hash c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828 and its10source indices, same frozen Jan1 reference. No class-wide provider waiver, G30 change or automatic reuse for another file.",
+    "type_of_change": "Proposed admission/provenance exception for present-empty message creation/originator only; not a temporal/selection/model change.",
+    "source_threshold": "Original hash/capture, explicit claimed CelesTrak request/fulfillment evidence and consistent metadata suffice only for examining claimed-source retrospective candidates. Not sender authentication or record-level origin proof.",
+    "required_criteria": [
+      "original bytes/hash/capture intact; complete10records retained",
+      "existing safe supported parser/profile plus exact pinned schema pass",
+      "only the two permitted header-content gaps, both present-empty/no nil; no populated bad timestamps waived",
+      "required GP fields/numbers/Earth-TEME-UTC-SGP4 model declarations pass",
+      "NORAD35752/COSPAR2009-043A and nominal datedPRN/SVN checks",
+      "calendarrequest,forward-only and inclusive seven-day guard at all96reference epochs",
+      "preserve duplicate/conflict flags; hold affected same-epoch decisions, no revolution tie-break",
+      "unknown creation/originator/publication/receipt/full lineage kept explicit; record provenancePARTIAL",
+      "no public truth/forecast/independence/accuracy/safety claim; all scientific gates remain"
+    ],
+    "prohibited_claims": [
+      "complete record provenance",
+      "historical forecasting or availability established by epoch",
+      "independent accuracy or statistical independence",
+      "absolute truth/anomaly/collision/operational safety",
+      "schema validation establishes full scientific qualification"
+    ],
+    "upgrade_evidence": [
+      "authenticated file delivery/hash link and reliable receipt metadata if available",
+      "provider clarification of header/export semantics",
+      "retained original source/publication/fit lineage if available; document irrecoverable limits",
+      "independent source-dependency and frame/EOP/reference-point/quality/protocol reviews"
+    ],
+    "actual_record_admissions": 0,
+    "strict_inspector_static_candidates": 0,
+    "conditional_recommendations": 6,
+    "same_epoch_holds": 2,
+    "temporal_rejections": 2,
+    "qualified_comparison_records": 0,
+    "selected_source_index": null,
+    "application_or_CLI_behavior_changed": false,
+    "previous_reports_rewritten": false
+  },
+  "per_record_document_only_policy_application": [
+    {
+      "source_index_0based": 0,
+      "record_ordinal_1based": 1,
+      "epoch_original_text": "2023-12-25T21:13:18.902784",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": false,
+        "conflict": true
+      },
+      "proposed_policy_outcome": "STRICT_REJECTION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "Outside unchanged temporal window"
+    },
+    {
+      "source_index_0based": 1,
+      "record_ordinal_1based": 2,
+      "epoch_original_text": "2023-12-25T21:13:18.902784",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": false,
+        "conflict": true
+      },
+      "proposed_policy_outcome": "STRICT_REJECTION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "Outside unchanged temporal window"
+    },
+    {
+      "source_index_0based": 2,
+      "record_ordinal_1based": 3,
+      "epoch_original_text": "2023-12-27T05:25:27.694272",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": false
+      },
+      "proposed_policy_outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "May be considered under proposed header-only exception; missing provenance retained"
+    },
+    {
+      "source_index_0based": 3,
+      "record_ordinal_1based": 4,
+      "epoch_original_text": "2023-12-28T04:47:54.504096",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": true
+      },
+      "proposed_policy_outcome": "INSUFFICIENT_EVIDENCE",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "Unresolved same-epoch pair; no revolution tie-break"
+    },
+    {
+      "source_index_0based": 4,
+      "record_ordinal_1based": 5,
+      "epoch_original_text": "2023-12-28T04:47:54.504096",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": true
+      },
+      "proposed_policy_outcome": "INSUFFICIENT_EVIDENCE",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "Unresolved same-epoch pair; no revolution tie-break"
+    },
+    {
+      "source_index_0based": 5,
+      "record_ordinal_1based": 6,
+      "epoch_original_text": "2023-12-29T06:11:47.963328",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": false
+      },
+      "proposed_policy_outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "May be considered under proposed header-only exception; missing provenance retained"
+    },
+    {
+      "source_index_0based": 6,
+      "record_ordinal_1based": 7,
+      "epoch_original_text": "2023-12-29T18:40:53.635584",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": false
+      },
+      "proposed_policy_outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "May be considered under proposed header-only exception; missing provenance retained"
+    },
+    {
+      "source_index_0based": 7,
+      "record_ordinal_1based": 8,
+      "epoch_original_text": "2023-12-30T04:33:03.375360",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": false
+      },
+      "proposed_policy_outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "May be considered under proposed header-only exception; missing provenance retained"
+    },
+    {
+      "source_index_0based": 8,
+      "record_ordinal_1based": 9,
+      "epoch_original_text": "2023-12-31T04:19:53.685408",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": false
+      },
+      "proposed_policy_outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "May be considered under proposed header-only exception; missing provenance retained"
+    },
+    {
+      "source_index_0based": 9,
+      "record_ordinal_1based": 10,
+      "epoch_original_text": "2023-12-31T20:06:29.141856",
+      "criteria": {
+        "integrity": true,
+        "source": true,
+        "profile": true,
+        "identity": true,
+        "gp_fields": true,
+        "empty_headers": true,
+        "temporal": true,
+        "conflict": false
+      },
+      "proposed_policy_outcome": "CONDITIONAL_RETROSPECTIVE_ADMISSION",
+      "provenance": "PARTIAL",
+      "strict_policy_result": "NOT_A_CANDIDATE",
+      "policy_activated": false,
+      "actual_record_admitted": false,
+      "record_selected": false,
+      "scientific_qualification": "BLOCKED",
+      "reason": "May be considered under proposed header-only exception; missing provenance retained"
+    }
+  ],
+  "same_epoch_conflicts": {
+    "pairs_0based": [
+      [0, 1],
+      [3, 4]
+    ],
+    "differing_field_names": ["REV_AT_EPOCH"],
+    "exact_values_preserved_privately": true,
+    "cause": "UNKNOWN",
+    "interpretation": "CurrentCCSDS calls this Revolution Number, not revision rank; neither schema validity nor generic provider unavailable-field guidance explains the pair differences.",
+    "resolution": "UNRESOLVED; no merge/drop/repair/preference/equivalence claim. Proposed conservative hold on indices3/4;indices0/1alreadyfailtime."
+  },
+  "preserved_sources": [
+    {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc"
+    },
+    {
+      "path": "docs/engineering-e8.7.1-g05-protocol-proposal.md",
+      "bytes": 9559,
+      "sha256": "e83abf2f1e3403cce30cdf787d0118385c619d06940b24ff1eee2b2e2ff46bec"
+    },
+    {
+      "path": "docs/engineering-e8.7.1-readiness-evidence.json",
+      "bytes": 29568,
+      "sha256": "8b91b96665eca0fd9c13d80d0b4d2c9c39cf0f272bba6177705fa81f940a11cc"
+    },
+    {
+      "path": "docs/engineering-e8.7.2-g05-xml-intake.md",
+      "bytes": 13787,
+      "sha256": "76f6256fda892753b43c057e42dc4b3a5689a0d7a14f7c5538bbbf9e2316f657"
+    },
+    {
+      "path": "docs/engineering-e8.7.2-g05-intake-evidence.json",
+      "bytes": 27295,
+      "sha256": "013f7a2651b6f1c910ab8ad5bf68ab1133f87b660602bbdf25b0c3dcb311f798"
+    },
+    {
+      "path": "docs/phase-11.3.1-provider-response-reconciliation.md",
+      "bytes": 14841,
+      "sha256": "e5c2545e4ae7312116299275ba3b269ecc04591518c9ff922ba4fdf5f15aab59"
+    },
+    {
+      "path": "scripts/inspect_historical_xml.py",
+      "bytes": 18016,
+      "sha256": "3be501542c8116a1fda0e6e3fe05aaa38fdf1957d975c8707f50e34d9c29e5ca"
+    },
+    {
+      "path": "backend/tests/test_historical_xml_intake.py",
+      "bytes": 24071,
+      "sha256": "413a5971c7af497d2b2f5c15cf107ff558280415be6ec6c7cf03a75f89810210"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 46977,
+      "sha256": "cf5f1577b37d703cca8d9406e1a6666426dcab6daac9c7d85c899620bea3bdae"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 520,
+      "sha256": "fa8ebb649044fbe98e7f4cc9c9d6bb3cd42c201b898c2854f1e65f6f727df8a4"
+    }
+  ],
+  "private_evidence_manifest": {
+    "path": "data/e8.7.3-header-semantics/preservation-manifest.json",
+    "bytes": 6495,
+    "sha256": "654d1704f6587859492c47d6f8f4e7477371ea1e9a1097f640deee74c97e11a0",
+    "entries": 46
+  },
+  "verification": {
+    "real_XML_schema": "PASS original entire document and10individualOMMs against exact12pinnedXSDfiles, validation offline/no entities/no schema-hint fetch",
+    "synthetic_schema_controls": {
+      "passed": 12,
+      "evidence_class": "SYNTHETIC_TEST_ONLY",
+      "scope": "Test wrapper imports unchanged official ndmHeader type, not a replacement real XML schema",
+      "harness_note": "Initial assumption that xsi:nil=false was allowed was corrected after explicit not-nillable diagnostic; final expected rejection retained. No application/schema requirement weakened."
+    },
+    "synthetic_policy_rule_controls": {
+      "passed": 9,
+      "evidence_class": "SYNTHETIC_TEST_ONLY",
+      "scope": "Temporary document-only decision-rule rendering, no operational adapter"
+    },
+    "existing_XML_regressions": {
+      "passed": 83,
+      "duration_seconds": 11.02,
+      "evidence_class": "SYNTHETIC_TEST_ONLY"
+    },
+    "temporary_validator": "lxml6.0.2 installed only under/tmp/orbitiq-e873/vendor; libxml2.14.6; project environment/dependencies/locks unchanged",
+    "source_lint_format": "PASS",
+    "documentation_and_preservation": "PASS",
+    "full_application_frontend_browser_PDF_build_remote_CI": "NOT_RUN"
+  },
+  "safeguards": {
+    "real_input_propagation": false,
+    "spacecraft_state_transformation": false,
+    "orbital_interpolation_or_extrapolation": false,
+    "residual_calculation": false,
+    "new_uncertainty_estimates": false,
+    "source_independence_claim": false,
+    "original_XML_or_SP3_modified": false,
+    "database_modified": false,
+    "prior_protocol_or_report_modified": false,
+    "application_code_or_lockfile_modified": false,
+    "private_accounts_accessed": false,
+    "private_data_uploaded": false,
+    "policy_activated": false,
+    "git_publication_or_deployment": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN",
+  "technical_requirements": [
+    {
+      "requirement": "original_integrity_and_raw_headers",
+      "status": "PASS",
+      "evidence": "Exact original hash and20byte-located present-empty elements verified.",
+      "limitations_and_next_review": "No XML mutation or null inference."
+    },
+    {
+      "requirement": "declared_schema_conformance",
+      "status": "PASS",
+      "evidence": "Whole original and10individualOMMs pass exact12file set offline.",
+      "limitations_and_next_review": "XSD presence/type conformance only."
+    },
+    {
+      "requirement": "required_header_presence",
+      "status": "PASS",
+      "evidence": "Both elements present per message, defaultminOccurs1.",
+      "limitations_and_next_review": "Present does not mean meaningful populated creation/originator."
+    },
+    {
+      "requirement": "message_creation_and_originator_values",
+      "status": "PARTIAL",
+      "evidence": "Actual values unknown; exactschema permits empties.",
+      "limitations_and_next_review": "No backfill or record-level provenance inference."
+    },
+    {
+      "requirement": "older_502_B2_prose_review",
+      "status": "NOT ASSESSED",
+      "evidence": "Four candidate officialURLs404; exactapplicable2.0schema acquired.",
+      "limitations_and_next_review": "Current3.0prose contextual, not substituted as2.0prose."
+    },
+    {
+      "requirement": "provider_header_specific_semantics",
+      "status": "PARTIAL",
+      "evidence": "Currentprovider generalnull guidance read; no explicitheader-specific historical explanation.",
+      "limitations_and_next_review": "EarlieruserreportedSwarmreply notG05-specific or independently authenticated."
+    },
+    {
+      "requirement": "strict_intake_regression",
+      "status": "PASS",
+      "evidence": "83synthetic tests pass; source unchanged and0strictcandidates.",
+      "limitations_and_next_review": "Successful tests do not establish acquireddata eligibility."
+    },
+    {
+      "requirement": "proposed_retrospective_admission",
+      "status": "PARTIAL",
+      "evidence": "Ordered version1proposal applied:6conditional,2hold,2timefail.",
+      "limitations_and_next_review": "Not activated;0actualadmissions;provenancePARTIAL."
+    },
+    {
+      "requirement": "same_epoch_conflict_explanation",
+      "status": "BLOCKED",
+      "evidence": "OnlyREV_AT_EPOCH differs in preservedpairs; causeunknown.",
+      "limitations_and_next_review": "No merge/preference/revolutiontie-break."
+    },
+    {
+      "requirement": "historical_availability_and_complete_lineage",
+      "status": "BLOCKED",
+      "evidence": "Message/recordgeneration/publication/fit dependencies unestablished.",
+      "limitations_and_next_review": "Retrospectiveclaimed-source reviewonly; missingmetadata mayremainunknown."
+    },
+    {
+      "requirement": "scientific_comparison_prerequisites",
+      "status": "BLOCKED",
+      "evidence": "Frame/EOP/physicalpoint/quality/dependencies/protocol authorization remain.",
+      "limitations_and_next_review": "No qualifiedrecord, propagation or residual."
+    },
+    {
+      "requirement": "source_dependency_independence",
+      "status": "BLOCKED",
+      "evidence": "No independentrecord-level source-dependency proof.",
+      "limitations_and_next_review": "Differentproviders/schemaPASS not independence."
+    }
+  ],
+  "preservation": {
+    "original_research_manifest_entries_preserved": 110,
+    "original_private_files_preserved": 72,
+    "prior_research_inventory_files_preserved": 178,
+    "original_tracked_files_preserved": 380,
+    "new_repository_files": 2,
+    "existing_repository_files_modified": 0,
+    "original_XML_sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+    "original_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_schema_version": 3,
+    "database_snapshots": 2,
+    "branches_and_HEADs_unchanged": true,
+    "local_preservation_is_independent_backup": false
+  }
+}

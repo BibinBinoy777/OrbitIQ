@@ -1,0 +1,718 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.1",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "overall_scientific_status": "BLOCKED",
+  "software_readiness": "VERIFIED_LOCAL_SYNTHETIC_ONLY",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "evidence_categories": {
+    "D": "direct local metadata/source verification",
+    "P": "published authoritative documentation, scope bounded by source",
+    "I": "reasoned proposal/inference, not qualified result",
+    "U": "unknown or unresolved"
+  },
+  "target": {
+    "prn": "G05",
+    "svn": "G050",
+    "norad_catalog_id": 35752,
+    "cospar_id": "2009-043A",
+    "block_type_from_identifier": "GPS-IIR-M"
+  },
+  "identity_evidence": {
+    "source_id": "igs-satellite-metadata",
+    "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+    "identifier_line_1based": 1027,
+    "PRN_line_1based": 1634,
+    "assignment_begin_raw": "2009:229:00000",
+    "assignment_end_raw": "0000:000:00000",
+    "PRN_assignment_history": [
+      {
+        "line": 1557,
+        "svn": "G005",
+        "from": "1980:040:00000",
+        "to": "1984:133:00000"
+      },
+      {
+        "line": 1594,
+        "svn": "G035",
+        "from": "1993:242:00000",
+        "to": "2009:160:00000"
+      },
+      {
+        "line": 1634,
+        "svn": "G050",
+        "from": "2009:229:00000",
+        "to": "0000:000:00000"
+      }
+    ],
+    "nominal_calendar_checks": [
+      "2023-12-25T00:00:00",
+      "2023-12-31T00:00:00",
+      "2024-01-01T00:00:00",
+      "2024-01-01T23:45:00"
+    ],
+    "same_physical_mapping_at_checks": true,
+    "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+  },
+  "acquisition": {
+    "evidence_category": "user-reported request confirmation",
+    "target_norad_id": 35752,
+    "requested_dates_inclusive": ["2023-12-25", "2023-12-31"],
+    "requested_format": "individual OMM XML file",
+    "submitted_at_utc": "2026-10-24T18:08:31Z",
+    "submission_status": "SUBMITTED",
+    "confirmation": "USER_REPORTED",
+    "attachment_filename": null,
+    "received_at_utc": null,
+    "attachment_sha256": null,
+    "returned_record_count": null,
+    "eligible_record": null,
+    "states": [
+      {
+        "stage": 1,
+        "name": "request_submitted",
+        "status": "SUBMITTED"
+      },
+      {
+        "stage": 2,
+        "name": "attachment_received",
+        "status": "NOT_ESTABLISHED"
+      },
+      {
+        "stage": 3,
+        "name": "original_captured_and_hashed",
+        "status": "NOT_ESTABLISHED"
+      },
+      {
+        "stage": 4,
+        "name": "XML_parsed",
+        "status": "NOT_ESTABLISHED"
+      },
+      {
+        "stage": 5,
+        "name": "identity_and_metadata_validated",
+        "status": "NOT_ESTABLISHED"
+      },
+      {
+        "stage": 6,
+        "name": "eligible_historical_record_established",
+        "status": "NOT_ESTABLISHED"
+      },
+      {
+        "stage": 7,
+        "name": "scientific_prerequisites_qualified",
+        "status": "NOT_ESTABLISHED"
+      },
+      {
+        "stage": 8,
+        "name": "scientific_comparison_authorized",
+        "status": "NOT_ESTABLISHED"
+      }
+    ],
+    "scope": "No actual requested attachment inspected. Receipt is not inferred from elapsed time, submission, epoch or file modification time."
+  },
+  "protocol_proposal": {
+    "version": "v0.2-G05-PROPOSED-PRE-INSPECTION",
+    "approved": false,
+    "executed": false,
+    "original_protocol_unchanged": true,
+    "original_protocol": {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc"
+    },
+    "reference_gps_interval_inclusive": [
+      "2024-01-01T00:00:00.00000000",
+      "2024-01-01T23:45:00.00000000"
+    ],
+    "reference_utc_interval_inclusive": [
+      "2023-12-31T23:59:42.000000Z",
+      "2024-01-01T23:44:42.000000Z"
+    ],
+    "reference_epochs": 96,
+    "cadence_seconds": 900,
+    "original_source_indices": [
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+      39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
+      57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74,
+      75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92,
+      93, 94, 95
+    ],
+    "GP_epoch_interval_inclusive": [
+      "2023-12-25T23:44:42Z",
+      "2023-12-31T23:59:42Z"
+    ],
+    "guard_seconds_inclusive": 604800,
+    "guard_applies": "every original reference epoch, not only first surviving sample",
+    "forward_only": true,
+    "single_fixed_GP": true,
+    "selection": "identity/static/provenance qualification, latest unique eligible epoch; no same-epoch tie-break or fallback",
+    "qualified_record_selected": false,
+    "sample_subset_authorized": false,
+    "guard_derivation": "last_reference_epoch - 7 days <= GP epoch <= first_reference_epoch",
+    "time_conversion": "Reused E8 split-second Astropy TimeGPS/TAI-to-UTC under pinned local leap/EOP context; observed 18-second offset not hard-coded",
+    "target_change_justification": "E8.7 administrative request ordering among nine metadata-screen alternatives; missing G30 delivery, no residual ranking",
+    "implementation_vs_protocol_limitation": "E8 qualify helper exposes partial diagnostic indices, but v0.1 requires guard at all 96 epochs. Partial indices are not authorization for a subset. XML static ranking precedes provenance and is not selected input."
+  },
+  "reference": {
+    "product_name": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "compressed": {
+      "bytes": 102609,
+      "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38"
+    },
+    "expanded": {
+      "bytes": 253250,
+      "sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c"
+    },
+    "frame": "IGS20",
+    "time_system": "GPS",
+    "units": {
+      "position": "km",
+      "clock_correction": "microseconds"
+    },
+    "no_EP_records": true,
+    "G05_header_indicator": {
+      "line_1based": 8,
+      "columns_1based_inclusive": [22, 24],
+      "raw": "  2",
+      "decoded_format_indicator_mm": "4",
+      "scope": "format code only; not a calibrated bound"
+    },
+    "G05_quality_counts": {
+      "P_records": 96,
+      "blank_xyz_codes": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "censored99_xyz_codes": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "maneuver_markers": 0,
+      "prediction_markers": 0,
+      "missing_clock_markers": 0,
+      "complete_supported_P_quality_fields": true,
+      "missing_position_records": 0
+    },
+    "quality_histograms_raw": {
+      "x": {
+        " 4": 4,
+        " 5": 30,
+        " 6": 19,
+        " 7": 12,
+        " 8": 24,
+        " 9": 7
+      },
+      "y": {
+        " 2": 1,
+        " 3": 9,
+        " 4": 21,
+        " 5": 23,
+        " 6": 27,
+        " 7": 13,
+        " 8": 2
+      },
+      "z": {
+        " 2": 4,
+        " 3": 9,
+        " 4": 22,
+        " 5": 22,
+        " 6": 30,
+        " 7": 9
+      }
+    },
+    "weekly_summary": {
+      "source": {
+        "bytes": 23095,
+        "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870"
+      },
+      "day_heading": {
+        "line": 689,
+        "text": "Table 3.2295.1   GPS week: 2295   Day: 1   MJD: 60310.000                            "
+      },
+      "G05_row": {
+        "line": 698,
+        "text": "   5  |   10   14    9   11    9    5    8   15    7   11    7    3 |    79   83   83   85   84   83   82   82   79   83   84    82"
+      },
+      "G05_indicators": {
+        "line": 698,
+        "label": "5",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "82"
+      },
+      "interpretation": "Weighted-average combination statistic and separate seven-day dynamics statistic as published; not a truth error, GP error, uncertainty budget or new residual. Exact producer mapping to header code remains unestablished for G05 independently.",
+      "scope": "Own G05 values only; first raw3 at column67 and last raw82 at columns130-131 on line698; no G30 inference."
+    },
+    "G05_private_quality_record": {
+      "path": "data/e8.7.1-g05-readiness/g05-quality-metadata.json",
+      "bytes": 35579,
+      "sha256": "022e762b3d348ece6fbb1b192155704b73b7240df2705d640bc4db25f48d6a26",
+      "record_count": 96,
+      "scope": "96 raw G05 quality slices/locators only, no XYZ states or clock corrections; private, excluded from Git/CI"
+    }
+  },
+  "quality_format": {
+    "header_accuracy": {
+      "record": "++",
+      "location": "SP3-c header lines 8-12; same slot as satellite ID on lines 3-7",
+      "units": "2**n millimeters, except n=0 unknown",
+      "scope": "Satellite/file-wide intended one-standard-deviation orbit-error representation; IGS summary says weighted RMS over daily arc",
+      "zero": "unknown, not 1 mm",
+      "blank_or_invalid": "No quantitative interpretation; do not substitute zero",
+      "source": "SP3-c 17 August 2010 introduction and lines 635-642; IGS week-2295 Products Generated"
+    },
+    "p_position_sigma": {
+      "record": "P",
+      "columns_1based": {
+        "x": [62, 63],
+        "y": [65, 66],
+        "z": [68, 69]
+      },
+      "units": "b**n millimeters; b from %f columns 4-13",
+      "scope": "Reported component/epoch standard deviations, approximate encoded indicators",
+      "zero": "1 mm",
+      "blank": "unknown",
+      "sentinel_99": "too large to represent; not b**99",
+      "invalid": "unresolved, no numerical decoding",
+      "source": "SP3-c 17 August 2010 introduction; P-record definition and explanation"
+    },
+    "p_clock_sigma": {
+      "record": "P",
+      "columns_1based": [71, 73],
+      "units": "b_clock**n picoseconds; b_clock from %f columns 15-26",
+      "zero": "1 picosecond",
+      "blank": "unknown",
+      "sentinel_999": "too large to represent",
+      "use_in_this_phase": "Raw values retained; no clock uncertainty calculation or use as position uncertainty"
+    },
+    "EP": {
+      "record": "EP, optional",
+      "position_sigma_columns_1based": {
+        "x": [5, 8],
+        "y": [10, 13],
+        "z": [15, 18]
+      },
+      "position_sigma_units": "direct millimeters, not exponents",
+      "position_sigma_blank": "unknown",
+      "position_sigma_9999": "too large to represent",
+      "position_sigma_zero": "Outside the stated 1..9999 position-sdev range; no zero-variance meaning established here",
+      "clock_sigma_columns_1based": [20, 26],
+      "clock_sigma_units": "direct picoseconds",
+      "clock_sigma_9999999": "too large to represent",
+      "correlation_columns_1based": {
+        "xy": [28, 35],
+        "xz": [37, 44],
+        "xc": [46, 53],
+        "yz": [55, 62],
+        "yc": [64, 71],
+        "zc": [73, 80]
+      },
+      "correlation_scale": "signed integer divided by 10000000; range -0.9999999 to +0.9999999",
+      "correlation_blank": "unknown, not zero",
+      "correlation_explicit_zero": "zero coefficient only if actually supplied and valid",
+      "absent_EP": "No EP standard deviations/correlations; do not fill a zero or diagonal covariance"
+    },
+    "P_flags": {
+      "columns_1based": {
+        "clock_event": 75,
+        "clock_prediction": 76,
+        "maneuver": 79,
+        "orbit_prediction": 80
+      },
+      "clock_event_E": "clock discontinuity since previous epoch or at current epoch",
+      "clock_event_blank": "no event or unknown whether an event occurred",
+      "clock_prediction_P": "predicted correction",
+      "clock_prediction_blank": "observed correction in SP3 terminology",
+      "maneuver_M": "maneuver since previous epoch or at current epoch",
+      "maneuver_blank": "no maneuver or unknown whether a maneuver occurred",
+      "orbit_prediction_P": "predicted position",
+      "orbit_prediction_blank": "observed/source-derived in SP3 terminology, not a directly measured Cartesian position or accuracy certificate"
+    },
+    "other_missing_markers": {
+      "P_xyz": "0.000000 specified for bad/absent positions; coordinate-zero ambiguity not used to invent missing data",
+      "P_clock": "999999 with optional fractional nines denotes bad/absent clock",
+      "short_P_records": "SP3-c permits absent trailing columns, interpreted as blanks by the format; actual product has 80-column records and needs no padding"
+    }
+  },
+  "G05_antenna": {
+    "original_ANTEX": {
+      "bytes": 61579571,
+      "sha256": "0cd58d0d9ee678d5586de6c01f576e5aceb86f4a0735a168f733dfd091c0a614"
+    },
+    "profile": "ANTEX 1.4; current IGS20_2437 capture, not established 2024 input",
+    "metadata": [
+      {
+        "line": 1098,
+        "text": "BLOCK IIR-M         G05                 G050      2009-043A TYPE / SERIAL NO"
+      },
+      {
+        "line": 1099,
+        "text": "                                             0    29-JAN-17 METH / BY / # / DATE"
+      },
+      {
+        "line": 1102,
+        "text": "     2                                                      # OF FREQUENCIES"
+      },
+      {
+        "line": 1103,
+        "text": "  2009     8    17     0     0    0.0000000                 VALID FROM"
+      },
+      {
+        "line": 1104,
+        "text": "IGS20_2437                                                  SINEX CODE"
+      },
+      {
+        "line": 1105,
+        "text": "   G01                                                      START OF FREQUENCY"
+      },
+      {
+        "line": 1109,
+        "text": "   G02                                                      START OF FREQUENCY"
+      }
+    ],
+    "source_block_lines_inclusive": [1098, 1113],
+    "offset_record_lines": [1106, 1110],
+    "historical_revision_proven": false,
+    "correction_applied": false,
+    "GP_fitted_physical_point": null,
+    "limitations": "Satellite-specific frequency-dependent calibration metadata exists. Generic CoM convention, validity labels, zero-origin SINEX COM/eccentricity fields and current offsets do not prove the historical processing revision or future GP point."
+  },
+  "source_files": [
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-satellite-metadata.bin",
+      "bytes": 277829,
+      "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+      "scope": "D/P nominal identity and current COM/eccentricity conventions; G050 lines1027/1634/2689/3203"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-antenna-conventions.bin",
+      "bytes": 52994,
+      "sha256": "ac844f38cd1c1a1eafbaa45d7ba0baf89b0787cf307fb42ba645b03dc195da9d",
+      "scope": "P SP3-c 17Aug2010: quality definitions, lines58-80 and635-642"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs20-atx.bin",
+      "bytes": 61579571,
+      "sha256": "0cd58d0d9ee678d5586de6c01f576e5aceb86f4a0735a168f733dfd091c0a614",
+      "scope": "D current G050 calibration metadata only"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-final-summary-2295.bin",
+      "bytes": 23095,
+      "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870",
+      "scope": "D/P exact weekly/day-specific statistics; source relationship not inferred"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "bytes": 102609,
+      "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+      "scope": "D original reference metadata and quality fields"
+    },
+    {
+      "path": "docs/engineering-e8.2-reference-qualification.md",
+      "bytes": 30266,
+      "sha256": "11c7cf31107c3a20cae68a094f8a8b32eb5d0900eddfe21501731545913a3a2f",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.2-reference-evidence.json",
+      "bytes": 15299,
+      "sha256": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.3-frame-eop-qualification.md",
+      "bytes": 28251,
+      "sha256": "d0546aa40b8779bfcb029ead333c52b907c642699cc7196a406e258bdac4bb92",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.3-frame-eop-evidence.json",
+      "bytes": 41223,
+      "sha256": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.4-quality-qualification.md",
+      "bytes": 26904,
+      "sha256": "a23c374ef275546af1e9c6be55e62a290a5f30765d8f154faf88aee6c47b130d",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.4-quality-evidence.json",
+      "bytes": 35912,
+      "sha256": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.5-source-provenance.md",
+      "bytes": 27822,
+      "sha256": "447a7cf3674f0bb35fb16bddd1473b96ed5428947bc9cee25441f8e83ec9d8f1",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.5-source-provenance-evidence.json",
+      "bytes": 56308,
+      "sha256": "fb0beabdf7d43062e3c0657f24257df792e4bc8edb4261abb4f703c342e77749",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.6-g30-statistic-reconciliation.md",
+      "bytes": 21535,
+      "sha256": "79c2690e96c1e4a69ddca36826d17e6e1f23f3b155b2c346cf11d56e28b11c8d",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.6-g30-statistic-evidence.json",
+      "bytes": 84331,
+      "sha256": "34f36197dd3a3409822b08cba9d6cb65e7a0cbca33edf9ddeb48f0eba660b728",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.7-alternate-pair-discovery.md",
+      "bytes": 23258,
+      "sha256": "4fcfb5c3652f011276d349f73e6693099e3d7f4ada7874425a09e9b26d9c210b",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    },
+    {
+      "path": "docs/engineering-e8.7-candidate-matrix.json",
+      "bytes": 169323,
+      "sha256": "483d3fb253b3c40fe337c7933c9a0e6fcf97b68b6da96d54536b9fc08a46e328",
+      "scope": "preserved prior evidence, original findings remain bounded by source"
+    }
+  ],
+  "implementation_sources": [
+    {
+      "path": "backend/orbitiq/orbits/engine.py",
+      "bytes": 3912,
+      "sha256": "509c00730325ca2d24cca4d13260473a598ebfd9666f62b9ea40855f0804ae26",
+      "scope": "propagate inclusive 7-day guard, nominal UTC Julian date; not executed"
+    },
+    {
+      "path": "backend/orbitiq/orbits/coordinates.py",
+      "bytes": 9427,
+      "sha256": "6ebc8491fc96118eac0fd40afc2d1eb8459d87ea7b5008819d8c17ea89e3e19b",
+      "scope": "earth_fixed same-obstime TEME to ITRS; not executed"
+    },
+    {
+      "path": "backend/orbitiq/orbits/earth_orientation.py",
+      "bytes": 7863,
+      "sha256": "fb26e1a75294f1515f48faa301463d750ad89caf1b48f136068a6ab8f7fdf6ec",
+      "scope": "orientation/resources/parameters offline resources and preflight"
+    },
+    {
+      "path": "scripts/inspect_igs_reference.py",
+      "bytes": 20249,
+      "sha256": "87d100608dd306b2db051d9babdd34b8ed03ccf86233cd0dacac09ebb0b28cda",
+      "scope": "qualify per-epoch guard and frozen first anchor, nominal_identity; source reviewed only"
+    },
+    {
+      "path": "scripts/inspect_historical_xml.py",
+      "bytes": 18016,
+      "sha256": "3be501542c8116a1fda0e6e3fe05aaa38fdf1957d975c8707f50e34d9c29e5ca",
+      "scope": "document/inspect_record/inspect_attachment/main configurable target; synthetic execution only"
+    },
+    {
+      "path": "backend/tests/test_historical_xml_intake.py",
+      "bytes": 24071,
+      "sha256": "413a5971c7af497d2b2f5c15cf107ff558280415be6ec6c7cf03a75f89810210",
+      "scope": "synthetic controls, original G30 assertions retained"
+    }
+  ],
+  "qualification_matrix": [
+    {
+      "requirement": "configured_intake",
+      "status": "PASS",
+      "evidence_category": "D",
+      "evidence": "Both supported targets explicit; default39533 retained, XML parser/capture reused.",
+      "limitations": "No real file inspected; fixture success is software-only.",
+      "next_evidence_required": "Original G05 provider attachment and separate intake review."
+    },
+    {
+      "requirement": "request_submission",
+      "status": "PASS",
+      "evidence_category": "user confirmation",
+      "evidence": "User reports submission2026-10-24T18:08:31Z,35752,Dec25-31,XML.",
+      "limitations": "Only stage1; no email address retained.",
+      "next_evidence_required": "Original received attachment plus actual receipt evidence."
+    },
+    {
+      "requirement": "historical_input",
+      "status": "BLOCKED",
+      "evidence_category": "U",
+      "evidence": "No requested XML inspected or eligible record established.",
+      "limitations": "Current GP or epoch alone cannot establish historical availability.",
+      "next_evidence_required": "Byte-preserved complete provider response, original hash/provenance, metadata review."
+    },
+    {
+      "requirement": "nominal_identity",
+      "status": "PARTIAL",
+      "evidence_category": "D/P",
+      "evidence": "G05/G050/35752/2009-043A dated assignment inspected.",
+      "limitations": "No actual GP identity; SVN/PRN not supported OMM fields.",
+      "next_evidence_required": "Actual NORAD/COSPAR and metadata validity, dated source cross-check."
+    },
+    {
+      "requirement": "time_grid_and_guard",
+      "status": "PASS",
+      "evidence_category": "D/P",
+      "evidence": "Existing exact96-epoch grid and forward-only all-epoch guard recovered.",
+      "limitations": "Specified/reused evidence only; no real-input computation.",
+      "next_evidence_required": "Future exact GP epoch, hashes and pinned resource checks."
+    },
+    {
+      "requirement": "G05_quality_fields",
+      "status": "PASS",
+      "evidence_category": "D/P",
+      "evidence": "96 P,288 XYZ codes, no blank/99, no marked M/P; own summary noX/E/M.",
+      "limitations": "Metadata completeness is not physical accuracy or no actual events.",
+      "next_evidence_required": "Approved quality mask and documented producer-indicator use."
+    },
+    {
+      "requirement": "G05_quality_uncertainty",
+      "status": "PARTIAL",
+      "evidence_category": "D/P/U",
+      "evidence": "Own header2 encodes4 format-mm; own weighted statistic3 and dynamics82 separate.",
+      "limitations": "No covariance, calibrated truth error, producer mapping or joint uncertainty.",
+      "next_evidence_required": "G05-specific statistic/encoding provenance and reviewed bounded claims policy; no invented covariance."
+    },
+    {
+      "requirement": "frame_realization",
+      "status": "BLOCKED",
+      "evidence_category": "D/P/U",
+      "evidence": "Actual IGS20, Astropy ITRS no realization selector.",
+      "limitations": "IGS20 alignment to ITRF2020 does not qualify computed ITRS.",
+      "next_evidence_required": "Reviewed applicable TEME/ITRS-to-IGS20 realization treatment with independent controls."
+    },
+    {
+      "requirement": "EOP_resource_coverage",
+      "status": "PASS",
+      "evidence_category": "D",
+      "evidence": "Reused all96 E8 IERS-B-final support preflight and pinned resources.",
+      "limitations": "Coverage only, not subdaily model compatibility; not freshly rerun.",
+      "next_evidence_required": "Recheck pinned resources before future authorized computation."
+    },
+    {
+      "requirement": "EOP_model_compatibility",
+      "status": "PARTIAL",
+      "evidence_category": "D/P/U",
+      "evidence": "E8.3 source rechecked: GMST82,polar motion,s-prime0; no explicit subdaily routines.",
+      "limitations": "No 2024 combination ERP/high-frequency inventory or justified correction.",
+      "next_evidence_required": "Product-era ERP/model inventory and avoid-double-counting review."
+    },
+    {
+      "requirement": "physical_reference_point",
+      "status": "BLOCKED",
+      "evidence_category": "D/P/U",
+      "evidence": "G050 IIR-M metadata/current ANTEX G01/G02 entries and general CoM convention.",
+      "limitations": "Historical ANTEX/attitude revision and GP fitted point not established.",
+      "next_evidence_required": "2024 actual historical calibration/attitude processing evidence and GP physical-point treatment or justified bound/restricted claim."
+    },
+    {
+      "requirement": "provenance_and_independence",
+      "status": "BLOCKED",
+      "evidence_category": "P/U",
+      "evidence": "IGS combined sources include ESA; E8.5 source dependencies preserved.",
+      "limitations": "Historical availability, complete fitting lineage and statistical independence unknown.",
+      "next_evidence_required": "Actual original GP source metadata; dependency assessment; restrict to retrospective product disagreement."
+    },
+    {
+      "requirement": "protocol_review_and_authorization",
+      "status": "BLOCKED",
+      "evidence_category": "I/U",
+      "evidence": "Versioned G05 pre-inspection proposal; original G30 unchanged.",
+      "limitations": "Proposal is not approval, qualified input or executable comparison.",
+      "next_evidence_required": "Independent review/frozen inputs/resources/mask and explicit scientific calculation authorization."
+    }
+  ],
+  "verification": {
+    "synthetic_XML_tests": {
+      "passed": 83,
+      "scope": "58 preserved E8.1.1 tests plus 25 G05/configuration controls; synthetic, not evidence acquisition"
+    },
+    "targeted_related_tests": {
+      "passed": 321,
+      "duration_seconds": 15.07,
+      "includes_same_83_XML_tests": true,
+      "modules": [
+        "test_historical_xml_intake.py",
+        "test_historical_csv_intake.py",
+        "test_historical_gp_intake.py",
+        "test_historical_gp_reconciliation.py",
+        "test_igs_feasibility.py"
+      ],
+      "evidence_class": "SYNTHETIC_OR_PUBLISHED_NUMERICAL_TEST_FIXTURES_NOT_ACQUIRED_HISTORICAL_GP"
+    },
+    "full_application_browser_PDF_remote_CI": "NOT_RUN",
+    "documentation_and_consistency_checks": {
+      "status": "PASS",
+      "checks": [
+        "Markdown/JSON Prettier",
+        "Ruff lint and format, changed source/tests",
+        "local Markdown links",
+        "source and implementation hash consistency",
+        "original G30 protocol and exact full-grid guard derivation",
+        "own G05 raw fields and antenna locators",
+        "submission-only state separation",
+        "private metadata manifest/permissions/Git exclusion",
+        "privacy-pattern and complete addition/delta whitespace review"
+      ],
+      "scope": "Current local state only; no remote CI or scientific qualification"
+    }
+  },
+  "safeguards": {
+    "actual_requested_XML_inspected": false,
+    "real_GP_selected": false,
+    "real_input_propagation": false,
+    "real_spacecraft_transformation": false,
+    "orbital_interpolation_or_extrapolation": false,
+    "residuals_calculated": false,
+    "new_numerical_uncertainty_estimates": false,
+    "source_independence_established": false,
+    "database_modified": false,
+    "original_research_inputs_modified": false,
+    "network_or_authentication_used": false,
+    "publication_or_deployment": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN",
+  "preservation": {
+    "four_worktree_branches_and_HEADs_unchanged": true,
+    "originally_tracked_files_unchanged": 380,
+    "prior_E82_to_E87_additions_unchanged": 12,
+    "original_E811_additions_unchanged": 3,
+    "original_private_files_unchanged": 72,
+    "prior_private_manifest_entries_unchanged": 103,
+    "prior_research_input_inventory_unchanged": 178,
+    "original_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_schema_version": 3,
+    "database_snapshots": 2,
+    "new_private_quality_metadata_files": 1,
+    "new_private_quality_manifest_files": 1,
+    "new_repository_files": 6,
+    "git_index_empty": true,
+    "local_preservation_is_independent_backup": false
+  },
+  "acquisition_follow_up": {
+    "phase": "E8.7.2",
+    "report": "engineering-e8.7.2-g05-xml-intake.md",
+    "evidence": "engineering-e8.7.2-g05-intake-evidence.json",
+    "kind": "subsequent_acquisition_and_intake_update_preserving_E871_snapshot",
+    "original_XML_captured": true,
+    "observed_record_count": 10,
+    "identity_status": "PASS_local_metadata_consistency_not_transport_authentication",
+    "temporal_only_pass_count": 8,
+    "strict_static_candidate_count": 0,
+    "reason": "CREATION_DATE and ORIGINATOR blank in all10records; original validation requirements retained.",
+    "scientific_status": "BLOCKED",
+    "scientific_comparison_authorized": false
+  }
+}

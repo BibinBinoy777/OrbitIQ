@@ -1,0 +1,4353 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7",
+  "review_date_utc": "2026-10-24",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "overall_scientific_status": "BLOCKED — ADDITIONAL EVIDENCE REQUIRED",
+  "discovery_result": "PARTIALLY VERIFIED; no genuine qualified comparison pair established",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "recommendation": {
+    "first_acquisition_case_id": "E87-2024001-G05",
+    "recommended_for_acquisition_only": true,
+    "unique_scientific_best_established": false,
+    "selected_comparison_pair": null,
+    "selected_GP_record": null,
+    "why": "Already acquired reference and a date-specific nominal identity; metadata-complete screen tied with eight alternatives. Lowest-PRN administrative queue order, not an accuracy result.",
+    "genuine_historical_GP_exists_for_recommendation": "UNKNOWN",
+    "scientific_authorization_granted": false
+  },
+  "inventory": {
+    "scope": "Existing worktree research-data directories plus non-instruction scientific uploads; published fixture metadata separately reviewed. Not a claim about other files/accounts.",
+    "preexisting_file_count": 178,
+    "preexisting_inventory_sha256": "d8644cbd209f31dfe10d779962ff484c104e271c270ec25431ea30e0e2cfcba3",
+    "distinct_local_IGS_final_reference_days": 1,
+    "IGS_reference_named_and_body_copy_same_hash": true,
+    "genuine_historical_GPS_provider_dataset_locally_acquired": false,
+    "historical_GPS_XML_found": false,
+    "published_historical_epoch_GPS_verification_TLE_locally_present": true,
+    "historical_Swarm_CSV": {
+      "archive_copies": 3,
+      "distinct_hashes": 1,
+      "bytes_each": 644,
+      "SHA256": "2b5712d5c2fe3fd6f8106633cb84780d6562eb455f49922fbbbbe9d09a26f1c4",
+      "records_each": 3,
+      "norad_catalog_id": 39452,
+      "GPS_candidate": false,
+      "raw_files_private": true
+    },
+    "original_historical_JSON_record_count": null,
+    "current_GPS_capture": {
+      "source_id": "gps-current",
+      "records": 32,
+      "minimum_epoch_raw": "2026-10-19T07:47:32.523072",
+      "maximum_epoch_raw": "2026-10-23T22:32:16.581120",
+      "eligible_for_January2024": false,
+      "historical_availability_inferred": false
+    },
+    "synthetic_IGS_fixtures_are_not_acquired_evidence": true,
+    "other_private_ESA_products_not_IGS_GPS_references": true,
+    "archive_listed_final_filenames": [
+      "IGS0OPSFIN_20233650000_01D_15M_ORB.SP3.gz",
+      "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "IGS0OPSFIN_20240020000_01D_15M_ORB.SP3.gz",
+      "IGS0OPSFIN_20240030000_01D_15M_ORB.SP3.gz",
+      "IGS0OPSFIN_20240040000_01D_15M_ORB.SP3.gz",
+      "IGS0OPSFIN_20240050000_01D_15M_ORB.SP3.gz",
+      "IGS0OPSFIN_20240060000_01D_15M_ORB.SP3.gz"
+    ],
+    "original_historical_JSON": {
+      "bytes": 1227,
+      "sha256": "c55dc4cbb2331a162014833a1a354e6f62ff4572d5238954b8108f69cae3053c",
+      "strict_json_valid": false,
+      "parse_error": "Expecting value",
+      "parse_error_byte_offset_0based": 128,
+      "validated_record_count": null,
+      "raw_NORAD_tokens": ["39452", "39452", "39452"],
+      "raw_tokens_are_not_validated_records": true,
+      "empty_response": false,
+      "original_modified": false
+    }
+  },
+  "source_catalog": {
+    "igs-final-2024001": {
+      "capture": {
+        "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+        "retrieved_at": "2026-10-24T05:00:22.757926+00:00",
+        "status": 200,
+        "bytes": 102609,
+        "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+        "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+        "content_type": "application/x-gzip",
+        "redirects": []
+      },
+      "private_body_relative_path": "original/igs-final-2024001.bin",
+      "version_or_scope": "retained original E8 acquisition; record-specific scope defined by source and case fields",
+      "source_area": "E8 original private archive",
+      "named_copy": "original/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz"
+    },
+    "igs-final-summary-2295": {
+      "capture": {
+        "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+        "retrieved_at": "2026-10-24T05:00:22.758539+00:00",
+        "status": 200,
+        "bytes": 23095,
+        "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870",
+        "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+        "content_type": "application/x-gzip",
+        "redirects": []
+      },
+      "private_body_relative_path": "original/igs-final-summary-2295.bin",
+      "version_or_scope": "retained original E8 acquisition; record-specific scope defined by source and case fields",
+      "source_area": "E8 original private archive"
+    },
+    "igs-satellite-metadata": {
+      "capture": {
+        "source_url": "https://files.igs.org/pub/station/general/igs_satellite_metadata.snx",
+        "retrieved_at": "2026-10-24T04:56:17.746107+00:00",
+        "status": 200,
+        "final_url": "https://files.igs.org/pub/station/general/igs_satellite_metadata.snx",
+        "bytes": 277829,
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "content_type": null,
+        "redirects": []
+      },
+      "private_body_relative_path": "original/igs-satellite-metadata.bin",
+      "version_or_scope": "retained original E8 acquisition; record-specific scope defined by source and case fields",
+      "source_area": "E8 original private archive"
+    },
+    "bkg-2295": {
+      "capture": {
+        "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/",
+        "retrieved_at": "2026-10-24T04:59:37.701721+00:00",
+        "status": 200,
+        "bytes": 49439,
+        "sha256": "a62431bd24e40aa17d1cfe8feeb85cbf767c851cdc32592afa57479b9cf22e6c",
+        "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/",
+        "content_type": "text/html;charset=ISO-8859-1",
+        "redirects": []
+      },
+      "private_body_relative_path": "original/bkg-2295.bin",
+      "version_or_scope": "retained original E8 acquisition; record-specific scope defined by source and case fields",
+      "source_area": "E8 original private archive"
+    },
+    "gps-current": {
+      "capture": {
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=gps-ops&FORMAT=JSON",
+        "retrieved_at": "2026-10-24T04:58:29.302996+00:00",
+        "status": 200,
+        "bytes": 13256,
+        "sha256": "8e1b961369ba5d083ec99b792453e26e82217f0ac609dc6f4eece432a0f5ef87",
+        "final_url": "https://celestrak.org/NORAD/elements/gp.php",
+        "content_type": "application/json; charset=UTF-8",
+        "redirects": []
+      },
+      "private_body_relative_path": "original/gps-current.bin",
+      "version_or_scope": "retained original E8 acquisition; record-specific scope defined by source and case fields",
+      "source_area": "E8 original private archive"
+    },
+    "celestrak-formats": {
+      "capture": {
+        "source_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+        "retrieved_at": "2026-10-24T04:56:16.516304+00:00",
+        "status": 200,
+        "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+        "bytes": 40338,
+        "sha256": "b4b9fb137a35d80cd7d50c886b76900e33d679ecbc7ccffd4763bd496f706c76",
+        "content_type": "text/html; charset=UTF-8",
+        "redirects": []
+      },
+      "private_body_relative_path": "original/celestrak-formats.bin",
+      "version_or_scope": "retained original E8 acquisition; record-specific scope defined by source and case fields",
+      "source_area": "E8 original private archive"
+    },
+    "bkg-1381-index": {
+      "capture": {
+        "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/1381/",
+        "retrieved_at_utc": "2026-10-24T17:49:53.327453Z",
+        "completed_at_utc": "2026-10-24T17:49:55.841007Z",
+        "status": 404,
+        "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/1381/",
+        "content_type": "text/html; charset=iso-8859-1",
+        "bytes": 196,
+        "sha256": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880"
+      },
+      "private_body_relative_path": "data/e8.7-alternate-pair-discovery/original/bkg-1381-index.bin",
+      "source_area": "E8.7 private public-document capture",
+      "version_or_scope": "Anonymous historical directory probe; HTTP404 is not proof of global archive absence"
+    },
+    "vallado-paper": {
+      "capture": {
+        "source_url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+        "retrieved_at_utc": "2026-10-24T17:49:53.328612Z",
+        "completed_at_utc": "2026-10-24T17:49:54.071946Z",
+        "status": 200,
+        "final_url": "https://celestrak.org/publications/AIAA/2006-6753/AIAA-2006-6753-Rev2.pdf",
+        "content_type": "application/pdf",
+        "bytes": 667568,
+        "sha256": "538a5c0ea174eb569bbc258011717142a26d72871ab07cc64ee5fa3773164b16"
+      },
+      "private_body_relative_path": "data/e8.7-alternate-pair-discovery/original/vallado-paper.bin",
+      "source_area": "E8.7 private public-document capture",
+      "version_or_scope": "AIAA-2006-6753-Rev2, Appendix D, printed page35; numerical test-input provenance only"
+    },
+    "protocol": {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+      "bytes": 12848,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "parser": {
+      "path": "scripts/inspect_igs_reference.py",
+      "sha256": "87d100608dd306b2db051d9babdd34b8ed03ccf86233cd0dacac09ebb0b28cda",
+      "bytes": 20249,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "fixture": {
+      "path": "backend/tests/fixtures/phase61-sgp4.json",
+      "sha256": "1c80919455bb34136c064fffe664bc5414f11b4308fe2b895f1756173c69f73d",
+      "bytes": 12977,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "fixture-provenance": {
+      "path": "backend/tests/fixtures/README.md",
+      "sha256": "f0e875bcbcd80f611bf012ab985df9e9e3bf8217ac103098a8074b78566db6fa",
+      "bytes": 12522,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "e82": {
+      "path": "docs/engineering-e8.2-reference-evidence.json",
+      "sha256": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+      "bytes": 15299,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "e83": {
+      "path": "docs/engineering-e8.3-frame-eop-evidence.json",
+      "sha256": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+      "bytes": 41223,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "e84": {
+      "path": "docs/engineering-e8.4-quality-evidence.json",
+      "sha256": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0",
+      "bytes": 35912,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "e85": {
+      "path": "docs/engineering-e8.5-source-provenance-evidence.json",
+      "sha256": "fb0beabdf7d43062e3c0657f24257df792e4bc8edb4261abb4f703c342e77749",
+      "bytes": 56308,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "e86": {
+      "path": "docs/engineering-e8.6-g30-statistic-evidence.json",
+      "sha256": "34f36197dd3a3409822b08cba9d6cb65e7a0cbca33edf9ddeb48f0eba660b728",
+      "bytes": 84331,
+      "version_or_scope": "unchanged existing project evidence; not new orbital calculations"
+    },
+    "installed-verification-TLE": {
+      "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/sgp4/SGP4-VER.TLE",
+      "sha256": "d246d1d9d768ace445a38a965713fa9ba52d80fd8a41a0502ff83d7acffe2881",
+      "bytes": 8616,
+      "version_or_scope": "python-sgp4 2.27 installed published verification source; first69-byte lines compared only"
+    },
+    "e81-access-report": {
+      "path": "/workspace/OrbitIQ-E8.1-qualification-report.md",
+      "sha256": "25d55490e61220fe11a12e546e9b0fd67d422931e3fc43c66584287fc5340d62",
+      "bytes": 11791,
+      "version_or_scope": "prior access assessment and provider route; not a new authenticated check"
+    }
+  },
+  "reference_identity": {
+    "product_name": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "source_sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "source_bytes": 102609,
+    "expanded_sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c",
+    "expanded_bytes": 253250,
+    "frame_declaration": "IGS20",
+    "time_system": "GPS",
+    "epoch_count": 96,
+    "sampling_seconds": 900,
+    "satellite_ids": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32"
+    ],
+    "position_counts": {
+      "G01": 96,
+      "G02": 96,
+      "G03": 96,
+      "G04": 96,
+      "G05": 96,
+      "G06": 96,
+      "G07": 96,
+      "G08": 96,
+      "G09": 96,
+      "G10": 96,
+      "G11": 96,
+      "G12": 96,
+      "G13": 96,
+      "G14": 96,
+      "G15": 96,
+      "G16": 96,
+      "G17": 96,
+      "G18": 96,
+      "G19": 96,
+      "G20": 96,
+      "G21": 96,
+      "G22": 96,
+      "G23": 96,
+      "G24": 96,
+      "G25": 96,
+      "G26": 96,
+      "G27": 96,
+      "G28": 96,
+      "G29": 96,
+      "G30": 96,
+      "G31": 96,
+      "G32": 96
+    }
+  },
+  "ranking_policy": {
+    "scope": "Acquisition/discovery priority, not scientific eligibility or accuracy ranking",
+    "dimensions": [
+      "historical_data_acquisition_feasibility",
+      "identity_confidence",
+      "reference_product_availability",
+      "potential_epoch_eligibility",
+      "scientific_qualification_risks",
+      "unresolved_dependencies"
+    ],
+    "order": [
+      "Acquired reference before listing-only/unconfirmed reference",
+      "TierA metadata-complete and no summaryX/E/M; TierB complete but flagged; TierC missing required quality metadata",
+      "Historical GP availability/eligibility tied unknown; ascendingPRN administrative order within tier; originalG30unranked baseline"
+    ],
+    "numeric_quality_magnitudes_used": false,
+    "residuals_used": false,
+    "new_eclipse_hard_rejection_rule": false,
+    "GP_ambiguity_rule_changed": false,
+    "aggregate_accuracy_or_independence_score": null,
+    "nominal_calendar_identity_time_scale_qualified": false
+  },
+  "screen_counts": {
+    "acquired_product_satellites": 32,
+    "alternative_satellites": 31,
+    "TierA_including_G30": 10,
+    "TierA_alternatives": 9,
+    "TierB_alternatives": 3,
+    "TierC_alternatives": 19,
+    "listing_only_date_cases": 2,
+    "published_input_research_leads": 1,
+    "total_case_records": 35
+  },
+  "common_unresolved_dependencies": [
+    "No acquired original historical GPS GP for the proposed interval; existence/delivery unknown.",
+    "Actual GP identity, fields/model/time/precision and latest-unique eligibility not assessed.",
+    "Frame/IGS realization and subdaily EOP/ERP compatibility unresolved.",
+    "Target-specific historical CoM/antenna/attitude and GP fitted point unqualified.",
+    "Reference quality/indicator applicability and uncertainty/claims policy incomplete.",
+    "Complete fitting lineage, source dependencies and statistical independence unestablished.",
+    "Versioned replacement-target/intake/protocol review and explicit scientific authorization required."
+  ],
+  "acquired_day_cases": [
+    {
+      "case_id": "E87-2024001-G01",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G01",
+        "svn": "G063",
+        "norad_catalog_id": 37753,
+        "cospar_id": "2011-036A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1040,
+        "PRN_line_1based": 1647,
+        "assignment_begin_raw": "2011:197:00000",
+        "assignment_end_raw": "2024:103:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1585,
+            "svn": "G032",
+            "from": "1992:327:00000",
+            "to": "2008:291:00000"
+          },
+          {
+            "line": 1596,
+            "svn": "G035",
+            "from": "2011:153:00000",
+            "to": "2011:194:00000"
+          },
+          {
+            "line": 1605,
+            "svn": "G037",
+            "from": "2008:297:00000",
+            "to": "2009:007:00000"
+          },
+          {
+            "line": 1621,
+            "svn": "G049",
+            "from": "2009:083:00000",
+            "to": "2011:127:00000"
+          },
+          {
+            "line": 1633,
+            "svn": "G049",
+            "from": "2024:113:00000",
+            "to": "2024:352:00000"
+          },
+          {
+            "line": 1647,
+            "svn": "G063",
+            "from": "2011:197:00000",
+            "to": "2024:103:00000"
+          },
+          {
+            "line": 1665,
+            "svn": "G080",
+            "from": "2024:352:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [10, 12],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 5,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 694,
+        "label": "X1",
+        "excluded_statistics": true,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "20"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 13,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "5 blank Y sigma fields in original96epoch grid; not silently filled or trimmed",
+          "Summary X: excluded from statistics though retained in orbit product"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G02",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G02",
+        "svn": "G061",
+        "norad_catalog_id": 28474,
+        "cospar_id": "2004-045A",
+        "block_type_from_identifier": "GPS-IIR-B"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1038,
+        "PRN_line_1based": 1645,
+        "assignment_begin_raw": "2004:311:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1563,
+            "svn": "G013",
+            "from": "1989:161:00000",
+            "to": "2004:134:00000"
+          },
+          {
+            "line": 1645,
+            "svn": "G061",
+            "from": "2004:311:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [13, 15],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 695,
+        "label": "2",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "23"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 14,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "1 blank X sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G03",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G03",
+        "svn": "G069",
+        "norad_catalog_id": 40294,
+        "cospar_id": "2014-068A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1046,
+        "PRN_line_1based": 1653,
+        "assignment_begin_raw": "2014:302:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1562,
+            "svn": "G011",
+            "from": "1985:282:00000",
+            "to": "1994:108:00000"
+          },
+          {
+            "line": 1590,
+            "svn": "G033",
+            "from": "1996:088:00000",
+            "to": "2014:231:00000"
+          },
+          {
+            "line": 1598,
+            "svn": "G035",
+            "from": "2014:248:00000",
+            "to": "2014:294:00000"
+          },
+          {
+            "line": 1653,
+            "svn": "G069",
+            "from": "2014:302:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [16, 18],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 3,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 696,
+        "label": "3E",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": true,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "35"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 15,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "3 blank X sigma fields in original96epoch grid; not silently filled or trimmed",
+          "Summary E: Earth-eclipsing review need, not a maneuver flag or new hard rejection"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G04",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G04",
+        "svn": "G074",
+        "norad_catalog_id": 43873,
+        "cospar_id": "2018-109A",
+        "block_type_from_identifier": "GPS-IIIA"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1051,
+        "PRN_line_1based": 1659,
+        "assignment_begin_raw": "2019:294:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1553,
+            "svn": "G001",
+            "from": "1978:053:00000",
+            "to": "1985:199:00000"
+          },
+          {
+            "line": 1589,
+            "svn": "G032",
+            "from": "2016:259:00000",
+            "to": "2016:341:00000"
+          },
+          {
+            "line": 1591,
+            "svn": "G034",
+            "from": "1993:299:00000",
+            "to": "2015:314:00000"
+          },
+          {
+            "line": 1592,
+            "svn": "G034",
+            "from": "2016:344:00000",
+            "to": "2017:004:00000"
+          },
+          {
+            "line": 1601,
+            "svn": "G036",
+            "from": "2017:201:00000",
+            "to": "2017:333:00000"
+          },
+          {
+            "line": 1602,
+            "svn": "G036",
+            "from": "2018:283:00000",
+            "to": "2019:005:00000"
+          },
+          {
+            "line": 1603,
+            "svn": "G036",
+            "from": "2019:194:00000",
+            "to": "2019:282:00000"
+          },
+          {
+            "line": 1609,
+            "svn": "G038",
+            "from": "2017:139:00000",
+            "to": "2017:196:00000"
+          },
+          {
+            "line": 1629,
+            "svn": "G049",
+            "from": "2016:033:00000",
+            "to": "2016:258:00000"
+          },
+          {
+            "line": 1630,
+            "svn": "G049",
+            "from": "2017:006:00000",
+            "to": "2017:133:00000"
+          },
+          {
+            "line": 1631,
+            "svn": "G049",
+            "from": "2017:335:00000",
+            "to": "2018:272:00000"
+          },
+          {
+            "line": 1658,
+            "svn": "G074",
+            "from": "2019:009:00000",
+            "to": "2019:194:00000"
+          },
+          {
+            "line": 1659,
+            "svn": "G074",
+            "from": "2019:294:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [19, 21],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 4
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 697,
+        "label": "4",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "44"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 16,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "4 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G05",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G05",
+        "svn": "G050",
+        "norad_catalog_id": 35752,
+        "cospar_id": "2009-043A",
+        "block_type_from_identifier": "GPS-IIR-M"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1027,
+        "PRN_line_1based": 1634,
+        "assignment_begin_raw": "2009:229:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1557,
+            "svn": "G005",
+            "from": "1980:040:00000",
+            "to": "1984:133:00000"
+          },
+          {
+            "line": 1594,
+            "svn": "G035",
+            "from": "1993:242:00000",
+            "to": "2009:160:00000"
+          },
+          {
+            "line": 1634,
+            "svn": "G050",
+            "from": "2009:229:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [22, 24],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 698,
+        "label": "5",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "82"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 1,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G06",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G06",
+        "svn": "G067",
+        "norad_catalog_id": 39741,
+        "cospar_id": "2014-026A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1044,
+        "PRN_line_1based": 1651,
+        "assignment_begin_raw": "2014:137:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1555,
+            "svn": "G003",
+            "from": "1978:279:00000",
+            "to": "1992:140:00000"
+          },
+          {
+            "line": 1599,
+            "svn": "G036",
+            "from": "1994:069:00000",
+            "to": "2014:063:00000"
+          },
+          {
+            "line": 1627,
+            "svn": "G049",
+            "from": "2014:093:00000",
+            "to": "2014:126:00000"
+          },
+          {
+            "line": 1651,
+            "svn": "G067",
+            "from": "2014:137:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [25, 27],
+        "raw": "  1",
+        "decoded_format_indicator_mm": "2",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 5,
+          "y": 1,
+          "z": 7
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 699,
+        "label": "6",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "20"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 17,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "5 blank X sigma fields in original96epoch grid; not silently filled or trimmed",
+          "1 blank Y sigma fields in original96epoch grid; not silently filled or trimmed",
+          "7 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G07",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G07",
+        "svn": "G048",
+        "norad_catalog_id": 32711,
+        "cospar_id": "2008-012A",
+        "block_type_from_identifier": "GPS-IIR-M"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1025,
+        "PRN_line_1based": 1620,
+        "assignment_begin_raw": "2008:075:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1554,
+            "svn": "G002",
+            "from": "1978:133:00000",
+            "to": "1988:044:00000"
+          },
+          {
+            "line": 1604,
+            "svn": "G037",
+            "from": "1993:133:00000",
+            "to": "2008:015:00000"
+          },
+          {
+            "line": 1620,
+            "svn": "G048",
+            "from": "2008:075:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [28, 30],
+        "raw": "  1",
+        "decoded_format_indicator_mm": "2",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 5,
+          "z": 6
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 700,
+        "label": "7",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "24"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 18,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "5 blank Y sigma fields in original96epoch grid; not silently filled or trimmed",
+          "6 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G08",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G08",
+        "svn": "G072",
+        "norad_catalog_id": 40730,
+        "cospar_id": "2015-033A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1049,
+        "PRN_line_1based": 1656,
+        "assignment_begin_raw": "2015:196:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1556,
+            "svn": "G004",
+            "from": "1978:344:00000",
+            "to": "1989:288:00000"
+          },
+          {
+            "line": 1608,
+            "svn": "G038",
+            "from": "1997:310:00000",
+            "to": "2015:104:00000"
+          },
+          {
+            "line": 1628,
+            "svn": "G049",
+            "from": "2015:120:00000",
+            "to": "2015:183:00000"
+          },
+          {
+            "line": 1656,
+            "svn": "G072",
+            "from": "2015:196:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [31, 33],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 701,
+        "label": "8E",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": true,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "5",
+        "last_IGS_raw": "42"
+      },
+      "discovery_tier": "B",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 10,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "Summary E: Earth-eclipsing review need, not a maneuver flag or new hard rejection"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G09",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G09",
+        "svn": "G068",
+        "norad_catalog_id": 40105,
+        "cospar_id": "2014-045A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1045,
+        "PRN_line_1based": 1652,
+        "assignment_begin_raw": "2014:214:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1558,
+            "svn": "G006",
+            "from": "1980:117:00000",
+            "to": "1991:066:00000"
+          },
+          {
+            "line": 1610,
+            "svn": "G039",
+            "from": "1993:177:00000",
+            "to": "2014:203:00000"
+          },
+          {
+            "line": 1652,
+            "svn": "G068",
+            "from": "2014:214:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [34, 36],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 702,
+        "label": "9",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "42"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 2,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G10",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G10",
+        "svn": "G073",
+        "norad_catalog_id": 41019,
+        "cospar_id": "2015-062A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1050,
+        "PRN_line_1based": 1657,
+        "assignment_begin_raw": "2015:304:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1600,
+            "svn": "G036",
+            "from": "2015:259:00000",
+            "to": "2015:300:00000"
+          },
+          {
+            "line": 1611,
+            "svn": "G040",
+            "from": "1996:198:00000",
+            "to": "2015:216:00000"
+          },
+          {
+            "line": 1657,
+            "svn": "G073",
+            "from": "2015:304:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [37, 39],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 703,
+        "label": "10E",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": true,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "28"
+      },
+      "discovery_tier": "B",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 11,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "Summary E: Earth-eclipsing review need, not a maneuver flag or new hard rejection"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G11",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G11",
+        "svn": "G078",
+        "norad_catalog_id": 48859,
+        "cospar_id": "2021-054A",
+        "block_type_from_identifier": "GPS-IIIA"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1055,
+        "PRN_line_1based": 1663,
+        "assignment_begin_raw": "2021:168:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1559,
+            "svn": "G008",
+            "from": "1983:195:00000",
+            "to": "1993:125:00000"
+          },
+          {
+            "line": 1618,
+            "svn": "G046",
+            "from": "1999:280:00000",
+            "to": "2021:100:00000"
+          },
+          {
+            "line": 1663,
+            "svn": "G078",
+            "from": "2021:168:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [40, 42],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 704,
+        "label": "11",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "28"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 3,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G12",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G12",
+        "svn": "G058",
+        "norad_catalog_id": 29601,
+        "cospar_id": "2006-052A",
+        "block_type_from_identifier": "GPS-IIR-M"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1035,
+        "PRN_line_1based": 1642,
+        "assignment_begin_raw": "2006:321:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1561,
+            "svn": "G010",
+            "from": "1984:252:00000",
+            "to": "1996:088:00000"
+          },
+          {
+            "line": 1642,
+            "svn": "G058",
+            "from": "2006:321:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [43, 45],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 705,
+        "label": "12",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "50"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 4,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G13",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G13",
+        "svn": "G043",
+        "norad_catalog_id": 24876,
+        "cospar_id": "1997-035A",
+        "block_type_from_identifier": "GPS-IIR-A"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1020,
+        "PRN_line_1based": 1614,
+        "assignment_begin_raw": "1997:204:00000",
+        "assignment_end_raw": "2026:114:79200",
+        "PRN_assignment_history": [
+          {
+            "line": 1560,
+            "svn": "G009",
+            "from": "1984:165:00000",
+            "to": "1994:172:00000"
+          },
+          {
+            "line": 1614,
+            "svn": "G043",
+            "from": "1997:204:00000",
+            "to": "2026:114:79200"
+          },
+          {
+            "line": 1668,
+            "svn": "G083",
+            "from": "2026:115:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [46, 48],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 706,
+        "label": "13",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "19"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 5,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G14",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G14",
+        "svn": "G077",
+        "norad_catalog_id": 46826,
+        "cospar_id": "2020-078A",
+        "block_type_from_identifier": "GPS-IIIA"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1054,
+        "PRN_line_1based": 1662,
+        "assignment_begin_raw": "2020:310:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1564,
+            "svn": "G014",
+            "from": "1989:045:00000",
+            "to": "2000:109:00000"
+          },
+          {
+            "line": 1612,
+            "svn": "G041",
+            "from": "2000:315:00000",
+            "to": "2020:210:00000"
+          },
+          {
+            "line": 1662,
+            "svn": "G077",
+            "from": "2020:310:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [49, 51],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 2
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 707,
+        "label": "14",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "35"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 19,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "2 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G15",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G15",
+        "svn": "G055",
+        "norad_catalog_id": 32260,
+        "cospar_id": "2007-047A",
+        "block_type_from_identifier": "GPS-IIR-M"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1032,
+        "PRN_line_1based": 1639,
+        "assignment_begin_raw": "2007:290:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1565,
+            "svn": "G015",
+            "from": "1990:274:00000",
+            "to": "2007:074:00000"
+          },
+          {
+            "line": 1639,
+            "svn": "G055",
+            "from": "2007:290:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [52, 54],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 6,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 708,
+        "label": "15",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "28"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 20,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "6 blank Y sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G16",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G16",
+        "svn": "G056",
+        "norad_catalog_id": 27663,
+        "cospar_id": "2003-005A",
+        "block_type_from_identifier": "GPS-IIR-A"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1033,
+        "PRN_line_1based": 1640,
+        "assignment_begin_raw": "2003:029:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1566,
+            "svn": "G016",
+            "from": "1989:230:00000",
+            "to": "2000:288:00000"
+          },
+          {
+            "line": 1640,
+            "svn": "G056",
+            "from": "2003:029:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [55, 57],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 709,
+        "label": "16",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "26"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 6,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G17",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G17",
+        "svn": "G053",
+        "norad_catalog_id": 28874,
+        "cospar_id": "2005-038A",
+        "block_type_from_identifier": "GPS-IIR-M"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1030,
+        "PRN_line_1based": 1637,
+        "assignment_begin_raw": "2005:269:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1567,
+            "svn": "G017",
+            "from": "1989:345:00000",
+            "to": "2005:055:00000"
+          },
+          {
+            "line": 1637,
+            "svn": "G053",
+            "from": "2005:269:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 8,
+        "columns_1based_inclusive": [58, 60],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 7,
+          "z": 3
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 710,
+        "label": "17E",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": true,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "37"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 21,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "7 blank Y sigma fields in original96epoch grid; not silently filled or trimmed",
+          "3 blank Z sigma fields in original96epoch grid; not silently filled or trimmed",
+          "Summary E: Earth-eclipsing review need, not a maneuver flag or new hard rejection"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G18",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G18",
+        "svn": "G075",
+        "norad_catalog_id": 44506,
+        "cospar_id": "2019-056A",
+        "block_type_from_identifier": "GPS-IIIA"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1052,
+        "PRN_line_1based": 1660,
+        "assignment_begin_raw": "2020:073:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1568,
+            "svn": "G018",
+            "from": "1990:024:00000",
+            "to": "2000:232:00000"
+          },
+          {
+            "line": 1593,
+            "svn": "G034",
+            "from": "2018:066:79200",
+            "to": "2020:070:00000"
+          },
+          {
+            "line": 1638,
+            "svn": "G054",
+            "from": "2001:030:00000",
+            "to": "2018:064:79200"
+          },
+          {
+            "line": 1660,
+            "svn": "G075",
+            "from": "2020:073:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [10, 12],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 711,
+        "label": "18",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "28"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 7,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G19",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G19",
+        "svn": "G059",
+        "norad_catalog_id": 28190,
+        "cospar_id": "2004-009A",
+        "block_type_from_identifier": "GPS-IIR-B"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1036,
+        "PRN_line_1based": 1643,
+        "assignment_begin_raw": "2004:080:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1569,
+            "svn": "G019",
+            "from": "1989:294:00000",
+            "to": "2001:257:00000"
+          },
+          {
+            "line": 1643,
+            "svn": "G059",
+            "from": "2004:080:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [13, 15],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 712,
+        "label": "19E",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": true,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "4",
+        "last_IGS_raw": "43"
+      },
+      "discovery_tier": "B",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 12,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "Summary E: Earth-eclipsing review need, not a maneuver flag or new hard rejection"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G20",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G20",
+        "svn": "G051",
+        "norad_catalog_id": 26360,
+        "cospar_id": "2000-025A",
+        "block_type_from_identifier": "GPS-IIR-A"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1028,
+        "PRN_line_1based": 1635,
+        "assignment_begin_raw": "2000:132:00000",
+        "assignment_end_raw": "2026:008:79200",
+        "PRN_assignment_history": [
+          {
+            "line": 1570,
+            "svn": "G020",
+            "from": "1990:085:00000",
+            "to": "1996:349:00000"
+          },
+          {
+            "line": 1635,
+            "svn": "G051",
+            "from": "2000:132:00000",
+            "to": "2026:008:79200"
+          },
+          {
+            "line": 1667,
+            "svn": "G082",
+            "from": "2026:028:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [16, 18],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 3,
+          "y": 0,
+          "z": 3
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 713,
+        "label": "20",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "21"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 22,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "3 blank X sigma fields in original96epoch grid; not silently filled or trimmed",
+          "3 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G21",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G21",
+        "svn": "G045",
+        "norad_catalog_id": 27704,
+        "cospar_id": "2003-010A",
+        "block_type_from_identifier": "GPS-IIR-A"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1022,
+        "PRN_line_1based": 1617,
+        "assignment_begin_raw": "2003:090:00000",
+        "assignment_end_raw": "2025:095:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1571,
+            "svn": "G021",
+            "from": "1990:214:00000",
+            "to": "2003:028:00000"
+          },
+          {
+            "line": 1617,
+            "svn": "G045",
+            "from": "2003:090:00000",
+            "to": "2025:095:00000"
+          },
+          {
+            "line": 1666,
+            "svn": "G081",
+            "from": "2025:150:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [19, 21],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 3,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 714,
+        "label": "21",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "22"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 23,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "3 blank X sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G22",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G22",
+        "svn": "G044",
+        "norad_catalog_id": 26407,
+        "cospar_id": "2000-040A",
+        "block_type_from_identifier": "GPS-IIR-A"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1021,
+        "PRN_line_1based": 1616,
+        "assignment_begin_raw": "2023:222:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1572,
+            "svn": "G022",
+            "from": "1993:034:00000",
+            "to": "2003:219:00000"
+          },
+          {
+            "line": 1613,
+            "svn": "G041",
+            "from": "2022:020:00000",
+            "to": "2023:220:00000"
+          },
+          {
+            "line": 1616,
+            "svn": "G044",
+            "from": "2023:222:00000",
+            "to": "0000:000:00000"
+          },
+          {
+            "line": 1619,
+            "svn": "G047",
+            "from": "2003:355:00000",
+            "to": "2022:019:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [22, 24],
+        "raw": "  1",
+        "decoded_format_indicator_mm": "2",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 2,
+          "z": 4
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 715,
+        "label": "22",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "31"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 24,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "2 blank Y sigma fields in original96epoch grid; not silently filled or trimmed",
+          "4 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G23",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G23",
+        "svn": "G076",
+        "norad_catalog_id": 45854,
+        "cospar_id": "2020-041A",
+        "block_type_from_identifier": "GPS-IIIA"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1053,
+        "PRN_line_1based": 1661,
+        "assignment_begin_raw": "2020:196:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1573,
+            "svn": "G023",
+            "from": "1990:330:00000",
+            "to": "2004:054:00000"
+          },
+          {
+            "line": 1644,
+            "svn": "G060",
+            "from": "2004:175:00000",
+            "to": "2020:162:00000"
+          },
+          {
+            "line": 1661,
+            "svn": "G076",
+            "from": "2020:196:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [25, 27],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 716,
+        "label": "23",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "4",
+        "last_IGS_raw": "42"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 8,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G24",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G24",
+        "svn": "G065",
+        "norad_catalog_id": 38833,
+        "cospar_id": "2012-053A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1042,
+        "PRN_line_1based": 1649,
+        "assignment_begin_raw": "2012:278:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1575,
+            "svn": "G024",
+            "from": "1991:185:00000",
+            "to": "2011:274:00000"
+          },
+          {
+            "line": 1586,
+            "svn": "G032",
+            "from": "2012:075:00000",
+            "to": "2012:117:00000"
+          },
+          {
+            "line": 1606,
+            "svn": "G037",
+            "from": "2012:117:00000",
+            "to": "2012:152:00000"
+          },
+          {
+            "line": 1622,
+            "svn": "G049",
+            "from": "2012:033:00000",
+            "to": "2012:075:00000"
+          },
+          {
+            "line": 1623,
+            "svn": "G049",
+            "from": "2012:222:00000",
+            "to": "2012:236:00000"
+          },
+          {
+            "line": 1649,
+            "svn": "G065",
+            "from": "2012:278:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [28, 30],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 717,
+        "label": "24",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "28"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 25,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "1 blank Y sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G25",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G25",
+        "svn": "G062",
+        "norad_catalog_id": 36585,
+        "cospar_id": "2010-022A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1039,
+        "PRN_line_1based": 1646,
+        "assignment_begin_raw": "2010:148:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1576,
+            "svn": "G025",
+            "from": "1992:054:00000",
+            "to": "2010:040:00000"
+          },
+          {
+            "line": 1595,
+            "svn": "G035",
+            "from": "2010:040:00000",
+            "to": "2010:148:00000"
+          },
+          {
+            "line": 1646,
+            "svn": "G062",
+            "from": "2010:148:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [31, 33],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 718,
+        "label": "25",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "26"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 9,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G26",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G26",
+        "svn": "G071",
+        "norad_catalog_id": 40534,
+        "cospar_id": "2015-013A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1048,
+        "PRN_line_1based": 1655,
+        "assignment_begin_raw": "2015:084:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1577,
+            "svn": "G026",
+            "from": "1992:189:00000",
+            "to": "2015:006:00000"
+          },
+          {
+            "line": 1580,
+            "svn": "G027",
+            "from": "2015:058:00000",
+            "to": "2015:076:00000"
+          },
+          {
+            "line": 1588,
+            "svn": "G032",
+            "from": "2015:036:00000",
+            "to": "2015:056:00000"
+          },
+          {
+            "line": 1655,
+            "svn": "G071",
+            "from": "2015:084:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [34, 36],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 719,
+        "label": "26",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "28"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 26,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "1 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G27",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G27",
+        "svn": "G066",
+        "norad_catalog_id": 39166,
+        "cospar_id": "2013-023A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1043,
+        "PRN_line_1based": 1650,
+        "assignment_begin_raw": "2013:135:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1578,
+            "svn": "G027",
+            "from": "1992:253:00000",
+            "to": "2012:292:00000"
+          },
+          {
+            "line": 1624,
+            "svn": "G049",
+            "from": "2012:292:00000",
+            "to": "2013:130:00000"
+          },
+          {
+            "line": 1650,
+            "svn": "G066",
+            "from": "2013:135:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [37, 39],
+        "raw": "  3",
+        "decoded_format_indicator_mm": "8",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 14,
+          "y": 7,
+          "z": 20
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 96,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 720,
+        "label": "X27E",
+        "excluded_statistics": true,
+        "eclipse_earth_flag": true,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "11",
+        "last_IGS_raw": "14"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 27,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "14 blank X sigma fields in original96epoch grid; not silently filled or trimmed",
+          "7 blank Y sigma fields in original96epoch grid; not silently filled or trimmed",
+          "20 blank Z sigma fields in original96epoch grid; not silently filled or trimmed",
+          "Summary E: Earth-eclipsing review need, not a maneuver flag or new hard rejection",
+          "Summary X: excluded from statistics though retained in orbit product"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G28",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G28",
+        "svn": "G079",
+        "norad_catalog_id": 55268,
+        "cospar_id": "2023-009A",
+        "block_type_from_identifier": "GPS-IIIA"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1056,
+        "PRN_line_1based": 1664,
+        "assignment_begin_raw": "2023:031:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1581,
+            "svn": "G028",
+            "from": "1992:101:00000",
+            "to": "1997:228:00000"
+          },
+          {
+            "line": 1615,
+            "svn": "G044",
+            "from": "2000:198:00000",
+            "to": "2022:299:00000"
+          },
+          {
+            "line": 1632,
+            "svn": "G049",
+            "from": "2022:299:00000",
+            "to": "2022:307:00000"
+          },
+          {
+            "line": 1664,
+            "svn": "G079",
+            "from": "2023:031:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [40, 42],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 5,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 721,
+        "label": "X28",
+        "excluded_statistics": true,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "53"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 28,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "5 blank X sigma fields in original96epoch grid; not silently filled or trimmed",
+          "Summary X: excluded from statistics though retained in orbit product"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G29",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G29",
+        "svn": "G057",
+        "norad_catalog_id": 32384,
+        "cospar_id": "2007-062A",
+        "block_type_from_identifier": "GPS-IIR-M"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1034,
+        "PRN_line_1based": 1641,
+        "assignment_begin_raw": "2007:354:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1582,
+            "svn": "G029",
+            "from": "1992:353:00000",
+            "to": "2007:297:00000"
+          },
+          {
+            "line": 1641,
+            "svn": "G057",
+            "from": "2007:354:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [43, 45],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 3
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 722,
+        "label": "29E",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": true,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "3",
+        "last_IGS_raw": "86"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 29,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "3 blank Z sigma fields in original96epoch grid; not silently filled or trimmed",
+          "Summary E: Earth-eclipsing review need, not a maneuver flag or new hard rejection"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G30",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G30",
+        "svn": "G064",
+        "norad_catalog_id": 39533,
+        "cospar_id": "2014-008A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1041,
+        "PRN_line_1based": 1648,
+        "assignment_begin_raw": "2014:052:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1579,
+            "svn": "G027",
+            "from": "2013:337:00000",
+            "to": "2013:352:00000"
+          },
+          {
+            "line": 1583,
+            "svn": "G030",
+            "from": "1996:256:00000",
+            "to": "2011:217:00000"
+          },
+          {
+            "line": 1587,
+            "svn": "G032",
+            "from": "2013:234:00000",
+            "to": "2013:260:00000"
+          },
+          {
+            "line": 1597,
+            "svn": "G035",
+            "from": "2011:217:00000",
+            "to": "2013:127:00000"
+          },
+          {
+            "line": 1607,
+            "svn": "G037",
+            "from": "2013:262:00000",
+            "to": "2013:281:00000"
+          },
+          {
+            "line": 1625,
+            "svn": "G049",
+            "from": "2013:130:00000",
+            "to": "2013:234:00000"
+          },
+          {
+            "line": 1626,
+            "svn": "G049",
+            "from": "2013:353:00000",
+            "to": "2014:042:00000"
+          },
+          {
+            "line": 1648,
+            "svn": "G064",
+            "from": "2014:052:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [46, 48],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": true,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 723,
+        "label": "30",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "25"
+      },
+      "discovery_tier": "A",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": null,
+      "ranking_disposition": "ORIGINAL_G30_BASELINE_UNRANKED",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "No supported-profile missing quality/marked-orbit or summary X/E/M issue found; this is a metadata screen only"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": false,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G31",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G31",
+        "svn": "G052",
+        "norad_catalog_id": 29486,
+        "cospar_id": "2006-042A",
+        "block_type_from_identifier": "GPS-IIR-M"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1029,
+        "PRN_line_1based": 1636,
+        "assignment_begin_raw": "2006:268:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1584,
+            "svn": "G031",
+            "from": "1993:089:00000",
+            "to": "2005:298:00000"
+          },
+          {
+            "line": 1636,
+            "svn": "G052",
+            "from": "2006:268:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [49, 51],
+        "raw": "  1",
+        "decoded_format_indicator_mm": "2",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 3,
+          "y": 6,
+          "z": 0
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 724,
+        "label": "31",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "14"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 30,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "3 blank X sigma fields in original96epoch grid; not silently filled or trimmed",
+          "6 blank Y sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-2024001-G32",
+      "reference_GPS_calendar_day": "2024-01-01",
+      "satellite": {
+        "prn": "G32",
+        "svn": "G070",
+        "norad_catalog_id": 41328,
+        "cospar_id": "2016-007A",
+        "block_type_from_identifier": "GPS-IIF"
+      },
+      "identity_evidence": {
+        "source_id": "igs-satellite-metadata",
+        "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "identifier_line_1based": 1047,
+        "PRN_line_1based": 1654,
+        "assignment_begin_raw": "2016:036:00000",
+        "assignment_end_raw": "0000:000:00000",
+        "PRN_assignment_history": [
+          {
+            "line": 1574,
+            "svn": "G023",
+            "from": "2006:336:00000",
+            "to": "2016:026:00000"
+          },
+          {
+            "line": 1654,
+            "svn": "G070",
+            "from": "2016:036:00000",
+            "to": "0000:000:00000"
+          }
+        ],
+        "nominal_calendar_checks": [
+          "2023-12-25T00:00:00",
+          "2023-12-31T00:00:00",
+          "2024-01-01T00:00:00",
+          "2024-01-01T23:45:00"
+        ],
+        "same_physical_mapping_at_checks": true,
+        "scope": "unique nominal civil-calendar mapping; metadata interval time scale at sub-second boundaries remains unqualified"
+      },
+      "reference_source_id": "igs-final-2024001",
+      "reference_availability": "VERIFIED_LOCAL",
+      "header_accuracy_own": {
+        "line_1based": 9,
+        "columns_1based_inclusive": [52, 54],
+        "raw": "  2",
+        "decoded_format_indicator_mm": "4",
+        "scope": "format code only; not a calibrated bound"
+      },
+      "quality_counts_own": {
+        "P_records": 96,
+        "blank_xyz_codes": {
+          "x": 3,
+          "y": 0,
+          "z": 3
+        },
+        "censored99_xyz_codes": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "maneuver_markers": 0,
+        "prediction_markers": 0,
+        "missing_clock_markers": 0,
+        "complete_supported_P_quality_fields": false,
+        "missing_position_records": 0
+      },
+      "weekly_summary_own": {
+        "line": 725,
+        "label": "32",
+        "excluded_statistics": false,
+        "eclipse_earth_flag": false,
+        "eclipse_moon_flag": false,
+        "first_IGS_raw": "2",
+        "last_IGS_raw": "43"
+      },
+      "discovery_tier": "C",
+      "discovery_tier_is_scientific_PASS": false,
+      "acquisition_priority": 31,
+      "ranking_disposition": "CONDITIONAL_ACQUISITION_CANDIDATE",
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Request route known; actual historical response/delivery/record existence UNKNOWN; equal evidence across January1cases",
+        "identity_confidence": "SUPPORTED nominal-date metadata mapping; genuine GP identity still requires inspection",
+        "reference_product_availability": "Acquired original reference,96records for this PRN; hashes verified",
+        "potential_epoch_eligibility": "Potential interval identified from unchanged grid; actual record eligibility NOT ASSESSED, no eligible pair established",
+        "scientific_qualification_risks": [
+          "3 blank X sigma fields in original96epoch grid; not silently filled or trimmed",
+          "3 blank Z sigma fields in original96epoch grid; not silently filled or trimmed"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "historical_GP_for_interval_locally_acquired": false,
+      "potential_GP_epoch_interval_inclusive": [
+        "2023-12-25T23:44:42Z",
+        "2023-12-31T23:59:42Z"
+      ],
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "source_independence_established": false,
+      "replacement_protocol_change_required": true,
+      "assessment_status": "PARTIALLY VERIFIED — metadata only; science BLOCKED",
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    }
+  ],
+  "listing_only_date_cases": [
+    {
+      "case_id": "E87-LISTED-2023-12-31-G05",
+      "reference_GPS_calendar_day": "2023-12-31",
+      "satellite": {
+        "prn": "G05",
+        "svn": "G050",
+        "norad_catalog_id": 35752,
+        "cospar_id": "2009-043A"
+      },
+      "identity_evidence": {
+        "prn": "G05",
+        "svn": "G050",
+        "cospar_id": "2009-043A",
+        "catalog_id": 35752,
+        "valid_from_raw": "2009:229:00000",
+        "valid_to_raw": "0000:000:00000",
+        "metadata_sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "scope": "nominal civil-calendar identity only; metadata interval time scale requires review at boundaries"
+      },
+      "reference_availability": "LISTED_ONLY_NOT_ACQUIRED",
+      "reference_listing_source_id": "bkg-2295",
+      "product_filename": "IGS0OPSFIN_20233650000_01D_15M_ORB.SP3.gz",
+      "product_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_01D_15M_ORB.SP3.gz",
+      "acquisition_priority": 32,
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Route known; actual historical GP availability UNKNOWN",
+        "identity_confidence": "Supported nominal-date mapping, not actual product/GP pairing",
+        "reference_product_availability": "Filename linked by retained archive listing; body not acquired or inspected",
+        "potential_epoch_eligibility": "NOT ASSESSED; actual reference grid/time declarations required; no eligible window invented from filename",
+        "scientific_qualification_risks": [
+          "Frame/time/grid/target records/quality not inspected for this product; do not transfer January1/G30 results"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "potential_GP_epoch_interval_inclusive": null,
+      "historical_GP_for_interval_locally_acquired": false,
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "assessment_status": "UNVERIFIED — listing-only discovery lead",
+      "replacement_protocol_change_required": true,
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    },
+    {
+      "case_id": "E87-LISTED-2024-01-02-G05",
+      "reference_GPS_calendar_day": "2024-01-02",
+      "satellite": {
+        "prn": "G05",
+        "svn": "G050",
+        "norad_catalog_id": 35752,
+        "cospar_id": "2009-043A"
+      },
+      "identity_evidence": {
+        "prn": "G05",
+        "svn": "G050",
+        "cospar_id": "2009-043A",
+        "catalog_id": 35752,
+        "valid_from_raw": "2009:229:00000",
+        "valid_to_raw": "0000:000:00000",
+        "metadata_sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+        "scope": "nominal civil-calendar identity only; metadata interval time scale requires review at boundaries"
+      },
+      "reference_availability": "LISTED_ONLY_NOT_ACQUIRED",
+      "reference_listing_source_id": "bkg-2295",
+      "product_filename": "IGS0OPSFIN_20240020000_01D_15M_ORB.SP3.gz",
+      "product_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240020000_01D_15M_ORB.SP3.gz",
+      "acquisition_priority": 33,
+      "ranking_dimensions": {
+        "historical_data_acquisition_feasibility": "Route known; actual historical GP availability UNKNOWN",
+        "identity_confidence": "Supported nominal-date mapping, not actual product/GP pairing",
+        "reference_product_availability": "Filename linked by retained archive listing; body not acquired or inspected",
+        "potential_epoch_eligibility": "NOT ASSESSED; actual reference grid/time declarations required; no eligible window invented from filename",
+        "scientific_qualification_risks": [
+          "Frame/time/grid/target records/quality not inspected for this product; do not transfer January1/G30 results"
+        ],
+        "unresolved_dependencies": {
+          "reference": "common_unresolved_dependencies"
+        }
+      },
+      "potential_GP_epoch_interval_inclusive": null,
+      "historical_GP_for_interval_locally_acquired": false,
+      "eligible_pair_established": false,
+      "GP_record_selected": false,
+      "assessment_status": "UNVERIFIED — listing-only discovery lead",
+      "replacement_protocol_change_required": true,
+      "decision_evidence_category": "inference",
+      "historical_operational_GP_availability_evidence_category": "unknown"
+    }
+  ],
+  "published_input_research_case": {
+    "case_id": "E87-PUBLISHED-28129-20060625",
+    "reference_GPS_calendar_day_proposed": "2006-06-25",
+    "satellite": {
+      "prn": "G22",
+      "svn": "G047",
+      "norad_catalog_id": 28129,
+      "cospar_id": "2003-058A"
+    },
+    "identity_evidence": {
+      "prn": "G22",
+      "svn": "G047",
+      "cospar_id": "2003-058A",
+      "catalog_id": 28129,
+      "valid_from_raw": "2003:355:00000",
+      "valid_to_raw": "2022:019:00000",
+      "metadata_sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+      "scope": "nominal civil-calendar identity only; metadata interval time scale requires review at boundaries"
+    },
+    "reference_availability": "NOT_LOCAL; BKG candidate directory probe HTTP404; other archive route not authenticated",
+    "reference_probe_source_id": "bkg-1381-index",
+    "published_input_evidence": {
+      "fixture_path": "backend/tests/fixtures/phase61-sgp4.json",
+      "fixture_sha256": "1c80919455bb34136c064fffe664bc5414f11b4308fe2b895f1756173c69f73d",
+      "source_installed_path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/sgp4/SGP4-VER.TLE",
+      "source_installed_sha256": "d246d1d9d768ace445a38a965713fa9ba52d80fd8a41a0502ff83d7acffe2881",
+      "source_sha_matches_recorded_provenance": true,
+      "tle_epoch_field_raw": "06175.57071136",
+      "exact_TLE_epoch_utc_from_decimal": "2006-06-24T13:41:49.461504Z",
+      "fixture_OMM_epoch_raw": "2006-06-24T13:41:49.461503",
+      "mismatch_requires_review": true,
+      "unmodified_operational_GP_authenticity_established": false,
+      "fixture_or_TLE_modified": false
+    },
+    "official_paper_source_id": "vallado-paper",
+    "paper_locator": "Appendix D, printed page35, NAVSTAR53 / USA175 / non-resonant GPS; verification timing extensions explained at Appendix D opening",
+    "local_historical_epoch_GPS_verification_TLE_exists": true,
+    "original_historical_provider_export_acquired": false,
+    "unmodified_operational_GP_authenticity_established": false,
+    "acquisition_priority": 34,
+    "ranking_dimensions": {
+      "historical_data_acquisition_feasibility": "Published historical-epoch test input exists; original operational GP authenticity/lineage not established",
+      "identity_confidence": "Supported nominal2006 G22/G047/28129, different physical satellite from January2024 G22/G044/26407",
+      "reference_product_availability": "No corresponding IGS body acquired; anonymous BKG directory404 is not global absence proof",
+      "potential_epoch_eligibility": "NOT ASSESSED; original reference grid missing and fixture OMM precision differs from exact TLE epoch",
+      "scientific_qualification_risks": [
+        "Published test-input lineage is not original government operational fit provenance",
+        "TLE exact epoch461504us versus stored exported OMM461503us; not repaired or accepted",
+        "Old reference frame/time/profile/point/quality not inspected; IGS20 qualification not transferable"
+      ],
+      "unresolved_dependencies": {
+        "reference": "common_unresolved_dependencies"
+      }
+    },
+    "eligible_pair_established": false,
+    "GP_record_selected": false,
+    "replacement_protocol_change_required": true,
+    "assessment_status": "UNQUALIFIED RESEARCH LEAD — BLOCKED",
+    "decision_evidence_category": "inference",
+    "historical_operational_GP_availability_evidence_category": "unknown"
+  },
+  "minimum_complete_window_request": {
+    "submitted": false,
+    "route": "CelesTrak GP Special Data Request",
+    "route_url": "https://celestrak.org/NORAD/archives/request.php",
+    "route_evidence": "Link present in retained celestrak-formats capture; user-reported G30 request demonstrates submission route, not GPS history delivery. Form not newly submitted/accessed here.",
+    "norad_catalog_id": 35752,
+    "cospar_id": "2009-043A",
+    "svn": "G050",
+    "historical_prn": "G05",
+    "UTC_element_epoch_start_calendar_date": "2023-12-25",
+    "UTC_element_epoch_end_calendar_date_inclusive": "2023-12-31",
+    "format": "Original provider-supported JSON/CSV or OMM XML if offered; do not manufacture XML or missing metadata",
+    "all_records_required": true,
+    "latest_one_limit_allowed": false,
+    "full_exact_window_inclusive": [
+      "2023-12-25T23:44:42Z",
+      "2023-12-31T23:59:42Z"
+    ],
+    "window_source": "Preserved v0.1 time rule and same96epochreference grid; applies only as a proposed new-target window",
+    "availability_or_delivery_guaranteed": false,
+    "original_receipt_time_known": false,
+    "private_accounts_or_credentials_used": false,
+    "alternate_route": "Authorized holder may supply original Space-Track history export; no authentication/query attempted"
+  },
+  "protocol_proposal": {
+    "existing_protocol_changed": false,
+    "version_proposed_for_future_review": "v0.2 replacement-target review; not executed or scientifically authorized",
+    "original_G30_study_preserved": true,
+    "proposed_target_case": "E87-2024001-G05",
+    "same_reference_grid_and_guard": true,
+    "latest_unique_fixed_GP_no_ambiguity_fallback": true,
+    "reason": "New target discovery authorized; original G30 attachment absent; G05 identity and metadata screen inspected without outcomes.",
+    "required_intake_change": "E8.1.1 XML inspector hard-codes39533; future reviewed target-aware intake needed. Do not relabel originals or claim current inspector qualifies35752."
+  },
+  "preserved_document_hashes": {
+    "docs/engineering-e8.2-reference-evidence.json": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+    "docs/engineering-e8.2-reference-qualification.md": "11c7cf31107c3a20cae68a094f8a8b32eb5d0900eddfe21501731545913a3a2f",
+    "docs/engineering-e8.3-frame-eop-evidence.json": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+    "docs/engineering-e8.3-frame-eop-qualification.md": "d0546aa40b8779bfcb029ead333c52b907c642699cc7196a406e258bdac4bb92",
+    "docs/engineering-e8.4-quality-evidence.json": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0",
+    "docs/engineering-e8.4-quality-qualification.md": "a23c374ef275546af1e9c6be55e62a290a5f30765d8f154faf88aee6c47b130d",
+    "docs/engineering-e8.5-source-provenance-evidence.json": "fb0beabdf7d43062e3c0657f24257df792e4bc8edb4261abb4f703c342e77749",
+    "docs/engineering-e8.5-source-provenance.md": "447a7cf3674f0bb35fb16bddd1473b96ed5428947bc9cee25441f8e83ec9d8f1",
+    "docs/engineering-e8.6-g30-statistic-evidence.json": "34f36197dd3a3409822b08cba9d6cb65e7a0cbca33edf9ddeb48f0eba660b728",
+    "docs/engineering-e8.6-g30-statistic-reconciliation.md": "79c2690e96c1e4a69ddca36826d17e6e1f23f3b155b2c346cf11d56e28b11c8d",
+    "docs/engineering-e8-comparison-protocol.md": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+    "docs/engineering-e8-feasibility-report.md": "71e5282440e17ef07e1cb6bef878c7a688f432a1cd6165f4cd48884b6fde8f93",
+    "docs/engineering-e8-plan.md": "32db1a91af78b87666379df5d7e4f1b03dc5e8c225f0f094b0835832b53e5412",
+    "docs/engineering-e8-source-evidence.json": "ec48aa4adca8cb4bc0001d7f489d5a1ba4f6d839568fe49812fc3efc27062626",
+    "docs/engineering-e8-verification.md": "ecfe85bf2b66cefcdc05283d7a9d14acd1c616b0706502688e8cbeb0c17c38c9"
+  },
+  "preservation": {
+    "old_private_manifest_counts": [53, 8, 20, 4, 14],
+    "new_public_source_capture_files": 4,
+    "new_private_manifest_path": "data/e8.7-alternate-pair-discovery/preservation-manifest.json",
+    "new_private_manifest_SHA256": "359f886d216125a27591b24dddaae276cc244a80220fd67b7db81f71a8f28cf8",
+    "database_SHA256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "database_schema": 3,
+    "database_snapshots": 2,
+    "original_private_files": 72
+  },
+  "verification": {
+    "existing_pure_identity_function_reused": true,
+    "synthetic_identity_tests_passed": 3,
+    "other_tests_deselected": 43,
+    "reported_duration_seconds": "0.64",
+    "junit_artifact": "/tmp/orbitiq-e87/SYNTHETIC-identity-tests.xml",
+    "test_evidence_is_synthetic_not_acquired_science": true,
+    "documentation_and_evidence_checks": "PASS",
+    "full_backend_frontend_suites_rerun": false,
+    "browser_PDF_build_remote_CI_rerun": false,
+    "draft_inventory_correction": "An initial JSON-then-CSV fallback classified malformed JSON as zero CSV rows. Independent strict parsing caught this; the report now states malformed original JSON with unknown validated count. Original bytes were never repaired or changed.",
+    "check_groups": {
+      "scientific_boundaries_and_acquisition_only_recommendation": "PASS",
+      "all_source_receipts_versions_original_product_hashes_and_actual_HTTP_200_404": "PASS",
+      "178_file_inventory_Swarm_duplicates_current_GPS_and_published_input_distinguished": "PASS",
+      "32_date_specific_identities_128_calendar_controls_3072_quality_records_and_own_summary_rows": "PASS",
+      "transparent_9_3_19_metadata_tiers_and_administrative_not_accuracy_ranking": "PASS",
+      "listing_only_dates_published_GPS_input_PRN_reuse_and_unmodified_precision_limitation": "PASS",
+      "smallest_complete_calendar_request_protocol_proposal_and_three_synthetic_tests": "PASS",
+      "four_worktrees_prior_reports_380_tracked_72_private_99_manifest_entries_database_and_new_private_capture_safety": "PASS",
+      "JSON_Markdown_links_privacy_format_whitespace_and_complete_two_file_diff": "PASS"
+    },
+    "verified_counts": {
+      "acquired_day_satellites_checked": 32,
+      "nominal_calendar_identity_controls": 128,
+      "original_P_quality_records_checked": 3072,
+      "case_records": 35,
+      "alternative_PRNs": 31,
+      "TierA_alternatives": 9,
+      "TierB_alternatives": 3,
+      "TierC_alternatives": 19,
+      "prior_inventory_files_preserved": 178
+    },
+    "review_artifact": "/tmp/orbitiq-e87/review-results.json"
+  },
+  "safeguards": {
+    "application_code_changed": false,
+    "test_or_dependency_changed": false,
+    "protocol_changed": false,
+    "original_research_input_modified": false,
+    "database_modified": false,
+    "historical_GP_fabricated_or_reconstructed": false,
+    "GP_selected_or_qualified": false,
+    "real_GP_propagated": false,
+    "real_spacecraft_transformed": false,
+    "orbital_states_interpolated_or_extrapolated": false,
+    "orbital_residuals_calculated": false,
+    "new_uncertainty_or_accuracy_claim": false,
+    "source_independence_inferred": false,
+    "private_account_accessed": false,
+    "authentication_attempted": false,
+    "provider_request_submitted": false,
+    "Git_publication_performed": false,
+    "production_deployment_performed": false
+  },
+  "scientifically_accepted_epochs": 0,
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN",
+  "raw_private_GP_or_orbital_positions_exported": false,
+  "evidence_category_definitions": {
+    "direct observation": "Literal retained byte/hash/metadata evidence; not a new position measurement.",
+    "authoritative documentation": "What the identified provider/publication documents, within its version/scope.",
+    "inference": "Acquisition ranking and proposed protocol changes, not scientific acceptance.",
+    "unknown": "Historical GP existence, uninspected product contents or unresolved qualifications."
+  }
+}

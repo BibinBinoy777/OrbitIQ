@@ -1,0 +1,379 @@
+{
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "review_date_utc": "2026-10-24",
+  "status": "BLOCKED",
+  "scope": "E8.2 reference qualification assessment; metadata only; no executable scientific comparison",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "previous_e8_evidence_sha256": "ec48aa4adca8cb4bc0001d7f489d5a1ba4f6d839568fe49812fc3efc27062626",
+  "unchanged_protocol_sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+  "retained_source_captures": {
+    "igs-final-2024001": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "retrieved_at": "2026-10-24T05:00:22.757926+00:00",
+      "status": 200,
+      "bytes": 102609,
+      "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "content_type": "application/x-gzip",
+      "redirects": []
+    },
+    "igs-final-summary-2295": {
+      "source_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+      "retrieved_at": "2026-10-24T05:00:22.758539+00:00",
+      "status": 200,
+      "bytes": 23095,
+      "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870",
+      "final_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/IGS0OPSFIN_20233650000_07D_01D_SUM.SUM.gz",
+      "content_type": "application/x-gzip",
+      "redirects": []
+    },
+    "igs-products": {
+      "source_url": "https://igs.org/products/",
+      "retrieved_at": "2026-10-24T04:56:16.515961+00:00",
+      "status": 200,
+      "final_url": "https://igs.org/products/",
+      "bytes": 1189063,
+      "sha256": "f84af4dbae028a2a960d0ff136678fde4b1a075ad9f3a2b7efb4b65d248efd0e",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "igs-frames": {
+      "source_url": "https://igs.org/wg/reference-frame/",
+      "retrieved_at": "2026-10-24T04:56:17.253859+00:00",
+      "status": 200,
+      "final_url": "https://igs.org/wg/reference-frame/",
+      "bytes": 1110895,
+      "sha256": "1440565f2df5810aab50bb4ce59d0e404b94a8f884707e4934eec76e054a3dd5",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "igs-antenna-conventions": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+      "retrieved_at": "2026-10-24T05:00:22.759070+00:00",
+      "status": 200,
+      "bytes": 52994,
+      "sha256": "ac844f38cd1c1a1eafbaa45d7ba0baf89b0787cf307fb42ba645b03dc195da9d",
+      "final_url": "https://files.igs.org/pub/data/format/sp3c.txt",
+      "content_type": "text/plain; charset=UTF-8",
+      "redirects": []
+    },
+    "sp3-spec": {
+      "source_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "retrieved_at": "2026-10-24T04:56:17.157263+00:00",
+      "status": 200,
+      "final_url": "https://files.igs.org/pub/data/format/sp3d.pdf",
+      "bytes": 321385,
+      "sha256": "0809fe6571816a9b8394b46b8851b9bfbab956b46f7acab5af6eb62acee5ebbe",
+      "content_type": "application/pdf",
+      "redirects": []
+    },
+    "igs-satellite-metadata": {
+      "source_url": "https://files.igs.org/pub/station/general/igs_satellite_metadata.snx",
+      "retrieved_at": "2026-10-24T04:56:17.746107+00:00",
+      "status": 200,
+      "final_url": "https://files.igs.org/pub/station/general/igs_satellite_metadata.snx",
+      "bytes": 277829,
+      "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae",
+      "content_type": null,
+      "redirects": []
+    },
+    "igs-sinex-spec": {
+      "source_url": "https://files.igs.org/pub/resource/working_groups/multi_gnss/Metadata_SINEX_1.10.pdf",
+      "retrieved_at": "2026-10-24T05:02:29.611518+00:00",
+      "status": 200,
+      "bytes": 444029,
+      "sha256": "c31a578b33324d05df06cc694538eb88bc066ac2dde5adb4bb986946b4aa9f46",
+      "final_url": "https://files.igs.org/pub/resource/working_groups/multi_gnss/Metadata_SINEX_1.10.pdf",
+      "content_type": "application/pdf",
+      "redirects": []
+    },
+    "earthdata-orbits": {
+      "source_url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/orbit-products",
+      "retrieved_at": "2026-10-24T04:56:16.514834+00:00",
+      "status": 200,
+      "final_url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/precise-orbits-product",
+      "bytes": 147514,
+      "sha256": "7a978bdb26304238c057486eb90127aa370892ebfb1d02136e5503eecb78ee7b",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": [
+        {
+          "status": 301,
+          "url": "https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss/orbit-products"
+        }
+      ]
+    },
+    "celestrak-formats": {
+      "source_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "retrieved_at": "2026-10-24T04:56:16.516304+00:00",
+      "status": 200,
+      "final_url": "https://celestrak.org/NORAD/documentation/gp-data-formats.php",
+      "bytes": 40338,
+      "sha256": "b4b9fb137a35d80cd7d50c886b76900e33d679ecbc7ccffd4763bd496f706c76",
+      "content_type": "text/html; charset=UTF-8",
+      "redirects": []
+    },
+    "igs20-atx": {
+      "source_url": "https://files.igs.org/pub/station/general/igs20.atx",
+      "retrieved_at": "2026-10-24T05:02:29.611988+00:00",
+      "status": 200,
+      "bytes": 61579571,
+      "sha256": "0cd58d0d9ee678d5586de6c01f576e5aceb86f4a0735a168f733dfd091c0a614",
+      "final_url": "https://files.igs.org/pub/station/general/igs20.atx",
+      "content_type": "audio/ATRAC-X",
+      "redirects": []
+    },
+    "igs-frame-8238": {
+      "source_url": "https://lists.igs.org/pipermail/igsmail/2022/008238.html",
+      "retrieved_at": "2026-10-24T05:00:22.759498+00:00",
+      "status": 200,
+      "bytes": 5649,
+      "sha256": "4f31ce7cbe4ccadc5c1996e651ce5d75148cfb145f11abbaa9a5847c9d1cb363",
+      "final_url": "https://lists.igs.org/pipermail/igsmail/2022/008238.html",
+      "content_type": "text/html",
+      "redirects": []
+    }
+  },
+  "new_public_document_captures": {
+    "iers-conventions-chapter4": {
+      "source_url": "https://iers-conventions.obspm.fr/content/chapter4/icc4.pdf",
+      "retrieval_started_utc": "2026-10-24T10:01:06.836315+00:00",
+      "status": 503,
+      "final_url": "https://iers-conventions.obspm.fr/content/chapter4/icc4.pdf",
+      "content_type": "text/plain",
+      "bytes": 91,
+      "sha256": "2f85832e31ca57711e6107af6b142363351ae516adb71c69afc643fac26be7f6",
+      "completed_utc": "2026-10-24T10:01:12.534255+00:00"
+    },
+    "iers-itrs-definition": {
+      "source_url": "https://www.iers.org/IERS/EN/Science/ITRS/ITRS.html",
+      "retrieval_started_utc": "2026-10-24T10:03:24.075609+00:00",
+      "status": 404,
+      "final_url": "https://www.iers.org/IERS/EN/Science/ITRS/ITRS.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 116383,
+      "sha256": "bb434bee68e7c9c5e92f2c32d7770809260f3952cbcf2387e7a220833c98483d",
+      "completed_utc": "2026-10-24T10:03:28.338704+00:00"
+    },
+    "igs-frame-notice-8238": {
+      "source_url": "https://lists.igs.org/pipermail/igsmail/2022/008234.html",
+      "retrieval_started_utc": "2026-10-24T10:01:06.834599+00:00",
+      "status": 200,
+      "final_url": "https://lists.igs.org/pipermail/igsmail/2022/008234.html",
+      "content_type": "text/html",
+      "bytes": 18912,
+      "sha256": "93a266b57862345e0a674e2b5790eb5f8c5423dd4dbf676564a6d4e0916fb3e0",
+      "completed_utc": "2026-10-24T10:01:07.449710+00:00"
+    },
+    "igs-using-products-guide": {
+      "source_url": "https://files.igs.org/pub/resource/pubs/UsingIGSProductsVer21.pdf",
+      "retrieval_started_utc": "2026-10-24T10:01:06.835725+00:00",
+      "status": 200,
+      "final_url": "https://files.igs.org/pub/resource/pubs/UsingIGSProductsVer21.pdf",
+      "content_type": "application/pdf",
+      "bytes": 888722,
+      "sha256": "48f8f4f9a75d353a7382757df6e45fbbe65f8505d10299c3ad078e504ebbafed",
+      "completed_utc": "2026-10-24T10:01:07.907414+00:00"
+    }
+  },
+  "citation_audit": {
+    "old_label": "igs-frame-8238",
+    "old_requested_path": "2022/008238.html",
+    "actual_old_subject": "IGSMAIL-8242 Delay in IGS Rapid products",
+    "usable_as_igs20_notice": false,
+    "corrected_source": "igs-frame-notice-8238",
+    "corrected_path": "2022/008234.html",
+    "corrected_subject": "IGSMAIL-8238 Upcoming switch to IGS20/igs20.atx and repro3 standards",
+    "notice_is_advance_plan_not_actual_switch_date": true
+  },
+  "direct_reference_recheck": {
+    "product_name": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "source_sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "source_bytes": 102609,
+    "expanded_sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c",
+    "expanded_bytes": 253250,
+    "frame_declaration": "IGS20",
+    "time_system": "GPS",
+    "epoch_count": 96,
+    "sampling_seconds": 900,
+    "satellite_ids": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32"
+    ],
+    "position_counts": {
+      "G01": 96,
+      "G02": 96,
+      "G03": 96,
+      "G04": 96,
+      "G05": 96,
+      "G06": 96,
+      "G07": 96,
+      "G08": 96,
+      "G09": 96,
+      "G10": 96,
+      "G11": 96,
+      "G12": 96,
+      "G13": 96,
+      "G14": 96,
+      "G15": 96,
+      "G16": 96,
+      "G17": 96,
+      "G18": 96,
+      "G19": 96,
+      "G20": 96,
+      "G21": 96,
+      "G22": 96,
+      "G23": 96,
+      "G24": 96,
+      "G25": 96,
+      "G26": 96,
+      "G27": 96,
+      "G28": 96,
+      "G29": 96,
+      "G30": 96,
+      "G31": 96,
+      "G32": 96
+    },
+    "complete_15_minute_daily_grid": true,
+    "velocity_records": 0
+  },
+  "g30_quality": {
+    "header_exponent": 2,
+    "header_format_indicator_mm": 4,
+    "axis_exponent_counts": {
+      "x_sigma_exponent_8": 2,
+      "y_sigma_exponent_4": 51,
+      "z_sigma_exponent_5": 22,
+      "z_sigma_exponent_6": 20,
+      "x_sigma_exponent_7": 15,
+      "y_sigma_exponent_5": 33,
+      "y_sigma_exponent_6": 5,
+      "x_sigma_exponent_6": 8,
+      "z_sigma_exponent_4": 24,
+      "z_sigma_exponent_3": 17,
+      "z_sigma_exponent_2": 8,
+      "z_sigma_exponent_1": 4,
+      "x_sigma_exponent_5": 28,
+      "x_sigma_exponent_4": 25,
+      "x_sigma_exponent_3": 12,
+      "x_sigma_exponent_2": 5,
+      "x_sigma_exponent_1": 1,
+      "y_sigma_exponent_3": 7,
+      "z_sigma_exponent_7": 1
+    },
+    "all_96_basic_position_quality_exclusions_empty": true,
+    "weekly_table_1_2295_b_day_1_entry_mm": 3,
+    "weekly_table_3_2295_1_first_igs_column_source_entry": "2",
+    "weekly_statistic_reconciliation": "not_established; do not choose or silently equate values",
+    "full_uncertainty_budget_established": false
+  },
+  "reused_time_validation": {
+    "scope": "Existing E8 results, not recalculated in E8.2",
+    "first_reference_utc": "2023-12-31T23:59:42.000000Z",
+    "last_reference_utc": "2024-01-01T23:44:42.000000Z",
+    "local_resources": {
+      "source": "astropy-iers-data bundled IERS-A finals2000A.all",
+      "package_version": "0.2026.10.12.1.3.27",
+      "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+      "leap_seconds_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+      "leap_seconds_expires": "2027-06-28",
+      "first_mjd": 41684.0,
+      "last_mjd": 61682.0,
+      "predictive_mjd": 61315.0
+    },
+    "central_iers_b_final_flags": 192,
+    "reference_epochs": 96
+  },
+  "matrix": [
+    {
+      "requirement": "reference_frame_compatibility",
+      "status": "BLOCKED",
+      "closure_evidence": "Trace actual computed terrestrial axes/origin/scale and EOP/model conventions to ITRF2020/IGS20; demonstrate applicable zero alignment or justified mapping with independent controls."
+    },
+    {
+      "requirement": "time_system_compatibility",
+      "status": "PARTIAL",
+      "closure_evidence": "Retain verified GPS-to-UTC grid/resources; inspect actual GP UTC epoch/declaration and validate identical instants without rounding or unsupported leap crossing."
+    },
+    {
+      "requirement": "satellite_identity_and_continuity",
+      "status": "PARTIAL",
+      "closure_evidence": "Cross-check actual GP NORAD 39533 and COSPAR 2014-008A with retained G064/G30 interval evidence; preserve unique record provenance."
+    },
+    {
+      "requirement": "satellite_reference_point_compatibility",
+      "status": "PARTIAL",
+      "closure_evidence": "Confirm applicable 2024 precise-product CoM convention and actual GP fitted point; justify no correction or pin applicable historical attitude/antenna/CoM conventions without assuming current ANTEX is historical input."
+    },
+    {
+      "requirement": "reference_product_quality_and_uncertainty",
+      "status": "PARTIAL",
+      "closure_evidence": "Reconcile intended source statistic semantics if used numerically; review G30 per-sample flags/sigmas, missing joint uncertainty, claim limits and predeclared acceptance without adopting provider statistics as calibrated truth."
+    },
+    {
+      "requirement": "gp_source_provenance_and_independence",
+      "status": "BLOCKED",
+      "closure_evidence": "Actual original historical GP bytes, hash, provenance, exact epoch and unique selection; assess availability/lineage/dependencies or retain unknowns under explicitly reviewed retrospective claims only."
+    },
+    {
+      "requirement": "sampling_and_comparison_epoch_selection",
+      "status": "PARTIAL",
+      "closure_evidence": "Keep all 96 original indices; qualify actual GP against frozen window, retain all exclusions, review/freeze mask without interpolation or outcome-based trimming."
+    },
+    {
+      "requirement": "protocol_reproducibility_and_review",
+      "status": "PARTIAL",
+      "closure_evidence": "Freeze final eligible GP/reference/resource/software manifests and reviewed claim policy; obtain independent review and explicit comparison authorization."
+    },
+    {
+      "requirement": "product_erp_and_subdaily_model_compatibility",
+      "status": "NOT ASSESSED",
+      "closure_evidence": "Assess applicable 2024 combination ERP/regularization/sub-daily conventions against exact TEME-to-ITRS implementation; justify consistency or an approved treatment, not a blind EOP substitution."
+    }
+  ],
+  "historical_gp_received": false,
+  "eligible_historical_gp_established": false,
+  "scientifically_accepted_epochs": 0,
+  "propagation_executed": false,
+  "spacecraft_transformation_executed": false,
+  "residuals_calculated": false,
+  "protocol_changed": false,
+  "application_code_changed": false,
+  "direct_reference_checks_passed": [
+    "compressed_and_expanded_hashes",
+    "all_previously_recorded_product_metadata",
+    "96_regular_unique_epochs",
+    "3072_position_records",
+    "g30_96_records_and_basic_flags"
+  ],
+  "raw_source_data_in_this_file": false
+}

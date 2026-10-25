@@ -1,0 +1,676 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.2",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "overall_scientific_status": "BLOCKED",
+  "classification": "PARTIALLY VERIFIED \u2014 attachment captured/parsed/identity matched; strict static eligibility BLOCKED",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "authority": "User-authorized static attachment intake only. XML content treated as data, not instructions.",
+  "attachment": {
+    "original_filename": "sat000035752.xml",
+    "bytes": 10072,
+    "sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+    "private_original_path": "/workspace/attachments/fe927def-24b1-44f2-b5ae-8d538be8190e/sat000035752.xml",
+    "private_capture_path": "data/e8.7.2-g05-xml-intake/82caacb215304190ab4e33b536e3ad93/attachment.original",
+    "source": "User-supplied original attachment, asserted CelesTrak fulfillment",
+    "original_transport_independently_authenticated": false,
+    "received_at_UTC": null,
+    "receipt_time_evidence": "No original email headers or unambiguous reliable receipt metadata supplied. No inference from filesystem, upload/capture time or epoch.",
+    "raw_file_publication": "EXCLUDED_FROM_GIT_AND_ROUTINE_CI"
+  },
+  "request": {
+    "submitted_at_UTC": "2026-10-24T18:08:31Z",
+    "confirmation": "USER_REPORTED",
+    "norad_id": 35752,
+    "requested_calendar_dates_inclusive": ["2023-12-25", "2023-12-31"],
+    "format": "OMM XML"
+  },
+  "fulfillment_summary": {
+    "source": "USER_REPORTED_PROVIDER_EMAIL_SUMMARY",
+    "reported_element_set_count": 10,
+    "reported_actual_calendar_dates": ["2023-12-25", "2023-12-31"],
+    "reported_name": "NAVSTAR 64 (USA 206)",
+    "count_matches_observed": true,
+    "date_range_matches_observed": true,
+    "receipt_time_UTC": null
+  },
+  "intake_states": [
+    {
+      "stage": 1,
+      "name": "request_submitted",
+      "status": "SUBMITTED_USER_REPORTED"
+    },
+    {
+      "stage": 2,
+      "name": "fulfillment_notification_received",
+      "status": "RECEIVED_USER_REPORTED",
+      "receipt_time_UTC": null
+    },
+    {
+      "stage": 3,
+      "name": "original_XML_captured_and_hashed",
+      "status": "VERIFIED_LOCAL"
+    },
+    {
+      "stage": 4,
+      "name": "XML_parsed",
+      "status": "PARSED_WITH_REQUIRED_HEADER_VALIDATION_FAILURES",
+      "XML_well_formed": true
+    },
+    {
+      "stage": 5,
+      "name": "satellite_identity_validated",
+      "status": "PASS_LOCAL_METADATA_CONSISTENCY",
+      "limitation": "Not transport authentication or complete fitting lineage."
+    },
+    {
+      "stage": 6,
+      "name": "static_eligibility_assessed",
+      "status": "ASSESSED_NO_STRICTLY_ELIGIBLE_RECORD",
+      "temporal_only_pass_count": 8,
+      "strict_candidate_count": 0
+    },
+    {
+      "stage": 7,
+      "name": "scientific_prerequisites_qualified",
+      "status": "BLOCKED"
+    },
+    {
+      "stage": 8,
+      "name": "scientific_comparison_authorized",
+      "status": "NOT_AUTHORIZED"
+    }
+  ],
+  "parsing": {
+    "XML_well_formed": true,
+    "root_tag": "ndm",
+    "OMM_versions": ["2.0"],
+    "OMM_messages": 10,
+    "segment_count": 10,
+    "schema_scope": "Existing bounded namespace-free OMM2.0 profile, not full CCSDS XSD validation",
+    "locked_reader": "sgp4.omm.parse_xml",
+    "inspector_option": "--norad-id 35752",
+    "inspector_exit_code": 0,
+    "exit_code_meaning": "Intake completed, not static or scientific acceptance",
+    "parsing_status": "PARTIALLY VERIFIED",
+    "evidence_class": "UNVERIFIED_LOCAL_ATTACHMENT",
+    "document_errors": [],
+    "record_count": 10,
+    "catalog_ids": [35752],
+    "COSPAR_ids": ["2009-043A"],
+    "names": ["NAVSTAR 64 (USA 206)"],
+    "mixed_objects": false,
+    "all_identity_checks_match": true,
+    "earliest_original_epoch": "2023-12-25T21:13:18.902784",
+    "latest_original_epoch": "2023-12-31T20:06:29.141856",
+    "distinct_epoch_count": 8,
+    "epoch_precision": "All EPOCHs have exactly6fractional decimal digits, no timezone suffix, explicit TIME_SYSTEM=UTC. Source text retained, no rounding.",
+    "blank_header_fields_all_records": ["CREATION_DATE", "ORIGINATOR"],
+    "missing_GP_record_fields": [],
+    "invalid_GP_numeric_fields": [],
+    "explicit_declarations": {
+      "CENTER_NAME": "EARTH",
+      "REF_FRAME": "TEME",
+      "TIME_SYSTEM": "UTC",
+      "MEAN_ELEMENT_THEORY": "SGP4",
+      "EPHEMERIS_TYPE": "0",
+      "CLASSIFICATION_TYPE": "U"
+    },
+    "duplicate_groups_exact_parsed_fields": [],
+    "same_epoch_conflict_groups": [
+      [0, 1],
+      [3, 4]
+    ],
+    "conflict_difference_field_names": ["REV_AT_EPOCH"],
+    "conflict_policy": "Preserved with no merge, deduplication, revolution-number tie-break or assertion of scientific/model equivalence.",
+    "header_error_meaning": "Blank message creation/originator, not malformed XML or invalid element epochs; unchanged strict profile refuses all records."
+  },
+  "protocol": {
+    "proposal": "docs/engineering-e8.7.1-g05-protocol-proposal.md",
+    "original_G30_protocol": "docs/engineering-e8-comparison-protocol.md",
+    "rules_unchanged_after_inspection": true,
+    "reference_UTC_interval_inclusive": [
+      "2023-12-31T23:59:42.000000Z",
+      "2024-01-01T23:44:42.000000Z"
+    ],
+    "GP_epoch_window_inclusive": [
+      "2023-12-25T23:44:42Z",
+      "2023-12-31T23:59:42Z"
+    ],
+    "guard_seconds": 604800,
+    "reference_epochs_tested_per_record": 96,
+    "total_record_epoch_guard_checks": 960,
+    "forward_only_all_records": true,
+    "fixed_original_anchor": true,
+    "normalized_reference_indices": [
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+      39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
+      57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74,
+      75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92,
+      93, 94, 95
+    ],
+    "original_E8_reference_indices": [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+      22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+      40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
+      58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75,
+      76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93,
+      94, 95, 96
+    ],
+    "reference_index_note": "Existing E8 labels1..96 correspond to proposal normalized0..95; same unchanged epochs, no shifted grid.",
+    "reference_time_evidence": "Reuse existing E8 exact UTC diagnostics only, not its G30 record eligibility/exclusions. Pinned original SP3 epoch count and endpoints checked. No new spacecraft transformation.",
+    "latest_unique_static_candidate_index": null,
+    "selected_source_index": null,
+    "scientifically_accepted_count": 0,
+    "selection_note": "No static candidate because required headers fail. Latest supplied epoch is descriptive only, not nominated input."
+  },
+  "per_record_static_assessment": [
+    {
+      "source_index_0based": 0,
+      "record_ordinal_1based": 1,
+      "epoch_original_text": "2023-12-25T21:13:18.902784",
+      "epoch_UTC": "2023-12-25T21:13:18.902784+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 85,
+      "outside_age_guard_source_indices_0based": [
+        85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
+      ],
+      "temporal_status": "FAIL",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [1],
+      "conflict_field_names": ["REV_AT_EPOCH"],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": ["outside_protocol_gp_epoch_interval"],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 1,
+      "record_ordinal_1based": 2,
+      "epoch_original_text": "2023-12-25T21:13:18.902784",
+      "epoch_UTC": "2023-12-25T21:13:18.902784+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 85,
+      "outside_age_guard_source_indices_0based": [
+        85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
+      ],
+      "temporal_status": "FAIL",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [0],
+      "conflict_field_names": ["REV_AT_EPOCH"],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": ["outside_protocol_gp_epoch_interval"],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 2,
+      "record_ordinal_1based": 3,
+      "epoch_original_text": "2023-12-27T05:25:27.694272",
+      "epoch_UTC": "2023-12-27T05:25:27.694272+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [],
+      "conflict_field_names": [],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 3,
+      "record_ordinal_1based": 4,
+      "epoch_original_text": "2023-12-28T04:47:54.504096",
+      "epoch_UTC": "2023-12-28T04:47:54.504096+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [4],
+      "conflict_field_names": ["REV_AT_EPOCH"],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 4,
+      "record_ordinal_1based": 5,
+      "epoch_original_text": "2023-12-28T04:47:54.504096",
+      "epoch_UTC": "2023-12-28T04:47:54.504096+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [3],
+      "conflict_field_names": ["REV_AT_EPOCH"],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 5,
+      "record_ordinal_1based": 6,
+      "epoch_original_text": "2023-12-29T06:11:47.963328",
+      "epoch_UTC": "2023-12-29T06:11:47.963328+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [],
+      "conflict_field_names": [],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 6,
+      "record_ordinal_1based": 7,
+      "epoch_original_text": "2023-12-29T18:40:53.635584",
+      "epoch_UTC": "2023-12-29T18:40:53.635584+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [],
+      "conflict_field_names": [],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 7,
+      "record_ordinal_1based": 8,
+      "epoch_original_text": "2023-12-30T04:33:03.375360",
+      "epoch_UTC": "2023-12-30T04:33:03.375360+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [],
+      "conflict_field_names": [],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 8,
+      "record_ordinal_1based": 9,
+      "epoch_original_text": "2023-12-31T04:19:53.685408",
+      "epoch_UTC": "2023-12-31T04:19:53.685408+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [],
+      "conflict_field_names": [],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    },
+    {
+      "source_index_0based": 9,
+      "record_ordinal_1based": 10,
+      "epoch_original_text": "2023-12-31T20:06:29.141856",
+      "epoch_UTC": "2023-12-31T20:06:29.141856+00:00",
+      "fractional_decimal_digits": 6,
+      "explicit_time_system": "UTC",
+      "norad_id": 35752,
+      "cospar_id": "2009-043A",
+      "object_name": "NAVSTAR 64 (USA 206)",
+      "identity_status": "PASS",
+      "required_GP_fields_valid": true,
+      "missing_required_header_metadata": ["CREATION_DATE", "ORIGINATOR"],
+      "required_header_status": "FAIL",
+      "in_request_calendar_interval": true,
+      "forward_only_from_original_first_epoch": true,
+      "reference_epochs_tested": 96,
+      "within_age_guard_count": 96,
+      "outside_age_guard_source_indices_0based": [],
+      "temporal_status": "PASS",
+      "duplicate_source_indices": [],
+      "same_epoch_conflicting_source_indices": [],
+      "conflict_field_names": [],
+      "strict_static_candidate": false,
+      "strict_static_status": "FAIL",
+      "validation_errors": [
+        "invalid_creation_date",
+        "invalid_header_metadata",
+        "missing_or_invalid_required_fields"
+      ],
+      "exclusions": [],
+      "scientific_qualification": "BLOCKED"
+    }
+  ],
+  "private_evidence": {
+    "inspection": {
+      "path": "data/e8.7.2-g05-xml-intake/82caacb215304190ab4e33b536e3ad93/inspection.json",
+      "bytes": 18437,
+      "sha256": "98b08701ac163442f399cdf4971658c4c78b55e5dc881c79a9093cf0ad32fdf7"
+    },
+    "capture_receipt": {
+      "path": "data/e8.7.2-g05-xml-intake/82caacb215304190ab4e33b536e3ad93/receipt.json",
+      "bytes": 1049,
+      "sha256": "7ff50dfa2893cf70181a25d94284b6a0ae897ebbdd9343eafb1359fddab41c23"
+    },
+    "capture_manifest": {
+      "path": "data/e8.7.2-g05-xml-intake/82caacb215304190ab4e33b536e3ad93/manifest.json",
+      "bytes": 522,
+      "sha256": "afd0e6b03e3addd7a70d98c9c2bbcc0d25e263dd6a96542f5ad28b4448331c24"
+    },
+    "all_epoch_guard_checks": {
+      "path": "data/e8.7.2-g05-xml-intake/all-epoch-static-guard.json",
+      "bytes": 275864,
+      "sha256": "424bffa82fd0d05a627790e9e28586d6ffa5749464d1bfd6e058bddceb089c96"
+    },
+    "preservation_manifest": {
+      "path": "data/e8.7.2-g05-xml-intake/preservation-manifest.json",
+      "bytes": 925,
+      "sha256": "50bf4ed420035b397fae20bb177eadf24f19c12aa1ad1fcf16459b1016358963"
+    },
+    "scope": "Original XML, full GP fields, private inspection and960guard details excluded from Git/CI. Public metadata limited to requested identities/epochs and verdicts."
+  },
+  "remaining_requirements": [
+    {
+      "requirement": "required_OMM_message_metadata",
+      "status": "BLOCKED",
+      "evidence": "CREATION_DATE and ORIGINATOR blank in all10records; unchanged strict profile accepts0.",
+      "next_evidence": "Clarify provider export conventions/missing metadata; any limited retrospective policy revision requires separate documented review. Never fabricate timestamps or edit originals."
+    },
+    {
+      "requirement": "historical_availability_and_fitting_lineage",
+      "status": "UNESTABLISHED",
+      "evidence": "Historical-epoch data supplied locally, not proof of availability at those epochs or complete fit lineage.",
+      "next_evidence": "Retained provenance/publication evidence if available; explicitly document irrecoverable limitations and restrict claims."
+    },
+    {
+      "requirement": "same_epoch_entries",
+      "status": "PARTIAL",
+      "evidence": "Pairs0/1and3/4differ onlyREV_AT_EPOCH, no identical parsed duplicates.",
+      "next_evidence": "Retain all source records and ambiguity policy; no rev-number tie-break. Older pairs do not by themselves make later distinct epochs ambiguous; all fail headers now."
+    },
+    {
+      "requirement": "IGS20_frame_and_EOP_compatibility",
+      "status": "BLOCKED",
+      "evidence": "Resource coverage is not realized-frame or subdaily-model compatibility.",
+      "next_evidence": "Reviewed realization chain and2024ERP/high-frequency processing conventions."
+    },
+    {
+      "requirement": "physical_reference_point",
+      "status": "BLOCKED",
+      "evidence": "Current G050 ANTEX entry not proof of2024calibration or GP fitted point.",
+      "next_evidence": "Historical calibration/attitude/processing and justified common physical point."
+    },
+    {
+      "requirement": "G05_quality_and_uncertainty",
+      "status": "PARTIAL",
+      "evidence": "Own SP3 fields present; producer statistic mapping and joint uncertainty not established.",
+      "next_evidence": "G05-specific provenance and bounded claims policy; no invented covariance."
+    },
+    {
+      "requirement": "source_dependencies_and_independence",
+      "status": "UNESTABLISHED",
+      "evidence": "Different providers/parsing success do not establish independence; IGS includes ESA.",
+      "next_evidence": "Source-dependency review and retrospective disagreement-only interpretation."
+    },
+    {
+      "requirement": "protocol_review_and_scientific_authorization",
+      "status": "BLOCKED",
+      "evidence": "G05 remains proposal; this task authorizes static intake only.",
+      "next_evidence": "Qualified inputs/prerequisites, frozen resources/mask, independent review and explicit calculation authorization."
+    }
+  ],
+  "verification": {
+    "XML_tests": {
+      "passed": 83,
+      "duration_seconds": 10.61,
+      "evidence_class": "SYNTHETIC_TEST_ONLY",
+      "includes_G30_regressions_and_G05_controls": true
+    },
+    "code_changed": false,
+    "lint": "PASS",
+    "Python_format": "PASS",
+    "documentation_consistency": "PASS",
+    "full_application_frontend_browser_PDF_build_remote_CI": "NOT_RUN"
+  },
+  "preserved_source_files": [
+    {
+      "path": "scripts/inspect_historical_xml.py",
+      "bytes": 18016,
+      "sha256": "3be501542c8116a1fda0e6e3fe05aaa38fdf1957d975c8707f50e34d9c29e5ca"
+    },
+    {
+      "path": "scripts/inspect_historical_gp.py",
+      "bytes": 17457,
+      "sha256": "4a84747ee873210bbc39e1d6535a540dba569c7825d323477a559c1d8259dd6d"
+    },
+    {
+      "path": "scripts/inspect_historical_csv.py",
+      "bytes": 12931,
+      "sha256": "c21850ced27f91515986916a5f99e077f253b5fbdfdd127d02cc56d32b96b340"
+    },
+    {
+      "path": "backend/orbitiq/orbits/elements.py",
+      "bytes": 3686,
+      "sha256": "514cf3bdedc54d2b5f3af0155dfb5e10d24608ce924a6419c622413ac7f206dc"
+    },
+    {
+      "path": "backend/tests/test_historical_xml_intake.py",
+      "bytes": 24071,
+      "sha256": "413a5971c7af497d2b2f5c15cf107ff558280415be6ec6c7cf03a75f89810210"
+    },
+    {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc"
+    },
+    {
+      "path": "docs/engineering-e8.7.1-g05-protocol-proposal.md",
+      "bytes": 9559,
+      "sha256": "e83abf2f1e3403cce30cdf787d0118385c619d06940b24ff1eee2b2e2ff46bec"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/final-qualification-G30.json",
+      "bytes": 21574,
+      "sha256": "8ffbd611b4a002a27aa8924801e33f8f3c4e01ce16b853fe35a4287d364828a4"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "bytes": 102609,
+      "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38"
+    },
+    {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-satellite-metadata.bin",
+      "bytes": 277829,
+      "sha256": "ac93d053eac7d8b08ce129b6af98667e1867296e1685417d38c081cd046558ae"
+    }
+  ],
+  "safeguards": {
+    "real_input_propagation": false,
+    "real_spacecraft_transform": false,
+    "orbital_interpolation_or_extrapolation": false,
+    "residuals_calculated": false,
+    "new_numerical_uncertainty_estimates": false,
+    "independent_validation_claim": false,
+    "original_XML_edited": false,
+    "original_reference_or_private_inputs_changed": false,
+    "database_modified": false,
+    "existing_protocols_modified": false,
+    "git_publication_or_deployment": false,
+    "external_scientific_services_or_private_accounts_accessed": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN",
+  "preservation": {
+    "prior_worktree_files_unchanged_except_additive_E871_follow_up": true,
+    "original_database_schema_version": 3,
+    "original_database_snapshots": 2,
+    "original_database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "private_capture_file_count_excluding_top_manifest": 6,
+    "original_research_manifest_entries_preserved": 104,
+    "new_repository_files": 2,
+    "existing_untracked_document_additively_updated": 1,
+    "code_or_dependency_files_changed": 0
+  }
+}

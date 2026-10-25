@@ -1,0 +1,1430 @@
+{
+  "schema_version": 1,
+  "phase": "E8.7.8",
+  "study_id": "ORBITIQ-IGS-GPS-RETRO-001",
+  "assessment_utc": "2026-10-25T07:19:16.028898+00:00",
+  "overall_scientific_status": "BLOCKED",
+  "qualification_decision": "NO-GO",
+  "branch": "engineering-e8.2-igs-reference-qualification",
+  "baseline_commit": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
+  "scope": "Implementation, documentation, existing resource and convention audit only; no spacecraft calculation",
+  "source_catalog": {
+    "E82": {
+      "path": "docs/engineering-e8.2-reference-evidence.json",
+      "bytes": 15299,
+      "sha256": "478973edcc1f579c8c1d99e32759a367fee14ef10fce3f415e49e4e79c1c3d57",
+      "version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint"
+    },
+    "E83": {
+      "path": "docs/engineering-e8.3-frame-eop-evidence.json",
+      "bytes": 41223,
+      "sha256": "92f2194c713fbb1db9ac3874ccdabdcec5f4554f8b49862f775e733dde821238",
+      "version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint"
+    },
+    "E84": {
+      "path": "docs/engineering-e8.4-quality-evidence.json",
+      "bytes": 35912,
+      "sha256": "565c66034a32095957da74e76c45f5e91f3c6aabb1fae632fe4fcc879fb99ef0",
+      "version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint"
+    },
+    "E85": {
+      "path": "docs/engineering-e8.5-source-provenance-evidence.json",
+      "bytes": 56308,
+      "sha256": "fb0beabdf7d43062e3c0657f24257df792e4bc8edb4261abb4f703c342e77749",
+      "version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint"
+    },
+    "E86": {
+      "path": "docs/engineering-e8.6-g30-statistic-evidence.json",
+      "bytes": 84331,
+      "sha256": "34f36197dd3a3409822b08cba9d6cb65e7a0cbca33edf9ddeb48f0eba660b728",
+      "version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint"
+    },
+    "E877": {
+      "path": "docs/engineering-e8.7.7-candidate-readiness-matrix.json",
+      "bytes": 83328,
+      "sha256": "6be885c5b206883d6727fcc85751a6134237a7736dd23fcc5d281797fb9dce34",
+      "version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint"
+    },
+    "POLICY": {
+      "path": "config/historical-retrospective-admission-v1.json",
+      "bytes": 3442,
+      "sha256": "617b281feaa8a8e53338d2bbe7ea8144fca96c4d201c245686b1ef3ac84002d4",
+      "version": "historical-retrospective-admission-v1, version 1, hash-pinned definition"
+    },
+    "G30_PROTOCOL": {
+      "path": "docs/engineering-e8-comparison-protocol.md",
+      "bytes": 12848,
+      "sha256": "1343e5f145694bc68c49e3f1de2c1ed36009d2450a23ec4cdfe9a670c818cbbc",
+      "version": "Original G30 proposed v0.1, unchanged"
+    },
+    "G05_PROTOCOL": {
+      "path": "docs/engineering-e8.7.1-g05-protocol-proposal.md",
+      "bytes": 9559,
+      "sha256": "e83abf2f1e3403cce30cdf787d0118385c619d06940b24ff1eee2b2e2ff46bec",
+      "version": "Separate G05 proposed v0.2, unchanged"
+    },
+    "ADMISSION": {
+      "path": "docs/engineering-e8.7.6-retrospective-admission-evidence.json",
+      "bytes": 56066,
+      "sha256": "3e8a714e44f2f7e1a51114c2161e70fa1adeae331d5ec52c62ab37076919ddb0",
+      "version": "E8.7.6 activated retrospective admission, unchanged"
+    },
+    "AUDIT": {
+      "path": "/workspace/OrbitIQ-e82/data/e8.7.8-frame-eop/source-audit.json",
+      "bytes": 16875,
+      "sha256": "53f391d22a7b7a2e01ce805b7f4415ace0c54f4ea31ca5aab4902ee68463ed55",
+      "version": "Exact installed versions and file/function hashes; E8.7.8 audit"
+    },
+    "SP3": {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+      "bytes": 102609,
+      "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+      "version": "Hash-pinned existing resource; no acquisition in E8.7.8"
+    },
+    "SUM": {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/igs-final-summary-2295.bin",
+      "bytes": 23095,
+      "sha256": "2c00cc06449ed72dcb13675813a14f6d8811928f4b84d98fe6aa1eac6cd11870",
+      "version": "Week 2295; sum-fileVersion 2.0 denotes format, not generator version"
+    },
+    "DIRECTORY": {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/original/bkg-2295.bin",
+      "bytes": 49439,
+      "sha256": "a62431bd24e40aa17d1cfe8feeb85cbf767c851cdc32592afa57479b9cf22e6c",
+      "version": "Hash-pinned existing resource; no acquisition in E8.7.8"
+    },
+    "TIME": {
+      "path": "/workspace/OrbitIQ-nasa-igs/data/e8-nasa-igs/final-qualification-G30.json",
+      "bytes": 21574,
+      "sha256": "8ffbd611b4a002a27aa8924801e33f8f3c4e01ce16b853fe35a4287d364828a4",
+      "version": "Hash-pinned existing resource; no acquisition in E8.7.8"
+    },
+    "TN36": {
+      "path": "/workspace/OrbitIQ-e82/data/e8.3-frame-eop/original/iers-2010-published-tn36.bin",
+      "bytes": 2926081,
+      "sha256": "b0570ff245a6d76977dc56918c64130cc5bf68b679fa8fffb989137f2b833eea",
+      "version": "IERS Conventions (2010), Technical Note 36; reused approved publication"
+    },
+    "IGSMAIL8238": {
+      "path": "/workspace/OrbitIQ-e82/data/e8.2-reference-qualification/original/igs-frame-notice-8238.bin",
+      "bytes": 18912,
+      "sha256": "93a266b57862345e0a674e2b5790eb5f8c5423dd4dbf676564a6d4e0916fb3e0",
+      "version": "26 July 2022 advance notice; chronology checked against current IGS frame table"
+    },
+    "FINALS_README": {
+      "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/ReadMe.finals2000A",
+      "bytes": 3429,
+      "sha256": "7c6182cc0fd0cbece39711f648d15e48b49168925602e360a5709c5ccc8d5a12",
+      "version": "Hash-pinned existing resource; no acquisition in E8.7.8"
+    },
+    "C04_README": {
+      "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/ReadMe.eopc04",
+      "bytes": 3275,
+      "sha256": "42d7890543fae69df024219d1d36f242b4fcd847f6f8a756c7d37c5dfd100243",
+      "version": "Hash-pinned existing resource; no acquisition in E8.7.8"
+    },
+    "FRAME_DOC": {
+      "path": "/workspace/OrbitIQ-e82/data/e8.7.8-frame-eop/igs-reference-frame.bin",
+      "url": "https://igs.org/wg/reference-frame/",
+      "version": "Public documentation captured 2026-10-25T07:12:05.154911+00:00",
+      "bytes": 1110905,
+      "sha256": "79fe68aba727a973c989ed4867edb08462a58c567cc0beaebf1762b134e2b727"
+    },
+    "PRODUCT_DOC": {
+      "path": "/workspace/OrbitIQ-e82/data/e8.7.8-frame-eop/igs-products.bin",
+      "url": "https://igs.org/products/",
+      "version": "Public documentation captured 2026-10-25T07:12:05.273801+00:00",
+      "bytes": 1189056,
+      "sha256": "30508cad47579957d50ff90ba227a3488ad2602e06b1034c8785598c78f3c514"
+    },
+    "IERS_INDEX": {
+      "path": "/workspace/OrbitIQ-e82/data/e8.7.8-frame-eop/iers-conventions.bin",
+      "url": "https://www.iers.org/iers/en/dataproducts/conventions/conventions",
+      "version": "Public documentation captured 2026-10-25T07:12:06.099940+00:00",
+      "bytes": 127637,
+      "sha256": "4d5ce1aa618c8c33861996b4ac0ddd282ba3f320feb3a269ad05082cf404deda"
+    },
+    "ASTROPY_DOC": {
+      "path": "/workspace/OrbitIQ-e82/data/e8.7.8-frame-eop/astropy-v7.2.3-doc-source.bin",
+      "url": "https://raw.githubusercontent.com/astropy/astropy/v7.2.3/docs/coordinates/satellites.rst",
+      "version": "v7.2.3 tag, docs/coordinates/satellites.rst",
+      "bytes": 6300,
+      "sha256": "493bf8bbf7a566de2d140765810e9f4d46f41e1c3b57c557549fa0debe1cf0cd"
+    }
+  },
+  "public_document_receipts": {
+    "astropy-v7.2.3-satellites": {
+      "url": "https://docs.astropy.org/en/v7.2.3/coordinates/satellites.html",
+      "final_url": "https://docs.astropy.org/en/v7.2.3/coordinates/satellites.html",
+      "requested_at_UTC": "2026-10-25T07:12:03.012235+00:00",
+      "completed_at_UTC": "2026-10-25T07:12:03.455765+00:00",
+      "status": 404,
+      "headers": {},
+      "bytes": 2533,
+      "sha256": "f21ce85f9bb9a446e427b3b33fce5768fd63757c184b7e19a2435561e6a990c6",
+      "error": "HTTP_ERROR"
+    },
+    "astropy-v7.2.3-doc-source": {
+      "url": "https://raw.githubusercontent.com/astropy/astropy/v7.2.3/docs/coordinates/satellites.rst",
+      "final_url": "https://raw.githubusercontent.com/astropy/astropy/v7.2.3/docs/coordinates/satellites.rst",
+      "requested_at_UTC": "2026-10-25T07:12:03.013286+00:00",
+      "completed_at_UTC": "2026-10-25T07:12:03.322598+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Last-Modified": null,
+        "ETag": "\"e7961c86b0927fc672e2142a2ba90f2d479126c6e149a6954035abf1c03e8360\""
+      },
+      "bytes": 6300,
+      "sha256": "493bf8bbf7a566de2d140765810e9f4d46f41e1c3b57c557549fa0debe1cf0cd",
+      "error": null
+    },
+    "iers-conventions": {
+      "url": "https://www.iers.org/iers/en/dataproducts/conventions/conventions",
+      "final_url": "https://www.iers.org/iers/en/dataproducts/conventions/conventions",
+      "requested_at_UTC": "2026-10-25T07:12:03.011588+00:00",
+      "completed_at_UTC": "2026-10-25T07:12:06.099940+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": null,
+        "ETag": null
+      },
+      "bytes": 127637,
+      "sha256": "4d5ce1aa618c8c33861996b4ac0ddd282ba3f320feb3a269ad05082cf404deda",
+      "error": null
+    },
+    "iers-c04-description": {
+      "url": "https://hpiers.obspm.fr/eoppc/eop/eopc04/readme",
+      "final_url": "https://hpiers.obspm.fr/eoppc/eop/eopc04/readme",
+      "requested_at_UTC": "2026-10-25T07:13:31.925781+00:00",
+      "completed_at_UTC": "2026-10-25T07:13:37.527579+00:00",
+      "status": 503,
+      "headers": {},
+      "bytes": 91,
+      "sha256": "2f85832e31ca57711e6107af6b142363351ae516adb71c69afc643fac26be7f6",
+      "error": "HTTP_ERROR"
+    },
+    "igs-products": {
+      "url": "https://igs.org/products/",
+      "final_url": "https://igs.org/products/",
+      "requested_at_UTC": "2026-10-25T07:12:03.009261+00:00",
+      "completed_at_UTC": "2026-10-25T07:12:05.273801+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Last-Modified": null,
+        "ETag": null
+      },
+      "bytes": 1189056,
+      "sha256": "30508cad47579957d50ff90ba227a3488ad2602e06b1034c8785598c78f3c514",
+      "error": null
+    },
+    "igs-reference-frame": {
+      "url": "https://igs.org/wg/reference-frame/",
+      "final_url": "https://igs.org/wg/reference-frame/",
+      "requested_at_UTC": "2026-10-25T07:12:03.008084+00:00",
+      "completed_at_UTC": "2026-10-25T07:12:05.154911+00:00",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Last-Modified": null,
+        "ETag": null
+      },
+      "bytes": 1110905,
+      "sha256": "79fe68aba727a973c989ed4867edb08462a58c567cc0beaebf1762b134e2b727",
+      "error": null
+    }
+  },
+  "software_audit": {
+    "versions": {
+      "python": "3.12.14",
+      "astropy": "7.2.3",
+      "pyerfa": "2.0.1.5",
+      "erfa_c": "2.0.1",
+      "sofa": "20231011",
+      "numpy": "2.5.4",
+      "sgp4": "2.27",
+      "astropy_iers_data": "0.2026.10.12.1.3.27"
+    },
+    "module_audit": [
+      {
+        "module": "astropy.coordinates.builtin_frames.intermediate_rotation_transforms",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.py",
+        "bytes": 11778,
+        "sha256": "10a9bba9fcc1e85215a252aeb32698a0edd912a0a514e9b868808d573be725cb",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "astropy.coordinates.builtin_frames.utils",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/utils.py",
+        "bytes": 14566,
+        "sha256": "bd8a66fefbeb9ed01d0ca29b5f13218b859c3550890ece6628e3042fac12996d",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "astropy.coordinates.builtin_frames.equatorial",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/equatorial.py",
+        "bytes": 4865,
+        "sha256": "85c90e6c794c95712621d8e22a4bef89bc3979a8df73d4a7b6ffd0ae7937a291",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "astropy.coordinates.builtin_frames.itrs",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/itrs.py",
+        "bytes": 4268,
+        "sha256": "4ad886b64dad8df5c076f0f52d794e573dbcd46b027b611c35eabd7bd56f57b9",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "astropy.coordinates.transformations.function",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/coordinates/transformations/function.py",
+        "bytes": 10725,
+        "sha256": "f9016c0202f8c4d3b2447e517022ee794696d24cec8b8e9f627d6b87ae860fd4",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "astropy.utils.iers.iers",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/utils/iers/iers.py",
+        "bytes": 51210,
+        "sha256": "debe6a4afbafb6d131f471cf1f3599a007ab45c53ea3f79abe2be5ea6b2e4cba",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "astropy.time.formats",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/time/formats.py",
+        "bytes": 91009,
+        "sha256": "6d5af54b03ba0990d75cd498715f0dfc4f2c3b7b021c8579310c2792c4cc0163",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "sgp4.omm",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/sgp4/omm.py",
+        "bytes": 1995,
+        "sha256": "4945d86c08ee94e28f2ca561519497d6892b231caf12409e770a0b16410e88e6",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "erfa.core",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/erfa/core.py",
+        "bytes": 738450,
+        "sha256": "1e07ca928accb0eaff3caf6d8a38f48ba38dcc26d96425213017044ddd31c119",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "erfa.ufunc",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/erfa/ufunc.abi3.so",
+        "bytes": 2148896,
+        "sha256": "693367d37e8ab26d58bcb060cf8c1b8de7c20bd1a5c939481eba8e478b20a497",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "astropy_iers_data.finals2000A_readme",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/ReadMe.finals2000A",
+        "bytes": 3429,
+        "sha256": "7c6182cc0fd0cbece39711f648d15e48b49168925602e360a5709c5ccc8d5a12",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "sgp4.vallado_cpp",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/sgp4/vallado_cpp.abi3.so",
+        "bytes": 248600,
+        "sha256": "b732180c8b101d657e2f63ea6b186a1d747b0be56288051e220cecd1bbe38183",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "sgp4.api",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/sgp4/api.py",
+        "bytes": 882,
+        "sha256": "e61f7a4b1ddd026a0cfd147ef18cf2eaf1aee9e05eae9098677cbd811f519bf3",
+        "unchanged_since_E8_3": true
+      },
+      {
+        "module": "sgp4.wrapper",
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/sgp4/wrapper.py",
+        "bytes": 2283,
+        "sha256": "f73cbaf65e1594c3b6b565212677f066b90efc9ebec31ea3633a893ea3116d67",
+        "unchanged_since_E8_3": true
+      }
+    ],
+    "function_locators": [
+      {
+        "module": "astropy.coordinates.builtin_frames.intermediate_rotation_transforms",
+        "function": "teme_to_itrs_mat",
+        "first_line": 25,
+        "source_sha256": "904ab3c2d9759b1ee952d14f05e825d4dc39ad2d14bbd7c3270dedd7a96bb23f"
+      },
+      {
+        "module": "astropy.coordinates.builtin_frames.intermediate_rotation_transforms",
+        "function": "teme_to_itrs",
+        "first_line": 276,
+        "source_sha256": "1175610b5267b9fd2a2b7f9063377661d3fea1813b2d37588eef50741c19cc49"
+      },
+      {
+        "module": "astropy.coordinates.builtin_frames.utils",
+        "function": "get_polar_motion",
+        "first_line": 40,
+        "source_sha256": "bae0366feee697e278449f77d44c227757e33cda8002a8a2527771c0148d6ef4"
+      },
+      {
+        "module": "astropy.coordinates.builtin_frames.utils",
+        "function": "get_jd12",
+        "first_line": 95,
+        "source_sha256": "9c34104ddd8a3eab117be93d55c0bda21b8a50a0d217894df224cdfb04e6cbdb"
+      },
+      {
+        "module": "astropy.utils.iers.iers",
+        "function": "IERS._interpolate",
+        "first_line": 440,
+        "source_sha256": "5b86f04f07a75ad7cf77d8faa10fa091b2f2cc72130787682e5b0c3714251d3f"
+      },
+      {
+        "module": "astropy.utils.iers.iers",
+        "function": "IERS_A._combine_a_b_columns",
+        "first_line": 554,
+        "source_sha256": "caf164c9f89e5a5907ad5b2e717adbd83d587d00c4713d10e63dacd4805ea30a"
+      },
+      {
+        "module": "astropy.utils.iers.iers",
+        "function": "IERS_B.read",
+        "first_line": 703,
+        "source_sha256": "98e73301fc9348bf408550dfcfe5c42f6195f824f816a7bc3da275fcb92ae74e"
+      },
+      {
+        "module": "astropy.coordinates.transformations.function",
+        "function": "FunctionTransformWithFiniteDifference.__call__",
+        "first_line": 171,
+        "source_sha256": "bbe8706f0b345c0e322986fcec7a03fd4707f6779f7a106b8d43085545963476"
+      }
+    ],
+    "resources": [
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/finals2000A.all",
+        "filename": "finals2000A.all",
+        "bytes": 3769212,
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "package_version": "0.2026.10.12.1.3.27",
+        "provider_issue_identifier": null,
+        "active": true,
+        "series": "finals2000A A/B merged",
+        "row_count": 19999,
+        "first_mjd": 41684.0,
+        "last_mjd": 61682.0,
+        "cadence_days": [1.0],
+        "columns_and_units": {
+          "year": "None",
+          "month": "None",
+          "day": "None",
+          "MJD": "d",
+          "PolPMFlag_A": "None",
+          "PM_x_A": "arcsec",
+          "e_PM_x_A": "arcsec",
+          "PM_y_A": "arcsec",
+          "e_PM_y_A": "arcsec",
+          "UT1Flag_A": "None",
+          "UT1_UTC_A": "s",
+          "e_UT1_UTC_A": "s",
+          "LOD_A": "ms",
+          "e_LOD_A": "ms",
+          "NutFlag_A": "None",
+          "dX_2000A_A": "marcsec",
+          "e_dX_2000A_A": "marcsec",
+          "dY_2000A_A": "marcsec",
+          "e_dY_2000A_A": "marcsec",
+          "PM_X_B": "arcsec",
+          "PM_Y_B": "arcsec",
+          "UT1_UTC_B": "s",
+          "dX_2000A_B": "marcsec",
+          "dY_2000A_B": "marcsec",
+          "UT1_UTC": "s",
+          "UT1Flag": "None",
+          "PM_x": "arcsec",
+          "PM_y": "arcsec",
+          "PolPMFlag": "None",
+          "dX_2000A": "marcsec",
+          "dY_2000A": "marcsec",
+          "NutFlag": "None"
+        },
+        "historical_brackets": [
+          {
+            "mjd": 60309.0,
+            "source_flags": {
+              "UT1Flag": "B",
+              "PolPMFlag": "B",
+              "NutFlag": "B"
+            },
+            "error_columns_finite": {
+              "e_PM_x_A": true,
+              "e_PM_y_A": true,
+              "e_UT1_UTC_A": true,
+              "e_LOD_A": true,
+              "e_dX_2000A_A": true,
+              "e_dY_2000A_A": true
+            }
+          },
+          {
+            "mjd": 60310.0,
+            "source_flags": {
+              "UT1Flag": "B",
+              "PolPMFlag": "B",
+              "NutFlag": "B"
+            },
+            "error_columns_finite": {
+              "e_PM_x_A": true,
+              "e_PM_y_A": true,
+              "e_UT1_UTC_A": true,
+              "e_LOD_A": true,
+              "e_dX_2000A_A": true,
+              "e_dY_2000A_A": true
+            }
+          },
+          {
+            "mjd": 60311.0,
+            "source_flags": {
+              "UT1Flag": "B",
+              "PolPMFlag": "B",
+              "NutFlag": "B"
+            },
+            "error_columns_finite": {
+              "e_PM_x_A": true,
+              "e_PM_y_A": true,
+              "e_UT1_UTC_A": true,
+              "e_LOD_A": true,
+              "e_dX_2000A_A": true,
+              "e_dY_2000A_A": true
+            }
+          }
+        ],
+        "predictive_mjd": 61315.0,
+        "exact_provider_2024_processing_inventory": "UNKNOWN",
+        "subdaily_model_inventory": "Not encoded by these file headers/readmes; published TN36 baseline requires separately restored high-frequency terms"
+      },
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/eopc04.1962-now",
+        "filename": "eopc04.1962-now",
+        "bytes": 5174166,
+        "sha256": "c7817d842083f74ffe724f1ef419a6b869f6d9c391a48db5018694bb19dbcff7",
+        "package_version": "0.2026.10.12.1.3.27",
+        "provider_issue_identifier": null,
+        "active": false,
+        "series": "IERS 20 C04; IERS_B loader name is not Bulletin-B source identity",
+        "row_count": 23623,
+        "first_mjd": 37665.0,
+        "last_mjd": 61287.0,
+        "cadence_days": [1.0],
+        "columns_and_units": {
+          "year": "None",
+          "month": "None",
+          "day": "None",
+          "hour": "None",
+          "MJD": "d",
+          "PM_x": "arcsec",
+          "PM_y": "arcsec",
+          "UT1_UTC": "s",
+          "dX_2000A": "arcsec",
+          "dY_2000A": "arcsec",
+          "PM_x_dot": "arcsec / d",
+          "PM_y_dot": "arcsec / d",
+          "LOD": "s",
+          "e_PM_x": "arcsec",
+          "e_PM_y": "arcsec",
+          "e_UT1_UTC": "s",
+          "e_dX_2000A": "arcsec",
+          "e_dY_2000A": "arcsec",
+          "e_PM_x_dot": "arcsec / d",
+          "e_PM_y_dot": "arcsec / d",
+          "e_LOD": "s"
+        },
+        "historical_brackets": [
+          {
+            "mjd": 60309.0,
+            "source_flags": {},
+            "error_columns_finite": {
+              "e_PM_x": true,
+              "e_PM_y": true,
+              "e_UT1_UTC": true,
+              "e_dX_2000A": true,
+              "e_dY_2000A": true,
+              "e_PM_x_dot": true,
+              "e_PM_y_dot": true,
+              "e_LOD": true
+            }
+          },
+          {
+            "mjd": 60310.0,
+            "source_flags": {},
+            "error_columns_finite": {
+              "e_PM_x": true,
+              "e_PM_y": true,
+              "e_UT1_UTC": true,
+              "e_dX_2000A": true,
+              "e_dY_2000A": true,
+              "e_PM_x_dot": true,
+              "e_PM_y_dot": true,
+              "e_LOD": true
+            }
+          },
+          {
+            "mjd": 60311.0,
+            "source_flags": {},
+            "error_columns_finite": {
+              "e_PM_x": true,
+              "e_PM_y": true,
+              "e_UT1_UTC": true,
+              "e_dX_2000A": true,
+              "e_dY_2000A": true,
+              "e_PM_x_dot": true,
+              "e_PM_y_dot": true,
+              "e_LOD": true
+            }
+          }
+        ],
+        "predictive_mjd": null,
+        "exact_provider_2024_processing_inventory": "UNKNOWN",
+        "subdaily_model_inventory": "Not encoded by these file headers/readmes; published TN36 baseline requires separately restored high-frequency terms"
+      },
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/Leap_Second.dat",
+        "filename": "Leap_Second.dat",
+        "bytes": 1352,
+        "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "package_version": "0.2026.10.12.1.3.27",
+        "active": true,
+        "role": "TAI-UTC step table, not UT1/polar-motion data",
+        "expires_utc": "2027-06-28"
+      }
+    ],
+    "local_resource_inventory": [
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/utils/iers/tests/data/finals2000A-2016-02-30-test",
+        "bytes": 34026,
+        "sha256": "4ebe1d7b73d3c23569b00ba6eebacabcf1793ab43035e5b4c0615a51d01b2c58",
+        "role": "test fixture"
+      },
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy/utils/iers/tests/data/finals2000A-2016-04-30-test",
+        "bytes": 33917,
+        "sha256": "6f5779829ec3b35939a85ed970d622b5c087a62a7091581ff15d3e644a05229a",
+        "role": "test fixture"
+      },
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/Leap_Second.dat",
+        "bytes": 1352,
+        "sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "role": "local resource or preserved capture"
+      },
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/eopc04.1962-now",
+        "bytes": 5174166,
+        "sha256": "c7817d842083f74ffe724f1ef419a6b869f6d9c391a48db5018694bb19dbcff7",
+        "role": "local resource or preserved capture"
+      },
+      {
+        "path": "/workspace/OrbitIQ/.venv/lib/python3.12/site-packages/astropy_iers_data/data/finals2000A.all",
+        "bytes": 3769212,
+        "sha256": "9fbc14ae5e71de96cc1e6b43b54a547acc80c7a6ce910c0209ad6230ff3d30cd",
+        "role": "local resource or preserved capture"
+      },
+      {
+        "search_root": "/home/agent/.cache/astropy",
+        "exists": false
+      }
+    ],
+    "inventory_scope": "Workspace directories (including installed venvs and tests), no symlink traversal; named EOP/ERP/leap files; Astropy home cache if present; existing research manifests separately verified. Not a claim about unavailable external storage.",
+    "application_files": {
+      "uv.lock": {
+        "bytes": 46977,
+        "sha256": "cf5f1577b37d703cca8d9406e1a6666426dcab6daac9c7d85c899620bea3bdae"
+      },
+      "backend/orbitiq/orbits/earth_orientation.py": {
+        "bytes": 7863,
+        "sha256": "fb26e1a75294f1515f48faa301463d750ad89caf1b48f136068a6ab8f7fdf6ec"
+      },
+      "backend/orbitiq/orbits/coordinates.py": {
+        "bytes": 9427,
+        "sha256": "6ebc8491fc96118eac0fd40afc2d1eb8459d87ea7b5008819d8c17ea89e3e19b"
+      },
+      "backend/orbitiq/orbits/elements.py": {
+        "bytes": 3686,
+        "sha256": "514cf3bdedc54d2b5f3af0155dfb5e10d24608ce924a6419c622413ac7f206dc"
+      },
+      "backend/orbitiq/orbits/engine.py": {
+        "bytes": 3912,
+        "sha256": "509c00730325ca2d24cca4d13260473a598ebfd9666f62b9ea40855f0804ae26"
+      },
+      "scripts/qualify_swarm_inputs.py": {
+        "bytes": 14343,
+        "sha256": "f8a333f68bc384fa594ffb277c9ec9c23eca20a1919bb1dc422e69ebf3473d12"
+      },
+      "backend/tests/test_phase3_science.py": {
+        "bytes": 13325,
+        "sha256": "91f096f73fdba354824ace80910a263106aef69e357df90d99e509aca855e388"
+      },
+      "backend/tests/fixtures/earth-fixed.json": {
+        "bytes": 2908,
+        "sha256": "b81a426545a50ae322f1be4643e82696fc35744cdb52aeda855ef9dfacd7e9c2"
+      }
+    },
+    "effective_local_EOP_mode": "measured_or_predicted",
+    "new_EOP_interpolations_performed": false,
+    "spacecraft_operations_performed": false,
+    "legacy_IERS_test_fixtures": [
+      {
+        "filename": "finals2000A-2016-02-30-test",
+        "bytes": 34026,
+        "sha256": "4ebe1d7b73d3c23569b00ba6eebacabcf1793ab43035e5b4c0615a51d01b2c58",
+        "use": "Bundled Astropy test-only excerpt; not a qualified research resource"
+      },
+      {
+        "filename": "finals2000A-2016-04-30-test",
+        "bytes": 33917,
+        "sha256": "6f5779829ec3b35939a85ed970d622b5c087a62a7091581ff15d3e644a05229a",
+        "use": "Bundled Astropy test-only excerpt; not a qualified research resource"
+      },
+      {
+        "filename": "iers_a_excerpt",
+        "bytes": 11280,
+        "sha256": "f65a1c34cad463914c2eeef346c6b975478415d8ec80f061ef8336fb431e9277",
+        "use": "Bundled Astropy test-only excerpt; not a qualified research resource"
+      },
+      {
+        "filename": "iers_b_old_style_excerpt",
+        "bytes": 4332,
+        "sha256": "fa3a4083c7616d366a30e1d196b64ae32f24c50299864b47e01984c8a77d95a4",
+        "use": "Bundled Astropy test-only excerpt; not a qualified research resource"
+      },
+      {
+        "filename": "leap-seconds.list",
+        "bytes": 10662,
+        "sha256": "3e141e07a83be047de5010e227cce5db82891403a4c2ea840fee07b5dea9506c",
+        "use": "Bundled Astropy test-only excerpt; not a qualified research resource"
+      }
+    ]
+  },
+  "historical_GP_integrity": [
+    {
+      "satellite": "G05",
+      "norad_id": 35752,
+      "filename": "sat000035752.xml",
+      "bytes": 10072,
+      "sha256": "c398ecdc707013d0c9bf245b9eeb1894aef1f2a7bafd60f9a687ce797e0a0828",
+      "original_and_capture_match": true,
+      "record_count": 10,
+      "counts_unchanged": {
+        "admitted": 6,
+        "held": 2,
+        "rejected": 2
+      },
+      "selected_source_index": null,
+      "scientifically_qualified_record_count": 0
+    },
+    {
+      "satellite": "G30",
+      "norad_id": 39533,
+      "filename": "sat000039533.xml",
+      "bytes": 11057,
+      "sha256": "34ccec7bd8fd4be88346e03787027a5ecc71a6d75db75668bd4c641fcd713da5",
+      "original_and_capture_match": true,
+      "record_count": 11,
+      "counts_unchanged": {
+        "admitted": 9,
+        "held": 0,
+        "rejected": 2
+      },
+      "selected_source_index": null,
+      "scientifically_qualified_record_count": 0
+    }
+  ],
+  "reference_integrity": {
+    "filename": "IGS0OPSFIN_20240010000_01D_15M_ORB.SP3.gz",
+    "bytes": 102609,
+    "sha256": "26f16fa5f97cce851948fa88711aed47f60ee2e4ddfe36f0e98b1076e79fbe38",
+    "expanded_bytes": 253250,
+    "expanded_sha256": "8a638375273ab74011aebd9ffcc480df02b5718440c8fb7c51c408ff220d231c",
+    "frame": "IGS20",
+    "time_system": "GPS",
+    "reference_epochs": 96,
+    "cadence_seconds": 900,
+    "first_utc": "2023-12-31T23:59:42.000000Z",
+    "last_utc": "2024-01-01T23:44:42.000000Z",
+    "existing_conversion_and_support_preflight_reused": true,
+    "old_current_GP_exclusion_masks_reused": false
+  },
+  "status_definitions": {
+    "PASS": "Only the explicitly scoped requirement is established; not full comparison approval",
+    "PARTIAL": "Some supporting evidence; specified missing qualification remains",
+    "BLOCKED": "Essential evidence, qualification or authorization absent",
+    "NOT ASSESSED": "No adequate basis for evaluating scientific suitability yet"
+  },
+  "matrix": [
+    {
+      "id": "F01",
+      "requirement": "IGS20 applicability on the reference date",
+      "status": "PASS",
+      "observed_implementation_or_metadata": "SP3 frame token IGS20; GPS week 2295 falls inside official IGS20 weeks 2238\u20132351 (2022-11-27\u20132025-02-01).",
+      "evidence": [
+        {
+          "source_id": "SP3",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "direct observation",
+          "locator": "SP3-c header lines 1\u201322"
+        },
+        {
+          "source_id": "FRAME_DOC",
+          "exact_version": "Public documentation captured 2026-10-25T07:12:05.154911+00:00",
+          "evidence_category": "authoritative documentation",
+          "locator": "Historical IGS Reference Frames table"
+        }
+      ],
+      "limitation": "PASS is product identity/era only. Frame page also contains older narrative; use its dated chronology. SUM remarks use 28-Nov-2022 instead of table 27-Nov; neither ambiguity affects January 2024.",
+      "required_next_evidence_or_decision": "Preserve file identity and date scope; do not relabel current IGS realizations as this historical frame."
+    },
+    {
+      "id": "F02",
+      "requirement": "Named IGS20\u2013ITRF2020 datum relationship",
+      "status": "PASS",
+      "observed_implementation_or_metadata": "Official notice states shared origin, scale and orientation / zero underlying datum transformation parameters; station-specific antenna coordinate offsets are separate.",
+      "evidence": [
+        {
+          "source_id": "IGSMAIL8238",
+          "exact_version": "26 July 2022 advance notice; chronology checked against current IGS frame table",
+          "evidence_category": "authoritative documentation",
+          "locator": "Frame definition and transformation paragraphs"
+        },
+        {
+          "source_id": "FRAME_DOC",
+          "exact_version": "Public documentation captured 2026-10-25T07:12:05.154911+00:00",
+          "evidence_category": "authoritative documentation",
+          "locator": "IGS20 definition and antenna-calibration procedure"
+        }
+      ],
+      "limitation": "Does not prove OrbitIQ computed ITRS coordinates realize either datum; does not make every station coordinate identical.",
+      "required_next_evidence_or_decision": "No nonzero satellite datum transformation is justified. Review computed conventions separately; never apply station-specific offsets to a satellite."
+    },
+    {
+      "id": "F03",
+      "requirement": "SP3 coordinate metadata, axes, units and epoch interpretation",
+      "status": "PASS",
+      "observed_implementation_or_metadata": "Retained SP3-c P-only product: IGS20, GPS time, geocentric XYZ in km, 96 epochs, 900 s; no reference velocity records.",
+      "evidence": [
+        {
+          "source_id": "SP3",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "direct observation",
+          "locator": "Header and retained E8 inspection"
+        },
+        {
+          "source_id": "E82",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "direct_reference_recheck and matrix"
+        }
+      ],
+      "limitation": "Header declares frame and sampled epochs, not complete EOP/subdaily/antenna/history inventory. Terrestrial axes convention is conventional reference pole, Greenwich reference meridian and right-handed 90-degree-east Y, not geodetic latitude/longitude.",
+      "required_next_evidence_or_decision": "Keep exact grid; qualify realized axes/point and producer conventions before comparing."
+    },
+    {
+      "id": "F04",
+      "requirement": "Installed Astropy version and exact implementation semantics",
+      "status": "PASS",
+      "observed_implementation_or_metadata": "Astropy 7.2.3; 14 installed module/resource hashes match E8.3; exact-tag documentation retrieved. Actual TEME matrix is pom00(xp,yp,0) * R3(GMST82(UT1)) with identity celestial matrix.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "versions, module_audit, function_locators"
+        },
+        {
+          "source_id": "ASTROPY_DOC",
+          "exact_version": "v7.2.3 tag, docs/coordinates/satellites.rst",
+          "evidence_category": "authoritative documentation",
+          "locator": "TEME convention and same-obstime ITRS example"
+        }
+      ],
+      "limitation": "PASS describes inspected software, not accuracy or comparison readiness. Documentation examples were read, not executed.",
+      "required_next_evidence_or_decision": "Pin these versions/hashes in any future authorized run; validate physical sufficiency independently."
+    },
+    {
+      "id": "F05",
+      "requirement": "TEME source convention",
+      "status": "PARTIAL",
+      "observed_implementation_or_metadata": "Original XML declares EARTH/TEME/UTC/SGP4; installed Astropy explicitly follows Vallado 2006 TEME rather than a universal TEME realization. Existing initializer uses WGS72, improved mode i.",
+      "evidence": [
+        {
+          "source_id": "ADMISSION",
+          "exact_version": "E8.7.6 activated retrospective admission, unchanged",
+          "evidence_category": "direct observation",
+          "locator": "Hash-scoped G05/G30 input assessments"
+        },
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "elements.py / engine.py / equatorial.py"
+        },
+        {
+          "source_id": "ASTROPY_DOC",
+          "exact_version": "v7.2.3 tag, docs/coordinates/satellites.rst",
+          "evidence_category": "authoritative documentation",
+          "locator": "Several TEME definitions; Vallado convention"
+        }
+      ],
+      "limitation": "Model declaration and library consistency do not establish GP producer fit details, observed accuracy or final IGS frame equivalence.",
+      "required_next_evidence_or_decision": "Review this exact TEME-to-terrestrial convention as part of the common-frame disposition. No real satellite initialization was performed."
+    },
+    {
+      "id": "F06",
+      "requirement": "UT1-UTC source identity, historical coverage and refusal behavior",
+      "status": "PASS",
+      "observed_implementation_or_metadata": "Explicit local IERS_A merges finite Bulletin-B UT1 values at MJD 60309\u201360311. Existing 96-epoch/support preflight is final-source; UT1-UTC is seconds at UTC-MJD.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "resources[0], historical_brackets and source functions"
+        },
+        {
+          "source_id": "TIME",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "direct observation",
+          "locator": "resources, resource_quality_counts and existing preflight"
+        },
+        {
+          "source_id": "FINALS_README",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "authoritative documentation",
+          "locator": "UT1_UTC_B and UT1Flag_A fields"
+        }
+      ],
+      "limitation": "Coverage/source PASS only. It is not a pass for subdaily reconstruction, table uncertainty or IGS-specific consistency. A error columns cannot be assigned to merged B values.",
+      "required_next_evidence_or_decision": "Retain pinned table and final support flags; resolve F08\u2013F11 before scientific use."
+    },
+    {
+      "id": "F07",
+      "requirement": "Polar-motion source identity, historical coverage and units",
+      "status": "PASS",
+      "observed_implementation_or_metadata": "Merged Bulletin-B PM_X_B/PM_Y_B brackets cover reference/support interval; stored arcsec, converted to radians by get_polar_motion. dX/dY celestial-pole offsets are not consumed in this TEME branch.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "resources[0], get_polar_motion"
+        },
+        {
+          "source_id": "TIME",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "direct observation",
+          "locator": "resource_quality_counts"
+        },
+        {
+          "source_id": "FINALS_README",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "authoritative documentation",
+          "locator": "PM_X_B / PM_Y_B and A-only error fields"
+        }
+      ],
+      "limitation": "No full EOP-model/datum adequacy inference from final flags. Pole-coordinate sign convention is ERFA pom00 (meridians 0 and 90 degrees west), distinct from terrestrial XYZ Y-axis.",
+      "required_next_evidence_or_decision": "Preserve source/support checks; reconcile high-frequency convention and axes as F10/F15."
+    },
+    {
+      "id": "F08",
+      "requirement": "EOP interpolation, boundary behavior and numerical precision",
+      "status": "PARTIAL",
+      "observed_implementation_or_metadata": "Astropy 7.2.3 linearly interpolates UTC-MJD; UT1 adjacent difference removes rounded integer leap jump. Out-of-range base values are held with negative status, rejected by OrbitIQ. Two-part JD passed to GMST82; input XML microseconds preserved.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "IERS._interpolate; get_jd12; coordinates.py"
+        },
+        {
+          "source_id": "TN36",
+          "exact_version": "IERS Conventions (2010), Technical Note 36; reused approved publication",
+          "evidence_category": "authoritative documentation",
+          "locator": "Sections 5.5.1.1 and 5.5.3.1"
+        }
+      ],
+      "limitation": "Linear implementation is established, scientific suitability and any product-specific regularization/restoration are not. Internal leap-difference operation does not round source epochs. No numerical accuracy budget is approved.",
+      "required_next_evidence_or_decision": "Specify interpolation, rates/regularization, precision acceptance and subdaily component inventory together; independently review. No orbital interpolation is proposed."
+    },
+    {
+      "id": "F09",
+      "requirement": "TIO locator treatment for intended convention/accuracy",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "teme_to_itrs_mat explicitly sets s-prime=0 for Vallado consistency, not erfa.sp00; ITRS has no release selector.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "teme_to_itrs_mat and ERFA pom00/sp00 docstrings"
+        },
+        {
+          "source_id": "TN36",
+          "exact_version": "IERS Conventions (2010), Technical Note 36; reused approved publication",
+          "evidence_category": "authoritative documentation",
+          "locator": "Chapter 5 terrestrial rotation and TIO conventions"
+        }
+      ],
+      "limitation": "Software rationale is known; zero-TIO adequacy for this IGS comparison and a complete convention-consistent alternative are not justified. No error-size calculation or accuracy target established.",
+      "required_next_evidence_or_decision": "Set intended frame/accuracy acceptance and obtain independent derivation/review of Vallado zero-TIO versus applicable modern terrestrial convention. Do not insert sp00 into an otherwise unchanged chain."
+    },
+    {
+      "id": "F10",
+      "requirement": "Subdaily ocean-tide/libration and long-period treatment",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "Approved TN36 requires after-interpolation ocean-tide PM/UT1 and specified diurnal PM / semidiurnal UT1 libration contributions. Current inspected path contains no explicit additions; long-period/secular PM libration is already in observations.",
+      "evidence": [
+        {
+          "source_id": "TN36",
+          "exact_version": "IERS Conventions (2010), Technical Note 36; reused approved publication",
+          "evidence_category": "authoritative documentation",
+          "locator": "Sections 5.5.1.1\u20133, 5.5.3.1\u20133 and Chapter 8"
+        },
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "IERS._interpolate and teme_to_itrs_mat"
+        },
+        {
+          "source_id": "IERS_INDEX",
+          "exact_version": "Public documentation captured 2026-10-25T07:12:06.099940+00:00",
+          "evidence_category": "authoritative documentation",
+          "locator": "Publication versus unapproved working updates"
+        }
+      ],
+      "limitation": "Published baseline identifies a real missing explicit treatment; exact provider/2024 IGS regularization and model revisions remain unverified. Current repro3 recommendations alone are not exact operational inventory.",
+      "required_next_evidence_or_decision": "Obtain source-series and actual 2024 combination component inventory; choose versioned nonoverlapping corrections/removals, time arguments and independent review. Avoid adding both a composite routine and its constituent terms, or readding long-period/secular PM."
+    },
+    {
+      "id": "F11",
+      "requirement": "Current Bulletin-B-based path suitability for the scientific comparison",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "Final historical data, explicit offline source, guarded linear interpolation and fail-closed application behavior are reproducibly established; no full IERS-2010 subdaily restoration or computed-to-IGS20 justification.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "earth_orientation.py and coordinates.py"
+        },
+        {
+          "source_id": "TN36",
+          "exact_version": "IERS Conventions (2010), Technical Note 36; reused approved publication",
+          "evidence_category": "authoritative documentation",
+          "locator": "Section 5.5 requirements"
+        },
+        {
+          "source_id": "E877",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "G05/G06 gates"
+        }
+      ],
+      "limitation": "Not approved as the scientific comparison path. No claim of a measured discrepancy or of unacceptable numerical error magnitude.",
+      "required_next_evidence_or_decision": "Resolve F08\u2013F10/F15 against explicit acceptance, qualify spacecraft point and obtain independent protocol review/authorization. Keep active policy unchanged."
+    },
+    {
+      "id": "F12",
+      "requirement": "Matching IGS final ERP product local availability",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "Cached week-2295 directory lists IGS0OPSFIN_20233650000_07D_01D_ERP.ERP.gz; retained SUM identifies corresponding weekly ERP family. No payload in inspected local research/resource inventory.",
+      "evidence": [
+        {
+          "source_id": "DIRECTORY",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "direct observation",
+          "locator": "Exact ERP href in retained directory index"
+        },
+        {
+          "source_id": "SUM",
+          "exact_version": "Week 2295; sum-fileVersion 2.0 denotes format, not generator version",
+          "evidence_category": "authoritative documentation",
+          "locator": "Lines 93\u2013121; weekly file family"
+        },
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "local_resource_inventory and inventory_scope"
+        }
+      ],
+      "limitation": "Directory listing is not acquisition or schema/content validation. No matching ERP hash, actual row coverage, units, uncertainties or subdaily metadata available.",
+      "required_next_evidence_or_decision": "If separately authorized later, acquire this exact file, preserve bytes/receipt/hash, inspect actual header and all required bracketing epochs and processing metadata. No download occurred in E8.7.8."
+    },
+    {
+      "id": "F13",
+      "requirement": "IGS ERP-based transformation suitability",
+      "status": "NOT ASSESSED",
+      "observed_implementation_or_metadata": "SUM says PM/rates are from combined SINEX; LOD is bias-adjusted against Bulletin A and integrated into UT1-UTC anchored to Bulletin A. It identifies the associated ERP as containing UT1-UTC/LOD; actual ERP rows are absent.",
+      "evidence": [
+        {
+          "source_id": "SUM",
+          "exact_version": "Week 2295; sum-fileVersion 2.0 denotes format, not generator version",
+          "evidence_category": "authoritative documentation",
+          "locator": "Lines 93\u2013105 and 117\u2013121"
+        },
+        {
+          "source_id": "FRAME_DOC",
+          "exact_version": "Public documentation captured 2026-10-25T07:12:05.154911+00:00",
+          "evidence_category": "authoritative documentation",
+          "locator": "Operational activities: definitive SINEX-combined ERP versus other ACC ERP files"
+        },
+        {
+          "source_id": "PRODUCT_DOC",
+          "exact_version": "Public documentation captured 2026-10-25T07:12:05.273801+00:00",
+          "evidence_category": "authoritative documentation",
+          "locator": "Earth Rotation Note 2 and sampling descriptions"
+        }
+      ],
+      "limitation": "Useful metadata, not an inspected or validated replacement source. SUM Tables 6/7 explicitly are consistency statistics, not official ERP products. Actual UT1 anchor, flags, units, epoch convention and regularization must be verified.",
+      "required_next_evidence_or_decision": "Distinguish associated ACC ERP from definitive RF/SINEX ERP; establish which reproduces the reference combination convention. Inspect payload and producer-era processing before designing an adapter. No adapter/policy change authorized."
+    },
+    {
+      "id": "F14",
+      "requirement": "Time-system compatibility at locked comparison instants",
+      "status": "PASS",
+      "observed_implementation_or_metadata": "Actual XML explicitly UTC; SP3 GPS epochs mapped using pinned leap resource to UTC 2023-12-31T23:59:42Z through 2024-01-01T23:44:42Z, 96 instants. Existing GPS\u2212UTC=18 s conversion reused; no leap occurs over admitted epoch-to-target interval.",
+      "evidence": [
+        {
+          "source_id": "ADMISSION",
+          "exact_version": "E8.7.6 activated retrospective admission, unchanged",
+          "evidence_category": "direct observation",
+          "locator": "Actual OMM UTC metadata and all-epoch eligibility"
+        },
+        {
+          "source_id": "TIME",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "direct observation",
+          "locator": "utc_diagnostics and resources"
+        },
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "Leap_Second.dat hash and installed time formats"
+        }
+      ],
+      "limitation": "PASS is metadata/instant mapping only; UT1/subdaily adequacy and actual state evaluation remain separate. SGP4 uses nominal UTC-day convention, not UT1. No source timestamps changed.",
+      "required_next_evidence_or_decision": "Freeze original source strings, grid and resource hashes in a future run packet. Preserve unsupported leap-crossing refusal and obtain separate authorization."
+    },
+    {
+      "id": "F15",
+      "requirement": "Computed terrestrial coordinates realize an acceptable IGS20 frame",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "Astropy destination is geocentric ITRS(obstime=t), without ITRF-release selection; IGS20 is a named ITRF2020-aligned realization. Named-datum zero relation is supported, computed realization equivalence is not.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "ITRS class and same-obstime transform"
+        },
+        {
+          "source_id": "IGSMAIL8238",
+          "exact_version": "26 July 2022 advance notice; chronology checked against current IGS frame table",
+          "evidence_category": "authoritative documentation",
+          "locator": "Named datum statement"
+        },
+        {
+          "source_id": "SUM",
+          "exact_version": "Week 2295; sum-fileVersion 2.0 denotes format, not generator version",
+          "evidence_category": "authoritative documentation",
+          "locator": "Remarks 6/7; lines 225\u2013239 daily AC orbit/ERP rotations"
+        }
+      ],
+      "limitation": "A frame class label or station datum relation does not verify computed axes/origin/scale/epoch. Producer AC alignment rotations are not corrections to apply to GP spacecraft states.",
+      "required_next_evidence_or_decision": "Independent convention crosswalk/derivation for this exact TEME/EOP/terrestrial chain and applicable 2024 realization. Justify identity alignment, or specify an authoritative required mapping before implementation."
+    },
+    {
+      "id": "F16",
+      "requirement": "Complete future GP-to-IGS conceptual comparison chain",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "Eight stages separately documented; original G30 protocol and reference grid unchanged. No specific GP record selected.",
+      "evidence": [
+        {
+          "source_id": "G30_PROTOCOL",
+          "exact_version": "Original G30 proposed v0.1, unchanged",
+          "evidence_category": "direct observation",
+          "locator": "Fixed single-record, forward-only, latest-unique, full-window rules"
+        },
+        {
+          "source_id": "E877",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Readiness gates and authorization conditions"
+        },
+        {
+          "source_id": "ADMISSION",
+          "exact_version": "E8.7.6 activated retrospective admission, unchanged",
+          "evidence_category": "direct observation",
+          "locator": "15 admission results, not scientific qualification"
+        }
+      ],
+      "limitation": "Specified chain is not an executed or scientifically validated chain. G05 has separate proposal/identity/point review and two holds.",
+      "required_next_evidence_or_decision": "Resolve every essential physical/claim gate, select only under unchanged rules, freeze run packet, obtain independent review and explicit comparison authorization."
+    },
+    {
+      "id": "F17",
+      "requirement": "Known shared-source dependencies and independence limits",
+      "status": "PARTIAL",
+      "observed_implementation_or_metadata": "IGS ERP/precise orbit solutions share GNSS/SINEX/frame processing. Published associated ERP UT1/LOD path additionally uses Bulletin A. The current Bulletin-B source does not establish statistical independence from IGS.",
+      "evidence": [
+        {
+          "source_id": "SUM",
+          "exact_version": "Week 2295; sum-fileVersion 2.0 denotes format, not generator version",
+          "evidence_category": "authoritative documentation",
+          "locator": "Lines 93\u2013105, 231\u2013239 and 410\u2013413"
+        },
+        {
+          "source_id": "PRODUCT_DOC",
+          "exact_version": "Public documentation captured 2026-10-25T07:12:05.273801+00:00",
+          "evidence_category": "authoritative documentation",
+          "locator": "Earth Rotation Note 2"
+        },
+        {
+          "source_id": "E85",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Observation, model, processing, frame and lineage distinctions"
+        }
+      ],
+      "limitation": "Exact covariance, observation overlap, actual Bulletin A edition/anchor and complete GP fit lineage unknown. Different filenames or providers do not prove independence.",
+      "required_next_evidence_or_decision": "Document dependencies in the future claim review; no zero covariance, normalized residual, independent accuracy, truth or forecasting claim. ERP consistency can improve traceability without independence."
+    },
+    {
+      "id": "F18",
+      "requirement": "Spacecraft physical reference-point compatibility",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "IGS general CoM convention and current ANTEX/SINEX metadata retained. G30/G064 IIF and G05/G050 IIR-M require separate satellite-specific treatment.",
+      "evidence": [
+        {
+          "source_id": "E84",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Reference point and antenna calibration"
+        },
+        {
+          "source_id": "E82",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Historical calibration limitations"
+        }
+      ],
+      "limitation": "Exact 2024 calibration/attitude revision and GP fitted-point interpretation unestablished. Geocentric frame origin is not spacecraft center of mass; zero datum does not resolve CoM/APC.",
+      "required_next_evidence_or_decision": "Establish applicable historical product point and GP interpretation, or independently justify the specified treatment; no current ANTEX offsets blindly applied."
+    },
+    {
+      "id": "F19",
+      "requirement": "Reference quality and permitted bounded claims",
+      "status": "PARTIAL",
+      "observed_implementation_or_metadata": "Existing quality indicators/statistics retained; G30 producer-statistic relationship still partially resolved. No new uncertainty calculation.",
+      "evidence": [
+        {
+          "source_id": "E84",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Quantized indicators and class-accuracy limitations"
+        },
+        {
+          "source_id": "E86",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Q08 and prepared producer question"
+        },
+        {
+          "source_id": "E877",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Quality/claims review gate"
+        }
+      ],
+      "limitation": "Final-product branding is not a per-satellite truth bound; no covariance or calibrated comparison uncertainty. G30 findings cannot be transferred to G05.",
+      "required_next_evidence_or_decision": "Resolve numerical interpretation if used, or independently approve bounded descriptive claims with uncertainty explicitly unquantified and unused ambiguous indicators; not a waiver granted here."
+    },
+    {
+      "id": "F20",
+      "requirement": "Independent scientific review and explicit comparison authorization",
+      "status": "BLOCKED",
+      "observed_implementation_or_metadata": "This task authorizes audit/documentation only; no record selected or run packet approved.",
+      "evidence": [
+        {
+          "source_id": "E877",
+          "exact_version": "Preserved E8 evidence / unchanged file; exact hash identifies checkpoint",
+          "evidence_category": "direct observation",
+          "locator": "Authorization gate"
+        },
+        {
+          "source_id": "G30_PROTOCOL",
+          "exact_version": "Original G30 proposed v0.1, unchanged",
+          "evidence_category": "direct observation",
+          "locator": "Review and explicit authorization requirements"
+        }
+      ],
+      "limitation": "Software/source/doc checks cannot grant scientific authorization.",
+      "required_next_evidence_or_decision": "Complete essential qualifications, unchanged-rule selection, reproducibility manifest, independent review and explicit user authorization before real state calculations."
+    },
+    {
+      "id": "F21",
+      "requirement": "Available C04 alternative source and its status",
+      "status": "PARTIAL",
+      "observed_implementation_or_metadata": "Unused bundled eopc04.1962-now header declares EOP (IERS) 20 C04 consistent with ITRF2020, 0h UTC, IAU2000; coverage MJD 37665\u201361287 includes target. IERS_B loader name differs from Bulletin-B columns in active IERS_A.",
+      "evidence": [
+        {
+          "source_id": "AUDIT",
+          "exact_version": "Exact installed versions and file/function hashes; E8.7.8 audit",
+          "evidence_category": "direct observation",
+          "locator": "resources[1] and IERS_B.read"
+        },
+        {
+          "source_id": "C04_README",
+          "exact_version": "Hash-pinned existing resource; no acquisition in E8.7.8",
+          "evidence_category": "authoritative documentation",
+          "locator": "Header, units and error-column definitions"
+        }
+      ],
+      "limitation": "Availability and header traceability do not qualify this series as an IGS ERP replacement or restore missing subdaily terms. Live product-description request failed HTTP 503; not treated as read.",
+      "required_next_evidence_or_decision": "If considered, obtain authoritative issue/component/interpolation specification and scientific review. Do not switch sources on the basis of the ITRF2020 label or favorable output."
+    }
+  ],
+  "EOP_policy_recommendation": {
+    "decision": "NO-GO",
+    "active_configuration_changed": false,
+    "current_source_retained_for_application_and_reproducibility": "Pinned finals2000A.all Bulletin-B path; not approved as the scientific comparison EOP treatment",
+    "future_route": "Evaluate exact matching IGS ERP after separate acquisition authorization, together with a reviewed absolute-UT1 anchor, interpolation/regularization and nonoverlapping subdaily/TIO convention. A fully documented Bulletin-B/C04 treatment remains possible if independently justified. No adapter approved.",
+    "selection_must_not_depend_on_preferred_residual": true,
+    "minimum_evidence": [
+      "Actual product-era IGS ERP/component/model inventory, input-series and absolute-UT1 provenance",
+      "Independently reviewed TEME/GMST82/polar-motion/TIO and IGS20 compatibility derivation with explicit acceptance criteria",
+      "Versioned correction/interpolation inventory preventing double counting, plus source/claim dependency review",
+      "Common spacecraft physical point, quality/claims disposition, unchanged-protocol record selection and explicit comparison authorization"
+    ]
+  },
+  "IGS_ERP": {
+    "exact_identifier": "IGS0OPSFIN_20233650000_07D_01D_ERP.ERP.gz",
+    "listing_url": "https://igs.bkg.bund.de/root_ftp/IGS/products/2295/",
+    "payload_available_in_inspected_local_evidence": false,
+    "downloaded_here": false,
+    "payload_hash": null,
+    "actual_contents_inspected": false,
+    "documented_association": "SUM lines 117\u2013121 explicitly associates weekly ERP/UT1/LOD with ephemerides; directory confirms exact weekly identifier",
+    "UT1_documented_provenance": "SUM lines 98\u2013105: Bulletin-A calibrated LOD integrated to UT1-UTC with Bulletin-A anchor; actual edition/anchor and payload not inspected",
+    "ERP_statistics_are_not_payload": "SUM lines 410\u2013413: Tables 6/7 are consistency statistics, not official accompanying SINEX ERP combination",
+    "scientific_suitability": "NOT ASSESSED",
+    "traceability_vs_independence": "Matching conventions could improve traceability to IGS solution but share processing/IERS sources; no statistical independence or agreement established"
+  },
+  "conceptual_chain": [
+    {
+      "order": 1,
+      "stage": "Original GP metadata interpretation",
+      "status": "PARTIAL",
+      "basis": "Identity/static fields verified, headers/provenance PARTIAL; exact source indices retained",
+      "executed_here": false
+    },
+    {
+      "order": 2,
+      "stage": "SGP4 state generation in required TEME convention",
+      "status": "NOT ASSESSED",
+      "basis": "Existing WGS72/mode-i implementation inspected; no real initialization/propagation",
+      "executed_here": false
+    },
+    {
+      "order": 3,
+      "stage": "Time-scale handling",
+      "status": "PARTIAL",
+      "basis": "Exact GPS/UTC mapping established; complete UT1 convention still blocked",
+      "executed_here": false
+    },
+    {
+      "order": 4,
+      "stage": "Earth-orientation evaluation",
+      "status": "BLOCKED",
+      "basis": "Coverage established; model/subdaily/ERP suitability not qualified",
+      "executed_here": false
+    },
+    {
+      "order": 5,
+      "stage": "Terrestrial transformation",
+      "status": "BLOCKED",
+      "basis": "Actual Vallado shortcut specified; TIO/acceptance unsettled",
+      "executed_here": false
+    },
+    {
+      "order": 6,
+      "stage": "IGS20 compatibility",
+      "status": "BLOCKED",
+      "basis": "Named datum relationship established, computed realization not qualified",
+      "executed_here": false
+    },
+    {
+      "order": 7,
+      "stage": "Common spacecraft physical point",
+      "status": "BLOCKED",
+      "basis": "Historical point/antenna/GP-fit treatment unestablished",
+      "executed_here": false
+    },
+    {
+      "order": 8,
+      "stage": "Eligibility at locked reference epochs",
+      "status": "PARTIAL",
+      "basis": "15 admitted records pass guard on all 96 instants; no scientific selection, qualification or authorization",
+      "executed_here": false
+    }
+  ],
+  "historical_report_policy": "E8.2\u2013E8.7.7 snapshots preserved. Earlier missing-input statements are historical, not current; this report does not rewrite their conclusions.",
+  "verification": {
+    "application_code_changed": false,
+    "tests_changed": false,
+    "fresh_pytest_runs": "NONE \u2014 no code/dependency change; audit/documentation checks only",
+    "prior_160_targeted_tests": "Historical E8.7.6 result; not rerun or claimed fresh",
+    "browser_PDF_full_application_remote_CI": "NOT RUN \u2014 unrelated to documentation audit; no publication requested",
+    "checks": "Source/resource/version/hash, original/capture/reference, matrix/source/link, formatting/privacy/whitespace and preservation checks; final results recorded in report",
+    "changed_files": [
+      "docs/engineering-e8.7.8-frame-eop-compatibility.md",
+      "docs/engineering-e8.7.8-frame-eop-evidence.json"
+    ]
+  },
+  "preservation": {
+    "prior_private_manifest_entries": 186,
+    "original_private_files": 72,
+    "original_database_schema_version": 3,
+    "database_snapshots": 2,
+    "database_sha256": "ac93a71ca7a742c5425ac06ead4b5e0cc8dd15e0cdeb868db9cdee46f820c2f9",
+    "new_private_audit_manifest_entries": 13,
+    "new_private_audit_manifest": "/workspace/OrbitIQ-e82/data/e8.7.8-frame-eop/preservation-manifest.json",
+    "bytes": 1778,
+    "sha256": "1f681e027489c7907befb91912a11149920b83718331b9a5a597f6fe5f38fb9b",
+    "original_protocol_admission_activation_and_all_previous_files_changed": false,
+    "new_scientific_data_acquired": false,
+    "independent_backup_verified": false
+  },
+  "safeguards": {
+    "real_GP_initialized": false,
+    "real_GP_propagated": false,
+    "real_spacecraft_states_transformed": false,
+    "orbital_states_interpolated_or_extrapolated": false,
+    "orbital_residuals_calculated": false,
+    "new_uncertainty_calculated": false,
+    "source_independence_established": false,
+    "record_selected": false,
+    "scientific_comparison_authorized": false,
+    "EOP_policy_changed": false,
+    "transformation_algorithm_changed": false,
+    "original_scientific_files_modified": false,
+    "database_modified": false,
+    "protocol_changed": false,
+    "retrospective_policy_or_activation_changed": false,
+    "private_account_accessed": false,
+    "authentication_attempted": false,
+    "git_publication_performed": false,
+    "production_deployed": false
+  },
+  "Swarm_phase_11_3_1": "PARTIAL",
+  "Swarm_scientific_evaluation": "BLOCKED",
+  "E4_production_readiness": "OPEN"
+}

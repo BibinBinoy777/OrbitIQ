@@ -1,5 +1,17 @@
 # Phase 11.3.1 — provider clarification tracking
 
+**Publication review — 26 October 2026:** the owner authorized publishing this
+verified documentation on `publication/v1-verified-docs-2026-10-26`. Earlier
+"local/unpublished" statements describe their dated verification checkpoints.
+The publication commit and its remote CI must be verified separately; no new CI
+success is asserted by this pre-publication snapshot. Scientific validation and
+production readiness remain **NO-GO**; no deployment is authorized.
+
+**Latest input-acquisition checkpoint: 26 October 2026.** See
+[the additional fulfillment record](#additional-swarm-a-fulfillment-evidence--26-october-2026).
+The 22 October clarification checkpoint below is retained as historical evidence;
+the new data-request timestamp does not replace a clarification-submission clock.
+
 Current checkpoint: **22 October 2026**, scoped CelesTrak follow-up closure.
 The user supplied pasted CelesTrak reply text and authorized using the available
 information to close that follow-up for the current retrospective study. The text
@@ -47,3 +59,30 @@ The [comparison protocol](phase-11.3.1-comparison-protocol.md) and
 [frame investigation](phase-11.3.1-frame-alignment-investigation.md) predeclare the
 proposed study and record independently checked arithmetic. They do not close
 ESA's time, KIN-quality or alignment gates and do not authorize real evaluation.
+
+## Additional SWARM-A fulfillment evidence — 26 October 2026
+
+**Owner-supplied fulfillment metadata**, separate from the clarification-submission
+and receipt clocks above: CelesTrak (notice contact Dr. T. S. Kelso) reports fulfillment
+of the historical GP **JSON** request dated **`2026-10-25T06:25:38Z`**, for SWARM A /
+NORAD **39452** / COSPAR **2013-067B**. Requested coverage and the reported actual
+period are both **2013-12-30 through 2014-01-02**, with **three element sets**.
+The owner supplied this notice metadata on **2026-10-26**; no exact provider-email
+receipt time or authenticated transport headers are available here. This is not
+a replacement timestamp for any earlier request or clarification correspondence.
+
+The [file-specific formatting/fulfillment record](phase-11.3.1-provider-response-reconciliation.md#swarm-a-json-fulfillment-and-inspected-file--26-october-2026)
+records the actual owner-uploaded `sat000039452 (1).json`: **1,236 bytes**, computed
+SHA-256 `8720c8db31451a121b0b3f2333063165d0cc6dea1c71edec187dbcdd3ac34fb5`.
+Strict JSON and the named numeric-format checks passed; the three records' **51**
+values match the existing selected CSV. These are direct uploaded-file checks,
+not proof that the notice authenticates those exact bytes or that the provider's
+entire JSON service has been verified. Original malformed JSON and CSV remain intact.
+
+Classification is **provider-formatting/input-acquisition evidence**, not approval
+of a scientific comparison input. The selected CSV and existing retrospective
+follow-up disposition stay unchanged. Phase 11.3.1 is **PARTIAL** and scientific
+evaluation **BLOCKED — NO-GO**. ESA time/KIN-quality/IGb08 questions and independent
+IGS frame/EOP clarification remain pending. No G05/G30 substitution, policy or
+candidate change, scientific calculation, publication or deployment is authorized
+or performed by this update. No unnecessary personal request metadata is retained.

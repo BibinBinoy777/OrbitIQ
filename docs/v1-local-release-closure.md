@@ -1,5 +1,18 @@
 # OrbitIQ V1 — inquiry tracking and local release closure
 
+**Publication review — 26 October 2026:** the owner authorized publishing this
+verified documentation on `publication/v1-verified-docs-2026-10-26`. Earlier
+"local/unpublished" statements describe their dated verification checkpoints.
+The publication commit and its remote CI must be verified separately; no new CI
+success is asserted by this pre-publication snapshot. Scientific validation and
+production readiness remain **NO-GO**; no deployment is authorized.
+
+**Latest decision:** local engineering **GO_FOR_INTENDED_LOCAL_USE** for the
+implementation verified at `8160bcb972c5c1486b2b138008b0cd4d5bd633c4`. See the
+[final helper-integration decision](#final-helper-integration-decision--25-october-2026).
+Earlier outcomes below are retained historical assessments. Owner acceptance is
+unchanged; scientific validation and production readiness remain **NO-GO**.
+
 Assessment: **25 October 2026, Asia/Calcutta**. Target decision date:
 **31 October 2026**. This is a local V1 candidate assessment, not public-production
 approval or scientific qualification.
@@ -629,3 +642,306 @@ database contents, protocols, retrospective-admission policy and activation rema
 unchanged. No real-input propagation, spacecraft transformation, orbital
 interpolation, residual or uncertainty calculation, external private-data transfer,
 publication or deployment occurred.
+
+## Final helper integration decision — 25 October 2026
+
+**Local engineering: GO_FOR_INTENDED_LOCAL_USE**, for the verified implementation
+at `8160bcb972c5c1486b2b138008b0cd4d5bd633c4`. The former current-helper/browser
+condition is resolved by actual exact-source CI, not by waiving a blocked test.
+The owner accepted this intended-local-use scope on **2026-10-25**; no precise
+acceptance time or individual checklist observations were supplied. Scientific
+validation and production readiness remain **NO-GO**. This is a bounded local
+engineering decision, not a public-launch or scientific-accuracy claim.
+
+### Source and evidence chronology
+
+The prompt refers to the earlier `b0a0320` baseline and its two changed helpers.
+Subsequent authorized publication already placed those exact changes at **8160bcb**.
+[CI run 40218611266](https://github.com/BibinBinoy777/OrbitIQ/actions/runs/40218611266)
+passed **backend**, **frontend** and **release-images** for that full SHA.
+Both current helpers and their two regression-test files were compared byte for
+byte with that published source and match. Source-bound retained receipts cover
+**431** committed files, **69** sealed evidence entries and verified artifact
+archive digests. Earlier baseline-only/unexecuted entries remain historical;
+`final_helper_verification` is the current ledger assessment.
+
+That exact-source CI passed **1,586 backend tests**, **427 frontend tests**,
+**77 release flows** (Chromium **27**, Firefox **25**, WebKit **25**), E2/E6/E7,
+and **all seven PDFs**, including the offline PDF and **361** maximum-track rows.
+Versions were Chromium **151.0.7922.34**, Firefox **153.0**, WebKit **26.5**.
+These are actual results from the prior authorized publication run, not new broad
+runs in this task and not an assertion that baseline CI tested later changes.
+No new runner or unpublished-source transfer is now needed for this closed gate.
+
+### Fixture seeder review and current tests
+
+Relative to `b0a0320`, the seeder adds **`--directory`** and **`--local-owner`**.
+The local-owner CLI always uses the bundled public-reference-derived synthetic
+fixture, writes only the explicitly supplied fresh directory, retains current-user
+ownership and adds a synthetic marker, exact DB path and SHA-256 receipt. No
+research-file override is offered. Default `/fixtures`, `/reference.json`, receipt
+and container UID 10001 behavior are preserved.
+
+The local target must be absolute, nonsymlink and empty. A repeated invocation on
+its seeded target deliberately **refuses without altering any existing bytes**;
+it is safe refusal, not permission to overwrite or silently reinitialize. The
+created archive is read-only, contains two explicitly synthetic catalog-6251
+snapshots and passes SQLite integrity checks. The real DB path is not taken from
+environment/default storage. Tests use disposable directories only.
+
+**Four current-source seeder tests passed**, covering creation, read-only/integrity,
+non-overwrite, absolute/symlink refusal and default container CLI/owner contract.
+
+### PDF verifier review and current tests
+
+The only behavior change adds validated raw-page reading order before the original
+content assertions. It removes the exact recognized header/footer only at validated
+page boundaries, allowing complete sentences split across pages to match. It
+rejects wrong/missing raw page boundaries and missing, misplaced or misnumbered
+running furniture; interior lookalike text stays body content.
+
+All **six original main assertion expressions** remain unchanged. They still check
+pagination/counters, captured identifiers, generation/source timestamps, source
+hashes, validation, warnings/limitations, track coordinates and clocks, seven
+sections, application exclusion and private-note exclusion. The release harness
+still requires exactly seven passing PDFs and 361 maximum-track rows. Nothing is
+silently skipped. **Fifteen current-source PDF regressions passed**, including
+prefix/suffix/split furniture, genuine omitted warning text, malformed pages and
+interior lookalikes. This demonstrates rejection of the tested incomplete-content
+cases, not universal optical or physical-printer assurance. No new PDF was generated
+or claimed in this task; the seven-PDF generation occurred in the authorized CI run.
+
+Fresh targeted command:
+
+```bash
+/workspace/OrbitIQ/.venv/bin/python -m pytest -q \
+  backend/tests/test_owner_acceptance_seed.py \
+  backend/tests/test_report_pdf_verifier.py \
+  --junitxml=/tmp/orbitiq-v1-helper-final/helper-tests.xml
+```
+
+**19 passed in 0.93 s**, zero failures/errors/skips. Targeted Ruff lint/format and
+three-document Prettier checks passed. Existing broad suites/browser checks were
+not repeated. No helper, application, dependency or test implementation changed.
+
+### Separate decisions and remaining requirements
+
+| Decision              | Current status                                                                                                                                                     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Owner acceptance      | **ACCEPTED_FOR_INTENDED_LOCAL_USE**, dated 2026-10-25; exact scope unchanged.                                                                                      |
+| Local engineering     | **GO_FOR_INTENDED_LOCAL_USE**, tied to the unchanged verified implementation and recorded automated/local-recovery scope. No helper integration condition remains. |
+| Scientific validation | **NO-GO**; study **BLOCKED — NO-GO**, Phase 11.3.1 **PARTIAL** and IGS frame/EOP clarification pending.                                                            |
+| Production readiness  | **NO-GO**; E4 remains **OPEN**.                                                                                                                                    |
+
+The six individual owner-review items remain unchecked. No human-device,
+screen-reader, printer or general accessibility certification is inferred. Local
+managed `file:` restrictions and local Firefox/WebKit startup/dependency problems
+remain unchanged; the required automated integration ran in authorized CI without
+bypassing those local restrictions. Real hosting/HTTPS, off-machine recovery,
+actual alert delivery and required-check enforcement remain open production work.
+The main branch was observed unprotected with no rulesets; protection-detail access
+returned 403. No controls were changed. Scientific time/EOP/frame, physical-point,
+quality/provenance and protocol requirements remain separate unresolved gates.
+
+Only this report, its JSON ledger and the checklist's current status paragraph
+were updated; the latter avoids contradicting the verified decision. Owner scope,
+date, confirmation and all six checkbox bodies remain unchanged. Prior evidence
+and scientific reports are retained. This documentation-only addendum is **local
+and unpublished**; its bytes were not part of the earlier CI run. The implementation
+is byte-identical to verified **8160bcb**, and no fresh-CI claim is made for the
+subsequent documentation. Formatting, JSON/evidence/source consistency, links,
+whitespace, scoped diff and preservation checks passed.
+
+Original G05/G30 XML, IGS SP3/ERP, their hashes, database contents, protocols,
+retrospective-admission policy/activation and active EOP policy remain unchanged.
+No real-research propagation, spacecraft transformation, interpolation, residual
+or uncertainty calculation, policy change, publication, deployment, DNS or
+infrastructure action occurred in this task. The targeted seeder tests exercised
+only their existing explicitly synthetic fixture path, not the scientific study.
+
+## Local V1 owner handoff preparation — 25 October 2026
+
+**Handoff instructions are ready for owner execution; all six manual-review items
+remain PENDING_OWNER_OBSERVATIONS.** This is preparation, not a completed owner
+usability review. Existing owner acceptance remains **ACCEPTED_FOR_INTENDED_LOCAL_USE**
+and local engineering **GO_FOR_INTENDED_LOCAL_USE**. Scientific validation and
+production readiness retain **NO-GO**; no new feature phase has started.
+
+The three current documents were reconciled. Their latest four decisions were
+already consistent; no status correction or helper change was needed. The
+[owner execution guide](v1-user-acceptance-checklist.md#owner-execution-guide) now
+provides six matching procedures, each identifying state/prerequisites, numbered
+actions, observable expected results, pass evidence and failure/block details.
+The original six checkbox items and acceptance criteria, owner statement/date/scope
+and unreported observation status remain unchanged.
+
+The practical path uses only the existing explicitly synthetic catalog-6251
+fixture and snapshot metadata/element views: launch/readiness, inspect an exact
+source, save, close/restart at the same profile/origin/archive, reopen, inspect
+history/provenance, export/import, then check keyboard access and readability.
+No blocked real-data comparison is authorized. The guide makes explicit that:
+
+- Browser saves belong to their exact profile/origin; changing host/port/profile,
+  clearing site data or deleting temporary fixture storage is not a recovery path.
+- A portable bundle restores saved inputs/title and optional notes; it does not
+  contain the orbital archive or frozen results. Captured report JSON/HTML/PDF is
+  a different format, excludes local title/notes and is not portable-import input.
+- Formats should be compared from one captured report; actual download completion,
+  page breaks, errors and limitations need human inspection on the intended computer.
+- Offline policy blocks are recorded as **BLOCKED**. Recovery operations and
+  screen-reader/device observations not performed are **NOT_RUN**. Instructions,
+  earlier automation and scope acceptance are not evidence that they occurred.
+
+A [blank defect record](v1-user-acceptance-checklist.md#reproducible-defect-record)
+captures identity/context, numbered reproduction, expected/actual behavior, severity,
+sanitized error/evidence, repeatability, a supported proposed fix and focused
+regression. No actual defect report or owner observation was supplied, and source
+inspection demonstrated no product defect requiring a fix. No speculative UI,
+application, dependency, helper or test changes were made.
+
+Action names and behavior were checked against current components, existing browser
+scripts and the backup/recovery runbook. Documentation formatting, JSON/evidence
+structure, links/anchors, source consistency, scoped diff, whitespace and preservation
+checks passed. No broad backend/frontend/browser suite, helper regression, browser
+startup or resource-intensive Docker attempt was repeated. The earlier 4/15 helper
+passes and exact-implementation CI at **8160bcb** (1,586 backend, 427 frontend, 77
+browser flows, seven PDFs) remain retained evidence, not newly executed tests.
+No new screenshot, PDF or recovery receipt was generated in this handoff task.
+
+The remaining manual items are startup/primary workflows, investigations/history,
+report/export, errors/recovery, limits/accessibility and deployment/data expectations.
+They require direct owner observations using the guide. The existing local runtime
+restrictions, profile-local saves, source-dependent reconstruction and unquantified
+scientific accuracy remain documented limitations. IGS frame/EOP clarification and
+other essential scientific prerequisites remain pending; the study stays **BLOCKED**.
+E4 remains **OPEN**, with HTTPS/hosting, durable storage, independent backup/recovery,
+actual alerts and branch/required-check enforcement still outstanding.
+
+Only these three V1 documentation files changed. Original research inputs/hashes,
+database contents, comparison protocols, retrospective-admission policy/activation,
+active EOP policy, earlier evidence and the clean published worktree are preserved.
+This handoff update is **local and unpublished**. No real-data scientific operation,
+private-data upload, publication, deployment, hosting, DNS or infrastructure change
+occurred. The four decision gates remain separate and unchanged.
+
+## Owner checklist acceptance — 26 October 2026
+
+The owner confirmed: "i accept `user-acceptance-checklist.md`." This refers to the
+existing [V1 owner checklist](v1-user-acceptance-checklist.md) and is recorded as
+**ACCEPTED_FOR_INTENDED_LOCAL_USE**, dated **2026-10-26 (Asia/Calcutta)**, with no
+precise acceptance time supplied. The original 2026-10-25 local-use acceptance and
+all preceding preparation/verification evidence remain preserved.
+
+The owner has accepted the checklist for the current version's intended local
+scope. No item-specific observations or formal waiver were provided: all six
+manual criteria remain unchecked and **PENDING_OWNER_OBSERVATIONS**. This addendum
+supersedes the handoff's pending overall checklist acceptance only; its historical
+preparation status and unreported technical observations remain accurate.
+
+Local engineering stays **GO_FOR_INTENDED_LOCAL_USE** on the retained exact-source
+CI/helper evidence. Scientific evaluation remains **BLOCKED — NO-GO**, Phase 11.3.1
+**PARTIAL**, and IGS frame/EOP clarification **PENDING**. Production readiness stays
+**NO-GO**, E4 **OPEN**. Hosting/HTTPS, independent backup/recovery, actual alerts and
+release-control enforcement remain unverified. No new browser/device, accessibility,
+PDF, recovery or application test result is inferred from the acceptance.
+
+Only this closure report, its existing JSON ledger and the checklist were updated.
+Focused documentation, JSON/evidence, link, whitespace and preservation checks
+passed; broad application/browser/PDF suites were not repeated. Original research
+inputs and hashes, database contents, scientific protocols, retrospective-admission
+policy/activation, active EOP policy and prior reports remain unchanged. No real
+scientific calculation, commit, push, deployment or infrastructure action occurred.
+This acceptance addendum remains **local and unpublished**.
+
+## Agent-executed local checklist verification — 26 October 2026
+
+The owner requested that the assistant perform the checks. The available local
+workflows were executed against the unchanged implementation corresponding to
+**8160bcb972c5c1486b2b138008b0cd4d5bd633c4**. Only five existing documentation paths
+differed from that published source before this task; application, dependency and
+verification-script bytes were unchanged. Served production-dist files matched
+the retained verified CI artifact byte-for-byte. This was native **Chromium
+154.0.8037.57**, Playwright **1.62.0**, on the Linux cloud workspace, via loopback
+Vite preview and the actual FastAPI service. It was not the release nginx gateway,
+a new CI run, Firefox/WebKit rerun or the owner's physical device.
+
+Only the existing explicitly synthetic catalog **6251**, snapshot IDs **1/2**,
+read-only archive `/tmp/orbitiq-v1-owner/acceptance/archive.sqlite3` was configured.
+The observation archive was not configured. Synthetic calculations made by the
+existing browser workflows are software exercises, not acquired observations or
+qualification of any genuine historical research input. No G05/G30/Swarm research
+record, real ERP interpolation or scientific residual calculation was used.
+
+Fresh execution results:
+
+- Startup health/readiness returned HTTP 200, with exactly two labelled synthetic
+  snapshots. Seven critical browser journeys passed against the actual API,
+  including discovery, keyboard save/share/reopen, restored definitions, readiness,
+  timeline/graphics and missing-source disclosure.
+- Eight history journeys and seven E7 regression cases passed. Explicit transport/
+  wrong-window fault cases remain labelled as injected; normal source/history
+  requests used the actual API.
+- The E2 suite passed **23 checks**, with **zero axe violations across six views**,
+  keyboard skip/focus/dialog controls, visible globe rendering, resource lifecycle,
+  retry behavior and no horizontal page overflow at **320/390/768/1440** pixels.
+  Axe left color-contrast checks incomplete in three views; these are not passes.
+  No screen reader, physical device or actual browser-zoom observation is claimed.
+- Portable investigations passed **13 cases** and **four native download/import/
+  re-export round trips**, including idempotency, collision/cancel, notes policy,
+  exact-source refusal and explicitly injected storage/download failures.
+- A fresh persistent browser profile saved a synthetic title, note and source
+  definition. Browser and both services were closed/restarted at the same origin;
+  stored records matched exactly and reopened. Actually stopping this owned API
+  displayed the backend error; submitting a search exposed its explicit retry,
+  which recovered after API restart without changing the saved records.
+- Six newly generated PDFs passed the existing text/pagination verifier: snapshot,
+  position, ground track, comparison, maximum track and saved card. All sections,
+  source identity, warnings, page counters and **361 maximum-track rows** checked.
+  JSON/HTML same-capture downloads and print-preview assertions preceding the
+  offline stage completed. The full report-browser command **exited 1** at
+  `file:` navigation with **ERR_BLOCKED_BY_ADMINISTRATOR**; the seventh offline PDF
+  was not generated. No overall report-browser pass is claimed. The managed policy
+  hash stayed `47e595d31fd4f9e4273dba00536d7d4b7c0e8c50aa4017bc6e5c33dd4193855a`.
+- The documented recovery command passed against only the synthetic archive:
+  SQLite backup, distinct restore, full schema/table digests and provenance checks,
+  and four restored API responses (all 200). Source content remained unchanged;
+  the command removed only its new restored target and retained its local backup.
+  Reusing that recovery directory was correctly refused with exit 1, preserving
+  both existing artifacts and source. This is local fixture recovery, not durable
+  off-machine backup, a real-archive rehearsal or production recovery.
+
+The first custom outage probe omitted submitting the search before expecting its
+retry button; the actual view correctly remained idle. This test-driver error
+also left the intentionally stopped API unavailable for the first report attempt;
+its PDF verifier correctly found no PDFs. The temporary driver was corrected,
+only affected restart/report checks were rerun, and original attempt receipts
+were retained. No product assertion, application code or security policy was
+changed. No demonstrated application defect required a fix.
+
+Commands and logs, screenshots, downloads, PDF results, restart evidence and
+synthetic recovery manifest are retained under
+`/tmp/orbitiq-agent-local-review-20261026/`; their identities and command results
+are in the existing JSON ledger's `agent_assisted_review_20261026` section. The
+assistant visually inspected the report preview and first snapshot PDF page for
+obvious clipping; that limited inspection is not full print/visual certification.
+Temporary local receipts are not independent backups. All owned servers were
+stopped and loopback ports released after checking.
+
+The [checklist](v1-user-acceptance-checklist.md#agent-executed-local-checks--26-october-2026)
+now maps the six areas to scoped agent results. The six original owner checkbox
+criteria stay unchanged: no owner-device, screen-reader or understanding result is
+invented. Owner acceptance remains **ACCEPTED_FOR_INTENDED_LOCAL_USE**; engineering
+remains **GO_FOR_INTENDED_LOCAL_USE** based on scoped current and retained evidence.
+Scientific study remains **BLOCKED — NO-GO**, Phase 11.3.1 **PARTIAL**, IGS reply
+**PENDING**. Production remains **NO-GO**, E4 **OPEN**: hosting/HTTPS, durable storage,
+independent recovery, actual alert delivery and release-control enforcement are
+still unverified. Earlier exact-commit three-engine/seven-PDF CI remains historical
+valid evidence for unchanged code; it does not convert this local offline block
+or unperformed human checks into passes.
+
+Only the three existing V1 documents were updated. Focused formatting, JSON/evidence,
+links, source identities, whitespace and preservation checks passed. No broad
+backend/frontend suite was rerun. Original research files/hashes, real database,
+protocols, retrospective-admission policy/activation, active EOP policy, previous
+reports and unrelated changes are preserved. No commit, push, deployment, external
+provider access, upload or infrastructure change occurred; updates remain local.

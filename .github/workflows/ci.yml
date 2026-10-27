@@ -154,6 +154,10 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+      - name: Use repository-supported Python for release verification
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: .python-version
       - uses: actions/download-artifact@v5
         with:
           name: frontend-dist

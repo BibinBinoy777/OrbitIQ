@@ -266,3 +266,21 @@ clarification **PENDING**, production readiness **NO-GO**, E4 **OPEN**. Owner
 acceptance and scoped local engineering decisions remain unchanged. No real
 historical scientific comparison, merge, deployment or private-data upload is
 authorized by publication.
+
+## CI runtime correction — 27 October 2026
+
+Initial published commit `d3c12b8d310ebf26ce95447282ecc36b69101750` ran workflow
+**40454175340**. Backend (**1,593** tests), frontend (**427**) and native Windows
+(**17**) jobs passed. `release-images` failed before browser/PDF execution: the
+runner's Python **3.14** rejected the ephemeral synthetic CA for a missing key-usage
+extension. That failed run is retained; it is not a release or browser pass.
+
+The release harness had inherited a rolling runner interpreter. OrbitIQ's
+`.python-version`, `pyproject.toml` and documented release procedure specify
+Python **3.12**. The existing workflow now explicitly selects `.python-version`
+for the release job. No SSL verification flag, trust/hostname assertion, API
+check, browser flow or scientific calculation was disabled or changed. Python
+3.14 support and synthetic-CA qualification under its stricter default are not
+claimed. CI for the corrective commit remains **PENDING** at this checkpoint;
+all four jobs must be verified for that new exact SHA. Total publication scope
+remains the same nine paths. Scientific and production **NO-GO** decisions remain.

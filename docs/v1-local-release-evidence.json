@@ -68,8 +68,8 @@
       "sha256": "95e9e6e0b31858ee017c27c7d1ed3a49beed18de2c2b3fb725147e2d4ce826e0"
     },
     "docs/v1-user-acceptance-checklist.md": {
-      "bytes": 35095,
-      "sha256": "457734987a989e0775b14d42502b73af69cb6a430ee92a11ff995f4f490725e3"
+      "bytes": 36253,
+      "sha256": "8da9bb0a76cdb8c27c070477c5ea7fbe335d9502653a695798dd04714b57d0ab"
     },
     "scripts/seed_browser_fixtures.py": {
       "bytes": 5660,
@@ -80,8 +80,8 @@
       "sha256": "45a60893e83f782b2fc3b7a3731b7626b71e4d6376ddb05199cc6feb33a04010"
     },
     ".github/workflows/ci.yml": {
-      "bytes": 11628,
-      "sha256": "784bad82eeb4660cc621efe28f4ee386c33e4f718820de2bb265eef8fb621d15"
+      "bytes": 11798,
+      "sha256": "9e656883c98be95da1930a8f29e02bc5db89b7512682065a1939eeb53e3c7e4b"
     },
     "backend/orbitiq/database.py": {
       "bytes": 7052,
@@ -96,12 +96,12 @@
       "sha256": "e4076c54d93fc6356ef3eaca42e2f73b6ffe226b0729af79d47482630428625c"
     },
     "docs/windows-local-demo-compatibility.md": {
-      "bytes": 16080,
-      "sha256": "50e13e5009ebde8dca2da48809e2dbc11763522cd3449f7965939f1a01d9215a"
+      "bytes": 17238,
+      "sha256": "48d9abd0dc39e72b94963a3c2671694156006ef5867205d4c6b263e22cd5214a"
     },
     "docs/v1-local-release-closure.md": {
-      "bytes": 85717,
-      "sha256": "9313427ae32ed934a51fb3a4fd82a2d9052533431509d679e8cc9ecc5b68b230"
+      "bytes": 86875,
+      "sha256": "a94561e4b027ea5debf4e17bb8d3508080cfbe0bf01fc5b7fcd982af56a4574c"
     }
   },
   "IGS_inquiry": {
@@ -372,7 +372,7 @@
   "milestones": {
     "locally_verified": "Native Windows focused17 PASS in7.09s OWNER_REPORTED; historical Linux94 in9.93s and Linux17 in5.06s retained; Windows browser workflows not verified",
     "published": "Nine reviewed Windows compatibility files authorized for dedicated-branch publication; exact SHA/push readback pending",
-    "remote_CI_current_candidate": "PENDING exact newly published commit; expected backend/frontend/windows-compatibility/release-images, no prior CI result substituted",
+    "remote_CI_current_candidate": "Initial d3c12b8 run40454175340 failed release-image TLS under runner Python3.14; backend/frontend/Windows passed. New corrected exact-commit4-job CI PENDING",
     "production_deployed": "NO",
     "production_infrastructure_verified": "NO",
     "scientific_study": "BLOCKED — NO-GO"
@@ -1855,7 +1855,7 @@
     "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
     "scientific_validation": "NO-GO",
     "production_readiness": "NO-GO",
-    "documentation_addendum": "AUTHORIZED_WINDOWS_PUBLICATION_SNAPSHOT; owner status/backups recorded; exact new SHA and CI must be verified separately",
+    "documentation_addendum": "AUTHORIZED_WINDOWS_PUBLICATION_CORRECTION_SNAPSHOT; initial3 jobs passed, release harness failed outside supported Python; new exact-SHA4-job CI pending",
     "owner_handoff": "OWNER_CHECKLIST_ACCEPTED_FOR_INTENDED_LOCAL_USE; Windows seed/startup owner-reported; specific frontend/browser outcomes unverified in this follow-up",
     "owner_checklist_acceptance_section": "owner_checklist_acceptance_20261026",
     "agent_assisted_review_section": "agent_assisted_review_20261026",
@@ -1863,7 +1863,8 @@
     "windows_compatibility_section": "windows_compatibility_followup_20261026",
     "local_source_state": "Two-file compatibility fix unchanged by final review; native17 PASS owner-reported, prior Linux17/94 PASS retained; Windows CI NOT_RUN",
     "windows_compatibility_final_review_section": "windows_compatibility_final_review_20261026",
-    "windows_publication_gate_section": "windows_publication_gate_20261027"
+    "windows_publication_gate_section": "windows_publication_gate_20261027",
+    "windows_CI_runtime_correction_section": "windows_CI_runtime_correction_20261027"
   },
   "local_v1_handoff": {
     "prepared_date": "2026-10-25",
@@ -3503,5 +3504,55 @@
     },
     "merge_force_push_release_or_deployment_authorized": false,
     "private_data_publication_authorized": false
+  },
+  "windows_CI_runtime_correction_20261027": {
+    "record_date": "2026-10-27",
+    "timezone": "Asia/Calcutta",
+    "initial_commit": "d3c12b8d310ebf26ce95447282ecc36b69101750",
+    "initial_run_id": 40454175340,
+    "initial_run_conclusion": "failure",
+    "initial_jobs": {
+      "backend": "success",
+      "frontend": "success",
+      "windows-compatibility": "success",
+      "release-images": "failure"
+    },
+    "initial_exact_commit_unit_counts": {
+      "windows-compatibility": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "backend-verification": {
+        "tests": 1593,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "frontend-verification": {
+        "tests": 427,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "failure_step": "Start release images against a separate empty fixture and verify APIs",
+    "failure": "Python3.14 SSL certificate verification rejected synthetic test CA without key-usage extension",
+    "cause": "Release orchestration inherited runner Python3.14 outside repository-supported3.12 and documented release runtime",
+    "correction": "Use actions/setup-python@v6 with python-version-file .python-version in release-images; existing file specifies3.12",
+    "supported_version_evidence": [
+      ".python-version",
+      "pyproject.toml requires >=3.12,<3.13",
+      "docs/engineering-e4-release-readiness.md clean checkout requires Python3.12"
+    ],
+    "TLS_verification_or_negative_assertions_disabled": false,
+    "application_scientific_or_test_implementation_modified": false,
+    "new_paths_added_to_publication": false,
+    "new_exact_commit_CI_at_capture": "PENDING_CORRECTIVE_COMMIT_PUBLICATION_AND_VERIFICATION",
+    "Python3_14_or_stricter_synthetic_CA_qualification_claimed": false,
+    "failed_run_and_logs_preserved": true,
+    "scientific_study": "BLOCKED — NO-GO",
+    "production_readiness": "NO-GO"
   }
 }

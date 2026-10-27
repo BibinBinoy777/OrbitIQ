@@ -118,8 +118,38 @@ jobs:
           path: ${{ runner.temp }}/frontend-tests.xml
           if-no-files-found: warn
           retention-days: 90
+  windows-compatibility:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.12.23"
+      - run: uv python install 3.12
+      - run: uv sync --locked --python 3.12
+      - name: Windows database publication, recovery and catalog-only CLI
+        run: >-
+          uv run --locked pytest -q
+          backend/tests/test_database_publication.py
+          backend/tests/test_local_catalog_seed.py
+          backend/tests/test_foundation.py
+          backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes
+          backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file
+          --junitxml="${{ runner.temp }}/windows-compatibility.xml"
+      - name: Preserve focused test results only (no databases or demo archives)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-compatibility
+          path: ${{ runner.temp }}/windows-compatibility.xml
+          if-no-files-found: warn
+          retention-days: 90
   release-images:
-    needs: [backend, frontend]
+    needs: [backend, frontend, windows-compatibility]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

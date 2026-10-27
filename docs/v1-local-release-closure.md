@@ -1,5 +1,20 @@
 # OrbitIQ V1 — inquiry tracking and local release closure
 
+**Authorized publication checkpoint — 27 October 2026:** the owner authorized
+committing and pushing the reviewed nine-file Windows compatibility patch to
+`publication/windows-compatibility-2026-10-27`, then checking its exact-commit CI.
+The reported native Windows17 pass and four matching source backups are recorded
+in the publication addendum below. Earlier local/pending statements remain dated
+checkpoints. New remote CI is **PENDING**, not a reported pass. No merge or
+production deployment is authorized.
+
+**Windows final review — 26 October 2026:** the owner reports **17 native Windows
+tests passed, 0 failed, 0 skipped in 7.09 seconds**; see the
+[final-review addendum](#windows-final-review-and-owner-test-result--26-october-2026).
+Earlier Linux results and startup reports remain separate. Windows browser
+workflows remain unverified, and the new CI job has not run. Earlier dated
+checkpoints below remain historical; this patch is local and unpublished.
+
 **Publication review — 26 October 2026:** the owner authorized publishing this
 verified documentation on `publication/v1-verified-docs-2026-10-26`. Earlier
 "local/unpublished" statements describe their dated verification checkpoints.
@@ -945,3 +960,181 @@ backend/frontend suite was rerun. Original research files/hashes, real database,
 protocols, retrospective-admission policy/activation, active EOP policy, previous
 reports and unrelated changes are preserved. No commit, push, deployment, external
 provider access, upload or infrastructure change occurred; updates remain local.
+
+## Windows compatibility and CI preparation — 26 October 2026
+
+**Owner-reported Windows local-use progress is recorded; native automated tests
+and CI execution remain pending.** The owner's instructions identify
+`D:\OrbitIQ-local-review`, branch `publication/v1-verified-docs-2026-10-26`, HEAD
+`c904082f55df8ad133eefffceb5cca73da7287ff`, and successful Python 3.12/locked backend
+and frontend dependency installation. The earlier console transcript captures
+HEAD, a clean pre-fix checkout, Python 3.12.14, successful locked dependency installs
+and the initial Windows `fsync` failure. It does not capture later successful startup.
+
+The owner now reports successful synthetic seeding with `--local-owner --catalog-only`:
+`synthetic_only: true`, `validation_fixture_created: false`, catalog **6251**, IDs
+**1/2**, demo DB `D:\OrbitIQ-demo\owner-review-windows-2\archive.sqlite3`. The owner
+also reports `Application startup complete` and
+`Uvicorn running on http://127.0.0.1:8000`. These strings are recorded as supplied
+startup evidence, not an agent-captured Windows log. No DB hash, direct health/
+readiness result or specific frontend/browser observation was supplied with this
+follow-up. The original `OSError: [Errno 9] Bad file descriptor` is preserved as
+an actual failed initialization that motivated the fix, never reclassified as PASS.
+
+The assistant's available execution environment is Linux at
+`/workspace/OrbitIQ-e82`; the owner's `D:` filesystem is not attached. Its branch
+and HEAD remain preserved. Current cloud content was compared with published
+**c904082**, identifying exactly these five pre-existing, unpublished fix files:
+
+1. `backend/orbitiq/database.py`
+2. `backend/tests/test_database_publication.py`
+3. `backend/tests/test_local_catalog_seed.py`
+4. `scripts/seed_browser_fixtures.py`
+5. `docs/windows-local-demo-compatibility.md`
+
+The two production/helper files were reviewed and are unchanged in this follow-up.
+The database uses **`r+b`** for its own completed staging file, retains mandatory
+flush, no-overwrite hard-link publication and cleanup. The catalog-only mode is
+explicit, local-owner-only, synthetic, read-only and excludes evidence-bundle
+creation and ownership changes. Existing release-fixture/security/scientific paths
+are preserved. No operator database is used by the tests; the new subprocess CLI
+probe even sets an explicit temporary synthetic sentinel as the configured DB and
+verifies that it remains unchanged.
+
+The existing `.github/workflows/ci.yml` now has a **`windows-compatibility`** job:
+`windows-latest`, PowerShell, Python 3.12, uv **0.12.23**, `uv sync --locked --python
+3.12`, and only these existing focused selections:
+
+```text
+backend/tests/test_database_publication.py
+backend/tests/test_local_catalog_seed.py
+backend/tests/test_foundation.py
+backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes
+backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file
+```
+
+Coverage is **17 cases**: writable flush with initialization/backup/restore,
+validation and cleanup, flush-failure refusal, existing-target/source preservation,
+validation-before-publication and publication races, explicit catalog-only guards,
+and an actual subprocess CLI seeding/receipt/no-overwrite check. The CLI test checks
+all required receipt fields, labels and IDs against the resulting read-only SQLite
+archive, avoids the POSIX bundle path and verifies no configured sentinel or
+validation archive was touched. Only JUnit XML is uploaded, never a DB/demo archive.
+`release-images` now depends on the Windows job as well as backend/frontend; all
+existing job steps, triggers and read-only repository permissions are preserved.
+
+**Fresh local verification: 17 passed in 5.06 seconds in Linux**, zero failures,
+errors or skips. One existing Starlette/httpx deprecation warning remains. The
+previous **94 passed in 9.93 seconds in Linux** is retained as prior evidence and
+was not rerun or re-labelled Windows. Targeted lint/format, strict YAML duplicate-
+key parsing, job/dependency checks, documentation/JSON links and preservation checks
+passed. `actionlint` is not installed; the YAML checks are not GitHub execution or
+an independently executed full Actions schema validator.
+
+**Native Windows automated execution: NOT RUN in this task. New Windows CI job:
+NOT RUN — awaiting authorized publication.** No workflow dispatch, commit or push
+occurred. No broad backend, frontend, browser, PDF or unrelated scientific suite
+was repeated. Earlier full CI belongs to its exact published commits; it does not
+verify the subsequently changed local source, tests or workflow.
+
+The [owner checklist](v1-user-acceptance-checklist.md#windows-compatibility-follow-up--26-october-2026)
+and JSON ledger separate the captured failure/install transcript, owner-reported
+startup, prior Linux94, current Linux17, intended Windows coverage and pending CI.
+The existing four decisions remain: owner **ACCEPTED_FOR_INTENDED_LOCAL_USE**, local
+engineering **GO_FOR_INTENDED_LOCAL_USE**, scientific study **BLOCKED — NO-GO**, and
+production readiness **NO-GO**. No six-item/manual browser pass is inferred. Essential
+scientific frame/EOP, reference-point, quality/provenance and protocol gates remain
+open; IGS clarification is pending, Phase 11.3.1 PARTIAL. Production hosting/domain,
+independent backups, actual alerts and release controls stay deferred/unverified.
+
+Original research files/hashes, real DB, previous evidence, protocols/admission/EOP
+policies, branches and unrelated changes are preserved. All follow-up changes stay
+**local and unpublished**; nothing is deployed and no external data is uploaded.
+Detailed task receipts are under `/tmp/orbitiq-windows-ci-closure-20261026/` and are
+local engineering records, not durable backups or acquired scientific evidence.
+
+## Windows final review and owner test result — 26 October 2026
+
+**OWNER_REPORTED_NATIVE_WINDOWS_PASS:** the owner reports the documented focused
+command passed **17 tests, 0 failed, 0 skipped in 7.09 seconds**. A raw native log,
+JUnit, exact run time and current Windows file hashes were not supplied; no
+assistant-executed native run is claimed. Prior **94 Linux passes in 9.93 seconds**
+and **17 Linux passes in 5.06 seconds** remain unchanged historical evidence.
+Owner-reported synthetic seeding/backend startup is distinct from the unverified
+Windows frontend/browser/manual workflows. The new remote Windows CI job has
+**NOT RUN**. No broad or focused application suite was rerun during this review,
+because source/test/workflow bytes were unchanged; documentation-only consistency,
+formatting, lint, YAML/dependency, whitespace and preservation checks were used.
+
+All nine unpublished paths, including both new focused test files and the new
+compatibility report, were reviewed against published **c904082**. No blocking
+implementation defect was found. Atomic no-overwrite publication, mandatory
+writable staging flush and success/failure cleanup are retained. Catalog-only
+mode is explicit, synthetic, local-owner-only, does not call `chown`, and excludes
+the POSIX evidence-bundle path. Tests exercise production functions and the real
+CLI with exact required receipt/DB assertions and no-overwrite checks. The
+workflow uses Windows/PowerShell, Python 3.12, locked dependencies and only a
+JUnit artifact; a failed Windows job blocks `release-images`. Static YAML checks
+passed, but neither `actionlint` nor GitHub execution occurred.
+
+The discrepancy found was stale current summaries saying native tests were still
+pending. Four existing tracking documents now record the owner result through
+this addendum; their earlier evidence is preserved. All nine cloud files have LF
+and localized diffs. The owner's reported LF-to-CRLF warnings do not establish
+whitespace errors or prove the Windows diff has no whole-file rewrites. No Git
+configuration, scientific code, tests or workflow changed in this final review.
+
+Cloud database/research hashes, protocols, policies, branches and known demo
+archives remain unchanged. The cloud environment cannot inspect the owner's
+Windows working tree, demo DB or C: source-backup directory. Their final status,
+hashes, backup size and completeness remain unverified; no backup was deleted.
+The guarded updater backs up overwritten existing text files only, so nine
+backup files are not a valid completeness requirement. Final Windows publication
+sign-off remains conditional on those local checks. No commit, push, publication,
+deployment or remote CI was performed.
+
+Owner acceptance remains **ACCEPTED_FOR_INTENDED_LOCAL_USE**, local engineering
+**GO_FOR_INTENDED_LOCAL_USE** within its existing scope. Six owner checkboxes stay
+unchecked. Scientific study remains **BLOCKED — NO-GO**, production readiness
+**NO-GO**, Phase 11.3.1 **PARTIAL**, IGS clarification **PENDING**, E4 **OPEN**.
+See the [compatibility review](windows-local-demo-compatibility.md#final-compatibility-review--26-october-2026)
+and JSON ledger section `windows_compatibility_final_review_20261026`.
+
+## Authorized Windows publication checkpoint — 27 October 2026
+
+The owner supplied Windows `git status --short --untracked-files=all`, showing
+exactly the six modified and three new reviewed paths, all unstaged, and
+`git diff --check` exit **0**. LF-to-CRLF warnings were recorded without a
+whitespace failure. These are owner-supplied console results, not direct access
+to the Windows filesystem. Native focused tests remain separately recorded as
+**17 passed, 0 failed, 0 skipped in 7.09 seconds**, owner-reported; the prior
+Linux94 and Linux17 receipts are preserved, not rerun or relabelled.
+
+The updater backup inventory reports **four files / 237,292 bytes**: the previous
+workflow and three V1 tracking files. Both raw SHA-256/size and LF-normalized hashes
+match the published pre-update contents (the raw files are CRLF). This is consistent
+with two already-fixed source files being skipped and three new files having no
+preimages. The backup was retained. It is a source/documentation backup, not a
+research database backup, off-machine recovery demonstration or a direct C: audit.
+Current Windows research/demo hashes and ACLs were not supplied.
+
+Owner screenshots show backend-connected status, both synthetic catalog-6251
+snapshots, source-detail display, save confirmation, report-ready status, a
+portable JSON download opened in an editor and the matching import preview.
+Final import, refresh/reopen persistence and Windows PDF/download-content checks
+are not established by these screenshots. No original owner checkbox was marked
+passed on this basis.
+
+The owner explicitly authorized committing and pushing exactly the reviewed
+nine-file patch on `publication/windows-compatibility-2026-10-27`, followed by
+CI verification for the exact commit. Source/tests/workflow remain unchanged by
+this documentation checkpoint. New CI must verify **backend**, **frontend**,
+**windows-compatibility** and **release-images**. The committed snapshot cannot
+contain its own future SHA or CI result; those must be read back and reported
+separately. Earlier pending/blocked statements remain historical evidence.
+
+Scientific study stays **BLOCKED — NO-GO**, Phase 11.3.1 **PARTIAL**, IGS
+clarification **PENDING**, production readiness **NO-GO**, E4 **OPEN**. Owner
+acceptance and scoped local engineering decisions remain unchanged. No real
+historical scientific comparison, merge, deployment or private-data upload is
+authorized by publication.

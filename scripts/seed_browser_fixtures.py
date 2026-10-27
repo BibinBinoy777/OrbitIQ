@@ -19,7 +19,15 @@ from orbitiq.services.observation_validation import create
 from orbitiq.storage import save_snapshot
 
 
-def seed(directory: Path, reference: Path, *, local_owner: bool = False):
+def seed(
+    directory: Path,
+    reference: Path,
+    *,
+    local_owner: bool = False,
+    catalog_only: bool = False,
+):
+    if catalog_only and not local_owner:
+        raise ValueError("Catalog-only setup requires explicit local-owner mode")
     if not directory.is_absolute() or directory.is_symlink():
         raise ValueError("Explicit absolute fresh fixture directory required")
     if any(directory.iterdir()):
@@ -49,6 +57,15 @@ def seed(directory: Path, reference: Path, *, local_owner: bool = False):
                 datetime(2026, 10, 17 + index, tzinfo=UTC),
             )
         )
+    if catalog_only:
+        database.chmod(0o444)
+        return {
+            "fixture": "SYNTHETIC UI INPUTS; NOT SATELLITE OBSERVATIONS",
+            "catalog": 6251,
+            "first": ids[0],
+            "second": ids[1],
+            "validation_fixture_created": False,
+        }
     records = []
     for i in range(2):
         at = Elements.model_validate(first).epoch + timedelta(minutes=i)
@@ -108,13 +125,23 @@ def main(argv=None):
         action="store_true",
         help="Use the bundled synthetic fixture and retain current-user ownership",
     )
+    parser.add_argument(
+        "--catalog-only",
+        action="store_true",
+        help="With --local-owner, create just the snapshot DB without evidence bundles",
+    )
     args = parser.parse_args(argv)
+    if args.catalog_only and not args.local_owner:
+        parser.error("--catalog-only requires --local-owner")
     reference = (
         Path(__file__).resolve().parents[1] / "backend/tests/fixtures/vallado-leo.json"
         if args.local_owner
         else Path("/reference.json")
     )
-    result = seed(args.directory, reference, local_owner=args.local_owner)
+    options = {"local_owner": args.local_owner}
+    if args.catalog_only:
+        options["catalog_only"] = True
+    result = seed(args.directory, reference, **options)
     if args.local_owner:
         result.update(
             synthetic_only=True,

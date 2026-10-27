@@ -5,7 +5,7 @@
   "V1_target_date": "2026-10-31",
   "branch": "engineering-e8.2-igs-reference-qualification",
   "baseline_HEAD": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6",
-  "publication": "Authorized documentation-publication snapshot for publication/v1-verified-docs-2026-10-26; earlier implementation and reports published at 8160bcb972c5c1486b2b138008b0cd4d5bd633c4; exact new commit and CI require separate remote verification",
+  "publication": "Authorized nine-file Windows publication snapshot for publication/windows-compatibility-2026-10-27; earlier c904082 baseline published; new exact commit and CI verification pending",
   "source_catalog": {
     "docs/engineering-e1-report.md": {
       "bytes": 6823,
@@ -68,16 +68,40 @@
       "sha256": "95e9e6e0b31858ee017c27c7d1ed3a49beed18de2c2b3fb725147e2d4ce826e0"
     },
     "docs/v1-user-acceptance-checklist.md": {
-      "bytes": 28021,
-      "sha256": "6d1afd06208e5eff136b8b7b0409cba18efaedebefcb19828e8b4a5f1299b2f7"
+      "bytes": 35095,
+      "sha256": "457734987a989e0775b14d42502b73af69cb6a430ee92a11ff995f4f490725e3"
     },
     "scripts/seed_browser_fixtures.py": {
-      "bytes": 4815,
-      "sha256": "4884ebef5aafb7afd14f6ebde622a9e7a74e5ac70928d4d41b00f3d5316cde12"
+      "bytes": 5660,
+      "sha256": "559dac81043eb05e740685082db53a0732938aace44efb0081ae8a3a82b18a78"
     },
     "backend/tests/test_owner_acceptance_seed.py": {
       "bytes": 2985,
       "sha256": "45a60893e83f782b2fc3b7a3731b7626b71e4d6376ddb05199cc6feb33a04010"
+    },
+    ".github/workflows/ci.yml": {
+      "bytes": 11628,
+      "sha256": "784bad82eeb4660cc621efe28f4ee386c33e4f718820de2bb265eef8fb621d15"
+    },
+    "backend/orbitiq/database.py": {
+      "bytes": 7052,
+      "sha256": "92fba9cc26d5299e3b3d44085dfe695328d7d385073e7218aea24588fc2ca887"
+    },
+    "backend/tests/test_database_publication.py": {
+      "bytes": 2470,
+      "sha256": "7b02bbfbeca7e298757defefddd4e6b3d2706088e3abd15a59a695b191fc4651"
+    },
+    "backend/tests/test_local_catalog_seed.py": {
+      "bytes": 4795,
+      "sha256": "e4076c54d93fc6356ef3eaca42e2f73b6ffe226b0729af79d47482630428625c"
+    },
+    "docs/windows-local-demo-compatibility.md": {
+      "bytes": 16080,
+      "sha256": "50e13e5009ebde8dca2da48809e2dbc11763522cd3449f7965939f1a01d9215a"
+    },
+    "docs/v1-local-release-closure.md": {
+      "bytes": 85717,
+      "sha256": "9313427ae32ed934a51fb3a4fd82a2d9052533431509d679e8cc9ecc5b68b230"
     }
   },
   "IGS_inquiry": {
@@ -346,9 +370,9 @@
     "Local engineering GO_FOR_INTENDED_LOCAL_USE within recorded scope; scientific qualification and production readiness remain separate NO-GO decisions"
   ],
   "milestones": {
-    "locally_verified": "PASS for intended local engineering scope: current helper tests plus exact implementation CI; manual-device/screen-reader outcomes not established",
-    "published": "Implementation/prior reports published at 8160bcb972c5c1486b2b138008b0cd4d5bd633c4; five documentation updates reviewed for authorized publication; see publication_gate_20261026",
-    "remote_CI_current_candidate": "PASS at 8160bcb972c5c1486b2b138008b0cd4d5bd633c4 for unchanged implementation; subsequent documentation-only addendum not CI-verified",
+    "locally_verified": "Native Windows focused17 PASS in7.09s OWNER_REPORTED; historical Linux94 in9.93s and Linux17 in5.06s retained; Windows browser workflows not verified",
+    "published": "Nine reviewed Windows compatibility files authorized for dedicated-branch publication; exact SHA/push readback pending",
+    "remote_CI_current_candidate": "PENDING exact newly published commit; expected backend/frontend/windows-compatibility/release-images, no prior CI result substituted",
     "production_deployed": "NO",
     "production_infrastructure_verified": "NO",
     "scientific_study": "BLOCKED — NO-GO"
@@ -1831,11 +1855,15 @@
     "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
     "scientific_validation": "NO-GO",
     "production_readiness": "NO-GO",
-    "documentation_addendum": "AUTHORIZED_PUBLICATION_SNAPSHOT; exact new published commit and CI must be verified separately; implementation code unchanged",
-    "owner_handoff": "OWNER_CHECKLIST_ACCEPTED_FOR_INTENDED_LOCAL_USE; agent local checks recorded separately; owner-device/screen-reader observations unreported",
+    "documentation_addendum": "AUTHORIZED_WINDOWS_PUBLICATION_SNAPSHOT; owner status/backups recorded; exact new SHA and CI must be verified separately",
+    "owner_handoff": "OWNER_CHECKLIST_ACCEPTED_FOR_INTENDED_LOCAL_USE; Windows seed/startup owner-reported; specific frontend/browser outcomes unverified in this follow-up",
     "owner_checklist_acceptance_section": "owner_checklist_acceptance_20261026",
     "agent_assisted_review_section": "agent_assisted_review_20261026",
-    "publication_gate_section": "publication_gate_20261026"
+    "publication_gate_section": "publication_gate_20261026",
+    "windows_compatibility_section": "windows_compatibility_followup_20261026",
+    "local_source_state": "Two-file compatibility fix unchanged by final review; native17 PASS owner-reported, prior Linux17/94 PASS retained; Windows CI NOT_RUN",
+    "windows_compatibility_final_review_section": "windows_compatibility_final_review_20261026",
+    "windows_publication_gate_section": "windows_publication_gate_20261027"
   },
   "local_v1_handoff": {
     "prepared_date": "2026-10-25",
@@ -2686,5 +2714,794 @@
     },
     "deployment_authorized": false,
     "merge_or_force_push_authorized": false
+  },
+  "windows_compatibility_followup_20261026": {
+    "record_date": "2026-10-26",
+    "timezone": "Asia/Calcutta",
+    "status": "LOCAL_PREPARATION_COMPLETE_NATIVE_AUTOMATED_VERIFICATION_PENDING",
+    "scope": "Windows compatibility and regression prevention only; no new feature phase",
+    "owner_checkout": {
+      "path": "D:\\OrbitIQ-local-review",
+      "branch": "publication/v1-verified-docs-2026-10-26",
+      "HEAD": "c904082f55df8ad133eefffceb5cca73da7287ff",
+      "classification": "Owner supplied checkout identity; earlier console independently captures branch/HEAD and clean pre-fix status",
+      "local_source_after_fix_hashes_supplied": false
+    },
+    "execution_environment": {
+      "platform": "Linux",
+      "path": "/workspace/OrbitIQ-e82",
+      "owner_D_drive_accessible": false,
+      "owner_checkout_directly_modified_by_assistant": false,
+      "branch": "engineering-e8.2-igs-reference-qualification",
+      "HEAD": "b0a03205e3930b55651232d8b7ffbc9e879ae8c6"
+    },
+    "evidence_classes": {
+      "captured_console": {
+        "source": "Earlier owner-uploaded PowerShell transcript",
+        "file_identity": {
+          "bytes": 6423,
+          "sha256": "cf8e182984446ff5476ab8e7f9afdf64e3ad7a4225edcb9a126e0daec64d43c9"
+        },
+        "establishes": [
+          "Checkout branch/HEAD and clean pre-fix status",
+          "Python3.12.14 installation",
+          "uv sync --locked completed",
+          "npm ci completed",
+          "Initial fsync Errno9 failure"
+        ],
+        "successful_seed_or_backend_startup_present_in_that_transcript": false
+      },
+      "latest_owner_report": {
+        "source": "Explicit facts in current owner instructions, not an independently captured successful-startup log",
+        "instruction_identity": {
+          "bytes": 6349,
+          "sha256": "9030c76e9254bea73f741f3df5f7c7d1d053c10e1e32ebc83a5fcce77f135c64"
+        },
+        "Python_3_12_and_locked_dependencies": "SUCCESS_OWNER_REPORTED_AND_PRIOR_CONSOLE_SUPPORTED",
+        "frontend_dependency_installation": "SUCCESS_OWNER_REPORTED_AND_PRIOR_CONSOLE_SUPPORTED",
+        "seeding": "SUCCESS_OWNER_REPORTED",
+        "flags": ["--local-owner", "--catalog-only"],
+        "receipt": {
+          "synthetic_only": true,
+          "validation_fixture_created": false,
+          "catalog": 6251,
+          "first": 1,
+          "second": 2
+        },
+        "database": "D:\\OrbitIQ-demo\\owner-review-windows-2\\archive.sqlite3",
+        "database_SHA256": null,
+        "backend_startup_messages": [
+          "Application startup complete",
+          "Uvicorn running on http://127.0.0.1:8000"
+        ],
+        "backend_startup": "SUCCESS_OWNER_REPORTED",
+        "original_successful_console_log_captured_by_assistant": false,
+        "exact_startup_or_seed_time_supplied": false
+      },
+      "frontend_browser": "UNVERIFIED_NO_SPECIFIC_OBSERVATION_SUPPLIED_FOR_FOLLOWUP",
+      "health_readiness_endpoint_responses": "UNVERIFIED_NOT_SUPPLIED",
+      "native_Windows_automated_tests": "NOT_RUN_ENVIRONMENT_UNAVAILABLE",
+      "new_remote_CI": "NOT_RUN_UNPUBLISHED"
+    },
+    "initial_failure": {
+      "status": "FAILED_PRESERVED",
+      "error": "OSError: [Errno9] Bad file descriptor",
+      "stage": "Database staging-file fsync during initialization",
+      "cause": "Read-only descriptor passed to Windows fsync",
+      "original_failure_relabelled_as_success": false
+    },
+    "original_five_fix_files_reviewed": [
+      "backend/orbitiq/database.py",
+      "backend/tests/test_database_publication.py",
+      "backend/tests/test_local_catalog_seed.py",
+      "docs/windows-local-demo-compatibility.md",
+      "scripts/seed_browser_fixtures.py"
+    ],
+    "original_five_file_identities": {
+      "backend/orbitiq/database.py": {
+        "bytes": 7052,
+        "sha256": "92fba9cc26d5299e3b3d44085dfe695328d7d385073e7218aea24588fc2ca887"
+      },
+      "backend/tests/test_database_publication.py": {
+        "bytes": 2405,
+        "sha256": "ccd54fe63420b52d8172a64b2d37c61c1671b7849788cefeda627c90e2862cab"
+      },
+      "backend/tests/test_local_catalog_seed.py": {
+        "bytes": 2383,
+        "sha256": "f9aae0e5f198751c0abf5faf3c9df1009872b01165819d7ad4b7d286f059bdbd"
+      },
+      "docs/windows-local-demo-compatibility.md": {
+        "bytes": 5689,
+        "sha256": "12b16e0699e35cb46de6a732f276f1abfd2f011be23914ce42b629611415762e"
+      },
+      "scripts/seed_browser_fixtures.py": {
+        "bytes": 5660,
+        "sha256": "559dac81043eb05e740685082db53a0732938aace44efb0081ae8a3a82b18a78"
+      }
+    },
+    "implementation_review": {
+      "writable_nontruncating_staging_flush": "r+b; preserved",
+      "atomic_publication": "Existing os.link no-overwrite publication; preserved",
+      "flush_and_failure_cleanup": "Preserved; success cleanup explicitly asserted and existing race checks reused",
+      "catalog_only": "Explicit local-owner-only; labels/read-only DB/no evidence bundles/no chown; preserved",
+      "operator_data": "No real operator data used; subprocess has temporary synthetic sentinel and confirms it remains unchanged",
+      "production_helper_files_modified_this_followup": false,
+      "scientific_calculation_or_policy_changes": false
+    },
+    "Windows_CI": {
+      "workflow": ".github/workflows/ci.yml",
+      "job": "windows-compatibility",
+      "runner": "windows-latest",
+      "shell": "pwsh",
+      "Python": "3.12",
+      "uv": "0.12.23",
+      "install": "uv sync --locked --python 3.12",
+      "selected_tests": [
+        "backend/tests/test_database_publication.py",
+        "backend/tests/test_local_catalog_seed.py",
+        "backend/tests/test_foundation.py",
+        "backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes",
+        "backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file"
+      ],
+      "expected_cases": 17,
+      "coverage": [
+        "New DB validation, writable flush and success cleanup",
+        "Validation completes before target publication",
+        "Flush failure prevents target publication and cleans staging",
+        "Existing target and racing creator preserved",
+        "Synthetic backup/restore, integrity and source preservation",
+        "Actual catalog-only seeder subprocess, required receipt fields, exact labels/IDs/read-only DB",
+        "Repeated CLI invocation refused without source changes",
+        "Explicit local-owner guard; no POSIX evidence bundles or ownership changes"
+      ],
+      "artifact": "JUnit XML only; no database/demo archive",
+      "release_images_requires_Windows": true,
+      "existing_steps_triggers_permissions_changed": false,
+      "execution": "NOT_RUN_PENDING_AUTHORIZED_PUBLICATION",
+      "remote_dispatch_performed": false
+    },
+    "focused_verification": {
+      "platform": "Linux",
+      "command": "/workspace/OrbitIQ/.venv/bin/python -m pytest -q backend/tests/test_database_publication.py backend/tests/test_local_catalog_seed.py backend/tests/test_foundation.py backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file --junitxml=/tmp/orbitiq-windows-ci-closure-20261026/focused-tests-linux.xml",
+      "tests": 17,
+      "passed": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.06,
+      "warning": "One existing Starlette/httpx deprecation warning",
+      "JUnit_identity": {
+        "bytes": 2509,
+        "sha256": "002599769009878cc762528e855c57c4e12bc33598150e1922aa0dcbefbd0304"
+      },
+      "Windows_result_claimed": false
+    },
+    "prior_Linux94": {
+      "classification": "Prior evidence, not rerun and not Windows",
+      "passed": 94,
+      "seconds": 9.93,
+      "JUnit_identity": {
+        "bytes": 79424,
+        "sha256": "51044ed0a2f5400b5fc38f623bfc2052ef0cd1be64f6f57f0bb578dc24f7c256"
+      },
+      "later_test_additions_not_covered_by_that_older_run": true
+    },
+    "workflow_validation": {
+      "status": "PASS",
+      "syntax": "PyYAML strict duplicate-key parsing and targeted GitHub Actions job/dependency invariants; actionlint is not installed",
+      "new_job": "windows-compatibility",
+      "runner": "windows-latest",
+      "shell": "pwsh",
+      "locked_uv": "0.12.23",
+      "Python": "3.12",
+      "selected_test_entries": [
+        "backend/tests/test_database_publication.py",
+        "backend/tests/test_local_catalog_seed.py",
+        "backend/tests/test_foundation.py",
+        "backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes",
+        "backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file"
+      ],
+      "Windows_or_CI_execution_performed": false,
+      "only_XML_uploaded": true,
+      "other_jobs_permissions_and_triggers_unchanged": true,
+      "release_images_depends_on_Windows": true
+    },
+    "prior_current_assessment": {
+      "authoritative_section": "final_helper_verification",
+      "implementation_SHA": "8160bcb972c5c1486b2b138008b0cd4d5bd633c4",
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
+      "scientific_validation": "NO-GO",
+      "production_readiness": "NO-GO",
+      "documentation_addendum": "AUTHORIZED_PUBLICATION_SNAPSHOT; exact new published commit and CI must be verified separately; implementation code unchanged",
+      "owner_handoff": "OWNER_CHECKLIST_ACCEPTED_FOR_INTENDED_LOCAL_USE; agent local checks recorded separately; owner-device/screen-reader observations unreported",
+      "owner_checklist_acceptance_section": "owner_checklist_acceptance_20261026",
+      "agent_assisted_review_section": "agent_assisted_review_20261026",
+      "publication_gate_section": "publication_gate_20261026"
+    },
+    "prior_milestones": {
+      "locally_verified": "PASS for intended local engineering scope: current helper tests plus exact implementation CI; manual-device/screen-reader outcomes not established",
+      "published": "Implementation/prior reports published at 8160bcb972c5c1486b2b138008b0cd4d5bd633c4; five documentation updates reviewed for authorized publication; see publication_gate_20261026",
+      "remote_CI_current_candidate": "PASS at 8160bcb972c5c1486b2b138008b0cd4d5bd633c4 for unchanged implementation; subsequent documentation-only addendum not CI-verified",
+      "production_deployed": "NO",
+      "production_infrastructure_verified": "NO",
+      "scientific_study": "BLOCKED — NO-GO"
+    },
+    "prior_publication": "Authorized documentation-publication snapshot for publication/v1-verified-docs-2026-10-26; earlier implementation and reports published at 8160bcb972c5c1486b2b138008b0cd4d5bd633c4; exact new commit and CI require separate remote verification",
+    "prior_source_catalog": {
+      "docs/engineering-e1-report.md": {
+        "bytes": 6823,
+        "sha256": "b11af23a156fd52e0fe1e7c832042ac7254e36891906fb0a04cf760d5e941eff"
+      },
+      "docs/engineering-e2-report.md": {
+        "bytes": 10675,
+        "sha256": "0ffcee1a441c2ccf15c3069c50a13f28bb1a1158ec25426429b14505bd6f7805"
+      },
+      "docs/engineering-e3-report.md": {
+        "bytes": 15512,
+        "sha256": "12e74401068923aa0f942e7f87a875324ba72fbfdab0da536382b6585c18ac82"
+      },
+      "docs/engineering-e4-report.md": {
+        "bytes": 16731,
+        "sha256": "b3bc0d2231c0ed0bce42781c00b5a703a74748bb4be9b4c229e0521c9ae82c4a"
+      },
+      "docs/engineering-e4-final-closure.md": {
+        "bytes": 26694,
+        "sha256": "ae7183b2b48213dad2f0b2aa2ca17473b9872414797d34bfb9d15f0c73d9f806"
+      },
+      "docs/engineering-e5-product-audit.md": {
+        "bytes": 25326,
+        "sha256": "f2308b3097c7c6d13e02cd00a89311a6922ae7eb63a7955703bb1a01789892af"
+      },
+      "docs/engineering-e5-roadmap.md": {
+        "bytes": 9337,
+        "sha256": "554ee0e29d3543eb35e3843ed7e043da407eb58da41ddb3a06aa6445fdeb912f"
+      },
+      "docs/engineering-e6-report.md": {
+        "bytes": 12614,
+        "sha256": "8e83409f5334a6f9929de25396c4fd268c4b2ccafead874fad651e9fb2434e52"
+      },
+      "docs/engineering-e7-report.md": {
+        "bytes": 15204,
+        "sha256": "0c6af90579565c30253036af577c13e8b2942fc0dc26ed7bde07c84ec56fc6be"
+      },
+      "docs/engineering-e8.7.10-erp-time-scale-interpolation.md": {
+        "bytes": 22126,
+        "sha256": "15c243805f84c1dfe1576aa7a62ae2c26078e53015fd662b8174636e88db3fd0"
+      },
+      "docs/engineering-e8.7.10-erp-time-scale-evidence.json": {
+        "bytes": 49339,
+        "sha256": "9c4d8c60a59282aeb0cbaf05c24e5eea096331caede0196744b15f0745fd421a"
+      },
+      "docs/engineering-e8.7.10-igs-clarification-draft.md": {
+        "bytes": 4152,
+        "sha256": "02b1b60b4e9bb59e1877e4a90f0389dabee61fc48e31f391604765c294c325ef"
+      },
+      "docs/igs-inquiry-status.json": {
+        "bytes": 2481,
+        "sha256": "e0f6e5364d6bc5cd4cbb4b70e812cbec89c51da490e5215ba2bd41dfa728ec71"
+      },
+      "scripts/verify_report_pdf.py": {
+        "bytes": 5430,
+        "sha256": "ca0d7852640df2c6e58ea699a91fad9908b1b4b4e412d5a4427d75cf0333f947"
+      },
+      "backend/tests/test_report_pdf_verifier.py": {
+        "bytes": 2854,
+        "sha256": "95e9e6e0b31858ee017c27c7d1ed3a49beed18de2c2b3fb725147e2d4ce826e0"
+      },
+      "docs/v1-user-acceptance-checklist.md": {
+        "bytes": 28021,
+        "sha256": "6d1afd06208e5eff136b8b7b0409cba18efaedebefcb19828e8b4a5f1299b2f7"
+      },
+      "scripts/seed_browser_fixtures.py": {
+        "bytes": 4815,
+        "sha256": "4884ebef5aafb7afd14f6ebde622a9e7a74e5ac70928d4d41b00f3d5316cde12"
+      },
+      "backend/tests/test_owner_acceptance_seed.py": {
+        "bytes": 2985,
+        "sha256": "45a60893e83f782b2fc3b7a3731b7626b71e4d6376ddb05199cc6feb33a04010"
+      }
+    },
+    "decisions": {
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
+      "scientific_validation": "NO-GO",
+      "production_readiness": "NO-GO"
+    },
+    "scientific_study": "BLOCKED — NO-GO",
+    "phase_11_3_1": "PARTIAL",
+    "IGS_clarification": "PENDING",
+    "E4": "OPEN",
+    "public_hosting_and_domain": "DEFERRED",
+    "original_six_owner_checkboxes_checked": 0,
+    "new_human_browser_observations_invented": false,
+    "broad_backend_frontend_browser_PDF_or_unrelated_scientific_suites_rerun": false,
+    "prior_evidence_identity": {
+      "bytes": 121396,
+      "sha256": "af07491f91f71d65ee37cdbb66e89deb8533ed0e9df565801c29da40d8dd030c"
+    },
+    "files_in_total_unpublished_compatibility_patch": [
+      ".github/workflows/ci.yml",
+      "backend/orbitiq/database.py",
+      "scripts/seed_browser_fixtures.py",
+      "backend/tests/test_database_publication.py",
+      "backend/tests/test_local_catalog_seed.py",
+      "docs/windows-local-demo-compatibility.md",
+      "docs/v1-user-acceptance-checklist.md",
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "files_modified_this_followup": [
+      ".github/workflows/ci.yml",
+      "backend/tests/test_database_publication.py",
+      "backend/tests/test_local_catalog_seed.py",
+      "docs/windows-local-demo-compatibility.md",
+      "docs/v1-user-acceptance-checklist.md",
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "validation": {
+      "scope": "Focused17 tests, targeted Ruff, YAML duplicate-key/job/dependency invariants, documentation formatting, strict JSON/evidence/links, scoped diff and preservation",
+      "result": "PASS",
+      "report": "/tmp/orbitiq-windows-ci-closure-20261026/check-results.json",
+      "actionlint_available": false,
+      "native_Windows_CI_or_full_Actions_schema_execution_claimed": false
+    },
+    "research_database_protocol_policy_changes": false,
+    "commit_push_publication_remote_dispatch_or_deployment": false
+  },
+  "windows_compatibility_final_review_20261026": {
+    "record_date": "2026-10-26",
+    "timezone": "Asia/Calcutta",
+    "status": "CLOUD_PATCH_REVIEW_PASS_OWNER_WINDOWS_TEST_PASS_REPORTED_LOCAL_STATE_AND_BACKUP_REVIEW_PENDING",
+    "evidence_precedence": "This addendum supersedes earlier native-test-pending summaries only. Historical Linux runs, failed setup and all scientific/production decisions are preserved.",
+    "native_Windows_tests": {
+      "classification": "OWNER_REPORTED_NATIVE_WINDOWS_PASS",
+      "verbatim_result": "17 passed, 0 failed, 0 skipped in 7.09 seconds",
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "elapsed_seconds": 7.09,
+      "recorded_date": "2026-10-26",
+      "timezone": "Asia/Calcutta",
+      "exact_run_date_or_time_supplied": false,
+      "raw_terminal_transcript_or_JUnit_inspected": false,
+      "source": "Owner statement in current final-review request",
+      "command_selection": [
+        "backend/tests/test_database_publication.py",
+        "backend/tests/test_local_catalog_seed.py",
+        "backend/tests/test_foundation.py",
+        "backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes",
+        "backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file"
+      ],
+      "guarded_update_applied": "OWNER_REPORTED",
+      "diff_check_no_whitespace_errors": "OWNER_REPORTED",
+      "LF_to_CRLF_warnings": "OWNER_REPORTED",
+      "remote_CI": "NOT_RUN_UNPUBLISHED"
+    },
+    "prior_Linux_results": {
+      "earlier": {
+        "classification": "Prior evidence, not rerun and not Windows",
+        "passed": 94,
+        "seconds": 9.93,
+        "JUnit_identity": {
+          "bytes": 79424,
+          "sha256": "51044ed0a2f5400b5fc38f623bfc2052ef0cd1be64f6f57f0bb578dc24f7c256"
+        },
+        "later_test_additions_not_covered_by_that_older_run": true
+      },
+      "focused": {
+        "platform": "Linux",
+        "command": "/workspace/OrbitIQ/.venv/bin/python -m pytest -q backend/tests/test_database_publication.py backend/tests/test_local_catalog_seed.py backend/tests/test_foundation.py backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file --junitxml=/tmp/orbitiq-windows-ci-closure-20261026/focused-tests-linux.xml",
+        "tests": 17,
+        "passed": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 5.06,
+        "warning": "One existing Starlette/httpx deprecation warning",
+        "JUnit_identity": {
+          "bytes": 2509,
+          "sha256": "002599769009878cc762528e855c57c4e12bc33598150e1922aa0dcbefbd0304"
+        },
+        "Windows_result_claimed": false
+      },
+      "rerun_this_review": false
+    },
+    "owner_checkout": {
+      "path": "D:\\OrbitIQ-local-review",
+      "branch": "publication/v1-verified-docs-2026-10-26",
+      "HEAD": "c904082f55df8ad133eefffceb5cca73da7287ff",
+      "classification": "Previously reported identity; current Windows status and post-update hashes not independently inspected"
+    },
+    "owner_demo": {
+      "path": "D:\\OrbitIQ-demo\\owner-review-windows-2\\archive.sqlite3",
+      "seeding": "OWNER_REPORTED_SUCCESS",
+      "backend_startup": "OWNER_REPORTED_SUCCESS",
+      "current_hash": null,
+      "owner_ACL_inspected": false,
+      "preservation": "UNVERIFIED_WINDOWS_FILESYSTEM_NOT_ATTACHED"
+    },
+    "Windows_browser_frontend_and_manual_workflows": "UNVERIFIED_NO_NEW_OBSERVATIONS",
+    "remote_Windows_CI": "NOT_RUN_LOCAL_UNPUBLISHED",
+    "review_environment": {
+      "path": "/workspace/OrbitIQ-e82",
+      "platform": "Linux",
+      "Windows_drives_accessible": false
+    },
+    "reviewed_paths": [
+      ".github/workflows/ci.yml",
+      "backend/orbitiq/database.py",
+      "scripts/seed_browser_fixtures.py",
+      "backend/tests/test_database_publication.py",
+      "backend/tests/test_local_catalog_seed.py",
+      "docs/windows-local-demo-compatibility.md",
+      "docs/v1-user-acceptance-checklist.md",
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "files_modified_this_review": [
+      "docs/windows-local-demo-compatibility.md",
+      "docs/v1-user-acceptance-checklist.md",
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "implementation_review": {
+      "database": "Non-truncating staging r+b; validation/mandatory fsync/os.link atomic no-overwrite/finally cleanup preserved",
+      "catalog_only": "Explicit local-owner guard, fresh target only, synthetic labels/read-only flag, no position/evidence-bundle/chown path",
+      "ownership": "Ordinary process ownership/inherited ACLs retained by source; Windows owner/ACL not independently inspected; read-only flag is not an ACL boundary",
+      "tests": "Actual initialize/copy_database, in-process main and subprocess seed_browser_fixtures.py CLI; reused production validation/race tests; no implementation duplicated",
+      "source_tests_workflow_changed_this_review": false,
+      "blocking_implementation_defect_found": false
+    },
+    "workflow_static_validation": {
+      "status": "PASS",
+      "syntax": "PyYAML strict duplicate-key parsing and targeted GitHub Actions job/dependency invariants; actionlint is not installed",
+      "new_job": "windows-compatibility",
+      "runner": "windows-latest",
+      "shell": "pwsh",
+      "locked_uv": "0.12.23",
+      "Python": "3.12",
+      "selected_test_entries": [
+        "backend/tests/test_database_publication.py",
+        "backend/tests/test_local_catalog_seed.py",
+        "backend/tests/test_foundation.py",
+        "backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes",
+        "backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file"
+      ],
+      "Windows_or_CI_execution_performed": false,
+      "only_XML_uploaded": true,
+      "other_jobs_permissions_and_triggers_unchanged": true,
+      "release_images_depends_on_Windows": true
+    },
+    "workflow_failure_propagation": "No continue-on-error; PowerShell run exit propagates; release-images requires all3 prior jobs; always-upload does not clear failed status",
+    "line_endings": {
+      "cloud": "LF on all9 paths; localized modifications, no whole-file normalization",
+      "Windows": "Owner reports no whitespace errors and LF-to-CRLF warnings; current config/hashes/diffs not inspected",
+      "Git_config_or_attributes_changed": false
+    },
+    "C_drive_backup": {
+      "path": null,
+      "bytes": null,
+      "files": null,
+      "status": "UNVERIFIED_WINDOWS_FILESYSTEM_NOT_ATTACHED",
+      "completeness_basis": "Updater backs up only overwritten existing text files; not already-matching or new targets; exact per-run preimage list was not supplied",
+      "deleted": false
+    },
+    "prior_current_assessment": {
+      "authoritative_section": "final_helper_verification",
+      "implementation_SHA": "8160bcb972c5c1486b2b138008b0cd4d5bd633c4",
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
+      "scientific_validation": "NO-GO",
+      "production_readiness": "NO-GO",
+      "documentation_addendum": "LOCAL_UNPUBLISHED_WINDOWS_COMPATIBILITY_FOLLOWUP; no new remote CI or publication",
+      "owner_handoff": "OWNER_CHECKLIST_ACCEPTED_FOR_INTENDED_LOCAL_USE; Windows seed/startup owner-reported; specific frontend/browser outcomes unverified in this follow-up",
+      "owner_checklist_acceptance_section": "owner_checklist_acceptance_20261026",
+      "agent_assisted_review_section": "agent_assisted_review_20261026",
+      "publication_gate_section": "publication_gate_20261026",
+      "windows_compatibility_section": "windows_compatibility_followup_20261026",
+      "local_source_state": "Two-file compatibility fix since verified published baseline; current focused17 Linux checks PASS, native automated Windows tests/CI pending"
+    },
+    "prior_milestones": {
+      "locally_verified": "Current17 focused tests PASS in Linux; prior94 Linux passes retained; Windows catalog seeding/backend startup OWNER_REPORTED; native automated tests NOT_RUN",
+      "published": "Prior baseline c904082f55df8ad133eefffceb5cca73da7287ff published; current9-file Windows compatibility follow-up LOCAL_UNPUBLISHED",
+      "remote_CI_current_candidate": "NOT RUN for current unpublished source/workflow; earlier successful run40273605626 belongs to exact c904082 baseline only",
+      "production_deployed": "NO",
+      "production_infrastructure_verified": "NO",
+      "scientific_study": "BLOCKED — NO-GO"
+    },
+    "prior_source_catalog": {
+      "docs/engineering-e1-report.md": {
+        "bytes": 6823,
+        "sha256": "b11af23a156fd52e0fe1e7c832042ac7254e36891906fb0a04cf760d5e941eff"
+      },
+      "docs/engineering-e2-report.md": {
+        "bytes": 10675,
+        "sha256": "0ffcee1a441c2ccf15c3069c50a13f28bb1a1158ec25426429b14505bd6f7805"
+      },
+      "docs/engineering-e3-report.md": {
+        "bytes": 15512,
+        "sha256": "12e74401068923aa0f942e7f87a875324ba72fbfdab0da536382b6585c18ac82"
+      },
+      "docs/engineering-e4-report.md": {
+        "bytes": 16731,
+        "sha256": "b3bc0d2231c0ed0bce42781c00b5a703a74748bb4be9b4c229e0521c9ae82c4a"
+      },
+      "docs/engineering-e4-final-closure.md": {
+        "bytes": 26694,
+        "sha256": "ae7183b2b48213dad2f0b2aa2ca17473b9872414797d34bfb9d15f0c73d9f806"
+      },
+      "docs/engineering-e5-product-audit.md": {
+        "bytes": 25326,
+        "sha256": "f2308b3097c7c6d13e02cd00a89311a6922ae7eb63a7955703bb1a01789892af"
+      },
+      "docs/engineering-e5-roadmap.md": {
+        "bytes": 9337,
+        "sha256": "554ee0e29d3543eb35e3843ed7e043da407eb58da41ddb3a06aa6445fdeb912f"
+      },
+      "docs/engineering-e6-report.md": {
+        "bytes": 12614,
+        "sha256": "8e83409f5334a6f9929de25396c4fd268c4b2ccafead874fad651e9fb2434e52"
+      },
+      "docs/engineering-e7-report.md": {
+        "bytes": 15204,
+        "sha256": "0c6af90579565c30253036af577c13e8b2942fc0dc26ed7bde07c84ec56fc6be"
+      },
+      "docs/engineering-e8.7.10-erp-time-scale-interpolation.md": {
+        "bytes": 22126,
+        "sha256": "15c243805f84c1dfe1576aa7a62ae2c26078e53015fd662b8174636e88db3fd0"
+      },
+      "docs/engineering-e8.7.10-erp-time-scale-evidence.json": {
+        "bytes": 49339,
+        "sha256": "9c4d8c60a59282aeb0cbaf05c24e5eea096331caede0196744b15f0745fd421a"
+      },
+      "docs/engineering-e8.7.10-igs-clarification-draft.md": {
+        "bytes": 4152,
+        "sha256": "02b1b60b4e9bb59e1877e4a90f0389dabee61fc48e31f391604765c294c325ef"
+      },
+      "docs/igs-inquiry-status.json": {
+        "bytes": 2481,
+        "sha256": "e0f6e5364d6bc5cd4cbb4b70e812cbec89c51da490e5215ba2bd41dfa728ec71"
+      },
+      "scripts/verify_report_pdf.py": {
+        "bytes": 5430,
+        "sha256": "ca0d7852640df2c6e58ea699a91fad9908b1b4b4e412d5a4427d75cf0333f947"
+      },
+      "backend/tests/test_report_pdf_verifier.py": {
+        "bytes": 2854,
+        "sha256": "95e9e6e0b31858ee017c27c7d1ed3a49beed18de2c2b3fb725147e2d4ce826e0"
+      },
+      "docs/v1-user-acceptance-checklist.md": {
+        "bytes": 30745,
+        "sha256": "19d8095e3180928d4e7e3471f8f9d5ab45ed510707336fc8ba47f7357c4924aa"
+      },
+      "scripts/seed_browser_fixtures.py": {
+        "bytes": 5660,
+        "sha256": "559dac81043eb05e740685082db53a0732938aace44efb0081ae8a3a82b18a78"
+      },
+      "backend/tests/test_owner_acceptance_seed.py": {
+        "bytes": 2985,
+        "sha256": "45a60893e83f782b2fc3b7a3731b7626b71e4d6376ddb05199cc6feb33a04010"
+      },
+      ".github/workflows/ci.yml": {
+        "bytes": 11628,
+        "sha256": "784bad82eeb4660cc621efe28f4ee386c33e4f718820de2bb265eef8fb621d15"
+      },
+      "backend/orbitiq/database.py": {
+        "bytes": 7052,
+        "sha256": "92fba9cc26d5299e3b3d44085dfe695328d7d385073e7218aea24588fc2ca887"
+      },
+      "backend/tests/test_database_publication.py": {
+        "bytes": 2470,
+        "sha256": "7b02bbfbeca7e298757defefddd4e6b3d2706088e3abd15a59a695b191fc4651"
+      },
+      "backend/tests/test_local_catalog_seed.py": {
+        "bytes": 4795,
+        "sha256": "e4076c54d93fc6356ef3eaca42e2f73b6ffe226b0729af79d47482630428625c"
+      },
+      "docs/windows-local-demo-compatibility.md": {
+        "bytes": 9224,
+        "sha256": "c45bcad40f18fe114089934a24d94272c3267e5d23c55a7acceec085d041db8d"
+      },
+      "docs/v1-local-release-closure.md": {
+        "bytes": 79492,
+        "sha256": "53977ed2056f9da2177a3822533be4730493a1dd007e106c52d99c427a161d0b"
+      }
+    },
+    "prior_evidence_identity": {
+      "bytes": 138425,
+      "sha256": "3ec3c3cd8e9abdb0d9f2080d8b4d4d22af346b7d83e44240242fc1b550970156"
+    },
+    "path_representation_clarification": {
+      "reason": "Two earlier Windows JSON paths contained doubled literal backslashes; canonical single-separator paths recorded without changing filesystem contents",
+      "previous_owner_path": "D:\\OrbitIQ-local-review",
+      "previous_demo_path": "D:\\OrbitIQ-demo\\owner-review-windows-2\\archive.sqlite3"
+    },
+    "decisions": {
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
+      "scientific_validation": "NO-GO",
+      "production_readiness": "NO-GO"
+    },
+    "scientific_study": "BLOCKED — NO-GO",
+    "phase_11_3_1": "PARTIAL",
+    "IGS_clarification": "PENDING",
+    "E4": "OPEN",
+    "publication_readiness": "Code/workflow review PASS; final owner Windows working-tree and backup verification still required before unconditional publication sign-off",
+    "application_browser_PDF_suites_rerun": false,
+    "preservation_scope": "Cloud real DB, original research inputs/manifests, protocols, admission/EOP policies, known synthetic demos, branches/HEADs and unrelated changes; Windows D/C preservation only owner-reported",
+    "validation_receipts": "/tmp/orbitiq-windows-final-review-20261026",
+    "commit_push_publication_workflow_dispatch_deployment_or_scientific_comparison": false
+  },
+  "windows_publication_gate_20261027": {
+    "record_date": "2026-10-27",
+    "timezone": "Asia/Calcutta",
+    "status_at_capture": "REVIEWED_FOR_AUTHORIZED_NINE_FILE_PUBLICATION",
+    "authorization": "Owner explicitly authorized committing and pushing the reviewed nine-file patch to a dedicated branch and verifying CI for that exact commit",
+    "repository": "BibinBinoy777/OrbitIQ",
+    "branch": "publication/windows-compatibility-2026-10-27",
+    "parent_commit": "c904082f55df8ad133eefffceb5cca73da7287ff",
+    "files": [
+      ".github/workflows/ci.yml",
+      "backend/orbitiq/database.py",
+      "scripts/seed_browser_fixtures.py",
+      "backend/tests/test_database_publication.py",
+      "backend/tests/test_local_catalog_seed.py",
+      "docs/windows-local-demo-compatibility.md",
+      "docs/v1-user-acceptance-checklist.md",
+      "docs/v1-local-release-closure.md",
+      "docs/v1-local-release-evidence.json"
+    ],
+    "new_commit_SHA_at_capture": null,
+    "remote_CI_at_capture": "PENDING_EXACT_COMMIT_PUBLICATION_AND_VERIFICATION",
+    "self_reference_boundary": "Publication snapshot precedes commit and CI; actual SHA and results are verified externally against GitHub, not inferred or embedded as self-referential success",
+    "expected_workflow": ".github/workflows/ci.yml",
+    "expected_jobs": [
+      "backend",
+      "frontend",
+      "windows-compatibility",
+      "release-images"
+    ],
+    "owner_Windows_status": {
+      "classification": "OWNER_SUPPLIED_POWERSHELL_OUTPUT",
+      "modified": 6,
+      "untracked": 3,
+      "staged": 0,
+      "matches_reviewed_nine_paths": true,
+      "diff_check_exit_code": 0,
+      "LF_to_CRLF_warnings": true,
+      "current_source_hashes_supplied": false,
+      "branch_HEAD_previously_supplied": "c904082f55df8ad133eefffceb5cca73da7287ff"
+    },
+    "owner_Windows_source_backup": {
+      "classification": "OWNER_SUPPLIED_HASH_AND_SIZE_INVENTORY_COMPARED_TO_KNOWN_BASELINE",
+      "directory_basename": "orbitiq-before-windows-ci-update-_8estrtp",
+      "file_count": 4,
+      "total_bytes": 237292,
+      "files": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "bytes": 10625,
+          "sha256": "62497d6f71320edf401aa019df0cb5eb32e9e26aa85a9da1f805115dad02c1aa",
+          "LF_normalized_sha256": "b63dd7e9b8a1f4ca6d1fcb0178ad8a6348b4c43db1c6550ccd44419a6a7344c1"
+        },
+        {
+          "path": "docs/v1-local-release-closure.md",
+          "bytes": 74141,
+          "sha256": "2813f3ea7e2fe7d9b04d054110796e9ad2d2789f95245790134900eb15eaa5b7",
+          "LF_normalized_sha256": "32edf82ece8434a6db7ee5834219f7a60394ec7c6437f61c6dfc64caa65d58b2"
+        },
+        {
+          "path": "docs/v1-local-release-evidence.json",
+          "bytes": 124086,
+          "sha256": "a9fdff9e033a7f4c4fa08b7bc582db1bd0c508cf0d150b57feb67766c58d42bc",
+          "LF_normalized_sha256": "af07491f91f71d65ee37cdbb66e89deb8533ed0e9df565801c29da40d8dd030c"
+        },
+        {
+          "path": "docs/v1-user-acceptance-checklist.md",
+          "bytes": 28440,
+          "sha256": "9150ce7ef8eebdd8f056424ce997994f86fa6c01a55e3361d395146efb2f300a",
+          "LF_normalized_sha256": "6d1afd06208e5eff136b8b7b0409cba18efaedebefcb19828e8b4a5f1299b2f7"
+        }
+      ],
+      "result": "PASS_ALL_FOUR_REPORTED_BYTE_STREAMS_MATCH_CRLF_BASELINE",
+      "normalized_hashes_match_baseline": true,
+      "raw_hashes_and_sizes_match_CRLF_baseline": true,
+      "scope": "Consistent with four overwritten existing files, two already-fixed source files skipped and three new files without preimages; filesystem not directly attached; no per-run original manifest supplied",
+      "retained": true,
+      "database_or_off_machine_recovery_claimed": false
+    },
+    "owner_Windows_browser_screenshots": {
+      "shown": [
+        "Backend connected",
+        "Two labelled synthetic catalog6251 snapshots",
+        "Snapshot1 fixed-source detail",
+        "Save confirmation",
+        "Report ready",
+        "Portable JSON download opened in editor",
+        "Matching portable import preview"
+      ],
+      "not_established": [
+        "Final import outcome",
+        "Refresh/reopen persistence",
+        "Windows PDF output/content verification"
+      ],
+      "original_six_owner_checkboxes_changed": false
+    },
+    "native_Windows17": {
+      "classification": "OWNER_REPORTED_NATIVE_WINDOWS_PASS",
+      "verbatim_result": "17 passed, 0 failed, 0 skipped in 7.09 seconds",
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "elapsed_seconds": 7.09,
+      "recorded_date": "2026-10-26",
+      "timezone": "Asia/Calcutta",
+      "exact_run_date_or_time_supplied": false,
+      "raw_terminal_transcript_or_JUnit_inspected": false,
+      "source": "Owner statement in current final-review request",
+      "command_selection": [
+        "backend/tests/test_database_publication.py",
+        "backend/tests/test_local_catalog_seed.py",
+        "backend/tests/test_foundation.py",
+        "backend/tests/test_e3_recovery.py::test_destination_not_visible_until_validation_completes",
+        "backend/tests/test_e3_recovery.py::test_publication_race_preserves_other_creators_file"
+      ],
+      "guarded_update_applied": "OWNER_REPORTED",
+      "diff_check_no_whitespace_errors": "OWNER_REPORTED",
+      "LF_to_CRLF_warnings": "OWNER_REPORTED",
+      "remote_CI": "NOT_RUN_UNPUBLISHED"
+    },
+    "earlier_Linux_results": "Historical94 and17 PASS retained; no local application suite rerun for documentation-only checkpoint",
+    "source_test_workflow_bytes_changed_since_final_review": false,
+    "prior_publication": "Prior baseline published at c904082f55df8ad133eefffceb5cca73da7287ff; Windows compatibility fix, focused CI additions and current tracking remain LOCAL_UNPUBLISHED; no new commit, push or remote CI",
+    "prior_milestones": {
+      "locally_verified": "Native Windows focused17 PASS in7.09s OWNER_REPORTED; historical Linux94 in9.93s and Linux17 in5.06s retained; Windows browser workflows not verified",
+      "published": "Prior baseline c904082f55df8ad133eefffceb5cca73da7287ff published; current9-file Windows compatibility follow-up LOCAL_UNPUBLISHED",
+      "remote_CI_current_candidate": "NOT RUN for current unpublished source/workflow; earlier successful run40273605626 belongs to exact c904082 baseline only",
+      "production_deployed": "NO",
+      "production_infrastructure_verified": "NO",
+      "scientific_study": "BLOCKED — NO-GO"
+    },
+    "prior_current_assessment": {
+      "authoritative_section": "final_helper_verification",
+      "implementation_SHA": "8160bcb972c5c1486b2b138008b0cd4d5bd633c4",
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
+      "scientific_validation": "NO-GO",
+      "production_readiness": "NO-GO",
+      "documentation_addendum": "LOCAL_UNPUBLISHED_WINDOWS_FINAL_REVIEW; native17 PASS owner-reported; no new remote CI or publication",
+      "owner_handoff": "OWNER_CHECKLIST_ACCEPTED_FOR_INTENDED_LOCAL_USE; Windows seed/startup owner-reported; specific frontend/browser outcomes unverified in this follow-up",
+      "owner_checklist_acceptance_section": "owner_checklist_acceptance_20261026",
+      "agent_assisted_review_section": "agent_assisted_review_20261026",
+      "publication_gate_section": "publication_gate_20261026",
+      "windows_compatibility_section": "windows_compatibility_followup_20261026",
+      "local_source_state": "Two-file compatibility fix unchanged by final review; native17 PASS owner-reported, prior Linux17/94 PASS retained; Windows CI NOT_RUN",
+      "windows_compatibility_final_review_section": "windows_compatibility_final_review_20261026"
+    },
+    "prior_final_review_decision": "Cloud code/workflow review passed; subsequent owner-supplied status and backup evidence now recorded; source hash verification of publishable cloud files performed separately",
+    "local_validation_scope": "Scope/privacy/staged diff, strict JSON/source identities/local links, documentation/whitespace, static workflow and preservation checks; no broad suite rerun",
+    "excluded": [
+      "Raw historical GP attachments",
+      "Private ESA/IGS reference products",
+      "Databases and backups",
+      "Private correspondence and credentials",
+      "Local browser profiles/screenshots/PDFs",
+      "Unrelated changes"
+    ],
+    "scientific_study": "BLOCKED — NO-GO",
+    "phase_11_3_1": "PARTIAL",
+    "IGS_clarification": "PENDING",
+    "production_readiness": "NO-GO",
+    "E4": "OPEN",
+    "decisions": {
+      "owner_acceptance": "ACCEPTED_FOR_INTENDED_LOCAL_USE",
+      "local_engineering": "GO_FOR_INTENDED_LOCAL_USE",
+      "scientific_validation": "NO-GO",
+      "production_readiness": "NO-GO"
+    },
+    "merge_force_push_release_or_deployment_authorized": false,
+    "private_data_publication_authorized": false
   }
 }

@@ -1,5 +1,19 @@
 # OrbitIQ V1 — owner acceptance
 
+**Authorized publication checkpoint — 27 October 2026:** the owner authorized
+committing and pushing the reviewed nine-file Windows compatibility patch to
+`publication/windows-compatibility-2026-10-27`, then checking its exact-commit CI.
+The reported native Windows17 pass and four matching source backups are recorded
+in the publication addendum below. Earlier local/pending statements remain dated
+checkpoints. New remote CI is **PENDING**, not a reported pass. No merge or
+production deployment is authorized.
+
+**Windows final review — 26 October 2026:** the owner reports **17 native Windows
+tests passed in 7.09 seconds**, with zero failures/skips. See the
+[final-review addendum](#windows-final-review--26-october-2026).
+Windows browser workflows remain unverified and the new CI job has not run.
+Earlier dated checkpoints and acceptance remain preserved.
+
 **Publication review — 26 October 2026:** the owner authorized publishing this
 verified documentation on `publication/v1-verified-docs-2026-10-26`. Earlier
 "local/unpublished" statements describe their dated verification checkpoints.
@@ -417,3 +431,98 @@ and [structured evidence](v1-local-release-evidence.json), section
 test-driver attempt. No blanket manual-checklist pass is claimed. Owner acceptance
 and local engineering retain their local-use decisions; scientific validation and
 production readiness remain **NO-GO**. This update is local and unpublished.
+
+## Windows compatibility follow-up — 26 October 2026
+
+**Evidence class: OWNER_REPORTED local Windows progress; native automated tests
+and new CI execution remain PENDING.** The owner supplied these details in the
+follow-up instructions; the assistant has no access to `D:` from the Linux cloud
+workspace and did not capture the reported Windows startup/receipt directly.
+
+- Checkout: `D:\OrbitIQ-local-review`, branch
+  `publication/v1-verified-docs-2026-10-26`, HEAD
+  `c904082f55df8ad133eefffceb5cca73da7287ff` with the local compatibility fix.
+- Python 3.12 and locked Python/frontend dependency installation succeeded. The
+  earlier captured console transcript independently supports installation and HEAD.
+- The owner reports successful `--local-owner --catalog-only` setup, receipt
+  `synthetic_only: true`, `validation_fixture_created: false`, catalog **6251**,
+  snapshot IDs **1/2**, at
+  `D:\OrbitIQ-demo\owner-review-windows-2\archive.sqlite3`.
+- Backend startup is owner-reported as `Application startup complete` and
+  `Uvicorn running on http://127.0.0.1:8000`. No actual endpoint response, database
+  hash, frontend connection result or item-specific browser observation accompanies
+  that report. The initial `Errno 9` failure remains a failure in the chronology.
+
+The new `windows-compatibility` job in the existing workflow is prepared to run
+**17 focused checks** on `windows-latest`: publication/cleanup/no-overwrite,
+backup/restore, and the actual catalog-only CLI receipt and unchanged-source
+checks. Those **17 passed in Linux**; the previous **94 Linux passes** remain prior
+evidence. Neither result is labelled Windows or remote CI. The workflow is local
+and unpublished; no job has run for these additions.
+
+All six original owner checkbox criteria stay unchecked; existing owner acceptance
+is retained. Local engineering stays **GO_FOR_INTENDED_LOCAL_USE** within its
+recorded scope, with this new compatibility work awaiting native/CI verification.
+Scientific study stays **BLOCKED — NO-GO**, Phase 11.3.1 **PARTIAL**, IGS clarification
+pending; production readiness **NO-GO**, E4 **OPEN**, public hosting/domain deferred.
+See the [compatibility report](windows-local-demo-compatibility.md#windows-regression-prevention-follow-up--26-october-2026)
+and [closure addendum](v1-local-release-closure.md#windows-compatibility-and-ci-preparation--26-october-2026).
+
+## Windows final review — 26 October 2026
+
+The owner reports the documented focused command completed on native Windows:
+**17 passed, 0 failed, 0 skipped in 7.09 seconds**. This is owner-reported native
+execution, separate from the prior **94 Linux passes in 9.93 seconds** and
+**17 Linux passes in 5.06 seconds**. No raw Windows test log or JUnit file was
+inspected. Owner-reported catalog seeding and backend startup remain separate from
+unverified Windows browser workflows, frontend connection and endpoint responses.
+No new human-device, accessibility or manual-workflow observation is inferred.
+
+All six original checklist items stay unchecked. Owner acceptance remains
+**ACCEPTED_FOR_INTENDED_LOCAL_USE**, local engineering **GO_FOR_INTENDED_LOCAL_USE**
+within its existing scope. The new Windows CI job remains **NOT RUN**, and this
+patch remains local/unpublished. The Windows working tree, demo hashes and C:
+backup size/completeness have not been independently inspected from the cloud.
+See the [compatibility review](windows-local-demo-compatibility.md#final-compatibility-review--26-october-2026)
+and [closure](v1-local-release-closure.md#windows-final-review-and-owner-test-result--26-october-2026).
+Scientific study stays **BLOCKED — NO-GO**, production readiness **NO-GO**,
+Phase 11.3.1 **PARTIAL**, IGS clarification pending, E4 **OPEN**.
+
+## Authorized Windows publication checkpoint — 27 October 2026
+
+The owner supplied Windows `git status --short --untracked-files=all`, showing
+exactly the six modified and three new reviewed paths, all unstaged, and
+`git diff --check` exit **0**. LF-to-CRLF warnings were recorded without a
+whitespace failure. These are owner-supplied console results, not direct access
+to the Windows filesystem. Native focused tests remain separately recorded as
+**17 passed, 0 failed, 0 skipped in 7.09 seconds**, owner-reported; the prior
+Linux94 and Linux17 receipts are preserved, not rerun or relabelled.
+
+The updater backup inventory reports **four files / 237,292 bytes**: the previous
+workflow and three V1 tracking files. Both raw SHA-256/size and LF-normalized hashes
+match the published pre-update contents (the raw files are CRLF). This is consistent
+with two already-fixed source files being skipped and three new files having no
+preimages. The backup was retained. It is a source/documentation backup, not a
+research database backup, off-machine recovery demonstration or a direct C: audit.
+Current Windows research/demo hashes and ACLs were not supplied.
+
+Owner screenshots show backend-connected status, both synthetic catalog-6251
+snapshots, source-detail display, save confirmation, report-ready status, a
+portable JSON download opened in an editor and the matching import preview.
+Final import, refresh/reopen persistence and Windows PDF/download-content checks
+are not established by these screenshots. No original owner checkbox was marked
+passed on this basis.
+
+The owner explicitly authorized committing and pushing exactly the reviewed
+nine-file patch on `publication/windows-compatibility-2026-10-27`, followed by
+CI verification for the exact commit. Source/tests/workflow remain unchanged by
+this documentation checkpoint. New CI must verify **backend**, **frontend**,
+**windows-compatibility** and **release-images**. The committed snapshot cannot
+contain its own future SHA or CI result; those must be read back and reported
+separately. Earlier pending/blocked statements remain historical evidence.
+
+Scientific study stays **BLOCKED — NO-GO**, Phase 11.3.1 **PARTIAL**, IGS
+clarification **PENDING**, production readiness **NO-GO**, E4 **OPEN**. Owner
+acceptance and scoped local engineering decisions remain unchanged. No real
+historical scientific comparison, merge, deployment or private-data upload is
+authorized by publication.

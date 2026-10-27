@@ -88,7 +88,8 @@ def new_database(path: Path):
     temporary = Path(name)
     try:
         yield temporary
-        with temporary.open("rb") as completed:
+        # Windows fsync requires a writable descriptor; r+b preserves the bytes.
+        with temporary.open("r+b") as completed:
             os.fsync(completed.fileno())
         os.link(temporary, path)  # Fails if another process created the target.
     finally:
